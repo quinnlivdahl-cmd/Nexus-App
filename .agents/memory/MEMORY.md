@@ -1,0 +1,1 @@
+- [Nexus Companion architecture](nexus-companion-arch.md) — solo RPG companion, no backend, all state in localStorage, GPT-4o DM via direct OpenAI calls from browser
