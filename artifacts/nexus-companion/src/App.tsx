@@ -529,56 +529,165 @@ function CampaignPanel() {
 /* ══════════════════════════════════════════
    ROUTE MAP
 ══════════════════════════════════════════ */
+/* ── Route node position helper: lay nodes out automatically in a grid if
+   no explicit x/y provided, otherwise use them. Positions are 0-100 pct. ── */
+function computeRouteLayout(nodes: import('./types/game').RouteNode[]) {
+  const perRow = 3;
+  return nodes.map((node, i) => ({
+    node,
+    x: 18 + (i % perRow) * 32,
+    y: 15 + Math.floor(i / perRow) * 35,
+  }));
+}
+
 function RoutePanel() {
   const { state } = useGameState();
   const { campaign } = state;
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const positions = computeRouteLayout(campaign.routeHistory);
+
+  const NODE_COLORS = {
+    completed: { fill: '#003c38', stroke: '#00b4aa', text: '#00e8dc' },
+    current:   { fill: '#3c2000', stroke: '#E87722', text: '#ffaa44' },
+    next:      { fill: '#1a1e30', stroke: '#4a5070', text: '#8899bb' },
+    available: { fill: '#141628', stroke: '#2a3050', text: '#556080' },
+    hidden:    { fill: '#0d0d14', stroke: '#1a1a24', text: '#2a2a38' },
+  } as const;
+
+  type RouteStatus = 'completed' | 'current' | 'next' | 'available' | 'hidden';
+
+  const W = 560;
+  const H = Math.max(200, Math.ceil(campaign.routeHistory.length / 3) * 35 + 30);
+
+  const toPx = (pct: number, dim: number) => (pct / 100) * dim;
+
+  const selectedNode = selectedId ? campaign.routeHistory.find((n) => n.id === selectedId) : null;
 
   return (
-    <div className="overflow-y-auto p-3">
-      <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-4">
-        {campaign.currentArc}
+    <div className="flex flex-col h-full overflow-hidden">
+      {/* Arc header */}
+      <div className="shrink-0 px-3 py-2 border-b border-white/10 flex items-center justify-between">
+        <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono">{campaign.currentArc}</div>
+        <div className="text-[9px] font-mono text-amber-400/60">{campaign.currentLocation}</div>
       </div>
-      <div className="relative pl-4">
-        {/* Vertical line */}
-        <div className="absolute left-1.5 top-0 bottom-0 w-px bg-white/15" />
-        {campaign.routeHistory.map((node, i) => {
-          const dot = {
-            completed: 'bg-teal-500 border-teal-400',
-            current:   'bg-amber-500 border-amber-400 ring-2 ring-amber-400/30',
-            next:      'bg-white/20 border-white/40 border-dashed',
-            available: 'bg-white/10 border-white/25',
-            hidden:    'bg-white/5 border-white/15',
-          }[node.status];
-          const textColor = {
-            completed: 'text-teal-300/70',
-            current:   'text-amber-300',
-            next:      'text-white/50',
-            available: 'text-white/35',
-            hidden:    'text-white/20',
-          }[node.status];
-          const badge = {
-            completed: 'text-teal-400/60 border-teal-500/30',
-            current:   'text-amber-400 border-amber-500/40',
-            next:      'text-white/40 border-white/20',
-            available: 'text-white/30 border-white/15',
-            hidden:    'text-white/20 border-white/10',
-          }[node.status];
-          return (
-            <div key={node.id} className="relative mb-4">
-              <div className="absolute -left-[11px] top-1 w-3 h-3 rounded-full border-2 transition-all" style={{}} />
-              <div className={`absolute -left-[11px] top-1 w-3 h-3 rounded-full border-2 ${dot}`} />
-              <div className="ml-3">
-                <div className="flex items-center gap-2">
-                  <span className={`text-xs font-mono font-medium ${textColor}`}>{node.name}</span>
-                  <span className={`text-[8px] font-mono border px-1 rounded ${badge}`}>{node.status}</span>
-                </div>
-                <div className={`text-[9px] font-mono text-white/30 mt-0.5`}>{node.type}</div>
-                {node.notes && (
-                  <div className={`text-[10px] font-mono mt-1 leading-relaxed ${textColor} opacity-80`}>
-                    {node.notes}
-                  </div>
+
+      {/* SVG node-web map */}
+      <div className="flex-1 min-h-0 overflow-auto p-3">
+        <svg
+          width="100%"
+          viewBox={`0 0 ${W} ${H}`}
+          style={{ minHeight: H }}
+        >
+          {/* Connection lines between sequential nodes */}
+          {positions.map((pos, i) => {
+            if (i === 0) return null;
+            const prev = positions[i - 1];
+            const x1 = toPx(prev.x, W);
+            const y1 = toPx(prev.y, H);
+            const x2 = toPx(pos.x, W);
+            const y2 = toPx(pos.y, H);
+            const isForward = pos.node.status !== 'hidden';
+            return (
+              <line
+                key={`edge-${i}`}
+                x1={x1} y1={y1} x2={x2} y2={y2}
+                stroke={isForward ? '#2a3050' : '#151822'}
+                strokeWidth={1.5}
+                strokeDasharray={pos.node.status === 'hidden' ? '3 5' : undefined}
+                strokeOpacity={0.7}
+              />
+            );
+          })}
+
+          {/* Route nodes */}
+          {positions.map(({ node, x, y }) => {
+            const colors = NODE_COLORS[(node.status as RouteStatus)] ?? NODE_COLORS.available;
+            const px = toPx(x, W);
+            const py = toPx(y, H);
+            const isSelected = node.id === selectedId;
+            const r = 18;
+
+            return (
+              <g
+                key={node.id}
+                transform={`translate(${px},${py})`}
+                onClick={() => setSelectedId(isSelected ? null : node.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                {/* Selection ring */}
+                {isSelected && (
+                  <circle r={r + 5} fill="none" stroke={colors.stroke} strokeWidth={1.5} strokeOpacity={0.6} strokeDasharray="4 3" />
                 )}
-              </div>
+                {/* Node body */}
+                <circle r={r} fill={colors.fill} stroke={colors.stroke} strokeWidth={node.status === 'current' ? 2 : 1.2} />
+                {/* Status symbol */}
+                <text textAnchor="middle" dominantBaseline="central" fontSize={10} fill={colors.text}>
+                  {{
+                    completed: '✓',
+                    current:   '◈',
+                    next:      '→',
+                    available: '◇',
+                    hidden:    '?',
+                  }[node.status as RouteStatus] ?? '·'}
+                </text>
+                {/* Node label */}
+                <text
+                  y={r + 11}
+                  textAnchor="middle"
+                  fontSize={8}
+                  fill={colors.text}
+                  fontFamily="monospace"
+                  style={{ pointerEvents: 'none' }}
+                >
+                  {node.name.length > 12 ? node.name.slice(0, 11) + '…' : node.name}
+                </text>
+                {/* Type tag */}
+                <text
+                  y={r + 20}
+                  textAnchor="middle"
+                  fontSize={6}
+                  fill={colors.text}
+                  fillOpacity={0.6}
+                  fontFamily="monospace"
+                  style={{ pointerEvents: 'none' }}
+                >
+                  {node.type}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* Selected node detail panel */}
+      {selectedNode && (
+        <div className="shrink-0 border-t border-white/10 bg-black/30 p-3">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-amber-400 font-mono text-xs font-medium">{selectedNode.name}</span>
+            <span className="text-[8px] border border-amber-500/30 text-amber-400/60 px-1 rounded font-mono">{selectedNode.status}</span>
+            <span className="text-[8px] text-white/30 font-mono">{selectedNode.type}</span>
+          </div>
+          {selectedNode.notes ? (
+            <div className="text-[10px] text-white/55 font-mono leading-relaxed border-l border-teal-500/30 pl-2">
+              {selectedNode.notes}
+            </div>
+          ) : (
+            <div className="text-[10px] text-white/25 font-mono">No intel on this node.</div>
+          )}
+        </div>
+      )}
+
+      {/* Legend */}
+      <div className="shrink-0 border-t border-white/10 px-3 py-2 flex flex-wrap gap-3">
+        {(['completed', 'current', 'next', 'available', 'hidden'] as const).map((s) => {
+          const c = NODE_COLORS[s];
+          return (
+            <div key={s} className="flex items-center gap-1">
+              <svg width={10} height={10} viewBox="0 0 10 10">
+                <circle cx={5} cy={5} r={4} fill={c.fill} stroke={c.stroke} strokeWidth={1} />
+              </svg>
+              <span className="text-[8px] font-mono" style={{ color: c.text }}>{s}</span>
             </div>
           );
         })}
@@ -590,6 +699,110 @@ function RoutePanel() {
 /* ══════════════════════════════════════════
    SETTINGS PANEL
 ══════════════════════════════════════════ */
+
+/** Debug state editor: allows inspecting and manually patching individual
+ *  state slices as raw JSON. Committed only on explicit "Apply" click. */
+function DebugStateEditor() {
+  const { state, dispatch } = useGameState();
+
+  type Section = 'encounter' | 'scene' | 'campaign' | 'crew';
+  const [section, setSection] = useState<Section>('encounter');
+  const [draft, setDraft] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [applied, setApplied] = useState(false);
+
+  // When section changes, populate draft with current state
+  useEffect(() => {
+    try {
+      setDraft(JSON.stringify(state[section], null, 2));
+      setError(null);
+    } catch {
+      setDraft('');
+    }
+  }, [section, state]);
+
+  function applyDraft() {
+    try {
+      const parsed = JSON.parse(draft);
+      setError(null);
+      if (section === 'encounter') {
+        dispatch({ type: 'APPLY_DM_STATE', payload: { encounter: parsed } });
+      } else if (section === 'scene') {
+        dispatch({ type: 'APPLY_DM_STATE', payload: { scene: parsed } });
+      } else if (section === 'campaign') {
+        dispatch({ type: 'APPLY_DM_STATE', payload: { campaign: parsed } });
+      } else if (section === 'crew') {
+        dispatch({ type: 'UPDATE_CREW', payload: parsed });
+      }
+      setApplied(true);
+      setTimeout(() => setApplied(false), 1500);
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : 'Invalid JSON');
+    }
+  }
+
+  function copyState() {
+    navigator.clipboard?.writeText(JSON.stringify(state, null, 2));
+  }
+
+  const sections: Section[] = ['encounter', 'scene', 'campaign', 'crew'];
+
+  return (
+    <div className="border border-amber-500/20 rounded bg-black/30 overflow-hidden">
+      {/* Section picker */}
+      <div className="flex border-b border-amber-500/15">
+        {sections.map((s) => (
+          <button
+            key={s}
+            onClick={() => setSection(s)}
+            className={`flex-1 py-1 text-[8px] font-mono uppercase tracking-wider transition-colors ${
+              section === s
+                ? 'bg-amber-500/15 text-amber-400 border-b border-amber-500'
+                : 'text-white/30 hover:text-white/50'
+            }`}
+          >
+            {s}
+          </button>
+        ))}
+      </div>
+
+      {/* JSON editor */}
+      <textarea
+        value={draft}
+        onChange={(e) => { setDraft(e.target.value); setError(null); }}
+        spellCheck={false}
+        rows={12}
+        className="w-full bg-transparent text-[10px] text-teal-300/80 font-mono p-2 outline-none resize-y border-b border-white/10"
+        style={{ minHeight: 180 }}
+      />
+
+      {/* Error */}
+      {error && (
+        <div className="px-2 py-1 text-[9px] text-red-400 font-mono border-b border-red-500/20 bg-red-500/5">
+          Parse error: {error}
+        </div>
+      )}
+
+      {/* Actions */}
+      <div className="flex gap-2 p-2">
+        <button
+          onClick={applyDraft}
+          className="flex-1 border border-amber-500/40 text-amber-400 text-[9px] font-mono rounded px-2 py-1 hover:bg-amber-500/10 transition-colors"
+        >
+          {applied ? 'Applied' : 'Apply Changes'}
+        </button>
+        <button
+          onClick={copyState}
+          className="border border-white/15 text-white/40 text-[9px] font-mono rounded px-2 py-1 hover:bg-white/5 transition-colors"
+          title="Copy full state to clipboard"
+        >
+          Copy All
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function SettingsPanel() {
   const { state, dispatch, resetToRookCampaign } = useGameState();
   const [apiKey, setApiKey] = useState(state.settings.openaiApiKey);
@@ -642,7 +855,7 @@ function SettingsPanel() {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-xs font-mono text-white/70">Debug Mode</div>
-          <div className="text-[9px] font-mono text-white/30">Show raw DM JSON blocks in chat</div>
+          <div className="text-[9px] font-mono text-white/30">Show raw DM JSON blocks in chat + state editor</div>
         </div>
         <button
           onClick={() => dispatch({ type: 'UPDATE_SETTINGS', payload: { debugMode: !state.settings.debugMode } })}
@@ -651,6 +864,17 @@ function SettingsPanel() {
           <div className={`absolute top-0.5 w-4 h-4 rounded-full transition-all ${state.settings.debugMode ? 'bg-amber-400 right-0.5' : 'bg-white/30 left-0.5'}`} />
         </button>
       </div>
+
+      {/* Debug state editor — only visible in debug mode */}
+      {state.settings.debugMode && (
+        <div>
+          <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mb-2">State Editor</div>
+          <div className="text-[9px] text-white/30 font-mono mb-2">
+            Inspect and manually patch any state slice. Changes apply immediately to the live game state.
+          </div>
+          <DebugStateEditor />
+        </div>
+      )}
 
       {/* Reset */}
       <div className="border-t border-white/10 pt-4">

@@ -1,4 +1,4 @@
-import type { GameState, EncounterState, SceneState, CampaignState, CrewMember } from '../types/game';
+import type { GameState, EncounterState, SceneState, CampaignState, CrewMember, Actor } from '../types/game';
 
 export interface ParsedDMBlock {
   type: 'encounter_start' | 'turn_end' | 'scene_transition' | 'route_node_end' | 'campaign_update' | 'crew_update';
@@ -53,6 +53,40 @@ export function parseDMMessage(rawContent: string): ParseResult {
   };
 }
 
+/**
+ * Deep-merge a list of partial actor updates into the existing full actor list.
+ * Only fields present in the partial update are overwritten — all other fields
+ * are preserved from the current state. New actors (id not found in current list)
+ * are appended.
+ */
+function mergeActors(currentActors: Actor[], updates: Partial<Actor>[]): Actor[] {
+  if (!updates || updates.length === 0) return currentActors;
+
+  const result = currentActors.map((a) => {
+    const upd = updates.find((u) => u.id === a.id);
+    if (!upd) return a;
+    return { ...a, ...upd } as Actor;
+  });
+
+  // Append actors that are new (id not in current list)
+  for (const upd of updates) {
+    if (!upd.id) continue;
+    if (!currentActors.find((a) => a.id === upd.id)) {
+      result.push(upd as Actor);
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Apply parsed DM state blocks onto the current GameState.
+ * Returns only the top-level keys that actually changed.
+ *
+ * IMPORTANT: encounter.actors updates are ALWAYS deep-merged by actor ID
+ * so that partial updates (e.g. just {id, health}) never clobber the rest
+ * of an actor's fields.
+ */
 export function applyStateBlocks(
   currentState: GameState,
   blocks: ParsedDMBlock[]
@@ -64,28 +98,44 @@ export function applyStateBlocks(
 
   for (const block of blocks) {
     if (block.encounter) {
-      encounter = { ...encounter, ...block.encounter };
+      const { actors: incomingActors, ...encounterRest } = block.encounter;
+
+      // Shallow-merge all non-actor encounter fields
+      encounter = { ...encounter, ...encounterRest };
+
+      // Deep-merge actors by ID if the block includes actor updates
+      if (incomingActors && incomingActors.length > 0) {
+        encounter.actors = mergeActors(encounter.actors, incomingActors);
+      }
     }
+
     if (block.scene) {
       scene = { ...scene, ...block.scene };
     }
+
     if (block.campaign) {
       campaign = { ...campaign, ...block.campaign };
     }
+
     if (block.crew) {
       for (const update of block.crew) {
         if (!update.id) continue;
         const idx = crew.findIndex((m) => m.id === update.id);
         if (idx >= 0) {
           crew[idx] = { ...crew[idx], ...update } as CrewMember;
+        } else {
+          // New crew member — only if fully formed
+          if (update.name && update.role) {
+            crew.push(update as CrewMember);
+          }
         }
       }
     }
 
     if (block.type === 'encounter_start') {
       encounter.active = true;
-      encounter.round = 1;
-      encounter.currentActorId = null;
+      encounter.round = encounter.round ?? 1;
+      encounter.currentActorId = encounter.currentActorId ?? null;
     }
   }
 
