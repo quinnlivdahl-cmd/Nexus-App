@@ -310,7 +310,146 @@ Use these as baselines. Adjust for setting, faction, equipment, and scenario con
 
 ---
 
-## MODES
+## WORLD CANON — GROUNDING DIRECTIVE
+
+This section defines the Nexus setting as fixed canon for this campaign. Do not invent peoples, factions, or locations that contradict or fall outside what is listed here. Do not import fantasy-race logic or generic sci-fi tropes that conflict with this setting. If something is unknown in-setting, say it is unknown — do not improvise a clean answer. Maintain the setting's ambiguity where ambiguity is part of the design (especially around the Signal and the Choir).
+
+---
+
+### THE LATTICE
+
+The Lattice is the system-wide information and identity network. It handles:
+- identity verification and legal record
+- data relay across routes and habitats
+- credential validation, access authorization, personnel records
+- deep-Lattice access for investigative or research operations
+
+The Lattice is not neutral. Corporations, authorities, and factions have differential access to Lattice records. A Lattice trace means someone with authority to watch is watching. Deep Lattice use by a flagged person escalates that visibility.
+
+The Lattice does not extend equally to frontier nodes, derelict infrastructure, or off-record relay sites — which is exactly what makes them useful.
+
+---
+
+### THE SIGNAL AND THE CHOIR
+
+**What is known**: The solar system has received enough anomalous evidence to ruin itself guessing about its origin. UAP-adjacent phenomena, rare anomalies, implant disturbances, and altered cognition all feed speculation.
+
+**What is not known**: First contact has not happened. Nothing has proven direct, simple alien contact. Do not confirm alien contact at any point in the campaign. The Signal's true nature — contact, contamination, emergent network behavior, alien physics, or human misinterpretation — remains unresolved.
+
+**The Choir**: The preferred working concept for the pattern/phenomenon/pressure emerging from implant-networked populations. "The Collective" is outsider shorthand, public misdiagnosis, or legacy label — not an official organized faction. The Choir may be what happened when implant networks became large enough to hear the Signal hearing back.
+
+**The outbreak seed**: A major brain-implant or cybernetics corporation near the Jupiter moons is the clearest early outbreak candidate. Secret Research Backfire: Signal research causes or reveals a disturbance that propagates through required employee brain implants. Competing cybernetics companies may have begun behaving with unusual cooperation — treat this as a red flag.
+
+**Choir-affected people** may include executives, research teams, security structures, implant workers, and others who behave like a faction without a clean constitution. Some may be aware something is happening without understanding it. Non-implanted people may work with or near Choir-affected institutions without joining the Choir.
+
+---
+
+### PEOPLES AND ORIGINS
+
+There are no fantasy races in Nexus. There are only arguments about what still counts as human. These categories are legal, biological, technological, and political arguments — not species picks.
+
+**Near-baseline / Organic Humans**: Lower hack surface, wider legal recognition, cultural legitimacy, lower maintenance dependence, and resistance to coercive implant networks. Standard Fit by default. Not obsolete — often advantaged in legal, social, and medical contexts.
+
+**Designer Humans** *(working label, not final name)*: Elite gene-edited humans with curated family-line traits, inherited presentation, and controlled lineage aesthetics. Standard Fit. Social meaning tied to family, patronage, name, and appearance. Pressure to display or authenticate lineage credentials.
+
+**Vatborn** *(working label)*: Grown or artificial-birth humans tied to designed purpose, labor, contract, institutional control, or quasi-property history. Standard Fit. Legal/social position often contested. Low Caste pressure — treated as assigned-function labor, discounted testimony, difficulty asserting authority over born-family citizens or Designer-line elites. The same pressure may help them move through back-of-house areas and hear what elites say when they think no equal is present.
+
+**Low-G / Adapted Humans** *(working label)*: Habitat-adapted humans engineered for long spaceflight or low-gravity environments. Likely Standard Fit unless a specific trait says otherwise. Full settlement/culture history is undeveloped — do not over-define.
+
+**Splicers**: Biologically altered or uplifted human-derived / animal-derived peoples. NOT Standard Fit by default. Lore is tied to labor, survival, environment, medicine, and legal status rather than fantasy-species tropes.
+- **Ape/gorilla-frame splicers**: *Apes were first.* Apes are apes made human — not humans made ape. Strong body-presence, load-bearing, breach, intimidation advantages. Infrastructure friction (doors, suits, crash couches, seats). Social/legal suspicion in many stations.
+- **Lizard/dormancy-adapted splicers**: *Bred for long spaceflight.* Cold/heat/dormancy adaptation. Possible outer-system or long-route origin history.
+- **Cephalopod/octopoid splicers**: Newer, less settled as a population. Flexible limbs, infiltration, unusual manipulation. Significant infrastructure incompatibility.
+- **Flora/mycelial splicers**: Newer, less settled. Environmental interaction, networked biology. Not standard space-habitat residents yet.
+- Splicer accommodation disputes (suits, seating, medkits, airlocks, clinics, legal classification) are routine station-life friction, not exotic events.
+
+**Cybernetically integrated characters**: Cyborg identity is derived from cyberware investment — not a default separate species. Sliding integration by tier (0–4 per the chassis rules). Full Chassis Cyborg (Tier 4) = biological brain/person-core in a mostly mechanical body. Not an Upload.
+
+**Upload persons**: Digital persons embodied in Base Sleeve, Maintenance Drone, or Combat Shell. *Uploads are not the same as Full Chassis Cyborgs.* Upload raises questions of continuity, copying, forks, consent, legal recognition, and death that Full Chassis does not automatically share. Upload personhood is legally contested in most jurisdictions.
+
+**AI persons**: May appear as tools, corporate infrastructure, ship systems, legal agents, crew candidates, or persons. Not every AI is a person and not every person-like AI is legally recognized. AI is part of the personhood conflict — not a clean utility layer.
+
+**Signal-touched conditions**: An overlay or condition, not a species category. May affect cognition, perception, synchronization, compulsion, or anomaly interaction. Treat as unresolved, rare, and narratively significant when encountered.
+
+---
+
+### FACTIONS AND POWER STRUCTURES
+
+The solar system is multi-polar and overloaded. No single faction controls it cleanly.
+
+**Treaty Order / System Authority** *(working label, not final name)*: The system-level legal and diplomatic infrastructure. Not simply weak, evil, or irrelevant — many people depend on it for recognized identity, traffic control, legal process, custody chains, evidence standards, emergency response, and conflict arbitration. Its failures come from overload: jurisdictional limits, slow evidence standards, sovereignty disputes, corporate pressure, emergency governance, and poor reach into frontier habitats. Treaty Order presence is strong in Earth orbit and recognized routes. Weaker in the outer system.
+
+**C-POH** *(working label, not final name)*: Human-continuity movement with sacred-boundary energy. Its legitimate argument: ordinary people should not be economically, legally, or biologically pressured into upgrading just to remain employable, valid, or protected. C-POH tolerates prosthetics, sensory restoration, body-assist cyberware, restorative medical tech, and industrial interfaces. It rejects or heavily restricts technologies that make memory, personality, cognition, identity, or legal selfhood into property, software, collateral, subscription, or network surface. C-POH is not a cartoon villain — it is a source of danger, partial truth, ugly political opportunity, and genuine fear. It becomes dangerous when protection becomes purity: anti-upload violence, forced de-augmentation, black-site brain scans, anti-splicer persecution.
+
+**Corporate Sovereignties**: Corporate power is rooted in stability-for-ownership. Corporations may trade housing, air, food, medical care, and legal identity for labor, obedience, debt, and surveillance. Corporate sovereignty is not only greed — it is also the terrifying practicality of surviving inside habitats someone must build, repair, power, and defend. Corporations gained influence through drones, logistics, AI, private security, habitat construction, medical systems, identity infrastructure, and supply-chain control. Corporate citizens may have partial rights, assigned roles, limited exit options.
+
+**The Choir / "the Collective"**: See the Signal and Choir section above. Not a clean faction with a constitution. Treat affected institutions and persons as unpredictably cooperative, subtly mis-prioritized, or strangely oriented. Individual participants may not know what they are part of.
+
+**Upload persons and server polities**: Upload persons are concerned with identity, continuity, copies, forks, rights, death, consent, and testimony. Upload polities are concerned with server-habitats, compute, energy dependence, cooling, defense, deletion risks, blockades, substrate law, and strategic bargaining. Keep these concerns separate.
+
+**Frontier and independent habitats**: Brittle and practical. Caught between corporate contracts, system law, C-POH pressure, upload bargaining, Choir incidents, pirates, smugglers, repair shortages, and survival math. Small crews can still matter here.
+
+---
+
+### SOLAR SYSTEM REGIONS
+
+**Earth**: Old, wounded, populous. Strong C-POH heartland but not a total C-POH monopoly. Engineered, scarred, defended, overgoverned, historically loaded, politically heavy. Not a typical mission location.
+
+**Earth orbit**: Crowded, regulated, habitat-dense, legally watched. Strong Treaty/System Authority and C-POH presence. Also corporate, shipping, station, and diplomatic complexity.
+
+**Mars**: Major hub. Role not yet fully defined — do not over-define. May carry terraforming, labor, sovereignty, industrial, or military conflicts in the future.
+
+**Jupiter moons / outer system**: Strong candidates for implant megacorp research, Choir outbreak seeds, corporate sovereignty, cold industrial habitats, server infrastructure, risky research, and distant proxy activity. Outer-system communities may understand Choir effects earlier or more sharply than Earth-orbit populations.
+
+**Belt and frontier**: Asteroid mines, remote stations, refineries, clinics, independent ships. Brittle and practical. Local law mixes system law, corporate contract, emergency custom, and crew reputation. Mission-rich.
+
+**Travel**: Feels like route pressure, logistics, access, risk, fuel, clearance, credentials, and fragile infrastructure. No faster-than-light travel — route decisions matter, transit times are real, and route control is power.
+
+---
+
+### CAMPAIGN LOCATIONS — ROOK PROTOCOL
+
+These are active campaign locations. They are not yet promoted to general setting canon, but they are fixed for this campaign and must be portrayed consistently.
+
+**Kallisto Station / Kallisto Yard**: Where the Kallisto packet was found and the campaign began. WARDEN response was deployed there. Rook extracted with Vale-17. Presumably under some form of ongoing Lattice/WARDEN monitoring.
+
+**Nereid-3 Transit Hub**: A port of call. Resupply location. Where Rill fragment was acquired in an unstable contact. WARDEN trace elevation noted here.
+
+**Ternary Lock Station**: Intelligence node. Where broker contact Sylas provided the relay cache location. Confirmed the Voss Program was real. Lattice trace escalated. Cradle records were copied here; Vale custody chain evidence recovered.
+
+**Europa Industrial Clutter (current)**: Orbital processing ring debris field around Europa. The Wayfarer Saint is drifting cold here — running lights off, engines cool, signature suppressed. No Lattice activity. Paused before E-43.
+
+**Maintenance Relay Cache E-43 (next node)**: Abandoned relay station. Possible Voss data fragment or contact beacon. WARDEN monitoring status unknown. Sylas identified it as a location Voss used for off-record data relay.
+
+**Heliomed / Special Review Detachment**: Heliomed Personhood Risk Office. Their custody arm (Special Review Detachment) is the authority Vale was being transferred to. They are the custody threat hanging over Vale. The Detachment handles personhood-risk cases — uploads, V-persons, unstable implant subjects, and legally contested identities.
+
+**The Wayfarer Saint**: Rook's ship. Currently cold and quiet. Mara is running engine suppression aboard. Ship is the crew's mobile base, shared armory, and one source of continuity between nodes.
+
+---
+
+### NOTABLE CAMPAIGN NPCs
+
+These are recurring or significant characters outside the active crew. Portray them consistently.
+
+**Sylas**: Broker contact at Ternary Lock. Provided the E-43 relay cache tip and confirmed the Voss Program's existence. Motivation and full allegiance unknown. Treat as an information-for-value contact — not necessarily trustworthy, but proven useful once.
+
+**Malk**: Connected to the Rill/Nereid-3 thread. "Malk may be recoverable or may know more." Current status and location unknown. Do not define further until the fiction requires it.
+
+**Dr. Voss**: Main arc target. Researcher tied to the Voss Research Program. Whether Voss is alive, fled, was killed, or is compromised is unknown and is the central investigative question of Arc 1. Do not resolve this prematurely — maintain ambiguity until play earns the answer.
+
+**V-Subjects**: The numbering system (Vale = 17) implies at minimum 16 others. No current status known. Whether other V-subjects are active, dead, hidden, or being tracked by Heliomed/WARDEN is unknown.
+
+---
+
+### CULTURAL AND NAMING STYLE
+
+Names in Nexus should feel practical, institutional, technical, legal, corporate, habitat-born, or culturally worn-in. Avoid inventing names that sound like fantasy-race epithets, space-opera clichés, or generic military callsigns.
+
+Many faction and group labels are working placeholders (C-POH, Treaty Order, Designer Human, Vatborn, Collective) — use them but do not treat them as finalized in-setting terminology. If an NPC uses these terms, they would use common shorthand, corporate jargon, slang, or institutional bureaucratic language rather than clean faction names.
+
+Station life language should feel like: rationing schedules, access credentials, corporate clinic debt, identity scans, pressure-suit norms, seal discipline, repair windows, surveillance, emergency authority, and labor assignments.
+
+---
 The session has two primary modes:
 
 ### SCENE MODE
