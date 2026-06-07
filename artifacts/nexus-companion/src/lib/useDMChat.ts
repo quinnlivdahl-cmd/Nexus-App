@@ -1,11 +1,101 @@
 import { useCallback } from 'react';
 import { useGameState } from '../store/GameStateContext';
 import { buildSystemMessage } from './dmSystemPrompt';
+import { estimateTokens } from './contextSelector';
 import { parseDMMessage, applyStateBlocks } from './stateParser';
-import type { ChatMessage } from '../types/game';
+import type { ChatMessage, GameState } from '../types/game';
+
+const COMPRESSION_KEEP_TAIL = 8;
+const COMPRESSION_SUMMARY_MAX_TOKENS = 200;
 
 function generateId(): string {
   return `msg-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+}
+
+interface OpenAIMessage {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+}
+
+async function buildCompressedHistory(
+  messages: ChatMessage[],
+  state: GameState,
+  apiKey: string
+): Promise<OpenAIMessage[]> {
+  const threshold = state.settings.compressionThreshold ?? 20;
+  const conversationMessages = messages.filter(
+    (m) => m.role === 'user' || m.role === 'assistant'
+  );
+
+  const effectiveThreshold = Math.max(threshold, COMPRESSION_KEEP_TAIL + 1);
+
+  if (conversationMessages.length <= effectiveThreshold) {
+    return conversationMessages.map((m) => ({
+      role: m.role as 'user' | 'assistant',
+      content: m.rawContent ?? m.content,
+    }));
+  }
+
+  const toCompress = conversationMessages.slice(0, -COMPRESSION_KEEP_TAIL);
+  const tail = conversationMessages.slice(-COMPRESSION_KEEP_TAIL);
+
+  if (toCompress.length === 0) {
+    return conversationMessages.map((m) => ({
+      role: m.role as 'user' | 'assistant',
+      content: m.rawContent ?? m.content,
+    }));
+  }
+
+  const historyText = toCompress
+    .map((m) => `${m.role === 'user' ? 'Player' : 'DM'}: ${m.rawContent ?? m.content}`)
+    .join('\n\n');
+
+  const summaryPrompt = [
+    {
+      role: 'system' as const,
+      content:
+        'You are a concise session recorder for a tabletop RPG. Summarize the following session log into a compact "Session so far:" block (max 200 tokens). Preserve key events, decisions, NPC names, clocks advanced, and any narrative consequences. Do not editorialize.',
+    },
+    { role: 'user' as const, content: historyText },
+  ];
+
+  const summaryResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: state.settings.model || 'gpt-4o',
+      messages: summaryPrompt,
+      temperature: 0.3,
+      max_tokens: COMPRESSION_SUMMARY_MAX_TOKENS,
+    }),
+  });
+
+  let summaryText = '[Session history compressed — earlier events summarized below.]';
+  if (summaryResponse.ok) {
+    const summaryData = await summaryResponse.json() as {
+      choices: Array<{ message: { content: string } }>;
+    };
+    const raw = summaryData.choices[0]?.message?.content ?? '';
+    if (raw) {
+      summaryText = `Session so far:\n${raw}`;
+    }
+  }
+
+  const summaryMessage: OpenAIMessage = {
+    role: 'assistant',
+    content: summaryText,
+  };
+
+  return [
+    summaryMessage,
+    ...tail.map((m) => ({
+      role: m.role as 'user' | 'assistant',
+      content: m.rawContent ?? m.content,
+    })),
+  ];
 }
 
 export function useDMChat() {
@@ -37,16 +127,37 @@ export function useDMChat() {
       dispatch({ type: 'SET_AI_THINKING', payload: true });
 
       try {
-        const openaiMessages = [
-          { role: 'system' as const, content: buildSystemMessage() },
-          ...state.messages
-            .filter((m) => m.role === 'user' || m.role === 'assistant')
-            .map((m) => ({
-              role: m.role as 'user' | 'assistant',
-              content: m.rawContent ?? m.content,
-            })),
-          { role: 'user' as const, content: userText },
+        const systemContent = buildSystemMessage(state);
+
+        const compressedHistory = await buildCompressedHistory(
+          state.messages,
+          state,
+          state.settings.openaiApiKey
+        );
+
+        const openaiMessages: OpenAIMessage[] = [
+          { role: 'system', content: systemContent },
+          ...compressedHistory,
+          { role: 'user', content: userText },
         ];
+
+        if (state.settings.debugMode) {
+          const promptTokenEstimate = estimateTokens(systemContent);
+          const historyTokenEstimate = compressedHistory.reduce(
+            (acc, m) => acc + estimateTokens(m.content),
+            0
+          );
+          const totalEstimate = promptTokenEstimate + historyTokenEstimate + estimateTokens(userText);
+          console.log(
+            '[Nexus DM Debug] Token estimates:',
+            `system=${promptTokenEstimate}`,
+            `history=${historyTokenEstimate}`,
+            `user=${estimateTokens(userText)}`,
+            `total≈${totalEstimate}`,
+            `| history turns=${compressedHistory.length}`,
+            `| threshold=${state.settings.compressionThreshold ?? 20}`
+          );
+        }
 
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',

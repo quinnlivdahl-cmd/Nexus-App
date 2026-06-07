@@ -851,11 +851,31 @@ function SettingsPanel() {
         </select>
       </div>
 
+      {/* History Compression Threshold */}
+      <div>
+        <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-2">History Compression Threshold</div>
+        <div className="flex items-center gap-3">
+          <input
+            type="number"
+            min={9}
+            max={100}
+            value={state.settings.compressionThreshold ?? 20}
+            onChange={(e) => {
+              const v = Math.max(9, Math.min(100, parseInt(e.target.value, 10) || 20));
+              dispatch({ type: 'UPDATE_SETTINGS', payload: { compressionThreshold: v } });
+            }}
+            className="w-20 bg-black/40 border border-white/15 rounded text-white/70 text-xs font-mono px-3 py-2 outline-none focus:border-amber-500/50 transition-colors"
+          />
+          <span className="text-[9px] font-mono text-white/30">turns before compressing (default: 20, min: 9)</span>
+        </div>
+        <div className="text-[9px] text-white/20 font-mono mt-1">Older turns beyond this limit are summarised into a compact block to reduce token costs.</div>
+      </div>
+
       {/* Debug mode */}
       <div className="flex items-center justify-between">
         <div>
           <div className="text-xs font-mono text-white/70">Debug Mode</div>
-          <div className="text-[9px] font-mono text-white/30">Show raw DM JSON blocks in chat + state editor</div>
+          <div className="text-[9px] font-mono text-white/30">Show raw DM JSON blocks in chat + token estimates in browser console</div>
         </div>
         <button
           onClick={() => dispatch({ type: 'UPDATE_SETTINGS', payload: { debugMode: !state.settings.debugMode } })}

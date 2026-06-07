@@ -10,6 +10,7 @@ export const INITIAL_ROOK_STATE: GameState = {
     openaiApiKey: '',
     debugMode: false,
     model: 'gpt-4o',
+    compressionThreshold: 20,
   },
 
   messages: [],

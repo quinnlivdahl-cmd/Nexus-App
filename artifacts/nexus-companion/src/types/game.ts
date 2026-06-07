@@ -170,6 +170,7 @@ export interface Settings {
   openaiApiKey: string;
   debugMode: boolean;
   model: string;
+  compressionThreshold: number;
 }
 
 export interface ChatMessage {
