@@ -9,6 +9,7 @@ Status: upload-ready bridge file
 3. What exact ChatGPT Project searchability check should be used after the first seven-file baseline upload?
 4. When should the older rebuild-repo bridge scaffold be marked historical, if ever?
 5. Which source domains should get small task-specific guide packets first?
+6. Which synced-chat packets should be promoted into GitHub issues after ChatGPT planning matures?
 
 ## Completed Content Task
 
@@ -32,6 +33,9 @@ Create these only when needed:
 | Source authority extensions | Domain-specific authority notes beyond the baseline summary | Create only if a domain needs more routing detail than `20-SOURCE-AUTHORITY-SUMMARY.md` |
 | App workflow context | Issue queue, task packet workflow, validation expectations | Pull from repo/GitHub current state |
 | Playtest context | Active playtest state and safe improvisation boundaries | Refresh per play session |
+| Synced chat packet | ChatGPT planning or discussion that Codex should be able to find | Use `synced-chats/SYNC-INDEX.md` when it is not its own GitHub issue |
+| Non-issue handoff | Concrete ChatGPT transfer context for Codex | Use `handoffs/HANDOFF-INDEX.md` when no issue owns the handoff yet |
+| Long-chat preservation packet | Accepted prose or decisions that should not live only in a prompt | Prefer a more specific evolving draft when one exists |
 | Targeted task packet | One issue, chat, or design problem | Prefer this over broad refresh |
 
 ## First Upload Recommendation
@@ -45,6 +49,8 @@ First upload the seven-file baseline bridge set:
 - `04-REFRESH-AND-READINESS-RULES.md`
 - `20-SOURCE-AUTHORITY-SUMMARY.md`
 - `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
+
+Do not upload changing packet indexes or packet folders as permanent Project Sources by default. Keep `synced-chats/SYNC-INDEX.md`, `handoffs/HANDOFF-INDEX.md`, synced-chat packets, handoff packets, preservation packets, task packets, evolving drafts, and source draft candidates in GitHub, then use exact paths when the current state is needed.
 
 After upload, ask ChatGPT Project to summarize:
 

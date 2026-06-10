@@ -29,6 +29,89 @@ Before preparing a refresh, answer:
 
 Default to the smallest useful refresh.
 
+## ChatGPT Codex Synced Chat Workflow
+
+Use ChatGPT Project as the normal lane for broad planning, brainstorming, design discussion, speculative architecture, issue-shaping, and "what should we do next?" exploration when local repo inspection or edits are not yet needed.
+
+Route back to Codex when the next step needs current repo truth, local source inspection, file edits, validation, commits, pushes, issue updates, or source-authority checks.
+
+When ChatGPT prepares context for Codex, use an approved repo destination. Do not invent file paths.
+
+## Approved ChatGPT Repo Destinations
+
+Use only these default destinations for ChatGPT Project packets unless the user, a controlling issue, or an existing repo file explicitly approves another path:
+
+| Purpose | Approved path | Use when |
+|---|---|---|
+| Synced chat packet | `docs/chatgpt-project-bridge/synced-chats/YYYY-MM-DD-<topic>.md` | Normal ChatGPT planning or discussion should be visible to Codex but is not its own GitHub issue. |
+| Synced chat index | `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md` | Codex needs to discover ChatGPT planning packets. |
+| Non-issue handoff | `docs/chatgpt-project-bridge/handoffs/YYYY-MM-DD-<topic>.md` | ChatGPT has a concrete transfer packet, but no GitHub issue owns it yet. |
+| Handoff index | `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md` | Codex needs to discover ChatGPT handoffs that are not GitHub issues. |
+| Long-chat preservation packet | `docs/chatgpt-project-bridge/preservation/YYYY-MM-DD-<topic>.md` | Accepted prose or decisions are too substantial to carry only in a prompt and do not belong in a more specific draft file. |
+| Targeted task packet | `docs/chatgpt-project-bridge/task-packets/YYYY-MM-DD-<issue-or-topic>.md` | One issue, chat, source review, playtest, or planning problem needs narrow context. |
+| Evolving game-system draft | `docs/game-system-contracts/drafts/<TOPIC>_WORKING_DRAFT.md` | A multi-chat rules-core or game-system design sequence should accumulate in one stable working file. |
+| Source draft candidate | `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` | Material may become Nexus source later but is not live source authority. |
+| GitHub issue comment | Existing related issue | Short evidence, pointers, acceptance notes, or closeout breadcrumbs. Do not use for large accepted prose by default. |
+
+These destinations are GitHub repo paths, not a standing ChatGPT Project Source upload list. Keep changing indexes and packets in GitHub. Upload only stable bridge instructions by default, then use exact repo paths or Codex/local inspection when current packet state matters.
+
+If the correct destination is unclear, ask the user to choose the route in plain language. Do not force filesystem details when the route choice is enough.
+
+## Synced Chat Packet Requirements
+
+Each synced-chat packet should include:
+
+- chat/topic title;
+- date;
+- related issue or roadmap lane, if any;
+- current question or decision;
+- accepted decisions;
+- open questions;
+- repo paths or source docs referenced;
+- next recommended Codex action, if any;
+- state: `planning-only`, `ready-for-issue`, `ready-for-Codex`, or `parked`.
+
+Synced-chat packets are context, not execution approval.
+
+## Context Window Handoff Trigger
+
+Use this procedure when a Nexus Project chat is getting long or context-heavy enough that accepted decisions, working prose, source-ready language, system contracts, or task state may become hard to preserve accurately.
+
+This is proactive. ChatGPT should suggest a handoff or synced-chat save point when context pressure is building, even if the user has not asked for a handoff and even if no large next-chat prompt has been requested.
+
+Because ChatGPT may not have an exact visible context-window meter, use practical warning signs:
+
+- the chat has produced several accepted decisions or chunks of working prose;
+- the user and ChatGPT are relying on earlier parts of the same chat to continue accurately;
+- the chat has shifted across multiple related subtopics or work phases;
+- the assistant is summarizing older context from memory instead of directly working from current visible text;
+- the next step would depend on preserving exact wording, file paths, task state, or source-routing decisions;
+- the work belongs to a multi-chat sequence;
+- the conversation is long enough that losing earlier detail would create rework.
+
+When these signs appear, ChatGPT should pause and say that a handoff or synced-chat packet is recommended before continuing. The suggested action should be small and concrete, for example:
+
+> This chat is getting context-heavy. I recommend saving a synced-chat packet or handoff before we keep going so Codex can pick up from a durable repo artifact instead of a long prompt.
+
+Then offer the smallest useful route:
+
+1. `synced-chats/YYYY-MM-DD-<topic>.md` for planning or discussion that Codex should later find.
+2. `handoffs/YYYY-MM-DD-<topic>.md` for a concrete transfer to Codex or another fresh session.
+3. `preservation/YYYY-MM-DD-<topic>.md` for accepted prose or decisions that need durable storage.
+4. an existing evolving draft path when the work is part of a multi-chat design sequence.
+
+Do not wait until the user asks for a big handoff. Do not solve context pressure by pasting a giant packet into the next prompt. The goal is to create or prepare a durable artifact while the current chat still has enough context to summarize accurately.
+
+Every handoff, synced-chat packet, or preservation artifact must state:
+
+- intended placement;
+- what it supplements or replaces;
+- deletion or supersession guidance;
+- source/currentness status;
+- date;
+- originating chat or issue when relevant;
+- follow-up owner or validation route.
+
 ## Upload Confirmation Rule
 
 Do not say "ChatGPT Project was refreshed" unless one of these is true:

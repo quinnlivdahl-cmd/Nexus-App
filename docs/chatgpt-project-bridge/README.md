@@ -10,6 +10,8 @@ This folder is the repo-trackable bridge layer for the ChatGPT Nexus Project.
 
 The files here are designed to be uploaded or pasted into the ChatGPT Project as curated project context. The app repo remains the durable source of these bridge files. ChatGPT Project consumes them as external context for discussion, drafting, brainstorming, planning, and playtest support.
 
+ChatGPT Project should be the normal lane for broad planning, general design discussion, speculative architecture, issue-shaping, and next-work exploration when local repo inspection or edits are not yet needed. Codex should be used for current repo truth, local source inspection, file edits, validation, commits, pushes, issue updates, and source-authority checks.
+
 ## Upload Set
 
 Upload or paste these files into ChatGPT Project together when refreshing the bridge baseline:
@@ -23,6 +25,25 @@ Upload or paste these files into ChatGPT Project together when refreshing the br
 7. `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
 
 `README.md` may be uploaded too, but its main job is repo-side orientation.
+
+Do not upload changing packet indexes as permanent ChatGPT Project Sources. Files such as `synced-chats/SYNC-INDEX.md`, `handoffs/HANDOFF-INDEX.md`, synced-chat packets, handoff packets, preservation packets, task packets, evolving drafts, and source draft candidates live in the GitHub repo as current working artifacts. ChatGPT should use the stable bridge files to learn the exact repo paths, then fetch, request, or ask Codex to inspect the current GitHub files when current packet state matters.
+
+## Synced Chat Destinations
+
+Use these repo destinations when ChatGPT Project needs to send context back to Codex without making the packet its own GitHub issue:
+
+- synced chat index: `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
+- synced chat packets: `docs/chatgpt-project-bridge/synced-chats/YYYY-MM-DD-<topic>.md`
+- non-issue handoff index: `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
+- non-issue handoff packets: `docs/chatgpt-project-bridge/handoffs/YYYY-MM-DD-<topic>.md`
+- long-chat preservation packets: `docs/chatgpt-project-bridge/preservation/YYYY-MM-DD-<topic>.md`
+- targeted task packets: `docs/chatgpt-project-bridge/task-packets/YYYY-MM-DD-<issue-or-topic>.md`
+- evolving game-system drafts: `docs/game-system-contracts/drafts/<TOPIC>_WORKING_DRAFT.md`
+- source draft candidates: `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md`
+
+ChatGPT should not invent alternate destinations. Synced chat packets and handoffs are context, not execution approval.
+
+ChatGPT should suggest a synced-chat packet or handoff proactively when a Project chat is getting context-heavy. The trigger is context pressure in the active chat, not only a user request for a large handoff prompt.
 
 ## Nexus Source Mirror
 

@@ -21,6 +21,8 @@ Before making current-state claims, distinguish:
 - App implementation authority is the app repo.
 - GitHub Issues are task packets and evidence trails, not game/source authority.
 - ChatGPT Project is for discussion, drafting, brainstorming, planning, and playtest support.
+- ChatGPT Project is the preferred lane for broad planning, general design discussion, speculative architecture, issue-shaping, and "what should we do next?" exploration when local repo inspection or edits are not yet needed.
+- Codex is the preferred lane for current repo truth, local source inspection, file edits, validation, commits, pushes, issue updates, and source-authority checks.
 - Uploaded bridge files can orient the chat, but they do not authorize deletion, cleanup, promotion, or source replacement.
 - Repo-side expanded source files may support richer discussion when fetched by exact indexed path, but they do not override live local source authority without verification or promotion.
 
@@ -37,6 +39,24 @@ Required helper index, once available:
 `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
 
 If the index is missing or stale, say so and ask Codex/local to regenerate it. Do not infer a file tree from a GitHub folder URL alone.
+
+## Synced Chat And Preservation Routing
+
+When a ChatGPT discussion should be visible to Codex but is not its own GitHub issue, route it to:
+
+`docs/chatgpt-project-bridge/synced-chats/YYYY-MM-DD-<topic>.md`
+
+When a concrete non-issue handoff is needed, route it to:
+
+`docs/chatgpt-project-bridge/handoffs/YYYY-MM-DD-<topic>.md`
+
+When accepted long-chat material needs durable preservation, route it to one of the approved destinations in `04-REFRESH-AND-READINESS-RULES.md`. Do not invent paths.
+
+Changing synced-chat indexes, handoff indexes, packets, preservation files, task packets, evolving drafts, and source draft candidates are GitHub repo artifacts, not permanent ChatGPT Project Sources. Use the uploaded bridge instructions to know where those files belong, then fetch, request, or ask Codex to inspect the current GitHub path when current packet state matters.
+
+Proactively watch for context pressure in long or complex chats. If the chat has accumulated accepted decisions, working prose, task state, source-routing decisions, or exact wording that would be costly to reconstruct, suggest a handoff or synced-chat packet before continuing, even if the user has not asked for a handoff.
+
+Do not wait until a large next-chat prompt is requested. Prefer creating or preparing a durable repo artifact while the current chat still has enough context to summarize accurately. Follow the `Context Window Handoff Trigger` in `04-REFRESH-AND-READINESS-RULES.md`.
 
 ## Output Rules
 

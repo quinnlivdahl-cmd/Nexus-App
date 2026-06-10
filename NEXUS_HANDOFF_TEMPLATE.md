@@ -11,6 +11,7 @@ Prepared by:
 Workspace/repo path:
 Controlling issue:
 Planning anchor:
+Related synced-chat or bridge packet:
 Suggested thread title:
 
 ## Context Summary
@@ -39,6 +40,10 @@ Suggested thread title:
 
 ## What Not To Redo
 
+
+## Startup Guardrail
+
+This handoff is context, not execution approval. A fresh receiving chat must read the handoff, state the understood goal, controlling source of truth, current status, and next safe action, then wait for current user approval before editing files, running validation, committing, pushing, updating GitHub, moving queue files, or closing issues.
 
 ## Next Safe Action
 
@@ -125,3 +130,4 @@ Use state suffixes sparingly:
 - Include blockers and unresolved questions.
 - Include one next safe action.
 - Include platform-specific continue prompts when the handoff is meant to cross tools.
+- Continue prompts must ask the receiving chat to summarize readiness first. Do not write prompts that make a fresh chat start implementation automatically unless the user's current message explicitly authorizes execution.

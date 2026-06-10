@@ -51,6 +51,16 @@ Use `NEXUS_HANDOFF_TEMPLATE.md` when transferring context between Codex, ChatGPT
 
 Use the thread title convention in `NEXUS_HANDOFF_TEMPLATE.md` when creating, forking, sending, or naming fresh Nexus work threads. If a Codex thread title tool is available, set the title immediately after creating or identifying the thread. If the title cannot be set from the current tool, include the suggested thread title in the handoff.
 
+Fresh handoff chats must not auto-start app work merely because a handoff, continue prompt, issue packet, or next-safe-action exists. A receiving chat may read and summarize the handoff, but it must wait for explicit current user approval before moving queue files, editing repo files, running implementation/validation commands, committing, pushing, updating issues, or closing anything.
+
+For ChatGPT Project sync, treat broad planning, general design discussion, speculative architecture, issue-shaping, and "what should we do next?" work as normal ChatGPT Project work unless current local repo truth, source inspection, file edits, validation, commits, pushes, issue updates, or source-authority checks are needed. Codex should actively suggest moving that kind of discussion to ChatGPT Project to conserve Codex usage.
+
+When the user references ChatGPT, Stewy, a synced chat, a planning chat, or a non-issue handoff, check these repo bridge locations before assuming context is missing:
+
+1. `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
+2. `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
+3. Any specific bridge packet path named by the user or ChatGPT under `docs/chatgpt-project-bridge/`
+
 When creating Replit tasks, use the task format in `NEXUS_LOCAL_PLAYABLE_ALPHA.md` plus any relevant Replit add-on from the task packet template.
 
 When doing Codex work sessions, keep work tied to one roadmap gate, one explicit task packet, or one GitHub issue when practical.
@@ -85,6 +95,7 @@ Future scripts may automate this sequence, but the human-readable evidence shoul
 - When mirrored source docs are added, removed, renamed, or changed, use `.agents/skills/nexus-source-index-maintainer/SKILL.md` and regenerate the index with `corepack pnpm run source:index`.
 - Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
 - The repo-trackable ChatGPT Project bridge layer lives at `docs/chatgpt-project-bridge`. Those files are upload-ready context for the ChatGPT Nexus Project, but upload is not complete until the user confirms it or a refresh ledger records it.
+- ChatGPT Project synced-chat, handoff, preservation, and task packets must use approved repo destinations under `docs/chatgpt-project-bridge` unless a more specific repo path is explicitly approved by the user or a controlling issue.
 - Do not treat GitHub Issues as game/source authority; issues transfer work, context, and acceptance criteria.
 - Do not treat local implementation shortcuts as Nexus rules.
 - If source docs and app implementation disagree, report the mismatch and avoid silent rule rewrites.

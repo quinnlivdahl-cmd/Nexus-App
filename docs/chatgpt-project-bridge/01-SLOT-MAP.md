@@ -30,7 +30,12 @@ These families are planned as bridge extension points after the seven-file basel
 | Modes context | `10-MODES-CONTEXT.md` | Curated mode and operating behavior summary | Mode behavior is needed in ChatGPT Project |
 | App workflow context | `30-APP-WORKFLOW-CONTEXT.md` | Current app repo/GitHub issue workflow summary | ChatGPT is helping plan app/repo work |
 | Playtest context | `40-PLAYTEST-CONTEXT.md` | Active playtest state, constraints, and what is safe to improvise | ChatGPT is supporting a playtest session |
+| Synced chat packet | `synced-chats/YYYY-MM-DD-topic.md` | Normal ChatGPT planning or discussion packet for Codex lookup when no GitHub issue owns the work yet | ChatGPT planning, design discussion, issue-shaping, or next-work exploration should be visible to Codex |
+| Non-issue handoff | `handoffs/YYYY-MM-DD-topic.md` | Concrete ChatGPT-to-Codex transfer packet when there is no owning GitHub issue yet | A ChatGPT chat has a next safe Codex action or transfer note |
+| Long-chat preservation packet | `preservation/YYYY-MM-DD-topic.md` | Durable container for accepted prose, decisions, schemas, or source-ready language from a long chat | The work should not be carried forward only through a large handoff prompt |
 | Targeted task packet | `task-packets/YYYY-MM-DD-topic.md` | One-off context for a specific chat, issue, or play session | A task needs narrow current context |
+| Evolving game-system draft | `../game-system-contracts/drafts/TOPIC_WORKING_DRAFT.md` | Stable working draft for multi-chat rules-core or game-system design sequences | Accepted design material should accumulate in one durable draft file |
+| Source draft candidate | `../source-draft-candidates/YYYY-MM-DD-domain-topic.md` | Candidate material that may later become Nexus source but is not live source authority | ChatGPT produces source-ready language that still needs review and promotion |
 | Oversized bundle | `bundles/YYYY-MM-DD-topic.zip` | Zip only when Markdown is too large or awkward | A later packet cannot remain readable as flat Markdown |
 
 ## Repo-Side Expanded Source Index
@@ -53,6 +58,7 @@ The index should not make the repo-side source pool live source authority by its
 - Use bundles only when a concrete packet needs them.
 - Do not bulk-copy live `00 Source` into this folder.
 - Do not treat uploaded slots as source ownership.
+- Do not invent ChatGPT packet destinations; use the approved paths in `04-REFRESH-AND-READINESS-RULES.md`.
 - Do not rely on GitHub folder/tree URLs as the only source discovery method; provide exact indexed paths.
 - When exact currentness matters, verify against live source or repo/GitHub before answering.
 
@@ -62,4 +68,4 @@ The index should not make the repo-side source pool live source authority by its
 2. Confirm ChatGPT Project can find and summarize the bootstrap, slot map, refresh rules, source authority summary, and source-index rule.
 3. Verify the repo-side source index before expecting GitHub on-demand source retrieval to work reliably.
 4. Add current-state delta only when a specific refresh is needed.
-5. Add task-specific packets only when a chat or playtest needs narrower context.
+5. Add synced-chat, handoff, preservation, or task-specific packets only when a chat or playtest needs narrower context.

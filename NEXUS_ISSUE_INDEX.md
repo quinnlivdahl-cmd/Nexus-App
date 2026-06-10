@@ -23,6 +23,8 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Live domain-first source: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
 - Nexus Source Mirror: `docs/nexus-domain-source-rebuild-2026-06-10/source` (compatibility path retained from the 2026-06-10 domain-source rebuild)
+- ChatGPT Project synced-chat index: `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
+- ChatGPT Project non-issue handoff index: `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
 
 Older slot/admin source documents can provide historical context, but they are not controlling authority for the current Codex-driven admin workflow redesign unless the user explicitly restores them.
 
@@ -37,6 +39,8 @@ Older slot/admin source documents can provide historical context, but they are n
 - Preserve useful parked ideas without treating them as ready execution work.
 - Do not use this index as a substitute for Nexus source authority or app implementation truth.
 - When GitHub and this index disagree, refresh the index from GitHub or the latest verified transition file before planning new work.
+- When the user references ChatGPT, Stewy, a synced chat, a planning chat, or a non-issue handoff, check `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md` and `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md` before assuming there is no task context.
+- Route broad planning, general discussion, speculative architecture, issue-shaping, and next-work exploration to ChatGPT Project by default when local repo inspection or edits are not yet needed.
 
 ## Readiness States
 
@@ -173,3 +177,4 @@ Future scripts should be able to:
 - regenerate and check `docs/nexus-roadmap/ROADMAP-INDEX.md` after roadmap lane mapping or issue linkage changes;
 - generate a GitHub final comment from commit and validation evidence;
 - generate platform-specific continuation prompts from handoff packets.
+- list ChatGPT synced-chat and non-issue handoff packets from `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md` and `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`.

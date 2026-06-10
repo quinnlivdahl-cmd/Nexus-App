@@ -32,6 +32,12 @@ const requiredFiles = [
   "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
   "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
   "docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+  "docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md",
+  "docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
+  "docs/chatgpt-project-bridge/preservation/README.md",
+  "docs/chatgpt-project-bridge/task-packets/README.md",
+  "docs/game-system-contracts/drafts/README.md",
+  "docs/source-draft-candidates/README.md",
   "docs/nexus-domain-source-rebuild-2026-06-10/README.md",
   "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
   "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json",
@@ -55,6 +61,7 @@ const sectionChecks = [
     includes: [
       "Controlling issue:",
       "Planning anchor:",
+      "Related synced-chat or bridge packet:",
       "## Files / Sources Inspected",
       "## Files Changed",
       "## Progress State",
@@ -74,6 +81,7 @@ const sectionChecks = [
       "## Completed Issues",
       "## Future Script Hooks",
       "docs/nexus-roadmap/ROADMAP-INDEX.md",
+      "docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md",
     ],
   },
   {
@@ -101,6 +109,8 @@ const sectionChecks = [
       "Upload Set",
       "ChatGPT Project consumes them as external context",
       "Nexus Roadmap",
+      "Synced Chat Destinations",
+      "Do not upload changing packet indexes",
     ],
   },
   {
@@ -116,6 +126,7 @@ const sectionChecks = [
       "Slots are upload/context roles",
       "Future Packet Families",
       "Do not bulk-copy live `00 Source`",
+      "Synced chat packet",
     ],
   },
   {
@@ -125,6 +136,25 @@ const sectionChecks = [
       "Upload Confirmation Rule",
       "Never use these states as proof of live source currentness.",
       "Roadmap Index Confirmation Rule",
+      "Approved ChatGPT Repo Destinations",
+      "Context Window Handoff Trigger",
+      "These destinations are GitHub repo paths",
+    ],
+  },
+  {
+    file: "docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md",
+    includes: [
+      "ChatGPT Codex Synced Chat Index",
+      "ready-for-Codex",
+      "Synced chat packets are context, not execution approval.",
+    ],
+  },
+  {
+    file: "docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
+    includes: [
+      "ChatGPT Codex Handoff Index",
+      "docs/chatgpt-project-bridge/handoffs/YYYY-MM-DD-<topic>.md",
+      "Handoffs are context, not execution approval.",
     ],
   },
   {
