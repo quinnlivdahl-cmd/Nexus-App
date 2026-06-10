@@ -776,3 +776,26 @@ Each update should add:
 - Do not draft final source docs until the contract shape is stable.
 - Prod mushy wording.
 - When the user expands, use it as context for the next narrow decision.
+
+## 14. Update log — 2026-06-10 — Draft — Game System Schema Continuation
+
+### 14.1 Accepted sequencing decision
+
+Accepted decision: proceed with **A. finish the API DM / rules-core authority split contract now**.
+
+Reason:
+
+- Skill / Ability Hooks is not required to finish the authority split.
+- The authority split only needs a placeholder boundary for hooks: the API DM may suggest that a skill, ability, tool, or character feature seems relevant, but the app/rules core decides whether that hook is valid and what mechanical effect it has.
+- Defining a hook registry now risks jumping into ability schema before turn transaction, state lanes, rules object contracts, check families, and effect/state-delta grammar are stable.
+
+Status notes:
+
+- This supplements #34 and #38.
+- It does not replace existing source files.
+- Skill / Ability Hooks remains unaccepted as a registry axis definition beyond the placeholder authority boundary above.
+- Old files may not be deleted or superseded based on this update alone.
+
+### 14.2 Intended next decision
+
+Next narrow decision: define the authority split in terms of **who may propose, who may validate, who may resolve, and who may mutate state**.
