@@ -842,3 +842,36 @@ Status notes:
 - It does not replace existing source files.
 - Game State Store is custody authority, not mechanical authority.
 - Old files may not be deleted or superseded based on this update alone.
+
+### 14.5 Accepted Player authority role
+
+Accepted decision: define **Player** first in the authority-role split.
+
+Working definition:
+
+> Player is the intent authority. The Player declares what their character attempts, asks clarifying questions, chooses from presented options, and may make plausible Player Claims about the scene. The Player does not create final mechanical truth. Player intent must be interpreted, classified, validated, and resolved through the API DM, Rules Core, and Game State Store.
+
+Authority boundary:
+
+- Player may declare character intent.
+- Player may choose from UI, map, or DM-presented options.
+- Player may ask what is visible, reachable, plausible, risky, or known.
+- Player may make Player Claims.
+- Player may select resources, tools, abilities, targets, or approaches when available.
+- Player may accept, revise, or cancel an action before committed resolution.
+- Player may not directly mutate state, decide legality, decide check family, force a Player Claim to become true, override map geometry, expose hidden state, or override resolved mechanical logs.
+
+Short boundary:
+
+> Player says what they are trying to do. The system decides what that means mechanically.
+
+Formatting note:
+
+- Future proposed contract text should avoid horizontal-scroll code blocks. Use wrapped quote blocks or short bullets unless exact machine-readable syntax is required.
+
+Status notes:
+
+- This supplements #34 and #38.
+- It does not replace existing source files.
+- Player is intent authority, not mechanical authority.
+- Old files may not be deleted or superseded based on this update alone.
