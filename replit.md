@@ -1,45 +1,134 @@
-# [Project name]
+# Nexus Local Playable App
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Nexus is a local-first text RPG application. The app is intended to become the primary playtest surface for DM-led narrative play, integrated encounters, TacMaps, play aids, scene companion images, and source-backed rules/lore.
 
-## Run & Operate
+Read first:
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `NEXUS_ISSUE_TRANSITION.md`
+- `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
+- `AGENTS.md`
+
+## Run And Operate
+
+Local one-command development:
+
+```powershell
+corepack pnpm install
+corepack pnpm run local:dev
+```
+
+Default local URLs:
+
+- API health: `http://127.0.0.1:5000/api/healthz`
+- Companion app: `http://127.0.0.1:5173`
+
+Run one side only:
+
+```powershell
+corepack pnpm run local:dev:api
+corepack pnpm run local:dev:app
+```
+
+Optional local port overrides:
+
+```powershell
+$env:NEXUS_API_PORT="5000"
+$env:NEXUS_COMPANION_PORT="5173"
+corepack pnpm run local:dev
+```
+
+Checks:
+
+```powershell
+corepack pnpm run typecheck
+corepack pnpm run build
+```
+
+Required local tooling:
+
+- Node.js 24
+- pnpm
+
+Current local blocker noted by Codex on 2026-06-08:
+
+- Node exists locally as `v24.16.0`.
+- `corepack pnpm` works and reports pnpm `11.5.2`.
+- The plain `pnpm` shim could not be globally enabled because Windows denied writing to `C:\Program Files\nodejs\pnpm`.
+- Use `corepack pnpm ...` unless the user later installs/enables a normal pnpm shim.
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Workspace: pnpm workspaces
+- Runtime: Node.js 24
+- Language: TypeScript
+- Companion app: React + Vite
+- API scaffold: Express
+- Validation: Zod and generated API types
+- Database scaffold: Drizzle/PostgreSQL, but Local Playable Alpha should not become Replit/Postgres-only
 
-## Where things live
+## Where Things Live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `NEXUS_ISSUE_TRANSITION.md` - GitHub-first queue control surface during migration
+- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` - active app roadmap, Replit tasks, Codex work-session queue
+- `AGENTS.md` - app-local instructions for Codex/Replit/agents
+- `artifacts/nexus-companion` - React/Vite app
+- `artifacts/nexus-companion/src/store/GameStateContext.tsx` - current browser localStorage persistence
+- `artifacts/nexus-companion/src/lib/useDMChat.ts` - current DM chat runtime
+- `artifacts/nexus-companion/src/lib/stateParser.ts` - `nexus-state` block parsing/application
+- `artifacts/nexus-companion/src/lib/contextSelector.ts` - current context selection
+- `artifacts/nexus-companion/src/lib/useImageGeneration.ts` - current scene image generation
+- `artifacts/nexus-companion/src/data/rookCampaign.ts` - current Rook prototype state
+- `artifacts/nexus-companion/src/components/tacmap` - TacMap display
+- `artifacts/api-server` - Express API scaffold
+- `lib/api-spec` and `lib/api-zod` - generated API contract surfaces
 
-## Architecture decisions
+## Architecture Decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Local-first is the product target.
+- GitHub Issues are the active execution queue; local docs provide scope and transition context.
+- Replit may implement tasks, but the app must remain runnable from the user's machine.
+- DM chat and encounters are one gameplay flow.
+- Browser-side OpenAI key handling is prototype-only and should be replaced by a backend/local-service path.
+- Source Markdown remains design authority. This repo is implementation authority for app behavior.
+- Public release is out of scope until the user explicitly says otherwise.
 
-## Product
+## Product Direction
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Local Playable Alpha is complete when the user can:
 
-## User preferences
+1. Launch the app locally.
+2. Start a new app-native Nexus campaign.
+3. Play through DM chat.
+4. Trigger and resolve an encounter from narrative play.
+5. Use TacMap/play aids during the encounter.
+6. Save/export, close/reopen, and continue.
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+## User Preferences
+
+- The app should feel like prior ChatGPT playtesting, but with better structure, visuals, and app-held state.
+- The app should not require ChatGPT to reconstruct campaign context during normal play.
+- The first app-native campaign can be new; resuming Rook is deferred until the local play loop is stable.
+- Lattice-100 should be treated as a resolution mechanic, not world lore.
+- Keep public/publishing assumptions out of implementation until explicitly approved.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- `pnpm` is mandatory because root `preinstall` rejects npm/yarn installs. On this machine, prefer `corepack pnpm ...`.
+- Replit-style environment assumptions can break local Windows launch if defaults are missing.
+- Current persistence is browser localStorage only.
+- Current AI calls are browser-side and should be moved behind the API.
+- The current source docs still contain older language treating Replit/VG implementation as downstream; the user's June 2026 instruction explicitly reopens app implementation as active work.
 
-## Pointers
+## Replit Task Format
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+Use the task blocks in `NEXUS_LOCAL_PLAYABLE_ALPHA.md`.
+
+Each task should include:
+
+- Title
+- Goal
+- Context
+- Implementation Tasks
+- Done When
+- Do Not Do
+- Validation
