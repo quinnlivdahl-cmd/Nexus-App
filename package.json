@@ -8,6 +8,8 @@
     "local:dev": "node scripts/local-dev.mjs",
     "local:dev:api": "node scripts/local-dev.mjs api",
     "local:dev:app": "node scripts/local-dev.mjs app",
+    "roadmap:index": "node scripts/update-roadmap-index.mjs",
+    "roadmap:index:check": "node scripts/update-roadmap-index.mjs --check",
     "source:index": "node scripts/update-source-index.mjs",
     "source:index:check": "node scripts/update-source-index.mjs --check",
     "validate:workflow": "node scripts/validate-nexus-workflow.mjs",

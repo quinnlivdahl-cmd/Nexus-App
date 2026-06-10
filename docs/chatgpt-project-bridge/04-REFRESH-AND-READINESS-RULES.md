@@ -51,6 +51,18 @@ A source-index check proves only that ChatGPT can discover repo-side context fil
 
 If mirror files changed locally, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
 
+## Roadmap Index Confirmation Rule
+
+Do not say GitHub on-demand roadmap retrieval is ready unless the roadmap index can be fetched by exact path and it lists usable roadmap lanes and linked issues.
+
+Expected index path:
+
+`docs/nexus-roadmap/ROADMAP-INDEX.md`
+
+The roadmap index is planning context. It does not replace `NEXUS_ISSUE_INDEX.md` as the active issue queue and does not promote roadmap candidate content to source canon.
+
+If roadmap lane mapping or issue linkage changed locally, Codex should regenerate the index with `corepack pnpm run roadmap:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
+
 ## What Not To Upload By Default
 
 - Full live `00 Source`.

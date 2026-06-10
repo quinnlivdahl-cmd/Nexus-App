@@ -15,10 +15,15 @@ const requiredFiles = [
   ".agents/skills/nexus-source-router/SKILL.md",
   ".agents/skills/nexus-handoff-bridge/SKILL.md",
   ".agents/skills/nexus-source-index-maintainer/SKILL.md",
+  ".agents/skills/nexus-roadmap-maintainer/SKILL.md",
   "artifacts/nexus-companion/AGENTS.md",
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
   "scripts/AGENTS.md",
+  "docs/nexus-roadmap/README.md",
+  "docs/nexus-roadmap/ROADMAP.md",
+  "docs/nexus-roadmap/ROADMAP-INDEX.md",
+  "docs/nexus-roadmap/ROADMAP-INDEX.json",
   "docs/chatgpt-project-bridge/README.md",
   "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
   "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
@@ -68,6 +73,25 @@ const sectionChecks = [
       "## Parked Work",
       "## Completed Issues",
       "## Future Script Hooks",
+      "docs/nexus-roadmap/ROADMAP-INDEX.md",
+    ],
+  },
+  {
+    file: "docs/nexus-roadmap/README.md",
+    includes: [
+      "repo-accessible planning surface",
+      "NEXUS_ISSUE_INDEX.md` remains the issue queue/control surface",
+      "corepack pnpm run roadmap:index",
+      "ChatGPT / Stewy Use",
+    ],
+  },
+  {
+    file: "docs/nexus-roadmap/ROADMAP-INDEX.md",
+    includes: [
+      "Nexus Roadmap Index",
+      "Authority Note",
+      "Lane Issue Map",
+      "Use `NEXUS_ISSUE_INDEX.md` for the active issue queue.",
     ],
   },
   {
@@ -76,6 +100,14 @@ const sectionChecks = [
       "repo-trackable bridge layer",
       "Upload Set",
       "ChatGPT Project consumes them as external context",
+      "Nexus Roadmap",
+    ],
+  },
+  {
+    file: "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
+    includes: [
+      "Repo-side roadmap surface",
+      "docs/nexus-roadmap/ROADMAP-INDEX.md",
     ],
   },
   {
@@ -92,6 +124,7 @@ const sectionChecks = [
       "verified-current-for-scope",
       "Upload Confirmation Rule",
       "Never use these states as proof of live source currentness.",
+      "Roadmap Index Confirmation Rule",
     ],
   },
   {
@@ -186,6 +219,27 @@ if (sourceIndexCheck.status !== 0) {
       "Source index is stale or could not be checked.",
       sourceIndexCheck.stdout.trim(),
       sourceIndexCheck.stderr.trim(),
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
+}
+
+const roadmapIndexCheck = spawnSync(
+  process.execPath,
+  [resolve(root, "scripts/update-roadmap-index.mjs"), "--check"],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+);
+
+if (roadmapIndexCheck.status !== 0) {
+  failures.push(
+    [
+      "Roadmap index is stale or could not be checked.",
+      roadmapIndexCheck.stdout.trim(),
+      roadmapIndexCheck.stderr.trim(),
     ]
       .filter(Boolean)
       .join(" "),

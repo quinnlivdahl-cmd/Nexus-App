@@ -1,0 +1,517 @@
+{
+  "repository": "quinnlivdahl-cmd/Nexus-App",
+  "roadmap_title": "Nexus_Global_Project_Roadmap",
+  "doc_id": "ROADMAP-2026-06-07-GLOBAL-CANDIDATE",
+  "doc_status": "candidate_review",
+  "working_state": "codex_review_ready",
+  "canon_status": "candidate_not_yet_promoted",
+  "source_role": "project_roadmap_candidate",
+  "original_review_lane": "90 Codex Review/01 Review Ready",
+  "base_path": "docs/nexus-roadmap",
+  "roadmap_path": "docs/nexus-roadmap/ROADMAP.md",
+  "readme_path": "docs/nexus-roadmap/README.md",
+  "issue_index_path": "NEXUS_ISSUE_INDEX.md",
+  "authority_note": "Repo-accessible planning mirror and index. This is not Nexus source canon and does not replace NEXUS_ISSUE_INDEX.md as the active issue queue.",
+  "currentness_note": "The mirrored roadmap keeps the original candidate status until a deliberate review/promotion workflow changes it.",
+  "update_command": "corepack pnpm run roadmap:index",
+  "check_command": "corepack pnpm run roadmap:index:check",
+  "lane_count": 6,
+  "lanes": [
+    {
+      "lane_number": 1,
+      "lane_title": "Core Game and Play Experience",
+      "purpose": "Define and refine what Nexus feels like to actually play.",
+      "current": [
+        "Gameplay rules are implementable now, but expected to keep changing through playtest",
+        "Narrative DM play and encounter play need to feel like one continuous system rather than two loosely related surfaces",
+        "The application does not yet reproduce the level of rule/context support that existed in the prior ChatGPT play surface"
+      ],
+      "next": [
+        "Preserve established gameplay-rule fidelity while continuing to refine through playtest",
+        "Keep app implementation tied to actual Nexus rules rather than invented local app logic",
+        "Define the minimum reliable narrative-to-encounter-to-narrative loop for app-native play"
+      ],
+      "near_term_milestones": [
+        "Milestone 1: the app can carry a scene conversation without immediately feeling disconnected from established Nexus rules.",
+        "Milestone 2: the app can transition from narrative play into encounter mode without a manual conceptual reset.",
+        "Milestone 3: encounter results can update party, resources, objectives, and consequence state in a way that supports continued play.",
+        "Milestone 4: the resulting loop feels like Nexus rather than a generic AI chat plus map tool."
+      ],
+      "issue_numbers": [
+        4,
+        5,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        40,
+        41
+      ],
+      "linked_issues": [
+        {
+          "number": 4,
+          "title": "Prepare API-DM plus deterministic rules-core scaffold",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/4"
+        },
+        {
+          "number": 5,
+          "title": "Define first rules-core vertical slice",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/5"
+        },
+        {
+          "number": 12,
+          "title": "Add manual encounter harness and narrative return flow",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/12"
+        },
+        {
+          "number": 13,
+          "title": "Make the encounter screen actually playable - turn order, movement, and actions",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/13"
+        },
+        {
+          "number": 14,
+          "title": "Let the AI DM trigger and populate encounters automatically during play",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14"
+        },
+        {
+          "number": 15,
+          "title": "Add HP / SI editing to actor rows so the GM can track damage during a session",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/15"
+        },
+        {
+          "number": 19,
+          "title": "Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/19"
+        },
+        {
+          "number": 20,
+          "title": "Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/20"
+        },
+        {
+          "number": 33,
+          "title": "Epic: Sequence Nexus app-facing game-rule/system design",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/33"
+        },
+        {
+          "number": 34,
+          "title": "Define API DM / rules-core authority split",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/34"
+        },
+        {
+          "number": 35,
+          "title": "Define turn transaction for API DM + rules-core play",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/35"
+        },
+        {
+          "number": 36,
+          "title": "Define game state lanes and mutation boundaries",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/36"
+        },
+        {
+          "number": 38,
+          "title": "Define rules object model for actions, checks, effects, and logs",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/38"
+        },
+        {
+          "number": 39,
+          "title": "Define check family contract",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/39"
+        },
+        {
+          "number": 40,
+          "title": "Define effect and state-delta grammar",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/40"
+        },
+        {
+          "number": 41,
+          "title": "Define compact DM context broker contract",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/41"
+        }
+      ]
+    },
+    {
+      "lane_number": 2,
+      "lane_title": "Runtime and Play Surfaces",
+      "purpose": "Build the actual surfaces where Nexus is played, tested, viewed, and operated.",
+      "current": [
+        "The app is not yet context-rich enough to be a worthwhile replacement for the prior ChatGPT play surface",
+        "Non-encounter DM chat must work properly inside the app, not only the encounter layer",
+        "Encounter mode should open when narrative play triggers tactical resolution, not behave like a disconnected tool",
+        "Local running should be treated as the immediate priority"
+      ],
+      "next": [
+        "Keep the runtime local-first",
+        "Keep the architecture portable enough for later publishing if desired",
+        "Avoid locking the product definition to Replit-hosted assumptions",
+        "Treat the app as the primary encounter and growing playtest surface rather than only a companion"
+      ],
+      "near_term_milestones": [
+        "Milestone 1: reliable local startup and a repeatable local run flow.",
+        "Milestone 2: DM chat inside the app is usable for scene play without immediately collapsing into low-context behavior.",
+        "Milestone 3: DM chat can trigger encounter mode, hand over enough tactical state, and continue after resolution.",
+        "Milestone 4: the app feels better than prior chat play in structure and visuals, not merely different."
+      ],
+      "issue_numbers": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        20,
+        21
+      ],
+      "linked_issues": [
+        {
+          "number": 7,
+          "title": "Prove local launch and runtime foundation",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/7"
+        },
+        {
+          "number": 8,
+          "title": "Add recoverable local save export and import flow",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/8"
+        },
+        {
+          "number": 9,
+          "title": "Build source-backed context pack for app DM runtime",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/9"
+        },
+        {
+          "number": 10,
+          "title": "Route DM and scene image AI calls through local backend",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/10"
+        },
+        {
+          "number": 11,
+          "title": "Add app-native campaign seed and reset path",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/11"
+        },
+        {
+          "number": 12,
+          "title": "Add manual encounter harness and narrative return flow",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/12"
+        },
+        {
+          "number": 13,
+          "title": "Make the encounter screen actually playable - turn order, movement, and actions",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/13"
+        },
+        {
+          "number": 14,
+          "title": "Let the AI DM trigger and populate encounters automatically during play",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14"
+        },
+        {
+          "number": 16,
+          "title": "UI readability pass - contrast, font sizes, and backdrop scrims",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/16"
+        },
+        {
+          "number": 17,
+          "title": "Give each backdrop its own default node web",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/17"
+        },
+        {
+          "number": 20,
+          "title": "Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/20"
+        },
+        {
+          "number": 21,
+          "title": "Let the DM look up vault rules mid-session when a specific rule reference is needed",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/21"
+        }
+      ]
+    },
+    {
+      "lane_number": 3,
+      "lane_title": "Source Architecture and Project Memory",
+      "purpose": "Maintain the project's canonical knowledge layer and make it usable by humans, AIs, scripts, and the application.",
+      "current": [
+        "The original driver for this lane remains active: improve archive mining and placement scripting",
+        "This lane is also expected to improve long-term readability, AI usability, app/script ingestion, and future tooling in general",
+        "Live `00 Source` remains protected while the rebuild matures",
+        "Remaining work includes Phase 8 cleanup, metadata normalization, and deeper domain-by-domain consolidation"
+      ],
+      "next": [
+        "Finish the remaining rebuild governance cleanup",
+        "Normalize metadata and cross-domain routing after the corpus settles",
+        "Continue domain-by-domain consolidation where scaffold migration is not enough",
+        "Keep this lane optimized for minimizing friction and maximizing usability across all downstream consumers"
+      ],
+      "near_term_milestones": [
+        "Milestone 1: Phase 8 governance cleanup is complete.",
+        "Milestone 2: Phase 9 metadata and routing normalization is complete enough for reliable machine use.",
+        "Milestone 3: pilot-domain and adjacent-domain consolidation removes the worst old-model body language.",
+        "Milestone 4: archive-mining and placement scripts can use the rebuilt structure with meaningfully lower friction."
+      ],
+      "issue_numbers": [
+        6,
+        9,
+        18,
+        21,
+        45,
+        47
+      ],
+      "linked_issues": [
+        {
+          "number": 6,
+          "title": "Plan Domain Source text-doc reorganization for repo and GitHub collaboration",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/6"
+        },
+        {
+          "number": 9,
+          "title": "Build source-backed context pack for app DM runtime",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/9"
+        },
+        {
+          "number": 18,
+          "title": "Build a searchable index of the Nexus vault for fast rules lookup",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/18"
+        },
+        {
+          "number": 21,
+          "title": "Let the DM look up vault rules mid-session when a specific rule reference is needed",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/21"
+        },
+        {
+          "number": 45,
+          "title": "Create source mirror index maintenance workflow",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/45"
+        },
+        {
+          "number": 47,
+          "title": "Create repo-accessible roadmap mirror and maintained issue index",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/47"
+        }
+      ]
+    },
+    {
+      "lane_number": 4,
+      "lane_title": "Campaign State and Continuity",
+      "purpose": "Make campaign state survivable, resumable, and usable across play surfaces.",
+      "current": [
+        "The app lacks anywhere near enough context compared to the prior ChatGPT play surface",
+        "Context-window and state-transfer limitations are a major active friction point",
+        "The current app data model contains strange mismatches, including confusing treatment of systems like Lattice RNG"
+      ],
+      "next": [
+        "Start with a strong app-native playtest continuity model rather than trying to solve the hardest legacy import case first",
+        "Use new app-native play as the first proving ground",
+        "Treat richer campaign carryover, including harder Rook-style continuity, as a later and more difficult milestone"
+      ],
+      "near_term_milestones": [
+        "Milestone 1: define the minimum continuity payload for worth-using app play.",
+        "Milestone 2: support a new app-native playtest/campaign with stable state across narrative scenes and encounters.",
+        "Milestone 3: preserve enough context that post-encounter play can continue without feeling amputated.",
+        "Milestone 4: begin the harder legacy-campaign continuity work only after the app-native model is proven."
+      ],
+      "issue_numbers": [
+        8,
+        11,
+        12,
+        14
+      ],
+      "linked_issues": [
+        {
+          "number": 8,
+          "title": "Add recoverable local save export and import flow",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/8"
+        },
+        {
+          "number": 11,
+          "title": "Add app-native campaign seed and reset path",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/11"
+        },
+        {
+          "number": 12,
+          "title": "Add manual encounter harness and narrative return flow",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/12"
+        },
+        {
+          "number": 14,
+          "title": "Let the AI DM trigger and populate encounters automatically during play",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14"
+        }
+      ]
+    },
+    {
+      "lane_number": 5,
+      "lane_title": "AI Workflow and Orchestration",
+      "purpose": "Coordinate how Codex, ChatGPT project, Replit, dashboards, command surfaces, handoffs, and planning artifacts work together.",
+      "current": [
+        "Exact division of labor between Codex and Replit for implementation is still being discovered",
+        "ChatGPT project now has a clearer role: drafting, brainstorming, interpreting the roadmap, and helping coordinate other platforms",
+        "Usage limits and context limits still materially affect workflow design"
+      ],
+      "next": [
+        "Make this roadmap a shared orientation artifact for all working AIs",
+        "Use the roadmap to facilitate targeted work sessions in the ChatGPT project",
+        "Keep Codex strong on document/source management and planning integration",
+        "Keep Replit productive for coding while avoiding architecture that blocks local-first use or later portability"
+      ],
+      "near_term_milestones": [
+        "Milestone 1: roadmap accepted as shared planning surface.",
+        "Milestone 2: ChatGPT sessions become more targeted and lane-aware.",
+        "Milestone 3: Codex, ChatGPT, and Replit each have a working default role that reduces friction.",
+        "Milestone 4: platform coordination is good enough that context loss stops dominating progress."
+      ],
+      "issue_numbers": [
+        2,
+        3,
+        22,
+        23,
+        24,
+        25,
+        42,
+        43,
+        44,
+        46,
+        47
+      ],
+      "linked_issues": [
+        {
+          "number": 2,
+          "title": "Establish repo collaboration lanes for Nexus App",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/2"
+        },
+        {
+          "number": 3,
+          "title": "Create GitHub issue and PR templates for Nexus AI collaboration",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/3"
+        },
+        {
+          "number": 22,
+          "title": "Create root README and AGENTS instructions for Nexus App",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/22"
+        },
+        {
+          "number": 23,
+          "title": "Create admin operating model docs for repo-first collaboration",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/23"
+        },
+        {
+          "number": 24,
+          "title": "Create initial ADRs for repo authority and AI tool roles",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/24"
+        },
+        {
+          "number": 25,
+          "title": "Set up GitHub labels and milestones for Nexus App task planning",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/25"
+        },
+        {
+          "number": 42,
+          "title": "Complete Codex agent and task-intake workflow setup",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/42"
+        },
+        {
+          "number": 43,
+          "title": "Design Codex Chat Focus and Session Discipline Workflow for Nexus",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/43"
+        },
+        {
+          "number": 44,
+          "title": "Create ChatGPT Project bridge layer docs",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/44"
+        },
+        {
+          "number": 46,
+          "title": "Finalize ChatGPT bridge baseline and thread title convention",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/46"
+        },
+        {
+          "number": 47,
+          "title": "Create repo-accessible roadmap mirror and maintained issue index",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/47"
+        }
+      ]
+    },
+    {
+      "lane_number": 6,
+      "lane_title": "Content and Expansion",
+      "purpose": "Build the content, backlog material, play aids, and longer-term expansion needed for Nexus to become fully playable and then meaningfully larger.",
+      "current": [
+        "This lane must include current backlog, not only future dream expansion",
+        "The minimum playability backlog includes encounter-ready content, TacMaps, current campaign-supporting lore/rules, and the assets/play aids needed to actually run scenes"
+      ],
+      "next": [
+        "Treat playability backlog as part of becoming usable now",
+        "Use app-native playtest needs to decide which backlog items must move first",
+        "Expand only after baseline play becomes coherent enough to reveal real priorities"
+      ],
+      "near_term_milestones": [
+        "Milestone 1: enough encounter-ready content exists for real app-native combat tests.",
+        "Milestone 2: enough scene-supporting lore/rules/assets exist for meaningful narrative play in the app.",
+        "Milestone 3: TacMaps and play aids are good enough that runtime testing reveals gameplay issues instead of only presentation gaps.",
+        "Milestone 4: backlog pressure eases enough that future expansion can be prioritized on real evidence rather than guesswork."
+      ],
+      "issue_numbers": [
+        17,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "linked_issues": [
+        {
+          "number": 17,
+          "title": "Give each backdrop its own default node web",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/17"
+        },
+        {
+          "number": 26,
+          "title": "Draft pre-node crew sheets, level-up, and loadout display for E-43",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/26"
+        },
+        {
+          "number": 27,
+          "title": "Draft DM display backpatch for narrative, rolls, state, and options",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/27"
+        },
+        {
+          "number": 28,
+          "title": "Draft route-node end report and encounter result templates",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/28"
+        },
+        {
+          "number": 29,
+          "title": "Draft encounter start package template for DM and TacMap setup",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/29"
+        },
+        {
+          "number": 30,
+          "title": "Draft check-display examples and noncombat scene procedure template",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/30"
+        },
+        {
+          "number": 31,
+          "title": "Formalize skill focus and ability tree structure for playable drafts",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/31"
+        },
+        {
+          "number": 32,
+          "title": "Improve character chassis and origin sheet usability for play",
+          "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/32"
+        }
+      ]
+    }
+  ]
+}

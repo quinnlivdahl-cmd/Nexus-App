@@ -41,6 +41,23 @@ The index should list exact repo paths, source roles, domain ownership, status/c
 
 When mirror files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate it with `corepack pnpm run validate:workflow`.
 
+## Nexus Roadmap
+
+The repo-accessible roadmap surface is:
+
+`docs/nexus-roadmap`
+
+Use these exact paths for roadmap retrieval and issue linkage:
+
+- `docs/nexus-roadmap/README.md`
+- `docs/nexus-roadmap/ROADMAP.md`
+- `docs/nexus-roadmap/ROADMAP-INDEX.md`
+- `docs/nexus-roadmap/ROADMAP-INDEX.json`
+
+The roadmap is planning context, not Nexus source canon. `NEXUS_ISSUE_INDEX.md` remains the active issue queue/control surface.
+
+When roadmap lane mapping or issue linkage changes, Codex should regenerate the index with `corepack pnpm run roadmap:index` and validate it with `corepack pnpm run validate:workflow`.
+
 ## Authority Boundaries
 
 - Live source authority is `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.

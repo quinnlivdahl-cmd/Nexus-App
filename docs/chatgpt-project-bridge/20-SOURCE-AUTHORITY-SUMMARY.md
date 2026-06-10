@@ -12,6 +12,7 @@ This file tells ChatGPT Project how to use the repo-side Nexus Source Mirror wit
 |---|---|---|
 | Live local `00 Source` | Current Nexus source truth | Requires Codex/local inspection; not directly proven by ChatGPT upload |
 | Repo-side Nexus Source Mirror | Richer ChatGPT discussion and exact GitHub retrieval | Context source only; does not override live local source |
+| Repo-side Nexus Roadmap | Shared planning lanes and roadmap-to-issue linkage | Planning context only; does not replace the issue queue or source canon |
 | App repo workflow files | Task packets, validation, bridge docs, app planning | Workflow/implementation authority, not game canon |
 | GitHub Issues | Acceptance criteria, progress, closeout evidence | Task authority, not source authority |
 | ChatGPT Project uploads | Drafting, planning, brainstorming, playtest support | Curated context client; may be stale |
@@ -40,3 +41,18 @@ The source mirror is useful for discussion, but it is not automatic live source 
 `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
 
 Use `source-index-needed` when the index is missing, stale, or not searchable enough for ChatGPT to retrieve exact GitHub paths.
+
+## Indexed Roadmap Retrieval
+
+The repo-side Nexus Roadmap is:
+
+`docs/nexus-roadmap`
+
+Use the deterministic roadmap index instead of relying on a GitHub tree URL:
+
+- `docs/nexus-roadmap/ROADMAP-INDEX.md`
+- `docs/nexus-roadmap/ROADMAP-INDEX.json`
+
+Use the roadmap index to find exact roadmap paths, durable lanes, and linked GitHub issues. Then use `NEXUS_ISSUE_INDEX.md` for the active queue/current task state.
+
+Use `roadmap-index-needed` when the roadmap index is missing, stale, or not searchable enough for ChatGPT to retrieve exact GitHub paths.

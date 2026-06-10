@@ -17,6 +17,8 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - GitHub Issue 42: `Plan Codex Agent and Skill Automation Upgrade for Nexus`
 - Latest Issue 42 planning handoff comments for agent/skill/task-intake workflow design
 - Roadmap candidate: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
+- Repo-accessible roadmap mirror: `docs/nexus-roadmap/ROADMAP.md`
+- Roadmap lane/issue index: `docs/nexus-roadmap/ROADMAP-INDEX.md`
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Live domain-first source: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
@@ -54,7 +56,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-10 after Issue 46 closeout. GitHub reported 40 open issues.
+Last synced: 2026-06-10 after Issue 47 closeout. GitHub reported 40 open issues.
 
 ### Workflow / Control Lane
 
@@ -155,6 +157,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
 | #45 | Create source mirror index maintenance workflow | Repo-side source mirror role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Physical path rename deferred to a deliberate migration batch because exact indexed paths and bridge references depend on the compatibility path |
 | #46 | Finalize ChatGPT bridge baseline and thread title convention | `docs/chatgpt-project-bridge` final baseline updates plus handoff/thread-title convention wiring committed in `9df8037`; issue-index closeout follow-up committed separately | ChatGPT Project still needs an actual upload/searchability confirmation before it can be called refreshed |
+| #47 | Create repo-accessible roadmap mirror and maintained issue index | `docs/nexus-roadmap` roadmap mirror/index, `scripts/update-roadmap-index.mjs`, `roadmap:index` scripts, maintainer skill, bridge pointers, and `validate:workflow` roadmap-index checks | ChatGPT Project still needs upload or exact-path retrieval confirmation before the roadmap can be called refreshed there |
 
 ## Future Script Hooks
 
@@ -167,5 +170,6 @@ Future scripts should be able to:
 - flag issue-index drift;
 - verify referenced local paths exist;
 - verify task closeout evidence before an issue is marked complete;
+- regenerate and check `docs/nexus-roadmap/ROADMAP-INDEX.md` after roadmap lane mapping or issue linkage changes;
 - generate a GitHub final comment from commit and validation evidence;
 - generate platform-specific continuation prompts from handoff packets.

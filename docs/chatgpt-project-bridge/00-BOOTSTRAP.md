@@ -32,6 +32,7 @@ Use these authority lanes:
 - App repo and workflow files: `C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App`
 - GitHub repo: `quinnlivdahl-cmd/Nexus-App`
 - ChatGPT Project bridge files: `docs/chatgpt-project-bridge`
+- Repo-side roadmap surface: `docs/nexus-roadmap`
 - Repo-side expanded source pool, if indexed: `docs/nexus-domain-source-rebuild-2026-06-10/source`
 
 If a task needs exact current source, route it to Codex/local source inspection or ask for a targeted current packet. Do not infer exact source truth from uploaded project files alone.
@@ -81,3 +82,10 @@ Upload or paste these seven baseline bridge files together when refreshing ChatG
 7. `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
 
 The expanded source index is available for exact GitHub file retrieval. Prefer the source index and compact authority summary over uploading broad source snapshots.
+
+The repo-side roadmap index is available for exact GitHub file retrieval:
+
+- `docs/nexus-roadmap/ROADMAP-INDEX.md`
+- `docs/nexus-roadmap/ROADMAP.md`
+
+Use the roadmap index for roadmap lanes and issue linkage. Use `NEXUS_ISSUE_INDEX.md` for the active issue queue.
