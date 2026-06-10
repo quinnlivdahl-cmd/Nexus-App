@@ -24,10 +24,12 @@ const sectionChecks = [
     file: "NEXUS_TASK_PACKET_TEMPLATE.md",
     includes: [
       "Task name:",
+      "Progress notes:",
       "Prerequisites / readiness:",
       "Do Not Do:",
       "Validation / review method:",
       "Next action:",
+      "Closeout evidence:",
     ],
   },
   {
@@ -37,6 +39,8 @@ const sectionChecks = [
       "Planning anchor:",
       "## Files / Sources Inspected",
       "## Files Changed",
+      "## Progress State",
+      "## Closeout Evidence",
       "## Next Safe Action",
       "### Codex",
       "### ChatGPT",

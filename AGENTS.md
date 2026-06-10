@@ -53,6 +53,25 @@ When creating Replit tasks, use the task format in `NEXUS_LOCAL_PLAYABLE_ALPHA.m
 
 When doing Codex work sessions, keep work tied to one roadmap gate, one explicit task packet, or one GitHub issue when practical.
 
+## Progress and Closeout
+
+For issue-based work, keep progress visible:
+
+- say what is being checked before broad claims;
+- name the current phase when work moves from intake to implementation, validation, commit, push, or GitHub closeout;
+- distinguish done locally from done on GitHub;
+- do not call an issue complete until required repo changes are committed, pushed, validated, and the GitHub issue is ready to close or already closed.
+
+Use this closeout order for GitHub issue tasks:
+
+1. Validate the work locally.
+2. Commit and push the relevant repo changes.
+3. Update `NEXUS_ISSUE_INDEX.md` so the issue state matches reality.
+4. Add a final GitHub issue comment with evidence.
+5. Close the GitHub issue when the acceptance criteria are satisfied.
+
+Future scripts may automate this sequence, but the human-readable evidence should stay clear enough to review without a script.
+
 ## Repo and Source Boundaries
 
 - Do not bulk-copy Obsidian `00 Source` content into this repo in batch-one workflow work.

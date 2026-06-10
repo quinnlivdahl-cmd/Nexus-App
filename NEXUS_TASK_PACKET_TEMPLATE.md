@@ -17,6 +17,7 @@ Why this matters:
 Planning anchor:
 Relevant sources/files:
 Current known state:
+Progress notes:
 
 Prerequisites / readiness:
 - Ready now: yes/no
@@ -34,6 +35,7 @@ Validation / review method:
 Risks / challenge:
 Open questions:
 Next action:
+Closeout evidence:
 ```
 
 ## Readiness Rule
@@ -41,6 +43,27 @@ Next action:
 If `Ready now` is `no`, do not force an implementation plan. Explain the missing prerequisite and recommend the next task packet or issue to create/update.
 
 Every task packet should include a `Do Not Do` section, even when it is short.
+
+## Progress Updates
+
+For active issue work, progress updates should be short but concrete. Use them to say:
+
+- what phase the task is in;
+- what files, issue comments, or source docs are being checked;
+- whether work is local-only, committed, pushed, or closed on GitHub;
+- what validation is still pending.
+
+Avoid saying a task is complete when the precise state is only "implemented locally", "committed but not pushed", or "ready to close".
+
+## Closeout Rule
+
+An issue can be called complete when the task's `Done when` condition is satisfied and the closeout evidence names:
+
+- files changed or intentionally unchanged;
+- checks or validation run;
+- commit pushed, when repo files changed;
+- GitHub issue comment added, when applicable;
+- GitHub issue closed, when the issue itself is complete.
 
 ## Code Implementation Add-On
 
@@ -97,4 +120,6 @@ Future scripts should be able to check whether a packet includes:
 - in-scope and out-of-scope boundaries;
 - `Do Not Do`;
 - validation method;
-- next action.
+- progress notes;
+- next action;
+- closeout evidence.

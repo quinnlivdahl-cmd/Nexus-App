@@ -21,6 +21,12 @@ Planning anchor:
 ## Files Changed
 
 
+## Progress State
+
+
+## Closeout Evidence
+
+
 ## Decisions Made
 
 
@@ -61,6 +67,8 @@ Planning anchor:
 - Name the controlling issue when one exists.
 - Name the planning anchor or roadmap lane.
 - Separate inspected files from changed files.
+- State whether the task is local-only, committed, pushed, ready to close, or closed.
+- Include closeout evidence when the handoff ends a task.
 - Include blockers and unresolved questions.
 - Include one next safe action.
 - Include platform-specific continue prompts when the handoff is meant to cross tools.
