@@ -19,6 +19,7 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - Roadmap candidate: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
+- Live domain-first source: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
 - Domain-first source snapshot: `docs/nexus-domain-source-rebuild-2026-06-10/source`
 
 Older slot/admin source documents can provide historical context, but they are not controlling authority for the current Codex-driven admin workflow redesign unless the user explicitly restores them.
@@ -140,7 +141,7 @@ Use this section for useful ideas that are not ready, not urgent, or too broad f
 | GitHub Projects board | Markdown index comes first | Add after issue template and label conventions stabilize |
 | MCP/subagents | Too much machinery for batch one | Revisit after repo-local workflow proves useful |
 | Exact file-location hardening | Mother Folder and GitHub repo structure still settling | Add exact locations and filenames to agent files after structure stabilizes |
-| Domain-source live migration | App-side snapshot exists, but live vault source has not been replaced | Revisit after staged source review and live migration approval |
+| App snapshot `legacy_paths` refresh | Live vault source has been migrated, but the app-side snapshot was created before live migration | Revisit before source-backed context-pack generation if path traceability matters |
 
 ## Completed Issues
 
@@ -149,6 +150,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
 | local | Add approved domain-first source snapshot to app repo and local mirror | `docs/nexus-domain-source-rebuild-2026-06-10/source` plus local mirror under `03 APP\Nexus AI DM App\app docs` | Use snapshot for Gate C source-backed context pack planning |
+| local | Complete domain-source live migration | Live `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh app snapshot `legacy_paths` separately if needed |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 
 ## Future Script Hooks

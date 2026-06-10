@@ -6,7 +6,7 @@ Primary queue: GitHub Issues for `quinnlivdahl-cmd/Nexus-App`
 
 ## Purpose
 
-This document bridges the current local planning surfaces and the GitHub issue queue while the migration is still in progress.
+This document bridges the current local planning surfaces and the GitHub issue queue after the live domain-first source migration.
 
 Use it to answer four questions quickly:
 
@@ -30,11 +30,13 @@ Current app-side source snapshot:
 - `docs/nexus-domain-source-rebuild-2026-06-10/source`
 - Local mirror: `C:\Nexus Mother Folder\03 APP\Nexus AI DM App\app docs\nexus-domain-source-rebuild-2026-06-10`
 
+Snapshot caveat: this snapshot was created before live migration, so its `legacy_paths` may still point at former live slot paths instead of the archived slot-source path. Live vault source has already been corrected.
+
 ## Control Model
 
 - GitHub Issues are the active execution queue.
 - `NEXUS_LOCAL_PLAYABLE_ALPHA.md` holds app scope, phase gates, backlog detail, and task context.
-- Nexus `00 Source` remains design/source authority.
+- Nexus `00 Source` is now domain-first and remains design/source authority.
 - This transition doc tracks the queue shape and any remaining local-only planning residue.
 
 ## Queue Rules
@@ -62,7 +64,7 @@ Each issue should state:
 - `#2` Establish repo collaboration lanes for Nexus App
 - `#3` Create GitHub issue and PR templates for Nexus AI collaboration
 - `#6` Plan Domain Source text-doc reorganization for repo and GitHub collaboration
-  - Status note: domain-first source snapshot has been added to the app repo and local mirror; live vault migration is still separate.
+  - Status note: domain-first source snapshot has been added to the app repo and local mirror; live vault migration is complete; snapshot `legacy_paths` may need refresh.
 
 These are active, but they are not the app-runtime critical path.
 

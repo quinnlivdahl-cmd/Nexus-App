@@ -56,9 +56,12 @@ When doing Codex work sessions, keep work tied to one roadmap gate, one explicit
 ## Repo and Source Boundaries
 
 - Do not bulk-copy Obsidian `00 Source` content into this repo in batch-one workflow work.
+- Live vault source is now domain-first at `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
 - Nexus source has an approved domain-first snapshot in `docs/nexus-domain-source-rebuild-2026-06-10/source`.
 - The local app mirror of the same snapshot is `C:\Nexus Mother Folder\03 APP\Nexus AI DM App\app docs\nexus-domain-source-rebuild-2026-06-10`.
+- The snapshot was created before live migration, so its `legacy_paths` may still need a downstream refresh.
 - Treat the snapshot as app-side source reference for context-pack and rules-core work, but do not treat it as authority to delete or overwrite live vault source.
+- Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
 - Do not treat GitHub Issues as game/source authority; issues transfer work, context, and acceptance criteria.
 - Do not treat local implementation shortcuts as Nexus rules.
 - If source docs and app implementation disagree, report the mismatch and avoid silent rule rewrites.

@@ -32,13 +32,13 @@ Local Playable Alpha is complete when the user can launch the app locally, start
 Read these before changing gameplay, context, or roadmap behavior:
 
 - `docs\nexus-domain-source-rebuild-2026-06-10\source`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\03 Slot Map rev0.6.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\05 Admin Runbooks Source Management rev0.3\ADM-013 - Nexus_Source_First_Routing_Map.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\16 Current Dashboards State rev0.3\DASH-010 - Active_Project_Roadmap.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\16 Current Dashboards State rev0.3\DASH-007 - Active_Project_Task_Summary.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\14 TT VG Automation rev0.2\SRC-AUTO-000 - README_Source_TT_VG_Automation.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\08 Source Combat TacMaps Encounters rev0.4\SRC-COMBAT-000 - README_Source_Combat_TacMaps_Encounters.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\13 Content Systems rev0.5\SRC-CONTENT-000 - README_Source_Content_Systems.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Admin\Applied Rules\ADMIN-MAP-003 - 03-Slot-Map-rev0-6.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Admin\Applied Rules\ADMIN-RUNBOOK-013 - Nexus-Source-First-Routing-Map.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Dashboards\Current State\DASH-ROADMAP-001 - Active_Project_Roadmap.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Dashboards\Current State\DASH-TASK-001 - Active_Project_Task_Summary.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Automation\Reference Inputs\AUTO-INDEX-000 - SRC-AUTO-000-README-Source-TT-VG-Automation.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Combat\Reference Inputs\COMBAT-INDEX-000 - Combat_Domain_Readme.md`
+- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Content\Reference Inputs\CONTENT-INDEX-000 - SRC-CONTENT-000-README-Source-Content-Systems.md`
 
 ## Current Prototype Inventory
 

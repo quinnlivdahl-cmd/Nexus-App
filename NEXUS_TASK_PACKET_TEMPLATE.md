@@ -55,12 +55,15 @@ Rollback/undo notes:
 ## Source Document Add-On
 
 ```md
-Source package or lane:
+Live source path or domain:
+Repo snapshot path, if used:
 Authority docs:
 Edit mode: direct approved edit / redline / candidate
 Promotion path:
 Metadata/rev impact:
 ```
+
+Use live domain-first source for current source truth. Use the app-side source snapshot for repo-local context-pack and rules-core planning when live currentness is not being changed.
 
 ## Replit Task Add-On
 
