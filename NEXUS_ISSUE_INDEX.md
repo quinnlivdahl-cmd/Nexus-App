@@ -20,7 +20,7 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Live domain-first source: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
-- Domain-first source snapshot: `docs/nexus-domain-source-rebuild-2026-06-10/source`
+- Nexus Source Mirror: `docs/nexus-domain-source-rebuild-2026-06-10/source` (compatibility path retained from the 2026-06-10 domain-source rebuild)
 
 Older slot/admin source documents can provide historical context, but they are not controlling authority for the current Codex-driven admin workflow redesign unless the user explicitly restores them.
 
@@ -50,11 +50,11 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | Add the next ready issue after #44 closeout |
+| TBD | TBD | TBD | TBD | TBD | Add the next ready issue after #45 closeout |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-10 after Issue 44 closeout. GitHub reported 40 open issues.
+Last synced: 2026-06-10 after Issue 45 closeout. GitHub reported 40 open issues.
 
 ### Workflow / Control Lane
 
@@ -153,6 +153,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
+| #45 | Create source mirror index maintenance workflow | Repo-side source mirror role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Physical path rename deferred to a deliberate migration batch because exact indexed paths and bridge references depend on the compatibility path |
 
 ## Future Script Hooks
 

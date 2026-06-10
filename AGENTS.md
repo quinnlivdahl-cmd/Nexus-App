@@ -76,10 +76,11 @@ Future scripts may automate this sequence, but the human-readable evidence shoul
 
 - Do not bulk-copy Obsidian `00 Source` content into this repo in batch-one workflow work.
 - Live vault source is now domain-first at `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
-- Nexus source has an approved domain-first snapshot in `docs/nexus-domain-source-rebuild-2026-06-10/source`.
+- Nexus source has an approved repo-side source mirror in `docs/nexus-domain-source-rebuild-2026-06-10/source`. The physical path is retained from the 2026-06-10 domain-source rebuild for compatibility; its current role is the ongoing Nexus Source Mirror.
 - The local app mirror of the same snapshot is `C:\Nexus Mother Folder\03 APP\Nexus AI DM App\app docs\nexus-domain-source-rebuild-2026-06-10`.
 - The snapshot was created before live migration, so its `legacy_paths` may still need a downstream refresh.
-- Treat the snapshot as app-side source reference for context-pack and rules-core work, but do not treat it as authority to delete or overwrite live vault source.
+- Treat the mirror as app-side source reference for context-pack and rules-core work, but do not treat it as authority to delete or overwrite live vault source.
+- When mirrored source docs are added, removed, renamed, or changed, use `.agents/skills/nexus-source-index-maintainer/SKILL.md` and regenerate the index with `corepack pnpm run source:index`.
 - Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
 - The repo-trackable ChatGPT Project bridge layer lives at `docs/chatgpt-project-bridge`. Those files are upload-ready context for the ChatGPT Nexus Project, but upload is not complete until the user confirms it or a refresh ledger records it.
 - Do not treat GitHub Issues as game/source authority; issues transfer work, context, and acceptance criteria.

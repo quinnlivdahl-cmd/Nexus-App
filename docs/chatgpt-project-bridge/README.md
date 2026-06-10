@@ -24,13 +24,13 @@ Upload or paste these files into ChatGPT Project together when refreshing the br
 
 `README.md` may be uploaded too, but its main job is repo-side orientation.
 
-## Expanded Source Pool
+## Nexus Source Mirror
 
-A repo-side expanded source pool may exist at:
+A repo-side Nexus Source Mirror may exist at:
 
 `docs/nexus-domain-source-rebuild-2026-06-10/source`
 
-This folder is useful for richer ChatGPT discussion, but it is not automatically live source authority. ChatGPT should use it through explicit indexed paths, source status notes, and currentness caveats.
+The physical path is retained from the 2026-06-10 domain-source rebuild for compatibility. Its current repo role is the ongoing source mirror for richer ChatGPT discussion and exact GitHub retrieval, but it is not automatically live source authority. ChatGPT should use it through explicit indexed paths, source status notes, and currentness caveats.
 
 Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool should include a deterministic index file such as:
 
@@ -39,12 +39,14 @@ Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool sh
 
 The index should list exact repo paths, source roles, domain ownership, status/currentness notes, and retrieval keywords so ChatGPT can fetch needed files directly instead of relying on broad permanent uploads.
 
+When mirror files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate it with `corepack pnpm run validate:workflow`.
+
 ## Authority Boundaries
 
 - Live source authority is `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
 - App workflow and implementation authority lives in this repo and GitHub Issues.
 - ChatGPT Project context is curated, useful, and allowed to be stale when labeled. It is not source authority.
-- The expanded source pool is a repo-side context source for discussion and targeted retrieval. It does not override live local source authority unless the local workflow explicitly promotes or verifies it.
+- The Nexus Source Mirror is a repo-side context source for discussion and targeted retrieval. It does not override live local source authority unless the local workflow explicitly promotes or verifies it.
 - Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove live source currentness.
 
 ## Refresh Rule

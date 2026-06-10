@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { spawnSync } from "node:child_process";
 
 const root = resolve(import.meta.dirname, "..");
 
@@ -13,6 +14,7 @@ const requiredFiles = [
   ".agents/skills/nexus-task-intake/SKILL.md",
   ".agents/skills/nexus-source-router/SKILL.md",
   ".agents/skills/nexus-handoff-bridge/SKILL.md",
+  ".agents/skills/nexus-source-index-maintainer/SKILL.md",
   "artifacts/nexus-companion/AGENTS.md",
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
@@ -25,6 +27,7 @@ const requiredFiles = [
   "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
   "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
   "docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+  "docs/nexus-domain-source-rebuild-2026-06-10/README.md",
   "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
   "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json",
 ];
@@ -100,11 +103,20 @@ const sectionChecks = [
     ],
   },
   {
+    file: "docs/nexus-domain-source-rebuild-2026-06-10/README.md",
+    includes: [
+      "Nexus Source Mirror",
+      "compatibility path",
+      "corepack pnpm run source:index",
+    ],
+  },
+  {
     file: "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
     includes: [
-      "Nexus Domain Source Rebuild Source Index",
+      "Nexus Source Mirror Index",
       "Indexed Markdown files: 186",
       "ChatGPT should fetch exact indexed GitHub paths",
+      "corepack pnpm run source:index",
     ],
   },
 ];
@@ -157,6 +169,27 @@ if (existsSync(sourceIndexJsonPath)) {
   } catch (error) {
     failures.push(`SOURCE-INDEX.json could not be parsed: ${error.message}`);
   }
+}
+
+const sourceIndexCheck = spawnSync(
+  process.execPath,
+  [resolve(root, "scripts/update-source-index.mjs"), "--check"],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+);
+
+if (sourceIndexCheck.status !== 0) {
+  failures.push(
+    [
+      "Source index is stale or could not be checked.",
+      sourceIndexCheck.stdout.trim(),
+      sourceIndexCheck.stderr.trim(),
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
 }
 
 if (failures.length > 0) {

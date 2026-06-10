@@ -1,30 +1,37 @@
-# Nexus Domain Source Rebuild Snapshot
+# Nexus Source Mirror
 
-Date: 2026-06-10
+Status: active repo-side source mirror compatibility path
 
-## Purpose
+This folder was created during the 2026-06-10 domain-source rebuild, but its current repo role is the ongoing Nexus Source Mirror for app and ChatGPT GitHub-context workflows.
 
-This folder preserves the reviewed domain-first Nexus source rebuild for app/GitHub collaboration.
+The physical path remains:
 
-It is a source-reference snapshot, not app runtime code.
+`docs/nexus-domain-source-rebuild-2026-06-10/source`
 
-## Contents
+Keep this path until a deliberate rename migration updates bridge docs, validation checks, exact indexed GitHub paths, and any app/source-pack references in one reviewed batch.
 
-- `source\` - domain-first rebuilt Nexus source tree.
-- `phase-11-review\` - Phase 11 migration-readiness and staging review notes.
+## Authority Boundary
 
-## Status
+The mirror is useful repo context. It is not automatic live source authority.
 
-- Source Markdown docs: 186.
-- Top-level source domains: 15.
-- Live vault `00 Source` has since been migrated to the domain-first structure.
-- This snapshot was copied from the reviewed staging lane in `90 Codex Review`.
-- This app-side snapshot was created before live migration, so some `legacy_paths` metadata may still point at former live slot paths instead of the archived slot-source path.
+Current Nexus source truth remains:
 
-## Use
+`C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
 
-Use this snapshot as the app-side source reference while planning source-backed DM runtime, context packs, rules-core work, and local playable alpha tasks.
+If exact current source matters, inspect live local source before treating mirror content as current.
 
-Use the live domain-first vault source at `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source` when live source currentness matters.
+## Index Maintenance
 
-Do not treat this folder as authority to delete, overwrite, or supersede live vault source.
+Regenerate the source index whenever mirrored source documents are added, removed, renamed, or changed:
+
+`corepack pnpm run source:index`
+
+Check that the committed index is current:
+
+`corepack pnpm run source:index:check`
+
+Run the full workflow validator before closeout:
+
+`corepack pnpm run validate:workflow`
+
+Use the repo-local skill `.agents/skills/nexus-source-index-maintainer/SKILL.md` for future source-mirror index work.
