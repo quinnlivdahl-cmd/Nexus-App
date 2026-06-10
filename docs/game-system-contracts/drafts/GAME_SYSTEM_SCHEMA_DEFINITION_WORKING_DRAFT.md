@@ -1,0 +1,778 @@
+# Nexus Game System Schema Definition Working Draft
+
+Status: working draft / preservation + contract scaffold  
+Date created: 2026-06-10  
+Origin chat: `Draft — Game Systems Construction Order — 2026-06-10`  
+Primary mode: Draft  
+Repository role: app-facing game-system contract staging document  
+Canon status: not source canon; not live `00 Source`; not final implementation contract  
+
+## 0. Purpose
+
+This document is the evolving draft workspace for Nexus app-facing game-system schema and contract definition.
+
+It exists because the game system design sequence will require multiple Draft/Steward chats. Future chats should update this file rather than creating separate one-off preservation packets for each chat.
+
+Later, Codex may use this document as a staging artifact to update proper source files and/or implementation contract files. Until then, this document preserves accepted working prose, open questions, and schema sequence decisions.
+
+## 1. Placement / routing
+
+Intended placement:
+
+- Repo draft path: `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT.md`
+- Future source routing: Draft/Steward Review before promotion into live domain-first source.
+- Related issue sequence: #33, #34, #35, #36, #38, #39, #40, #41.
+
+What this supplements:
+
+- GitHub issue #33: game-rule/system sequencing epic.
+- GitHub issue #34: API DM / rules-core authority split.
+- GitHub issue #38: rules object model.
+- Existing noncombat scene, TacMap, content, and skill/revealed-option source context.
+
+What this replaces:
+
+- Nothing yet.
+
+Deletion / archive guidance:
+
+- Do not delete, overwrite, or supersede prior Nexus source based on this file alone.
+- This file is a staging draft and preservation artifact.
+- Old files may only be replaced after Codex/local source workflow verifies coverage and promotes changes deliberately.
+
+## 2. Construction sequence scaffold
+
+Current schema/contract construction order:
+
+```text
+Authority split
+→ turn transaction
+→ state lanes
+→ rules object contracts
+→ check families
+→ effect/state-delta grammar
+→ context broker
+→ character/progression schema
+→ ability schema
+→ A1 replacement docs
+→ thin implementation slice
+→ content systems
+```
+
+### 2.1 Current position
+
+Current position: **Authority Split / Rules Object Contract prework**.
+
+We began with the API DM / rules-core authority split. The discussion showed that the authority split cannot be written cleanly without first naming how DM fiction, player claims, scene entities, action surfaces, map options, and action tags enter play.
+
+This document therefore contains early object-model material that belongs near #34 and #38, but it does not complete either issue.
+
+### 2.2 Not yet completed
+
+The following are not complete:
+
+- API DM / rules-core authority split.
+- Turn transaction.
+- State lanes / mutation boundaries.
+- Full rules object model.
+- Check family contract.
+- Effect / state-delta grammar.
+- Context broker contract.
+- Character/progression schema.
+- Ability schema.
+- A1 replacement structure.
+
+## 3. Current accepted working decisions
+
+### 3.1 API DM / rules-core authority
+
+Accepted working rule:
+
+> The API DM may interpret player intent, frame scenes, invent narrative detail, create NPC speech/reactions, and introduce locations or fictional elements within defined scenario/rules boundaries. It may not create final mechanical truth. The app rules core remains sole authority for legality, cost, modifiers, rolls, result bands, effects, state deltas, and mechanical logs.
+
+Key distinction:
+
+- DM-created fiction = narrative, description, NPC behavior, room flavor, local complications, improvised scene dressing.
+- Rules-core mechanical truth = position, node access, HP/SI/AP/MP, exposure changes, inventory changes, statuses, clocks, damage, check results, legal action options.
+
+### 3.2 Combat/tactical space authority
+
+Accepted working rule:
+
+> Combat/tactical spaces use pre-generated base maps. The API DM may flavor those maps, describe them, and narratively dress them, but may not create new tactical nodes, cover, routes, hazards, objectives, or mechanically usable combat geometry unless the app/rules layer provides or validates them.
+
+Tactical mapped play boundary:
+
+- Map Options dominate.
+- The map/source/app presents the primary available options.
+- DM narration should clarify and flavor those options, not multiply them.
+- The DM should not create a second invisible map through narration.
+- Cover, line-of-fire, hazards, objectives, and major tactical options should be predefined by the TacMap/base-map/dressed-map or validated before encounter play.
+
+### 3.3 Noncombat text-space authority
+
+Accepted working rule:
+
+> Noncombat spaces are looser for now. The API DM may invent coherent text-based spaces, rooms, corridors, offices, crowds, shops, alleys, etc., provided they remain consistent with the scene, source constraints, and prior established facts. Any DM-invented object, person, route, clue, terminal, lock, hazard, or opportunity that becomes mechanically relevant must resolve through defined rules or systems.
+
+### 3.4 Player Claims
+
+Accepted working rule:
+
+> The DM does not merely classify things it already described. The player may assert a plausible object, feature, route, or function. If it is reasonable that the thing would exist, the DM must judge coherence and classify it if possible, rather than requiring the thing to have been pre-described.
+
+Player Claims are allowed in both noncombat text play and mapped play. Mapped tactical play is stricter because the map should provide the main option surface.
+
+A Player Claim does not automatically become mechanically real. It must be classified and validated before it can affect game state.
+
+## 4. Accepted vocabulary
+
+### 4.1 Scene Detail
+
+A **Scene Detail** is fictional description.
+
+- May be DM-invented.
+- Does not imply mechanical permission.
+- Example: `The corridor smells like hot insulation.`
+
+### 4.2 Player Claim
+
+A **Player Claim** is a player-proposed possible fact, object, route, feature, or function.
+
+Examples:
+
+- `Is there a service panel here?`
+- `Would this kind of station have maintenance lockers?`
+- `Can I find a staff-only route?`
+
+The DM may accept, deny, narrow, or classify a Player Claim based on coherence and rule/system support.
+
+### 4.3 Scene Entity
+
+A **Scene Entity** is a thing in fiction/map.
+
+Examples:
+
+- terminal
+- guard
+- door
+- locker
+- vent
+- pipe
+- drone
+- crowd
+- fire
+- locked path
+
+### 4.4 Action Surface
+
+An **Action Surface** is a specific rules-valid way to act on a Scene Entity.
+
+Examples:
+
+- unlock door
+- scan logs
+- spoof credential reader
+- disable alarm
+- search locker
+- persuade guard
+- use vent route
+
+Boundary:
+
+> The entity is not “interactable.” The entity may expose specific Action Surfaces.
+
+### 4.5 Map Option
+
+A **Map Option** is a player-facing option already represented by the tactical or nonviolent map.
+
+Examples:
+
+- node
+- path
+- cover marker
+- terminal
+- door
+- hazard
+- objective
+- NPC position
+- route marker
+- evidence marker
+- side opportunity marker
+
+In mapped tactical situations, Map Options dominate. DM narration should clarify them, not multiply them.
+
+## 5. Action Surface trigger
+
+Accepted working rule:
+
+> A Scene Detail, Player Claim, or Map Option becomes an Action Surface only when it can affect player choice through a defined action, skill hook, check, cost, risk, route, objective, reward, clue, status, counter, or state change.
+
+Clarifications:
+
+- Decorative map/background detail does not automatically become an Action Surface.
+- Deliberately presented Map Options usually are Action Surfaces because they affect movement, cover, visibility, objective work, hazards, routing, or tactical decisions.
+- DM narration should not create a hidden second map.
+- In tactical mapped play, the map remains the primary option surface.
+
+## 6. Origin and validation metadata
+
+“Authority State” was rejected as too weak.
+
+Replacement:
+
+```text
+Origin
+Validation State
+```
+
+These are **transaction/log metadata**, not gameplay tags.
+
+### 6.1 Origin
+
+Origin records where the Action Surface entered play.
+
+Examples:
+
+- Prepared — came from source/app/mission/map content.
+- DM-Established — DM created it during narration.
+- Player-Claimed — player proposed it as a plausible thing.
+- Derived — created by a prior rule result, check, effect, or state delta.
+
+### 6.2 Validation State
+
+Validation State records how mechanically real the surface is right now.
+
+Examples:
+
+- Fictional Only — exists in narration, no mechanics yet.
+- Proposed — may become actionable, pending classification.
+- Classified — assigned to a system surface/action route.
+- Validated — rules/app accepts it as usable.
+- Committed — it changed durable/encounter state.
+
+Accepted boundary:
+
+> Origin and Validation State are transaction/log metadata, not gameplay tags. They track how a proposed Action Surface entered play and when it became mechanically usable. They do not live as permanent player-facing tags unless needed for debugging, replay, audit, or contradiction handling.
+
+## 7. Internal hierarchy
+
+Accepted internal hierarchy:
+
+```text
+Scene Entity
+→ Surface Category
+→ Local Surface Detail
+→ Action Attempt
+```
+
+This hierarchy is an internal classification model, not a player-facing or DM-facing checklist.
+
+### 7.1 Layer meanings
+
+- Scene Entity = thing in scene/map.
+- Surface Category = broad rules-facing interaction family.
+- Local Surface Detail = fictional/content expression of that surface.
+- Action Attempt = what the player tries now.
+
+### 7.2 Anti-bloat rule
+
+During play, DM Mode should usually compress the model into natural language.
+
+Internal model example:
+
+```text
+Scene Entity: Security Terminal
+Surface Categories:
+- Gate Surface
+- Information Surface
+- Record / Surveillance Surface
+- System Status Surface
+
+Local Surface Details:
+- pressure-door permissions
+- patrol schedule
+- camera feed
+```
+
+Player-facing example:
+
+> The security terminal is live. It looks like it controls the pressure door, local camera feed, and station access records.
+
+The player does not need to see the taxonomy unless mechanical clarity is needed.
+
+## 8. Closed registries, flexible play
+
+Accepted working rule:
+
+> Closed registry applies to Surface Categories and Action Categories. Player wording stays freeform, but it must map to a defined Action Category.
+
+Closed:
+
+- Surface Categories.
+- Action Categories.
+
+Flexible:
+
+- Scene Entities.
+- Local Surface Details.
+- Player Claims.
+- Action Attempts.
+
+Surface Categories define what the action affects. Action Categories define what kind of action is being attempted. Player wording maps onto those categories rather than creating ad hoc actions.
+
+A terminal should not always be limited to a fixed set of actions, but player attempts should fall into defined tagged categories that can be modified by abilities, effects, tools, counters, or conditions.
+
+## 9. Provisional registry policy
+
+Accepted working rule:
+
+> We may create provisional category registries now. A later pass must add, merge, remove, rename, and refine them after testing against actual scenes, abilities, and app implementation.
+
+The current category axes are provisional rev0.1.
+
+## 10. Tag category axes rev0.1
+
+Accepted axes:
+
+```text
+Entity Class
+Entity Type
+Entity Properties
+Surface Category
+Action Category
+Skill / Ability Hooks
+```
+
+Important note:
+
+- We are defining category axes, not every tag yet.
+- Stress tests only check whether these axes work.
+
+### 10.1 Entity Class
+
+Accepted definition:
+
+> Entity Class = the broad family of scene/map thing being referenced. It tells the app, DM, and rules layer what kind of object/person/system/location feature this is before narrower type or properties are applied.
+
+Examples:
+
+- Barrier
+- Interface
+- NPC
+
+### 10.2 Entity Type
+
+Accepted definition:
+
+> Entity Type = the specific kind of thing within an Entity Class. It narrows the broad family into a usable object/person/system subtype.
+
+Examples:
+
+```text
+Entity Class: Barrier
+Entity Type: Door / Hatch / Bulkhead / Gate
+
+Entity Class: Interface
+Entity Type: Terminal / Console / Control Panel / Credential Reader
+
+Entity Class: NPC
+Entity Type: Guard / Clerk / Patrol / Witness / Technician
+```
+
+### 10.3 Entity Properties
+
+Accepted definition:
+
+> Entity Properties = traits or conditions on a Scene Entity that constrain what surfaces/actions are plausible, available, hidden, risky, easier, harder, or blocked.
+
+Examples:
+
+- Locked
+- Sealed
+- Networked
+- Alarmed
+- Watched
+- Logged
+- Credential-Gated
+- Damaged
+- Jammed
+- Hostile
+- Portable
+- Reinforced
+
+Boundary:
+
+> Entity Properties do not define actions by themselves. They shape eligibility, difficulty, visibility, risk, and consequences.
+
+### 10.4 Surface Category
+
+Accepted definition:
+
+> Surface Category = the kind of game outcome or system surface an interaction touches.
+
+Examples:
+
+- Gate
+- Route
+- Information
+- Record
+- Surveillance
+- Alarm
+- Pressure
+- Hazard
+- Objective
+- System Status
+- Resource
+- After Effect
+
+Boundary:
+
+> Surface Category answers “what part of the game can change?” Action Category answers “what is the player trying to do?”
+
+### 10.5 Action Category
+
+Accepted definition:
+
+> Action Category = the defined rules-facing action type that a freeform player attempt maps onto.
+
+Examples:
+
+- Access
+- View
+- Search
+- Edit
+- Spoof
+- Disable
+- Repair
+- Force
+- Bypass
+- Persuade
+- Deceive
+- Intimidate
+- Trade / Bribe
+- Move / Traverse
+- Secure / Carry
+- Treat / Stabilize
+- Damage / Destroy
+
+Boundary:
+
+> Player wording can be flexible, but resolution must map to an Action Category so abilities, penalties, tools, counters, and effects have defined handles.
+
+### 10.6 Skill / Ability Hooks
+
+Status: not accepted yet.
+
+This was raised but paused because it may be jumping the gun. It should be reconsidered only after deciding whether it is needed to close the tag-axis model or whether authority split should be completed first.
+
+## 11. Stress tests accepted as stress tests only
+
+These stress tests were used to validate the axes. They are not final registry definitions.
+
+### 11.1 Barrier stress test
+
+Status: accepted as good rev0.1 pressure test.
+
+Entity split:
+
+```text
+Entity Class
+→ Entity Type
+→ Entity Properties
+→ Surface Categories
+→ Action Categories
+```
+
+Entity Class:
+
+- Barrier
+
+Barrier Types:
+
+- Door
+- Hatch
+- Bulkhead
+- Gate
+- Barricade
+- Panel
+- Wall
+- Window
+- Checkpoint
+
+Barrier Properties:
+
+- Locked
+- Sealed
+- Manual
+- System-Controlled
+- Reinforced
+- Pressure-Rated
+- Transparent
+- Alarmed
+- Watched
+- Jammed
+- Breachable
+- One-Way
+
+These inform possible surfaces/actions, but are not actions themselves.
+
+Eligible Surface Categories:
+
+- Gate
+- Route
+- System Status
+- Hazard
+- Alarm
+- Record
+- Objective
+
+Action Categories:
+
+- Access
+- Force
+- Bypass
+- Disable
+- Repair
+- Spoof
+- Secure
+- Damage
+- Scan/View
+- Traverse
+
+Cover correction:
+
+> Cover should not be casually generated from barrier classification. Cover is a TacMap-defined relationship, not a free inference from any barrier. A barrier may be cover only when the TacMap/base map/dressed map explicitly defines it as cover or line-of-fire modifier.
+
+Do not use Line/Cover Surface as a default Barrier surface.
+
+Use map-level relationships instead:
+
+- No Cover
+- Half Cover
+- Full Cover
+- Visibility Block
+- Line-of-Fire Block
+
+That belongs to the map, not the barrier registry by default.
+
+Freeform to encounter transition:
+
+> A scene may begin as freeform exploration on a pre-dressed TacMap. If combat or a formal encounter triggers, the already-dressed map becomes the encounter map. Cover, routes, hazards, objectives, and important Map Options should already be defined or validated before the encounter begins.
+
+This prevents:
+
+```text
+DM freeforms room
+→ combat triggers
+→ DM suddenly invents cover geometry
+```
+
+Instead:
+
+```text
+base TacMap
+→ DM/source dressing
+→ freeform exploration
+→ encounter trigger
+→ same map becomes tactical
+```
+
+### 11.2 Terminal / Interface stress test
+
+Status: accepted as good rev0.1 pressure test.
+
+Entity Class:
+
+- Interface
+
+Entity Types:
+
+- Terminal
+- Console
+- Control Panel
+- Access Kiosk
+- Security Station
+- Medical Station
+- Engineering Panel
+- Ship System Interface
+- Network Node
+- Credential Reader
+
+Entity Properties:
+
+- Networked
+- Local-Only
+- Credential-Gated
+- Admin-Gated
+- Read-Only
+- Write-Capable
+- Alarmed
+- Watched
+- Logged
+- Encrypted
+- Damaged
+- Jammed
+- Firewalled
+- Hostile
+- Portable
+- Public
+- Restricted
+
+Eligible Surface Categories:
+
+- Gate
+- Information
+- Record
+- Surveillance
+- Alarm
+- System Status
+- Objective
+- Resource
+- Pressure
+- Hazard
+
+Action Categories:
+
+- Access
+- View
+- Search
+- Copy
+- Edit
+- Spoof
+- Disable
+- Repair
+- Trace
+- Lockout
+- Reroute
+- Authorize
+- Trigger
+
+Stress finding:
+
+> “Hack” should not be the action category. It is probably a method/skill lane. The actual action category is more like Access / View / Edit / Spoof / Disable / Copy / Trace / Lockout. That gives abilities real handles.
+
+### 11.3 Guard / NPC stress test
+
+Status: accepted as good rev0.1 pressure test.
+
+Entity Class:
+
+- NPC
+
+Entity Types:
+
+- Guard
+- Gatekeeper
+- Clerk
+- Technician
+- Patrol
+- Witness
+- Authority Figure
+- Civilian
+- Faction Agent
+- Prisoner / Captive
+
+Entity Properties:
+
+- Armed
+- Alert
+- Distracted
+- Hostile
+- Routine
+- Suspicious
+- Bribable
+- Intimidatable
+- Credential-Checking
+- Witness-Capable
+- Radio-Linked
+- Patrol-Linked
+- Faction-Tied
+- Injured
+- Scared
+- Busy
+
+Eligible Surface Categories:
+
+- Gate
+- Information
+- Pressure
+- Record / Witness
+- Alarm
+- Objective
+- Route
+- Resource
+- After Effect
+
+Action Categories:
+
+- Talk
+- Persuade
+- Deceive
+- Intimidate
+- Bribe / Trade
+- Distract
+- Observe
+- Question
+- Command
+- Bypass
+- Subdue
+- Threaten
+- Recruit
+- Escort
+
+Stress finding:
+
+> NPCs expose social and procedural surfaces, not just “conversation.”
+
+### 11.4 Discarded drift
+
+The Container / Locker / Cache pass was a drift.
+
+Status:
+
+- Do not treat it as accepted.
+- Do not preserve it as a decision.
+- It may be revisited later only if needed for a formal registry stress test.
+
+## 12. Open issues / next decision
+
+### 12.1 Immediate open question
+
+Skill / Ability Hooks remains unaccepted.
+
+Question for next chat:
+
+Should the next step be:
+
+A. finish the API DM / rules-core authority split contract now; or  
+B. finish the final axis definition for Skill / Ability Hooks only enough to close the tag-axis model, then return to authority split?
+
+Recommended handling:
+
+> Finish the API DM / rules-core authority split first, unless Skill / Ability Hooks is required to prevent ambiguity in the authority contract.
+
+### 12.2 Future update rule
+
+Future chats should update this file directly rather than creating a new preservation file for the same schema-definition effort.
+
+Each update should add:
+
+- date
+- mode/chat name
+- accepted decisions
+- rejected/drifted material
+- open questions
+- intended next decision
+
+## 13. Next-chat operating notes
+
+- Be concise.
+- One decision at a time.
+- Do not continue broad registry drafting.
+- Do not treat stress tests as final definitions.
+- Do not draft A1 replacement yet.
+- Do not draft ability trees yet.
+- Do not draft final source docs until the contract shape is stable.
+- Prod mushy wording.
+- When the user expands, use it as context for the next narrow decision.
