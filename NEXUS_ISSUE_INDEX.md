@@ -19,6 +19,7 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - Roadmap candidate: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
+- Domain-first source snapshot: `docs/nexus-domain-source-rebuild-2026-06-10/source`
 
 Older slot/admin source documents can provide historical context, but they are not controlling authority for the current Codex-driven admin workflow redesign unless the user explicitly restores them.
 
@@ -67,7 +68,7 @@ Use this section for useful ideas that are not ready, not urgent, or too broad f
 | Validation scripts | Needs stable templates first | Add after task packet fields stop changing |
 | MCP/subagents | Too much machinery for batch one | Revisit after repo-local workflow proves useful |
 | Exact file-location hardening | Mother Folder and GitHub repo structure still settling | Add exact locations and filenames to agent files after structure stabilizes |
-| Source-in-repo placement | Domain reorganization not complete | Add source to repo only after domain reorg is complete and placement is approved |
+| Domain-source live migration | App-side snapshot exists, but live vault source has not been replaced | Revisit after staged source review and live migration approval |
 
 ## Completed Issues
 
@@ -75,7 +76,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
-| TBD | TBD | TBD | TBD |
+| local | Add approved domain-first source snapshot to app repo and local mirror | `docs/nexus-domain-source-rebuild-2026-06-10/source` plus local mirror under `03 APP\Nexus AI DM App\app docs` | Use snapshot for Gate C source-backed context pack planning |
 
 ## Future Script Hooks
 
