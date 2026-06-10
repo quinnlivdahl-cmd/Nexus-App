@@ -49,6 +49,8 @@ Use `NEXUS_TASK_PACKET_TEMPLATE.md` when shaping new GitHub issues or task-intak
 
 Use `NEXUS_HANDOFF_TEMPLATE.md` when transferring context between Codex, ChatGPT, Replit, GitHub Issues, or a fresh work session.
 
+Use the thread title convention in `NEXUS_HANDOFF_TEMPLATE.md` when creating, forking, sending, or naming fresh Nexus work threads. If a Codex thread title tool is available, set the title immediately after creating or identifying the thread. If the title cannot be set from the current tool, include the suggested thread title in the handoff.
+
 When creating Replit tasks, use the task format in `NEXUS_LOCAL_PLAYABLE_ALPHA.md` plus any relevant Replit add-on from the task packet template.
 
 When doing Codex work sessions, keep work tied to one roadmap gate, one explicit task packet, or one GitHub issue when practical.

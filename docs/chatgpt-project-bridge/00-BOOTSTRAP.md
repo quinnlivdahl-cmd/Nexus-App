@@ -70,12 +70,14 @@ If this project lacks a needed file or current fact:
 
 ## Current Bridge Baseline
 
-This bootstrap works with:
+Upload or paste these seven baseline bridge files together when refreshing ChatGPT Project:
 
-- `01-SLOT-MAP.md`
-- `02-GLOBAL-PROJECT-INSTRUCTIONS.md`
-- `03-OPERATING-MODEL.md`
-- `04-REFRESH-AND-READINESS-RULES.md`
-- `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
+1. `00-BOOTSTRAP.md`
+2. `01-SLOT-MAP.md`
+3. `02-GLOBAL-PROJECT-INSTRUCTIONS.md`
+4. `03-OPERATING-MODEL.md`
+5. `04-REFRESH-AND-READINESS-RULES.md`
+6. `20-SOURCE-AUTHORITY-SUMMARY.md`
+7. `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
 
-The expanded source index is available for exact GitHub file retrieval, and `20-SOURCE-AUTHORITY-SUMMARY.md` is part of the bridge baseline. Prefer the source index and compact authority summary over uploading broad source snapshots.
+The expanded source index is available for exact GitHub file retrieval. Prefer the source index and compact authority summary over uploading broad source snapshots.

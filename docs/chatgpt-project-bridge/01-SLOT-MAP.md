@@ -17,17 +17,17 @@ Slots are upload/context roles, not source ownership lanes. A slot tells ChatGPT
 | Global instructions | `02-GLOBAL-PROJECT-INSTRUCTIONS.md` | Always-on behavior for ChatGPT Project | Material change to project behavior expectations |
 | Operating model | `03-OPERATING-MODEL.md` | Explains live source, repo/GitHub, ChatGPT, and Codex lanes | Lane or bridge model changes |
 | Refresh rules | `04-REFRESH-AND-READINESS-RULES.md` | Currentness, readiness, and upload rules | New refresh workflow or verification rule |
+| Source authority summary | `20-SOURCE-AUTHORITY-SUMMARY.md` | Compact authority lanes and indexed GitHub source retrieval guide | Source authority or source-index workflow changes |
 | Open plan | `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md` | Deferred questions and future packet plan | After each bridge planning batch |
 
 ## Future Packet Families
 
-These families are planned as bridge extension points. `20-SOURCE-AUTHORITY-SUMMARY.md` is populated now because indexed GitHub source retrieval needs a compact authority guide.
+These families are planned as bridge extension points after the seven-file baseline is uploaded. `20-SOURCE-AUTHORITY-SUMMARY.md` is now baseline, not a future packet.
 
 | Family | Planned file pattern | Purpose | Create when |
 |---|---|---|---|
 | Current state delta | `05-CURRENT-STATE-DELTA.md` | Short update on what changed since the last project refresh | A material source/repo/workflow change affects ChatGPT discussion |
 | Modes context | `10-MODES-CONTEXT.md` | Curated mode and operating behavior summary | Mode behavior is needed in ChatGPT Project |
-| Source authority summary | `20-SOURCE-AUTHORITY-SUMMARY.md` | Small map of source authority, domain-first source expectations, and indexed GitHub source retrieval | ChatGPT needs source orientation without full source upload |
 | App workflow context | `30-APP-WORKFLOW-CONTEXT.md` | Current app repo/GitHub issue workflow summary | ChatGPT is helping plan app/repo work |
 | Playtest context | `40-PLAYTEST-CONTEXT.md` | Active playtest state, constraints, and what is safe to improvise | ChatGPT is supporting a playtest session |
 | Targeted task packet | `task-packets/YYYY-MM-DD-topic.md` | One-off context for a specific chat, issue, or play session | A task needs narrow current context |
@@ -58,8 +58,8 @@ The index should not make the repo-side source pool live source authority by its
 
 ## Recommended Upload Order
 
-1. Upload the baseline bridge files together.
-2. Confirm ChatGPT Project can find and summarize the bootstrap, slot map, and refresh rules.
-3. Create or verify the repo-side source index before expecting GitHub on-demand source retrieval to work reliably.
+1. Upload the seven baseline bridge files together.
+2. Confirm ChatGPT Project can find and summarize the bootstrap, slot map, refresh rules, source authority summary, and source-index rule.
+3. Verify the repo-side source index before expecting GitHub on-demand source retrieval to work reliably.
 4. Add current-state delta only when a specific refresh is needed.
 5. Add task-specific packets only when a chat or playtest needs narrower context.

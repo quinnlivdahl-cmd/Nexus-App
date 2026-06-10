@@ -6,24 +6,18 @@ Status: upload-ready bridge file
 
 1. Should upload confirmations be tracked in this app repo, the older rebuild bridge ledger, or both during transition?
 2. Should a future `05-CURRENT-STATE-DELTA.md` become part of every baseline refresh?
-3. What exact ChatGPT Project searchability check should be used after the first upload?
+3. What exact ChatGPT Project searchability check should be used after the first seven-file baseline upload?
 4. When should the older rebuild-repo bridge scaffold be marked historical, if ever?
-5. After the source index exists, which source domains should get small task-specific guide packets first?
+5. Which source domains should get small task-specific guide packets first?
 
-## Immediate Content Task
+## Completed Content Task
 
-Create a deterministic source index for:
-
-`docs/nexus-domain-source-rebuild-2026-06-10/source`
-
-Minimum expected output:
+The deterministic source index for the repo-side expanded source pool has been created and should be verified by exact-path fetch when needed:
 
 - `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
-
-Optional companion:
-
 - `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json`
-- `docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md`
+
+`docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md` is now part of the seven-file bridge baseline.
 
 Purpose: allow ChatGPT to fetch necessary expanded context from GitHub by exact path during general Nexus discussion without keeping broad source zips in permanent Project Sources.
 
@@ -35,20 +29,21 @@ Create these only when needed:
 |---|---|---|
 | Current state delta | What changed since the last ChatGPT Project upload | Keep short and dated |
 | Modes context | Current operating modes and command expectations | Summarize, do not paste long admin docs |
-| Source authority summary | Domain-first source map plus GitHub source index pointers | Avoid bulk source copying |
+| Source authority extensions | Domain-specific authority notes beyond the baseline summary | Create only if a domain needs more routing detail than `20-SOURCE-AUTHORITY-SUMMARY.md` |
 | App workflow context | Issue queue, task packet workflow, validation expectations | Pull from repo/GitHub current state |
 | Playtest context | Active playtest state and safe improvisation boundaries | Refresh per play session |
 | Targeted task packet | One issue, chat, or design problem | Prefer this over broad refresh |
 
 ## First Upload Recommendation
 
-First upload the baseline bridge set:
+First upload the seven-file baseline bridge set:
 
 - `00-BOOTSTRAP.md`
 - `01-SLOT-MAP.md`
 - `02-GLOBAL-PROJECT-INSTRUCTIONS.md`
 - `03-OPERATING-MODEL.md`
 - `04-REFRESH-AND-READINESS-RULES.md`
+- `20-SOURCE-AUTHORITY-SUMMARY.md`
 - `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
 
 After upload, ask ChatGPT Project to summarize:
@@ -63,4 +58,4 @@ Record the upload and result before calling the project current for this bridge 
 
 ## First Non-Baseline Recommendation
 
-Before adding broad packets, verify the GitHub source index. Use `20-SOURCE-AUTHORITY-SUMMARY.md` as the durable source routing summary in Project Sources.
+Before adding broad packets, run the ChatGPT Project searchability check and verify that GitHub source-index retrieval works by fetching `SOURCE-INDEX.md` and one indexed source file. Then consider a narrow `05-CURRENT-STATE-DELTA.md` only when there is a specific source/repo/workflow change that ChatGPT needs for discussion.
