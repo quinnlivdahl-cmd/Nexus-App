@@ -8,6 +8,7 @@
     "local:dev": "node scripts/local-dev.mjs",
     "local:dev:api": "node scripts/local-dev.mjs api",
     "local:dev:app": "node scripts/local-dev.mjs app",
+    "validate:workflow": "node scripts/validate-nexus-workflow.mjs",
     "build": "corepack pnpm run typecheck && corepack pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",
     "typecheck": "corepack pnpm run typecheck:libs && corepack pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"

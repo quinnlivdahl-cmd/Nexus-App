@@ -1,0 +1,47 @@
+# Nexus label reference.
+#
+# GitHub does not read this file automatically by itself. It is the repo-local
+# label source of truth for future manual setup or a label-sync script.
+
+- name: status:needs-triage
+  color: "FBCA04"
+  description: Needs intake before it is ready work.
+- name: status:ready
+  color: "0E8A16"
+  description: Scoped, unblocked, and ready to execute.
+- name: status:blocked
+  color: "D93F0B"
+  description: Has a missing prerequisite or decision.
+- name: status:parked
+  color: "BFDADC"
+  description: Preserved but not near-term execution work.
+- name: status:in-progress
+  color: "1D76DB"
+  description: Actively being worked.
+- name: workflow:task-packet
+  color: "5319E7"
+  description: Uses the Nexus task packet workflow.
+- name: workflow:handoff
+  color: "C5DEF5"
+  description: Transfers context between Codex, ChatGPT, Replit, or GitHub.
+- name: platform:codex
+  color: "0052CC"
+  description: Best executed or reviewed in Codex.
+- name: platform:replit
+  color: "F97316"
+  description: Best executed in Replit.
+- name: platform:chatgpt
+  color: "7C3AED"
+  description: Best discussed, drafted, or refined in ChatGPT.
+- name: type:code
+  color: "0E8A16"
+  description: Code implementation or refactor.
+- name: type:docs
+  color: "0075CA"
+  description: Documentation, workflow docs, or source-facing text.
+- name: type:source
+  color: "B60205"
+  description: Nexus source, source-routing, or source-pack work.
+- name: type:tooling
+  color: "5319E7"
+  description: Scripts, validation, automation, or repo tooling.

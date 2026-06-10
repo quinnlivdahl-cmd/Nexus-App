@@ -47,7 +47,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | in-progress | Roadmap Lane 5 / workflow automation | none | Batch-one instruction and index layer |
+| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | in-progress | Roadmap Lane 5 / workflow automation | none | Add issue template, labels reference, first skills, folder agent files, and workflow validation |
 
 ## Blocked Issues
 
@@ -64,8 +64,6 @@ Use this section for useful ideas that are not ready, not urgent, or too broad f
 | Item | Reason parked | Revisit trigger |
 |---|---|---|
 | GitHub Projects board | Markdown index comes first | Add after issue template and label conventions stabilize |
-| Repo-local skills | Needs stable packet/index language first | Add after batch-one files are used on real issues |
-| Validation scripts | Needs stable templates first | Add after task packet fields stop changing |
 | MCP/subagents | Too much machinery for batch one | Revisit after repo-local workflow proves useful |
 | Exact file-location hardening | Mother Folder and GitHub repo structure still settling | Add exact locations and filenames to agent files after structure stabilizes |
 | Domain-source live migration | App-side snapshot exists, but live vault source has not been replaced | Revisit after staged source review and live migration approval |
@@ -77,6 +75,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
 | local | Add approved domain-first source snapshot to app repo and local mirror | `docs/nexus-domain-source-rebuild-2026-06-10/source` plus local mirror under `03 APP\Nexus AI DM App\app docs` | Use snapshot for Gate C source-backed context pack planning |
+| #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 
 ## Future Script Hooks
 

@@ -1,0 +1,87 @@
+name: Nexus Task Packet
+description: Create a Nexus task packet for Codex, Replit, ChatGPT, or GitHub execution.
+title: "[Nexus Task]: "
+labels:
+  - status:needs-triage
+  - workflow:task-packet
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this issue template when a task should become transferable work.
+        Keep the task small enough to execute and verify.
+  - type: input
+    id: task-name
+    attributes:
+      label: Task name
+      description: Short human-readable name for the work.
+    validations:
+      required: true
+  - type: dropdown
+    id: task-type
+    attributes:
+      label: Task type
+      options:
+        - code implementation
+        - source/document work
+        - planning/design
+        - Replit task
+        - handoff/continuation
+        - workflow/tooling
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be true when this task is complete?
+    validations:
+      required: true
+  - type: textarea
+    id: planning-anchor
+    attributes:
+      label: Planning anchor
+      description: Link the roadmap lane, issue, source doc, or local planning file that controls this task.
+    validations:
+      required: true
+  - type: textarea
+    id: readiness
+    attributes:
+      label: Prerequisites / readiness
+      description: State whether this is ready now, blocked, or parked.
+      value: |
+        Ready now:
+        Missing prerequisites:
+        Blocking issue to create/update:
+        Recommended action:
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      value: |
+        In scope:
+        Out of scope:
+        Do Not Do:
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation / review method
+      description: Commands, manual checks, review gates, or acceptance criteria.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / challenge
+      description: What should Codex challenge before executing?
+  - type: textarea
+    id: next-action
+    attributes:
+      label: Next action
+      description: The next safe action for Codex, Replit, ChatGPT, or a human reviewer.
+    validations:
+      required: true
