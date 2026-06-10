@@ -81,6 +81,7 @@ Future scripts may automate this sequence, but the human-readable evidence shoul
 - The snapshot was created before live migration, so its `legacy_paths` may still need a downstream refresh.
 - Treat the snapshot as app-side source reference for context-pack and rules-core work, but do not treat it as authority to delete or overwrite live vault source.
 - Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
+- The repo-trackable ChatGPT Project bridge layer lives at `docs/chatgpt-project-bridge`. Those files are upload-ready context for the ChatGPT Nexus Project, but upload is not complete until the user confirms it or a refresh ledger records it.
 - Do not treat GitHub Issues as game/source authority; issues transfer work, context, and acceptance criteria.
 - Do not treat local implementation shortcuts as Nexus rules.
 - If source docs and app implementation disagree, report the mismatch and avoid silent rule rewrites.

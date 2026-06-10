@@ -17,6 +17,13 @@ const requiredFiles = [
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
   "scripts/AGENTS.md",
+  "docs/chatgpt-project-bridge/README.md",
+  "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
+  "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
+  "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+  "docs/chatgpt-project-bridge/03-OPERATING-MODEL.md",
+  "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+  "docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
 ];
 
 const sectionChecks = [
@@ -55,6 +62,30 @@ const sectionChecks = [
       "## Parked Work",
       "## Completed Issues",
       "## Future Script Hooks",
+    ],
+  },
+  {
+    file: "docs/chatgpt-project-bridge/README.md",
+    includes: [
+      "repo-trackable bridge layer",
+      "Upload Set",
+      "ChatGPT Project consumes them as external context",
+    ],
+  },
+  {
+    file: "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
+    includes: [
+      "Slots are upload/context roles",
+      "Future Packet Families",
+      "Do not bulk-copy live `00 Source`",
+    ],
+  },
+  {
+    file: "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+    includes: [
+      "verified-current-for-scope",
+      "Upload Confirmation Rule",
+      "Never use these states as proof of live source currentness.",
     ],
   },
 ];

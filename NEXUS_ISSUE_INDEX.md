@@ -50,11 +50,11 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | Add the next ready issue after #42 closeout |
+| #44 | Create ChatGPT Project bridge layer docs | in-progress | ChatGPT Project bridge handoff and accepted implementation plan | none listed | Create bridge docs, validate workflow, commit/push, and add closeout evidence |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-10 after Issue 42 closeout. GitHub reported 40 open issues.
+Last synced: 2026-06-10 after Issue 44 creation. GitHub reported 41 open issues.
 
 ### Workflow / Control Lane
 
@@ -68,6 +68,7 @@ Last synced: 2026-06-10 after Issue 42 closeout. GitHub reported 40 open issues.
 | #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
 | #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
 | #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | workflow | none listed | Chat/session focus discipline |
+| #44 | Create ChatGPT Project bridge layer docs | workflow | none listed | Active bridge-layer docs for ChatGPT Nexus Project upload context |
 
 ### App Critical Path
 
