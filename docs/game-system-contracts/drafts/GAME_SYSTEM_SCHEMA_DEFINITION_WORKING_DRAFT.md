@@ -820,3 +820,25 @@ Status notes:
 - It does not replace existing source files.
 - Context Broker is not mechanical authority.
 - Old files may not be deleted or superseded based on this update alone.
+
+### 14.4 Accepted Game State Store term and boundary
+
+Accepted decision: use **Game State Store** as the authority-role term for state custody.
+
+Working definition:
+
+> Game State Store is the app-owned custody layer for current and historical game state. It stores committed state, exposes allowed state slices to the UI, Rules Core, and Context Broker, and records validated state deltas and logs. It does not resolve rules or create mechanical truth.
+
+Authority boundary:
+
+- Game State Store holds and exposes state.
+- Game State Store does not decide legality, costs, modifiers, rolls, result bands, effects, or state deltas.
+- Game State Store may not mutate state directly from API DM narration.
+- Game State Store may expose hidden state only through allowed app/context rules.
+
+Status notes:
+
+- This supplements #34 and #36.
+- It does not replace existing source files.
+- Game State Store is custody authority, not mechanical authority.
+- Old files may not be deleted or superseded based on this update alone.
