@@ -26,12 +26,14 @@ Older slot/admin source documents can provide historical context, but they are n
 ## Index Rules
 
 - Keep active work tied to GitHub issue numbers when possible.
+- List the full known open GitHub issue queue, not only the currently active issue.
 - Keep issue packets small enough to execute and verify.
 - Mark blocked tasks as blocked instead of forcing an implementation plan.
 - Link prerequisite issues from blocked or parked work.
 - Move completed work out of active sections after verification.
 - Preserve useful parked ideas without treating them as ready execution work.
 - Do not use this index as a substitute for Nexus source authority or app implementation truth.
+- When GitHub and this index disagree, refresh the index from GitHub or the latest verified transition file before planning new work.
 
 ## Readiness States
 
@@ -47,7 +49,79 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | in-progress | Roadmap Lane 5 / workflow automation | none | Add issue template, labels reference, first skills, folder agent files, and workflow validation |
+| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | in-progress | Roadmap Lane 5 / workflow automation | none | Use the workflow on real issues and close remaining gaps |
+
+## Known Open GitHub Issues
+
+Last synced: 2026-06-10 from the public GitHub Issues API. GitHub reported 41 open issues.
+
+### Workflow / Control Lane
+
+| Issue | Title | Queue role | Depends on | Notes |
+|---|---|---|---|---|
+| #2 | Establish repo collaboration lanes for Nexus App | support | none listed | Active workflow/control work |
+| #3 | Create GitHub issue and PR templates for Nexus AI collaboration | support | none listed | Overlaps with Issue 42 template/label work |
+| #6 | Plan Domain Source text-doc reorganization for repo and GitHub collaboration | support | none listed | Source/repo planning, not app-runtime critical path |
+| #22 | Create root README and AGENTS instructions for Nexus App | support | none listed | Partly advanced by repo `AGENTS.md`; README still needs review |
+| #23 | Create admin operating model docs for repo-first collaboration | support | none listed | Repo-first collaboration docs |
+| #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
+| #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
+| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | workflow | none | Current automation/work-intake issue |
+| #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | workflow | none listed | Chat/session focus discipline |
+
+### App Critical Path
+
+| Issue | Title | Gate | Queue role | Depends on | Notes |
+|---|---|---|---|---|---|
+| #7 | Prove local launch and runtime foundation | A | blocker | none listed | First app runtime gate |
+| #8 | Add recoverable local save export and import flow | B | dependent | #7 | Local state/recovery |
+| #9 | Build source-backed context pack for app DM runtime | C | dependent | #7 | Source-backed context foundation |
+| #10 | Route DM and scene image AI calls through local backend | D | dependent | #7, #9 | Backend/local AI path |
+| #11 | Add app-native campaign seed and reset path | D | dependent | #7, #9 | New app-native campaign start |
+| #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
+| #14 | Let the AI DM trigger and populate encounters automatically during play | E | dependent | #10, #11, #12 | Narrative-to-encounter bridge |
+| #4 | Prepare API-DM plus deterministic rules-core scaffold | F foundation | blocker | none listed | Rules-core foundation |
+| #5 | Define first rules-core vertical slice | F | dependent | #4 | First minimum rules slice |
+| #13 | Make the encounter screen actually playable - turn order, movement, and actions | F | dependent | #12, #4, #5 | Encounter interaction after harness/rules slice |
+
+### Support / Extension / Later
+
+| Issue | Title | Gate | Queue role | Depends on | Notes |
+|---|---|---|---|---|---|
+| #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | E support | standalone | #12 | Playtest support |
+| #16 | UI readability pass - contrast, font sizes, and backdrop scrims | support | standalone | none | Usability polish |
+| #17 | Give each backdrop its own default node web | later | standalone | #12 | Encounter quality, later |
+| #18 | Build a searchable index of the Nexus vault for fast rules lookup | C extension | dependent | #9 | Source lookup extension |
+| #19 | Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes | D extension | dependent | #10, #11 | DM quality tuning |
+| #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | C support | standalone | #9 | Debug/validation surface |
+| #21 | Let the DM look up vault rules mid-session when a specific rule reference is needed | C extension | dependent | #18, #10 | Second-step retrieval feature |
+
+### Rules-Core / System Design Sequence
+
+| Issue | Title | Queue role | Depends on | Notes |
+|---|---|---|---|---|
+| #33 | Epic: Sequence Nexus app-facing game-rule/system design | epic | none listed | Parent/design sequence for rules-core work |
+| #34 | Define API DM / rules-core authority split | design | #33 | Authority boundaries between AI DM and rules core |
+| #35 | Define turn transaction for API DM + rules-core play | design | #33, #34 | Turn flow contract |
+| #36 | Define game state lanes and mutation boundaries | design | #33, #34 | State ownership and mutation rules |
+| #38 | Define rules object model for actions, checks, effects, and logs | design | #33, #34 | Core rule object model |
+| #39 | Define check family contract | design | #38 | Check contract detail |
+| #40 | Define effect and state-delta grammar | design | #38 | Effects and state-change language |
+| #41 | Define compact DM context broker contract | design | #34, #35 | Context broker contract |
+
+Note: #37 is closed and is therefore not listed in the open queue.
+
+### Source / Play Document Tasks
+
+| Issue | Title | Queue role | Depends on | Notes |
+|---|---|---|---|---|
+| #26 | Draft pre-node crew sheets, level-up, and loadout display for E-43 | source/play doc | none listed | Draft-facing play support |
+| #27 | Draft DM display backpatch for narrative, rolls, state, and options | source/play doc | none listed | DM display procedure |
+| #28 | Draft route-node end report and encounter result templates | source/play doc | none listed | Route/encounter closeout templates |
+| #29 | Draft encounter start package template for DM and TacMap setup | source/play doc | none listed | Encounter-start package |
+| #30 | Draft check-display examples and noncombat scene procedure template | source/play doc | none listed | Noncombat/check display |
+| #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure |
+| #32 | Improve character chassis and origin sheet usability for play | source/play doc | none listed | Character sheet usability |
 
 ## Blocked Issues
 
