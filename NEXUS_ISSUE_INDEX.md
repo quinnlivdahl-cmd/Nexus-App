@@ -50,7 +50,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | in-progress | Roadmap Lane 5 / workflow automation | none | Use the workflow on real issues and close remaining gaps |
+| TBD | TBD | TBD | TBD | TBD | Add the next ready issue after #42 closeout |
 
 ## Known Open GitHub Issues
 
@@ -67,7 +67,7 @@ Last synced: 2026-06-10 from the public GitHub Issues API. GitHub reported 41 op
 | #23 | Create admin operating model docs for repo-first collaboration | support | none listed | Repo-first collaboration docs |
 | #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
 | #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
-| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | workflow | none | Current automation/work-intake issue |
+| #42 | Plan Codex Agent and Skill Automation Upgrade for Nexus | done | none | Repo-side workflow surface is complete; close GitHub issue after final comment |
 | #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | workflow | none listed | Chat/session focus discipline |
 
 ### App Critical Path
@@ -139,7 +139,7 @@ Use this section for useful ideas that are not ready, not urgent, or too broad f
 | Item | Reason parked | Revisit trigger |
 |---|---|---|
 | GitHub Projects board | Markdown index comes first | Add after issue template and label conventions stabilize |
-| MCP/subagents | Too much machinery for batch one | Revisit after repo-local workflow proves useful |
+| MCP/subagents | Later workflow expansion, not required for Issue 42 completion | Revisit after the repo-local workflow proves useful on real issues |
 | Exact file-location hardening | Mother Folder and GitHub repo structure still settling | Add exact locations and filenames to agent files after structure stabilizes |
 | App snapshot `legacy_paths` refresh | Live vault source has been migrated, but the app-side snapshot was created before live migration | Revisit before source-backed context-pack generation if path traceability matters |
 
@@ -152,6 +152,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | local | Add approved domain-first source snapshot to app repo and local mirror | `docs/nexus-domain-source-rebuild-2026-06-10/source` plus local mirror under `03 APP\Nexus AI DM App\app docs` | Use snapshot for Gate C source-backed context pack planning |
 | local | Complete domain-source live migration | Live `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh app snapshot `legacy_paths` separately if needed |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
+| #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, and `validate:workflow` all exist and validate | Close the GitHub issue; continue live labels/milestones in #25 |
 
 ## Future Script Hooks
 
