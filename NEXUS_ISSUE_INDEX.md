@@ -50,11 +50,11 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #46 | Finalize ChatGPT bridge baseline and thread title convention | in-progress | ChatGPT bridge closeout | none | Validate and commit final bridge/thread title updates |
+| TBD | TBD | TBD | TBD | TBD | Add the next ready issue after #46 closeout |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-10 after Issue 46 creation. GitHub reported 41 open issues.
+Last synced: 2026-06-10 after Issue 46 closeout. GitHub reported 40 open issues.
 
 ### Workflow / Control Lane
 
@@ -68,7 +68,6 @@ Last synced: 2026-06-10 after Issue 46 creation. GitHub reported 41 open issues.
 | #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
 | #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
 | #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | workflow | none listed | Chat/session focus discipline |
-| #46 | Finalize ChatGPT bridge baseline and thread title convention | workflow | none listed | Bridge baseline and thread-title convention closeout |
 
 ### App Critical Path
 
@@ -155,6 +154,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
 | #45 | Create source mirror index maintenance workflow | Repo-side source mirror role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Physical path rename deferred to a deliberate migration batch because exact indexed paths and bridge references depend on the compatibility path |
+| #46 | Finalize ChatGPT bridge baseline and thread title convention | `docs/chatgpt-project-bridge` final baseline updates plus handoff/thread-title convention wiring committed in `9df8037`; issue-index closeout follow-up committed separately | ChatGPT Project still needs an actual upload/searchability confirmation before it can be called refreshed |
 
 ## Future Script Hooks
 
