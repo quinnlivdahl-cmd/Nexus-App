@@ -799,3 +799,24 @@ Status notes:
 ### 14.2 Intended next decision
 
 Next narrow decision: define the authority split in terms of **who may propose, who may validate, who may resolve, and who may mutate state**.
+
+### 14.3 Accepted Context Broker boundary
+
+Accepted decision: include **Context Broker** as a fifth authority-role in the authority split, but only as context authority.
+
+Working definition:
+
+> The Context Broker decides what context the API DM sees. It does not decide legality, rolls, effects, state deltas, or final truth.
+
+Implementation note:
+
+- Context Broker does not have to be a separate external API.
+- It may be app-side scripts/functions, indexes and retrieval rules, cached summaries, prompt assembly logic, or later a separate service/API if useful.
+- Its expected value is to reduce prompt bloat and likely reduce API cost by sending compact relevant context instead of broad game state, rules, lore, and history.
+
+Status notes:
+
+- This supplements #34 and later #41.
+- It does not replace existing source files.
+- Context Broker is not mechanical authority.
+- Old files may not be deleted or superseded based on this update alone.
