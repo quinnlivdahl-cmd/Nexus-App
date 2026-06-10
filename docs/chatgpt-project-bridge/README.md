@@ -19,15 +19,32 @@ Upload or paste these files into ChatGPT Project together when refreshing the br
 3. `02-GLOBAL-PROJECT-INSTRUCTIONS.md`
 4. `03-OPERATING-MODEL.md`
 5. `04-REFRESH-AND-READINESS-RULES.md`
-6. `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
+6. `20-SOURCE-AUTHORITY-SUMMARY.md`
+7. `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
 
 `README.md` may be uploaded too, but its main job is repo-side orientation.
+
+## Expanded Source Pool
+
+A repo-side expanded source pool may exist at:
+
+`docs/nexus-domain-source-rebuild-2026-06-10/source`
+
+This folder is useful for richer ChatGPT discussion, but it is not automatically live source authority. ChatGPT should use it through explicit indexed paths, source status notes, and currentness caveats.
+
+Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool should include a deterministic index file such as:
+
+- `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
+- optionally `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json`
+
+The index should list exact repo paths, source roles, domain ownership, status/currentness notes, and retrieval keywords so ChatGPT can fetch needed files directly instead of relying on broad permanent uploads.
 
 ## Authority Boundaries
 
 - Live source authority is `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
 - App workflow and implementation authority lives in this repo and GitHub Issues.
 - ChatGPT Project context is curated, useful, and allowed to be stale when labeled. It is not source authority.
+- The expanded source pool is a repo-side context source for discussion and targeted retrieval. It does not override live local source authority unless the local workflow explicitly promotes or verifies it.
 - Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove live source currentness.
 
 ## Refresh Rule
@@ -35,4 +52,3 @@ Upload or paste these files into ChatGPT Project together when refreshing the br
 Do not claim ChatGPT Project has been refreshed until the selected files have actually been uploaded/pasted and that action is confirmed or logged.
 
 When the bridge files change, future agents should update this repo first, validate the workflow, then prepare a named upload set for ChatGPT Project.
-

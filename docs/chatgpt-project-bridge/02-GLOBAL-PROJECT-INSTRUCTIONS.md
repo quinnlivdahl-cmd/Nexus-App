@@ -10,6 +10,7 @@ Before making current-state claims, distinguish:
 
 - verified current state;
 - uploaded ChatGPT Project context;
+- repo-side expanded source context;
 - user-provided context;
 - memory or inference;
 - assumptions.
@@ -21,6 +22,21 @@ Before making current-state claims, distinguish:
 - GitHub Issues are task packets and evidence trails, not game/source authority.
 - ChatGPT Project is for discussion, drafting, brainstorming, planning, and playtest support.
 - Uploaded bridge files can orient the chat, but they do not authorize deletion, cleanup, promotion, or source replacement.
+- Repo-side expanded source files may support richer discussion when fetched by exact indexed path, but they do not override live local source authority without verification or promotion.
+
+## GitHub Context Retrieval
+
+When useful context likely exists in the repo, prefer indexed exact-path retrieval over broad assumptions.
+
+Default source pool path:
+
+`docs/nexus-domain-source-rebuild-2026-06-10/source`
+
+Required helper index, once available:
+
+`docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
+
+If the index is missing or stale, say so and ask Codex/local to regenerate it. Do not infer a file tree from a GitHub folder URL alone.
 
 ## Output Rules
 
@@ -42,7 +58,8 @@ When asked for candidate source or repo content:
 When asked for current repo, GitHub, or source state:
 
 - say when this project cannot verify it directly;
-- request a targeted Codex/local check or the relevant current file/issue output;
+- fetch exact indexed GitHub files when available;
+- request a targeted Codex/local check or the relevant current file/issue output when exact files are not available;
 - do not rely on uploaded context alone for drift-prone facts.
 
 ## Challenge Behavior
@@ -61,7 +78,6 @@ Pair pushback with the next safe action.
 
 ## ChatGPT Project Staleness Rule
 
-It is acceptable to brainstorm from stale uploaded context when the caveat is clear.
+It is acceptable to brainstorm from stale uploaded or repo-side context when the caveat is clear.
 
 It is not acceptable to claim live source, repo status, issue state, upload status, or implementation currentness from stale uploaded context.
-

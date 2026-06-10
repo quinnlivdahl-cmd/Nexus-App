@@ -23,7 +23,10 @@ const requiredFiles = [
   "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
   "docs/chatgpt-project-bridge/03-OPERATING-MODEL.md",
   "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+  "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
   "docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+  "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
+  "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json",
 ];
 
 const sectionChecks = [
@@ -88,6 +91,22 @@ const sectionChecks = [
       "Never use these states as proof of live source currentness.",
     ],
   },
+  {
+    file: "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+    includes: [
+      "Source Authority Summary",
+      "SOURCE-INDEX.md",
+      "source-index-needed",
+    ],
+  },
+  {
+    file: "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
+    includes: [
+      "Nexus Domain Source Rebuild Source Index",
+      "Indexed Markdown files: 186",
+      "ChatGPT should fetch exact indexed GitHub paths",
+    ],
+  },
 ];
 
 const failures = [];
@@ -106,6 +125,37 @@ for (const check of sectionChecks) {
     if (!text.includes(expected)) {
       failures.push(`${check.file} is missing required text: ${expected}`);
     }
+  }
+}
+
+const sourceIndexJsonPath = resolve(
+  root,
+  "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json",
+);
+
+if (existsSync(sourceIndexJsonPath)) {
+  try {
+    const sourceIndex = JSON.parse(
+      readFileSync(sourceIndexJsonPath, "utf8").replace(/^\uFEFF/, ""),
+    );
+    if (sourceIndex.file_count !== 186) {
+      failures.push(
+        `SOURCE-INDEX.json expected 186 indexed files, found ${sourceIndex.file_count}`,
+      );
+    }
+
+    for (const item of sourceIndex.files ?? []) {
+      if (!item.exact_repo_path) {
+        failures.push("SOURCE-INDEX.json contains an item without exact_repo_path");
+        continue;
+      }
+
+      if (!existsSync(resolve(root, item.exact_repo_path))) {
+        failures.push(`SOURCE-INDEX.json points to a missing file: ${item.exact_repo_path}`);
+      }
+    }
+  } catch (error) {
+    failures.push(`SOURCE-INDEX.json could not be parsed: ${error.message}`);
   }
 }
 

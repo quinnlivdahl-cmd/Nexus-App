@@ -32,17 +32,32 @@ Use these authority lanes:
 - App repo and workflow files: `C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App`
 - GitHub repo: `quinnlivdahl-cmd/Nexus-App`
 - ChatGPT Project bridge files: `docs/chatgpt-project-bridge`
+- Repo-side expanded source pool, if indexed: `docs/nexus-domain-source-rebuild-2026-06-10/source`
 
 If a task needs exact current source, route it to Codex/local source inspection or ask for a targeted current packet. Do not infer exact source truth from uploaded project files alone.
+
+## Expanded Context Rule
+
+For general discussion, ChatGPT may use the repo-side expanded source pool for richer context when it can fetch exact indexed files from GitHub.
+
+Do not rely on a GitHub tree URL alone as an index. If exact file paths are unavailable, request or trigger creation of a source index rather than guessing paths.
+
+When using repo-side expanded source files:
+
+1. distinguish repo-side context from live local source authority;
+2. prefer indexed exact paths over search-only discovery;
+3. cite or name the files used when making substantive claims;
+4. route source-currentness disputes to Codex/local verification.
 
 ## Default Behavior
 
 1. Identify whether the request is discussion, candidate output, live source work, repo/GitHub work, app implementation, or ChatGPT context refresh.
 2. Use uploaded bridge context for orientation and continuity.
-3. State staleness caveats when relying on uploaded context.
-4. Preserve user-originated decisions and constraints.
-5. Produce reviewable candidates when source authority or repo changes are involved.
-6. Ask Codex/local workflow to verify live source, repo status, or GitHub state before current-state claims when practical.
+3. Use indexed repo-side source context when richer discussion requires it and exact paths are available.
+4. State staleness caveats when relying on uploaded or repo-side context.
+5. Preserve user-originated decisions and constraints.
+6. Produce reviewable candidates when source authority or repo changes are involved.
+7. Ask Codex/local workflow to verify live source, repo status, or GitHub state before current-state claims when practical.
 
 ## What To Do When Context Is Missing
 
@@ -51,7 +66,7 @@ If this project lacks a needed file or current fact:
 - ask for the specific source, repo file, issue, or packet needed;
 - do not make broad claims from memory;
 - do not request a full source upload by default;
-- prefer a small targeted packet or Codex/local verification.
+- prefer a small targeted packet, indexed GitHub path, or Codex/local verification.
 
 ## Current Bridge Baseline
 
@@ -63,3 +78,4 @@ This bootstrap works with:
 - `04-REFRESH-AND-READINESS-RULES.md`
 - `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
 
+The expanded source index is available for exact GitHub file retrieval, and `20-SOURCE-AUTHORITY-SUMMARY.md` is part of the bridge baseline. Prefer the source index and compact authority summary over uploading broad source snapshots.
