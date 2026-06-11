@@ -27,7 +27,7 @@ Do not invent alternate handoff destinations. If the handoff is actually an issu
 
 | Date | Handoff | Topic | Status | Related issue/lane | Destination file | Next safe action |
 |---|---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | TBD | Add the first non-issue ChatGPT handoff when one is created. |
+| 2026-06-10 | Nexus self-learning automation research prompt | Safe repo-visible learning automation research | ready-for-Codex-research | none yet; non-issue Codex research handoff | `docs/chatgpt-project-bridge/handoffs/2026-06-10-nexus-self-learning-automation-research-prompt.md` | Codex should run the embedded research prompt and produce `SELF_LEARNING_AUTOMATION_RESEARCH.md` or print the candidate report. |
 
 ## Handoff Packet Template
 
