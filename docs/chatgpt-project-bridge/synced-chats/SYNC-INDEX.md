@@ -31,6 +31,7 @@ Synced chat packets are context, not execution approval. A receiving Codex sessi
 
 | Date | Packet | Topic | State | Related issue/lane | Next safe action |
 |---|---|---|---|---|---|
+| 2026-06-11 | `2026-06-11-handoff-automation-planning.md` | Handoff/synced-chat packet generator automation planning | planning-only | Workflow automation follow-up to Issue #43 | Planning chat should summarize readiness and shape a narrow implementation issue or task packet before Codex edits files. |
 | 2026-06-10 | `2026-06-10-issue-43-session-discipline-planning.md` | Issue #43 ChatGPT-Codex session discipline planning | planning-only | GitHub Issue #43 | Codex read-only discovery, then scoped implementation only after current user approval. |
 
 ## Packet Template
