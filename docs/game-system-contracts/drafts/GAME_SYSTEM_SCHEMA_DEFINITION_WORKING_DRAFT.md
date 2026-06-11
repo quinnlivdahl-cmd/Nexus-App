@@ -875,3 +875,153 @@ Status notes:
 - It does not replace existing source files.
 - Player is intent authority, not mechanical authority.
 - Old files may not be deleted or superseded based on this update alone.
+
+### 14.6 Accepted API DM authority role
+
+Accepted decision: define **API DM** as interpretation and narration authority.
+
+Working definition:
+
+> API DM is interpretation and narration authority. It interprets player intent, asks clarifying questions when needed, frames scenes, presents fiction, portrays NPCs, proposes classifications, and narrates resolved outcomes. It may propose what an action appears to mean, but it does not create final mechanical truth. Legality, cost, check family, modifiers, result bands, effects, state deltas, and mechanical logs belong to the Rules Core.
+
+Playtest exception:
+
+> During playtest only, the API DM may propose temporary rulings when rules are missing or unclear. Those rulings must be marked temporary, logged, and routed for review before becoming durable rules. In the eventual app-facing rules contract, if an action cannot be validated, the system should reject it, ask for clarification, or suggest nearby valid options.
+
+Authority boundary:
+
+- API DM may interpret messy player intent.
+- API DM may translate natural language into a proposed action attempt.
+- API DM may ask clarifying questions before resolution.
+- API DM may frame scene description.
+- API DM may portray NPC speech, reaction, mood, and behavior.
+- API DM may present or propose visible/plausible options, but may not create final valid options.
+- API DM may propose Scene Entity / Action Surface classification.
+- API DM may narrate resolved mechanical outcomes after the Rules Core resolves them.
+- API DM may not directly mutate game state, decide final legality, decide final cost/modifier/roll/result/effect/state delta, override the Game State Store, invent tactical map geometry, expose hidden state unless provided/allowed, or make a Player Claim mechanically true without validation.
+
+Short boundary:
+
+> API DM says what the action seems to mean. Rules Core decides what the action mechanically is.
+
+Status notes:
+
+- This supplements #34 and #38.
+- It does not replace existing source files.
+- API DM is interpretation/narration/proposal authority, not mechanical authority.
+- Old files may not be deleted or superseded based on this update alone.
+
+### 14.7 Accepted input-to-response transaction spine
+
+Accepted decision: use the following app-facing order of operations for receiving and responding to user input.
+
+Transaction spine:
+
+> Player input → UI packages → Context Broker assembles → API DM interprets → Rules Core validates → invalid/unclear branch if needed → Rules Core resolves → Game State Store commits → API DM narrates → UI displays.
+
+Expanded flow:
+
+1. Player input received.
+2. UI / App Shell packages input with actor, scene, selected target if any, map position, current turn/phase, and raw player wording.
+3. Context Broker assembles relevant visible state, allowed hidden/internal state, recent history, rules packets, source excerpts, and current constraints.
+4. API DM interprets intent into proposed meaning, including intended action, target, possible Action Surface, possible Action Category, and whether clarification is needed.
+5. Rules Core validates whether the proposed action is legal.
+6. If invalid or unclear, the system rejects, asks clarification, or suggests nearby valid options. During playtest only, temporary rulings may be proposed and must be logged/routed.
+7. Rules Core resolves cost, check family, modifiers, roll/result if needed, result band, effects, and state deltas.
+8. Game State Store commits validated state changes and mechanical log.
+9. API DM narrates resolved outcome from committed/resolved facts.
+10. UI / App Shell displays narration, mechanics, resource changes, updated options, map/state changes, and next prompt.
+
+Status notes:
+
+- This supplements #34, #35, #38, and later #41.
+- It does not replace existing source files.
+- This is a transaction scaffold, not final implementation code.
+- Old files may not be deleted or superseded based on this update alone.
+
+### 14.8 Accepted Rules Core authority role
+
+Accepted decision: define **Rules Core** as mechanical authority.
+
+Working definition:
+
+> Rules Core is mechanical authority. It validates whether a proposed action is legal, determines costs, selects or confirms the check family, applies modifiers, resolves rolls/results, produces effects, creates state deltas, and writes the mechanical log. It does not interpret freeform player intent, invent fiction, narrate outcomes, or directly decide what context the API DM sees.
+
+Authority boundary:
+
+- Rules Core may validate action legality.
+- Rules Core may determine costs, check family, modifiers, result bands, effects, and state deltas.
+- Rules Core may resolve rolls/results and write the mechanical log.
+- Rules Core may reject invalid proposed actions.
+- Rules Core may return nearby valid options when an action is invalid or unclear.
+- Rules Core may not interpret freeform player intent, invent fiction, narrate outcomes, decide what context the API DM receives, or directly present player-facing prose except through structured outputs.
+
+Short boundary:
+
+> Rules Core decides what mechanically happens. It does not decide how the outcome is narrated.
+
+Status notes:
+
+- This supplements #34, #35, #38, #39, and #40.
+- It does not replace existing source files.
+- Rules Core is mechanical authority, not narration or context authority.
+- Old files may not be deleted or superseded based on this update alone.
+
+### 14.9 Accepted Game State Store authority role refinement
+
+Accepted decision: refine **Game State Store** as state-custody authority.
+
+Working definition:
+
+> Game State Store is state-custody authority. It stores committed game state, exposes allowed state slices to the UI, Rules Core, and Context Broker, and records validated state deltas and mechanical logs. It does not validate actions, resolve checks, create effects, interpret intent, invent fiction, or narrate outcomes.
+
+Authority boundary:
+
+- Game State Store may store durable campaign state.
+- Game State Store may store encounter, scene, and turn state.
+- Game State Store may store actor resources, statuses, position, inventory, clocks, counters, and logs.
+- Game State Store may expose visible state to UI.
+- Game State Store may expose permitted state slices to Context Broker.
+- Game State Store may provide current state to Rules Core.
+- Game State Store may preserve hidden/internal state when needed.
+- Game State Store may not mutate state from API DM narration, decide legality, decide rolls/modifiers/costs/result bands/effects, expose hidden state unless allowed, or rewrite committed logs except through explicit correction/versioning.
+
+Short boundary:
+
+> Game State Store remembers what is true. Rules Core decides what becomes true.
+
+Status notes:
+
+- This supplements #34 and #36.
+- It refines the earlier 14.4 Game State Store boundary; it does not replace source files.
+- Game State Store is custody authority, not mechanical authority.
+- Old files may not be deleted or superseded based on this update alone.
+
+### 14.10 Accepted UI / App Shell authority role
+
+Accepted decision: define **UI / App Shell** as input and presentation authority.
+
+Working definition:
+
+> UI / App Shell is input and presentation authority. It receives player input, presents available controls/options/state, displays narration and mechanical results, and packages user actions into structured requests for the transaction pipeline. It does not interpret intent, resolve rules, create fiction, mutate state, or decide hidden truth.
+
+Authority boundary:
+
+- UI / App Shell may capture freeform text input.
+- UI / App Shell may capture clicks, selections, map interactions, and target choices.
+- UI / App Shell may display visible state, resources, map position, options, logs, and prompts.
+- UI / App Shell may package raw input with actor, scene, phase, target, and selected option metadata.
+- UI / App Shell may present clarification prompts, rejection messages, and nearby valid options.
+- UI / App Shell may display resolved narration and mechanical output.
+- UI / App Shell may not decide action legality, decide costs/rolls/modifiers/result bands/effects/state deltas, expose hidden state unless allowed, treat displayed narration as state mutation, or invent options not supplied or validated by the app/rules layer.
+
+Short boundary:
+
+> UI / App Shell shows and collects. Rules Core resolves. Game State Store remembers. API DM narrates.
+
+Status notes:
+
+- This supplements #34, #35, #38, and #41.
+- It does not replace existing source files.
+- UI / App Shell is presentation/input authority, not mechanical or narrative authority.
+- Old files may not be deleted or superseded based on this update alone.
