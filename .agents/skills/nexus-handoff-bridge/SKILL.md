@@ -29,6 +29,14 @@ Workflow:
 7. Include platform-specific continue prompts for Codex, ChatGPT, and Replit when the handoff crosses tools.
 8. Keep the handoff short enough to use directly.
 
+ChatGPT synced-chat creation rule:
+
+- If the user asks for a synced chat, planning chat, Stewy/GPT context, or ChatGPT Project context to be pulled by GPT, create or update the repo-side packet and matching index under `docs/chatgpt-project-bridge/`.
+- If GPT is expected to find the packet from GitHub, validate when practical, commit, and push the packet/index change before closeout.
+- Return the exact repo/GitHub path and a copy-ready ChatGPT opening prompt.
+- Do not create, fork, send to, or continue a Codex thread for this request unless the user explicitly asks for a Codex thread.
+- Do not claim ChatGPT Project refresh/searchability is complete unless upload/searchability is confirmed or logged.
+
 Approved ChatGPT bridge lookup paths:
 
 - `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
@@ -48,3 +56,4 @@ Do not:
 - omit what has already been checked.
 - omit the suggested thread title when creating or continuing a separate work thread.
 - treat synced-chat packets or handoffs as execution approval by themselves.
+- treat a Codex thread as a ChatGPT Project synced chat.

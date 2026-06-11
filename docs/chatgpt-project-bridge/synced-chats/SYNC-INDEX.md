@@ -27,6 +27,8 @@ Do not invent alternate synced-chat destinations. If a packet needs a more speci
 
 Synced chat packets are context, not execution approval. A receiving Codex session may summarize readiness and next safe action, but must not edit files, run validation, commit, push, update GitHub, or close issues unless the user's current message authorizes that work.
 
+When Codex creates a synced-chat packet for ChatGPT Project or Stewy to pull, Codex should update this index and push the packet to GitHub when the user expects GPT to find it from the repo. Do not create a Codex planning thread as a stand-in for ChatGPT Project sync unless the user explicitly asks for a Codex thread.
+
 ## Index
 
 | Date | Packet | Topic | State | Related issue/lane | Next safe action |
@@ -56,6 +58,8 @@ State: planning-only | ready-for-issue | ready-for-Codex | parked
 ## Next Recommended Codex Action
 
 ## What Not To Redo
+
+## ChatGPT Opening Prompt
 
 ## Notes
 ```

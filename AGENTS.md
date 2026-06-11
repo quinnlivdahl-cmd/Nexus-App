@@ -56,6 +56,8 @@ Fresh handoff chats must not auto-start app work merely because a handoff, conti
 
 For ChatGPT Project sync, treat broad planning, general design discussion, speculative architecture, issue-shaping, and "what should we do next?" work as normal ChatGPT Project work unless current local repo truth, source inspection, file edits, validation, commits, pushes, issue updates, or source-authority checks are needed. Codex should actively suggest moving that kind of discussion to ChatGPT Project to conserve Codex usage.
 
+When the user asks Codex to create a synced chat, planning chat, or ChatGPT Project context for GPT/Stewy to pull, do not create a Codex thread unless the user explicitly asks for a Codex thread. The correct Codex action is to create or update the repo-side bridge packet, update the matching bridge index, validate the workflow when practical, commit and push the repo change if the user expects GPT to find it from GitHub, and return the exact GitHub/repo path plus a copy-ready ChatGPT prompt. A Codex thread is not a substitute for a ChatGPT Project synced-chat packet.
+
 When the user references ChatGPT, Stewy, a synced chat, a planning chat, or a non-issue handoff, check these repo bridge locations before assuming context is missing:
 
 1. `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
