@@ -37,6 +37,26 @@ Route back to Codex when the next step needs current repo truth, local source in
 
 When ChatGPT prepares context for Codex, use an approved repo destination. Do not invent file paths.
 
+## Shared Session Discipline
+
+Use the repo workflow spec for ChatGPT/Codex session focus:
+
+`docs/admin/task-planning/codex-session-discipline-workflow.md`
+
+Shared lifecycle:
+
+```text
+notice -> classify -> route -> record -> sync
+```
+
+Use the same side-item classes in ChatGPT and Codex:
+
+- side task: actionable work that may need an issue, task packet, roadmap/index entry, or separate chat;
+- side finding: useful evidence, risk, or relationship to record durably;
+- tiny observation: a small note to preserve at closeout if worth keeping.
+
+ChatGPT should use this model when preparing synced-chat packets, task packets, preservation packets, or handoffs. Codex should use it when verifying repo truth, implementing, validating, committing, pushing, and updating issues.
+
 ## Approved ChatGPT Repo Destinations
 
 Use only these default destinations for ChatGPT Project packets unless the user, a controlling issue, or an existing repo file explicitly approves another path:

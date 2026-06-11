@@ -79,6 +79,15 @@ body:
       label: Risks / challenge
       description: What should Codex challenge before executing?
   - type: textarea
+    id: side-items
+    attributes:
+      label: Side items / closeout routing
+      description: Where should off-scope findings, follow-ups, or tiny observations be routed?
+      value: |
+        Expected side-item handling:
+        Follow-up routing:
+        Do not pursue:
+  - type: textarea
     id: next-action
     attributes:
       label: Next action

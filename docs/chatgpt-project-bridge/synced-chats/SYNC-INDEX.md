@@ -31,7 +31,7 @@ Synced chat packets are context, not execution approval. A receiving Codex sessi
 
 | Date | Packet | Topic | State | Related issue/lane | Next safe action |
 |---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | Add the first synced ChatGPT packet when one is created. |
+| 2026-06-10 | `2026-06-10-issue-43-session-discipline-planning.md` | Issue #43 ChatGPT-Codex session discipline planning | planning-only | GitHub Issue #43 | Codex read-only discovery, then scoped implementation only after current user approval. |
 
 ## Packet Template
 

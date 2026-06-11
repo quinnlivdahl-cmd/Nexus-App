@@ -29,6 +29,9 @@ Suggested thread title:
 ## Closeout Evidence
 
 
+## Side Items / Closeout Routing
+
+
 ## Decisions Made
 
 
@@ -127,6 +130,7 @@ Use state suffixes sparingly:
 - Separate inspected files from changed files.
 - State whether the task is local-only, committed, pushed, ready to close, or closed.
 - Include closeout evidence when the handoff ends a task.
+- Include side items and closeout routing when the session noticed off-scope work, follow-ups, or tiny observations worth preserving.
 - Include blockers and unresolved questions.
 - Include one next safe action.
 - Include platform-specific continue prompts when the handoff is meant to cross tools.

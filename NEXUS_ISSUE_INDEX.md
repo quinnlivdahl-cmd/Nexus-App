@@ -60,7 +60,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-10 after Issue 47 closeout. GitHub reported 40 open issues.
+Last synced: 2026-06-11 after Issue 43 closeout. GitHub reported 39 open issues after #43 is closed.
 
 ### Workflow / Control Lane
 
@@ -73,7 +73,6 @@ Last synced: 2026-06-10 after Issue 47 closeout. GitHub reported 40 open issues.
 | #23 | Create admin operating model docs for repo-first collaboration | support | none listed | Repo-first collaboration docs |
 | #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
 | #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
-| #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | workflow | none listed | Chat/session focus discipline |
 
 ### App Critical Path
 
@@ -162,6 +161,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #45 | Create source mirror index maintenance workflow | Repo-side source mirror role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Physical path rename deferred to a deliberate migration batch because exact indexed paths and bridge references depend on the compatibility path |
 | #46 | Finalize ChatGPT bridge baseline and thread title convention | `docs/chatgpt-project-bridge` final baseline updates plus handoff/thread-title convention wiring committed in `9df8037`; issue-index closeout follow-up committed separately | ChatGPT Project still needs an actual upload/searchability confirmation before it can be called refreshed |
 | #47 | Create repo-accessible roadmap mirror and maintained issue index | `docs/nexus-roadmap` roadmap mirror/index, `scripts/update-roadmap-index.mjs`, `roadmap:index` scripts, maintainer skill, bridge pointers, and `validate:workflow` roadmap-index checks | ChatGPT Project still needs upload or exact-path retrieval confirmation before the roadmap can be called refreshed there |
+| #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | Discovery report added to Issue #43, session discipline workflow spec added, repo-local session skill added, task/handoff/bridge templates wired, synced-chat index updated, and `validate:workflow` plus `typecheck` passed | Do not build duplicate-check, observation-mining, or packet-index automation until separate follow-up issues scope them |
 
 ## Future Script Hooks
 

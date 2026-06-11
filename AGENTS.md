@@ -18,6 +18,7 @@ Before app work, read:
 4. `replit.md`.
 5. The workspace instructions at `C:\Nexus Mother Folder\AGENTS.md`.
 6. Relevant Nexus source docs named by the task, roadmap, or app planning files.
+7. `docs/admin/task-planning/codex-session-discipline-workflow.md` for non-trivial planning, handoff, issue, or multi-step Codex work.
 
 ## Product Direction
 
@@ -65,6 +66,30 @@ When creating Replit tasks, use the task format in `NEXUS_LOCAL_PLAYABLE_ALPHA.m
 
 When doing Codex work sessions, keep work tied to one roadmap gate, one explicit task packet, or one GitHub issue when practical.
 
+## Session Discipline
+
+For non-trivial Nexus work, use `docs/admin/task-planning/codex-session-discipline-workflow.md` and `.agents/skills/nexus-session-discipline/SKILL.md`.
+
+Start with a compact session frame when the task is not a simple answer:
+
+- controlling issue, packet, handoff, or user request;
+- repo/workspace path;
+- active goal;
+- work mode: discovery, candidate output, live edit, validation, commit/push, or closeout;
+- allowed file and external-system actions;
+- sources to inspect first;
+- out-of-scope areas;
+- likely validation;
+- split or stop conditions.
+
+Side items may be noticed and recorded, but should not be pursued unless they block current work, are explicitly requested, or are needed for acceptance criteria. Classify side items as:
+
+- side task: actionable work that may need an issue, task packet, roadmap/index entry, or separate chat;
+- side finding: useful evidence, risk, or relationship to record durably;
+- tiny observation: a small note to preserve at closeout if worth keeping.
+
+Route side items to existing approved destinations: GitHub issue/comment, `NEXUS_ISSUE_INDEX.md`, roadmap/index, synced-chat packet, task packet, handoff, or source-router workflow. If no destination is clear, ask for the route in plain language.
+
 ## Progress and Closeout
 
 For issue-based work, keep progress visible:
@@ -72,6 +97,7 @@ For issue-based work, keep progress visible:
 - say what is being checked before broad claims;
 - name the current phase when work moves from intake to implementation, validation, commit, push, or GitHub closeout;
 - distinguish done locally from done on GitHub;
+- include side items and closeout routing when side items appeared;
 - do not call an issue complete until required repo changes are committed, pushed, validated, and the GitHub issue is ready to close or already closed.
 
 Use this closeout order for GitHub issue tasks:

@@ -33,6 +33,7 @@ Platform owner:
 Handoff target:
 Validation / review method:
 Risks / challenge:
+Side items / closeout routing:
 Open questions:
 Next action:
 Closeout evidence:
@@ -51,6 +52,7 @@ For active issue work, progress updates should be short but concrete. Use them t
 - what phase the task is in;
 - what files, issue comments, or source docs are being checked;
 - whether work is local-only, committed, pushed, or closed on GitHub;
+- whether side items were noticed and where they will be routed;
 - what validation is still pending.
 
 Avoid saying a task is complete when the precise state is only "implemented locally", "committed but not pushed", or "ready to close".
@@ -61,6 +63,7 @@ An issue can be called complete when the task's `Done when` condition is satisfi
 
 - files changed or intentionally unchanged;
 - checks or validation run;
+- side items routed or explicitly dismissed;
 - commit pushed, when repo files changed;
 - GitHub issue comment added, when applicable;
 - GitHub issue closed, when the issue itself is complete.
@@ -121,5 +124,6 @@ Future scripts should be able to check whether a packet includes:
 - `Do Not Do`;
 - validation method;
 - progress notes;
+- side items / closeout routing;
 - next action;
 - closeout evidence.
