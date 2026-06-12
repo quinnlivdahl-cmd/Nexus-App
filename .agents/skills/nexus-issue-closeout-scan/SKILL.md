@@ -1,26 +1,28 @@
 ---
 name: nexus-issue-closeout-scan
-description: Use when scanning Nexus GitHub issues to find issues whose substantive work is complete and only closeout mechanics remain, or whose closure is blocked by one or two small routing or acceptance decisions.
+description: Use when scanning Nexus GitHub issues for near-complete work that can be quickly finished, formally closed, and synchronized across GitHub, repo indexes, roadmap/bridge references, and final reports.
 metadata:
-  short-description: Close closeout-ready Nexus issues
+  short-description: Finish and close near-complete Nexus issues
 ---
 
-# Nexus Issue Closeout Scan
+# Nexus Issue Closeout Sprint
 
-Use this skill for Nexus repo issue sweeps where the goal is to formally close issues that are already done in substance.
+Use this skill for Nexus repo issue sweeps where the goal is to quickly finish near-complete issues and unify closure status everywhere the work is tracked.
 
 ## Core Distinction
 
-Do not search for "admin issues" as a category. Search for any issue whose only remaining work is administrative closeout:
+Do not search for "admin issues" as a category. Search for issues where the remaining work is small enough to close in the same batch:
 
+- one or two small acceptance, routing, or wording decisions;
+- a small missing doc/code/index edit;
+- a quick evidence or cross-link update;
 - local validation;
-- repo index or roadmap update;
+- repo index, roadmap, bridge, skill, or handoff status update;
 - commit and push;
 - final issue evidence comment;
-- GitHub issue close;
-- one or two small user decisions about routing, acceptance, or closeout wording.
+- GitHub issue close.
 
-If an issue still needs design, implementation, source promotion, missing files, live labels/milestones, validation, or more than two material decisions, leave it open and explain why.
+If an issue still needs non-trivial design, implementation, source promotion, missing major files, live label/milestone setup, broad validation, or more than two material decisions, leave it open and explain why.
 
 ## Required First Pass
 
@@ -33,12 +35,15 @@ If an issue still needs design, implementation, source promotion, missing files,
 
 Classify each likely candidate as one of:
 
+- `quick-close`: one small finishing pass plus closeout mechanics should complete it.
 - `closeout-ready`: acceptance criteria are satisfied and only closeout mechanics remain.
-- `decision-ready`: acceptance criteria are almost satisfied, but one or two small decisions control closure.
+- `decision-ready`: acceptance criteria are almost satisfied, but one or two small decisions control completion or closure.
 - `not-closeout-ready`: substantive work remains.
 - `blocked`: closure depends on missing permissions, unavailable source truth, failed validation, or user decisions larger than the current batch.
 
 Use evidence, not vibes. Quote issue numbers, file paths, commits, and checks.
+
+Prefer closing a small coherent batch over auditing the whole repo forever. When many candidates exist, start with the highest-confidence `quick-close` and `closeout-ready` issues, then report the remaining candidates.
 
 ## Decision Prompts
 
@@ -50,17 +55,39 @@ For `decision-ready` issues, present only the blocking decisions and the consequ
 
 Do not ask questions that can be answered by inspecting files or GitHub.
 
+## Quick Finishing Work
+
+For `quick-close` issues, finish only the last small piece needed for formal closure. Good examples:
+
+- add a missing cross-link from an index to an already-created artifact;
+- add a short bridge, roadmap, skill, or README pointer to already-accepted workflow;
+- move an issue from an open table to completed evidence;
+- add a final acceptance note or status caveat;
+- run a known validation command and record the result.
+
+Do not expand the issue into new design, implementation, cleanup, migration, or source-promotion work. If the issue tries to grow, reclassify it as `not-closeout-ready` or ask for the one controlling decision.
+
 ## Closeout Sequence
 
 For each issue approved or verified for closure:
 
-1. Make any required repo edits, keeping them scoped to the issue.
+1. Make any required quick finishing edits, keeping them scoped to the issue.
 2. Run the relevant validation commands when practical.
-3. Update `NEXUS_ISSUE_INDEX.md` and any controlling index so the issue state matches reality.
+3. Update `NEXUS_ISSUE_INDEX.md` and every relevant status surface so the issue state matches reality.
 4. Commit and push repo changes before claiming GitHub-visible completion.
 5. Add a final GitHub issue comment with evidence: files changed, commit, validation, and why acceptance is satisfied.
 6. Close the issue with the correct state reason.
 7. Re-fetch the issue or issue list to confirm it is closed.
+
+Relevant status surfaces may include:
+
+- GitHub issue state, labels, milestone, and final comment;
+- `NEXUS_ISSUE_INDEX.md`;
+- `NEXUS_ISSUE_TRANSITION.md` when it still carries current queue truth;
+- `docs/nexus-roadmap/ROADMAP.md` and `ROADMAP-INDEX.md` when roadmap lane issue lists changed;
+- `docs/chatgpt-project-bridge` indexes or packets when bridge visibility changed;
+- repo-local skills, templates, handoffs, or task packets that name the issue;
+- final report and reupload warnings.
 
 If the closeout changed any ChatGPT Project bridge upload-set file under `docs/chatgpt-project-bridge`, the final report must include a visible reupload warning naming the changed upload-set files. Do not call ChatGPT Project current until upload/paste and confirmation have happened.
 
@@ -71,6 +98,8 @@ If push or GitHub write access fails, stop after local commit/validation and rep
 Report:
 
 - issues closed;
+- quick finishing work performed;
+- status surfaces synchronized;
 - decision-ready issues still waiting on user choice;
 - issues left open and why;
 - files changed;
