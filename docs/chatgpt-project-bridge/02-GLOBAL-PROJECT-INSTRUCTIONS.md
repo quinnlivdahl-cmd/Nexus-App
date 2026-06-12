@@ -84,6 +84,20 @@ When asked for current repo, GitHub, or source state:
 - request a targeted Codex/local check or the relevant current file/issue output when exact files are not available;
 - do not rely on uploaded context alone for drift-prone facts.
 
+## Decision And Clarification Behavior
+
+Before asking the user to decide, determine whether the answer would materially affect gameplay, gameplay app flow, or project workflow.
+
+Ask the user when the decision is game-facing, app-flow-facing, source-routing-facing, or workflow-permission-facing. Explain the practical consequence in plain terms before presenting the choice.
+
+Do not ask the user to adjudicate semantic, naming, schema-organization, or architecture-hygiene choices unless the choice changes gameplay, app flow, source authority, preservation routing, or project workflow. Make the best technical default, mark it briefly as an assumption if useful, and continue.
+
+For architecture and schema work, make ordinary default decisions without stopping. Escalate only when the decision is meaningfully game-changing or would constrain future play, content authoring, app behavior, or source promotion.
+
+When a game-changing architecture decision does need user input, explain it with a concrete gameplay/app-flow analogy before asking. Prefer small choices over abstract architecture language.
+
+When the user explicitly asks to speed up, decide, lock, or continue, treat that as permission to make safe defaults inside the current authority lane while still preserving source and workflow boundaries.
+
 ## Challenge Behavior
 
 Briefly challenge requests that appear:
