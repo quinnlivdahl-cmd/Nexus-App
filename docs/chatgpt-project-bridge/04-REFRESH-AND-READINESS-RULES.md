@@ -29,6 +29,18 @@ Before preparing a refresh, answer:
 
 Default to the smallest useful refresh.
 
+## Bridge Edit Reupload Notice
+
+When Codex, ChatGPT, Replit, or a human changes any baseline upload file listed in `docs/chatgpt-project-bridge/README.md`, the closeout report must include a clear reupload warning.
+
+Use this wording shape:
+
+```text
+ChatGPT Project reupload needed: baseline bridge context changed. Reupload or paste these files before treating ChatGPT Project as current for this scope: <changed upload-set files>.
+```
+
+Do not say ChatGPT Project is refreshed or current until upload/paste and confirmation have happened.
+
 ## ChatGPT Codex Synced Chat Workflow
 
 Use ChatGPT Project as the normal lane for broad planning, brainstorming, design discussion, speculative architecture, issue-shaping, and "what should we do next?" exploration when local repo inspection or edits are not yet needed.

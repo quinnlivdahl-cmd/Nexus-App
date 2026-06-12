@@ -62,6 +62,8 @@ For each issue approved or verified for closure:
 6. Close the issue with the correct state reason.
 7. Re-fetch the issue or issue list to confirm it is closed.
 
+If the closeout changed any ChatGPT Project bridge upload-set file under `docs/chatgpt-project-bridge`, the final report must include a visible reupload warning naming the changed upload-set files. Do not call ChatGPT Project current until upload/paste and confirmation have happened.
+
 If push or GitHub write access fails, stop after local commit/validation and report the exact remaining closeout steps.
 
 ## Output

@@ -26,6 +26,8 @@ Upload or paste these files into ChatGPT Project together when refreshing the br
 
 `README.md` may be uploaded too, but its main job is repo-side orientation.
 
+Reupload notice rule: whenever any upload-set file above changes, the closeout report must explicitly warn that ChatGPT Project baseline context is stale until those changed files are reuploaded or pasted into the Project and confirmed. The warning should name the changed upload-set files.
+
 Do not upload changing packet indexes as permanent ChatGPT Project Sources. Files such as `synced-chats/SYNC-INDEX.md`, `handoffs/HANDOFF-INDEX.md`, synced-chat packets, handoff packets, preservation packets, task packets, evolving drafts, and source draft candidates live in the GitHub repo as current working artifacts. ChatGPT should use the stable bridge files to learn the exact repo paths, then fetch, request, or ask Codex to inspect the current GitHub files when current packet state matters.
 
 ## Synced Chat Destinations
