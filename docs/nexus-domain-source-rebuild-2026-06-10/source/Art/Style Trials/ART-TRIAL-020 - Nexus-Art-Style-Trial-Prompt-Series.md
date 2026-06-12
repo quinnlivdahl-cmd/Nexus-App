@@ -13,14 +13,14 @@ topic_family: "art_style_trials"
 created: "2026-06-12"
 last_updated: "2026-06-12"
 metadata_verified: false
-metadata_notes: "ChatGPT-created Art-domain style trial packet. Needs Codex/local verification, index regeneration, and live-source promotion review before being treated as source authority."
+metadata_notes: "ChatGPT-created Art-domain style trial packet. Palette test broadened from fixed color recipes to palette attitudes. Needs Codex/local verification, index regeneration, and live-source promotion review before being treated as source authority."
 ---
 
 # Nexus Art Style Trial Prompt Series
 
 ## Purpose
 
-Prepare a comparable prompt series for testing Nexus visual style, palette, TacMap readability, character identity, equipment/interface consistency, and small-object readability.
+Prepare a comparable prompt series for testing Nexus visual style, palette behavior, TacMap readability, character identity, equipment/interface consistency, and small-object readability.
 
 This packet is a **non-canon visual trial**. It supports Art Direction and Art Production, but it does not establish final Nexus visual canon by itself.
 
@@ -56,7 +56,7 @@ Save generated images into:
 Recommended filenames:
 
 - `trial-01-master-style-grid-5x5.png`
-- `trial-02-palette-grid-5x5.png`
+- `trial-02-palette-attitude-grid-5x5.png`
 - `trial-03-tacmap-focused-grid.png`
 - `trial-04-character-focused-grid.png`
 - `trial-05-object-and-ui-grid.png`
@@ -68,13 +68,15 @@ Do not embed large image binaries directly into Markdown. Store images as separa
 
 Apply this visual lock to every prompt unless intentionally testing an exception:
 
-Nexus is grounded NASApunk / cyber-noir tactical science fiction. The world should feel practical, modular, militarized, corporate, lived-in, hazardous, and readable as a tactics game. Favor practical NASA-like industrial design, cyberpunk density, dieselpunk grit, exposed mechanicals, patched hulls, analog backups, thick cables, hazard markings, utilitarian crew gear, off-white panels, worn orange safety markings, faded teal diagnostics, emergency red, warning yellow, electric cyan accents, matte armor plates, canvas, polymer, brushed metal, rubberized seals, scuffed paint, tactical webbing, industrial displays, and restrained faction icons.
+Nexus is grounded NASApunk / cyber-noir tactical science fiction. The world should feel practical, modular, militarized, corporate, lived-in, hazardous, and readable as a tactics game. Favor practical NASA-like industrial design, cyberpunk density, dieselpunk grit, exposed mechanicals, patched hulls, analog backups, thick cables, hazard markings, utilitarian crew gear, matte armor plates, canvas, polymer, brushed metal, rubberized seals, scuffed paint, tactical webbing, industrial displays, restrained faction icons, readable tactical composition, and clear material separation.
 
-Avoid fantasy, superhero armor, cyberpunk fashion, punk hair, exaggerated silhouettes, glossy toy-like plastic, overdesigned anime weapons, neon overload, Star Trek cleanliness, military-parade styling, generic blue hologram everything, and fashion-model character styling.
+Common Nexus colors may include off-white panels, worn orange safety markings, faded teal diagnostics, emergency red, warning yellow, electric cyan accents, graphite, gunmetal, olive, sand, oxide, navy, amber, violet, and other controlled industrial/signal colors. These are available ingredients, not a rule that the whole game must collapse into beige/gray/orange.
+
+Avoid fantasy, superhero armor, cyberpunk fashion, punk hair, exaggerated silhouettes, glossy toy-like plastic, overdesigned anime weapons, uncontrolled neon overload, Star Trek cleanliness, military-parade styling, generic blue hologram everything, and fashion-model character styling.
 
 ## Default negative prompt
 
-Do not change core asset silhouette between grid cells. No fantasy, no medieval, no magic, no anime, no cartoon comedy, no chibi, no fashion runway poses, no punk mohawks, no exaggerated hair, no giant shoulder pads, no glowing swords, no Warhammer-scale armor, no superhero suit, no random faction swaps, no unreadable clutter, no decorative nonsense, no huge logos, no over-saturated neon cyberpunk, no military parade uniform, no pinup framing, no gore.
+Do not change core asset silhouette between grid cells. No fantasy, no medieval, no magic, no anime, no cartoon comedy, no chibi, no fashion runway poses, no punk mohawks, no exaggerated hair, no giant shoulder pads, no glowing swords, no Warhammer-scale armor, no superhero suit, no random faction swaps, no unreadable clutter, no decorative nonsense, no huge logos, no uncontrolled neon cyberpunk, no military parade uniform, no pinup framing, no gore.
 
 ## Style columns for grid tests
 
@@ -86,15 +88,15 @@ Use these as columns whenever a prompt asks for a five-column style grid:
 4. **Graphic novel / cel-shaded** — bold controlled linework, high contrast, clean shadow blocks, not cartoon comedy.
 5. **Painterly grounded concept art** — hand-painted, atmospheric, still tactical and practical, not abstract.
 
-## Palette columns for palette tests
+## Palette-attitude columns for palette tests
 
-Use these as columns whenever a prompt asks for a five-column palette grid:
+Use these as columns whenever a prompt asks for a five-column palette grid. These are **broad palette behaviors**, not final color recipes. Earlier color schemes such as off-white/orange/teal, graphite/amber, navy/cyan, olive/red, and sand/oxide/orange should be understood as examples that can appear within these broader attitudes.
 
-1. **Off-white / orange / teal** — worn off-white panels, safety orange, faded teal diagnostics, dark industrial negative space.
-2. **Graphite / amber** — charcoal, gunmetal, warm amber UI, muted tan wear marks.
-3. **Naval blue / cyan** — deep blue-gray, low-saturation cyan lights, white stencil marks.
-4. **Olive / red hazard** — desaturated olive, black polymer, small emergency red accents.
-5. **Sand / oxide / orange** — dusty sand, oxidized metal, burnt orange safety markings.
+1. **Muted neutral industrial** — low-saturation neutrals, quiet contrast, worn surfaces, reserved accent lights. Example ingredients: off-white, graphite, gunmetal, faded teal, muted amber.
+2. **Bright safety-industrial** — higher value contrast and clearer warning colors, still practical and not toy-like. Example ingredients: clean off-white, black polymer, safety orange, warning yellow, emergency red, cyan status lights.
+3. **Cool technical / clinical** — cooler, more controlled, more digital or institutional. Example ingredients: navy, blue-gray, cyan, white stencil marks, pale teal, dark negative space.
+4. **Warm worn utility** — earthier, dustier, more oxidized and field-used. Example ingredients: sand, olive, oxide, rust, tan wear, burnt orange, small red hazard accents.
+5. **Vibrant signal-forward** — more colorful and energetic while still disciplined. Example ingredients: saturated teal, orange, cyan, violet, red/yellow signal accents, dark industrial grounding.
 
 ## Required base asset rows
 
@@ -133,7 +135,7 @@ Grid structure:
 - Add small column labels and row labels if possible, but keep them minimal and readable.
 
 Global Nexus visual lock:
-Grounded NASApunk / cyber-noir tactical science fiction. Practical NASA-like industrial design, cyberpunk density, dieselpunk grit, modular spacecraft/habitat logic, exposed mechanicals, patched hulls, analog backups, thick cables, hazard markings, utilitarian crew gear, off-white panels, worn orange safety markings, faded teal diagnostics, emergency red, warning yellow, electric cyan accents, matte armor plates, canvas, polymer, brushed metal, rubberized seals, scuffed paint, tactical webbing, industrial displays, restrained faction icons, readable tactics-game composition.
+Grounded NASApunk / cyber-noir tactical science fiction. Practical NASA-like industrial design, cyberpunk density, dieselpunk grit, modular spacecraft/habitat logic, exposed mechanicals, patched hulls, analog backups, thick cables, hazard markings, utilitarian crew gear, matte armor plates, canvas, polymer, brushed metal, rubberized seals, scuffed paint, tactical webbing, industrial displays, restrained faction icons, readable tactics-game composition. Common color ingredients may include off-white panels, graphite, gunmetal, navy, olive, sand, oxide, worn orange safety markings, faded teal diagnostics, amber UI, emergency red, warning yellow, electric cyan, violet signal accents, and other controlled industrial/signal colors.
 
 Column styles:
 1. Grounded cinematic realism — tactical sci-fi, gritty, practical, restrained, film-still lighting, real materials.
@@ -150,7 +152,7 @@ Rows / fixed base assets:
 5. Cover/object kit: modular crate, half-cover barricade, ammo/med case, hazard cylinder, all in the same design family, same layout across styles.
 
 Lighting and palette:
-Use a unified restrained tactical palette across all cells: off-white panels, graphite, gunmetal, muted blue-gray, low-saturation amber/cyan interface lights, worn orange safety markings, restrained red hazard accents. Do not let palette differences dominate the style comparison.
+Use a unified restrained tactical palette across all cells. Keep color discipline consistent so the comparison is about rendering style, not palette. Do not let palette differences dominate the style comparison.
 
 Camera rules:
 Character row: consistent 3/4 standing pose.
@@ -158,7 +160,7 @@ TacMap row: consistent top-down or slight isometric view.
 Object rows: consistent 3/4 product view.
 
 Negative prompt:
-Do not change core asset silhouette between grid cells. No fantasy, no medieval, no magic, no anime, no cartoon comedy, no chibi, no fashion runway poses, no punk mohawks, no exaggerated hair, no giant shoulder pads, no glowing swords, no Warhammer-scale armor, no superhero suit, no random faction swaps, no unreadable clutter, no decorative nonsense, no huge logos, no over-saturated neon cyberpunk, no military parade uniform, no pinup framing, no gore.
+Do not change core asset silhouette between grid cells. No fantasy, no medieval, no magic, no anime, no cartoon comedy, no chibi, no fashion runway poses, no punk mohawks, no exaggerated hair, no giant shoulder pads, no glowing swords, no Warhammer-scale armor, no superhero suit, no random faction swaps, no unreadable clutter, no decorative nonsense, no huge logos, no uncontrolled neon cyberpunk, no military parade uniform, no pinup framing, no gore.
 ```
 
 Expected saved output:
@@ -167,39 +169,42 @@ Expected saved output:
 
 ---
 
-# Prompt 02 — Unified palette comparison grid
+# Prompt 02 — Palette attitude comparison grid
 
-Asset use: palette comparison  
+Asset use: palette behavior comparison  
 Canon status: non-canon visual trial  
 Mode owner: Art  
 Target folder: `docs/nexus-domain-source-rebuild-2026-06-10/source/Art/Style Trials/outputs/2026-06-12/`  
 Related source docs: `ART-PROMPT-001`, `ART-STYLE-001`, `ART-REFERENCE-010`  
 Prompt version: `ART-TRIAL-020-P02`  
 Must preserve: style, silhouette, camera angle, faction markings, material type, and design language  
-Avoid: palette changes turning into asset redesigns  
-Post-generation review question: Which palette feels most Nexus while staying readable?
+Avoid: palette behavior changes turning into asset redesigns or final color canon  
+Post-generation review question: Which palette attitude gives Nexus the best range, readability, and identity without trapping the whole game in one narrow color recipe?
 
 ```text
-Create a 5x5 Nexus color-palette trial grid.
+Create a 5x5 Nexus palette-attitude trial grid.
 
-Purpose: compare color palettes for a unified Nexus tactical sci-fi art direction.
+Purpose: compare broad color-direction behaviors for a unified Nexus tactical sci-fi art direction. This is not a test of five fixed color recipes. It should compare muted vs bright, neutral vs vibrant, cool vs warm, and restrained vs signal-forward approaches while keeping the same underlying game identity.
 
 Grid structure:
-- Columns = 5 palette families.
+- Columns = 5 broad palette attitudes.
 - Rows = 5 fixed base assets.
-- Each row must show the SAME base asset repeated across all 5 columns, changing only the color palette.
-- Keep style, silhouette, camera angle, faction markings, material type, and design language consistent across all cells.
+- Each row must show the SAME base asset repeated across all 5 columns, changing only the palette attitude.
+- Keep style, silhouette, camera angle, faction markings, material type, surface wear logic, and design language consistent across all cells.
 - Use clean labels if possible.
 
 Unified rendering style:
 Clean stylized 3D game art with grounded NASApunk tactical materials. Readable shapes, practical surfaces, restrained detailing, modern game asset presentation, not too cartoony.
 
-Palette columns:
-1. Off-white / orange / teal — worn off-white panels, safety orange, faded teal diagnostics, dark industrial negative space.
-2. Graphite / amber — charcoal, gunmetal, warm amber UI, muted tan wear marks.
-3. Naval blue / cyan — deep blue-gray, low-saturation cyan lights, white stencil marks.
-4. Olive / red hazard — desaturated olive, black polymer, small emergency red accents.
-5. Sand / oxide / orange — dusty sand, oxidized metal, burnt orange safety markings.
+Important palette rule:
+The palette columns are broad attitudes, not final game-wide color canon. Each column may use multiple colors as needed. Existing Nexus ingredients such as off-white panels, orange safety markings, teal diagnostics, graphite, amber, navy, cyan, olive, red hazard marks, sand, oxide, violet, yellow, and black industrial negative space may appear where appropriate. The test is about color behavior, contrast, saturation, and readability, not limiting the whole game to four beige/gray schemes.
+
+Palette-attitude columns:
+1. Muted neutral industrial — low-saturation neutrals, quiet contrast, worn surfaces, reserved accent lights. Example ingredients: off-white, graphite, gunmetal, faded teal, muted amber.
+2. Bright safety-industrial — higher value contrast and clearer warning colors, still practical and not toy-like. Example ingredients: clean off-white, black polymer, safety orange, warning yellow, emergency red, cyan status lights.
+3. Cool technical / clinical — cooler, more controlled, more digital or institutional. Example ingredients: navy, blue-gray, cyan, white stencil marks, pale teal, dark negative space.
+4. Warm worn utility — earthier, dustier, more oxidized and field-used. Example ingredients: sand, olive, oxide, rust, tan wear, burnt orange, small red hazard accents.
+5. Vibrant signal-forward — more colorful and energetic while still disciplined. Example ingredients: saturated teal, orange, cyan, violet, red/yellow signal accents, dark industrial grounding.
 
 Rows / fixed base assets:
 1. Tier 1 Nexus operative: helmeted or practical tactical operative, basic armor, rifle/sidearm kit, no punk haircut, no fashion-model styling, no exaggerated theme hair.
@@ -214,12 +219,12 @@ TacMap row: consistent top-down or slight isometric view.
 Object rows: consistent 3/4 product view.
 
 Negative prompt:
-Do not alter silhouettes or object functions between palettes. No neon cyberpunk overload, no rainbow palettes, no fantasy colors, no bright toy plastic, no luxury fashion color blocking, no faction redesigns, no extra props that appear only in one palette column.
+Do not alter silhouettes or object functions between palette attitudes. Do not imply these are final faction palettes or the only allowed game colors. No rainbow chaos, no fantasy colors, no bright toy plastic, no luxury fashion color blocking, no uncontrolled neon overload, no faction redesigns, no extra props that appear only in one palette column, no palette changes that also change material logic.
 ```
 
 Expected saved output:
 
-`docs/nexus-domain-source-rebuild-2026-06-10/source/Art/Style Trials/outputs/2026-06-12/trial-02-palette-grid-5x5.png`
+`docs/nexus-domain-source-rebuild-2026-06-10/source/Art/Style Trials/outputs/2026-06-12/trial-02-palette-attitude-grid-5x5.png`
 
 ---
 
@@ -257,13 +262,13 @@ Column styles:
 5. Painterly grounded concept art — hand-painted, atmospheric, still grounded sci-fi.
 
 Palette:
-Worn off-white panels, graphite, gunmetal, blue-gray, muted amber/cyan interface lights, small red hazard marks, worn orange safety markings. Keep the palette consistent across columns.
+Use a disciplined Nexus industrial palette. Any appropriate combination of off-white, graphite, gunmetal, navy, olive, sand, oxide, worn orange, faded teal, amber, red/yellow hazard marks, cyan, or violet signal lights is allowed. Keep the palette consistent across columns so the test compares style, not color.
 
 Camera:
 Top-down with very slight isometric depth. Same camera in all columns.
 
 Negative prompt:
-No random room redesigns, no changed topology, no different door positions, no decorative clutter blocking navigation, no unreadable floor detail, no fantasy architecture, no giant machinery that destroys the node web, no cyberpunk neon flood, no cinematic camera angle that hides gameplay layout.
+No random room redesigns, no changed topology, no different door positions, no decorative clutter blocking navigation, no unreadable floor detail, no fantasy architecture, no giant machinery that destroys the node web, no uncontrolled cyberpunk neon flood, no cinematic camera angle that hides gameplay layout.
 ```
 
 Expected saved output:
@@ -306,7 +311,7 @@ Column styles:
 5. Painterly grounded concept art — hand-painted, atmospheric, still grounded sci-fi.
 
 Palette:
-Graphite armor, muted blue-gray fabric, black polymer, small amber/cyan device lights, subtle tan wear marks, restrained red emergency tab.
+Use disciplined Nexus tactical color. Graphite, muted blue-gray, black polymer, amber/cyan device lights, tan wear, restrained red emergency tabs, off-white panels, olive, sand, oxide, or other practical industrial/signal colors may appear as appropriate.
 
 Negative prompt:
 No punk hair, no uncovered fashion-model head, no superhero suit, no bulky power armor, no fantasy armor, no giant weapon, no cape, no glowing sword, no anime proportions, no attractive character posing, no random insignia changes, no faction redesigns.
@@ -356,7 +361,7 @@ Rows / fixed objects:
 5. Status token set: small overhead game tokens for operative, enemy, hazard, objective, unknown contact; same icon shapes in every column.
 
 Palette:
-Off-white panels, graphite, gunmetal, muted blue-gray, amber/cyan lights, worn orange safety markings, tiny red hazard marks.
+Use disciplined Nexus industrial/signal color. Off-white panels, graphite, gunmetal, blue-gray, amber/cyan lights, worn orange safety markings, red/yellow hazard marks, violet signal accents, olive, sand, oxide, and black industrial negative space may appear as appropriate.
 
 Camera:
 Object rows: consistent 3/4 product view.
@@ -390,8 +395,11 @@ Create a Nexus production-style asset sheet using the selected art direction.
 Selected style:
 [INSERT SELECTED STYLE: e.g. clean stylized 3D game art with grounded tactical materials]
 
-Selected palette:
-[INSERT SELECTED PALETTE: e.g. off-white / orange / teal with graphite equipment and small cyan interface lights]
+Selected palette attitude:
+[INSERT SELECTED BROAD PALETTE ATTITUDE: e.g. muted neutral industrial, bright safety-industrial, cool technical/clinical, warm worn utility, or vibrant signal-forward]
+
+Optional color ingredients:
+[INSERT OPTIONAL INGREDIENTS: e.g. off-white panels, graphite equipment, orange safety marks, teal diagnostics, cyan signals, amber UI, olive polymer, sand/oxide wear, violet status lights]
 
 Purpose:
 Create a coherent first-pass visual language sheet for Nexus game assets. This is not a final asset sheet. It should test whether characters, maps, props, tokens, and UI-adjacent objects feel like one unified game.
@@ -417,10 +425,10 @@ Assets:
 12. UI token/icon set: operative, enemy, hazard, objective, unknown contact.
 
 Global Nexus visual lock:
-Grounded NASApunk / cyber-noir tactical science fiction. Practical, modular, militarized, corporate, lived-in, tactics-game readable. Materials: matte armor plates, canvas, polymer, brushed metal, rubberized seals, scuffed paint, tactical webbing, industrial displays, small hazard markings, restrained faction icons, believable wear, off-white panels, worn orange safety markings, faded teal diagnostics, emergency red, warning yellow, electric cyan accents.
+Grounded NASApunk / cyber-noir tactical science fiction. Practical, modular, militarized, corporate, lived-in, tactics-game readable. Materials: matte armor plates, canvas, polymer, brushed metal, rubberized seals, scuffed paint, tactical webbing, industrial displays, small hazard markings, restrained faction icons, believable wear, clear material separation, controlled industrial/signal color.
 
 Negative prompt:
-No fantasy, no anime, no punk styling, no superhero armor, no giant weapons, no cyberpunk neon overload, no decorative clutter, no random faction marks, no inconsistent scale, no unrelated design families.
+No fantasy, no anime, no punk styling, no superhero armor, no giant weapons, no uncontrolled cyberpunk neon overload, no decorative clutter, no random faction marks, no inconsistent scale, no unrelated design families.
 ```
 
 Expected saved output:
@@ -430,11 +438,11 @@ Expected saved output:
 ## Recommended run order
 
 1. Run Prompt 01 first to choose leading style direction.
-2. Run Prompt 02 second to choose leading palette.
+2. Run Prompt 02 second to choose leading palette attitude.
 3. Run Prompt 03 to verify TacMap readability.
 4. Run Prompt 04 to verify character identity.
 5. Run Prompt 05 to verify small-object and UI readability.
-6. Run Prompt 06 only after picking a leading style/palette.
+6. Run Prompt 06 only after picking a leading style/palette attitude.
 
 ## Review rubric
 
@@ -446,7 +454,7 @@ Score each output from 1-5:
 - TacMap usability
 - Small-object readability
 - Production feasibility
-- Palette restraint
+- Palette range and discipline
 - Distinctiveness from generic sci-fi
 
 ## Next Codex/local action
