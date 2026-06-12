@@ -83,6 +83,41 @@ When the user explicitly directs ChatGPT to write a bridge packet, issue comment
 
 Every side-item closeout should say where the item was recorded or why it was only recommended.
 
+## OS Residue Capture
+
+Treat reusable instruction changes as OS residue. OS residue includes new workflow rules, response patterns, mode expectations, review habits, platform lane behavior, closeout requirements, recurring prompt burdens, or preservation/routing conventions discovered during ordinary Nexus work.
+
+When OS residue appears, do not rely on chat memory. Classify and route it before closeout:
+
+1. Baseline bridge edit: use when the behavior should govern ChatGPT Project immediately.
+2. `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`: use when the behavior is plausible but needs later split, examples, or mode-specific placement.
+3. Synced-chat packet: use when Codex should inspect or implement a workflow change later.
+4. Issue comment or task packet: use when an existing issue owns the behavior or a new task is needed.
+5. Future mode-context file: use for examples or mode-specific patterns that would bloat the seven-file baseline.
+
+Each OS residue closeout should state:
+
+- what reusable behavior was found;
+- where it was written, parked, or recommended;
+- whether it changes baseline upload files;
+- whether ChatGPT Project reupload is needed.
+
+## Closeout Self-Check
+
+Before closing a Nexus workflow chat or reporting a repo/bridge update complete, run this self-check:
+
+```text
+- Did we create accepted behavior, decisions, source-ready prose, or reusable workflow rules?
+- Did any repo file need updating?
+- Did any baseline bridge file change and therefore require a reupload warning?
+- Did any side item or OS residue need routing?
+- Did any output need a download, zip, handoff, synced-chat packet, preservation packet, issue comment, or task packet?
+- Did validation run, or was it explicitly skipped/unavailable?
+- Did the closeout say what changed, what it supplements or replaces, and what must not be deleted yet?
+```
+
+For quick chats, this can be silent. For bridge edits, source-routing changes, handoffs, preservation work, and repo updates, include the relevant answers in the final report.
+
 ## Approved ChatGPT Repo Destinations
 
 Use only these default destinations for ChatGPT Project packets unless the user, a controlling issue, or an existing repo file explicitly approves another path:
@@ -99,7 +134,7 @@ Use only these default destinations for ChatGPT Project packets unless the user,
 | Source draft candidate | `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` | Material may become Nexus source later but is not live source authority. |
 | GitHub issue comment | Existing related issue | Short evidence, pointers, acceptance notes, or closeout breadcrumbs. Do not use for large accepted prose by default. |
 
-These destinations are GitHub repo paths, not a standing ChatGPT Project Source upload list. Keep changing indexes and packets in GitHub. Upload only stable bridge instructions by default, then use exact repo paths or Codex/local inspection when current packet state matters.
+These destinations are GitHub repo paths, not a standing ChatGPT Project Source upload list. Keep changing indexes and packets in GitHub. Upload only stable bridge instructions by default, then use exact paths or Codex/local inspection when current packet state matters.
 
 If the correct destination is unclear, ask the user to choose the route in plain language. Do not force filesystem details when the route choice is enough.
 
