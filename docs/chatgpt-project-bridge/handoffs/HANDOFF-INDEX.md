@@ -28,6 +28,7 @@ Do not invent alternate handoff destinations. If the handoff is actually an issu
 | Date | Handoff | Topic | Status | Related issue/lane | Destination file | Next safe action |
 |---|---|---|---|---|---|---|
 | 2026-06-10 | Nexus self-learning automation research prompt | Safe repo-visible learning automation research | ready-for-Codex-research | none yet; non-issue Codex research handoff | `docs/chatgpt-project-bridge/handoffs/2026-06-10-nexus-self-learning-automation-research-prompt.md` | Codex should run the embedded research prompt and produce `SELF_LEARNING_AUTOMATION_RESEARCH.md` or print the candidate report. |
+| 2026-06-12 | Issue #40 effect/state-delta grammar drafting | Continue system-schema draft sequence after #39 | ready-for-next-Draft-chat | #40 / #33 system-schema epic | `docs/chatgpt-project-bridge/handoffs/2026-06-12-issue-40-effect-state-delta-grammar-drafting.md` | Next Draft chat should append Issue #40 to `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01.md`. |
 
 ## Handoff Packet Template
 
