@@ -12,6 +12,8 @@ Status: upload-ready bridge file
 6. Which synced-chat packets should be promoted into GitHub issues after ChatGPT planning matures?
 7. Should the repo eventually gain a dedicated tiny-observation log, or should tiny observations continue to route through issue closeout, handoffs, synced-chat packets, preservation packets, and task packets?
 8. Should platform-OS behavior for ChatGPT and Codex remain in bridge/session-discipline docs, or later split into mode-specific files after the manual workflow proves useful?
+9. Should a future `10-MODES-CONTEXT.md` carry compact mode-specific examples for Steward, Draft, Seed, DM, and Art response patterns?
+10. Should the senior-review pass eventually become mode-specific, with different checklists for Draft prose, Steward workflow, DM rulings, and Art prompts?
 
 ## Completed Content Tasks
 
@@ -30,6 +32,13 @@ Purpose: allow ChatGPT to fetch necessary expanded context from GitHub by exact 
 - `docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md` now clarifies shared side-item recording across ChatGPT and Codex, including use of the same durable repo surfaces and temporary routing for tiny observations until a dedicated log exists.
 - These are baseline bridge changes, so ChatGPT Project should be considered stale for this scope until the changed files are reuploaded or pasted and confirmed.
 
+2026-06-12 ChatGPT OS consistency update:
+
+- `docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md` now adds task framing behavior, response pattern selection, and senior-developer/editor review pass behavior.
+- `docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md` now adds OS residue capture and closeout self-check behavior.
+- `docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md` now parks future mode-context/example work rather than bloating the seven-file baseline.
+- These are baseline bridge changes, so ChatGPT Project should be considered stale for this scope until the changed files are reuploaded or pasted and confirmed.
+
 ## Deferred Content Families
 
 Create these only when needed:
@@ -38,6 +47,7 @@ Create these only when needed:
 |---|---|---|
 | Current state delta | What changed since the last ChatGPT Project upload | Keep short and dated |
 | Modes context | Current operating modes and command expectations | Summarize, do not paste long admin docs |
+| Mode examples | Compact examples for Steward scans, Draft senior-review passes, Seed captures, DM rulings, Art prompts, and repo closeouts | Candidate future `10-MODES-CONTEXT.md`; keep examples short and behavior-focused |
 | Source authority extensions | Domain-specific authority notes beyond the baseline summary | Create only if a domain needs more routing detail than `20-SOURCE-AUTHORITY-SUMMARY.md` |
 | App workflow context | Issue queue, task packet workflow, validation expectations | Pull from repo/GitHub current state |
 | Playtest context | Active playtest state, constraints, and what is safe to improvise | Refresh per play session |
