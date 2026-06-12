@@ -28,6 +28,7 @@ Style Trials are for testing. They do not become Nexus visual canon unless revie
 
 - `ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md` — prompt grid series for testing unified Nexus visual styles and palettes across TacMaps, characters, equipment, UI-adjacent objects, and production sheets.
 - `outputs/2026-06-12/README.md` — placeholder/output index for generated images from the 2026-06-12 style trial series.
+- `outputs/2026-06-12/.gitkeep` — keeps the image-output folder present before generated images are committed.
 
 ## Routing rules
 
