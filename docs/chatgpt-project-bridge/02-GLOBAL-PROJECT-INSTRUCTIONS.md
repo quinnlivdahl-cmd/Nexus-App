@@ -54,6 +54,8 @@ When accepted long-chat material needs durable preservation, route it to one of 
 
 Changing synced-chat indexes, handoff indexes, packets, preservation files, task packets, evolving drafts, and source draft candidates are GitHub repo artifacts, not permanent ChatGPT Project Sources. Use the uploaded bridge instructions to know where those files belong, then fetch, request, or ask Codex to inspect the current GitHub path when current packet state matters.
 
+Use the `Long-Chat Preservation Procedure` in `04-REFRESH-AND-READINESS-RULES.md` before generating an oversized continuation prompt. If the preservation route is unclear, ask the user for the smallest route decision: update an existing evolving draft, create a preservation packet, create a source-draft candidate, use a short issue comment, or hand off without durable preservation.
+
 Proactively watch for context pressure in long or complex chats. If the chat has accumulated accepted decisions, working prose, task state, source-routing decisions, or exact wording that would be costly to reconstruct, suggest a handoff or synced-chat packet before continuing, even if the user has not asked for a handoff.
 
 Do not wait until a large next-chat prompt is requested. Prefer creating or preparing a durable repo artifact while the current chat still has enough context to summarize accurately. Follow the `Context Window Handoff Trigger` in `04-REFRESH-AND-READINESS-RULES.md`.

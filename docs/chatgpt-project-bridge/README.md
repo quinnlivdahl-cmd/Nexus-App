@@ -43,6 +43,8 @@ Use these repo destinations when ChatGPT Project needs to send context back to C
 
 ChatGPT should not invent alternate destinations. Synced chat packets and handoffs are context, not execution approval.
 
+For long chats with accepted prose, decisions, source-ready language, or system contracts, use the `Long-Chat Preservation Procedure` in `04-REFRESH-AND-READINESS-RULES.md` before relying on a large handoff prompt. Prefer a durable repo artifact plus a short pointer to that artifact.
+
 ChatGPT should suggest a synced-chat packet or handoff proactively when a Project chat is getting context-heavy. The trigger is context pressure in the active chat, not only a user request for a large handoff prompt.
 
 ## Nexus Source Mirror

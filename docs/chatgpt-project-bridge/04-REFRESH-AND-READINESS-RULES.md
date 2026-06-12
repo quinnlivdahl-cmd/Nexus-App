@@ -77,6 +77,41 @@ These destinations are GitHub repo paths, not a standing ChatGPT Project Source 
 
 If the correct destination is unclear, ask the user to choose the route in plain language. Do not force filesystem details when the route choice is enough.
 
+## Long-Chat Preservation Procedure
+
+Use this procedure when a Nexus chat has produced substantial accepted prose, durable decisions, system contracts, source-ready language, or structured design material that should survive beyond the current conversation.
+
+Trigger this before producing a large next-chat handoff when any of these are true:
+
+- the chat contains accepted working prose that would be costly to reconstruct;
+- the handoff would need to copy a large packet of rules, source language, schemas, or decisions;
+- the user is closing a long Nexus chat;
+- the work belongs to a multi-chat sequence;
+- the correct preservation route is unclear;
+- the next chat needs to continue from an artifact, not from memory.
+
+Do not rely on a giant chat-only handoff as the primary preservation method. Choose the smallest durable target that preserves the work:
+
+1. Existing evolving draft or staging file: use when the work extends an active multi-chat design sequence, such as `docs/game-system-contracts/drafts/<TOPIC>_WORKING_DRAFT.md`.
+2. Repo-file preservation packet: use `docs/chatgpt-project-bridge/preservation/YYYY-MM-DD-<topic>.md` when accepted prose or decisions need durable storage but do not belong in a more specific draft file.
+3. Source-draft candidate: use `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` when the material may become Nexus source after review, but is not live source authority.
+4. Issue comment preservation: use an existing GitHub issue comment for short evidence, pointers, acceptance notes, or closeout breadcrumbs. Do not use issue comments as the default container for large accepted prose.
+5. Next-chat handoff only: use a handoff prompt by itself only when no durable prose, decision packet, or source-ready language needs preservation.
+
+If the route is not clear, ask the user for the one or two decisions that control placement. Good decision prompts are route-level, for example: "update the existing evolving draft, create a preservation packet, or create a source-draft candidate?"
+
+Each preservation artifact or closeout pointer must state:
+
+- intended placement;
+- what it supplements or replaces;
+- deletion or supersession guidance;
+- source/currentness status;
+- date;
+- originating chat or issue when relevant;
+- follow-up owner or validation route.
+
+After saving the artifact, future handoffs should point to the repo path and commit instead of carrying the full preserved packet in chat.
+
 ## Synced Chat Packet Requirements
 
 Each synced-chat packet should include:
