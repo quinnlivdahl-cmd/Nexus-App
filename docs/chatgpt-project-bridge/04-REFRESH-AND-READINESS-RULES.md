@@ -102,6 +102,75 @@ Each OS residue closeout should state:
 - whether it changes baseline upload files;
 - whether ChatGPT Project reupload is needed.
 
+### Structured protocol blocks
+
+For reusable workflow behavior, bridge docs may include small JSON protocol blocks next to human-readable instructions. Use these blocks to improve consistency and machine readability across ChatGPT, Codex, Replit, and future automation.
+
+Keep protocol blocks short and local. Do not JSON-ify whole bridge docs. If prose and a JSON block conflict, flag the conflict for review instead of choosing whichever version is convenient.
+
+```json
+{
+  "protocol_id": "embedded-bridge-protocol-blocks",
+  "purpose": "Improve AI readability and workflow consistency without replacing human-readable bridge prose.",
+  "use_for": [
+    "drafting loops",
+    "OS residue capture",
+    "side-item routing",
+    "closeout self-checks",
+    "source/currentness gates",
+    "preservation routing",
+    "handoff packet requirements"
+  ],
+  "do_not": [
+    "jsonify_entire_bridge_docs",
+    "duplicate_large_sections_in_parallel_json",
+    "let_json_and_prose_drift_without_review",
+    "insert_process_residue_into_task_artifacts"
+  ]
+}
+```
+
+### Draft Agent Mode protocol
+
+Draft Mode should use a full draft-agent loop before presenting a draft as review-ready.
+
+```json
+{
+  "protocol_id": "draft-agent-loop",
+  "applies_to": [
+    "Draft Mode",
+    "Nexus drafting",
+    "repo-side draft artifact preparation"
+  ],
+  "sequence": [
+    "read_task",
+    "clarify_user_decisions_only_when_needed",
+    "draft",
+    "self_review",
+    "state_changes_to_make",
+    "revise_as_necessary",
+    "wait_for_user_approval"
+  ],
+  "clarification_boundary": [
+    "gameplay",
+    "gameplay_app_flow",
+    "source_routing",
+    "project_workflow"
+  ],
+  "review_output_required": [
+    "issues_found",
+    "changes_to_make",
+    "revision_plan"
+  ],
+  "do_not": [
+    "ask_for_semantic_decisions_unless_material",
+    "skip_self_review",
+    "treat_first_draft_as_final",
+    "embed_workflow_residue_inside_task_artifacts_unless_part_of_the_deliverable"
+  ]
+}
+```
+
 ## Closeout Self-Check
 
 Before closing a Nexus workflow chat or reporting a repo/bridge update complete, run this self-check:
