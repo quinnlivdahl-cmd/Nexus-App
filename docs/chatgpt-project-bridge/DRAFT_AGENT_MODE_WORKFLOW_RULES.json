@@ -1,0 +1,86 @@
+{
+  "artifact": {
+    "name": "DRAFT_AGENT_MODE_WORKFLOW_RULES",
+    "date": "2026-06-12",
+    "status": "bridge-side workflow rules candidate",
+    "canon_status": "not source canon; not implementation; not game-system draft content; not final platform OS until promoted",
+    "intended_placement": "docs/chatgpt-project-bridge/DRAFT_AGENT_MODE_WORKFLOW_RULES.json",
+    "originating_chat": "Draft — Check Family Contract Continued — 2026-06-12",
+    "related_issue": "#33 — Epic: Sequence Nexus app-facing game-rule/system design"
+  },
+  "supplements": [
+    "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+    "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+    "GitHub Issue #33 OS residue comments"
+  ],
+  "replaces": [],
+  "preservation_guidance": {
+    "delete_old_files": false,
+    "notes": "This file supplements existing bridge OS instructions. Do not delete, archive, or replace baseline bridge files based on this JSON alone. If accepted, Codex/local may promote or merge these rules into the appropriate baseline bridge or mode-specific OS file."
+  },
+  "upload_guidance": {
+    "chatgpt_project_baseline_file": false,
+    "upload_by_default": false,
+    "notes": "This is a bridge-side structured companion artifact. It should not be added to the permanent ChatGPT Project baseline upload set unless later explicitly promoted."
+  },
+  "workflow_rules": [
+    {
+      "id": "draft-agent-loop",
+      "applies_to": ["Draft Mode", "Nexus game-system drafting", "repo-side draft artifact preparation"],
+      "rule": "Draft Mode should automatically follow a full draft-agent loop before presenting a draft as review-ready.",
+      "sequence": [
+        "read_task",
+        "clarify_user_decisions_only_when_needed",
+        "draft",
+        "self_review",
+        "state_changes_to_make",
+        "revise_as_necessary",
+        "wait_for_user_approval"
+      ],
+      "clarification_boundary": "Ask only for decisions that materially affect gameplay, gameplay app flow, source routing, or project workflow. Do not ask for ordinary semantic, naming, or schema-shaping decisions unless they create a material gameplay/workflow consequence.",
+      "status": "candidate"
+    },
+    {
+      "id": "review-states-changes-to-make",
+      "applies_to": ["Draft Mode", "self-review", "artifact revision"],
+      "rule": "Self-review should state specific changes to be made before revision, not only summarize pass/fail status or describe changes after the fact.",
+      "expected_review_output": [
+        "issues_found",
+        "changes_to_make",
+        "revision_plan",
+        "revised_artifact",
+        "approval_wait"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "workflow-residue-routing",
+      "applies_to": ["all Nexus modes", "side-item capture", "OS residue capture"],
+      "rule": "Process or workflow residue must not be inserted into the active task artifact unless it is part of that artifact's deliverable.",
+      "routing": [
+        "classify_as_os_residue_or_side_item",
+        "record_to_existing_issue_comment_when_short",
+        "create_bridge_or_mode-context_candidate_when_reusable",
+        "prepare_codex_local_followup_when placement_or_validation_is_needed"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "structured-workflow-capture",
+      "applies_to": ["bridge OS", "agent workflow rules", "future automation"],
+      "rule": "Reusable workflow rules should be captured in structured JSON-like form when consistency across ChatGPT and Codex matters.",
+      "notes": "Structured capture should supplement human-readable bridge docs, not replace them automatically.",
+      "status": "candidate"
+    }
+  ],
+  "deferred_followup": [
+    {
+      "owner": "Codex/local",
+      "task": "Decide whether to promote these rules into baseline bridge instructions, a mode-specific Draft OS file, or a shared agent workflow JSON/YAML artifact."
+    },
+    {
+      "owner": "Codex/local",
+      "task": "Run repo validation after any follow-up bridge/index changes."
+    }
+  ]
+}
