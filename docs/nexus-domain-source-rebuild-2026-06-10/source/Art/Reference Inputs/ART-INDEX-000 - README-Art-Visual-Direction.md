@@ -1,4 +1,4 @@
-﻿---
+---
 project: "Nexus"
 doc_id: "ART-INDEX-000"
 legacy_ids:
@@ -18,9 +18,9 @@ owns_topics:
   - 'art_domain_readme'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-07"
-metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain readme. Visual-direction, asset-routing, prompt-support, and cross-domain boundary language now follow the domain-first rebuild model."
+last_updated: "2026-06-12"
+metadata_verified: false
+metadata_notes: "Updated by ChatGPT to add Style Trials lane. Needs Codex/local metadata verification, source index regeneration, and workflow validation. Previous Phase 10 note: Art domain readme aligned to domain-first model."
 ---
 
 # Art Domain Readme
@@ -64,6 +64,20 @@ Current Art surfaces include:
 - `ART-REFERENCE-010`: concept art library index.
 - `ART-OPEN-011`: art open questions.
 - `ART-RUNBOOK-012`: TacMap backdrop and build-plate art workflow.
+- `ART-TRIAL-INDEX-000`: Art Style Trials README.
+- `ART-TRIAL-020`: Nexus art style trial prompt series.
+
+## Style Trials Lane
+
+The `Style Trials` folder holds non-canon Art-domain trial packets for prompt testing, visual style comparison, palette comparison, generated-image output indexing, and pre-promotion review scoring.
+
+Current lane paths:
+
+- `docs/nexus-domain-source-rebuild-2026-06-10/source/Art/Style Trials/README.md`
+- `docs/nexus-domain-source-rebuild-2026-06-10/source/Art/Style Trials/ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md`
+- `docs/nexus-domain-source-rebuild-2026-06-10/source/Art/Style Trials/outputs/2026-06-12/README.md`
+
+Style Trials supplement Art canon homes but do not replace or promote them automatically. Trial packets and outputs remain non-canon unless reviewed and promoted through the relevant Art home or asset-routing process.
 
 ## Routing Rules
 
@@ -76,7 +90,8 @@ Route material to Art when it concerns:
 - image-generation workflows;
 - iconography;
 - TacMap visual readability;
-- asset indexing and promotion path.
+- asset indexing and promotion path;
+- non-canon style, palette, or prompt trials.
 
 Route away from Art when the material is primarily:
 
@@ -93,11 +108,12 @@ Obsidian remains relevant for browsing, mobile review, and asset/context lookup.
 
 Art source docs should be readable in Obsidian, but large binary files should not be duplicated into source docs. Index them, link them, or route them through asset folders.
 
+Generated images for style trials should be stored as separate files under dated `Style Trials/outputs/YYYY-MM-DD/` folders and indexed in that folder's README.
+
 ## Next Consolidation Needs
 
 - Keep individual Art docs aligned to domain-first boundaries if later governance passes revise terminology.
 - Confirm final asset folder and index conventions.
 - Keep TacMap visual workflow aligned with `Combat`, `Play Aids`, `Automation`, and `Dashboards`.
 - Preserve session/reference images until explicitly promoted, rejected, or archived.
-
-
+- Regenerate the repo-side source index after Style Trials lane additions.
