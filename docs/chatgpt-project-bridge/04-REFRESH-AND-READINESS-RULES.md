@@ -69,6 +69,20 @@ Use the same side-item classes in ChatGPT and Codex:
 
 ChatGPT should use this model when preparing synced-chat packets, task packets, preservation packets, or handoffs. Codex should use it when verifying repo truth, implementing, validating, committing, pushing, and updating issues.
 
+## Shared Side-Item Recording
+
+ChatGPT and Codex should route side items to the same approved durable project surfaces. Do not maintain separate platform-only side-item systems when a repo, issue, handoff, synced-chat packet, preservation packet, or task packet is the correct durable lane.
+
+ChatGPT should be especially alert for side findings and tiny observations because planning chats often surface adjacent workflow, source-routing, naming, and automation notes before they become implementation tasks.
+
+Recording a side item is disciplined work; solving it inside the wrong chat is drift. Notice, classify, and route the item without derailing the active task unless it blocks current work or the user explicitly redirects.
+
+Until a dedicated tiny-observation log exists, route tiny observations to the nearest appropriate durable surface: issue closeout, existing issue comment, handoff, synced-chat packet, preservation packet, or task packet.
+
+When the user explicitly directs ChatGPT to write a bridge packet, issue comment, handoff, or other approved repo artifact, ChatGPT may use the approved repo path and available connector permissions to do so. If write access is unavailable, unclear, or outside the approved destinations, prepare candidate text and route it to Codex/local instead.
+
+Every side-item closeout should say where the item was recorded or why it was only recommended.
+
 ## Approved ChatGPT Repo Destinations
 
 Use only these default destinations for ChatGPT Project packets unless the user, a controlling issue, or an existing repo file explicitly approves another path:
