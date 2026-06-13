@@ -56,11 +56,11 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| TBD | TBD | TBD | TBD | TBD | Add the next ready issue after #46 closeout |
+| #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-11 after Issue 48 closeout. GitHub reported 38 open issues after #48 is closed.
+Last synced: 2026-06-13 by ChatGPT Steward cleanup after rules-core issue-state drift review. This index removes verified closed rules-core sequence issues from the open queue and adds newly observed workflow issues #49 and #50. For exact live issue count, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -73,6 +73,8 @@ Last synced: 2026-06-11 after Issue 48 closeout. GitHub reported 38 open issues 
 | #23 | Create admin operating model docs for repo-first collaboration | support | none listed | Repo-first collaboration docs |
 | #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
 | #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
+| #49 | Create project glossary and ChatGPT/Codex maintenance workflow | documentation/workflow | none listed | Seed glossary and Glossary Manager workflow; open |
+| #50 | Define Seed Mode substantive-input capture and mining workflow | workflow/mode behavior | #43 related | Seed-specific capture/mining workflow; open |
 
 ### App Critical Path
 
@@ -106,14 +108,10 @@ Last synced: 2026-06-11 after Issue 48 closeout. GitHub reported 38 open issues 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #33 | Epic: Sequence Nexus app-facing game-rule/system design | epic | none listed | Parent/design sequence for rules-core work |
-| #35 | Define turn transaction for API DM + rules-core play | design | #33, #34 | Turn flow contract |
-| #36 | Define game state lanes and mutation boundaries | design | #33, #34 | State ownership and mutation rules |
-| #38 | Define rules object model for actions, checks, effects, and logs | design | #33, #34 | Core rule object model |
-| #39 | Define check family contract | design | #38 | Check contract detail |
-| #40 | Define effect and state-delta grammar | design | #38 | Effects and state-change language |
-| #41 | Define compact DM context broker contract | design | #34, #35 | Context broker contract |
+| #38 | Define rules object model for actions, checks, effects, and logs | design | #33, #34 | Core rule object model; remains open pending repo architecture/type lane inspection or scaffold deferral |
+| #39 | Define check family contract | design | #38 | Check contract detail; remains open pending repo architecture/type lane inspection or scaffold deferral |
 
-Note: #34 and #37 are closed and are therefore not listed in the open queue.
+Note: #34, #35, #36, #37, #40, and #41 are closed and are therefore not listed in the open queue.
 
 ### Source / Play Document Tasks
 
@@ -124,7 +122,7 @@ Note: #34 and #37 are closed and are therefore not listed in the open queue.
 | #28 | Draft route-node end report and encounter result templates | source/play doc | none listed | Route/encounter closeout templates |
 | #29 | Draft encounter start package template for DM and TacMap setup | source/play doc | none listed | Encounter-start package |
 | #30 | Draft check-display examples and noncombat scene procedure template | source/play doc | none listed | Noncombat/check display |
-| #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure |
+| #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure; recommended next Draft chat |
 | #32 | Improve character chassis and origin sheet usability for play | source/play doc | none listed | Character sheet usability |
 
 ## Blocked Issues
@@ -162,6 +160,10 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #47 | Create repo-accessible roadmap mirror and maintained issue index | `docs/nexus-roadmap` roadmap mirror/index, `scripts/update-roadmap-index.mjs`, `roadmap:index` scripts, maintainer skill, bridge pointers, and `validate:workflow` roadmap-index checks | ChatGPT Project still needs upload or exact-path retrieval confirmation before the roadmap can be called refreshed there |
 | #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | Discovery report added to Issue #43, session discipline workflow spec added, repo-local session skill added, task/handoff/bridge templates wired, synced-chat index updated, and `validate:workflow` plus `typecheck` passed | Do not build duplicate-check, observation-mining, or packet-index automation until separate follow-up issues scope them |
 | #34 | Define API DM / rules-core authority split | `docs/game-system-contracts/drafts/DM_Authority_Split_Contract_rev0.1.md` added in commit `a6b2b91`; final GitHub comment records acceptance coverage and routed follow-up dependencies | Continue the child sequence through #35, #36, #38, #39, #40, and #41 |
+| #35 | Define turn transaction for API DM + rules-core play | `docs/game-system-contracts/drafts/Turn_Transaction_Contract_rev0.1.md`; acceptance coverage recorded in the draft and prior issue comment | Closed by Steward cleanup after issue-state drift review |
+| #36 | Define game state lanes and mutation boundaries | ChatGPT Draft approval / closeout comment records acceptance coverage and user approval | Closed on GitHub as completed |
+| #40 | Define effect and state-delta grammar | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01.md`; closeout evidence comment records acceptance coverage | Closed on GitHub as completed |
+| #41 | Define compact DM context broker contract | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01_ISSUE_41_SPIRITUAL_APPEND.md`; acceptance coverage section records contract/scaffold coverage | Closed by Steward cleanup after issue-state drift review |
 | #48 | Revise ChatGPT bridge workflow for long-chat preservation packets | Bridge refresh rules now include an explicit `Long-Chat Preservation Procedure`; ChatGPT project instructions and bridge README point to it; repo-local and workspace-local closeout-scan skills added for future issue sweeps | ChatGPT Project still needs upload or searchability confirmation before the changed bridge baseline can be called refreshed there |
 
 ## Future Script Hooks
