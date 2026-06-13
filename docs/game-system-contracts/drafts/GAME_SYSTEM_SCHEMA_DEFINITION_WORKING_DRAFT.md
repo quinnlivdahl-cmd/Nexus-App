@@ -1025,3 +1025,491 @@ Status notes:
 - It does not replace existing source files.
 - UI / App Shell is presentation/input authority, not mechanical or narrative authority.
 - Old files may not be deleted or superseded based on this update alone.
+
+## 15. Update log — 2026-06-12 — Draft — Compact DM Context Broker
+
+### 15.1 Placement / routing correction
+
+Accepted correction: Issue #41 belongs in this running schema-definition draft for the #33 drafting epic, not in a standalone one-off file.
+
+Routing rule for this epic:
+
+> For #33 drafting-epic issues, append accepted issue content to this running draft unless the user explicitly requests a separate contract file. Individual issue expected-output paths do not override the running-draft convention.
+
+Status notes:
+
+- This supplements #41.
+- This does not create source canon.
+- This does not replace existing source files.
+- Standalone #41 draft artifacts created during this chat were removed before this update.
+
+### 15.2 Accepted Context Broker contract boundary
+
+Accepted decision: define **Context Broker** as compact visibility/context authority for API DM calls.
+
+Working definition:
+
+> Context Broker selects what the API DM may see for the current call. It builds compact context packets from visible state, permitted internal state, relevant rules, relevant lore, recent event summaries, resolved facts, and narration boundaries. It does not interpret final intent, decide legality, resolve rules, create effects, create state deltas, mutate state, or narrate outcomes.
+
+Core rule:
+
+> Context Broker selects what the API DM may see. API DM interprets and narrates from that packet. Rules Core validates and resolves mechanics. Game State Store commits validated state. Context Broker does not mutate state or resolve rules.
+
+Authority boundary:
+
+- Context Broker may select visible state slices.
+- Context Broker may select permitted internal state slices.
+- Context Broker may select relevant rules snippets.
+- Context Broker may select relevant lore snippets.
+- Context Broker may select recent event summaries.
+- Context Broker may select resolved-facts packets after Rules Core resolution.
+- Context Broker may apply visibility rules.
+- Context Broker may enforce prompt budgets.
+- Context Broker may include required narration boundaries.
+- Context Broker may withhold never-send context.
+- Context Broker may mark missing context or stale summaries for review.
+- Context Broker may not interpret freeform player intent as final truth, decide action legality, select final check family, resolve rolls/result bands/effects/state deltas, mutate Game State Store, treat API DM memory as state, expose concealed state without permission, or invent source canon, rule authority, map truth, or committed consequences.
+
+Short boundary:
+
+> Context Broker decides what context the DM receives. It does not decide what mechanically happens.
+
+### 15.3 Accepted DM call types
+
+Accepted decision: Context Broker packets should be built around the type of API DM call being made.
+
+Rev0.1 call types:
+
+- `intent_interpretation` — translate messy player input into a proposed meaning or identify ambiguity before Rules Core validation.
+- `narration_only` — describe, recap, or answer visible factual questions without invoking mechanics.
+- `resolved_outcome_narration` — narrate fixed Rules Core results without changing them.
+- `clarification_prompt` — ask the smallest useful question when ambiguity blocks validation/resolution.
+- `option_presentation` — phrase visible validated/provisional options clearly.
+- `scene_framing` — establish or reframe a scene without inventing mechanical surfaces beyond allowed setup.
+- `summary_compression` — compress logs/history into compact future context while preserving mechanical truth.
+- `temporary_playtest_ruling_explanation` — explain a bounded temporary ruling without treating it as durable source canon.
+
+Status notes:
+
+- This supplements #35, #38, and #41.
+- These are packet-routing types, not final TypeScript enums.
+
+### 15.4 Accepted packet taxonomy
+
+Accepted decision: Context Broker should assemble named packet surfaces rather than dumping broad context.
+
+Required #41 packet types:
+
+- Core DM behavior.
+- Current scene slice.
+- Actor/crew slice.
+- Relevant rules snippet.
+- Relevant lore snippet.
+- Recent event summary.
+- Resolved facts packet.
+- Allowed narration boundaries.
+
+Rev0.1 wrapper objects:
+
+- `ContextBrokerRequest` — app request for a DM-ready context packet.
+- `DMContextPacket` — final packet sent to API DM.
+
+Suggested `ContextBrokerRequest` fields:
+
+- transaction ref, if any;
+- call type;
+- current mode;
+- actor ref, if any;
+- scene or encounter ref;
+- raw input, action request, validated action, or resolution output ref as relevant;
+- visibility target;
+- token budget;
+- required and optional packet types;
+- review flag, if needed.
+
+Suggested `DMContextPacket` fields:
+
+- packet ref;
+- source request ref;
+- call type;
+- authority reminder;
+- core DM behavior packet;
+- current scene slice;
+- actor/crew slice;
+- relevant rules snippets;
+- relevant lore snippets;
+- recent event summary;
+- resolved facts packet;
+- allowed narration boundaries;
+- visibility instructions;
+- never-send omissions summary;
+- output contract;
+- token budget report;
+- review flag, if needed.
+
+Traceability rule:
+
+> Every context packet should be traceable enough for debugging, including source transaction, scene/encounter, selected state version, source log summary refs, selected rules/lore refs, summary cache refs, and visibility policy refs where practical. Traceability is for audit/debug and does not make the packet authoritative over state.
+
+### 15.5 Always-included DM context
+
+Accepted decision: every DM context packet should include a small stable core, then add dynamic context only as needed.
+
+Always include:
+
+- compact authority reminder;
+- current call type;
+- current mode;
+- active player/actor handle when relevant;
+- minimal visible scene anchor;
+- output contract;
+- required omissions when relevant.
+
+Authority reminder baseline:
+
+> You interpret and narrate. You do not decide final legality, cost, roll, result band, effect, state delta, concealed truth, or committed state. Follow the provided packet and output contract.
+
+Resolved-outcome reminder:
+
+> Resolved facts are fixed. Do not change mechanics, target, cost, result, effect, state delta, concealed information, map truth, or committed state.
+
+### 15.6 Dynamic context selection rules
+
+Accepted decision: dynamic context is selected by current task, not by broad availability.
+
+Selection inputs may include:
+
+- current mode;
+- transaction state;
+- active actor;
+- selected target;
+- current scene/encounter;
+- visible map options;
+- visible action surfaces;
+- action category;
+- surface category;
+- check family if known;
+- result band if resolved;
+- effect/state-delta types if resolved;
+- recent event refs;
+- active statuses, counters, clocks, objectives, and route state;
+- visibility policy;
+- token budget.
+
+Selection rules:
+
+- Current task first.
+- Local relevance before global lore.
+- Rules snippets should be selected by mechanical surface: action category, surface category, check family, result band, effect type, state lane, status/ability/item refs, and current mode.
+- Lore snippets should be selected only when they affect NPC voice, faction response, location logic, allowed fiction, stakes, consequence interpretation, or continuity.
+- Recent history should be included when it affects current player choice, NPC response, legal options, counters/clocks, objectives, continuity, revealed knowledge boundaries, or current stakes.
+- Routine logs should be compressed.
+
+Anti-bloat rule:
+
+> Do not send all actor sheets, all rules, all lore, full session history, full map state, and all internal state every turn. Send the actor/action/scene slices needed for the current interpretation or narration call, plus compact summaries for continuity.
+
+### 15.7 Summary behavior
+
+Accepted decision: summaries reduce token cost while preserving continuity and mechanical truth. A summary is not source canon and not state mutation.
+
+Rev0.1 summary types:
+
+- `recent_event_summary`
+- `scene_state_summary`
+- `actor_state_summary`
+- `objective_summary`
+- `relationship_counter_summary`
+- `internal_state_summary`
+- `resolved_facts_summary`
+- `session_recap_summary`
+
+Summary visibility rule:
+
+> Every summary needs a visibility target. Do not reuse an internal summary as player-facing narration.
+
+Facts that summaries must preserve exactly when relevant:
+
+- actor HP/SI/AP/MP/resources;
+- positions and map truth;
+- active statuses;
+- active objectives;
+- committed counters/clocks;
+- revealed facts;
+- permitted internal facts;
+- unresolved obligations or promises;
+- temporary rulings and review flags.
+
+Summary refresh triggers:
+
+- scene changes;
+- encounter starts or ends;
+- actor state changes significantly;
+- objective state changes;
+- internal state changes that affect future narration or choices;
+- temporary ruling is made;
+- contradiction/review flag occurs;
+- summary age or token budget makes it stale.
+
+### 15.8 Never-send and visibility handling
+
+Accepted decision: Context Broker must define default never-send categories and narrow exceptions.
+
+Default never-send categories:
+
+- full Game State Store dump;
+- full source corpus;
+- full rules corpus;
+- full lore corpus;
+- unrelated campaign history;
+- internal state irrelevant to the current call;
+- unrevealed map information irrelevant to safe narration;
+- future route spoilers;
+- source/admin workflow details irrelevant to play;
+- local machine credentials or access tokens;
+- raw debug traces not needed for the DM call;
+- implementation internals that invite the DM to reason as the app.
+
+Concealed state may be sent only when:
+
+1. API DM needs it to avoid contradiction.
+2. API DM is allowed to foreshadow a visible symptom.
+3. API DM is writing internal-only summary with matching visibility.
+4. API DM needs it to phrase a non-revealing response safely.
+5. The player has earned a reveal and the packet includes reveal permission.
+
+Even then, the packet must say what may be narrated and what must remain concealed.
+
+Rev0.1 visibility levels:
+
+- `visible_to_player`
+- `visible_to_ui_only`
+- `visible_to_api_dm`
+- `visible_to_context_broker_only`
+- `visible_to_rules_core_only`
+- `concealed_from_player`
+- `unrevealed_until_trigger`
+- `debug_only`
+
+Concealed-state packet modes:
+
+- `withhold`
+- `send_no_narrate`
+- `send_symptom_only`
+- `send_partial_reveal`
+- `send_full_reveal`
+- `internal_summary_only`
+
+Memory boundary:
+
+> API DM memory is not a concealed-state lane. If something must matter later, commit it as state, log, summary, scheduled effect, counter, clock, or review flag.
+
+### 15.9 Intent-prompt versus narration-prompt distinction
+
+Accepted decision: intent prompts and narration prompts need different context packets.
+
+Intent interpretation packet should include:
+
+- raw player input;
+- active actor/speaker;
+- current visible scene/options;
+- possible relevant ActionSurface and MapOption refs;
+- action/surface category hints if known;
+- relevant rules snippets for classification;
+- ambiguity rules;
+- output contract for proposal, clarification, or narration-only classification.
+
+Intent interpretation packet should not include:
+
+- final resolved facts;
+- result-band tables unless classification requires them;
+- concealed outcomes;
+- broad lore unrelated to interpreting the action.
+
+Narration packet should include:
+
+- resolved-facts packet;
+- committed or commit-ready visible state summary;
+- actor/target/location;
+- effect and delta summary;
+- visibility rules;
+- tone/length constraints;
+- contradiction rules;
+- required omissions.
+
+Narration packet should not include:
+
+- alternate legal interpretations;
+- unresolved proposals;
+- concealed state not allowed for narration;
+- broad rules snippets not needed for prose.
+
+### 15.10 Resolved-facts packet
+
+Accepted decision: `ResolvedFactsPacket` is the key post-resolution DM packet. It tells API DM what is fixed and what may be narrated.
+
+Suggested fields:
+
+- transaction ref;
+- call type: `resolved_outcome_narration`;
+- actor ref;
+- target ref, if any;
+- scene or encounter ref;
+- validated action summary;
+- paid cost summary, if any;
+- check result summary, if any;
+- result band, if any;
+- effect summary;
+- state delta summary;
+- visible consequence summary;
+- concealed consequence instructions, if any;
+- committed state summary or commit-ready state summary;
+- required narration facts;
+- required omissions;
+- contradiction rules;
+- tone/length constraints;
+- review flag, if any.
+
+Fixed facts may not be changed by narration:
+
+- actor;
+- target;
+- action;
+- paid cost;
+- roll/deterministic result;
+- result band;
+- damage/healing/resource amount;
+- status applied/removed;
+- movement/position;
+- objective progress;
+- counter/clock shift;
+- reveal/conceal result;
+- state delta target/path/operation;
+- visibility instructions.
+
+Contradiction handling:
+
+> If API DM narration contradicts resolved facts, the app should reject narration, retry with stricter context if useful, fallback to mechanical text, flag the contradiction for review, and continue from committed mechanical truth. Never change state to match narration.
+
+### 15.11 Prompt-bloat and cost-control strategy
+
+Accepted decision: every Context Broker request should carry or infer a token-budget tier.
+
+Rev0.1 budget tiers:
+
+- `tiny` — clarification, simple option phrasing, small narration.
+- `small` — ordinary intent interpretation or routine outcome narration.
+- `medium` — important scene beat, social response, meaningful encounter result.
+- `large` — scene opening, major reveal, complicated recap, important NPC/faction moment.
+- `debug_override` — temporary developer/debug use only.
+
+Compression priority under budget pressure:
+
+1. authority/output contract;
+2. current player input or resolved facts;
+3. required visibility rules;
+4. current scene/actor/target slice;
+5. relevant rules snippet;
+6. recent consequence summary;
+7. relevant lore snippet;
+8. style/tone refinements;
+9. older history.
+
+Prompt-bloat review flags should trigger when:
+
+- packet exceeds budget;
+- needed rules/lore cannot be selected narrowly;
+- visibility filtering is uncertain;
+- summary is stale;
+- DM output drifts due to missing context;
+- repeated retries are needed;
+- call type is too broad.
+
+### 15.12 Implementation implications
+
+Issue #41 names `contextSelector.ts` and `dmSystemPrompt.ts` as implementation surfaces. GitHub connector search did not locate those exact file names during this pass, so Codex/local should verify current paths before implementation.
+
+Expected `contextSelector.ts`-type responsibilities:
+
+- accept a `ContextBrokerRequest`;
+- determine `CallType` if not already provided;
+- select required packet types;
+- select dynamic state/rules/lore/log slices;
+- apply `VisibilityPolicy`;
+- enforce token budget tier;
+- choose summary versus raw snippet;
+- build `DMContextPacket`;
+- emit `TokenBudgetReport` and `ReviewFlag`s when needed.
+
+Potential function surfaces:
+
+- `buildDMContextPacket(request)`
+- `selectSceneSlice(request)`
+- `selectActorCrewSlice(request)`
+- `selectRulesSnippets(request)`
+- `selectLoreSnippets(request)`
+- `selectRecentEventSummary(request)`
+- `buildResolvedFactsPacket(request)`
+- `applyVisibilityPolicy(packet, visibilityTarget)`
+- `trimToBudget(packet, tokenBudget)`
+
+Expected `dmSystemPrompt.ts`-type responsibilities:
+
+- hold stable DM behavior rules;
+- hold authority boundaries;
+- hold output discipline;
+- stay compact;
+- avoid per-scene/per-turn bloat;
+- defer variable state/rules/lore/history to Context Broker packets.
+
+The stable system prompt should not contain full source docs, full state dumps, current scene details, current concealed state, long rulebooks, or implementation-only debug details unless in debug mode.
+
+### 15.13 Accepted examples
+
+Intent interpretation example:
+
+> Player input: “I try to talk the checkpoint operator into letting us through before the patrol loops back.”  
+> Useful packet: call type, active speaker, checkpoint scene, visible operator, sealed hatch, visible social/route surfaces, social/check-family classification rules only, visible patrol-timing concern if established, and a visibility rule not to reveal exact concealed patrol clock.  
+> Expected DM output: proposed persuade/gate-route interpretation or a clarification if approach/target is ambiguous.
+
+Resolved narration example:
+
+> Resolved facts: spoof credential reader, partial success, hatch opens, hatch gate unlocked/open, trace +1 concealed.  
+> Useful packet: resolved facts fixed, allowed narration that hatch cycles open after slight delay, forbidden narration of trace value, future response, or changing partial success into clean success.
+
+Clarification example:
+
+> Player input: “I target the nearest console.”  
+> Ambiguity: two visible consoles are in reach.  
+> Expected output: one short question asking which visible console is being used, without mentioning unrevealed systems.
+
+Narration-only example:
+
+> Player input: “What does the corridor look like?”  
+> Useful packet: visible corridor description, lighting, hatch, terminal, and a boundary not to create new action surfaces unless clearly marked as flavor.
+
+### 15.14 Relationship to prior issues
+
+- #34 establishes that API DM interprets/narrates, Rules Core validates/resolves, Game State Store commits, and Context Broker controls DM visibility.
+- #35 establishes where Context Broker appears in the transaction: before intent interpretation, after resolution for resolved-facts narration, during narration-only handling, and when summary/fallback/clarification needs context.
+- #38 owns object boundaries such as `DMIntentProposal`, `DMNarrationRequest`, `DMNarrationResponse`, and `UIUpdateBundle`.
+- #39 owns check family behavior. #41 may select check-family snippets for interpretation or narration but does not let API DM resolve checks.
+- #40 owns effects, deltas, visibility metadata implications, scheduled effects, and reducer implications. #41 must respect #40 by treating concealed consequences as committed state/deltas, not prose memory.
+
+### 15.15 Acceptance coverage for #41
+
+This update covers:
+
+- always-included DM context;
+- dynamic context selection rules;
+- summary behavior;
+- never-send context;
+- intent-prompt versus narration-prompt differences;
+- resolved-facts packet requirements;
+- visibility/concealed-state handling;
+- prompt-bloat and cost-control strategy;
+- preservation of strong DM quality from project chats;
+- implementation implications for issue-named `contextSelector.ts` and `dmSystemPrompt.ts` surfaces;
+- dependency routing back to #34, #35, #38, #39, and #40 without reopening their foundations.
+
+This remains running-draft content, not source canon or implementation code.
