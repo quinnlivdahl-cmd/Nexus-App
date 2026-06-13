@@ -166,6 +166,10 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #41 | Define compact DM context broker contract | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01_ISSUE_41_SPIRITUAL_APPEND.md`; acceptance coverage section records contract/scaffold coverage | Closed by Steward cleanup after issue-state drift review |
 | #48 | Revise ChatGPT bridge workflow for long-chat preservation packets | Bridge refresh rules now include an explicit `Long-Chat Preservation Procedure`; ChatGPT project instructions and bridge README point to it; repo-local and workspace-local closeout-scan skills added for future issue sweeps | ChatGPT Project still needs upload or searchability confirmation before the changed bridge baseline can be called refreshed there |
 
+## Cleanup Notes
+
+- During this cleanup, an accidental file `DO_NOT_CREATE_TEST.md` was created while checking connector behavior, then emptied and deleted in commit `161c8d38`. It has no project meaning and should not be preserved.
+
 ## Future Script Hooks
 
 Future scripts should be able to:
