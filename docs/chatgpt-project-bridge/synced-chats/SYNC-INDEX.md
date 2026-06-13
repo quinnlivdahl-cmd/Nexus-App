@@ -33,6 +33,7 @@ When Codex creates a synced-chat packet for ChatGPT Project or Stewy to pull, Co
 
 | Date | Packet | Topic | State | Related issue/lane | Next safe action |
 |---|---|---|---|---|---|
+| 2026-06-12 | `2026-06-12-platform-executable-repo-actions.md` | Platform-executable ChatGPT-to-repo write loop | ready-for-Codex | ChatGPT Project bridge / synced-chat workflow | Codex may inspect this packet and decide whether to formalize a tiny platform repo-write recipe; no automation or source edits without fresh user approval. |
 | 2026-06-11 | `2026-06-11-handoff-automation-planning.md` | Handoff/synced-chat packet generator automation planning | planning-only | Workflow automation follow-up to Issue #43 | Planning chat should summarize readiness and shape a narrow implementation issue or task packet before Codex edits files. |
 | 2026-06-10 | `2026-06-10-issue-43-session-discipline-planning.md` | Issue #43 ChatGPT-Codex session discipline planning | planning-only | GitHub Issue #43 | Codex read-only discovery, then scoped implementation only after current user approval. |
 
