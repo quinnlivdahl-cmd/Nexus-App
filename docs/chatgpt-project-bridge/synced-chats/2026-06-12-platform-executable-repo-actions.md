@@ -19,7 +19,7 @@ This proves a small, safe ChatGPT-platform-to-repo write loop without requiring 
 - Use the synced-chat packet lane for this work.
 - Keep the action additive and reversible.
 - Do not claim live Nexus source currentness.
-- Do not edit app implementation, source mirror, roadmap, or GitHub issue state for this packet.
+- Do not edit app implementation, Golden Truth source, roadmap, or GitHub issue state for this packet.
 - Treat this packet as workflow evidence and future context, not source canon.
 - Update the synced-chat index so Codex can find the packet later.
 

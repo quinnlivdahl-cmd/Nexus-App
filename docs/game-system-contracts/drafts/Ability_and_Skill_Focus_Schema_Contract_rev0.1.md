@@ -39,7 +39,7 @@ This is a repo-side draft contract. It is intended to clarify schema constructio
 
 Exact live source authority remains local:
 
-`C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
+`C:\Users\Quintin Livdahl\Nexus\00 Source`
 
 Repo-side contract drafts are useful planning and implementation scaffolds, but they must be promoted or reconciled through the local workflow before being treated as final source truth.
 

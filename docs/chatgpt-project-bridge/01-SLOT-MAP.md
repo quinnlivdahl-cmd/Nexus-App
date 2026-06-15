@@ -40,12 +40,12 @@ These families are planned as bridge extension points after the seven-file basel
 
 ## Repo-Side Expanded Source Index
 
-If a repo-side expanded source pool exists at `docs/nexus-domain-source-rebuild-2026-06-10/source`, it should include an index file that ChatGPT can fetch directly.
+If a repo-side expanded source pool exists at `docs/nexus-game-source/source`, it should include an index file that ChatGPT can fetch directly.
 
 Preferred files:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
-- optional machine-readable companion: `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json`
+- `docs/nexus-game-source/source/SOURCE-INDEX.md`
+- optional machine-readable companion: `docs/nexus-game-source/source/SOURCE-INDEX.json`
 
 The index should not make the repo-side source pool live source authority by itself. It should provide exact paths and routing metadata so ChatGPT can fetch relevant context when useful.
 

@@ -69,7 +69,7 @@ Actionable work that may need an existing issue update, a new issue, a task pack
 Examples:
 
 - "This bridge index needs a validator check."
-- "This source mirror path needs a later legacy-path refresh."
+- "This Golden Truth source path needs a later legacy-path refresh."
 - "This issue should become a child issue with separate acceptance criteria."
 
 ### Side Finding
@@ -79,7 +79,7 @@ Useful evidence, risk, relationship, or planning note that may not need its own 
 Examples:
 
 - "Issue #42 already solved most of the template work."
-- "The source mirror has relevant historical mode discipline, but it is not app workflow authority."
+- "The Golden Truth source corpus has relevant historical mode discipline, but it is not app workflow authority."
 - "This task is using a stale packet index."
 
 ### Tiny Observation

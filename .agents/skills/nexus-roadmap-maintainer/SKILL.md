@@ -26,6 +26,6 @@ Do not:
 
 - promote candidate roadmap content to Nexus source canon;
 - turn `ROADMAP-INDEX.md` into the active execution queue;
-- bury roadmap planning in the source mirror;
+- bury roadmap planning in the Golden Truth source corpus;
 - bulk-copy live `00 Source` into the repo;
 - close a roadmap issue until index generation/checks and workflow validation pass.

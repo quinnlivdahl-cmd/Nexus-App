@@ -3,9 +3,12 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
-const sourceRoot = "docs/nexus-domain-source-rebuild-2026-06-10/source";
-const mirrorName = "Nexus Source Mirror";
-const mirrorEstablished = "2026-06-10";
+const sourceRoot = "docs/nexus-game-source/source";
+const sourceName = "Nexus Golden Truth Source";
+const sourceEstablished = "2026-06-10";
+const goldenTruthConfirmed = "2026-06-14";
+const sourceHomeRenamed = "2026-06-14";
+const liveVaultSource = "C:\\Users\\Quintin Livdahl\\Nexus\\00 Source";
 const indexMdPath = `${sourceRoot}/SOURCE-INDEX.md`;
 const indexJsonPath = `${sourceRoot}/SOURCE-INDEX.json`;
 
@@ -162,7 +165,7 @@ function sourceItem(filePath) {
     doc_id: docId,
     placement_domain: frontmatter.placement_domain || domain,
     role_status: roleStatus,
-    use_when: `Use when ChatGPT needs ${domain} ${section.toLowerCase()} context for ${title}. Verify live local source before treating it as current authority.`,
+    use_when: `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.`,
     key_terms: uniqueTerms([
       docId,
       asArray(frontmatter.legacy_ids),
@@ -183,7 +186,7 @@ function sourceItem(filePath) {
 function buildIndex() {
   const sourceRootPath = resolve(root, sourceRoot);
   if (!existsSync(sourceRootPath)) {
-    throw new Error(`Missing source mirror path: ${sourceRoot}`);
+    throw new Error(`Missing Golden Truth source path: ${sourceRoot}`);
   }
 
   const files = discoverMarkdownFiles(sourceRootPath).map(sourceItem);
@@ -197,14 +200,16 @@ function buildIndex() {
   files.sort((a, b) => a.exact_repo_path.localeCompare(b.exact_repo_path));
 
   return {
-    mirror_name: mirrorName,
-    mirror_established: mirrorEstablished,
+    source_name: sourceName,
+    source_established: sourceEstablished,
+    golden_truth_confirmed: goldenTruthConfirmed,
+    source_home_renamed: sourceHomeRenamed,
     repository,
     base_path: sourceRoot,
     path_status:
-      "Compatibility path retained from the 2026-06-10 domain-source rebuild; treated as the ongoing repo source mirror until a deliberate rename migration updates exact indexed paths.",
+      "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated Golden Truth source path for game source documents.",
     authority_note:
-      "Repo-side expanded context index for exact GitHub retrieval; not automatic live source authority.",
+      `Repo-side Golden Truth source index for exact GitHub retrieval, app source-pack work, and live vault promotion. The promoted Obsidian working source is ${liveVaultSource}.`,
     update_command: "corepack pnpm run source:index",
     check_command: "corepack pnpm run source:index:check",
     file_count: files.length,
@@ -215,10 +220,12 @@ function buildIndex() {
 
 function renderMarkdown(index) {
   const lines = [
-    "# Nexus Source Mirror Index",
+    "# Nexus Golden Truth Source Index",
     "",
-    `Mirror name: ${index.mirror_name}`,
-    `Mirror established: ${index.mirror_established}`,
+    `Source name: ${index.source_name}`,
+    `Source established: ${index.source_established}`,
+    `Golden Truth confirmed: ${index.golden_truth_confirmed}`,
+    `Source home renamed: ${index.source_home_renamed}`,
     `Repository: \`${index.repository}\``,
     `Base path: \`${index.base_path}\``,
     `Path status: ${index.path_status}`,
@@ -226,13 +233,13 @@ function renderMarkdown(index) {
     "",
     "## Authority Note",
     "",
-    "This index covers the repo-side Nexus source mirror for ChatGPT on-demand context retrieval. It is useful for richer discussion and exact GitHub file lookup, but it is not automatic live source authority. Live Nexus source authority remains the local domain-first `C:\\Nexus Mother Folder\\00 Nexus Obsidian Vault\\00 Source` unless a local workflow explicitly verifies or promotes repo-side content.",
+    `This index covers the repo-side Nexus Golden Truth source for ChatGPT on-demand context retrieval, app source-pack work, and live-source promotion. The promoted Obsidian working source lives at \`${liveVaultSource}\`; verify promotion state when local vault currentness matters.`,
     "",
     "ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.",
     "",
     "## Maintenance",
     "",
-    `Regenerate after mirrored source docs are added, removed, renamed, or changed: \`${index.update_command}\`.`,
+    `Regenerate after Golden Truth source docs are added, removed, renamed, or changed: \`${index.update_command}\`.`,
     "",
     `Check that the committed index is current: \`${index.check_command}\`.`,
     "",

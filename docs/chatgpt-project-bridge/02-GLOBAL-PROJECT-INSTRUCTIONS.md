@@ -32,11 +32,11 @@ When useful context likely exists in the repo, prefer indexed exact-path retriev
 
 Default source pool path:
 
-`docs/nexus-domain-source-rebuild-2026-06-10/source`
+`docs/nexus-game-source/source`
 
 Required helper index, once available:
 
-`docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
+`docs/nexus-game-source/source/SOURCE-INDEX.md`
 
 If the index is missing or stale, say so and ask Codex/local to regenerate it. Do not infer a file tree from a GitHub folder URL alone.
 

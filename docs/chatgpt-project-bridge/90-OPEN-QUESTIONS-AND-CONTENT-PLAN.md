@@ -19,8 +19,8 @@ Status: upload-ready bridge file
 
 The deterministic source index for the repo-side expanded source pool has been created and should be verified by exact-path fetch when needed:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json`
+- `docs/nexus-game-source/source/SOURCE-INDEX.md`
+- `docs/nexus-game-source/source/SOURCE-INDEX.json`
 
 `docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md` is now part of the seven-file bridge baseline.
 

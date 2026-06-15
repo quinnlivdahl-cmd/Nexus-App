@@ -6,7 +6,7 @@ Mode: Steward
 Created chat title: Steward — Issue 43 Session Discipline Planning — 2026-06-10  
 Related issue: GitHub Issue #43, “Design Codex Chat Focus and Session Discipline Workflow for Nexus”  
 Repo: quinnlivdahl-cmd/Nexus-App  
-Local repo path: C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App
+Local repo path: C:\Users\Quintin Livdahl\Repos\Nexus-App
 
 ## Intended Placement
 

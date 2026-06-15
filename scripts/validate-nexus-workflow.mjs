@@ -16,11 +16,13 @@ const requiredFiles = [
   ".agents/skills/nexus-handoff-bridge/SKILL.md",
   ".agents/skills/nexus-session-discipline/SKILL.md",
   ".agents/skills/nexus-source-index-maintainer/SKILL.md",
+  ".agents/skills/nexus-golden-source-promoter/SKILL.md",
   ".agents/skills/nexus-roadmap-maintainer/SKILL.md",
   "artifacts/nexus-companion/AGENTS.md",
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
   "scripts/AGENTS.md",
+  "scripts/promote-golden-source.mjs",
   "docs/nexus-roadmap/README.md",
   "docs/nexus-roadmap/ROADMAP.md",
   "docs/nexus-roadmap/ROADMAP-INDEX.md",
@@ -40,9 +42,9 @@ const requiredFiles = [
   "docs/admin/task-planning/codex-session-discipline-workflow.md",
   "docs/game-system-contracts/drafts/README.md",
   "docs/source-draft-candidates/README.md",
-  "docs/nexus-domain-source-rebuild-2026-06-10/README.md",
-  "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
-  "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json",
+  "docs/nexus-game-source/README.md",
+  "docs/nexus-game-source/source/SOURCE-INDEX.md",
+  "docs/nexus-game-source/source/SOURCE-INDEX.json",
 ];
 
 const sectionChecks = [
@@ -193,20 +195,29 @@ const sectionChecks = [
     ],
   },
   {
-    file: "docs/nexus-domain-source-rebuild-2026-06-10/README.md",
+    file: "docs/nexus-game-source/README.md",
     includes: [
-      "Nexus Source Mirror",
-      "compatibility path",
+      "Nexus Golden Truth Source",
+      "durable repo home",
+      "source:promote-golden",
+    ],
+  },
+  {
+    file: "docs/nexus-game-source/source/SOURCE-INDEX.md",
+    includes: [
+      "Nexus Golden Truth Source Index",
+      "Indexed Markdown files:",
+      "ChatGPT should fetch exact indexed GitHub paths",
       "corepack pnpm run source:index",
     ],
   },
   {
-    file: "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md",
+    file: ".agents/skills/nexus-golden-source-promoter/SKILL.md",
     includes: [
-      "Nexus Source Mirror Index",
-      "Indexed Markdown files: 186",
-      "ChatGPT should fetch exact indexed GitHub paths",
-      "corepack pnpm run source:index",
+      "nexus-golden-source-promoter",
+      "Golden Truth",
+      "node scripts/promote-golden-source.mjs",
+      "--execute",
     ],
   },
 ];
@@ -232,7 +243,7 @@ for (const check of sectionChecks) {
 
 const sourceIndexJsonPath = resolve(
   root,
-  "docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json",
+  "docs/nexus-game-source/source/SOURCE-INDEX.json",
 );
 
 if (existsSync(sourceIndexJsonPath)) {
@@ -240,9 +251,13 @@ if (existsSync(sourceIndexJsonPath)) {
     const sourceIndex = JSON.parse(
       readFileSync(sourceIndexJsonPath, "utf8").replace(/^\uFEFF/, ""),
     );
-    if (sourceIndex.file_count !== 186) {
+    if (typeof sourceIndex.file_count !== "number" || sourceIndex.file_count < 1) {
+      failures.push(`SOURCE-INDEX.json has invalid file_count: ${sourceIndex.file_count}`);
+    }
+
+    if (sourceIndex.file_count !== (sourceIndex.files ?? []).length) {
       failures.push(
-        `SOURCE-INDEX.json expected 186 indexed files, found ${sourceIndex.file_count}`,
+        `SOURCE-INDEX.json file_count ${sourceIndex.file_count} does not match files length ${(sourceIndex.files ?? []).length}`,
       );
     }
 

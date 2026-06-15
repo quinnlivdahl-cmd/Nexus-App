@@ -25,7 +25,7 @@ Do not delete or supersede source files from this handoff. The mistaken resolver
 
 ## Source/currentness status
 
-This handoff is based on ChatGPT Project discussion plus repo-side source mirror retrieval. It does not verify live local `00 Source` currentness. Exact live currentness still requires Codex/local inspection.
+This handoff is based on ChatGPT Project discussion plus repo-side Golden Truth source retrieval. It does not verify promoted live Obsidian `00 Source` currentness. Exact live-vault currentness still requires Codex/local inspection.
 
 ## Handoff prompt for next chat / Codex
 

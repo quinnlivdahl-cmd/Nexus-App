@@ -91,7 +91,7 @@ Plan | Issue 42 | Agent Intake Followups
 Handoff | Chat Naming Convention | Parked
 GitHub | #25 | Labels and Milestones
 ChatGPT | Bridge Upload Refresh
-Source Mirror | Index Maintenance
+Golden Truth Source | Index Maintenance
 Playtest | E-43 Session 01
 ```
 
@@ -106,7 +106,7 @@ Use these lane tags as the stable vocabulary:
 | `Replit` | Replit-specific task execution or sync |
 | `ChatGPT` | ChatGPT Project upload, context refresh, or searchability checks |
 | `Source` | Live `00 Source` review or candidate source work |
-| `Source Mirror` | Repo/app source snapshot and generated index upkeep |
+| `Golden Truth Source` | Repo Golden Truth source corpus, promotion, and generated index upkeep |
 | `Playtest` | Session/playtest state, DM run, or encounter test |
 | `Archive` | Archive mining, review packets, or preserved candidates |
 

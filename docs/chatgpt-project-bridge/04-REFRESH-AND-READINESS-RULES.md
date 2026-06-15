@@ -309,15 +309,15 @@ If a file is prepared but not sent, call it `upload-ready`, not current.
 
 ## Source Index Confirmation Rule
 
-Do not say GitHub on-demand source retrieval is ready for the Nexus Source Mirror unless an index can be fetched by exact path and it lists usable source files.
+Do not say GitHub on-demand source retrieval is ready for the Nexus Golden Truth source unless an index can be fetched by exact path and it lists usable source files.
 
 Expected index path:
 
-`docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
+`docs/nexus-game-source/source/SOURCE-INDEX.md`
 
 A source-index check proves only that ChatGPT can discover repo-side context files by path. It does not prove local live source currentness.
 
-If mirror files changed locally, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
+If Golden Truth source files changed locally, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
 
 ## Roadmap Index Confirmation Rule
 
@@ -349,6 +349,6 @@ When checking whether ChatGPT Project has the current bridge context, ask it abo
 - `Slots are upload/context roles`
 - `ChatGPT Project is a curated context client`
 - `source-index-needed`
-- `Nexus Source Mirror`
+- `Nexus Golden Truth Source`
 
 A successful searchability check proves only that the uploaded project context can find the named scope.

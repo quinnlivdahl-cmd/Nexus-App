@@ -2,7 +2,7 @@
 
 Status: active repo-accessible planning surface
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App\docs\nexus-roadmap`
+Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App\docs\nexus-roadmap`
 
 ## Purpose
 
@@ -10,7 +10,7 @@ This folder makes the Nexus global roadmap available from the app repo and GitHu
 
 The original roadmap candidate still lives in the Obsidian review lane:
 
-`C:\Nexus Mother Folder\00 Nexus Obsidian Vault\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
+`C:\Users\Quintin Livdahl\Nexus\Nexus\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
 
 The repo mirror is:
 

@@ -22,7 +22,7 @@ The bridge does not replace live source, the app repo, GitHub Issues, or Codex/l
 
 A repo-side expanded source pool may support richer ChatGPT discussion at:
 
-`docs/nexus-domain-source-rebuild-2026-06-10/source`
+`docs/nexus-game-source/source`
 
 This pool should be treated as indexed context, not automatic source authority.
 
@@ -30,8 +30,8 @@ Codex/local should maintain a deterministic index so ChatGPT can fetch exact fil
 
 Preferred index files:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
-- optional `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json`
+- `docs/nexus-game-source/source/SOURCE-INDEX.md`
+- optional `docs/nexus-game-source/source/SOURCE-INDEX.json`
 
 The index should include exact paths, domains, source roles, status/currentness notes, and retrieval terms.
 

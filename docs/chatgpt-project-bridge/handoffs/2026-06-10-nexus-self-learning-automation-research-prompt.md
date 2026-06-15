@@ -144,7 +144,7 @@ C. Prompt Pattern Library
    - Produces reusable prompt templates for Codex and ChatGPT.
 
 D. Stale Context Incident Log
-   - Records cases where stale uploaded context, source mirror drift, or missing issue/source verification caused bad work.
+   - Records cases where stale uploaded context, Golden Truth source drift, or missing issue/source verification caused bad work.
    - Helps decide when baseline refresh, source-index update, or targeted packet is needed.
 
 E. Skill Recommendation Scout

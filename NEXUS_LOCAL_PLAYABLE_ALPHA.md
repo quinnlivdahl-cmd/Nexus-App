@@ -3,7 +3,7 @@
 Status: active implementation plan
 Owner: local app workstream
 Primary surface: this app repo
-Related review candidate: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\90 Codex Review\01 Review Ready\2026-06-08_Nexus_Local_Playable_App_Plan_Candidate.md`
+Related review candidate: `C:\Users\Quintin Livdahl\Nexus\Nexus\90 Codex Review\01 Review Ready\2026-06-08_Nexus_Local_Playable_App_Plan_Candidate.md`
 
 Active execution queue note:
 
@@ -31,14 +31,14 @@ Local Playable Alpha is complete when the user can launch the app locally, start
 
 Read these before changing gameplay, context, or roadmap behavior:
 
-- `docs\nexus-domain-source-rebuild-2026-06-10\source`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Admin\Applied Rules\ADMIN-MAP-003 - 03-Slot-Map-rev0-6.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Admin\Applied Rules\ADMIN-RUNBOOK-013 - Nexus-Source-First-Routing-Map.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Dashboards\Current State\DASH-ROADMAP-001 - Active_Project_Roadmap.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Dashboards\Current State\DASH-TASK-001 - Active_Project_Task_Summary.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Automation\Reference Inputs\AUTO-INDEX-000 - SRC-AUTO-000-README-Source-TT-VG-Automation.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Combat\Reference Inputs\COMBAT-INDEX-000 - Combat_Domain_Readme.md`
-- `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source\Content\Reference Inputs\CONTENT-INDEX-000 - SRC-CONTENT-000-README-Source-Content-Systems.md`
+- `docs\nexus-game-source\source`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Admin\Applied Rules\ADMIN-MAP-003 - 03-Slot-Map-rev0-6.md`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Admin\Applied Rules\ADMIN-RUNBOOK-013 - Nexus-Source-First-Routing-Map.md`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Dashboards\Current State\DASH-ROADMAP-001 - Active_Project_Roadmap.md`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Dashboards\Current State\DASH-TASK-001 - Active_Project_Task_Summary.md`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Automation\Reference Inputs\AUTO-INDEX-000 - SRC-AUTO-000-README-Source-TT-VG-Automation.md`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Combat\Reference Inputs\COMBAT-INDEX-000 - Combat_Domain_Readme.md`
+- `C:\Users\Quintin Livdahl\Nexus\00 Source\Content\Reference Inputs\CONTENT-INDEX-000 - SRC-CONTENT-000-README-Source-Content-Systems.md`
 
 ## Current Prototype Inventory
 
@@ -57,10 +57,10 @@ Already present in the app:
 
 Current blockers and hardening needs:
 
-- `corepack pnpm` must be available locally before the workspace can run.
+- `corepack pnpm` is the supported local package runner and was verified on 2026-06-15.
 - AI calls still happen from the browser and use a browser-stored API key.
 - Persistence is browser localStorage only; no file-backed local save/export flow exists yet.
-- Source-backed content is hand-authored/prototype context, not yet generated from the domain-first source snapshot.
+- Source-backed content is hand-authored/prototype context, not yet generated from the Golden Truth source corpus.
 - Current default campaign is Rook resume context; the app-native new campaign seed is not defined yet.
 - Rules are mostly prompt-instructed, not app-enforced.
 
@@ -97,7 +97,7 @@ corepack pnpm run local:dev
 
 Goal: a fresh local terminal can start the app.
 
-Status: in progress.
+Status: verified locally on 2026-06-15.
 
 Completed:
 
@@ -105,13 +105,14 @@ Completed:
 - Added local defaults for API and Vite ports.
 - Removed the API server's hard requirement for `PORT` during local use.
 - Confirmed `corepack pnpm` can run pnpm `11.5.2`.
+- Confirmed `corepack pnpm install` succeeds.
+- Confirmed `corepack pnpm run typecheck` succeeds.
+- Confirmed `corepack pnpm run build` succeeds.
+- Confirmed `corepack pnpm run local:dev` starts API and companion app.
+- Confirmed API health responds with `{"status":"ok"}` at `http://127.0.0.1:5000/api/healthz`.
+- Confirmed companion app returns HTTP 200 at `http://127.0.0.1:5173`.
 
-Remaining tasks:
-
-- Run `corepack pnpm install`.
-- Run `corepack pnpm run local:dev`.
-- Verify API health at `/api/healthz`.
-- Verify the companion app opens in browser.
+Remaining tasks: none for Gate A.
 
 ### Gate B - Local State Proven
 
@@ -308,7 +309,7 @@ Goal:
 Replace hand-authored prototype lore context with source-traceable app context.
 
 Context:
-Use the domain-first source snapshot in `docs\nexus-domain-source-rebuild-2026-06-10\source`, `dmSystemPrompt.ts`, `contextSelector.ts`, and `loreRegistry.ts`.
+Use the Golden Truth source in `docs\nexus-game-source\source`, `dmSystemPrompt.ts`, `contextSelector.ts`, and `loreRegistry.ts`.
 
 Implementation Tasks:
 
@@ -491,7 +492,7 @@ Run this when Gates A through F claim completion:
 - File-backed local saves beyond browser export/import.
 - Generated scene image caching to local files.
 - Rule conflict/rulings register integration.
-- Source doc pack generation from the domain-first source snapshot.
+- Source doc pack generation from the Golden Truth source corpus.
 - Rook resume/import pathway after app-native campaign works.
 - Navigable non-combat environments.
 - Combat animations.

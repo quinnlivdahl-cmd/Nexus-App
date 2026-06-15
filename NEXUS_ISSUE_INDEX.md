@@ -2,7 +2,7 @@
 
 Status: active Markdown index
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App`
+Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App`
 
 ## Purpose
 
@@ -16,13 +16,13 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 
 - GitHub Issue 42: `Plan Codex Agent and Skill Automation Upgrade for Nexus`
 - Latest Issue 42 planning handoff comments for agent/skill/task-intake workflow design
-- Roadmap candidate: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
+- Roadmap candidate: `C:\Users\Quintin Livdahl\Nexus\Nexus\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
 - Repo-accessible roadmap mirror: `docs/nexus-roadmap/ROADMAP.md`
 - Roadmap lane/issue index: `docs/nexus-roadmap/ROADMAP-INDEX.md`
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
-- Live domain-first source: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
-- Nexus Source Mirror: `docs/nexus-domain-source-rebuild-2026-06-10/source` (compatibility path retained from the 2026-06-10 domain-source rebuild)
+- Nexus Golden Truth source: `docs/nexus-game-source/source`
+- Promoted live Obsidian source: `C:\Users\Quintin Livdahl\Nexus\00 Source`
 - ChatGPT Project synced-chat index: `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
 - ChatGPT Project non-issue handoff index: `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
 
@@ -56,6 +56,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #9 | Build source-backed context pack for app DM runtime | ready | Gate C / Source Context Proven | #7 satisfied | Start source-backed context pack implementation after confirming source-home migration commit shape |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
@@ -80,9 +81,8 @@ Last synced: 2026-06-13 by ChatGPT Steward cleanup after rules-core issue-state 
 
 | Issue | Title | Gate | Queue role | Depends on | Notes |
 |---|---|---|---|---|---|
-| #7 | Prove local launch and runtime foundation | A | blocker | none listed | First app runtime gate |
 | #8 | Add recoverable local save export and import flow | B | dependent | #7 | Local state/recovery |
-| #9 | Build source-backed context pack for app DM runtime | C | dependent | #7 | Source-backed context foundation |
+| #9 | Build source-backed context pack for app DM runtime | C | ready | #7 satisfied | Source-backed context foundation |
 | #10 | Route DM and scene image AI calls through local backend | D | dependent | #7, #9 | Backend/local AI path |
 | #11 | Add app-native campaign seed and reset path | D | dependent | #7, #9 | New app-native campaign start |
 | #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
@@ -108,10 +108,8 @@ Last synced: 2026-06-13 by ChatGPT Steward cleanup after rules-core issue-state 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #33 | Epic: Sequence Nexus app-facing game-rule/system design | epic | none listed | Parent/design sequence for rules-core work |
-| #38 | Define rules object model for actions, checks, effects, and logs | design | #33, #34 | Core rule object model; remains open pending repo architecture/type lane inspection or scaffold deferral |
-| #39 | Define check family contract | design | #38 | Check contract detail; remains open pending repo architecture/type lane inspection or scaffold deferral |
 
-Note: #34, #35, #36, #37, #40, and #41 are closed and are therefore not listed in the open queue.
+Note: #34, #35, #36, #37, #38, #39, #40, and #41 are closed and are therefore not #9 blockers.
 
 ### Source / Play Document Tasks
 
@@ -150,12 +148,13 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
-| local | Add approved domain-first source snapshot to app repo and local mirror | `docs/nexus-domain-source-rebuild-2026-06-10/source` plus local mirror under `03 APP\Nexus AI DM App\app docs` | Use snapshot for Gate C source-backed context pack planning |
-| local | Complete domain-source live migration | Live `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh app snapshot `legacy_paths` separately if needed |
+| local | Add approved domain-first source corpus to app repo | `docs/nexus-game-source/source` | The repo path is now the Golden Truth source home; historical app-copy references are archive context |
+| local | Complete domain-source live migration | Promoted live Obsidian `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh legacy path traceability separately if needed |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
+| #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
-| #45 | Create source mirror index maintenance workflow | Repo-side source mirror role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Physical path rename deferred to a deliberate migration batch because exact indexed paths and bridge references depend on the compatibility path |
+| #45 | Create source mirror index maintenance workflow | Repo-side source index role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Follow-up rename completed by moving the dated rebuild folder to `docs/nexus-game-source` and updating exact indexed paths, bridge references, validators, and promotion scripts |
 | #46 | Finalize ChatGPT bridge baseline and thread title convention | `docs/chatgpt-project-bridge` final baseline updates plus handoff/thread-title convention wiring committed in `9df8037`; issue-index closeout follow-up committed separately | ChatGPT Project still needs an actual upload/searchability confirmation before it can be called refreshed |
 | #47 | Create repo-accessible roadmap mirror and maintained issue index | `docs/nexus-roadmap` roadmap mirror/index, `scripts/update-roadmap-index.mjs`, `roadmap:index` scripts, maintainer skill, bridge pointers, and `validate:workflow` roadmap-index checks | ChatGPT Project still needs upload or exact-path retrieval confirmation before the roadmap can be called refreshed there |
 | #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | Discovery report added to Issue #43, session discipline workflow spec added, repo-local session skill added, task/handoff/bridge templates wired, synced-chat index updated, and `validate:workflow` plus `typecheck` passed | Do not build duplicate-check, observation-mining, or packet-index automation until separate follow-up issues scope them |
@@ -164,6 +163,8 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #36 | Define game state lanes and mutation boundaries | ChatGPT Draft approval / closeout comment records acceptance coverage and user approval | Closed on GitHub as completed |
 | #40 | Define effect and state-delta grammar | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01.md`; closeout evidence comment records acceptance coverage | Closed on GitHub as completed |
 | #41 | Define compact DM context broker contract | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01_ISSUE_41_SPIRITUAL_APPEND.md`; acceptance coverage section records contract/scaffold coverage | Closed by Steward cleanup after issue-state drift review |
+| #38 | Define rules object model for actions, checks, effects, and logs | `docs/game-system-contracts/drafts/Rules_Object_Model_rev0.1.md`, `docs/game-system-contracts/drafts/Rules_Object_Model_rev0.1_ACCEPTANCE_AND_SCAFFOLD_APPENDIX.md`, and Golden Truth source reconciliation in `docs/nexus-game-source/source` | TypeScript scaffold explicitly deferred to #4 so #38 does not block #9 |
+| #39 | Define check family contract | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01.md` plus Golden Truth reconciliation in `SKILL-RESOLUTION-001` | TypeScript scaffold explicitly deferred to #4 so #39 does not block #9 |
 | #48 | Revise ChatGPT bridge workflow for long-chat preservation packets | Bridge refresh rules now include an explicit `Long-Chat Preservation Procedure`; ChatGPT project instructions and bridge README point to it; repo-local and workspace-local closeout-scan skills added for future issue sweeps | ChatGPT Project still needs upload or searchability confirmation before the changed bridge baseline can be called refreshed there |
 | #51 | Build Codex visual-output starter toolkit | `docs/visual-output-starter/README.md`, lane examples, and `.agents/skills/codex-visual-output-starter/SKILL.md` provide the starter plan, lane decision guidance, and reusable Codex skill | Add concrete dependency-backed lanes only when a future visual artifact needs them |
 

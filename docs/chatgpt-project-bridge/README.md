@@ -2,7 +2,7 @@
 
 Status: active bridge layer
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App\docs\chatgpt-project-bridge`
+Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App\docs\chatgpt-project-bridge`
 
 ## Purpose
 
@@ -49,22 +49,28 @@ For long chats with accepted prose, decisions, source-ready language, or system 
 
 ChatGPT should suggest a synced-chat packet or handoff proactively when a Project chat is getting context-heavy. The trigger is context pressure in the active chat, not only a user request for a large handoff prompt.
 
-## Nexus Source Mirror
+## Nexus Golden Truth Source
 
-A repo-side Nexus Source Mirror may exist at:
+The repo-side Nexus Golden Truth source is:
 
-`docs/nexus-domain-source-rebuild-2026-06-10/source`
+`docs/nexus-game-source/source`
 
-The physical path is retained from the 2026-06-10 domain-source rebuild for compatibility. Its current repo role is the ongoing source mirror for richer ChatGPT discussion and exact GitHub retrieval, but it is not automatically live source authority. ChatGPT should use it through explicit indexed paths, source status notes, and currentness caveats.
+This path is the durable repo home for the user-designated Golden Truth source corpus for source-backed repo/app work, exact GitHub retrieval, and bridge-indexed ChatGPT discussion. It was renamed from the dated 2026-06-10 rebuild folder on 2026-06-14.
+
+The promoted live Obsidian working source is:
+
+`C:\Users\Quintin Livdahl\Nexus\00 Source`
+
+When a task depends on live-vault currentness, use local inspection or promotion evidence instead of assuming a ChatGPT Project upload proves the live folder is current. ChatGPT should use the repo Golden Truth through explicit indexed paths, source status notes, and currentness caveats.
 
 Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool should include a deterministic index file such as:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.md`
-- optionally `docs/nexus-domain-source-rebuild-2026-06-10/source/SOURCE-INDEX.json`
+- `docs/nexus-game-source/source/SOURCE-INDEX.md`
+- optionally `docs/nexus-game-source/source/SOURCE-INDEX.json`
 
 The index should list exact repo paths, source roles, domain ownership, status/currentness notes, and retrieval keywords so ChatGPT can fetch needed files directly instead of relying on broad permanent uploads.
 
-When mirror files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate it with `corepack pnpm run validate:workflow`.
+When Golden Truth source files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate it with `corepack pnpm run validate:workflow`.
 
 ## Nexus Roadmap
 
@@ -85,10 +91,11 @@ When roadmap lane mapping or issue linkage changes, Codex should regenerate the 
 
 ## Authority Boundaries
 
-- Live source authority is `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
+- Repo Golden Truth source is `docs/nexus-game-source/source`.
+- Promoted live Obsidian source is `C:\Users\Quintin Livdahl\Nexus\00 Source`.
 - App workflow and implementation authority lives in this repo and GitHub Issues.
 - ChatGPT Project context is curated, useful, and allowed to be stale when labeled. It is not source authority.
-- The Nexus Source Mirror is a repo-side context source for discussion and targeted retrieval. It does not override live local source authority unless the local workflow explicitly promotes or verifies it.
+- The Nexus Golden Truth source is the repo-side source corpus for discussion, targeted retrieval, app source-pack work, and promotion into the live Obsidian source. It does not prove ChatGPT Project upload currentness by itself.
 - Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove live source currentness.
 
 ## Refresh Rule

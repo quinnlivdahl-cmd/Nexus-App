@@ -44,16 +44,16 @@ Deletion / archive guidance:
 
 ## 2. Source context used
 
-Repo-side source mirror context used during the originating chat:
+Repo-side Golden Truth source context used during the originating chat:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Combat/Canon Homes/COMBAT-TACMAP-001 - TacMap_Node_Movement_and_Positioning.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Combat/Reference Inputs/COMBAT-REF-001 - TacMap_Workbook_and_Build_Plate_Process.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Core/Canon Homes/CORE-MISSION-001 - SRC-CORE-006-Mission-Node-Structure.md`
+- `docs/nexus-game-source/source/Combat/Canon Homes/COMBAT-TACMAP-001 - TacMap_Node_Movement_and_Positioning.md`
+- `docs/nexus-game-source/source/Combat/Reference Inputs/COMBAT-REF-001 - TacMap_Workbook_and_Build_Plate_Process.md`
+- `docs/nexus-game-source/source/Core/Canon Homes/CORE-MISSION-001 - SRC-CORE-006-Mission-Node-Structure.md`
 
 Currentness note:
 
-- These are repo-side source mirror files, not direct live local `00 Source` verification.
-- Exact live currentness still requires Codex/local inspection of `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
+- These are repo-side Golden Truth source files; the originating chat did not directly verify the promoted live Obsidian `00 Source`.
+- Exact live-vault currentness still requires Codex/local inspection of `C:\Users\Quintin Livdahl\Nexus\00 Source`.
 
 ## 3. Accepted TacMap activation premise
 

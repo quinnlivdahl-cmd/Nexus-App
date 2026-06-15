@@ -25,12 +25,12 @@ For app work, read in this order:
 4. `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 5. Nexus source docs linked from the roadmap when design authority is needed
 
-Current app-side source snapshot:
+Current app-side Golden Truth source:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source`
-- Local mirror: `C:\Nexus Mother Folder\03 APP\Nexus AI DM App\app docs\nexus-domain-source-rebuild-2026-06-10`
+- `docs/nexus-game-source/source`
+- Source home: `C:\Users\Quintin Livdahl\Repos\Nexus-App\docs\nexus-game-source`
 
-Snapshot caveat: this snapshot was created before live migration, so its `legacy_paths` may still point at former live slot paths instead of the archived slot-source path. Live vault source has already been corrected.
+Path caveat: this source home was renamed from the dated 2026-06-10 rebuild folder after live migration. Its `legacy_paths` should point at archived slot-source material when path traceability matters.
 
 ## Control Model
 
@@ -64,15 +64,15 @@ Each issue should state:
 - `#2` Establish repo collaboration lanes for Nexus App
 - `#3` Create GitHub issue and PR templates for Nexus AI collaboration
 - `#6` Plan Domain Source text-doc reorganization for repo and GitHub collaboration
-  - Status note: domain-first source snapshot has been added to the app repo and local mirror; live vault migration is complete; snapshot `legacy_paths` may need refresh.
+  - Status note: the domain-first Golden Truth source home is in the app repo; live vault migration is complete; `legacy_paths` traceability may need future review.
 
 These are active, but they are not the app-runtime critical path.
 
 ### App critical path
 
-- Gate A: `#7` Prove local launch and runtime foundation
+- Gate A: `#7` Prove local launch and runtime foundation - verified locally and ready to close
 - Gate B: `#8` Add recoverable local save export and import flow
-- Gate C: `#9` Build source-backed context pack for app DM runtime
+- Gate C: `#9` Build source-backed context pack for app DM runtime - ready after #7 closeout
 - Gate D: `#10` Route DM and scene image AI calls through local backend
 - Gate D: `#11` Add app-native campaign seed and reset path
 - Gate E: `#12` Add manual encounter harness and narrative return flow
@@ -83,7 +83,8 @@ These are active, but they are not the app-runtime critical path.
 
 - `#7` Prove local launch and runtime foundation
   Gate: A
-  Queue role: blocker
+  Queue role: satisfied blocker
+  Status note: local install, typecheck, build, API health, and companion app launch were verified on 2026-06-15.
 
 - `#8` Add recoverable local save export and import flow
   Gate: B
@@ -92,8 +93,8 @@ These are active, but they are not the app-runtime critical path.
 
 - `#9` Build source-backed context pack for app DM runtime
   Gate: C
-  Queue role: dependent
-  Depends on: `#7`
+  Queue role: ready
+  Depends on: `#7` satisfied
 
 - `#10` Route DM and scene image AI calls through local backend
   Gate: D
@@ -179,9 +180,9 @@ These are active, but they are not the app-runtime critical path.
 
 Critical path now reads:
 
-- Gate A: `#7`
+- Gate A: `#7` satisfied
 - Gate B: `#8`
-- Gate C: `#9`
+- Gate C: `#9` ready
 - Gate D: `#10`, `#11`
 - Gate E: `#12`, `#14`
 - Gate F: `#4`, `#5`, `#13`

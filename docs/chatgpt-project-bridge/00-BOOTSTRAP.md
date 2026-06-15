@@ -28,18 +28,18 @@ Do not treat this project as:
 
 Use these authority lanes:
 
-- Live Nexus source: `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`
-- App repo and workflow files: `C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App`
+- Repo Golden Truth source: `docs/nexus-game-source/source`
+- Promoted live Obsidian source: `C:\Users\Quintin Livdahl\Nexus\00 Source`
+- App repo and workflow files: `C:\Users\Quintin Livdahl\Repos\Nexus-App`
 - GitHub repo: `quinnlivdahl-cmd/Nexus-App`
 - ChatGPT Project bridge files: `docs/chatgpt-project-bridge`
 - Repo-side roadmap surface: `docs/nexus-roadmap`
-- Repo-side expanded source pool, if indexed: `docs/nexus-domain-source-rebuild-2026-06-10/source`
 
 If a task needs exact current source, route it to Codex/local source inspection or ask for a targeted current packet. Do not infer exact source truth from uploaded project files alone.
 
 ## Expanded Context Rule
 
-For general discussion, ChatGPT may use the repo-side expanded source pool for richer context when it can fetch exact indexed files from GitHub.
+For general discussion, ChatGPT may use the repo-side Golden Truth source for richer context when it can fetch exact indexed files from GitHub.
 
 Do not rely on a GitHub tree URL alone as an index. If exact file paths are unavailable, request or trigger creation of a source index rather than guessing paths.
 

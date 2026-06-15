@@ -163,16 +163,16 @@ Bridge / workflow context:
 - `03-OPERATING-MODEL.md`
 - `20-SOURCE-AUTHORITY-SUMMARY.md`
 
-Repo-side source mirror context:
+Repo-side Golden Truth source context:
 
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Modes/Canon Homes/MODES-MODE-003 - Seed-Mode-Rules-AI.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Dashboards/Current State/DASH-SEED-001 - Seed_Mode_Live_Dashboard.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Equipment/Canon Homes/EQUIP-WEAPON-001 - Weapons_and_Damage_Model.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Equipment/Canon Homes/EQUIP-LOADOUT-001 - Loadout_Core_Rules.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Equipment/Open Questions/EQUIP-OPEN-001 - Equipment_Open_Questions.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Combat/Canon Homes/COMBAT-ENV-001 - Cover_Hazards_Exposure_and_Environmental_Rules.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Combat/Canon Homes/COMBAT-CORE-001 - Combat_Core_Rules.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Combat/Canon Homes/COMBAT-TACMAP-001 - TacMap_Node_Movement_and_Positioning.md`
+- `docs/nexus-game-source/source/Modes/Canon Homes/MODES-MODE-003 - Seed-Mode-Rules-AI.md`
+- `docs/nexus-game-source/source/Dashboards/Current State/DASH-SEED-001 - Seed_Mode_Live_Dashboard.md`
+- `docs/nexus-game-source/source/Equipment/Canon Homes/EQUIP-WEAPON-001 - Weapons_and_Damage_Model.md`
+- `docs/nexus-game-source/source/Equipment/Canon Homes/EQUIP-LOADOUT-001 - Loadout_Core_Rules.md`
+- `docs/nexus-game-source/source/Equipment/Open Questions/EQUIP-OPEN-001 - Equipment_Open_Questions.md`
+- `docs/nexus-game-source/source/Combat/Canon Homes/COMBAT-ENV-001 - Cover_Hazards_Exposure_and_Environmental_Rules.md`
+- `docs/nexus-game-source/source/Combat/Canon Homes/COMBAT-CORE-001 - Combat_Core_Rules.md`
+- `docs/nexus-game-source/source/Combat/Canon Homes/COMBAT-TACMAP-001 - TacMap_Node_Movement_and_Positioning.md`
 
 ## Next Recommended Codex Action
 
@@ -204,8 +204,8 @@ Seed — Weapons Branch Concept Watering Continuation — 2026-06-12
 Use the current bridge baseline first. Then read:
 
 - `docs/chatgpt-project-bridge/synced-chats/2026-06-12-weapons-branch-concept-watering.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Dashboards/Current State/DASH-SEED-001 - Seed_Mode_Live_Dashboard.md`
-- `docs/nexus-domain-source-rebuild-2026-06-10/source/Equipment/Canon Homes/EQUIP-WEAPON-001 - Weapons_and_Damage_Model.md`
+- `docs/nexus-game-source/source/Dashboards/Current State/DASH-SEED-001 - Seed_Mode_Live_Dashboard.md`
+- `docs/nexus-game-source/source/Equipment/Canon Homes/EQUIP-WEAPON-001 - Weapons_and_Damage_Model.md`
 
 Goal: continue Sw — Weapons Branch only if needed. Keep Seed wide, not deep. Do not build a final equipment catalog. Preserve routing concern: future pure Seed brainstorming likely belongs in a Seed daily log rather than synced-chat unless there is cross-platform planning/evaluation need.
 

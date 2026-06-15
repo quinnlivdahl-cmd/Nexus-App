@@ -4,7 +4,7 @@
 
 These instructions apply to the Nexus app repo at:
 
-`C:\Nexus Mother Folder\01 REPOS\03 Nexus App\Nexus-App\Nexus-App`
+`C:\Users\Quintin Livdahl\Repos\Nexus-App`
 
 This repo should mirror the GitHub repo `quinnlivdahl-cmd/Nexus-App` after review, commit, and push. Repo-root Markdown workflow files are intended to be shared repo content unless explicitly marked local-only.
 
@@ -16,9 +16,10 @@ Before app work, read:
 2. `NEXUS_ISSUE_TRANSITION.md`.
 3. `NEXUS_LOCAL_PLAYABLE_ALPHA.md`.
 4. `replit.md`.
-5. The workspace instructions at `C:\Nexus Mother Folder\AGENTS.md`.
-6. Relevant Nexus source docs named by the task, roadmap, or app planning files.
-7. `docs/admin/task-planning/codex-session-discipline-workflow.md` for non-trivial planning, handoff, issue, or multi-step Codex work.
+5. The vault instructions at `C:\Users\Quintin Livdahl\Nexus\AGENTS.md`.
+6. The Nexus project-note instructions at `C:\Users\Quintin Livdahl\Nexus\Nexus\AGENTS.md`.
+7. Relevant Nexus source docs named by the task, roadmap, or app planning files.
+8. `docs/admin/task-planning/codex-session-discipline-workflow.md` for non-trivial planning, handoff, issue, or multi-step Codex work.
 
 ## Product Direction
 
@@ -112,15 +113,20 @@ Use this closeout order for GitHub issue tasks:
 
 Future scripts may automate this sequence, but the human-readable evidence should stay clear enough to review without a script.
 
-## Repo and Source Boundaries
+## Repo, Vault, and Source Boundaries
 
-- Do not bulk-copy Obsidian `00 Source` content into this repo in batch-one workflow work.
-- Live vault source is now domain-first at `C:\Nexus Mother Folder\00 Nexus Obsidian Vault\00 Source`.
-- Nexus source has an approved repo-side source mirror in `docs/nexus-domain-source-rebuild-2026-06-10/source`. The physical path is retained from the 2026-06-10 domain-source rebuild for compatibility; its current role is the ongoing Nexus Source Mirror.
-- The local app mirror of the same snapshot is `C:\Nexus Mother Folder\03 APP\Nexus AI DM App\app docs\nexus-domain-source-rebuild-2026-06-10`.
-- The snapshot was created before live migration, so its `legacy_paths` may still need a downstream refresh.
-- Treat the mirror as app-side source reference for context-pack and rules-core work, but do not treat it as authority to delete or overwrite live vault source.
-- When mirrored source docs are added, removed, renamed, or changed, use `.agents/skills/nexus-source-index-maintainer/SKILL.md` and regenerate the index with `corepack pnpm run source:index`.
+- The Obsidian vault is `C:\Users\Quintin Livdahl\Nexus`.
+- The Obsidian-side Nexus project folder is `C:\Users\Quintin Livdahl\Nexus\Nexus`.
+- This repo is the app implementation surface. The vault is the source/planning/personal-knowledge surface.
+- Link between repo docs and vault notes where useful, but do not bulk-copy the vault into the repo.
+
+- Do not bulk-copy Obsidian `00 Source` content into this repo unless the user explicitly approves that direction.
+- The Nexus Golden Truth source path is `docs/nexus-game-source/source`. It is the durable repo home for game source documents.
+- Live Obsidian source is at `C:\Users\Quintin Livdahl\Nexus\00 Source`; it is the promoted vault working copy of Golden Truth.
+- The project-folder path `C:\Users\Quintin Livdahl\Nexus\Nexus\00 Source` is a redirect/residue cleanup location, not active source authority.
+- Treat Golden Truth as the app/ChatGPT source corpus for context-pack and rules-core work. Do not overwrite it from vault/archive material unless explicitly approved.
+- When Golden Truth source docs are added, removed, renamed, or changed, use `.agents/skills/nexus-source-index-maintainer/SKILL.md` and regenerate the index with `corepack pnpm run source:index` or `node scripts/update-source-index.mjs`.
+- When Golden Truth must be promoted into live Obsidian source, use `.agents/skills/nexus-golden-source-promoter/SKILL.md` and `node scripts/promote-golden-source.mjs`.
 - Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
 - The repo-trackable ChatGPT Project bridge layer lives at `docs/chatgpt-project-bridge`. Those files are upload-ready context for the ChatGPT Nexus Project, but upload is not complete until the user confirms it or a refresh ledger records it.
 - ChatGPT Project synced-chat, handoff, preservation, and task packets must use approved repo destinations under `docs/chatgpt-project-bridge` unless a more specific repo path is explicitly approved by the user or a controlling issue.
