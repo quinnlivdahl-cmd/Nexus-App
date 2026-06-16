@@ -1,0 +1,279 @@
+{
+  "packId": "nexus-source-backed-runtime-primer",
+  "version": "0.1.0",
+  "description": "Compact source-backed default context pack for the Nexus app DM runtime. This pack references generated Golden Truth source slices and intentionally excludes Rook Protocol campaign lore from the default context.",
+  "entries": [
+    {
+      "id": "dm-contract-context-broker-boundary",
+      "category": "dm_contract",
+      "title": "DM Runtime Authority Boundary",
+      "tags": ["always", "runtime", "authority"],
+      "priority": 5,
+      "visibility": "dm-facing",
+      "sourceSliceIds": [
+        "automation.context-broker.source-backed-packets",
+        "automation.runtime.creative-source-versus-runtime-instance",
+        "combat.core.app-authority-state-mutation-boundary"
+      ],
+      "sourceDocIds": ["AUTO-DATA-003", "COMBAT-CORE-001"],
+      "content": "The API DM narrates, interprets, frames choices, and responds flexibly, but is not final authority for source canon, rules legality, roll resolution, state mutation, hidden truth, or committed state. Runtime packets and context slices support execution; they do not become creative authority by accident."
+    },
+    {
+      "id": "nexus-core-primer",
+      "category": "lore",
+      "title": "Nexus Core Primer",
+      "tags": ["always", "primer", "setting"],
+      "priority": 10,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "core.pillars.core-pitch",
+        "core.pillars.setting-boundary",
+        "lore.setting.core-premise",
+        "lore.setting.player-facing-scale"
+      ],
+      "sourceDocIds": ["CORE-PILLARS-001", "LORE-SETTING-001"],
+      "content": "Nexus is a tabletop-first sci-fi squad RPG about one main character and a mobile crew traveling a dangerous solar-system route structure. The setting stays inside the solar system at campaign start. The major mystery is extrasolar contact, but first contact has not cleanly happened. Keep play crew-scale: moving evidence, people, credentials, salvage, repairs, secrets, and violence through constrained places where large institutions are slow or compromised."
+    },
+    {
+      "id": "nexus-theme-human-boundary",
+      "category": "lore",
+      "title": "Human Boundary Theme",
+      "tags": ["always", "theme", "personhood"],
+      "priority": 15,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "lore.setting.primary-theme",
+        "lore.setting.body-origin-infrastructure-pressure",
+        "lore.setting.mechanics-aware-lore-principle"
+      ],
+      "sourceDocIds": ["LORE-SETTING-001"],
+      "content": "There are no fantasy races in Nexus, only arguments about what still counts as human. Bodies, implants, uploads, AI, splicers, infrastructure, law, labor, testimony, and identity should create playable pressure. Lore should stay actionable: every strong setting idea should imply hooks for scenes, rules, loadouts, factions, places, or consequences."
+    },
+    {
+      "id": "campaign-specific-material-quarantine",
+      "category": "campaign_state",
+      "title": "Campaign-Specific Material Quarantine",
+      "tags": ["always", "quarantine", "prototype"],
+      "priority": 20,
+      "visibility": "dm-facing",
+      "sourceSliceIds": [
+        "lore.faction.campaign-derived-lore-caution",
+        "lore.location.campaign-derived-place-names",
+        "content.route-node.campaign-specific-node-caution"
+      ],
+      "sourceDocIds": ["LORE-FACTION-001", "LORE-LOCATION-001", "CONTENT-ROUTE-001"],
+      "content": "Do not treat Rook Protocol names, Voss, E-43/E43, Nereid-3, Ternary Lock, Heliomed, C-WARDEN, Rill, or similar campaign-derived material as default Nexus canon. They are campaign evidence or source candidates until promoted; default app context stays a compact Nexus primer unless a specific campaign pack is selected."
+    },
+    {
+      "id": "campaign-loop-route-node-flow",
+      "category": "rules",
+      "title": "Campaign Loop and Route Node Flow",
+      "tags": ["always", "route", "campaign-loop"],
+      "priority": 40,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "core.campaign.core-loop",
+        "core.campaign.pre-node-timing",
+        "core.campaign.route-node-end-report",
+        "content.route-node.pre-node-procedure",
+        "content.route-node.node-end-report"
+      ],
+      "sourceDocIds": ["CORE-CAMPAIGN-001", "CONTENT-ROUTE-001"],
+      "content": "Default campaign rhythm: ship state -> route/node choice -> pre-node preparation -> node start -> approach -> encounter or structured scene -> immediate outcomes -> Route Node End Report -> update state -> return to ship time. Pre-node preparation happens before the active node starts. When a route node ends, produce a compact end report before free ship time resumes."
+    },
+    {
+      "id": "route-node-content-frame",
+      "category": "encounter",
+      "title": "Route Node Content Frame",
+      "tags": ["always", "route", "node", "content"],
+      "priority": 55,
+      "visibility": "dm-facing",
+      "sourceSliceIds": [
+        "content.route-node.purpose",
+        "content.route-node.content-fields",
+        "content.route-node.objectives-and-opportunities",
+        "content.route-node.route-consequences"
+      ],
+      "sourceDocIds": ["CONTENT-ROUTE-001"],
+      "content": "A route node is the campaign-scale content unit linking travel, ship phase, encounters, objectives, and consequences. Separate objective, pressure objective, and opportunity. Useful node seeds identify why to go, risks, opposition, hazards, skill-revealed options, loadout considerations, entry state, TacMap needs, clocks, exit states, persistent aftermath, rewards, leads, and salvage."
+    },
+    {
+      "id": "lattice-100-core-resolution",
+      "category": "rules",
+      "title": "Lattice-100 Core Resolution",
+      "tags": ["always", "resolution", "lattice-100", "rules"],
+      "priority": 25,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "skills.resolution.purpose-and-scope",
+        "skills.resolution.lattice-100-core-roll-call",
+        "skills.resolution.dm-mode-required-use"
+      ],
+      "sourceDocIds": ["SKILL-RESOLUTION-001"],
+      "content": "Lattice-100 is the active provisional working kernel for meaningful checks, not world lore. Roll d100 against Target Score. If roll <= TS, the action connects or succeeds and margin = TS - roll. If roll > TS, it misses or fails and failure margin = roll - TS. DM Mode should show compact TS, roll, margin, band, and stakes when mechanics are shown, and log confusion as playtest evidence instead of silently switching systems."
+    },
+    {
+      "id": "lattice-100-bands-and-check-families",
+      "category": "rules",
+      "title": "Outcome Bands and Check Families",
+      "tags": ["always", "resolution", "checks", "combat", "noncombat"],
+      "priority": 30,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "skills.resolution.combat-outcome-bands",
+        "skills.resolution.noncombat-outcome-bands",
+        "skills.resolution.check-families-and-domain-tags",
+        "skills.resolution.gate-pressure-setup-split"
+      ],
+      "sourceDocIds": ["SKILL-RESOLUTION-001"],
+      "content": "Attack-like effects use Miss, Graze, Hit, and Direct. Noncombat uses hard fail, fail, partial/compromised success, success, and exceptional success according to stakes; use Direct for attack-like top-band effects. Check families are attack, standard, and extended; hacking, social, medical, stealth, engineering, investigation, and traversal are domain tags or skills, not check families by default. Gate, pressure, and setup checks do different jobs."
+    },
+    {
+      "id": "planning-and-threshold-principle",
+      "category": "rules",
+      "title": "Planning and Thresholds",
+      "tags": ["always", "planning", "checks"],
+      "priority": 35,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "core.pillars.design-pillars",
+        "skills.resolution.thresholds-for-competence",
+        "skills.resolution.core-check-flow"
+      ],
+      "sourceDocIds": ["CORE-PILLARS-001", "SKILL-RESOLUTION-001"],
+      "content": "Good plans should change the problem before dice are rolled. Use thresholds for competence and rolls for uncertainty. Skills, equipment, crew, ship systems, traits, and context may reveal safer options, lower costs, change defenses, bypass routine obstacles, or improve partial outcomes. Revealing an option is not the same as succeeding at it."
+    },
+    {
+      "id": "combat-start-and-state",
+      "category": "encounter",
+      "title": "Combat Start and State",
+      "tags": ["always", "combat", "encounter"],
+      "priority": 60,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "combat.core.purpose-and-tactical-principles",
+        "combat.core.encounter-start-procedure",
+        "combat.core.combat-state-to-track",
+        "playaid.overview.encounter-start-packet"
+      ],
+      "sourceDocIds": ["COMBAT-CORE-001", "PLAYAID-OVERVIEW-001"],
+      "content": "Combat is tactical, readable, and objective-aware. Start encounters with title, short fiction, immediate stakes, assessment/approach, TacMap or tactical sketch when spatial play matters, and visible enemies, hazards, objectives, and interactables. Structured combat state is mechanical truth; rendered maps and narration are display layers."
+    },
+    {
+      "id": "combat-durability-and-turn-baseline",
+      "category": "rules",
+      "title": "Combat Durability and Turn Baseline",
+      "tags": ["always", "combat", "durability"],
+      "priority": 65,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "combat.core.turn-and-activation-baseline",
+        "combat.core.defensive-display-spine",
+        "combat.core.durability-application-order",
+        "combat.core.end-conditions"
+      ],
+      "sourceDocIds": ["COMBAT-CORE-001"],
+      "content": "Current combat baseline uses alternating activations, 2 AP, Speed-derived MP, reaction permission, and one free micro-interaction. Defensive spine: HP/SI, DEF/FW, MTG, SHD. Durability order is Shield, then Mitigation, then Health or System Integrity harm. Combat can end through objectives, retreat, surrender, negotiation, collapse, shutdown, or enemy withdrawal; killing every enemy is only one ending."
+    },
+    {
+      "id": "tacmap-node-path-grammar",
+      "category": "play_aid",
+      "title": "TacMap Node/Path Grammar",
+      "tags": ["always", "tacmap", "map"],
+      "priority": 70,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "combat.tacmap.core-definition",
+        "combat.tacmap.core-numeric-movement-rule",
+        "combat.tacmap.nodes",
+        "combat.tacmap.paths-and-line-of-sight",
+        "combat.tacmap.node-status-and-path-status"
+      ],
+      "sourceDocIds": ["COMBAT-TACMAP-001"],
+      "content": "A TacMap is a node-web: meaningful nodes connected by paths, not a full grid and not a single abstract zone. Movement uses path distance as MP before modifiers. Nodes communicate what they are, why they matter, cover/elevation/hazards/objectives, and what can be done there. Path connection does not automatically mean line of sight."
+    },
+    {
+      "id": "play-aid-authority-and-triggers",
+      "category": "play_aid",
+      "title": "Play Aid Authority and Triggers",
+      "tags": ["always", "play-aid", "display"],
+      "priority": 75,
+      "visibility": "dm-facing",
+      "sourceSliceIds": [
+        "playaid.overview.definition",
+        "playaid.overview.non-authority-rule",
+        "playaid.overview.trigger-rules",
+        "playaid.overview.required-source-pointers"
+      ],
+      "sourceDocIds": ["PLAYAID-OVERVIEW-001"],
+      "content": "Play aids make the game easier to run and display, but they are not automatically source truth. Use them when they reduce friction: tactical encounter starts, route choices, escape/pursuit structures, route-node ends, significant state changes, visible complex hazards/objectives/statuses, or session artifacts. Substantial aids should point back to their source owners."
+    },
+    {
+      "id": "setting-faction-pressure-map",
+      "category": "lore",
+      "title": "Faction Pressure Map",
+      "tags": ["setting", "faction", "social", "politics"],
+      "priority": 100,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "lore.faction.present-day-power-map",
+        "lore.faction.treaty-order-system-authority",
+        "lore.faction.cpoh-human-continuity-power",
+        "lore.faction.frontier-independent-habitats"
+      ],
+      "sourceDocIds": ["LORE-FACTION-001"],
+      "content": "The solar system is multi-polar and overloaded. Authority is split among treaty institutions, Earth-rooted human-continuity power, corporate sovereign habitats, upload persons and server polities, frontier communities, implant-linked conglomerations, and small crews. Factions should carry partial truth, pressure, dependency, and mission hooks rather than simple good/evil labels."
+    },
+    {
+      "id": "setting-location-route-tone",
+      "category": "lore",
+      "title": "Location and Travel Tone",
+      "tags": ["setting", "location", "route", "travel"],
+      "priority": 105,
+      "visibility": "player-visible",
+      "sourceSliceIds": [
+        "lore.location.location-scale",
+        "lore.location.jupiter-moons-outer-system",
+        "lore.location.frontier-habitats",
+        "lore.location.travel-tone"
+      ],
+      "sourceDocIds": ["LORE-LOCATION-001"],
+      "content": "Locations operate at playable scale: solar-system regions, major centers, habitats/stations/moons/corporate sites/route nodes, then mission locations and TacMaps. Travel should feel like logistics, access, risk, fuel, clearance, credentials, fragile infrastructure, and route pressure without requiring faster-than-light travel."
+    },
+    {
+      "id": "encounter-patterns-source-backed",
+      "category": "encounter",
+      "title": "Reusable Encounter Patterns",
+      "tags": ["encounter", "content", "tacmap"],
+      "priority": 120,
+      "visibility": "dm-facing",
+      "sourceSliceIds": [
+        "content.encounter.status-and-use",
+        "content.encounter.pattern-objective-runner",
+        "content.encounter.pattern-system-vulnerable-machine",
+        "content.encounter.pattern-hazard-clock-room",
+        "content.encounter.pattern-requirement-escape",
+        "content.encounter.pattern-node-path-hazard"
+      ],
+      "sourceDocIds": ["CONTENT-ENCOUNTER-001"],
+      "content": "Use encounter patterns as scaffolds, not final roster canon. Useful reusable patterns include objective runners, system-vulnerable machines, hazard clock rooms, requirement escapes, and node/path hazard scenes. Patterns should make objectives, pressure, relief options, aftermath, and source/display boundaries concrete."
+    },
+    {
+      "id": "image-guidance-nexus-visual-style",
+      "category": "image_guidance",
+      "title": "Nexus Visual Style and Prompt Boundaries",
+      "tags": ["image", "art", "visual", "scene"],
+      "priority": 130,
+      "visibility": "dm-facing",
+      "sourceSliceIds": [
+        "art.prompt.metadata-block",
+        "art.prompt.base-nexus-style",
+        "art.prompt.environment-concept-skeleton",
+        "art.prompt.tacmap-diagram-skeleton",
+        "art.prompt.variant-rules"
+      ],
+      "sourceDocIds": ["ART-PROMPT-001"],
+      "content": "Visual guidance should use grounded NASApunk solar-system sci-fi: practical industrial habitats, modular spacecraft, exposed mechanicals, worn safety markings, analog switches, teal diagnostics, warning yellow, emergency red, and readable sourcebook composition. Do not use image variants or scene prompts to silently change source truth, factions, geography, mechanics, node/path truth, or canon."
+    }
+  ]
+}

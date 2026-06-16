@@ -32,6 +32,7 @@ This glossary defines core campaign terms and routing boundaries for the `Core` 
 
 ## 2. Core Terms
 
+<!-- source-slice: core.glossary.nexus -->
 ### Nexus
 
 The project/game: a tabletop-first sci-fi squad RPG about a mobile crew traveling through a dangerous solar-system route structure, resolving tactical missions, crew growth, route pressure, faction consequences, and survival.
@@ -48,30 +49,37 @@ Later video-game or app implementation. Downstream from tested TT systems.
 
 Player character. The single main player character who affects starting conditions, background/story goal, faction relationships, equipment, dialogue, recruit options, and campaign framing.
 
+<!-- source-slice: core.glossary.crew -->
 ### Crew
 
 The shipboard team around the PC. Crew members may be active squad members, ship support, recruits, contacts, or other stateful NPCs depending on rules and campaign state.
 
+<!-- source-slice: core.glossary.ship-phase -->
 ### Ship Phase
 
 The state-review and preparation layer between active nodes. It includes campaign state, route options, resources, ship condition, crew state, loadouts, advancement/prep, and consequences.
 
+<!-- source-slice: core.glossary.route -->
 ### Route
 
 The campaign-scale travel structure through the solar system. Routes carry resource pressure, faction pressure, known/hidden options, and consequences forward.
 
+<!-- source-slice: core.glossary.node -->
 ### Node
 
 A playable ship stop, not merely a map point. A node can be a station, colony, derelict, orbital platform, moon settlement, asteroid site, ship contact, faction checkpoint, distress signal, research site, black-market dock, or anomaly.
 
+<!-- source-slice: core.glossary.pre-node-procedure -->
 ### Pre-Node Procedure
 
 The process that happens before starting an active node scene. It may include advancement/level-up, crew/team selection, loadout, ship readiness, planning, route forecasting, and support assignments.
 
+<!-- source-slice: core.glossary.mission-node -->
 ### Mission Node
 
 A node with a defined playable mission, encounter, objective, or scene structure. It may resolve through combat, non-combat checks, a mapped nonviolent/ship-stop TacMap, or a mixed procedure.
 
+<!-- source-slice: core.glossary.tacmap -->
 ### TacMap
 
 A tactical map made of meaningful nodes and paths. In `Core`, the term is used only at the high level: TacMaps provide spatial clarity for combat and significant nonviolent scenes. Detailed TacMap movement and rules route to `Combat`.
@@ -120,10 +128,12 @@ A rare expanded escape structure where escape is the core premise of the node.
 
 Preferred noncombat pacing phrase for a meaningful choice that consumes time, changes risk, advances a counter, or creates consequence.
 
+<!-- source-slice: core.glossary.encounter-start-packet -->
 ### Encounter Start Packet
 
 The player-facing start display for a tactical or structured encounter. It may include framing, stakes, TacMap/schematic, node/path/objective data, actors, hazards/pressure, and player options.
 
+<!-- source-slice: core.glossary.structured-tacmap-data -->
 ### Structured TacMap Data
 
 The authoritative node/path/objective/status data behind a TacMap. Images and visual aids support this data but do not replace it.
@@ -181,6 +191,5 @@ When a term appears here with only a high-level definition, do not infer detaile
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
 
 

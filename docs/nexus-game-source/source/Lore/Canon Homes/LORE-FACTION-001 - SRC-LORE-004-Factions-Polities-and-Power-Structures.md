@@ -26,10 +26,12 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE
 
 # Factions, Polities, and Power Structures
 
+<!-- source-slice: lore.faction.present-day-power-map -->
 ## Present-day power map
 
 The solar system is multi-polar and overloaded. No single faction controls it cleanly. Authority is distributed among treaty institutions, Earth-rooted human-continuity power, corporate sovereign habitats, upload persons and server polities, frontier communities, implant-linked conglomerations, and small crews.
 
+<!-- source-slice: lore.faction.treaty-order-system-authority -->
 ## Treaty Order / System Authority
 
 The system-level authority is not simply weak, evil, or irrelevant. It is the legal and diplomatic infrastructure many people depend on, especially in inner-system space and treaty-recognized routes.
@@ -47,6 +49,7 @@ Its failures usually come from overload:
 
 "UN," "Treaty Order," and "System Authority" are working labels. This branch needs final in-setting naming later.
 
+<!-- source-slice: lore.faction.cpoh-human-continuity-power -->
 ## C-POH / human-continuity power
 
 `C-POH` is a working handle, not final naming.
@@ -62,6 +65,7 @@ C-POH is dangerous when protection becomes purity: anti-upload violence, forced 
 C-POH should not be reduced to a cartoon villain. It is a source of danger, partial truth, ugly political opportunity, and genuine fear.
 
 
+<!-- source-slice: lore.faction.cpoh-sacred-boundary-refinement -->
 ## C-POH sacred-boundary refinement
 
 C-POH should retain religious, metaphysical, or sacred-boundary energy. It is not only legal anti-cyberware politics and not merely anti-machine reaction. Its core wound is that commercial brain implants profaned the boundary of the person: memory, will, agency, cognition, identity, and legal selfhood became market surfaces.
@@ -75,6 +79,7 @@ This does not make C-POH safe. Protection can become purity, and purity can beco
 
 `Equipment` tracks the equipment implications. `Lore` tracks ideology, law, faction culture, and personhood boundary.
 
+<!-- source-slice: lore.faction.corporate-sovereignties -->
 ## Corporate sovereignties
 
 Corporate power is rooted in stability-for-ownership. Corporations gained influence through drones, logistics, AI, private security, finance, habitat construction, medical systems, identity infrastructure, and supply-chain control.
@@ -83,6 +88,7 @@ Corporate citizens may trade labor, obedience, debt, service, or contractual dep
 
 Corporate sovereignty is not just greed. It is also the terrifying practicality of surviving inside habitats that someone must build, repair, power, and defend.
 
+<!-- source-slice: lore.faction.choir-collective-placeholder -->
 ## The Choir and the Collective placeholder
 
 The preferred working concept is **the Choir**.
@@ -100,6 +106,7 @@ The best current model is:
 
 The Choir may not be something the corporate world built. It may be what happened when implant networks became large enough to hear the Signal hearing back.
 
+<!-- source-slice: lore.faction.implant-megacorp-outbreak-seed -->
 ## Implant megacorp / outbreak seed
 
 A major brain-implant or cybernetics corporation near the Jupiter moons remains the clearest early outbreak seed. The accepted seed is Secret Research Backfire: Signal research causes or reveals a disturbance that propagates through required employee brain implants.
@@ -108,6 +115,7 @@ The company may continue operating while its decisions become subtly Choir-shape
 
 This is a lore-campaign engine, not a complete faction profile yet.
 
+<!-- source-slice: lore.faction.upload-persons-and-polities -->
 ## Upload persons and upload polities
 
 Upload persons and upload polities must be split.
@@ -116,15 +124,16 @@ Upload persons concern identity, continuity, copies, forks, rights, death, conse
 
 Upload polities concern server-habitats, compute, energy dependence, cooling, defense, diplomacy, raids, deletion risks, blockades, substrate law, and strategic bargaining.
 
+<!-- source-slice: lore.faction.frontier-independent-habitats -->
 ## Frontier and independent habitats
 
 Frontier habitats, stations, mines, ships, and small settlements are brittle and practical. They are caught between corporate contracts, system law, C-POH pressure, upload bargaining, Choir incidents, pirates, smugglers, repair shortages, and survival math.
 
 They are an ideal mission scale because small crews can still matter there.
 
+<!-- source-slice: lore.faction.campaign-derived-lore-caution -->
 ## Campaign-derived lore caution
 
 Heliomed, E43, Nereid-3, Voss, Rill, C-WARDEN, Ternary Lock, Special Review Detachment, and other campaign materials are source candidates and campaign state evidence. They should not be promoted wholesale into general lore without later review.
-
 
 

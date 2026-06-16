@@ -111,8 +111,7 @@ function ChatWindow() {
               Nexus DM Interface — Ready
             </div>
             <p className="text-white/40 text-xs leading-relaxed max-w-xs">
-              The Wayfarer Saint drifts cold in Europa's shadow. Cache E-43 is waiting.
-              Speak to begin.
+              {state.scene.narrativeContext}
             </p>
             {!state.settings.openaiApiKey && (
               <div className="mt-2 border border-amber-500/40 bg-amber-500/10 rounded px-3 py-2 text-amber-400/90 text-[11px] font-mono">
@@ -804,7 +803,7 @@ function DebugStateEditor() {
 }
 
 function SettingsPanel() {
-  const { state, dispatch, resetToRookCampaign } = useGameState();
+  const { state, dispatch, resetToNexusPrimer } = useGameState();
   const [apiKey, setApiKey] = useState(state.settings.openaiApiKey);
   const [saved, setSaved] = useState(false);
 
@@ -875,7 +874,7 @@ function SettingsPanel() {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-xs font-mono text-white/70">Debug Mode</div>
-          <div className="text-[9px] font-mono text-white/30">Show raw DM JSON blocks in chat + token estimates in browser console</div>
+          <div className="text-[9px] font-mono text-white/30">Show raw DM JSON blocks in chat, token estimates in console, and write local logs to .codex-local/dm-debug</div>
         </div>
         <button
           onClick={() => dispatch({ type: 'UPDATE_SETTINGS', payload: { debugMode: !state.settings.debugMode } })}
@@ -901,13 +900,13 @@ function SettingsPanel() {
         <div className="text-[9px] uppercase tracking-widest text-red-500/40 font-mono mb-2">Danger Zone</div>
         <button
           onClick={() => {
-            if (confirm('Reset all state to the Rook campaign start? This cannot be undone.')) {
-              resetToRookCampaign();
+            if (confirm('Reset all state to the Nexus source primer? This cannot be undone.')) {
+              resetToNexusPrimer();
             }
           }}
           className="w-full border border-red-500/30 text-red-400/70 text-xs font-mono rounded px-3 py-2 hover:bg-red-500/10 hover:border-red-500/50 transition-colors"
         >
-          Reset to Rook Campaign (Fresh Start)
+          Reset to Nexus Source Primer
         </button>
       </div>
     </div>

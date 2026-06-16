@@ -90,7 +90,7 @@ function discoverMarkdownFiles(dir) {
     }
 
     if (!entry.isFile() || !entry.name.endsWith(".md")) continue;
-    if (entry.name === "SOURCE-INDEX.md") continue;
+    if (entry.name === "SOURCE-INDEX.md" || entry.name === "SOURCE-SLICES.md") continue;
     files.push(fullPath);
   }
 

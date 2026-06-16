@@ -26,6 +26,7 @@ metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first
 
 # Nexus Core Game Pillars
 
+<!-- source-slice: core.pillars.core-pitch -->
 ## 1. Core Pitch
 
 Nexus is a turn-based sci-fi squad RPG where the player controls one primary player character, recruits NPC party members, and travels with a mobile crew on a ship through a dangerous solar-system route structure inspired by FTL.
@@ -38,6 +39,7 @@ The project is developed first as a playable tabletop/notebook RPG before any Re
 
 FTL route progression plus XCOM-style tactical missions plus Pokemon-style recruit/team collection plus sci-fi RPG character depth.
 
+<!-- source-slice: core.pillars.setting-boundary -->
 ## 3. Setting Boundary at Core Level
 
 The game remains within the solar system. The major mystery is extrasolar contact. Conflict arises from the ways solar-system factions react to that contact.
@@ -52,6 +54,7 @@ The player recruits NPC party members who function like space-D&D party members.
 
 Detailed character chassis, origins, species-facing hooks, skills, disciplines, and progression rules belong in `Characters` and `Skills`.
 
+<!-- source-slice: core.pillars.campaign-structure -->
 ## 5. Core Campaign Structure
 
 The game progresses through an FTL-style route map. The player travels through the solar system from node to node with a mobile crew on a ship.
@@ -62,6 +65,7 @@ The core play loop is ship state -> route/node choice -> pre-node planning/loado
 
 Current mass-intake refinement: the practical rhythm should remain visible as **route choice -> pre-node prep -> mission node -> encounter/result -> Route Node End Report -> ship time / next route**. The Route Node End Report belongs after immediate node resolution and before free ship time resumes.
 
+<!-- source-slice: core.pillars.design-pillars -->
 ## 6. Design Pillars
 
 ### Playable Tabletop Foundation
@@ -100,6 +104,7 @@ The first implementation should prove the campaign loop, tactical combat, and ch
 
 Replit or other digital tools should implement tested tabletop systems rather than inventing game logic from scratch.
 
+<!-- source-slice: core.pillars.campaign-scale -->
 ## 7. Campaign Scale
 
 Nexus campaigns begin with crew-scale action inside a larger multi-polar solar-system crisis. The player crew should not start by controlling empires, commanding major factions, or solving the entire system.
@@ -150,6 +155,5 @@ TT v0.1 should be able to:
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
 
 

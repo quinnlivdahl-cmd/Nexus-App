@@ -1,7 +1,11 @@
 import type { GameState } from '../types/game';
-import { LORE_REGISTRY, type LoreEntry } from './loreRegistry';
+import {
+  SOURCE_CONTEXT_PACK,
+  type ContextCategory,
+  type SourceBackedContextEntry,
+} from './contextPack';
 
-const LORE_TOKEN_BUDGET = 600;
+const CONTEXT_TOKEN_BUDGET = 900;
 
 function slugify(str: string): string {
   return str
@@ -15,24 +19,28 @@ function deriveSceneTags(state: GameState): Set<string> {
 
   tags.add('always');
 
-  const arcSlug = slugify(state.campaign.currentArc);
-  tags.add(arcSlug);
-  if (arcSlug.includes('arc-1') || arcSlug.includes('kallisto')) {
-    tags.add('arc-1');
-    tags.add('kallisto-signal');
+  for (const value of [
+    state.campaign.campaignName,
+    state.campaign.currentArc,
+    state.campaign.currentLocation,
+    state.campaign.nextNode,
+    state.scene.locationName,
+    state.scene.environmentType,
+  ]) {
+    const slug = slugify(value);
+    if (!slug) continue;
+    tags.add(slug);
+    slug.split('-').forEach((part) => {
+      if (part.length > 2) tags.add(part);
+    });
   }
 
-  const locationSlug = slugify(state.campaign.currentLocation);
-  tags.add(locationSlug);
-  locationSlug.split('-').forEach((part) => {
-    if (part.length > 2) tags.add(part);
-  });
-
   if (state.encounter.active) {
+    tags.add('encounter');
+    tags.add('combat');
     for (const actor of state.encounter.actors) {
-      if (actor.faction === 'enemy' || actor.faction === 'elite-enemy') {
-        tags.add(slugify(actor.name));
-      }
+      tags.add(slugify(actor.name));
+      tags.add(actor.faction);
     }
   }
 
@@ -63,114 +71,88 @@ function getActiveFactionIds(state: GameState): Set<string> {
   const ids = new Set<string>();
   if (state.encounter.active) {
     for (const actor of state.encounter.actors) {
-      if (actor.faction === 'enemy' || actor.faction === 'elite-enemy') {
-        ids.add(slugify(actor.name));
-      }
+      ids.add(slugify(actor.name));
+      ids.add(actor.faction);
     }
   }
   return ids;
 }
 
-/**
- * Selection rules by category:
- *
- * world   — include if tags intersect sceneTags (always, arc slug, location slug, encounter factions)
- * faction — include if tags intersect sceneTags OR linkedEntityId matches active faction
- * crew    — include ONLY via entity linking (linkedEntityId matches active crew id)
- *           Exception: entries explicitly tagged 'always' are always included
- * location — include ONLY via entity linking (linkedEntityId matches active/next route node id)
- *            Exception: entries explicitly tagged 'always' are always included
- *
- * This prevents arc-tagged crew/location entries from being injected for every
- * turn just because the current arc slug matches.
- */
-export function selectActiveContext(state: GameState): LoreEntry[] {
+function linkedEntityMatches(entry: SourceBackedContextEntry, state: GameState): boolean {
+  if (!entry.linkedEntityId) return false;
+
+  return (
+    getActiveCrewIds(state).has(entry.linkedEntityId) ||
+    getActiveLocationIds(state).has(entry.linkedEntityId) ||
+    getActiveFactionIds(state).has(entry.linkedEntityId)
+  );
+}
+
+export function selectActiveContext(state: GameState): SourceBackedContextEntry[] {
   const sceneTags = deriveSceneTags(state);
-  const activeCrewIds = getActiveCrewIds(state);
-  const activeLocationIds = getActiveLocationIds(state);
-  const activeFactionIds = getActiveFactionIds(state);
-
+  const selected: SourceBackedContextEntry[] = [];
   const seen = new Set<string>();
-  const selected: LoreEntry[] = [];
 
-  function include(entry: LoreEntry) {
+  function include(entry: SourceBackedContextEntry) {
     if (seen.has(entry.id)) return;
     seen.add(entry.id);
     selected.push(entry);
   }
 
-  for (const entry of LORE_REGISTRY) {
-    const hasAlwaysTag = entry.tags.includes('always');
-
-    if (hasAlwaysTag) {
+  for (const entry of SOURCE_CONTEXT_PACK.entries) {
+    const tagMatch = entry.tags.some((tag) => sceneTags.has(tag));
+    if (entry.tags.includes('always') || tagMatch || linkedEntityMatches(entry, state)) {
       include(entry);
-      continue;
-    }
-
-    switch (entry.category) {
-      case 'world': {
-        if (entry.tags.some((t) => sceneTags.has(t))) {
-          include(entry);
-        }
-        break;
-      }
-
-      case 'faction': {
-        const tagMatch = entry.tags.some((t) => sceneTags.has(t));
-        const entityMatch = entry.linkedEntityId
-          ? activeFactionIds.has(entry.linkedEntityId)
-          : false;
-        if (tagMatch || entityMatch) {
-          include(entry);
-        }
-        break;
-      }
-
-      case 'crew': {
-        // Default: entity linking. Manual override: any explicit scene-matching tag
-        // on the entry (e.g. 'always', 'europa') force-injects it even when the
-        // crew member is not active in the current GameState.
-        const entityMatch = !!(entry.linkedEntityId && activeCrewIds.has(entry.linkedEntityId));
-        const tagOverride = entry.tags.some((t) => sceneTags.has(t));
-        if (entityMatch || tagOverride) {
-          include(entry);
-        }
-        break;
-      }
-
-      case 'location': {
-        // Default: entity linking. Manual override: any explicit scene-matching tag
-        // force-injects the entry regardless of route node status.
-        const entityMatch = !!(entry.linkedEntityId && activeLocationIds.has(entry.linkedEntityId));
-        const tagOverride = entry.tags.some((t) => sceneTags.has(t));
-        if (entityMatch || tagOverride) {
-          include(entry);
-        }
-        break;
-      }
     }
   }
 
-  return selected;
+  return selected.sort((a, b) => a.priority - b.priority || a.id.localeCompare(b.id));
 }
 
-export function renderSelectedLore(entries: LoreEntry[]): string {
+export function renderSelectedContext(entries: SourceBackedContextEntry[]): string {
   if (entries.length === 0) return '';
 
-  const grouped: Record<string, LoreEntry[]> = {};
+  const grouped: Partial<Record<ContextCategory, SourceBackedContextEntry[]>> = {};
   for (const entry of entries) {
-    if (!grouped[entry.category]) grouped[entry.category] = [];
-    grouped[entry.category].push(entry);
+    grouped[entry.category] ??= [];
+    grouped[entry.category]?.push(entry);
   }
 
-  const ORDER: Array<LoreEntry['category']> = ['world', 'faction', 'location', 'crew'];
-  const lines: string[] = ['## CAMPAIGN LORE'];
+  const order: ContextCategory[] = [
+    'dm_contract',
+    'rules',
+    'lore',
+    'campaign_state',
+    'encounter',
+    'play_aid',
+    'image_guidance',
+  ];
 
-  for (const cat of ORDER) {
-    const items = grouped[cat];
-    if (!items || items.length === 0) continue;
+  const headings: Record<ContextCategory, string> = {
+    dm_contract: 'DM CONTRACT',
+    rules: 'SOURCE-BACKED RULES',
+    lore: 'SOURCE-BACKED LORE',
+    campaign_state: 'CAMPAIGN STATE BOUNDARIES',
+    encounter: 'ENCOUNTER AND CONTENT GUIDANCE',
+    play_aid: 'PLAY AID GUIDANCE',
+    image_guidance: 'IMAGE GUIDANCE',
+  };
+
+  const lines: string[] = ['## SOURCE-BACKED CONTEXT PACK'];
+  lines.push(`Pack: ${SOURCE_CONTEXT_PACK.packId}@${SOURCE_CONTEXT_PACK.version}`);
+
+  for (const category of order) {
+    const items = grouped[category];
+    if (!items?.length) continue;
+
+    lines.push('');
+    lines.push(`### ${headings[category]}`);
+
     for (const item of items) {
       lines.push('');
+      lines.push(`#### ${item.title}`);
+      lines.push(`Source docs: ${item.sourceDocIds.map((id) => `\`${id}\``).join(', ')}`);
+      lines.push(`Source slices: ${item.sourceSliceIds.map((id) => `\`${id}\``).join(', ')}`);
       lines.push(item.content);
     }
   }
@@ -178,35 +160,29 @@ export function renderSelectedLore(entries: LoreEntry[]): string {
   return lines.join('\n');
 }
 
+export function buildContextTrace(entries: SourceBackedContextEntry[]): string[] {
+  return entries.map(
+    (entry) =>
+      `${entry.id} [${entry.category}] docs=${entry.sourceDocIds.join(', ')} slices=${entry.sourceSliceIds.join(', ')}`,
+  );
+}
+
 export function estimateTokens(text: string): number {
   return Math.ceil(text.length / 4);
 }
 
-/**
- * Enforce a hard token budget on the lore portion.
- * Returns entries in priority order, stopping once the budget is exhausted.
- * Priority: always-tagged first, then world, then faction, then location, then crew.
- */
-export function applyLoreBudget(
-  entries: LoreEntry[],
-  budgetTokens: number = LORE_TOKEN_BUDGET
-): LoreEntry[] {
-  const PRIORITY: Record<string, number> = { world: 0, faction: 1, location: 2, crew: 3 };
-  const sortedByPriority = [...entries].sort((a, b) => {
-    const aAlways = a.tags.includes('always') ? -1 : 0;
-    const bAlways = b.tags.includes('always') ? -1 : 0;
-    if (aAlways !== bAlways) return aAlways - bAlways;
-    return (PRIORITY[a.category] ?? 99) - (PRIORITY[b.category] ?? 99);
-  });
+export function applyContextBudget(
+  entries: SourceBackedContextEntry[],
+  budgetTokens: number = CONTEXT_TOKEN_BUDGET,
+): SourceBackedContextEntry[] {
+  const sorted = [...entries].sort((a, b) => a.priority - b.priority || a.id.localeCompare(b.id));
+  const result: SourceBackedContextEntry[] = [];
 
-  const result: LoreEntry[] = [];
-  let usedTokens = 0;
-
-  for (const entry of sortedByPriority) {
-    const cost = estimateTokens(entry.content);
-    if (usedTokens + cost > budgetTokens) continue;
+  for (const entry of sorted) {
+    const candidate = [...result, entry];
+    const cost = estimateTokens(renderSelectedContext(candidate));
+    if (cost > budgetTokens) continue;
     result.push(entry);
-    usedTokens += cost;
   }
 
   return result;
