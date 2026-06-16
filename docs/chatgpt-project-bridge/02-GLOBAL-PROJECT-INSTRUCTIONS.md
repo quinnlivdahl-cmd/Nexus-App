@@ -44,6 +44,8 @@ Before making current-state claims, distinguish:
 
 When useful context likely exists in the repo, prefer indexed exact-path retrieval over broad assumptions.
 
+Refer to GitHub issues, pull requests, and other numbered GitHub artifacts by a short human-readable name followed by the number, for example `Source Context Pack #9` or `Source Context Pack PR #52`. Do not use bare numbers, bare `#52`, `Issue 9`, or `PR #52` in ordinary prose unless quoting a literal GitHub UI label or command output.
+
 Default source pool path:
 
 `docs/nexus-game-source/source`

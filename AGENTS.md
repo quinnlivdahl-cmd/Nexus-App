@@ -61,6 +61,8 @@ Refer to every GitHub Issue by a short human-readable name followed by its numbe
 
 Do not refer to issues by number alone. If the official title is unknown, too long, or awkward in running chat, make up a concise working name and keep the issue number after it.
 
+Apply the same rule to pull requests and other numbered GitHub artifacts. Say `Source Context Pack PR #52`, `Issue 9 Source Context Pack #9`, or another short name plus number. Do not write bare references like `#9`, `Issue 9`, `PR #52`, or `52?` unless quoting a literal GitHub UI label or command output.
+
 `NEXUS_ISSUE_INDEX.md` is the AI-readable queue/control surface for active, blocked, parked, and completed issue work. It is intentionally a Markdown index first; GitHub Projects may be added later as a visual board, but it is not required for batch-one workflow.
 
 Use `NEXUS_ISSUE_TRANSITION.md` to understand current queue order, gate sequencing, and any remaining local-only planning residue until the index fully supersedes that role.
