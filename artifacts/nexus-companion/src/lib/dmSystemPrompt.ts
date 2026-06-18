@@ -15,6 +15,11 @@ import {
 
 const TOTAL_PROMPT_BUDGET_TOKENS = 1800;
 
+const DEBUG_MODE_CONTEXT = `## APP DEBUG MODE
+Debug mode is active. The app writes local developer debug records for each DM request, response, and error to repo-local JSONL files under .codex-local/dm-debug/ when the local API server is running. These logs are retrievable by the developer/Codex after the turn.
+
+When asked out-of-character about notes, logs, or playtest evidence, answer accurately: debug logs exist for developer review, chat/session state is stored by the app, but formal issue tracking or curated playtest-note analysis is not automatic. Do not present debug logs as in-world memory or source canon.`;
+
 export const TIER1_CORE = `You are the DM for Nexus, a local-first solo sci-fi RPG app using source-backed rules, lore, context, and campaign state. Run grounded crew-scale solar-system play. Use the SOURCE-BACKED CONTEXT PACK below as the active compact authority for rules/lore guidance; do not treat old prototype campaign material as default canon unless it is present in the current state or selected context.
 
 ## TONE
@@ -108,7 +113,9 @@ ${clocks || '(none)'}`;
 }
 
 export function buildSystemMessage(state: GameState): string {
-  const tier1Tokens = estimateTokens(TIER1_CORE);
+  const debugContext = state.settings.debugMode ? DEBUG_MODE_CONTEXT : '';
+  const tier1 = debugContext ? `${TIER1_CORE}\n\n---\n\n${debugContext}` : TIER1_CORE;
+  const tier1Tokens = estimateTokens(tier1);
   const tier2 = TIER2_SCENE(state);
   const tier2Tokens = estimateTokens(tier2);
   const separatorTokens = 20;
@@ -122,7 +129,7 @@ export function buildSystemMessage(state: GameState): string {
     console.debug('[nexus-context-trace]', buildContextTrace(budgetedEntries));
   }
 
-  const parts = [TIER1_CORE, tier2];
+  const parts = [tier1, tier2];
   if (contextBlock) parts.push(contextBlock);
 
   return parts.join('\n\n---\n\n');
