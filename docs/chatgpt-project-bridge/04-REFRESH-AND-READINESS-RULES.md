@@ -14,7 +14,7 @@ Use these states for ChatGPT Project context:
 - `sent-pending-verification`: files were uploaded or pasted, but searchability/use has not been checked.
 - `verified-current-for-scope`: ChatGPT Project was checked and is current for a named scope.
 
-Never use these states as proof of live source currentness.
+Never use these states as proof of repo source, Obsidian working-copy, or Drive payload currentness.
 
 ## Readiness Gate
 
@@ -200,7 +200,7 @@ Use only these default destinations for ChatGPT Project packets unless the user,
 | Long-chat preservation packet | `docs/chatgpt-project-bridge/preservation/YYYY-MM-DD-<topic>.md` | Accepted prose or decisions are too substantial to carry only in a prompt and do not belong in a more specific draft file. |
 | Targeted task packet | `docs/chatgpt-project-bridge/task-packets/YYYY-MM-DD-<issue-or-topic>.md` | One issue, chat, source review, playtest, or planning problem needs narrow context. |
 | Evolving game-system draft | `docs/game-system-contracts/drafts/<TOPIC>_WORKING_DRAFT.md` | A multi-chat rules-core or game-system design sequence should accumulate in one stable working file. |
-| Source draft candidate | `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` | Material may become Nexus source later but is not live source authority. |
+| Source draft candidate | `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` | Material may become Nexus source later but is not canonical source authority. |
 | GitHub issue comment | Existing related issue | Short evidence, pointers, acceptance notes, or closeout breadcrumbs. Do not use for large accepted prose by default. |
 
 These destinations are GitHub repo paths, not a standing ChatGPT Project Source upload list. Keep changing indexes and packets in GitHub. Upload only stable bridge instructions by default, then use exact paths or Codex/local inspection when current packet state matters.
@@ -224,7 +224,7 @@ Do not rely on a giant chat-only handoff as the primary preservation method. Cho
 
 1. Existing evolving draft or staging file: use when the work extends an active multi-chat design sequence, such as `docs/game-system-contracts/drafts/<TOPIC>_WORKING_DRAFT.md`.
 2. Repo-file preservation packet: use `docs/chatgpt-project-bridge/preservation/YYYY-MM-DD-<topic>.md` when accepted prose or decisions need durable storage but do not belong in a more specific draft file.
-3. Source-draft candidate: use `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` when the material may become Nexus source after review, but is not live source authority.
+3. Source-draft candidate: use `docs/source-draft-candidates/YYYY-MM-DD-<domain>-<topic>.md` when the material may become Nexus source after review, but is not canonical source authority.
 4. Issue comment preservation: use an existing GitHub issue comment for short evidence, pointers, acceptance notes, or closeout breadcrumbs. Do not use issue comments as the default container for large accepted prose.
 5. Next-chat handoff only: use a handoff prompt by itself only when no durable prose, decision packet, or source-ready language needs preservation.
 
@@ -309,15 +309,15 @@ If a file is prepared but not sent, call it `upload-ready`, not current.
 
 ## Source Index Confirmation Rule
 
-Do not say GitHub on-demand source retrieval is ready for the Nexus Golden Truth source unless an index can be fetched by exact path and it lists usable source files.
+Do not say GitHub on-demand source retrieval is ready for the Nexus-App canonical source unless an index can be fetched by exact path and it lists usable source files.
 
 Expected index path:
 
 `docs/nexus-game-source/source/SOURCE-INDEX.md`
 
-A source-index check proves only that ChatGPT can discover repo-side context files by path. It does not prove local live source currentness.
+A source-index check proves only that ChatGPT can discover repo-side context files by path. It does not prove Obsidian working-copy or Drive payload currentness.
 
-If Golden Truth source files changed locally, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
+If canonical source files changed locally, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
 
 ## Roadmap Index Confirmation Rule
 
@@ -333,7 +333,7 @@ If roadmap lane mapping or issue linkage changed locally, Codex should regenerat
 
 ## What Not To Upload By Default
 
-- Full live `00 Source`.
+- Full Obsidian `00 Source`.
 - Broad source snapshots.
 - App source code unless a ChatGPT discussion needs it.
 - Git history or issue dumps.
@@ -349,6 +349,6 @@ When checking whether ChatGPT Project has the current bridge context, ask it abo
 - `Slots are upload/context roles`
 - `ChatGPT Project is a curated context client`
 - `source-index-needed`
-- `Nexus Golden Truth Source`
+- `Nexus-App Canonical Source`
 
 A successful searchability check proves only that the uploaded project context can find the named scope.

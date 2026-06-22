@@ -69,7 +69,7 @@ Actionable work that may need an existing issue update, a new issue, a task pack
 Examples:
 
 - "This bridge index needs a validator check."
-- "This Golden Truth source path needs a later legacy-path refresh."
+- "This canonical source path needs a later legacy-path refresh."
 - "This issue should become a child issue with separate acceptance criteria."
 
 ### Side Finding
@@ -79,7 +79,7 @@ Useful evidence, risk, relationship, or planning note that may not need its own 
 Examples:
 
 - "Issue #42 already solved most of the template work."
-- "The Golden Truth source corpus has relevant historical mode discipline, but it is not app workflow authority."
+- "The canonical source corpus has relevant historical mode discipline, but it is not app workflow authority."
 - "This task is using a stale packet index."
 
 ### Tiny Observation
@@ -117,7 +117,7 @@ Use existing destinations before inventing new ones.
 | ChatGPT-bound exploration | `docs/chatgpt-project-bridge/synced-chats/` or `task-packets/` |
 | Concrete handoff | `NEXUS_HANDOFF_TEMPLATE.md` shape or `docs/chatgpt-project-bridge/handoffs/` |
 | Tiny observation | Issue closeout, handoff, synced-chat packet, or future observation log |
-| Source placement question | Source-router workflow; do not edit live source without approval |
+| Source placement question | Source-router workflow; do not edit canonical source without approval |
 
 If no correct destination is clear, ask for the route in plain language.
 

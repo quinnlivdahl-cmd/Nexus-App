@@ -40,7 +40,7 @@ Default destinations:
 - Actionable side tasks -> existing issue comment, new issue, task packet, or roadmap/index entry.
 - ChatGPT-bound exploration -> `docs/chatgpt-project-bridge/synced-chats/` or `docs/chatgpt-project-bridge/task-packets/`.
 - Transfer context -> `NEXUS_HANDOFF_TEMPLATE.md` shape or `docs/chatgpt-project-bridge/handoffs/`.
-- Source placement questions -> source-router workflow; do not edit live source without approval.
+- Source placement questions -> source-router workflow; do not edit canonical source without approval.
 - Tiny observations -> issue closeout, handoff, synced-chat packet, or future observation log.
 
 Do not:

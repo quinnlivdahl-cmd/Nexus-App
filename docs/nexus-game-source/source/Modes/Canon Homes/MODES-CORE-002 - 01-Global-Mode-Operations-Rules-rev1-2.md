@@ -86,13 +86,14 @@ For Nexus work, source-first behavior is required.
 Use this authority order:
 
 1. current explicit user instruction;
-2. current protected live source when legacy intent matters;
-3. current rebuild repo source when domain-first structure matters;
-4. accepted review outputs;
-5. dashboards for current state;
-6. ChatGPT bridge files for project-context expectations;
-7. handoffs, passoffs, archive material, and memory as evidence;
-8. general model knowledge only as fallback.
+2. current Nexus-App canonical source in `docs/nexus-game-source/source`;
+3. Obsidian source working-copy/current-state notes when local Obsidian currentness matters;
+4. Drive payload/workbench material when generated artifacts, exports, handoffs, or Google-native files matter;
+5. accepted review outputs;
+6. dashboards for current state;
+7. ChatGPT bridge files for project-context expectations;
+8. handoffs, passoffs, archive material, and memory as evidence;
+9. general model knowledge only as fallback.
 
 Do not treat frontmatter, age, folder name, or archive status as the sole authority signal. Content-level comparison matters.
 
@@ -158,4 +159,3 @@ When sources conflict:
 6. avoid silent rewrites.
 
 If a conflict affects source truth, deletion, supersession, placement, or migration, stop for a user decision unless the user has already authorized that class of change.
-

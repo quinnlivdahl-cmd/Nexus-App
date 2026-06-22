@@ -18,13 +18,13 @@ const goldenSourceRoot = resolve(
   "docs/nexus-game-source/source",
 );
 
-const vaultRoot = "C:\\Users\\Quintin Livdahl\\Nexus";
+const vaultRoot = "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game";
 const liveSourceRoot = join(vaultRoot, "00 Source");
 const rootSourceArchiveRoot = join(vaultRoot, "99 Archive", "01 Superseded Source");
-const projectSourceRoot = join(vaultRoot, "Nexus", "00 Source");
+const legacyProjectRoot = "C:\\Users\\Quintin Livdahl\\Nexus\\Nexus";
+const projectSourceRoot = join(legacyProjectRoot, "00 Source");
 const projectSourceArchiveRoot = join(
-  vaultRoot,
-  "Nexus",
+  legacyProjectRoot,
   "99 Archive",
   "01 Superseded Source",
 );
@@ -109,20 +109,20 @@ function assertInside(child, parent, label) {
 
 function assertRequiredPaths() {
   if (!existsSync(goldenSourceRoot)) {
-    throw new Error(`Missing Golden Truth source: ${goldenSourceRoot}`);
+    throw new Error(`Missing canonical source: ${goldenSourceRoot}`);
   }
   if (!existsSync(vaultRoot)) {
     throw new Error(`Missing vault root: ${vaultRoot}`);
   }
-  if (!existsSync(projectSlotArchiveRoot)) {
-    throw new Error(`Missing slot archive: ${projectSlotArchiveRoot}`);
+  if (existsSync(projectSourceRoot) && !existsSync(projectSlotArchiveRoot)) {
+    log(`legacy project source exists, but slot archive is missing; non-matching residue will be moved, not duplicate-deleted: ${projectSlotArchiveRoot}`);
   }
 
   assertInside(goldenSourceRoot, repoRoot, "Golden source");
   assertInside(liveSourceRoot, vaultRoot, "Live source");
   assertInside(rootSourceArchiveRoot, vaultRoot, "Root source archive");
-  assertInside(projectSourceRoot, join(vaultRoot, "Nexus"), "Project source");
-  assertInside(projectSourceArchiveRoot, join(vaultRoot, "Nexus"), "Project source archive");
+  assertInside(projectSourceRoot, legacyProjectRoot, "Legacy project source");
+  assertInside(projectSourceArchiveRoot, legacyProjectRoot, "Legacy project source archive");
 }
 
 function hasTextExtension(path) {
@@ -312,7 +312,7 @@ function copyDirectory(source, destination, options = {}) {
 function archiveAndPromoteLiveSource() {
   const archiveTarget = join(
     rootSourceArchiveRoot,
-    `00 Source Root Partial pre-golden-truth ${timestamp}`,
+    `00 Source pre-canonical-source ${timestamp}`,
   );
   const liveExclusions = new Set(["AGENTS.md"]);
   const goldenExclusions = new Set(["SOURCE-INDEX.md", "SOURCE-INDEX.json"]);
@@ -324,7 +324,7 @@ function archiveAndPromoteLiveSource() {
     });
 
   if (liveAlreadyPromoted) {
-    log("live source already matches Golden Truth source");
+    log("Obsidian source working copy already matches canonical source");
   } else if (existsSync(liveSourceRoot)) {
     if (existsSync(archiveTarget)) {
       throw new Error(`Archive target already exists: ${archiveTarget}`);
@@ -340,9 +340,9 @@ function archiveAndPromoteLiveSource() {
           "",
           `Date: ${runDate}`,
           `Archived from: \`${liveSourceRoot}\``,
-          `Promoted from Golden Truth: \`${goldenSourceRoot}\``,
+          `Promoted from canonical source: \`${goldenSourceRoot}\``,
           "",
-          "This folder preserves the pre-promotion vault-root source so no source material was lost during Golden Truth promotion.",
+          "This folder preserves the pre-promotion Obsidian source working copy so no source material was lost during canonical-source promotion.",
           "",
         ].join("\n"),
         "utf8",
@@ -351,7 +351,7 @@ function archiveAndPromoteLiveSource() {
   }
 
   if (!liveAlreadyPromoted) {
-    changes.push(`copy Golden Truth ${goldenSourceRoot} -> ${liveSourceRoot}`);
+    changes.push(`copy canonical source ${goldenSourceRoot} -> ${liveSourceRoot}`);
     if (execute) {
       mkdirSync(liveSourceRoot, { recursive: true });
     }
@@ -361,16 +361,17 @@ function archiveAndPromoteLiveSource() {
   }
 
   const liveAgents = [
-    "# Nexus Live Source Agent Instructions",
+    "# Nexus Source Working Copy Agent Instructions",
     "",
-    "Use this folder as the live, protected Nexus source.",
+    "Use this folder as the Obsidian source working-copy layer.",
     "",
-    `- Live source path: \`${liveSourceRoot}\``,
-    "- Golden Truth promotion source: `docs/nexus-game-source/source` in the Nexus-App repo.",
-    "- Treat these notes as source authority for Nexus rules, lore, design, routing, dashboards, and source-management procedures.",
+    `- Obsidian source working-copy path: \`${liveSourceRoot}\``,
+    "- Canonical source: `docs/nexus-game-source/source` in the Nexus-App repo.",
+    "- Treat these notes as readable working-copy/index material for Nexus rules, lore, design, routing, dashboards, and source-management procedures.",
+    "- Treat the Nexus-App repo source as canonical when this folder conflicts with the repo.",
     "- Ask before deleting, moving, renaming, bulk-editing, or superseding source notes.",
     "- Preserve archive evidence and legacy paths; do not silently rewrite canon, rules, or lore.",
-    "- If source notes conflict with the app repo, report the conflict and ask which surface should be updated.",
+    "- If this folder conflicts with the app repo, report the conflict and update the repo first unless Quintin explicitly approves a different authority route.",
     "",
   ].join("\n");
   writeTextIfChanged(join(liveSourceRoot, "AGENTS.md"), liveAgents);
@@ -431,20 +432,20 @@ function cleanProjectSourceResidue() {
   const redirectAgents = [
     "# Nexus Project Source Redirect",
     "",
-    "This project-folder source slot is intentionally not the live source authority.",
+    "This project-folder source slot is intentionally not the source authority.",
     "",
-    `- Live source: \`${liveSourceRoot}\``,
+    `- Obsidian source working copy: \`${liveSourceRoot}\``,
     `- Archived project-source residue root: \`${projectSourceArchiveRoot}\``,
-    "- Use the vault-root live source for current Nexus rules, lore, design, dashboards, and source-management procedures.",
+    "- Use the Nexus-App repo source as canonical. Use the Obsidian source working copy for readable local currentness only after checking drift.",
     "",
   ].join("\n");
 
   const redirectNote = [
     "# Source Redirect",
     "",
-    "The live Nexus source has been promoted to the vault-root `00 Source` folder.",
+    "The Nexus source working copy has been promoted to the Obsidian `00 Source` folder.",
     "",
-    `Current live source: \`${liveSourceRoot}\``,
+    `Current Obsidian source working copy: \`${liveSourceRoot}\``,
     "",
     "This folder remains only as a pointer so old project-folder habits do not recreate a second source tree.",
     "",
@@ -477,7 +478,7 @@ function main() {
   }
 
   if (!skipPromotion) {
-    log(`${execute ? "promoting" : "would promote"} Golden Truth to live source`);
+    log(`${execute ? "promoting" : "would promote"} canonical source to Obsidian working copy`);
     archiveAndPromoteLiveSource();
   }
 

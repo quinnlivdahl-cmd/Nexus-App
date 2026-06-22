@@ -52,8 +52,8 @@ Repo-side Golden Truth source context used during the originating chat:
 
 Currentness note:
 
-- These are repo-side Golden Truth source files; the originating chat did not directly verify the promoted live Obsidian `00 Source`.
-- Exact live-vault currentness still requires Codex/local inspection of `C:\Users\Quintin Livdahl\Nexus\00 Source`.
+- These are Nexus-App canonical source files; the originating chat did not directly verify the Obsidian source working-copy layer.
+- Exact Obsidian working-copy currentness still requires Codex/local inspection of `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`.
 
 ## 3. Accepted TacMap activation premise
 

@@ -8,10 +8,6 @@ Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App\docs\nexus-roadmap`
 
 This folder makes the Nexus global roadmap available from the app repo and GitHub.
 
-The original roadmap candidate still lives in the Obsidian review lane:
-
-`C:\Users\Quintin Livdahl\Nexus\Nexus\90 Codex Review\01 Review Ready\2026-06-07_Nexus_Global_Project_Roadmap_Candidate.md`
-
 The repo mirror is:
 
 `docs/nexus-roadmap/ROADMAP.md`
@@ -20,7 +16,7 @@ Use the repo mirror when Codex, ChatGPT/Stewy, Replit, GitHub Issues, or a human
 
 ## Authority Boundary
 
-The roadmap mirror is planning context. It is not Nexus source canon, and it does not replace live domain-first `00 Source`.
+The roadmap mirror is planning context. It is not Nexus source canon, and it does not replace `docs/nexus-game-source/source` as the canonical source corpus.
 
 `NEXUS_ISSUE_INDEX.md` remains the issue queue/control surface. The roadmap explains project lanes, direction, and milestone context; it should not become a competing task tracker.
 

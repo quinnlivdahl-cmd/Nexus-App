@@ -1,13 +1,13 @@
 ---
 name: nexus-golden-source-promoter
-description: Use when promoting the Nexus-App repo Golden Truth source corpus into the live Obsidian vault source, cleaning duplicate project-folder source residue, refreshing source-path references, or verifying that source promotion and archive safeguards are current.
+description: Use when promoting the Nexus-App canonical source corpus into the Obsidian source working-copy layer, cleaning duplicate source residue, refreshing source-path references, or verifying that source promotion and archive safeguards are current.
 ---
 
-# Nexus Golden Source Promoter
+# Nexus Canonical Source Promoter
 
 ## Overview
 
-Use this skill when the approved source of truth is the repo Golden Truth source home at `docs/nexus-game-source/source` and the live Obsidian source must be refreshed safely.
+Use this skill when the approved source of truth is the repo canonical source home at `docs/nexus-game-source/source` and the Obsidian source working-copy layer must be refreshed safely.
 
 Read alongside:
 
@@ -19,7 +19,7 @@ Read alongside:
 ## Workflow
 
 1. Confirm the active user request approves source promotion or source cleanup.
-2. Treat `docs/nexus-game-source/source` as Golden Truth only when the user or controlling task explicitly says so.
+2. Treat `docs/nexus-game-source/source` as canonical source only when the user or controlling task explicitly says so.
 3. Run a dry check first:
    `node scripts/promote-golden-source.mjs`
 4. Review the planned archive, delete, move, copy, and rewrite operations.
@@ -37,9 +37,9 @@ Read alongside:
 
 ## Safety Rules
 
-- Archive the current vault-root `00 Source` before replacing it.
+- Archive the current Obsidian source working-copy folder before replacing it.
 - Delete old project-folder slot packages only when they hash-match the existing slot archive.
 - Move non-matching project source residue into archive rather than deleting it.
-- Keep repo-generated `SOURCE-INDEX.md` and `SOURCE-INDEX.json` in the repo source home; do not copy them into live vault source.
-- Do not treat archive evidence, bridge packets, or GitHub issues as live source authority.
+- Keep repo-generated `SOURCE-INDEX.md` and `SOURCE-INDEX.json` in the repo source home; do not copy them into the Obsidian working-copy layer.
+- Do not treat archive evidence, bridge packets, or GitHub issues as source authority.
 - Report any remaining source-path references that are intentionally historical.

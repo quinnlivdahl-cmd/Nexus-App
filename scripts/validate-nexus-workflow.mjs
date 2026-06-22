@@ -23,6 +23,7 @@ const requiredFiles = [
   "lib/AGENTS.md",
   "scripts/AGENTS.md",
   "scripts/promote-golden-source.mjs",
+  "docs/admin/nexus-distributed-surfaces.md",
   "docs/nexus-roadmap/README.md",
   "docs/nexus-roadmap/ROADMAP.md",
   "docs/nexus-roadmap/ROADMAP-INDEX.md",
@@ -131,7 +132,7 @@ const sectionChecks = [
     includes: [
       "Slots are upload/context roles",
       "Future Packet Families",
-      "Do not bulk-copy live `00 Source`",
+      "Do not bulk-copy Obsidian `00 Source`",
       "Synced chat packet",
     ],
   },
@@ -140,7 +141,7 @@ const sectionChecks = [
     includes: [
       "verified-current-for-scope",
       "Upload Confirmation Rule",
-      "Never use these states as proof of live source currentness.",
+      "Never use these states as proof of repo source, Obsidian working-copy, or Drive payload currentness.",
       "Roadmap Index Confirmation Rule",
       "Approved ChatGPT Repo Destinations",
       "Shared Session Discipline",
@@ -197,7 +198,7 @@ const sectionChecks = [
   {
     file: "docs/nexus-game-source/README.md",
     includes: [
-      "Nexus Golden Truth Source",
+      "Nexus-App Canonical Source",
       "durable repo home",
       "source:promote-golden",
     ],
@@ -205,7 +206,7 @@ const sectionChecks = [
   {
     file: "docs/nexus-game-source/source/SOURCE-INDEX.md",
     includes: [
-      "Nexus Golden Truth Source Index",
+      "Nexus-App Canonical Source Index",
       "Indexed Markdown files:",
       "ChatGPT should fetch exact indexed GitHub paths",
       "corepack pnpm run source:index",
@@ -215,7 +216,7 @@ const sectionChecks = [
     file: ".agents/skills/nexus-golden-source-promoter/SKILL.md",
     includes: [
       "nexus-golden-source-promoter",
-      "Golden Truth",
+      "canonical source",
       "node scripts/promote-golden-source.mjs",
       "--execute",
     ],

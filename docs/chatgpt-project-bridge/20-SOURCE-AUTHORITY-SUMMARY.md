@@ -4,14 +4,15 @@ Status: upload-ready bridge file
 
 ## Purpose
 
-This file tells ChatGPT Project how to use the repo-side Nexus Golden Truth source without confusing it for ChatGPT Project upload currentness or unverified live-vault state.
+This file tells ChatGPT Project how to use the Nexus-App canonical source corpus without confusing it for ChatGPT Project upload currentness, Obsidian working-copy currentness, or Drive payload state.
 
 ## Authority Lanes
 
 | Lane | Use for | Authority limit |
 |---|---|---|
-| Repo-side Nexus Golden Truth source | Source-backed repo/app work, richer ChatGPT discussion, and exact GitHub retrieval | Source corpus authority; does not prove ChatGPT upload currentness or live-vault promotion state by itself |
-| Promoted live Obsidian `00 Source` | Obsidian working source after Golden Truth promotion | Requires Codex/local inspection or promotion evidence; not directly proven by ChatGPT upload |
+| Nexus-App canonical source | Source-backed repo/app work, richer ChatGPT discussion, and exact GitHub retrieval | Source corpus authority; does not prove ChatGPT upload currentness or Obsidian working-copy currentness by itself |
+| Obsidian Nexus notes | Reading/index layer, current-state notes, dashboards, links, and promoted working-copy views | Requires Codex/local inspection when exact currentness matters; does not override repo source |
+| Drive Nexus payloads | Bulky payloads, generated outputs, exports, zips, candidate runs, handoff bundles, and Google-native files | Payload/export authority only; not source canon |
 | Repo-side Nexus Roadmap | Shared planning lanes and roadmap-to-issue linkage | Planning context only; does not replace the issue queue or source canon |
 | App repo workflow files | Task packets, validation, bridge docs, app planning | Workflow/implementation authority, not game canon |
 | GitHub Issues | Acceptance criteria, progress, closeout evidence | Task authority, not source authority |
@@ -19,11 +20,11 @@ This file tells ChatGPT Project how to use the repo-side Nexus Golden Truth sour
 
 ## Indexed Source Retrieval
 
-The repo-side Nexus Golden Truth source is:
+The Nexus-App canonical source corpus is:
 
 `docs/nexus-game-source/source`
 
-This path is the durable repo home for the user-designated Golden Truth source corpus. It was renamed from the dated 2026-06-10 rebuild folder on 2026-06-14 so exact indexed paths and bridge references point at the current source home.
+This path is the durable repo home for the user-designated source corpus. It was renamed from the dated 2026-06-10 rebuild folder on 2026-06-14 so exact indexed paths and bridge references point at the current source home.
 
 ChatGPT should use the deterministic index instead of relying on a GitHub tree URL:
 
@@ -32,13 +33,17 @@ ChatGPT should use the deterministic index instead of relying on a GitHub tree U
 
 Use the index to find exact repo paths, source roles, currentness notes, and retrieval keywords. Then fetch the specific indexed file needed for the task.
 
-When Golden Truth source files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow`.
+When canonical source files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow`.
 
 ## Currentness Rule
 
-The Golden Truth source is the repo source corpus, and the promoted live Obsidian folder is the local working copy. If a task depends on exact current live-vault state, ask Codex/local workflow to inspect:
+The canonical source corpus lives in the repo, and the Obsidian source folder is a readable working-copy/index layer. If a task depends on exact current Obsidian state, ask Codex/local workflow to inspect:
 
-`C:\Users\Quintin Livdahl\Nexus\00 Source`
+`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
+
+If a task depends on generated payloads, exports, handoff bundles, or Google-native workbench files, ask Codex/local workflow to inspect:
+
+`G:\My Drive\10_Projects\Nexus Game`
 
 Use `source-index-needed` when the index is missing, stale, or not searchable enough for ChatGPT to retrieve exact GitHub paths.
 

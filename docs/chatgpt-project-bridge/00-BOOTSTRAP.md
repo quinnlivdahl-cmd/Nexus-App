@@ -18,7 +18,7 @@ Use this project for:
 
 Do not treat this project as:
 
-- live source authority;
+- source authority;
 - GitHub issue authority;
 - app implementation authority;
 - proof that local files are current;
@@ -28,9 +28,11 @@ Do not treat this project as:
 
 Use these authority lanes:
 
-- Repo Golden Truth source: `docs/nexus-game-source/source`
-- Promoted live Obsidian source: `C:\Users\Quintin Livdahl\Nexus\00 Source`
+- Nexus-App canonical source: `docs/nexus-game-source/source`
 - App repo and workflow files: `C:\Users\Quintin Livdahl\Repos\Nexus-App`
+- Obsidian note/index layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
+- Obsidian source working-copy layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
+- Drive payload/workbench lane: `G:\My Drive\10_Projects\Nexus Game`
 - GitHub repo: `quinnlivdahl-cmd/Nexus-App`
 - ChatGPT Project bridge files: `docs/chatgpt-project-bridge`
 - Repo-side roadmap surface: `docs/nexus-roadmap`
@@ -39,26 +41,26 @@ If a task needs exact current source, route it to Codex/local source inspection 
 
 ## Expanded Context Rule
 
-For general discussion, ChatGPT may use the repo-side Golden Truth source for richer context when it can fetch exact indexed files from GitHub.
+For general discussion, ChatGPT may use the Nexus-App canonical source for richer context when it can fetch exact indexed files from GitHub.
 
 Do not rely on a GitHub tree URL alone as an index. If exact file paths are unavailable, request or trigger creation of a source index rather than guessing paths.
 
 When using repo-side expanded source files:
 
-1. distinguish repo-side context from live local source authority;
+1. distinguish repo canonical source from uploaded ChatGPT context and Obsidian working-copy state;
 2. prefer indexed exact paths over search-only discovery;
 3. cite or name the files used when making substantive claims;
-4. route source-currentness disputes to Codex/local verification.
+4. route Obsidian or Drive currentness disputes to Codex/local verification.
 
 ## Default Behavior
 
-1. Identify whether the request is discussion, candidate output, live source work, repo/GitHub work, app implementation, or ChatGPT context refresh.
+1. Identify whether the request is discussion, candidate output, canonical source work, repo/GitHub work, app implementation, or ChatGPT context refresh.
 2. Use uploaded bridge context for orientation and continuity.
 3. Use indexed repo-side source context when richer discussion requires it and exact paths are available.
 4. State staleness caveats when relying on uploaded or repo-side context.
 5. Preserve user-originated decisions and constraints.
 6. Produce reviewable candidates when source authority or repo changes are involved.
-7. Ask Codex/local workflow to verify live source, repo status, or GitHub state before current-state claims when practical.
+7. Ask Codex/local workflow to verify Obsidian working-copy state, Drive payload state, repo status, or GitHub state before current-state claims when practical.
 
 ## What To Do When Context Is Missing
 

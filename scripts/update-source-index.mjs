@@ -4,11 +4,11 @@ import { dirname, join, relative, resolve, sep } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
 const sourceRoot = "docs/nexus-game-source/source";
-const sourceName = "Nexus Golden Truth Source";
+const sourceName = "Nexus-App Canonical Source";
 const sourceEstablished = "2026-06-10";
 const goldenTruthConfirmed = "2026-06-14";
 const sourceHomeRenamed = "2026-06-14";
-const liveVaultSource = "C:\\Users\\Quintin Livdahl\\Nexus\\00 Source";
+const obsidianSource = "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
 const indexMdPath = `${sourceRoot}/SOURCE-INDEX.md`;
 const indexJsonPath = `${sourceRoot}/SOURCE-INDEX.json`;
 
@@ -165,7 +165,7 @@ function sourceItem(filePath) {
     doc_id: docId,
     placement_domain: frontmatter.placement_domain || domain,
     role_status: roleStatus,
-    use_when: `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.`,
+    use_when: `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.`,
     key_terms: uniqueTerms([
       docId,
       asArray(frontmatter.legacy_ids),
@@ -186,7 +186,7 @@ function sourceItem(filePath) {
 function buildIndex() {
   const sourceRootPath = resolve(root, sourceRoot);
   if (!existsSync(sourceRootPath)) {
-    throw new Error(`Missing Golden Truth source path: ${sourceRoot}`);
+    throw new Error(`Missing canonical source path: ${sourceRoot}`);
   }
 
   const files = discoverMarkdownFiles(sourceRootPath).map(sourceItem);
@@ -207,9 +207,9 @@ function buildIndex() {
     repository,
     base_path: sourceRoot,
     path_status:
-      "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated Golden Truth source path for game source documents.",
+      "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
     authority_note:
-      `Repo-side Golden Truth source index for exact GitHub retrieval, app source-pack work, and live vault promotion. The promoted Obsidian working source is ${liveVaultSource}.`,
+      `Nexus-App canonical source index for exact GitHub retrieval, app source-pack work, and Obsidian working-copy promotion. The Obsidian source working-copy layer is ${obsidianSource}.`,
     update_command: "corepack pnpm run source:index",
     check_command: "corepack pnpm run source:index:check",
     file_count: files.length,
@@ -220,11 +220,11 @@ function buildIndex() {
 
 function renderMarkdown(index) {
   const lines = [
-    "# Nexus Golden Truth Source Index",
+    "# Nexus-App Canonical Source Index",
     "",
     `Source name: ${index.source_name}`,
     `Source established: ${index.source_established}`,
-    `Golden Truth confirmed: ${index.golden_truth_confirmed}`,
+    `Repo source confirmed: ${index.golden_truth_confirmed}`,
     `Source home renamed: ${index.source_home_renamed}`,
     `Repository: \`${index.repository}\``,
     `Base path: \`${index.base_path}\``,
@@ -233,13 +233,13 @@ function renderMarkdown(index) {
     "",
     "## Authority Note",
     "",
-    `This index covers the repo-side Nexus Golden Truth source for ChatGPT on-demand context retrieval, app source-pack work, and live-source promotion. The promoted Obsidian working source lives at \`${liveVaultSource}\`; verify promotion state when local vault currentness matters.`,
+    `This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval, app source-pack work, and Obsidian working-copy promotion. The Obsidian source working-copy layer lives at \`${obsidianSource}\`; verify local Obsidian state only when it matters.`,
     "",
     "ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.",
     "",
     "## Maintenance",
     "",
-    `Regenerate after Golden Truth source docs are added, removed, renamed, or changed: \`${index.update_command}\`.`,
+    `Regenerate after canonical source docs are added, removed, renamed, or changed: \`${index.update_command}\`.`,
     "",
     `Check that the committed index is current: \`${index.check_command}\`.`,
     "",

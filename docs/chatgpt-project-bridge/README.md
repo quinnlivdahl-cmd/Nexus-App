@@ -49,19 +49,27 @@ For long chats with accepted prose, decisions, source-ready language, or system 
 
 ChatGPT should suggest a synced-chat packet or handoff proactively when a Project chat is getting context-heavy. The trigger is context pressure in the active chat, not only a user request for a large handoff prompt.
 
-## Nexus Golden Truth Source
+## Nexus-App Canonical Source
 
-The repo-side Nexus Golden Truth source is:
+The Nexus-App canonical source corpus is:
 
 `docs/nexus-game-source/source`
 
-This path is the durable repo home for the user-designated Golden Truth source corpus for source-backed repo/app work, exact GitHub retrieval, and bridge-indexed ChatGPT discussion. It was renamed from the dated 2026-06-10 rebuild folder on 2026-06-14.
+This path is the durable repo home for the user-designated source corpus for source-backed repo/app work, exact GitHub retrieval, and bridge-indexed ChatGPT discussion. It was renamed from the dated 2026-06-10 rebuild folder on 2026-06-14.
 
-The promoted live Obsidian working source is:
+The Obsidian Nexus note/index layer is:
 
-`C:\Users\Quintin Livdahl\Nexus\00 Source`
+`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
 
-When a task depends on live-vault currentness, use local inspection or promotion evidence instead of assuming a ChatGPT Project upload proves the live folder is current. ChatGPT should use the repo Golden Truth through explicit indexed paths, source status notes, and currentness caveats.
+The Obsidian source working-copy folder is:
+
+`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
+
+The Drive payload lane is:
+
+`G:\My Drive\10_Projects\Nexus Game`
+
+When a task depends on Obsidian currentness or Drive payload state, use local inspection or promotion evidence instead of assuming a ChatGPT Project upload proves those surfaces are current. ChatGPT should use the repo canonical source through explicit indexed paths, source status notes, and currentness caveats.
 
 Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool should include a deterministic index file such as:
 
@@ -70,7 +78,7 @@ Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool sh
 
 The index should list exact repo paths, source roles, domain ownership, status/currentness notes, and retrieval keywords so ChatGPT can fetch needed files directly instead of relying on broad permanent uploads.
 
-When Golden Truth source files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate it with `corepack pnpm run validate:workflow`.
+When canonical source files change, Codex should regenerate the index with `corepack pnpm run source:index` and validate it with `corepack pnpm run validate:workflow`.
 
 ## Nexus Roadmap
 
@@ -91,12 +99,14 @@ When roadmap lane mapping or issue linkage changes, Codex should regenerate the 
 
 ## Authority Boundaries
 
-- Repo Golden Truth source is `docs/nexus-game-source/source`.
-- Promoted live Obsidian source is `C:\Users\Quintin Livdahl\Nexus\00 Source`.
+- Nexus-App canonical source is `docs/nexus-game-source/source`.
+- Nexus-App repo source is canonical for Nexus source docs.
+- Obsidian Nexus notes are an index/current-state/working-copy layer at `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`.
+- Drive Nexus payloads live at `G:\My Drive\10_Projects\Nexus Game`.
 - App workflow and implementation authority lives in this repo and GitHub Issues.
 - ChatGPT Project context is curated, useful, and allowed to be stale when labeled. It is not source authority.
-- The Nexus Golden Truth source is the repo-side source corpus for discussion, targeted retrieval, app source-pack work, and promotion into the live Obsidian source. It does not prove ChatGPT Project upload currentness by itself.
-- Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove live source currentness.
+- The Nexus-App canonical source is the repo-side source corpus for discussion, targeted retrieval, app source-pack work, and promotion into the Obsidian working-copy layer. It does not prove ChatGPT Project upload currentness by itself.
+- Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove repo source, Obsidian working-copy, or Drive payload currentness.
 
 ## Refresh Rule
 

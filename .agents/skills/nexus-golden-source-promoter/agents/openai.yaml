@@ -1,7 +1,7 @@
 interface:
   display_name: "Nexus Golden Source Promoter"
   short_description: "Promote Nexus source safely"
-  default_prompt: "Use $nexus-golden-source-promoter to promote or verify the Nexus Golden Truth source safely."
+  default_prompt: "Use $nexus-golden-source-promoter to promote or verify the Nexus-App canonical source safely."
 
 policy:
   allow_implicit_invocation: true

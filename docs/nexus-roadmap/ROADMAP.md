@@ -19,7 +19,7 @@ related_docs:
   - "MODE-008 - Nexus_Command_Key.md"
   - "MODE-FUNC-001_Function_Bindings.md"
 notes:
-  - "Candidate roadmap only. Do not treat as live source authority until reviewed and promoted."
+  - "Candidate roadmap only. Do not treat as canonical source authority until reviewed and promoted."
   - "This roadmap is organized by durable lanes. Each lane contains its own phases and milestones."
 ---
 
@@ -246,7 +246,7 @@ Nexus has a readable, script-friendly, domain-first project knowledge system tha
 ### Completed or already underway
 
 - The domain-first rebuild repo exists
-- Full live source migration into the rebuild repo has been completed at the Markdown-document level
+- Full source migration into the repo canonical source home has been completed at the Markdown-document level
 - The rebuild repo now represents all 186 live `00 Source` Markdown docs
 - Pilot-domain deep consolidation has already started
 - Admin, Modes, Skills, Reference, Data, Art, Automation, Core, Content, Lore, and Play Aids now have rewritten control/index surfaces in the rebuild repo
@@ -255,7 +255,7 @@ Nexus has a readable, script-friendly, domain-first project knowledge system tha
 
 - The original driver for this lane remains active: improve archive mining and placement scripting
 - This lane is also expected to improve long-term readability, AI usability, app/script ingestion, and future tooling in general
-- Live `00 Source` remains protected while the rebuild matures
+- The Obsidian `00 Source` working-copy layer remains protected while the repo canonical source home matures
 - Remaining work includes Phase 8 cleanup, metadata normalization, and deeper domain-by-domain consolidation
 
 ### Detailed current work
@@ -264,7 +264,7 @@ Nexus has a readable, script-friendly, domain-first project knowledge system tha
 - Normalize metadata after the corpus has stabilized enough to avoid churn.
 - Deep-consolidate pilot and non-pilot domains where migrated bodies still teach the old slot/package model.
 - Keep the rebuild valuable not only for archive mining but also for future app work, AI orientation, and script reliability.
-- Avoid promoting unreviewed candidate structure into live source too early.
+- Avoid promoting unreviewed candidate structure into canonical source too early.
 
 ### Next
 

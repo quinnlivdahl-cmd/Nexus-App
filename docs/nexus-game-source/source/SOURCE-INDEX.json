@@ -1,12 +1,12 @@
 {
-  "source_name": "Nexus Golden Truth Source",
+  "source_name": "Nexus-App Canonical Source",
   "source_established": "2026-06-10",
   "golden_truth_confirmed": "2026-06-14",
   "source_home_renamed": "2026-06-14",
   "repository": "quinnlivdahl-cmd/Nexus-App",
   "base_path": "docs/nexus-game-source/source",
-  "path_status": "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated Golden Truth source path for game source documents.",
-  "authority_note": "Repo-side Golden Truth source index for exact GitHub retrieval, app source-pack work, and live vault promotion. The promoted Obsidian working source is C:\\Users\\Quintin Livdahl\\Nexus\\00 Source.",
+  "path_status": "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
+  "authority_note": "Nexus-App canonical source index for exact GitHub retrieval, app source-pack work, and Obsidian working-copy promotion. The Obsidian source working-copy layer is C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source.",
   "update_command": "corepack pnpm run source:index",
   "check_command": "corepack pnpm run source:index:check",
   "file_count": 189,
@@ -82,7 +82,7 @@
       "doc_id": "ADMIN-MAP-003",
       "placement_domain": "Admin",
       "role_status": "applied_rule; legacy_reference; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Legacy Source Routing Map. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Legacy Source Routing Map. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-MAP-003, SLOT-001, Admin, Applied Rules, applied_rule, legacy_reference, active, admin_reference, domain_rebuild_full_migration, legacy_slot_map_reference, Legacy, Source, Routing, Map"
     },
     {
@@ -94,7 +94,7 @@
       "doc_id": "ADMIN-RUNBOOK-001",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus Source Bootstrap. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus Source Bootstrap. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-001, BOOT-001, Admin, Applied Rules, applied_rule, active, admin_reference, domain_rebuild_full_migration, project_bootstrap, Nexus, Source, Bootstrap"
     },
     {
@@ -106,7 +106,7 @@
       "doc_id": "ADMIN-RUNBOOK-002",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for 02_GLOBAL_Project_Operations_Runbook. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for 02_GLOBAL_Project_Operations_Runbook. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-002, ADM-002, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, global_project_operations_runbook, 02, GLOBAL, Project, Operations, Runbook"
     },
     {
@@ -118,7 +118,7 @@
       "doc_id": "ADMIN-RUNBOOK-003",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for 01_STEWY_Project_Manager_Runbook. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for 01_STEWY_Project_Manager_Runbook. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-003, ADM-003, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, stewy_project_manager_runbook, 01, STEWY, Project, Manager, Runbook"
     },
     {
@@ -130,7 +130,7 @@
       "doc_id": "ADMIN-RUNBOOK-004",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Domain Placement and Content Routing Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Domain Placement and Content Routing Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-004, ADM-004, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, document_placement_and_content_routing_rules, Domain, Placement, and, Content, Routing, Rules"
     },
     {
@@ -142,7 +142,7 @@
       "doc_id": "ADMIN-RUNBOOK-005",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus_Obsidian_Folder_Map. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus_Obsidian_Folder_Map. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-005, ADM-005, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, nexus_obsidian_folder_map, Nexus, Obsidian, Folder, Map"
     },
     {
@@ -154,7 +154,7 @@
       "doc_id": "ADMIN-RUNBOOK-006",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Project_Source_Upload_and_Verification_Checklist. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Project_Source_Upload_and_Verification_Checklist. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-006, ADM-006, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_source_upload_and_verification_checklist, Project, Source, Upload, and, Verification, Checklist"
     },
     {
@@ -166,7 +166,7 @@
       "doc_id": "ADMIN-RUNBOOK-007",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Package_Rebuild_Process. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Package_Rebuild_Process. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-007, ADM-007, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, domain_source_rebuild_process, Package, Rebuild, Process"
     },
     {
@@ -178,7 +178,7 @@
       "doc_id": "ADMIN-RUNBOOK-008",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Metadata_Verification_Procedure. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Metadata_Verification_Procedure. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-008, ADM-008, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, metadata_verification_procedure, Metadata, Verification, Procedure"
     },
     {
@@ -190,7 +190,7 @@
       "doc_id": "ADMIN-RUNBOOK-009",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Replacement_Supplement_Deletion_Guidance. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Replacement_Supplement_Deletion_Guidance. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-009, ADM-009, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, replacement_supplement_deletion_guidance, Replacement, Supplement, Deletion, Guidance"
     },
     {
@@ -202,7 +202,7 @@
       "doc_id": "ADMIN-RUNBOOK-010",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Stewy_Platform_and_Output_Handling. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Stewy_Platform_and_Output_Handling. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-010, ADM-010, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, stewy_platform_and_output_handling, Stewy, Platform, and, Output, Handling"
     },
     {
@@ -214,7 +214,7 @@
       "doc_id": "ADMIN-RUNBOOK-011",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Dashboard_Update_Procedure. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Dashboard_Update_Procedure. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-011, ADM-011, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, dashboard_update_procedure, Dashboard, Update, Procedure"
     },
     {
@@ -226,7 +226,7 @@
       "doc_id": "ADMIN-RUNBOOK-012",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Domain Source Rebuild Runbook. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Domain Source Rebuild Runbook. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-012, ADM-012, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, nexus_source_reorganization_runbook, Domain, Source, Rebuild, Runbook"
     },
     {
@@ -238,7 +238,7 @@
       "doc_id": "ADMIN-RUNBOOK-013",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_truth_candidate; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus Source-First Routing Map. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus Source-First Routing Map. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-013, ADM-013, Admin, Applied Rules, applied_rule, working_truth_candidate, admin_reference, domain_rebuild_full_migration, nexus_source_first_routing_map, Nexus, Source, First, Routing, Map"
     },
     {
@@ -250,7 +250,7 @@
       "doc_id": "ADMIN-RUNBOOK-143",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for AGENTS. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for AGENTS. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-143, AGENTS, Admin, Applied Rules, applied_rule, working_draft, provisional_source, domain_rebuild_full_migration, agents"
     },
     {
@@ -262,7 +262,7 @@
       "doc_id": "ADMIN-RUNBOOK-901",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Project_Workflow. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Project_Workflow. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-901, ADM-901, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, project_workflow, Project, Workflow"
     },
     {
@@ -274,7 +274,7 @@
       "doc_id": "ADMIN-RUNBOOK-902",
       "placement_domain": "Admin",
       "role_status": "applied_rule; applied_rule; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Upload_Instructions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Upload_Instructions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-RUNBOOK-902, ADM-902, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, upload_instructions, Upload, Instructions"
     },
     {
@@ -286,7 +286,7 @@
       "doc_id": "ADMIN-INDEX-000",
       "placement_domain": "Admin",
       "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for README_Admin_Runbooks_Source_Management. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for README_Admin_Runbooks_Source_Management. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-INDEX-000, ADM-000, Admin, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, admin_domain_readme, README, Runbooks, Source, Management"
     },
     {
@@ -298,7 +298,7 @@
       "doc_id": "ADMIN-INDEX-001",
       "placement_domain": "Admin",
       "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for PACKAGE_MANIFEST_Admin_Runbooks_Source_Management. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for PACKAGE_MANIFEST_Admin_Runbooks_Source_Management. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-INDEX-001, ADM-001, Admin, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, admin_domain_manifest, PACKAGE, MANIFEST, Runbooks, Source, Management"
     },
     {
@@ -310,7 +310,7 @@
       "doc_id": "ADMIN-INDEX-903",
       "placement_domain": "Admin",
       "role_status": "reference_input; retired_legacy_placeholder; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for Project_Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for Project_Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-INDEX-903, ADM-903, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, project_readme, Project, Readme"
     },
     {
@@ -322,7 +322,7 @@
       "doc_id": "ADMIN-INDEX-904",
       "placement_domain": "Admin",
       "role_status": "reference_input; retired_legacy_placeholder; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for PC_TRANSFER_README. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for PC_TRANSFER_README. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ADMIN-INDEX-904, ADM-904, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, pc_transfer_readme, PC, TRANSFER, README"
     },
     {
@@ -334,7 +334,7 @@
       "doc_id": "ART-RUNBOOK-008",
       "placement_domain": "Art",
       "role_status": "applied_rule; applied_rule; working_draft; asset-handling-rule; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art applied rules source context for Asset_Canon_Status_and_Routing. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art applied rules source context for Asset_Canon_Status_and_Routing. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-RUNBOOK-008, ART-008, Art, Applied Rules, applied_rule, working_draft, asset-handling-rule, domain_rebuild_full_migration, asset_canon_status_and_routing, Asset, Canon, Status, and, Routing"
     },
     {
@@ -346,7 +346,7 @@
       "doc_id": "ART-RUNBOOK-012",
       "placement_domain": "Art",
       "role_status": "applied_rule; applied_rule; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art applied rules source context for TacMap_Backdrop_and_Build_Plate_Art_Workflow. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art applied rules source context for TacMap_Backdrop_and_Build_Plate_Art_Workflow. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-RUNBOOK-012, ART-012, Art, Applied Rules, applied_rule, working_draft, visual-direction, domain_rebuild_full_migration, tacmap_backdrop_and_build_plate_art_workflow, TacMap, Backdrop, and, Build, Plate, Workflow"
     },
     {
@@ -358,7 +358,7 @@
       "doc_id": "ART-CHARACTER-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Character_Art_Direction. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Character_Art_Direction. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-CHARACTER-001, ART-004, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, character_art_direction, Character, Direction"
     },
     {
@@ -370,7 +370,7 @@
       "doc_id": "ART-ENVIRONMENT-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Environment_and_Location_Art_Direction. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Environment_and_Location_Art_Direction. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-ENVIRONMENT-001, ART-005, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, environment_and_location_art_direction, Environment, and, Location, Direction"
     },
     {
@@ -382,7 +382,7 @@
       "doc_id": "ART-EQUIPMENT-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Equipment_and_Interface_Art_Direction. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Equipment_and_Interface_Art_Direction. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-EQUIPMENT-001, ART-006, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, equipment_and_interface_art_direction, Equipment, and, Interface, Direction"
     },
     {
@@ -394,7 +394,7 @@
       "doc_id": "ART-NASAPUNK-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for NASApunk_Cyber_Noir_Design_Language. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for NASApunk_Cyber_Noir_Design_Language. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-NASAPUNK-001, ART-003, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, nasapunk_cyber_noir_design_language, NASApunk, Cyber, Noir, Design, Language"
     },
     {
@@ -406,7 +406,7 @@
       "doc_id": "ART-PROMPT-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Prompt_Library_and_Variant_Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Prompt_Library_and_Variant_Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-PROMPT-001, ART-009, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, prompt_library_and_variant_rules, Prompt, Library, and, Variant, Rules"
     },
     {
@@ -418,7 +418,7 @@
       "doc_id": "ART-STYLE-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Nexus_Visual_Style_Bible. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for Nexus_Visual_Style_Bible. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-STYLE-001, ART-002, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, nexus_visual_style_bible, Nexus, Visual, Style, Bible"
     },
     {
@@ -430,7 +430,7 @@
       "doc_id": "ART-UI-001",
       "placement_domain": "Art",
       "role_status": "canon_home; canon_home; working_draft; visual-direction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for UI_Diagram_and_Tabletop_Iconography_Direction. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art canon homes source context for UI_Diagram_and_Tabletop_Iconography_Direction. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-UI-001, ART-007, Art, Canon Homes, canon_home, working_draft, visual-direction, domain_rebuild_full_migration, ui_diagram_and_tabletop_iconography_direction, UI, Diagram, and, Tabletop, Iconography, Direction"
     },
     {
@@ -442,7 +442,7 @@
       "doc_id": "ART-OPEN-011",
       "placement_domain": "Art",
       "role_status": "open_questions; open_questions; working_draft; tracking; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art open questions source context for Art_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art open questions source context for Art_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-OPEN-011, ART-011, Art, Open Questions, open_questions, working_draft, tracking, domain_rebuild_full_migration, art_open_questions, Open, Questions"
     },
     {
@@ -454,7 +454,7 @@
       "doc_id": "ART-INDEX-000",
       "placement_domain": "Art",
       "role_status": "reference_input; domain_readme; active; operational-index; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art reference inputs source context for Art Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art reference inputs source context for Art Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-INDEX-000, ART-000, Art, Reference Inputs, reference_input, domain_readme, active, operational-index, domain_rebuild_full_migration, art_domain_readme, Domain, Readme"
     },
     {
@@ -466,7 +466,7 @@
       "doc_id": "ART-INDEX-001",
       "placement_domain": "Art",
       "role_status": "reference_input; domain_manifest; active; operational-index; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art reference inputs source context for Art Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art reference inputs source context for Art Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-INDEX-001, ART-001, Art, Reference Inputs, reference_input, domain_manifest, active, operational-index, domain_rebuild_full_migration, art_domain_manifest, Domain, Manifest"
     },
     {
@@ -478,7 +478,7 @@
       "doc_id": "ART-REFERENCE-010",
       "placement_domain": "Art",
       "role_status": "reference_input; reference_input; working_draft; tracking; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Art reference inputs source context for Concept_Art_Library_Index. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art reference inputs source context for Concept_Art_Library_Index. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-REFERENCE-010, ART-010, Art, Reference Inputs, reference_input, working_draft, tracking, domain_rebuild_full_migration, concept_art_library_index, Concept, Library, Index"
     },
     {
@@ -490,7 +490,7 @@
       "doc_id": "ART-TRIAL-020",
       "placement_domain": "Art",
       "role_status": "prompt_trial_packet; reference_input; working_draft; non_canon_visual_trial; style_trial_packet",
-      "use_when": "Use when ChatGPT or app work needs Art style trials source context for Nexus Art Style Trial Prompt Series. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art style trials source context for Nexus Art Style Trial Prompt Series. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-TRIAL-020, Art, Style Trials, prompt_trial_packet, reference_input, working_draft, non_canon_visual_trial, style_trial_packet, art_style_trials, Nexus, Style, Trial, Prompt, Series"
     },
     {
@@ -502,7 +502,7 @@
       "doc_id": "README",
       "placement_domain": "Art",
       "role_status": "",
-      "use_when": "Use when ChatGPT or app work needs Art style trials source context for Nexus Art Style Trial Outputs — 2026-06-12. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art style trials source context for Nexus Art Style Trial Outputs — 2026-06-12. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "README, Art, Style Trials, Nexus, Style, Trial, Outputs, 2026, 06, 12"
     },
     {
@@ -514,7 +514,7 @@
       "doc_id": "ART-TRIAL-INDEX-000",
       "placement_domain": "Art",
       "role_status": "trial_lane_readme; reference_input; working_draft; operational-index; style_trial_lane",
-      "use_when": "Use when ChatGPT or app work needs Art style trials source context for Art Style Trials README. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Art style trials source context for Art Style Trials README. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "ART-TRIAL-INDEX-000, Art, Style Trials, trial_lane_readme, reference_input, working_draft, operational-index, style_trial_lane, art_style_trials, Style, Trials, README"
     },
     {
@@ -526,7 +526,7 @@
       "doc_id": "AUTO-NOTES-005",
       "placement_domain": "Automation",
       "role_status": "applied_rule; applied_rule; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation applied rules source context for Companion_Tool_and_App_Feature_Backlog. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation applied rules source context for Companion_Tool_and_App_Feature_Backlog. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-NOTES-005, SRC-AUTO-005, Automation, Applied Rules, applied_rule, working_draft, provisional-source, domain_rebuild_full_migration, companion_tool_app_feature_backlog, Companion, Tool, and, App, Feature, Backlog"
     },
     {
@@ -538,7 +538,7 @@
       "doc_id": "AUTO-DATA-003",
       "placement_domain": "Automation",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for Data_Model_and_Runtime_Source_Strategy. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for Data_Model_and_Runtime_Source_Strategy. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-DATA-003, SRC-AUTO-003, Automation, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, data_model_runtime_source_strategy, Data, Model, and, Runtime, Source, Strategy"
     },
     {
@@ -550,7 +550,7 @@
       "doc_id": "AUTO-DATA-004",
       "placement_domain": "Automation",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for JSON_Export_and_Automation_Principles. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for JSON_Export_and_Automation_Principles. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-DATA-004, SRC-AUTO-004, Automation, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, json_export_automation_principles, JSON, Export, and, Principles"
     },
     {
@@ -562,7 +562,7 @@
       "doc_id": "AUTO-DATA-006",
       "placement_domain": "Automation",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for TacMap_Companion_Local_Data_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for TacMap_Companion_Local_Data_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-DATA-006, SRC-AUTO-006, Automation, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, tacmap_companion_local_data_model, TacMap, Companion, Local, Data, Model"
     },
     {
@@ -574,7 +574,7 @@
       "doc_id": "AUTO-MODE-002",
       "placement_domain": "Automation",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for TT_Mode_vs_VG_Mode_Design_Boundaries. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for TT_Mode_vs_VG_Mode_Design_Boundaries. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-MODE-002, SRC-AUTO-002, Automation, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, tt_mode_vg_mode_design_boundaries, TT, Mode, vs, VG, Design, Boundaries"
     },
     {
@@ -586,7 +586,7 @@
       "doc_id": "AUTO-OPEN-007",
       "placement_domain": "Automation",
       "role_status": "open_questions; open_questions; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation open questions source context for Automation_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation open questions source context for Automation_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-OPEN-007, SRC-AUTO-007, Automation, Open Questions, open_questions, working_draft, provisional-source, domain_rebuild_full_migration, automation_open_questions, Open, Questions"
     },
     {
@@ -598,7 +598,7 @@
       "doc_id": "AUTO-INDEX-000",
       "placement_domain": "Automation",
       "role_status": "reference_input; domain_readme; draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation reference inputs source context for Automation Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation reference inputs source context for Automation Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-INDEX-000, SRC-AUTO-000, Automation, Reference Inputs, reference_input, domain_readme, draft, provisional-source, domain_rebuild_full_migration, automation_domain_readme, Domain, Readme"
     },
     {
@@ -610,7 +610,7 @@
       "doc_id": "AUTO-INDEX-001",
       "placement_domain": "Automation",
       "role_status": "reference_input; domain_manifest; draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation reference inputs source context for Automation Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Automation reference inputs source context for Automation Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "AUTO-INDEX-001, SRC-AUTO-001, Automation, Reference Inputs, reference_input, domain_manifest, draft, provisional-source, domain_rebuild_full_migration, automation_domain_manifest, Domain, Manifest"
     },
     {
@@ -622,7 +622,7 @@
       "doc_id": "CHAR-ABILITY-001",
       "placement_domain": "Characters",
       "role_status": "applied_rule; applied_rule; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters applied rules source context for Ability_Taxonomy_and_Level_Up_Working_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters applied rules source context for Ability_Taxonomy_and_Level_Up_Working_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-ABILITY-001, SRC-CHAR-009, Characters, Applied Rules, applied_rule, working_draft, provisional_source, domain_rebuild_pilot_migration, character_ability_model, ability_taxonomy, level_up_working_model, Ability, Taxonomy, and, Level, Up, Working, Model"
     },
     {
@@ -634,7 +634,7 @@
       "doc_id": "CHAR-CREW-001",
       "placement_domain": "Characters",
       "role_status": "applied_rule; applied_rule; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters applied rules source context for Crew_Rosters_and_Relationships. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters applied rules source context for Crew_Rosters_and_Relationships. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-CREW-001, SRC-CHAR-006, Characters, Applied Rules, applied_rule, working_draft, provisional_source, domain_rebuild_pilot_migration, crew_relationships, crew_rosters, Crew, Rosters, and, Relationships"
     },
     {
@@ -646,7 +646,7 @@
       "doc_id": "CHAR-CHASSIS-001",
       "placement_domain": "Characters",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Character_Chassis_and_Build_Stack. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Character_Chassis_and_Build_Stack. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-CHASSIS-001, SRC-CHAR-002, Characters, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_pilot_migration, character_chassis, build_stack, cybernetic_tier_identity, Character, Chassis, and, Build, Stack"
     },
     {
@@ -658,7 +658,7 @@
       "doc_id": "CHAR-ORIGIN-001",
       "placement_domain": "Characters",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Origins_Species_and_Humanity_Frame. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Origins_Species_and_Humanity_Frame. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-ORIGIN-001, SRC-CHAR-003, Characters, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_pilot_migration, character_origins, upload_body_choices, Origins, Species, and, Humanity, Frame"
     },
     {
@@ -670,7 +670,7 @@
       "doc_id": "CHAR-PROGRESSION-001",
       "placement_domain": "Characters",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Traits_Feats_and_Progression. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Traits_Feats_and_Progression. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-PROGRESSION-001, SRC-CHAR-005, Characters, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_pilot_migration, character_progression, traits, feats, progression, Traits, Feats, and, Progression"
     },
     {
@@ -682,7 +682,7 @@
       "doc_id": "CHAR-RECOVERY-001",
       "placement_domain": "Characters",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Recovery_Revival_and_Consequence_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Recovery_Revival_and_Consequence_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-RECOVERY-001, SRC-CHAR-007, Characters, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_pilot_migration, recovery_rules, downed_disabled, revival_consequences, Recovery, Revival, and, Consequence, Model"
     },
     {
@@ -694,7 +694,7 @@
       "doc_id": "CHAR-ROLE-001",
       "placement_domain": "Characters",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Disciplines_and_Roles. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters canon homes source context for Disciplines_and_Roles. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-ROLE-001, SRC-CHAR-004, Characters, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_pilot_migration, character_roles, disciplines, roles, party_function, Disciplines, and, Roles"
     },
     {
@@ -706,7 +706,7 @@
       "doc_id": "CHAR-OPEN-001",
       "placement_domain": "Characters",
       "role_status": "open_questions; open_questions; working_draft; source_gap_register; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters open questions source context for Character_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters open questions source context for Character_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-OPEN-001, SRC-CHAR-008, Characters, Open Questions, open_questions, working_draft, source_gap_register, domain_rebuild_pilot_migration, character_open_questions, Character, Open, Questions"
     },
     {
@@ -718,7 +718,7 @@
       "doc_id": "CHAR-INDEX-000",
       "placement_domain": "Characters",
       "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters reference inputs source context for Characters Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters reference inputs source context for Characters Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-INDEX-000, SRC-CHAR-000, Characters, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_pilot_migration, character_domain_index, Domain, Readme"
     },
     {
@@ -730,7 +730,7 @@
       "doc_id": "CHAR-INDEX-001",
       "placement_domain": "Characters",
       "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Characters reference inputs source context for Characters Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Characters reference inputs source context for Characters Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CHAR-INDEX-001, SRC-CHAR-001, Characters, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_pilot_migration, character_domain_manifest, Domain, Manifest"
     },
     {
@@ -742,7 +742,7 @@
       "doc_id": "COMBAT-ENCOUNTER-001",
       "placement_domain": "Combat",
       "role_status": "applied_rule; applied_rule; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat applied rules source context for Encounter_Building_and_Pacing. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat applied rules source context for Encounter_Building_and_Pacing. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-ENCOUNTER-001, SRC-COMBAT-006, Combat, Applied Rules, applied_rule, working_draft, provisional_canon, domain_rebuild_pilot_migration, encounter_pacing, escape_structures, Encounter, Building, and, Pacing"
     },
     {
@@ -754,7 +754,7 @@
       "doc_id": "COMBAT-ENEMY-001",
       "placement_domain": "Combat",
       "role_status": "applied_rule; applied_rule; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat applied rules source context for Enemy_Behavior_and_Tactical_Roles. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat applied rules source context for Enemy_Behavior_and_Tactical_Roles. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-ENEMY-001, SRC-COMBAT-007, Combat, Applied Rules, applied_rule, working_draft, provisional_canon, domain_rebuild_pilot_migration, combat_enemy_behavior, tactical_roles, Enemy, Behavior, and, Tactical, Roles"
     },
     {
@@ -766,7 +766,7 @@
       "doc_id": "COMBAT-ACTION-001",
       "placement_domain": "Combat",
       "role_status": "canon_home; canon_home; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Action_Economy_and_Reactions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Action_Economy_and_Reactions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-ACTION-001, SRC-COMBAT-003, Combat, Canon Homes, canon_home, working_draft, provisional_canon, domain_rebuild_pilot_migration, action_economy, reactions, movement_anchors, Action, Economy, and, Reactions"
     },
     {
@@ -778,7 +778,7 @@
       "doc_id": "COMBAT-CORE-001",
       "placement_domain": "Combat",
       "role_status": "canon_home; canon_home; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Combat_Core_Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Combat_Core_Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-CORE-001, SRC-COMBAT-002, Combat, Canon Homes, canon_home, working_draft, provisional_canon, domain_rebuild_pilot_migration, combat_core, durability_order, combat_result_bands, Core, Rules"
     },
     {
@@ -790,7 +790,7 @@
       "doc_id": "COMBAT-ENV-001",
       "placement_domain": "Combat",
       "role_status": "canon_home; canon_home; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Cover_Hazards_Exposure_and_Environmental_Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Cover_Hazards_Exposure_and_Environmental_Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-ENV-001, SRC-COMBAT-005, Combat, Canon Homes, canon_home, working_draft, provisional_canon, domain_rebuild_pilot_migration, combat_environment, cover_rules, hazards, exposure, Cover, Hazards, Exposure, and, Environmental, Rules"
     },
     {
@@ -802,7 +802,7 @@
       "doc_id": "COMBAT-TACMAP-001",
       "placement_domain": "Combat",
       "role_status": "canon_home; canon_home; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for TacMap_Node_Movement_and_Positioning. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for TacMap_Node_Movement_and_Positioning. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-TACMAP-001, SRC-COMBAT-004, Combat, Canon Homes, canon_home, working_draft, provisional_canon, domain_rebuild_pilot_migration, tacmap_rules, node_movement, positioning, TacMap, Node, Movement, and, Positioning"
     },
     {
@@ -814,7 +814,7 @@
       "doc_id": "COMBAT-OPEN-001",
       "placement_domain": "Combat",
       "role_status": "open_questions; open_questions; working_draft; review_queue; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat open questions source context for Combat_Playtest_Gaps_and_Rulings. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat open questions source context for Combat_Playtest_Gaps_and_Rulings. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-OPEN-001, SRC-COMBAT-008, Combat, Open Questions, open_questions, working_draft, review_queue, domain_rebuild_pilot_migration, combat_open_questions, playtest_gaps, Playtest, Gaps, and, Rulings"
     },
     {
@@ -826,7 +826,7 @@
       "doc_id": "COMBAT-INDEX-000",
       "placement_domain": "Combat",
       "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat reference inputs source context for README_Source_Combat_TacMaps_Encounters. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat reference inputs source context for README_Source_Combat_TacMaps_Encounters. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-INDEX-000, SRC-COMBAT-000, Combat, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_pilot_migration, combat_domain_index, README, Source, TacMaps, Encounters"
     },
     {
@@ -838,7 +838,7 @@
       "doc_id": "COMBAT-INDEX-001",
       "placement_domain": "Combat",
       "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat reference inputs source context for PACKAGE_MANIFEST_Source_Combat_TacMaps_Encounters. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat reference inputs source context for PACKAGE_MANIFEST_Source_Combat_TacMaps_Encounters. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-INDEX-001, SRC-COMBAT-001, Combat, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_pilot_migration, combat_domain_manifest, PACKAGE, MANIFEST, Source, TacMaps, Encounters"
     },
     {
@@ -850,7 +850,7 @@
       "doc_id": "COMBAT-REF-001",
       "placement_domain": "Combat",
       "role_status": "reference_input; reference_input; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat reference inputs source context for TacMap_Workbook_and_Build_Plate_Process. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Combat reference inputs source context for TacMap_Workbook_and_Build_Plate_Process. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "COMBAT-REF-001, SRC-COMBAT-009, Combat, Reference Inputs, reference_input, working_draft, provisional_source, domain_rebuild_pilot_migration, tacmap_build_process, TacMap, Workbook, and, Build, Plate, Process"
     },
     {
@@ -862,7 +862,7 @@
       "doc_id": "CONTENT-NOTES-009",
       "placement_domain": "Content",
       "role_status": "applied_rule; applied_rule; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content applied rules source context for Content_Tags_Rarity_and_Balance_Notes. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content applied rules source context for Content_Tags_Rarity_and_Balance_Notes. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-NOTES-009, SRC-CONTENT-009, Content, Applied Rules, applied_rule, working_draft, provisional-source, domain_rebuild_full_migration, content_tags_rarity_balance_notes, Tags, Rarity, and, Balance, Notes"
     },
     {
@@ -874,7 +874,7 @@
       "doc_id": "CONTENT-ENCOUNTER-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Encounter_Content_Library. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Encounter_Content_Library. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-ENCOUNTER-001, SRC-CONTENT-008, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, encounter_content_library, Encounter, Library"
     },
     {
@@ -886,7 +886,7 @@
       "doc_id": "CONTENT-ENEMY-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Enemy_and_NPC_Content_Framework. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Enemy_and_NPC_Content_Framework. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-ENEMY-001, SRC-CONTENT-002, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, enemy_and_npc_content_framework, Enemy, and, NPC, Framework"
     },
     {
@@ -898,7 +898,7 @@
       "doc_id": "CONTENT-ENEMY-STAT-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Enemy_Roles_Tags_and_Stat_Blocks. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Enemy_Roles_Tags_and_Stat_Blocks. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-ENEMY-STAT-001, SRC-CONTENT-003, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, enemy_roles_tags_and_stat_blocks, Enemy, Roles, Tags, and, Stat, Blocks"
     },
     {
@@ -910,7 +910,7 @@
       "doc_id": "CONTENT-HAZARD-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Hazards_Obstacles_and_Environmental_Content. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Hazards_Obstacles_and_Environmental_Content. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-HAZARD-001, SRC-CONTENT-006, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, hazards_obstacles_and_environmental_content, Hazards, Obstacles, and, Environmental"
     },
     {
@@ -922,7 +922,7 @@
       "doc_id": "CONTENT-MISSION-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Mission_Job_and_Objective_Framework. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Mission_Job_and_Objective_Framework. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-MISSION-001, SRC-CONTENT-004, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, mission_job_and_objective_framework, Mission, Job, and, Objective, Framework"
     },
     {
@@ -934,7 +934,7 @@
       "doc_id": "CONTENT-REWARD-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Rewards_Loot_and_Salvage_Framework. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Rewards_Loot_and_Salvage_Framework. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-REWARD-001, SRC-CONTENT-007, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, rewards_loot_and_salvage_framework, Rewards, Loot, and, Salvage, Framework"
     },
     {
@@ -946,7 +946,7 @@
       "doc_id": "CONTENT-ROUTE-001",
       "placement_domain": "Content",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Route_Node_Content_Framework. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content canon homes source context for Route_Node_Content_Framework. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-ROUTE-001, SRC-CONTENT-005, Content, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, route_node_content_framework, Route, Node, Framework"
     },
     {
@@ -958,7 +958,7 @@
       "doc_id": "CONTENT-OPEN-010",
       "placement_domain": "Content",
       "role_status": "open_questions; open_questions; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content open questions source context for Content_Systems_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content open questions source context for Content_Systems_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-OPEN-010, SRC-CONTENT-010, Content, Open Questions, open_questions, working_draft, provisional-source, domain_rebuild_full_migration, content_systems_open_questions, Systems, Open, Questions"
     },
     {
@@ -970,7 +970,7 @@
       "doc_id": "CONTENT-INDEX-000",
       "placement_domain": "Content",
       "role_status": "reference_input; domain_readme; draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content reference inputs source context for Content Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content reference inputs source context for Content Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-INDEX-000, SRC-CONTENT-000, Content, Reference Inputs, reference_input, domain_readme, draft, provisional-source, domain_rebuild_full_migration, content_domain_readme, Domain, Readme"
     },
     {
@@ -982,7 +982,7 @@
       "doc_id": "CONTENT-INDEX-001",
       "placement_domain": "Content",
       "role_status": "reference_input; domain_manifest; draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Content reference inputs source context for Content Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Content reference inputs source context for Content Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CONTENT-INDEX-001, SRC-CONTENT-001, Content, Reference Inputs, reference_input, domain_manifest, draft, provisional-source, domain_rebuild_full_migration, content_domain_manifest, Domain, Manifest"
     },
     {
@@ -994,7 +994,7 @@
       "doc_id": "CORE-CAMPAIGN-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Campaign_Loop_and_Route_Structure. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Campaign_Loop_and_Route_Structure. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-CAMPAIGN-001, SRC-CORE-004, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, campaign_loop_and_route_structure, Campaign, Loop, and, Route, Structure"
     },
     {
@@ -1006,7 +1006,7 @@
       "doc_id": "CORE-DESIGN-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Nexus_Tabletop_First_Design_Principles. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Nexus_Tabletop_First_Design_Principles. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-DESIGN-001, SRC-CORE-003, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, tabletop_first_design_principles, Nexus, Tabletop, First, Design, Principles"
     },
     {
@@ -1018,7 +1018,7 @@
       "doc_id": "CORE-GLOSSARY-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Core_Terminology_and_Source_Glossary. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Core_Terminology_and_Source_Glossary. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-GLOSSARY-001, SRC-CORE-007, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, core_terminology_and_source_glossary, Terminology, and, Source, Glossary"
     },
     {
@@ -1030,7 +1030,7 @@
       "doc_id": "CORE-MISSION-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Mission_Node_Structure. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Mission_Node_Structure. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-MISSION-001, SRC-CORE-006, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, mission_node_structure, Mission, Node, Structure"
     },
     {
@@ -1042,7 +1042,7 @@
       "doc_id": "CORE-PILLARS-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Nexus_Core_Game_Pillars. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Nexus_Core_Game_Pillars. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-PILLARS-001, SRC-CORE-002, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, core_game_pillars, Nexus, Game, Pillars"
     },
     {
@@ -1054,7 +1054,7 @@
       "doc_id": "CORE-SHIP-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Ship_Phase_and_Crew_Operations. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Ship_Phase_and_Crew_Operations. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-SHIP-001, SRC-CORE-005, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, ship_phase_and_crew_operations, Ship, Phase, and, Crew, Operations"
     },
     {
@@ -1066,7 +1066,7 @@
       "doc_id": "CORE-OPEN-008",
       "placement_domain": "Core",
       "role_status": "open_questions; open_questions; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core open questions source context for Core_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core open questions source context for Core_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-OPEN-008, SRC-CORE-008, Core, Open Questions, open_questions, working_draft, provisional_source, domain_rebuild_full_migration, core_open_questions, Open, Questions"
     },
     {
@@ -1078,7 +1078,7 @@
       "doc_id": "CORE-INDEX-000",
       "placement_domain": "Core",
       "role_status": "reference_input; domain_readme; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core reference inputs source context for Core Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core reference inputs source context for Core Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-INDEX-000, SRC-CORE-000, Core, Reference Inputs, reference_input, domain_readme, draft, provisional_source, domain_rebuild_full_migration, core_domain_readme, Domain, Readme"
     },
     {
@@ -1090,7 +1090,7 @@
       "doc_id": "CORE-INDEX-001",
       "placement_domain": "Core",
       "role_status": "reference_input; domain_manifest; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core reference inputs source context for Core Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Core reference inputs source context for Core Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-INDEX-001, SRC-CORE-001, Core, Reference Inputs, reference_input, domain_manifest, draft, provisional_source, domain_rebuild_full_migration, core_domain_manifest, Domain, Manifest"
     },
     {
@@ -1102,7 +1102,7 @@
       "doc_id": "DASH-ART-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Art_Mode_Live_Asset_Dashboard. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Art_Mode_Live_Asset_Dashboard. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-ART-001, DASH-006, Dashboards, Current State, current_state, active, provisional_source, domain_rebuild_pilot_migration, art_dashboard, art_live_state, Art, Mode, Live, Asset, Dashboard"
     },
     {
@@ -1114,7 +1114,7 @@
       "doc_id": "DASH-CAMPAIGN-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active_candidate; tracking; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Campaign_State_Summary. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Campaign_State_Summary. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-CAMPAIGN-001, DASH-008, Dashboards, Current State, current_state, active_candidate, tracking, domain_rebuild_pilot_migration, campaign_state_summary, Active, Campaign, State, Summary"
     },
     {
@@ -1126,7 +1126,7 @@
       "doc_id": "DASH-DM-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for DM_Mode_Live_Campaign_Dashboard. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for DM_Mode_Live_Campaign_Dashboard. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-DM-001, DASH-005, Dashboards, Current State, current_state, active, provisional_source, domain_rebuild_pilot_migration, dm_dashboard, dm_live_state, current_instruction_deltas, DM, Mode, Live, Campaign, Dashboard"
     },
     {
@@ -1138,7 +1138,7 @@
       "doc_id": "DASH-DRAFT-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Draft_Workbench_Live_Dashboard. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Draft_Workbench_Live_Dashboard. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-DRAFT-001, DASH-003, Dashboards, Current State, current_state, active, provisional_source, domain_rebuild_pilot_migration, draft_dashboard, draft_live_state, Draft, Workbench, Live, Dashboard"
     },
     {
@@ -1150,7 +1150,7 @@
       "doc_id": "DASH-PLAYTEST-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active_candidate; tracking; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Playtest_and_Rulings_Summary. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Playtest_and_Rulings_Summary. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-PLAYTEST-001, DASH-009, Dashboards, Current State, current_state, active_candidate, tracking, domain_rebuild_pilot_migration, playtest_rulings_summary, Active, Playtest, and, Rulings, Summary"
     },
     {
@@ -1162,7 +1162,7 @@
       "doc_id": "DASH-ROADMAP-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Project_Roadmap. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Project_Roadmap. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-ROADMAP-001, DASH-010, Dashboards, Current State, current_state, active, provisional_source, domain_rebuild_pilot_migration, project_roadmap, Active, Project, Roadmap"
     },
     {
@@ -1174,7 +1174,7 @@
       "doc_id": "DASH-SEED-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active; tracking; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Seed_Mode_Live_Dashboard. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Seed_Mode_Live_Dashboard. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-SEED-001, DASH-004, Dashboards, Current State, current_state, active, tracking, domain_rebuild_pilot_migration, seed_dashboard, seed_live_state, Seed, Mode, Live, Dashboard"
     },
     {
@@ -1186,7 +1186,7 @@
       "doc_id": "DASH-STEWARD-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Steward_Live_Project_Dashboard. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Steward_Live_Project_Dashboard. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-STEWARD-001, DASH-002, Dashboards, Current State, current_state, active, provisional_source, domain_rebuild_pilot_migration, steward_dashboard, steward_live_state, Steward, Live, Project, Dashboard"
     },
     {
@@ -1198,7 +1198,7 @@
       "doc_id": "DASH-TASK-001",
       "placement_domain": "Dashboards",
       "role_status": "current_state; current_state; active_candidate; tracking; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Project_Task_Summary. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards current state source context for Active_Project_Task_Summary. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-TASK-001, DASH-007, Dashboards, Current State, current_state, active_candidate, tracking, domain_rebuild_pilot_migration, project_task_summary, Active, Project, Task, Summary"
     },
     {
@@ -1210,7 +1210,7 @@
       "doc_id": "DASH-INDEX-000",
       "placement_domain": "Dashboards",
       "role_status": "reference_input; domain_readme; active; tracking; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards reference inputs source context for README_Current_Dashboards_and_State. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards reference inputs source context for README_Current_Dashboards_and_State. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-INDEX-000, DASH-000, Dashboards, Reference Inputs, reference_input, domain_readme, active, tracking, domain_rebuild_pilot_migration, dashboard_domain_index, README, Current, and, State"
     },
     {
@@ -1222,7 +1222,7 @@
       "doc_id": "DASH-INDEX-001",
       "placement_domain": "Dashboards",
       "role_status": "reference_input; domain_manifest; active; tracking; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards reference inputs source context for PACKAGE_MANIFEST_Current_Dashboards_and_State. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards reference inputs source context for PACKAGE_MANIFEST_Current_Dashboards_and_State. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-INDEX-001, DASH-001, Dashboards, Reference Inputs, reference_input, domain_manifest, active, tracking, domain_rebuild_pilot_migration, dashboard_domain_manifest, PACKAGE, MANIFEST, Current, and, State"
     },
     {
@@ -1234,7 +1234,7 @@
       "doc_id": "DASH-REF-001",
       "placement_domain": "Dashboards",
       "role_status": "reference_input; reference_input; working_draft; provisional_source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Dashboards reference inputs source context for Dashboard_Rebuild_Change_Summary_2026-05-25. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Dashboards reference inputs source context for Dashboard_Rebuild_Change_Summary_2026-05-25. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DASH-REF-001, Dashboards, Reference Inputs, reference_input, working_draft, provisional_source, domain_rebuild_pilot_migration, dashboard_rebuild_change_summary, Dashboard, Rebuild, Change, Summary, 2026, 05, 25"
     },
     {
@@ -1246,7 +1246,7 @@
       "doc_id": "DATA-DICTIONARY-001",
       "placement_domain": "Data",
       "role_status": "canon_home; canon_home; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Data canon homes source context for Data Dictionary Master. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Data canon homes source context for Data Dictionary Master. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DATA-DICTIONARY-001, DATA-003, Data, Canon Homes, canon_home, working_draft, admin_reference, domain_rebuild_full_migration, data_dictionary_master, Dictionary, Master"
     },
     {
@@ -1258,7 +1258,7 @@
       "doc_id": "DATA-FORMAT-001",
       "placement_domain": "Data",
       "role_status": "canon_home; canon_home; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Data canon homes source context for CSV XLSX JSON Usage Guide. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Data canon homes source context for CSV XLSX JSON Usage Guide. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DATA-FORMAT-001, DATA-004, Data, Canon Homes, canon_home, working_draft, admin_reference, domain_rebuild_full_migration, csv_xlsx_json_usage_guide, CSV, XLSX, JSON, Usage, Guide"
     },
     {
@@ -1270,7 +1270,7 @@
       "doc_id": "DATA-OWNERSHIP-001",
       "placement_domain": "Data",
       "role_status": "canon_home; canon_home; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Data canon homes source context for Data Table Ownership and Format Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Data canon homes source context for Data Table Ownership and Format Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DATA-OWNERSHIP-001, DATA-002, Data, Canon Homes, canon_home, working_draft, admin_reference, domain_rebuild_full_migration, data_table_ownership_and_format_rules, Table, Ownership, and, Format, Rules"
     },
     {
@@ -1282,7 +1282,7 @@
       "doc_id": "DATA-INDEX-000",
       "placement_domain": "Data",
       "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Data reference inputs source context for Data Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Data reference inputs source context for Data Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DATA-INDEX-000, DATA-000, Data, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, data_domain_readme, Domain, Readme"
     },
     {
@@ -1294,7 +1294,7 @@
       "doc_id": "DATA-INDEX-001",
       "placement_domain": "Data",
       "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Data reference inputs source context for Data Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Data reference inputs source context for Data Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "DATA-INDEX-001, DATA-001, Data, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, data_domain_manifest, Domain, Manifest"
     },
     {
@@ -1306,7 +1306,7 @@
       "doc_id": "EQUIP-INVENTORY-001",
       "placement_domain": "Equipment",
       "role_status": "applied_rule; applied_rule; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment applied rules source context for Shared_Armory_and_Inventory_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment applied rules source context for Shared_Armory_and_Inventory_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-INVENTORY-001, SRC-EQUIP-008, Equipment, Applied Rules, applied_rule, draft, provisional-source, domain_rebuild_pilot_migration, equipment_inventory, shared_armory, inventory_model, Shared, Armory, and, Inventory, Model"
     },
     {
@@ -1318,7 +1318,7 @@
       "doc_id": "EQUIP-TAGS-001",
       "placement_domain": "Equipment",
       "role_status": "applied_rule; applied_rule; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment applied rules source context for Equipment_Tags_Rarity_and_Balance_Notes. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment applied rules source context for Equipment_Tags_Rarity_and_Balance_Notes. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-TAGS-001, SRC-EQUIP-009, Equipment, Applied Rules, applied_rule, draft, provisional-source, domain_rebuild_pilot_migration, equipment_tags, rarity_and_balance, Tags, Rarity, and, Balance, Notes"
     },
     {
@@ -1330,7 +1330,7 @@
       "doc_id": "EQUIP-CRED-001",
       "placement_domain": "Equipment",
       "role_status": "canon_home; canon_home; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Credentials_Access_and_Social_Equipment. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Credentials_Access_and_Social_Equipment. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-CRED-001, SRC-EQUIP-006, Equipment, Canon Homes, canon_home, draft, provisional-source, domain_rebuild_pilot_migration, equipment_credentials, credentials, social_equipment, access_equipment, Credentials, Access, and, Social"
     },
     {
@@ -1342,7 +1342,7 @@
       "doc_id": "EQUIP-CYBER-001",
       "placement_domain": "Equipment",
       "role_status": "canon_home; canon_home; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Cyberware_Bioware_and_Enhancement_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Cyberware_Bioware_and_Enhancement_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-CYBER-001, SRC-EQUIP-007, Equipment, Canon Homes, canon_home, draft, provisional-source, domain_rebuild_pilot_migration, equipment_cyberware_model, cyberware_model, bioware_model, enhancement_model, Cyberware, Bioware, and, Enhancement, Model"
     },
     {
@@ -1354,7 +1354,7 @@
       "doc_id": "EQUIP-DEF-001",
       "placement_domain": "Equipment",
       "role_status": "canon_home; canon_home; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Armor_Shields_and_Defense_Gear. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Armor_Shields_and_Defense_Gear. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-DEF-001, SRC-EQUIP-004, Equipment, Canon Homes, canon_home, draft, provisional-source, domain_rebuild_pilot_migration, equipment_defense, shield_rules, mitigation_rules, firewall_surface, Armor, Shields, and, Defense, Gear"
     },
     {
@@ -1366,7 +1366,7 @@
       "doc_id": "EQUIP-LOADOUT-001",
       "placement_domain": "Equipment",
       "role_status": "canon_home; canon_home; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Loadout_Core_Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Loadout_Core_Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-LOADOUT-001, SRC-EQUIP-002, Equipment, Canon Homes, canon_home, draft, provisional-source, domain_rebuild_pilot_migration, equipment_loadout, carried_gear_rules, Loadout, Core, Rules"
     },
     {
@@ -1378,7 +1378,7 @@
       "doc_id": "EQUIP-TOOL-001",
       "placement_domain": "Equipment",
       "role_status": "canon_home; canon_home; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Tools_Accessories_and_Consumables. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Tools_Accessories_and_Consumables. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-TOOL-001, SRC-EQUIP-005, Equipment, Canon Homes, canon_home, draft, provisional-source, domain_rebuild_pilot_migration, equipment_tools, tools, accessories, consumables, Tools, Accessories, and, Consumables"
     },
     {
@@ -1390,7 +1390,7 @@
       "doc_id": "EQUIP-WEAPON-001",
       "placement_domain": "Equipment",
       "role_status": "canon_home; canon_home; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Weapons_and_Damage_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment canon homes source context for Weapons_and_Damage_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-WEAPON-001, SRC-EQUIP-003, Equipment, Canon Homes, canon_home, draft, provisional-source, domain_rebuild_pilot_migration, equipment_weapons, weapon_model, weapon_tags, damage_model, Weapons, and, Damage, Model"
     },
     {
@@ -1402,7 +1402,7 @@
       "doc_id": "EQUIP-OPEN-001",
       "placement_domain": "Equipment",
       "role_status": "open_questions; open_questions; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment open questions source context for Equipment_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment open questions source context for Equipment_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-OPEN-001, SRC-EQUIP-010, Equipment, Open Questions, open_questions, draft, provisional-source, domain_rebuild_pilot_migration, equipment_open_questions, Open, Questions"
     },
     {
@@ -1414,7 +1414,7 @@
       "doc_id": "EQUIP-INDEX-000",
       "placement_domain": "Equipment",
       "role_status": "reference_input; domain_readme; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment reference inputs source context for README_Source_Equipment_Loadout_Cyberware. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment reference inputs source context for README_Source_Equipment_Loadout_Cyberware. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-INDEX-000, SRC-EQUIP-000, Equipment, Reference Inputs, reference_input, domain_readme, draft, provisional-source, domain_rebuild_pilot_migration, equipment_domain_index, README, Source, Loadout, Cyberware"
     },
     {
@@ -1426,7 +1426,7 @@
       "doc_id": "EQUIP-INDEX-001",
       "placement_domain": "Equipment",
       "role_status": "reference_input; domain_manifest; draft; provisional-source; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Equipment reference inputs source context for PACKAGE_MANIFEST_Source_Equipment_Loadout_Cyberware. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Equipment reference inputs source context for PACKAGE_MANIFEST_Source_Equipment_Loadout_Cyberware. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "EQUIP-INDEX-001, SRC-EQUIP-001, Equipment, Reference Inputs, reference_input, domain_manifest, draft, provisional-source, domain_rebuild_pilot_migration, equipment_domain_manifest, PACKAGE, MANIFEST, Source, Loadout, Cyberware"
     },
     {
@@ -1438,7 +1438,7 @@
       "doc_id": "LORE-CULTURE-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; noncanon_guidance_until_approved; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Naming_Language_and_Cultural_Style. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Naming_Language_and_Cultural_Style. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-CULTURE-001, SRC-LORE-009, Lore, Canon Homes, canon_home, draft_active, noncanon_guidance_until_approved, domain_rebuild_full_migration, naming_language_and_cultural_style, Naming, Language, and, Cultural, Style"
     },
     {
@@ -1450,7 +1450,7 @@
       "doc_id": "LORE-FACTION-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Factions_Polities_and_Power_Structures. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Factions_Polities_and_Power_Structures. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-FACTION-001, SRC-LORE-004, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, factions_polities_and_power_structures, Factions, Polities, and, Power, Structures"
     },
     {
@@ -1462,7 +1462,7 @@
       "doc_id": "LORE-LOCATION-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Locations_Solar_System_and_Travel. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Locations_Solar_System_and_Travel. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-LOCATION-001, SRC-LORE-005, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, locations_solar_system_and_travel, Locations, Solar, System, and, Travel"
     },
     {
@@ -1474,7 +1474,7 @@
       "doc_id": "LORE-PERSONHOOD-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Humanity_Posthumanity_and_Origin_Frame. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Humanity_Posthumanity_and_Origin_Frame. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-PERSONHOOD-001, SRC-LORE-003, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, humanity_posthumanity_and_origin_frame, Humanity, Posthumanity, and, Origin, Frame"
     },
     {
@@ -1486,7 +1486,7 @@
       "doc_id": "LORE-SETTING-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Setting_Overview_and_Themes. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Setting_Overview_and_Themes. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-SETTING-001, SRC-LORE-002, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, setting_overview_and_themes, Setting, Overview, and, Themes"
     },
     {
@@ -1498,7 +1498,7 @@
       "doc_id": "LORE-SIGNAL-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Alien_Signal_and_Contact_Mystery. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Alien_Signal_and_Contact_Mystery. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-SIGNAL-001, SRC-LORE-007, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, alien_signal_and_contact_mystery, Alien, Signal, and, Contact, Mystery"
     },
     {
@@ -1510,7 +1510,7 @@
       "doc_id": "LORE-STATION-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Corporate_State_and_Station_Life. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Corporate_State_and_Station_Life. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-STATION-001, SRC-LORE-008, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, station_life, corporate_state_station_life, Corporate, State, and, Station, Life"
     },
     {
@@ -1522,7 +1522,7 @@
       "doc_id": "LORE-TIMELINE-001",
       "placement_domain": "Lore",
       "role_status": "canon_home; canon_home; draft_active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Timeline_and_Historical_Eras. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore canon homes source context for Timeline_and_Historical_Eras. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-TIMELINE-001, SRC-LORE-006, Lore, Canon Homes, canon_home, draft_active, provisional_canon, domain_rebuild_full_migration, timeline_and_historical_eras, Timeline, and, Historical, Eras"
     },
     {
@@ -1534,7 +1534,7 @@
       "doc_id": "LORE-OPEN-010",
       "placement_domain": "Lore",
       "role_status": "open_questions; open_questions; draft_active; mixed_provisional_and_unresolved; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore open questions source context for Lore_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore open questions source context for Lore_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-OPEN-010, SRC-LORE-010, Lore, Open Questions, open_questions, draft_active, mixed_provisional_and_unresolved, domain_rebuild_full_migration, lore_open_questions, Open, Questions"
     },
     {
@@ -1546,7 +1546,7 @@
       "doc_id": "LORE-INDEX-000",
       "placement_domain": "Lore",
       "role_status": "reference_input; domain_readme; active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore reference inputs source context for Lore Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore reference inputs source context for Lore Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-INDEX-000, SRC-LORE-000, Lore, Reference Inputs, reference_input, domain_readme, active, provisional_canon, domain_rebuild_full_migration, lore_domain_readme, Domain, Readme"
     },
     {
@@ -1558,7 +1558,7 @@
       "doc_id": "LORE-INDEX-001",
       "placement_domain": "Lore",
       "role_status": "reference_input; domain_manifest; active; provisional_canon; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Lore reference inputs source context for Lore Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Lore reference inputs source context for Lore Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "LORE-INDEX-001, SRC-LORE-001, Lore, Reference Inputs, reference_input, domain_manifest, active, provisional_canon, domain_rebuild_full_migration, lore_domain_manifest, Domain, Manifest"
     },
     {
@@ -1570,7 +1570,7 @@
       "doc_id": "MODES-CORE-002",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; draft; Instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Global Mode Operations Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Global Mode Operations Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-CORE-002, 01, Modes, Canon Homes, canon_home, draft, Instruction, domain_rebuild_full_migration, global_mode_operations_rules, Global, Mode, Operations, Rules"
     },
     {
@@ -1582,7 +1582,7 @@
       "doc_id": "MODES-CORE-003",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Steward Mode Rules AI. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Steward Mode Rules AI. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-CORE-003, 02, Modes, Canon Homes, canon_home, draft, admin_reference, domain_rebuild_full_migration, steward_mode_rules_ai, Steward, Mode, Rules, AI"
     },
     {
@@ -1594,7 +1594,7 @@
       "doc_id": "MODES-MODE-001",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Function_Bindings. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Function_Bindings. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-001, MODE-FUNC-001, Modes, Canon Homes, canon_home, active, admin_reference, domain_rebuild_full_migration, mode_func_001_function_bindings, Function, Bindings"
     },
     {
@@ -1606,7 +1606,7 @@
       "doc_id": "MODES-MODE-002",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Draft Mode Rules AI. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Draft Mode Rules AI. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-002, MODE-002, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, draft_mode_rules_ai, Draft, Mode, Rules, AI"
     },
     {
@@ -1618,7 +1618,7 @@
       "doc_id": "MODES-MODE-003",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Seed Mode Rules AI. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Seed Mode Rules AI. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-003, MODE-003, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, seed_mode_rules_ai, Seed, Mode, Rules, AI"
     },
     {
@@ -1630,7 +1630,7 @@
       "doc_id": "MODES-MODE-004",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for DM Mode Rules AI. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for DM Mode Rules AI. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-004, MODE-004, Modes, Canon Homes, canon_home, draft, instruction, domain_rebuild_full_migration, dm_mode_rules_ai, DM, Mode, Rules, AI"
     },
     {
@@ -1642,7 +1642,7 @@
       "doc_id": "MODES-MODE-005",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Art_Mode_Rules_AI. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Art_Mode_Rules_AI. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-005, MODE-005, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, art_mode_rules_ai, Art, Mode, Rules, AI"
     },
     {
@@ -1654,7 +1654,7 @@
       "doc_id": "MODES-MODE-006",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus_Mode_Menu. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus_Mode_Menu. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-006, MODE-006, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, nexus_mode_menu, Nexus, Mode, Menu"
     },
     {
@@ -1666,7 +1666,7 @@
       "doc_id": "MODES-MODE-007",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus_Mode_Launch_Cards. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus_Mode_Launch_Cards. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-007, MODE-007, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, nexus_mode_launch_cards, Nexus, Mode, Launch, Cards"
     },
     {
@@ -1678,7 +1678,7 @@
       "doc_id": "MODES-MODE-008",
       "placement_domain": "Modes",
       "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus Command Key. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus Command Key. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-MODE-008, MODE-008, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, nexus_command_key, Nexus, Command, Key"
     },
     {
@@ -1690,7 +1690,7 @@
       "doc_id": "MODES-OPEN-003",
       "placement_domain": "Modes",
       "role_status": "open_questions; open_questions; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes open questions source context for Nexus_Open_Questions_Register. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes open questions source context for Nexus_Open_Questions_Register. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-OPEN-003, REG-003, Modes, Open Questions, open_questions, working_draft, admin_reference, domain_rebuild_full_migration, nexus_open_questions_register, Nexus, Open, Questions, Register"
     },
     {
@@ -1702,7 +1702,7 @@
       "doc_id": "MODES-INDEX-000",
       "placement_domain": "Modes",
       "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for README_Mode_Operations_Registers_Templates. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for README_Mode_Operations_Registers_Templates. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-INDEX-000, MODE-000, Modes, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, modes_domain_readme, README, Mode, Operations, Registers, Templates"
     },
     {
@@ -1714,7 +1714,7 @@
       "doc_id": "MODES-INDEX-001",
       "placement_domain": "Modes",
       "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for PACKAGE_MANIFEST_Mode_Operations_Registers_Templates. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for PACKAGE_MANIFEST_Mode_Operations_Registers_Templates. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-INDEX-001, MODE-001, Modes, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, modes_domain_manifest, PACKAGE, MANIFEST, Mode, Operations, Registers, Templates"
     },
     {
@@ -1726,7 +1726,7 @@
       "doc_id": "MODES-INDEX-002",
       "placement_domain": "Modes",
       "role_status": "reference_input; reference_input; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Domain Readme Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Domain Readme Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-INDEX-002, TPL-002, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, domain_readme_template, Domain, Readme, Template"
     },
     {
@@ -1738,7 +1738,7 @@
       "doc_id": "MODES-INDEX-003",
       "placement_domain": "Modes",
       "role_status": "reference_input; reference_input; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Domain Manifest Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Domain Manifest Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-INDEX-003, TPL-003, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, domain_manifest_template, Domain, Manifest, Template"
     },
     {
@@ -1750,7 +1750,7 @@
       "doc_id": "MODES-REGISTER-001",
       "placement_domain": "Modes",
       "role_status": "reference_input; register; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Output_Register. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Output_Register. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-REGISTER-001, REG-001, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, nexus_output_register, Nexus, Output, Register"
     },
     {
@@ -1762,7 +1762,7 @@
       "doc_id": "MODES-REGISTER-002",
       "placement_domain": "Modes",
       "role_status": "reference_input; register; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Source_Status_Register. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Source_Status_Register. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-REGISTER-002, REG-002, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, nexus_source_status_register, Nexus, Source, Status, Register"
     },
     {
@@ -1774,7 +1774,7 @@
       "doc_id": "MODES-TEMPLATE-001",
       "placement_domain": "Modes",
       "role_status": "reference_input; template; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Obsidian_Property_Schema. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Obsidian_Property_Schema. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-TEMPLATE-001, TPL-001, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, nexus_obsidian_property_schema, Nexus, Obsidian, Property, Schema"
     },
     {
@@ -1786,7 +1786,7 @@
       "doc_id": "MODES-TEMPLATE-004",
       "placement_domain": "Modes",
       "role_status": "reference_input; template; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Source_Doc_Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Source_Doc_Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-TEMPLATE-004, TPL-004, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, source_doc_template, Source, Doc, Template"
     },
     {
@@ -1798,7 +1798,7 @@
       "doc_id": "MODES-TEMPLATE-005",
       "placement_domain": "Modes",
       "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Dashboard_Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Dashboard_Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-TEMPLATE-005, TPL-005, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, dashboard_template, Dashboard, Template"
     },
     {
@@ -1810,7 +1810,7 @@
       "doc_id": "MODES-TEMPLATE-006",
       "placement_domain": "Modes",
       "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Handoff_Passoff_Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Handoff_Passoff_Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-TEMPLATE-006, TPL-006, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, handoff_passoff_template, Handoff, Passoff, Template"
     },
     {
@@ -1822,7 +1822,7 @@
       "doc_id": "MODES-TEMPLATE-007",
       "placement_domain": "Modes",
       "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Data_Dictionary_Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Data_Dictionary_Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-TEMPLATE-007, TPL-007, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, data_dictionary_template, Data, Dictionary, Template"
     },
     {
@@ -1834,7 +1834,7 @@
       "doc_id": "MODES-TEMPLATE-008",
       "placement_domain": "Modes",
       "role_status": "reference_input; template; active; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Seed_Mode_Dashboard_Template. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Seed_Mode_Dashboard_Template. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "MODES-TEMPLATE-008, TPL-008, Modes, Reference Inputs, reference_input, template, active, instruction, domain_rebuild_full_migration, seed_mode_dashboard_template, Seed, Mode, Dashboard, Template"
     },
     {
@@ -1846,7 +1846,7 @@
       "doc_id": "PLAYAID-DISPLAY-001",
       "placement_domain": "Play Aids",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for External_Display_and_Table_Companion_Concepts. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for External_Display_and_Table_Companion_Concepts. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-DISPLAY-001, SRC-AUX-008, Play Aids, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, external_display_and_table_companion_concepts, External, Display, and, Table, Companion, Concepts"
     },
     {
@@ -1858,7 +1858,7 @@
       "doc_id": "PLAYAID-MAP-001",
       "placement_domain": "Play Aids",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Solar_System_Map_and_Faction_Display. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Solar_System_Map_and_Faction_Display. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-MAP-001, SRC-AUX-004, Play Aids, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, solar_system_map_and_faction_display, Solar, System, Map, and, Faction, Display"
     },
     {
@@ -1870,7 +1870,7 @@
       "doc_id": "PLAYAID-OVERVIEW-001",
       "placement_domain": "Play Aids",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Auxiliary_Play_Aids_Overview. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Auxiliary_Play_Aids_Overview. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-OVERVIEW-001, SRC-AUX-002, Play Aids, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, auxiliary_play_aids_overview, Auxiliary, Play, Aids, Overview"
     },
     {
@@ -1882,7 +1882,7 @@
       "doc_id": "PLAYAID-PRINT-001",
       "placement_domain": "Play Aids",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Canva_PDF_and_Printable_Aids. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Canva_PDF_and_Printable_Aids. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-PRINT-001, SRC-AUX-007, Play Aids, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, canva_pdf_and_printable_aids, Canva, PDF, and, Printable, Aids"
     },
     {
@@ -1894,7 +1894,7 @@
       "doc_id": "PLAYAID-ROUTE-001",
       "placement_domain": "Play Aids",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Route_Node_Map_Companion. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for Route_Node_Map_Companion. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-ROUTE-001, SRC-AUX-003, Play Aids, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, route_node_map_companion, Route, Node, Map, Companion"
     },
     {
@@ -1906,7 +1906,7 @@
       "doc_id": "PLAYAID-TACMAP-001",
       "placement_domain": "Play Aids",
       "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for TacMap_Display_Aids. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids canon homes source context for TacMap_Display_Aids. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-TACMAP-001, SRC-AUX-005, Play Aids, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, tacmap_display_aids, TacMap, Display, Aids"
     },
     {
@@ -1918,7 +1918,7 @@
       "doc_id": "PLAYAID-STATE-006",
       "placement_domain": "Play Aids",
       "role_status": "current_state; current_state; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids current state source context for Player_Facing_Dashboards_and_Handouts. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids current state source context for Player_Facing_Dashboards_and_Handouts. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-STATE-006, SRC-AUX-006, Play Aids, Current State, current_state, working_draft, provisional-source, domain_rebuild_full_migration, player_facing_dashboards_handouts, Player, Facing, Dashboards, and, Handouts"
     },
     {
@@ -1930,7 +1930,7 @@
       "doc_id": "PLAYAID-OPEN-009",
       "placement_domain": "Play Aids",
       "role_status": "open_questions; open_questions; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids open questions source context for Auxiliary_Play_Aids_Open_Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids open questions source context for Auxiliary_Play_Aids_Open_Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-OPEN-009, SRC-AUX-009, Play Aids, Open Questions, open_questions, working_draft, provisional-source, domain_rebuild_full_migration, auxiliary_play_aids_open_questions, Auxiliary, Play, Aids, Open, Questions"
     },
     {
@@ -1942,7 +1942,7 @@
       "doc_id": "PLAYAID-INDEX-000",
       "placement_domain": "Play Aids",
       "role_status": "reference_input; domain_readme; draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids reference inputs source context for Play Aids Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids reference inputs source context for Play Aids Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-INDEX-000, SRC-AUX-000, Play Aids, Reference Inputs, reference_input, domain_readme, draft, provisional-source, domain_rebuild_full_migration, play_aids_domain_readme, Play, Aids, Domain, Readme"
     },
     {
@@ -1954,7 +1954,7 @@
       "doc_id": "PLAYAID-INDEX-001",
       "placement_domain": "Play Aids",
       "role_status": "reference_input; domain_manifest; draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Play Aids reference inputs source context for Play Aids Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Play Aids reference inputs source context for Play Aids Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "PLAYAID-INDEX-001, SRC-AUX-001, Play Aids, Reference Inputs, reference_input, domain_manifest, draft, provisional-source, domain_rebuild_full_migration, play_aids_domain_manifest, Play, Aids, Domain, Manifest"
     },
     {
@@ -1966,7 +1966,7 @@
       "doc_id": "REF-PROMOTION-001",
       "placement_domain": "Reference",
       "role_status": "applied_rule; applied_rule; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference applied rules source context for Reference_Promotion_Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference applied rules source context for Reference_Promotion_Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-PROMOTION-001, REF-006, Reference, Applied Rules, applied_rule, active, admin_reference, domain_rebuild_full_migration, reference_promotion_rules, Promotion, Rules"
     },
     {
@@ -1978,7 +1978,7 @@
       "doc_id": "REF-RUNBOOK-102",
       "placement_domain": "Reference",
       "role_status": "applied_rule; applied_rule; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference applied rules source context for Nexus_Project_Lore_Guidance_for_World_in_2325. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference applied rules source context for Nexus_Project_Lore_Guidance_for_World_in_2325. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-RUNBOOK-102, REF-102, Reference, Applied Rules, applied_rule, active, non_authoritative_reference, domain_rebuild_full_migration, nexus_project_lore_guidance_for_world_in_2325, Nexus, Project, Lore, Guidance, for, World, in, 2325"
     },
     {
@@ -1990,7 +1990,7 @@
       "doc_id": "REF-INDEX-000",
       "placement_domain": "Reference",
       "role_status": "reference_input; domain_readme; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Reference Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Reference Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-INDEX-000, REF-000, Reference, Reference Inputs, reference_input, domain_readme, active, admin_reference, domain_rebuild_full_migration, reference_domain_readme, Domain, Readme"
     },
     {
@@ -2002,7 +2002,7 @@
       "doc_id": "REF-INDEX-001",
       "placement_domain": "Reference",
       "role_status": "reference_input; domain_manifest; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Reference Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Reference Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-INDEX-001, REF-001, Reference, Reference Inputs, reference_input, domain_manifest, active, admin_reference, domain_rebuild_full_migration, reference_domain_manifest, Domain, Manifest"
     },
     {
@@ -2014,7 +2014,7 @@
       "doc_id": "REF-INSPIRATION-001",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Game_Inspiration_and_Comparable_Systems. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Game_Inspiration_and_Comparable_Systems. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-INSPIRATION-001, REF-004, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, game_inspiration_and_comparable_systems, Game, Inspiration, and, Comparable, Systems"
     },
     {
@@ -2026,7 +2026,7 @@
       "doc_id": "REF-REFERENCE-003",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Skills_Report. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Skills_Report. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-003, REF-003, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, skills_report, Skills, Report"
     },
     {
@@ -2038,7 +2038,7 @@
       "doc_id": "REF-REFERENCE-005",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Research_Findings_Index. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Research_Findings_Index. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-005, REF-005, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, research_findings_index, Research, Findings, Index"
     },
     {
@@ -2050,7 +2050,7 @@
       "doc_id": "REF-REFERENCE-101",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for AI_Runtime_Manual_Research_Report. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for AI_Runtime_Manual_Research_Report. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-101, REF-101, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, ai_runtime_manual_research_report, AI, Runtime, Manual, Research, Report"
     },
     {
@@ -2062,7 +2062,7 @@
       "doc_id": "REF-REFERENCE-110",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendices_Index. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendices_Index. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-110, REF-110, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendices_index, RNG, Appendices, Index"
     },
     {
@@ -2074,7 +2074,7 @@
       "doc_id": "REF-REFERENCE-111",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_A_Probability_Solver. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_A_Probability_Solver. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-111, REF-111, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_a_probability_solver, RNG, Appendix, A, Probability, Solver"
     },
     {
@@ -2086,7 +2086,7 @@
       "doc_id": "REF-REFERENCE-112",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_B_Simulation_Protocol. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_B_Simulation_Protocol. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-112, REF-112, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_b_simulation_protocol, RNG, Appendix, B, Simulation, Protocol"
     },
     {
@@ -2098,7 +2098,7 @@
       "doc_id": "REF-REFERENCE-113",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_C_Archetype_Catalog. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_C_Archetype_Catalog. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-113, REF-113, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_c_archetype_catalog, RNG, Appendix, C, Archetype, Catalog"
     },
     {
@@ -2110,7 +2110,7 @@
       "doc_id": "REF-REFERENCE-114",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_D_Defense_and_Enemy_Profile_Catalog. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_D_Defense_and_Enemy_Profile_Catalog. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-114, REF-114, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_d_defense_and_enemy_profile_catalog, RNG, Appendix, D, Defense, and, Enemy, Profile, Catalog"
     },
     {
@@ -2122,7 +2122,7 @@
       "doc_id": "REF-REFERENCE-115",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_E_Content_Budget_and_Power_Budget. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_E_Content_Budget_and_Power_Budget. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-115, REF-115, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_e_content_budget_and_power_budget, RNG, Appendix, E, Content, Budget, and, Power"
     },
     {
@@ -2134,7 +2134,7 @@
       "doc_id": "REF-REFERENCE-116",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_F_Mitigation_and_Resource_Systems. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_F_Mitigation_and_Resource_Systems. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-116, REF-116, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_f_mitigation_and_resource_systems, RNG, Appendix, F, Mitigation, and, Resource, Systems"
     },
     {
@@ -2146,7 +2146,7 @@
       "doc_id": "REF-REFERENCE-117",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_G_Superiority_Region_Maps. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_G_Superiority_Region_Maps. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-117, REF-117, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_g_superiority_region_maps, RNG, Appendix, G, Superiority, Region, Maps"
     },
     {
@@ -2158,7 +2158,7 @@
       "doc_id": "REF-REFERENCE-118",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_H_RNG_Implementation_Notes. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendix_H_RNG_Implementation_Notes. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-118, REF-118, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendix_h_rng_implementation_notes, RNG, Appendix, H, Implementation, Notes"
     },
     {
@@ -2170,7 +2170,7 @@
       "doc_id": "REF-REFERENCE-130",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for PDF_Source_Materials_Index. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for PDF_Source_Materials_Index. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-REFERENCE-130, REF-130, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, pdf_source_materials_index, PDF, Source, Materials, Index"
     },
     {
@@ -2182,7 +2182,7 @@
       "doc_id": "REF-RNG-BACKBONE-001",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Deep_Research_Report. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Deep_Research_Report. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-RNG-BACKBONE-001, REF-120, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_and_balance_backbone_for_tabletop_and_video_games, Deep, Research, Report"
     },
     {
@@ -2194,7 +2194,7 @@
       "doc_id": "REF-RNG-CHANGELOG-001",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendices_Change_Log. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for RNG_Appendices_Change_Log. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-RNG-CHANGELOG-001, REF-119, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, rng_appendices_change_log, RNG, Appendices, Change, Log"
     },
     {
@@ -2206,7 +2206,7 @@
       "doc_id": "REF-SCIFI-SEED-001",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Hard_SciFi_and_Space_Opera_Seed_Compendium. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Hard_SciFi_and_Space_Opera_Seed_Compendium. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-SCIFI-SEED-001, REF-103, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, hard_scifi_and_space_opera_seed_compendium, Hard, SciFi, and, Space, Opera, Seed, Compendium"
     },
     {
@@ -2218,7 +2218,7 @@
       "doc_id": "REF-SURVEY-001",
       "placement_domain": "Reference",
       "role_status": "reference_input; reference_input; active; non_authoritative_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Systems_Survey. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Reference reference inputs source context for Systems_Survey. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "REF-SURVEY-001, REF-002, Reference, Reference Inputs, reference_input, active, non_authoritative_reference, domain_rebuild_full_migration, systems_survey, Systems, Survey"
     },
     {
@@ -2230,7 +2230,7 @@
       "doc_id": "SKILL-DIFFICULTY-001",
       "placement_domain": "Skills",
       "role_status": "canon_home; canon_home; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Difficulty Modifiers and Check Display. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Difficulty Modifiers and Check Display. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-DIFFICULTY-001, SRC-SKILL-004, Skills, Canon Homes, canon_home, draft, provisional_source, domain_rebuild_full_migration, difficulty_modifiers_and_check_display, Difficulty, Modifiers, and, Check, Display"
     },
     {
@@ -2242,7 +2242,7 @@
       "doc_id": "SKILL-DISCIPLINE-001",
       "placement_domain": "Skills",
       "role_status": "canon_home; canon_home; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Disciplines Skills and Advancement Links. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Disciplines Skills and Advancement Links. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-DISCIPLINE-001, SRC-SKILL-006, Skills, Canon Homes, canon_home, draft, provisional_source, domain_rebuild_full_migration, disciplines_skills_and_advancement_links, Disciplines, and, Advancement, Links"
     },
     {
@@ -2254,7 +2254,7 @@
       "doc_id": "SKILL-LIST-001",
       "placement_domain": "Skills",
       "role_status": "canon_home; canon_home; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Skills List and Definitions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Skills List and Definitions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-LIST-001, SRC-SKILL-002, Skills, Canon Homes, canon_home, draft, provisional_source, domain_rebuild_full_migration, skills_list_and_definitions, List, and, Definitions"
     },
     {
@@ -2266,7 +2266,7 @@
       "doc_id": "SKILL-RESOLUTION-001",
       "placement_domain": "Skills",
       "role_status": "canon_home; canon_home; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Resolution Core Rules. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Resolution Core Rules. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-RESOLUTION-001, SRC-SKILL-003, Skills, Canon Homes, canon_home, draft, provisional_source, domain_rebuild_full_migration, resolution_core_rules, Resolution, Core, Rules"
     },
     {
@@ -2278,7 +2278,7 @@
       "doc_id": "SKILL-REVEAL-001",
       "placement_domain": "Skills",
       "role_status": "canon_home; canon_home; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Skill Revealed Options and Noncombat Scenes. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Skill Revealed Options and Noncombat Scenes. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-REVEAL-001, SRC-SKILL-005, Skills, Canon Homes, canon_home, draft, provisional_source, domain_rebuild_full_migration, skill_revealed_options_and_noncombat_scenes, Skill, Revealed, Options, and, Noncombat, Scenes"
     },
     {
@@ -2290,7 +2290,7 @@
       "doc_id": "SKILL-SCENE-001",
       "placement_domain": "Skills",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Noncombat_Scene_Systems_Working_Model. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills canon homes source context for Noncombat_Scene_Systems_Working_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-SCENE-001, SRC-SKILL-009, Skills, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, noncombat_scene_systems_working_model, Noncombat, Scene, Systems, Working, Model"
     },
     {
@@ -2302,7 +2302,7 @@
       "doc_id": "SKILL-STATE-007",
       "placement_domain": "Skills",
       "role_status": "current_state; current_state; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills current state source context for RNG and Playtest Tuning Notes. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills current state source context for RNG and Playtest Tuning Notes. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-STATE-007, SRC-SKILL-007, Skills, Current State, current_state, draft, provisional_source, domain_rebuild_full_migration, rng_playtest_tuning_notes, RNG, and, Playtest, Tuning, Notes"
     },
     {
@@ -2314,7 +2314,7 @@
       "doc_id": "SKILL-OPEN-008",
       "placement_domain": "Skills",
       "role_status": "open_questions; open_questions; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills open questions source context for Resolution Open Questions. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills open questions source context for Resolution Open Questions. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-OPEN-008, SRC-SKILL-008, Skills, Open Questions, open_questions, draft, provisional_source, domain_rebuild_full_migration, resolution_open_questions, Resolution, Open, Questions"
     },
     {
@@ -2326,7 +2326,7 @@
       "doc_id": "SKILL-INDEX-000",
       "placement_domain": "Skills",
       "role_status": "reference_input; domain_readme; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills reference inputs source context for Skills Domain Readme. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills reference inputs source context for Skills Domain Readme. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-INDEX-000, SRC-SKILL-000, Skills, Reference Inputs, reference_input, domain_readme, draft, provisional_source, domain_rebuild_full_migration, skills_domain_readme, Domain, Readme"
     },
     {
@@ -2338,7 +2338,7 @@
       "doc_id": "SKILL-INDEX-001",
       "placement_domain": "Skills",
       "role_status": "reference_input; domain_manifest; draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Skills reference inputs source context for Skills Domain Manifest. This repo path is the user-designated Golden Truth source; verify live vault promotion state only when local Obsidian currentness matters.",
+      "use_when": "Use when ChatGPT or app work needs Skills reference inputs source context for Skills Domain Manifest. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "SKILL-INDEX-001, SRC-SKILL-001, Skills, Reference Inputs, reference_input, domain_manifest, draft, provisional_source, domain_rebuild_full_migration, skills_domain_manifest, Domain, Manifest"
     }
   ]

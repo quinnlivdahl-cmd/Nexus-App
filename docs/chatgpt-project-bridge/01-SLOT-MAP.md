@@ -15,7 +15,7 @@ Slots are upload/context roles, not source ownership lanes. A slot tells ChatGPT
 | Bootstrap | `00-BOOTSTRAP.md` | First-read orientation and authority split | Major workflow or authority change |
 | Slot map | `01-SLOT-MAP.md` | Defines current context slots and future packet families | New slot family, retired family, or changed upload policy |
 | Global instructions | `02-GLOBAL-PROJECT-INSTRUCTIONS.md` | Always-on behavior for ChatGPT Project | Material change to project behavior expectations |
-| Operating model | `03-OPERATING-MODEL.md` | Explains live source, repo/GitHub, ChatGPT, and Codex lanes | Lane or bridge model changes |
+| Operating model | `03-OPERATING-MODEL.md` | Explains repo source, Obsidian, Drive, GitHub, ChatGPT, and Codex lanes | Lane or bridge model changes |
 | Refresh rules | `04-REFRESH-AND-READINESS-RULES.md` | Currentness, readiness, and upload rules | New refresh workflow or verification rule |
 | Source authority summary | `20-SOURCE-AUTHORITY-SUMMARY.md` | Compact authority lanes and indexed GitHub source retrieval guide | Source authority or source-index workflow changes |
 | Open plan | `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md` | Deferred questions and future packet plan | After each bridge planning batch |
@@ -35,19 +35,19 @@ These families are planned as bridge extension points after the seven-file basel
 | Long-chat preservation packet | `preservation/YYYY-MM-DD-topic.md` | Durable container for accepted prose, decisions, schemas, or source-ready language from a long chat | The work should not be carried forward only through a large handoff prompt |
 | Targeted task packet | `task-packets/YYYY-MM-DD-topic.md` | One-off context for a specific chat, issue, or play session | A task needs narrow current context |
 | Evolving game-system draft | `../game-system-contracts/drafts/TOPIC_WORKING_DRAFT.md` | Stable working draft for multi-chat rules-core or game-system design sequences | Accepted design material should accumulate in one durable draft file |
-| Source draft candidate | `../source-draft-candidates/YYYY-MM-DD-domain-topic.md` | Candidate material that may later become Nexus source but is not live source authority | ChatGPT produces source-ready language that still needs review and promotion |
+| Source draft candidate | `../source-draft-candidates/YYYY-MM-DD-domain-topic.md` | Candidate material that may later become Nexus source but is not canonical source authority | ChatGPT produces source-ready language that still needs review and promotion |
 | Oversized bundle | `bundles/YYYY-MM-DD-topic.zip` | Zip only when Markdown is too large or awkward | A later packet cannot remain readable as flat Markdown |
 
 ## Repo-Side Expanded Source Index
 
-If a repo-side expanded source pool exists at `docs/nexus-game-source/source`, it should include an index file that ChatGPT can fetch directly.
+The repo-side canonical source pool at `docs/nexus-game-source/source` should include an index file that ChatGPT can fetch directly.
 
 Preferred files:
 
 - `docs/nexus-game-source/source/SOURCE-INDEX.md`
 - optional machine-readable companion: `docs/nexus-game-source/source/SOURCE-INDEX.json`
 
-The index should not make the repo-side source pool live source authority by itself. It should provide exact paths and routing metadata so ChatGPT can fetch relevant context when useful.
+The index provides exact canonical source paths and routing metadata so ChatGPT can fetch relevant context when useful. It does not prove ChatGPT upload currentness or Obsidian working-copy currentness.
 
 `20-SOURCE-AUTHORITY-SUMMARY.md` is part of the bridge baseline after the source index exists.
 
@@ -56,11 +56,11 @@ The index should not make the repo-side source pool live source authority by its
 - Keep baseline bridge files small enough to upload together.
 - Keep future packets mostly flat Markdown.
 - Use bundles only when a concrete packet needs them.
-- Do not bulk-copy live `00 Source` into this folder.
+- Do not bulk-copy Obsidian `00 Source` into this folder.
 - Do not treat uploaded slots as source ownership.
 - Do not invent ChatGPT packet destinations; use the approved paths in `04-REFRESH-AND-READINESS-RULES.md`.
 - Do not rely on GitHub folder/tree URLs as the only source discovery method; provide exact indexed paths.
-- When exact currentness matters, verify against live source or repo/GitHub before answering.
+- When exact currentness matters, verify against repo source, Obsidian working-copy state, Drive payload state, or GitHub before answering.
 
 ## Recommended Upload Order
 

@@ -10,7 +10,7 @@ Use this skill when work touches `docs/nexus-roadmap`, roadmap issue linkage, or
 Workflow:
 
 1. Read `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_ISSUE_TRANSITION.md`, and `docs/nexus-roadmap/README.md`.
-2. If current source truth is needed, inspect live domain-first source before making claims. The roadmap mirror is planning context, not source canon.
+2. If current source truth is needed, inspect the repo canonical source before making claims. The roadmap mirror is planning context, not source canon.
 3. Keep `docs/nexus-roadmap/ROADMAP.md` repo-accessible, but do not mutate the original Obsidian review-lane roadmap unless the user explicitly approves it.
 4. Update roadmap issue linkage in `scripts/update-roadmap-index.mjs` when lane-to-issue relationships change.
 5. Regenerate the index with `corepack pnpm run roadmap:index`.
@@ -26,6 +26,6 @@ Do not:
 
 - promote candidate roadmap content to Nexus source canon;
 - turn `ROADMAP-INDEX.md` into the active execution queue;
-- bury roadmap planning in the Golden Truth source corpus;
-- bulk-copy live `00 Source` into the repo;
+- bury roadmap planning in the canonical source corpus;
+- bulk-copy Obsidian `00 Source` into the repo;
 - close a roadmap issue until index generation/checks and workflow validation pass.

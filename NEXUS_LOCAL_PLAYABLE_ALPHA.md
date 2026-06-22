@@ -3,7 +3,7 @@
 Status: active implementation plan
 Owner: local app workstream
 Primary surface: this app repo
-Related review candidate: `C:\Users\Quintin Livdahl\Nexus\Nexus\90 Codex Review\01 Review Ready\2026-06-08_Nexus_Local_Playable_App_Plan_Candidate.md`
+Related repo roadmap surface: `docs/nexus-roadmap/ROADMAP.md`
 
 Active execution queue note:
 
@@ -24,7 +24,7 @@ Local Playable Alpha is complete when the user can launch the app locally, start
 - DM chat and encounters are one gameplay flow. Encounters open from narrative play and return results to narrative play.
 - ChatGPT remains useful for drafting, brainstorming, and targeted design work; it should not be the runtime memory for normal app play.
 - Public release is out of scope until the user explicitly says otherwise.
-- Nexus source Markdown is the design authority. This repo is implementation authority for app behavior.
+- Nexus source Markdown in `docs/nexus-game-source/source` is the design authority. This repo is implementation authority for app behavior.
 - Lattice-100 is a resolution mechanic, not world lore. Do not present the RNG system as an in-world metaphysical fact unless source docs explicitly say so.
 
 ## Source Basis
@@ -32,13 +32,13 @@ Local Playable Alpha is complete when the user can launch the app locally, start
 Read these before changing gameplay, context, or roadmap behavior:
 
 - `docs\nexus-game-source\source`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Admin\Applied Rules\ADMIN-MAP-003 - 03-Slot-Map-rev0-6.md`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Admin\Applied Rules\ADMIN-RUNBOOK-013 - Nexus-Source-First-Routing-Map.md`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Dashboards\Current State\DASH-ROADMAP-001 - Active_Project_Roadmap.md`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Dashboards\Current State\DASH-TASK-001 - Active_Project_Task_Summary.md`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Automation\Reference Inputs\AUTO-INDEX-000 - SRC-AUTO-000-README-Source-TT-VG-Automation.md`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Combat\Reference Inputs\COMBAT-INDEX-000 - Combat_Domain_Readme.md`
-- `C:\Users\Quintin Livdahl\Nexus\00 Source\Content\Reference Inputs\CONTENT-INDEX-000 - SRC-CONTENT-000-README-Source-Content-Systems.md`
+- `docs\nexus-game-source\source\Admin\Applied Rules\ADMIN-MAP-003 - 03-Slot-Map-rev0-6.md`
+- `docs\nexus-game-source\source\Admin\Applied Rules\ADMIN-RUNBOOK-013 - Nexus-Source-First-Routing-Map.md`
+- `docs\nexus-roadmap\ROADMAP.md`
+- `docs\nexus-game-source\source\Automation\Reference Inputs\AUTO-INDEX-000 - SRC-AUTO-000-README-Source-TT-VG-Automation.md`
+- `docs\nexus-game-source\source\Combat\Reference Inputs\COMBAT-INDEX-000 - Combat_Domain_Readme.md`
+- `docs\nexus-game-source\source\Content\Reference Inputs\CONTENT-INDEX-000 - SRC-CONTENT-000-README-Source-Content-Systems.md`
+- `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source\Dashboards\Current State\DASH-TASK-001 - Active_Project_Task_Summary.md` only when current Obsidian dashboard state matters.
 
 ## Current Prototype Inventory
 
@@ -60,7 +60,7 @@ Current blockers and hardening needs:
 - `corepack pnpm` is the supported local package runner and was verified on 2026-06-15.
 - AI calls still happen from the browser and use a browser-stored API key.
 - Persistence is browser localStorage only; no file-backed local save/export flow exists yet.
-- Source-backed content is hand-authored/prototype context, not yet generated from the Golden Truth source corpus.
+- Source-backed content is hand-authored/prototype context, not yet generated from the canonical source corpus.
 - Current default campaign is Rook resume context; the app-native new campaign seed is not defined yet.
 - Rules are mostly prompt-instructed, not app-enforced.
 
@@ -309,7 +309,7 @@ Goal:
 Replace hand-authored prototype lore context with source-traceable app context.
 
 Context:
-Use the Golden Truth source in `docs\nexus-game-source\source`, `dmSystemPrompt.ts`, `contextSelector.ts`, and `loreRegistry.ts`.
+Use the canonical source in `docs\nexus-game-source\source`, `dmSystemPrompt.ts`, `contextSelector.ts`, and `loreRegistry.ts`.
 
 Implementation Tasks:
 
@@ -492,7 +492,7 @@ Run this when Gates A through F claim completion:
 - File-backed local saves beyond browser export/import.
 - Generated scene image caching to local files.
 - Rule conflict/rulings register integration.
-- Source doc pack generation from the Golden Truth source corpus.
+- Source doc pack generation from the canonical source corpus.
 - Rook resume/import pathway after app-native campaign works.
 - Navigable non-combat environments.
 - Combat animations.

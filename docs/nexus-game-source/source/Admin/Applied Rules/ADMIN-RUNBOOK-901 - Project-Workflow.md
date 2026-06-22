@@ -32,6 +32,8 @@ This file is included because the Routing Map lists it as an optional/review can
 
 It is packaged as `doc_status: legacy_reference`. It is not higher authority than the current loose operating docs, Routing Map, or ADM-002 through ADM-012 procedures.
 
+Current 2026-06-20 authority override: Nexus-App repo source at `docs/nexus-game-source/source` is canonical for Nexus text source docs. Obsidian is now a reading/index and source working-copy layer, and Drive holds bulky payloads, exports, handoffs, candidate runs, and Google-native workbench material. Treat older Obsidian-first passages below as migration history unless a current instruction explicitly restores them.
+
 Original source body follows.
 
 ---
@@ -470,5 +472,4 @@ Steward may create or update JSON companions for package manifests, handoff reco
 ### rev0.1 - 2026-05-13
 
 - Wrapped as an ADM optional/review candidate with current frontmatter and no deletion authority.
-
 

@@ -29,7 +29,7 @@ Known preserved prior commits:
 - `02ea59ccf24ecd910d0b0b28de74a2c10b74c1e9` — added character/progression schema scaffold.
 - `c3930c110548bc7a0b5d57679fbeaf4791d093c1` — added Bioform/Chassis append.
 
-Do not delete old files after adding this document. Any future promotion to local live source authority must be verified through the local `00 Source` workflow.
+Do not delete old files after adding this document. Any future promotion to canonical source must be verified through the repo source workflow, with Obsidian working-copy currentness checked when relevant.
 
 ---
 
@@ -37,11 +37,11 @@ Do not delete old files after adding this document. Any future promotion to loca
 
 This is a repo-side draft contract. It is intended to clarify schema construction order, validation boundaries, and ability/progression object relationships. It is not a direct edit to live Nexus source canon.
 
-Exact live source authority remains local:
+Canonical source authority remains in the repo. The Obsidian source working-copy layer is:
 
-`C:\Users\Quintin Livdahl\Nexus\00 Source`
+`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
 
-Repo-side contract drafts are useful planning and implementation scaffolds, but they must be promoted or reconciled through the local workflow before being treated as final source truth.
+Repo-side contract drafts are useful planning and implementation scaffolds, but they must be promoted or reconciled into `docs/nexus-game-source/source` before being treated as final source truth.
 
 ---
 
