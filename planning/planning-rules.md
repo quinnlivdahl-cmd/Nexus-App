@@ -60,6 +60,8 @@ These rules keep complex Nexus-App work recoverable across long sessions, handof
 
 ## Integration With Task Tracking
 
+- Planning files supplement GitHub Issues; they do not become a competing task queue.
+- Use GitHub issue/PR state as the final task-state authority.
 - Use `planning/task_plan.md` for project phases, decisions, and durable errors.
 - Use `planning/findings.md` for evidence gathered from repo, web, browser, or GitHub checks.
 - Use `planning/progress.md` for session logs and validation results.
