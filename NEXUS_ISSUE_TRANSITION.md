@@ -72,9 +72,9 @@ These are active, but they are not the app-runtime critical path.
 
 - Gate A: `#7` Prove local launch and runtime foundation - verified locally and ready to close
 - Gate B: `#8` Add recoverable local save export and import flow
-- Gate C: `#9` Build source-backed context pack for app DM runtime - ready after #7 closeout
-- Gate D: `#10` Route DM and scene image AI calls through local backend
-- Gate D: `#11` Add app-native campaign seed and reset path
+- Gate C: Source Context Pack #9 - satisfied by Source Context Pack PR #52 merge
+- Gate D: Backend AI Routing #10 - dependent/eligible after Source Context Pack #9, not in progress
+- Gate D: App-Native Campaign Seed #11 - dependent/eligible after Source Context Pack #9, not in progress
 - Gate E: `#12` Add manual encounter harness and narrative return flow
 - Gate F: `#4` Prepare API-DM plus deterministic rules-core scaffold
 - Gate F: `#5` Define first rules-core vertical slice
@@ -91,20 +91,23 @@ These are active, but they are not the app-runtime critical path.
   Queue role: dependent
   Depends on: `#7`
 
-- `#9` Build source-backed context pack for app DM runtime
+- Source Context Pack #9
   Gate: C
-  Queue role: ready
+  Queue role: satisfied
   Depends on: `#7` satisfied
+  Status note: Source Context Pack PR #52 merged into `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb` after PR branch fix commit `63265bc`.
 
-- `#10` Route DM and scene image AI calls through local backend
+- Backend AI Routing #10
   Gate: D
-  Queue role: dependent
-  Depends on: `#7`, `#9`
+  Queue role: dependent/eligible
+  Depends on: `#7` satisfied, Source Context Pack #9 satisfied
+  Status note: eligible for future sequencing, but not started by Source Context Pack #9 closeout.
 
-- `#11` Add app-native campaign seed and reset path
+- App-Native Campaign Seed #11
   Gate: D
-  Queue role: dependent
-  Depends on: `#7`, `#9`
+  Queue role: dependent/eligible
+  Depends on: `#7` satisfied, Source Context Pack #9 satisfied
+  Status note: eligible for future sequencing, but not started by Source Context Pack #9 closeout.
 
 - `#12` Add manual encounter harness and narrative return flow
   Gate: E
@@ -154,9 +157,9 @@ These are active, but they are not the app-runtime critical path.
 
 - `#18` Build a searchable index of the Nexus vault for fast rules lookup
   Gate: C extension
-  Queue role: dependent
-  Depends on: `#9`
-  Notes: useful extension of source-backed context, but not required before the first source-backed pack exists
+  Queue role: dependent/eligible
+  Depends on: Source Context Pack #9 satisfied
+  Notes: useful extension of source-backed context, but not started by Source Context Pack #9 closeout
 
 - `#19` Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes
   Gate: D extension
@@ -166,9 +169,9 @@ These are active, but they are not the app-runtime critical path.
 
 - `#20` Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session
   Gate: C support
-  Queue role: standalone
-  Depends on: `#9`
-  Notes: excellent debug surface for validation, but it supports the main path rather than defining it
+  Queue role: standalone/eligible
+  Depends on: Source Context Pack #9 satisfied
+  Notes: excellent debug surface for validation, but it supports the main path rather than defining it and was not started by Source Context Pack #9 closeout
 
 - `#21` Let the DM look up vault rules mid-session when a specific rule reference is needed
   Gate: C extension
@@ -182,8 +185,8 @@ Critical path now reads:
 
 - Gate A: `#7` satisfied
 - Gate B: `#8`
-- Gate C: `#9` ready
-- Gate D: `#10`, `#11`
+- Gate C: Source Context Pack #9 satisfied
+- Gate D: Backend AI Routing #10 and App-Native Campaign Seed #11 eligible for future sequencing, not in progress
 - Gate E: `#12`, `#14`
 - Gate F: `#4`, `#5`, `#13`
 
