@@ -26,12 +26,14 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-C
 
 # Auxiliary Play Aids Overview
 
+<!-- source-slice: playaid.overview.definition -->
 ## 1. Definition
 
 Auxiliary play aids are supporting materials that make Nexus easier to play, display, share, teach, archive, or run. They include route-node maps, TacMap displays, handouts, quick references, dashboards, printable sheets, and external-display concepts.
 
 They are **not** automatically source truth. They must point back to the appropriate source docs for rules, state, lore, or art direction.
 
+<!-- source-slice: playaid.overview.non-authority-rule -->
 ## 2. Non-authority rule
 
 A polished aid is not automatically more authoritative than a Markdown source doc. If an aid conflicts with source rules or campaign state, the source/state document wins until the conflict is resolved.
@@ -57,6 +59,7 @@ Good Nexus play aids should be:
 - compatible with future structured data/renderer workflows;
 - visually consistent with Nexus art direction without hiding tactical data.
 
+<!-- source-slice: playaid.overview.aid-categories -->
 ## 4. Aid categories
 
 Current aid categories include:
@@ -70,6 +73,7 @@ Current aid categories include:
 - Status/icon/legend references.
 - Encounter-start and route-node-end packets.
 
+<!-- source-slice: playaid.overview.trigger-rules -->
 ## 5. Trigger rules
 
 A play aid should appear when it reduces friction or prevents confusion.
@@ -86,6 +90,7 @@ Strong triggers:
 
 The player should not have to ask for the TacMap when a tactical encounter begins and the tactical space matters.
 
+<!-- source-slice: playaid.overview.encounter-start-packet -->
 ## 6. Encounter Start Packet
 
 An Encounter Start Packet is the player/DM-facing aid bundle used when tactical or structured encounter play begins.
@@ -114,6 +119,7 @@ For dashboards and structured aids:
 - do not bury important current state in unreliable HTML dropdowns;
 - avoid wide tables on mobile unless the information truly benefits from tabular layout.
 
+<!-- source-slice: playaid.overview.required-source-pointers -->
 ## 8. Required source pointers
 
 Each substantial play aid should state or imply the relevant owners:
@@ -126,6 +132,5 @@ Each substantial play aid should state or imply the relevant owners:
 - Automation and data model implications: `Automation`.
 - Dashboards and current state: `Dashboards`.
 - Art and visual direction: `Art`.
-
 
 

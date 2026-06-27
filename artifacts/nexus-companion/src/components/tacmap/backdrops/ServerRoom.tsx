@@ -64,7 +64,7 @@ export default function ServerRoom({ width = 900, height = 600 }: { width?: numb
 
       {/* Overhead status display */}
       <rect x={width*0.35} y={height*0.08} width={width*0.3} height={height*0.12} fill="#0a0f1a" stroke="#00b4aa" strokeWidth="1" strokeOpacity="0.4" />
-      <text x={width*0.365} y={height*0.13} fill="#00b4aa" fontSize="8" fontFamily="monospace" opacity="0.8">LATTICE NODE :: CACHE-E43</text>
+      <text x={width*0.365} y={height*0.13} fill="#00b4aa" fontSize="8" fontFamily="monospace" opacity="0.8">SYSTEM NODE :: ACCESS HUB</text>
       <text x={width*0.365} y={height*0.155} fill="#E87722" fontSize="8" fontFamily="monospace" opacity="0.7">UPTIME: 4721d  TEMP: 18°C</text>
       <text x={width*0.365} y={height*0.18} fill="#ff4444" fontSize="7" fontFamily="monospace" opacity="0.6">ALERT: UNAUTHORIZED ACCESS ATTEMPT</text>
 

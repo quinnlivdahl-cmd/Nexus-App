@@ -26,12 +26,14 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Encounter Content Library
 
+<!-- source-slice: content.encounter.status-and-use -->
 ## Status
 
 This is a seeded library of reusable patterns, not a final encounter roster.
 
 Use these entries as DM/content scaffolds. Promote, rename, or rewrite through Draft/Seed before treating them as final campaign-facing canon.
 
+<!-- source-slice: content.encounter.pattern-objective-runner -->
 ## Pattern: Objective Runner
 
 Source basis: RNG Appendix D test profile.
@@ -49,6 +51,7 @@ Content hooks:
 - partial success if intercepted late;
 - nonlethal capture, spoofing, bribery, or system-lock bypass.
 
+<!-- source-slice: content.encounter.pattern-system-vulnerable-machine -->
 ## Pattern: System-Vulnerable Machine
 
 Source basis: RNG Appendix D test profile.
@@ -65,6 +68,7 @@ Content hooks:
 - analog fallback or firewall;
 - remote control or dronejack routes.
 
+<!-- source-slice: content.encounter.pattern-hazard-clock-room -->
 ## Pattern: Hazard Clock Room
 
 Source basis: procedural mission source and Dq9 counter guidance.
@@ -88,6 +92,7 @@ Content requirements:
 - tie the trigger to concrete gameplay effect;
 - preserve aftermath if unresolved.
 
+<!-- source-slice: content.encounter.pattern-requirement-escape -->
 ## Pattern: Requirement Escape
 
 Source basis: Dq9 escape procedure.
@@ -96,6 +101,7 @@ Default formal escape structure.
 
 Use a checklist of requirements. Add a pressure counter only when needed. Requirements may be solved through tactical movement, ship handling, social cover, technical actions, environmental use, or creative planning.
 
+<!-- source-slice: content.encounter.pattern-dead-drop-investigation-node -->
 ## Pattern: Dead-Drop Investigation Node
 
 Source basis: Rook campaign handoff to Maintenance Relay Cache E-43.
@@ -110,6 +116,7 @@ Core ingredients:
 - goal to find a hidden message, proxy signal, or explanatory record;
 - chance to use ship support, technical skills, and cautious access.
 
+<!-- source-slice: content.encounter.pattern-custody-legal-pressure-node -->
 ## Pattern: Custody/Legal Pressure Node
 
 Source basis: Dq9 aftermath, Rook Vale custody pressure, and current campaign-state concepts.
@@ -129,6 +136,7 @@ Content hooks:
 - credentials and access rights;
 - nonviolent avoidance or legal bluffing.
 
+<!-- source-slice: content.encounter.pattern-salvage-vs-delay-choice -->
 ## Pattern: Salvage vs Delay Choice
 
 A node where the valuable thing is available, but taking it costs time, risk, heat, or counter progress.
@@ -140,12 +148,14 @@ Use to make rewards tactical:
 - take machine core but lose stealth;
 - rescue contact but close a shortcut.
 
+<!-- source-slice: content.encounter.library-growth-rule -->
 ## Library growth rule
 
 Add new patterns only when a handoff, playtest, Seed harvest, or Draft pass produces reusable content. Do not fill the library with invented lists just to make it look complete.
 
 ## Mass-intake pattern additions
 
+<!-- source-slice: content.encounter.pattern-node-path-hazard -->
 ### Pattern: Node/Path Hazard Pattern
 
 A tactical or mission scene built around node/path conditions rather than enemy count. Useful for vacuum leaks, electrical paths, smoke lanes, watched corridors, pressure doors, fire spread, gravity shifts, or contaminated zones.
@@ -167,9 +177,9 @@ Do not promote the uploaded asteroid mine TacMap prototype as a canonical encoun
 
 A route that avoids a choke point, objective lock, patrol, legal checkpoint, hazard, or pressure boundary at some cost. The bypass should usually change time, risk, alarm, exposure, reward, resource use, or aftermath.
 
+<!-- source-slice: content.encounter.pattern-tacmap-ready-requirement-escape -->
 ### Pattern: TacMap-Ready Requirement Escape
 
 A Requirement Escape that needs tactical spatial support. Content should list requirements, visible route pressures, hidden route pressures, hazards, exits, and what must appear in the encounter-start package.
-
 
 

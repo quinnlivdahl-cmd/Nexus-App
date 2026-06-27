@@ -26,12 +26,14 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Route Node Content Framework
 
+<!-- source-slice: content.route-node.purpose -->
 ## Purpose
 
 Route nodes are the campaign-scale content unit that link FTL-style travel, ship phase, encounters, objectives, and consequences.
 
 A route node is not always a fight. It may be a tactical mission, investigation, social pressure point, hazard crossing, salvage opportunity, recovery stop, faction checkpoint, dead drop, or choice fork.
 
+<!-- source-slice: content.route-node.content-fields -->
 ## Node content fields
 
 A route node seed should include:
@@ -57,6 +59,7 @@ Persistent aftermath:
 Reward / lead / salvage outcomes:
 ```
 
+<!-- source-slice: content.route-node.pre-node-procedure -->
 ## Pre-node procedure
 
 The current preferred flow includes pre-mission crew and loadout selection before starting a node. "Level ups" or progression choices may happen during this selection window when appropriate.
@@ -69,6 +72,7 @@ Pre-node questions should be practical:
 - what known risks the loadout should answer;
 - what objective or opportunity the crew is prioritizing.
 
+<!-- source-slice: content.route-node.objectives-and-opportunities -->
 ## Objectives and opportunities
 
 Separate objectives from opportunities.
@@ -79,6 +83,7 @@ Separate objectives from opportunities.
 
 The Rook handoff produced a useful discipline: when a lead opens, do not create too many parallel options. Add one objective and maybe one opportunity unless the player explicitly asks for a broader survey.
 
+<!-- source-slice: content.route-node.node-end-report -->
 ## Node end report
 
 At route-node end, DM Mode should produce a Route Node End Report before free ship time.
@@ -98,10 +103,12 @@ Persistent updates may include heat, damage, complications, opportunities, objec
 
 "Save" means producing an updated dashboard file or export, not merely updating internal state. `Content` owns the categories to save; `Modes` and `Dashboards` own display and export procedure.
 
+<!-- source-slice: content.route-node.campaign-specific-node-caution -->
 ## Campaign-specific node caution
 
 Playtest nodes such as Ternary Lock and Maintenance Relay Cache E-43 are useful examples of node structure, but they are campaign state until promoted. Do not treat them as default canonical route-node content.
 
+<!-- source-slice: content.route-node.route-consequences -->
 ## Node content and route consequences
 
 Route nodes may cost or create:
@@ -118,6 +125,7 @@ Route nodes may cost or create:
 - ship upgrade pressure;
 - future objective availability.
 
+<!-- source-slice: content.route-node.route-node-end-report-fields -->
 ## Mass-intake alignment: Route Node End Report fields
 
 Route-node content should identify what may be summarized in the Route Node End Report:
@@ -137,6 +145,5 @@ Route-node content should identify what may be summarized in the Route Node End 
 ### Pickup correction
 
 Pickups are added to inventory. They are not carried inactive equipment by default and do not imply extra equipment slots. If a pickup changes immediate loadout use, the content entry must state the special rule or scene permission explicitly.
-
 
 

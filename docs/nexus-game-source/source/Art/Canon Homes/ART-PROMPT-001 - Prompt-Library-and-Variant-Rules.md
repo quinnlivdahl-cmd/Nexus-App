@@ -26,10 +26,12 @@ metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language n
 
 # Prompt Library and Variant Rules
 
+<!-- source-slice: art.prompt.purpose -->
 ## Purpose
 
 This is a seeded prompt library for Art Mode and visual support. It gives reusable prompt structures without locking final art generation workflows.
 
+<!-- source-slice: art.prompt.metadata-block -->
 ## Prompt metadata block
 
 Use this before important prompts when practical:
@@ -46,6 +48,7 @@ Avoid:
 Post-generation review question:
 ```
 
+<!-- source-slice: art.prompt.base-nexus-style -->
 ## Base Nexus style prompt
 
 ```md
@@ -54,12 +57,14 @@ Grounded NASApunk sci-fi tabletop RPG visual, near-future solar-system setting, 
 Avoid glossy Star Trek cleanliness, pure military realism, overdesigned anime armor, medieval motifs, fantasy magic, unreadable UI clutter, generic blue hologram everything.
 ```
 
+<!-- source-slice: art.prompt.character-concept-skeleton -->
 ## Character concept prompt skeleton
 
 ```md
 Create a [character/body type/crew role] concept for Nexus, a grounded NASApunk sci-fi tabletop RPG. Emphasize practical lived-in space gear, visible maintenance burden, body/personhood implications, readable silhouette, and cyberpunk-dieselpunk solar-system grit. Show how the character survives fragile habitats and institutional pressure. Preserve Nexus rule: no fantasy races, only arguments about what still counts as human. Do not invent final mechanics or faction canon.
 ```
 
+<!-- source-slice: art.prompt.environment-concept-skeleton -->
 ## Environment concept prompt skeleton
 
 ```md
@@ -78,12 +83,14 @@ Create a [weapon/tool/armor/cyberware/accessory] concept for Nexus. The object s
 Create a simple readable tabletop icon for [concept] in Nexus. Style: NASApunk tactical sourcebook UI, flat high-contrast shape, clear silhouette, minimal details, usable at small size, compatible with node-web TacMaps and dashboard legends. Use restrained teal/orange/yellow/red accents on a neutral industrial base. Include a label/legend version and an unlabeled version if possible.
 ```
 
+<!-- source-slice: art.prompt.tacmap-diagram-skeleton -->
 ## TacMap diagram prompt skeleton
 
 ```md
 Create a tactical sourcebook-style node-web map diagram for a Nexus encounter. Prioritize readability over illustration. Include labeled nodes, movement links, cover, half cover, elevation, hazards, interactables, objective markers, extraction, enemy positions, and a compact legend. Use grounded NASApunk industrial visual language with off-white panels, worn orange markings, teal diagnostics, warning yellow, emergency red, and black void/industrial negative space. Do not add rules not supplied in the encounter data.
 ```
 
+<!-- source-slice: art.prompt.variant-rules -->
 ## Variant rules
 
 When requesting variants, vary one dimension at a time:
@@ -109,12 +116,14 @@ For image repair prompts:
 4. Preserve asset metadata and prompt version.
 5. If a repair changes source content, route it as a source decision.
 
+<!-- source-slice: art.prompt.art-mode-behavior-note -->
 ## Art Mode behavior note
 
 Art Mode has two lanes. Art Direction is the default text-only lane for prompts, edit prompts, variants, critique, style locks, and routing. Art Production is the explicit execution lane for image generation or image editing.
 
 Actual image generation should occur only when the user explicitly invokes Art Production, `Execute Prompt`, `generate now`, `render this`, `edit this image`, or equivalent execution language. `Do not generate`, `prompt-only`, `plan here`, and equivalent language always keep the chat in Art Direction.
 
+<!-- source-slice: art.prompt.art-production-packet-format -->
 ## Art Production Packet format - 2026-05-15
 
 Use this packet when an Art Direction chat prepares a separate Art Production chat. It is designed to keep source context centralized while preventing accidental image generation in planning chats.
@@ -149,6 +158,7 @@ Where the output goes in Obsidian; whether it is visual prototype, prompt explor
 
 Production packets should be specific enough that Art Production can execute without redesigning the concept. If a production chat discovers a conflict, it should report the conflict rather than silently inventing a new design.
 
+<!-- source-slice: art.prompt.tacmap-prompt-additions -->
 ## TacMap prompt additions - 2026-05-15
 
 ### Top-down TacMap icon prompt skeleton
@@ -174,6 +184,5 @@ Create a top-down/slight-isometric NASApunk TacMap prototype for `[LOCATION]`. S
 ### Repair prompt rule
 
 Repair prompts must say what tactical truth may not change: node count, node labels, path connections, objective labels, hazard placement, faction positions, and route status. Visual polish may improve only after tactical readability is preserved.
-
 
 

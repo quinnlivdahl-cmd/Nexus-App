@@ -1,6 +1,8 @@
 import type { GameState } from '../types/game';
 
-export const INITIAL_ROOK_STATE: GameState = {
+// Prototype campaign state retained for reference only. The app no longer boots
+// into this state by default; use a campaign-specific pack before reactivating it.
+export const PROTOTYPE_ROOK_STATE: GameState = {
   view: 'scene',
   menuTab: 'crew',
   isGeneratingImage: false,

@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import type { GameState, GameAction } from '../types/game';
-import { INITIAL_ROOK_STATE } from '../data/rookCampaign';
+import { INITIAL_NEXUS_PRIMER_STATE } from '../data/nexusPrimerCampaign';
 
 const STORAGE_KEY = 'nexus-companion-state';
+const PROTOTYPE_ROOK_STORAGE_KEY = 'nexus-companion-prototype-rook-state';
 
 function gameReducer(state: GameState, action: GameAction): GameState {
   switch (action.type) {
@@ -68,23 +69,37 @@ function gameReducer(state: GameState, action: GameAction): GameState {
 function loadStoredState(): GameState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return INITIAL_ROOK_STATE;
+    if (!raw) return INITIAL_NEXUS_PRIMER_STATE;
     const parsed = JSON.parse(raw) as GameState;
+
+    if (parsed.campaign?.campaignName === 'Nexus: Rook Protocol') {
+      localStorage.setItem(PROTOTYPE_ROOK_STORAGE_KEY, JSON.stringify(parsed));
+      return {
+        ...INITIAL_NEXUS_PRIMER_STATE,
+        settings: {
+          ...INITIAL_NEXUS_PRIMER_STATE.settings,
+          ...parsed.settings,
+        },
+        isGeneratingImage: false,
+        isAiThinking: false,
+      };
+    }
+
     return {
-      ...INITIAL_ROOK_STATE,
+      ...INITIAL_NEXUS_PRIMER_STATE,
       ...parsed,
       isGeneratingImage: false,
       isAiThinking: false,
     };
   } catch {
-    return INITIAL_ROOK_STATE;
+    return INITIAL_NEXUS_PRIMER_STATE;
   }
 }
 
 interface GameStateContextValue {
   state: GameState;
   dispatch: React.Dispatch<GameAction>;
-  resetToRookCampaign: () => void;
+  resetToNexusPrimer: () => void;
 }
 
 const GameStateContext = createContext<GameStateContextValue | null>(null);
@@ -104,12 +119,12 @@ export function GameStateProvider({ children }: { children: React.ReactNode }) {
     }
   }, [state]);
 
-  const resetToRookCampaign = useCallback(() => {
-    dispatch({ type: 'LOAD_STATE', payload: INITIAL_ROOK_STATE });
+  const resetToNexusPrimer = useCallback(() => {
+    dispatch({ type: 'LOAD_STATE', payload: INITIAL_NEXUS_PRIMER_STATE });
   }, []);
 
   return (
-    <GameStateContext.Provider value={{ state, dispatch, resetToRookCampaign }}>
+    <GameStateContext.Provider value={{ state, dispatch, resetToNexusPrimer }}>
       {children}
     </GameStateContext.Provider>
   );

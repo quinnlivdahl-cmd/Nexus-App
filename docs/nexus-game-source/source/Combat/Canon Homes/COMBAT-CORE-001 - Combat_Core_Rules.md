@@ -30,12 +30,14 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Combat Core Rules
 
+<!-- source-slice: combat.core.purpose-and-tactical-principles -->
 ## 1. Purpose
 
 Combat in Nexus is tactical, readable, and meaningful. Combat should occupy a large share of player time, but not every encounter must become combat.
 
 Characters are expected to be relatively squishy. Success should come from planning, lined-up shots, positioning, cover, objective execution, non-attack options, reactions, items, party synergy, and retreat or bypass when appropriate, not simply from trading damage.
 
+<!-- source-slice: combat.core.encounter-start-procedure -->
 ## 2. Encounter start procedure
 
 Combat encounters should begin with:
@@ -61,6 +63,7 @@ Combat begins when the player attacks, enemies attack, talks fail, stealth fails
 
 The working combat party baseline is PC + 2 crew. The player controls the PC and active crew in combat. Crew turns are individual, not grouped.
 
+<!-- source-slice: combat.core.turn-and-activation-baseline -->
 ## 5. Turn and activation baseline
 
 Current v0.1 baseline:
@@ -71,6 +74,7 @@ Current v0.1 baseline:
 - actions resolve sequentially unless a feature, prepared process, triggered system, passive effect, automation, or scenario rule explicitly says otherwise;
 - exact initiative math is deferred.
 
+<!-- source-slice: combat.core.combat-state-to-track -->
 ## 6. Combat state to track
 
 Combat state should track:
@@ -82,6 +86,7 @@ Combat state should track:
 - cover, visibility, line-of-fire, exposure, elevation, hazards, node status, path status, and status effects;
 - objectives, clocks, alarms, reinforcements, extraction, and interactables.
 
+<!-- source-slice: combat.core.defensive-display-spine -->
 ## 7. Defensive display spine
 Use this tactical display spine when a combatant needs a full profile:
 
@@ -132,6 +137,7 @@ Confirmed conversion rule:
 
 This conversion rule is strongest for PCs, crew, important NPCs, recurring enemies, captured characters, and other actors who may matter after the encounter.
 
+<!-- source-slice: combat.core.durability-application-order -->
 ## 9. Durability application order
 `Combat` owns tactical application order only. Detailed gear balance belongs to `Equipment`.
 
@@ -155,6 +161,7 @@ Firewall is a parallel digital or cybernetic defense track for machines, systems
 
 If one effect both applies a temporary Standard Status and causes Downed or Disabled, that status becomes persistent by default under the relevant long-term category unless a specific rule says otherwise.
 
+<!-- source-slice: combat.core.app-authority-state-mutation-boundary -->
 ### 9.1 App-facing authority and state mutation boundary
 
 Nexus uses an API DM for interpretation, narration, NPC response, scene feel, and flexible freeform play. The API DM does not become the final authority for combat legality, roll result, effect, state mutation, or committed truth.
@@ -194,6 +201,7 @@ Basic stabilization should not fail by roll when the helper has access, time/pos
 
 Robust tactical healing, revival from Downed, permanent-loss prevention, cybernetic repair, emergency cryo, upload recovery, or Signal-anomaly recovery remain later system work and may require `Characters`, `Equipment`, `Lore`, or `Dashboards` input.
 
+<!-- source-slice: combat.core.end-conditions -->
 ## 11. Combat end conditions
 
 Combat can end through victory, retreat, surrender, escape, objective completion, negotiation, collapse, timer resolution, enemy withdrawal, system shutdown, reinforcements changing the situation, or other consequences. Killing every enemy is only one possible end condition.
@@ -220,5 +228,4 @@ Still open:
 - exact status duration and clearance rules;
 - exact critical/status interaction rules beyond the Downed/Disabled conversion rule;
 - whether "Severe" becomes a defined rule term beyond the Downed/Disabled + status conversion rule.
-
 
