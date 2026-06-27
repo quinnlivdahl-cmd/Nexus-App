@@ -57,12 +57,11 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #9 | Build source-backed context pack for app DM runtime | ready | Gate C / Source Context Proven | #7 satisfied | Start source-backed context pack implementation after confirming source-home migration commit shape |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-13 by ChatGPT Steward cleanup after rules-core issue-state drift review. This index removes verified closed rules-core sequence issues from the open queue and adds newly observed workflow issues #49 and #50. For exact live issue count, verify against GitHub.
+Last synced: 2026-06-27 by Codex closeout sync after Source Context Pack PR #52 merged. This index removes Source Context Pack #9 from the open queue and records its merge evidence. For exact live issue count, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -83,9 +82,8 @@ Last synced: 2026-06-13 by ChatGPT Steward cleanup after rules-core issue-state 
 | Issue | Title | Gate | Queue role | Depends on | Notes |
 |---|---|---|---|---|---|
 | #8 | Add recoverable local save export and import flow | B | dependent | #7 | Local state/recovery |
-| #9 | Build source-backed context pack for app DM runtime | C | ready | #7 satisfied | Source-backed context foundation |
-| #10 | Route DM and scene image AI calls through local backend | D | dependent | #7, #9 | Backend/local AI path |
-| #11 | Add app-native campaign seed and reset path | D | dependent | #7, #9 | New app-native campaign start |
+| #10 | Route DM and scene image AI calls through local backend | D | dependent/eligible | #7 satisfied, #9 satisfied | Backend/local AI path; not started by Source Context Pack #9 closeout |
+| #11 | Add app-native campaign seed and reset path | D | dependent/eligible | #7 satisfied, #9 satisfied | New app-native campaign start; not started by Source Context Pack #9 closeout |
 | #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
 | #14 | Let the AI DM trigger and populate encounters automatically during play | E | dependent | #10, #11, #12 | Narrative-to-encounter bridge |
 | #4 | Prepare API-DM plus deterministic rules-core scaffold | F foundation | blocker | none listed | Rules-core foundation |
@@ -99,9 +97,9 @@ Last synced: 2026-06-13 by ChatGPT Steward cleanup after rules-core issue-state 
 | #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | E support | standalone | #12 | Playtest support |
 | #16 | UI readability pass - contrast, font sizes, and backdrop scrims | support | standalone | none | Usability polish |
 | #17 | Give each backdrop its own default node web | later | standalone | #12 | Encounter quality, later |
-| #18 | Build a searchable index of the Nexus vault for fast rules lookup | C extension | dependent | #9 | Source lookup extension |
+| #18 | Build a searchable index of the Nexus vault for fast rules lookup | C extension | dependent/eligible | #9 satisfied | Source lookup extension; not started by Source Context Pack #9 closeout |
 | #19 | Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes | D extension | dependent | #10, #11 | DM quality tuning |
-| #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | C support | standalone | #9 | Debug/validation surface |
+| #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | C support | standalone/eligible | #9 satisfied | Debug/validation surface; not started by Source Context Pack #9 closeout |
 | #21 | Let the DM look up vault rules mid-session when a specific rule reference is needed | C extension | dependent | #18, #10 | Second-step retrieval feature |
 
 ### Rules-Core / System Design Sequence
@@ -153,6 +151,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | local | Complete domain-source live migration | Promoted live Obsidian `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh legacy path traceability separately if needed |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
+| #9 | Build source-backed context pack for app DM runtime | Source Context Pack PR #52 merged to `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb`; PR branch fix commit `63265bc` addressed runtime budgeting before merge | Backend AI Routing #10, App-Native Campaign Seed #11, Source Lookup #18, and Prompt Debug Panel #20 are eligible for future sequencing but not started by this closeout |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
 | #45 | Create source mirror index maintenance workflow | Repo-side source index role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Follow-up rename completed by moving the dated rebuild folder to `docs/nexus-game-source` and updating exact indexed paths, bridge references, validators, and promotion scripts |

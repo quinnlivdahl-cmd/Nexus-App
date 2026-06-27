@@ -93,6 +93,13 @@ When doing Codex work sessions, keep work tied to one roadmap gate, one explicit
 
 For non-trivial Nexus work, use `docs/admin/task-planning/codex-session-discipline-workflow.md` and `.agents/skills/nexus-session-discipline/SKILL.md`.
 
+For complex multi-step work that needs durable cross-session context, use the repo planning-with-files overlay in `planning/`:
+
+- `planning/task_plan.md` for phase tracking, decisions, and errors.
+- `planning/findings.md` for research and verification findings.
+- `planning/progress.md` for session logs and validation results.
+- `planning/planning-rules.md` for the reusable planning rules.
+
 Start with a compact session frame when the task is not a simple answer:
 
 - controlling issue, packet, handoff, or user request;
