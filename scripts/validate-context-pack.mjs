@@ -15,7 +15,7 @@ const allowedCategories = new Set([
 ]);
 const allowedVisibility = new Set(["player-visible", "dm-facing", "hidden-permitted"]);
 const quarantineEntryId = "campaign-specific-material-quarantine";
-const prototypeLeakPattern = /\b(Rook|Voss|E-?43|Nereid-3|Ternary Lock|Heliomed|C-WARDEN|Kallisto|WARDEN)\b/i;
+const prototypeLeakPattern = /\b(Rook|Voss|E-?43|Nereid-3|Ternary Lock|Heliomed|C-WARDEN|Kallisto|Rill|WARDEN)\b/i;
 
 function readJson(path) {
   const absolutePath = resolve(root, path);

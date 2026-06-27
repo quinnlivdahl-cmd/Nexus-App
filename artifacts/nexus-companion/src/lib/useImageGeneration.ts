@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { useGameState } from '../store/GameStateContext';
+import { SOURCE_CONTEXT_PACK } from './contextPack';
 
 export function useImageGeneration() {
   const { state, dispatch } = useGameState();
@@ -64,7 +65,19 @@ function buildScenePrompt(
   environmentType: string,
   narrativeContext: string
 ): string {
+  const imageGuidance = SOURCE_CONTEXT_PACK.entries
+    .filter((entry) => entry.category === 'image_guidance')
+    .map((entry) => {
+      const docs = entry.sourceDocIds.map((id) => `\`${id}\``).join(', ');
+      const slices = entry.sourceSliceIds.map((id) => `\`${id}\``).join(', ');
+      return `${entry.title}\nSource docs: ${docs}\nSource slices: ${slices}\n${entry.content}`;
+    })
+    .join('\n\n');
+
   return `NASApunk sci-fi atmosphere concept art. Location: ${locationName}. Environment: ${environmentType}. Context: ${narrativeContext}
+
+Source-backed image guidance:
+${imageGuidance || '(No source-backed image guidance available.)'}
 
 Visual style: industrial outer solar system, worn and functional, off-white metal panels with orange safety markings, deep black void, faded teal instrument displays, amber warning lights, rusted conduit and pipe runs. No glossy sci-fi. Cinematic, documentary lighting. Desaturated palette with single amber or teal accent. Wide aspect ratio establishing shot. Ultra-detailed. Photorealistic rendered concept art.`;
 }

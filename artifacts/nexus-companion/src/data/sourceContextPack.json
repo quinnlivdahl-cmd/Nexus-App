@@ -262,7 +262,7 @@
       "id": "image-guidance-nexus-visual-style",
       "category": "image_guidance",
       "title": "Nexus Visual Style and Prompt Boundaries",
-      "tags": ["image", "art", "visual", "scene"],
+      "tags": ["always", "image", "art", "visual", "scene"],
       "priority": 130,
       "visibility": "dm-facing",
       "sourceSliceIds": [

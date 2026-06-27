@@ -8,12 +8,13 @@ import {
 } from './contextSelector';
 
 // ─── TOKEN BUDGET ─────────────────────────────────────────────────────────
-// Target: ~1,800 tokens total per turn.
-// TIER1_CORE ~950 tokens | TIER2_SCENE ~275 tokens | lore budget ~555 tokens
+// Target: ~4,200 estimated tokens total per turn.
+// The source-backed primer intentionally reserves enough room for all required
+// `always` context entries before optional scene-specific entries are added.
 // The lore budget is calculated dynamically so adding entries never pushes
 // the total above TOTAL_PROMPT_BUDGET_TOKENS regardless of registry size.
 
-const TOTAL_PROMPT_BUDGET_TOKENS = 1800;
+const TOTAL_PROMPT_BUDGET_TOKENS = 4200;
 
 const DEBUG_MODE_CONTEXT = `## APP DEBUG MODE
 Debug mode is active. The app writes local developer debug records for each DM request, response, and error to repo-local JSONL files under .codex-local/dm-debug/ when the local API server is running. These logs are retrievable by the developer/Codex after the turn.

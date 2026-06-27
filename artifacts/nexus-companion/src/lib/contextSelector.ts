@@ -5,7 +5,8 @@ import {
   type SourceBackedContextEntry,
 } from './contextPack';
 
-const CONTEXT_TOKEN_BUDGET = 900;
+const CONTEXT_TOKEN_BUDGET = 2400;
+const REQUIRED_CONTEXT_TAG = 'always';
 
 function slugify(str: string): string {
   return str
@@ -176,9 +177,11 @@ export function applyContextBudget(
   budgetTokens: number = CONTEXT_TOKEN_BUDGET,
 ): SourceBackedContextEntry[] {
   const sorted = [...entries].sort((a, b) => a.priority - b.priority || a.id.localeCompare(b.id));
-  const result: SourceBackedContextEntry[] = [];
+  const required = sorted.filter((entry) => entry.tags.includes(REQUIRED_CONTEXT_TAG));
+  const optional = sorted.filter((entry) => !entry.tags.includes(REQUIRED_CONTEXT_TAG));
+  const result: SourceBackedContextEntry[] = [...required];
 
-  for (const entry of sorted) {
+  for (const entry of optional) {
     const candidate = [...result, entry];
     const cost = estimateTokens(renderSelectedContext(candidate));
     if (cost > budgetTokens) continue;

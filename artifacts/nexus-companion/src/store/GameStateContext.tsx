@@ -74,7 +74,15 @@ function loadStoredState(): GameState {
 
     if (parsed.campaign?.campaignName === 'Nexus: Rook Protocol') {
       localStorage.setItem(PROTOTYPE_ROOK_STORAGE_KEY, JSON.stringify(parsed));
-      return INITIAL_NEXUS_PRIMER_STATE;
+      return {
+        ...INITIAL_NEXUS_PRIMER_STATE,
+        settings: {
+          ...INITIAL_NEXUS_PRIMER_STATE.settings,
+          ...parsed.settings,
+        },
+        isGeneratingImage: false,
+        isAiThinking: false,
+      };
     }
 
     return {

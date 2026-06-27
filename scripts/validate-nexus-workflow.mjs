@@ -339,6 +339,27 @@ if (contextPackCheck.status !== 0) {
   );
 }
 
+const runtimeContextCheck = spawnSync(
+  process.execPath,
+  [resolve(root, "scripts/validate-runtime-context-budget.mjs")],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+);
+
+if (runtimeContextCheck.status !== 0) {
+  failures.push(
+    [
+      "Source-backed runtime context budget is invalid.",
+      runtimeContextCheck.stdout.trim(),
+      runtimeContextCheck.stderr.trim(),
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
+}
+
 const roadmapIndexCheck = spawnSync(
   process.execPath,
   [resolve(root, "scripts/update-roadmap-index.mjs"), "--check"],
