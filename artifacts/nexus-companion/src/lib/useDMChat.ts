@@ -7,6 +7,8 @@ import type { ChatMessage, GameState } from '../types/game';
 
 const COMPRESSION_KEEP_TAIL = 8;
 const COMPRESSION_SUMMARY_MAX_TOKENS = 200;
+const NEXUS_API_BASE_URL =
+  import.meta.env.VITE_NEXUS_API_BASE_URL ?? 'http://127.0.0.1:5000';
 
 function generateId(): string {
   return `msg-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
@@ -15,6 +17,31 @@ function generateId(): string {
 interface OpenAIMessage {
   role: 'system' | 'user' | 'assistant';
   content: string;
+}
+
+type DMDebugLogPayload = {
+  event: 'request' | 'response' | 'error';
+  messageId: string;
+  campaignName: string;
+  currentLocation: string;
+  model: string;
+  payload: Record<string, unknown>;
+};
+
+async function writeDMDebugLog(payload: DMDebugLogPayload): Promise<void> {
+  try {
+    const response = await fetch(`${NEXUS_API_BASE_URL}/api/dm-debug-log`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      console.warn('[Nexus DM Debug] Local log write failed:', response.status);
+    }
+  } catch (err) {
+    console.warn('[Nexus DM Debug] Local log write unavailable:', err);
+  }
 }
 
 async function buildCompressedHistory(
@@ -127,6 +154,7 @@ export function useDMChat() {
       dispatch({ type: 'SET_AI_THINKING', payload: true });
 
       try {
+        const assistantMessageId = generateId();
         const systemContent = buildSystemMessage(state);
 
         const compressedHistory = await buildCompressedHistory(
@@ -157,6 +185,29 @@ export function useDMChat() {
             `| history turns=${compressedHistory.length}`,
             `| threshold=${state.settings.compressionThreshold ?? 20}`
           );
+
+          void writeDMDebugLog({
+            event: 'request',
+            messageId: assistantMessageId,
+            campaignName: state.campaign.campaignName,
+            currentLocation: state.campaign.currentLocation,
+            model: state.settings.model || 'gpt-4o',
+            payload: {
+              userText,
+              tokenEstimate: {
+                system: promptTokenEstimate,
+                history: historyTokenEstimate,
+                user: estimateTokens(userText),
+                total: totalEstimate,
+              },
+              compression: {
+                historyTurns: compressedHistory.length,
+                threshold: state.settings.compressionThreshold ?? 20,
+              },
+              systemContent,
+              compressedHistory,
+            },
+          });
         }
 
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -189,7 +240,7 @@ export function useDMChat() {
         const { cleanContent, stateBlocks, hasStateBlocks } = parseDMMessage(rawContent);
 
         const assistantMsg: ChatMessage = {
-          id: generateId(),
+          id: assistantMessageId,
           role: 'assistant',
           content: cleanContent,
           rawContent,
@@ -197,6 +248,22 @@ export function useDMChat() {
           hasStateBlock: hasStateBlocks,
         };
         dispatch({ type: 'ADD_MESSAGE', payload: assistantMsg });
+
+        if (state.settings.debugMode) {
+          void writeDMDebugLog({
+            event: 'response',
+            messageId: assistantMessageId,
+            campaignName: state.campaign.campaignName,
+            currentLocation: state.campaign.currentLocation,
+            model: state.settings.model || 'gpt-4o',
+            payload: {
+              rawContent,
+              cleanContent,
+              hasStateBlocks,
+              stateBlocks,
+            },
+          });
+        }
 
         if (hasStateBlocks) {
           const stateUpdates = applyStateBlocks(state, stateBlocks);
@@ -217,6 +284,16 @@ export function useDMChat() {
         }
       } catch (err) {
         const message = err instanceof Error ? err.message : 'Unknown error';
+        if (state.settings.debugMode) {
+          void writeDMDebugLog({
+            event: 'error',
+            messageId: generateId(),
+            campaignName: state.campaign.campaignName,
+            currentLocation: state.campaign.currentLocation,
+            model: state.settings.model || 'gpt-4o',
+            payload: { message },
+          });
+        }
         dispatch({
           type: 'ADD_MESSAGE',
           payload: {

@@ -346,6 +346,69 @@ if (sourceIndexCheck.status !== 0) {
   );
 }
 
+const sourceSliceCheck = spawnSync(
+  process.execPath,
+  [resolve(root, "scripts/update-source-slice-catalog.mjs"), "--check"],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+);
+
+if (sourceSliceCheck.status !== 0) {
+  failures.push(
+    [
+      "Source slice catalog is stale or could not be checked.",
+      sourceSliceCheck.stdout.trim(),
+      sourceSliceCheck.stderr.trim(),
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
+}
+
+const contextPackCheck = spawnSync(
+  process.execPath,
+  [resolve(root, "scripts/validate-context-pack.mjs")],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+);
+
+if (contextPackCheck.status !== 0) {
+  failures.push(
+    [
+      "Source-backed context pack is invalid.",
+      contextPackCheck.stdout.trim(),
+      contextPackCheck.stderr.trim(),
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
+}
+
+const runtimeContextCheck = spawnSync(
+  process.execPath,
+  [resolve(root, "scripts/validate-runtime-context-budget.mjs")],
+  {
+    cwd: root,
+    encoding: "utf8",
+  },
+);
+
+if (runtimeContextCheck.status !== 0) {
+  failures.push(
+    [
+      "Source-backed runtime context budget is invalid.",
+      runtimeContextCheck.stdout.trim(),
+      runtimeContextCheck.stderr.trim(),
+    ]
+      .filter(Boolean)
+      .join(" "),
+  );
+}
+
 const roadmapIndexCheck = spawnSync(
   process.execPath,
   [resolve(root, "scripts/update-roadmap-index.mjs"), "--check"],

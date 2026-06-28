@@ -30,6 +30,7 @@ metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 rev
 
 This document defines how Nexus should think about source documents, runtime packets, structured data, and automation support.
 
+<!-- source-slice: automation.runtime.source-hierarchy -->
 ## 2. Source hierarchy
 
 Current source hierarchy:
@@ -62,6 +63,7 @@ A playable TacMap instance should eventually have structured truth for:
 
 The image, collage, or visual backdrop is a display layer. The structured node/path/objective/actor/state data is the runtime truth for that instance.
 
+<!-- source-slice: automation.runtime.creative-source-versus-runtime-instance -->
 ## 4. Creative source versus runtime instance
 
 Markdown/source docs answer:
@@ -81,6 +83,7 @@ Runtime packets answer:
 
 A runtime packet can be authoritative for a single active encounter state without becoming canon source doctrine.
 
+<!-- source-slice: automation.context-broker.source-backed-packets -->
 ## 4.1 Context Broker and source-backed packets
 
 An app-side Context Broker may select compact context packets for API DM calls. The Context Broker is not Rules Core, Game State Store, API DM, source canon, a reducer, or a mutation authority.
@@ -124,6 +127,7 @@ Nexus automation may eventually need data surfaces for:
 
 `Automation` records the runtime and export strategy. `Data` may hold actual data tables, schemas, or workbooks once promoted.
 
+<!-- source-slice: automation.context-broker.visibility-layers -->
 ## 6. Player-visible and hidden layers
 
 Automation must support the distinction between:
@@ -135,6 +139,7 @@ Automation must support the distinction between:
 
 This matters for TacMaps, route-node maps, faction information, hidden enemies, traps, Signal effects, and investigative scenes.
 
+<!-- source-slice: automation.runtime.conflict-handling -->
 ## 7. Conflict handling
 
 If runtime data and Markdown source conflict:
@@ -144,4 +149,3 @@ If runtime data and Markdown source conflict:
 3. Route the conflict to Steward/Draft/DM review depending on context.
 4. Treat active campaign state as current for the session unless the DM corrects it.
 5. Treat source docs as the long-term correction target.
-

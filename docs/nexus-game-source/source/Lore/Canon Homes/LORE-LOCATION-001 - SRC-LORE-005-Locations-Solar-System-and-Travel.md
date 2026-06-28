@@ -26,6 +26,7 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE
 
 # Locations, Solar System, and Travel
 
+<!-- source-slice: lore.location.location-scale -->
 ## Location scale
 
 Nexus locations should be organized by playable scale:
@@ -37,8 +38,10 @@ Nexus locations should be organized by playable scale:
 
 This doc owns the lore map. `Core` owns route and campaign structure. `Content` owns content systems. `Dashboards` owns active campaign state.
 
+<!-- source-slice: lore.location.known-location-guidance -->
 ## Known location guidance
 
+<!-- source-slice: lore.location.earth -->
 ### Earth
 
 Earth is old, wounded, populous, politically heavy, and central to human-continuity legitimacy. It is a strong C-POH base or heartland candidate, but not automatically a total C-POH monopoly everywhere.
@@ -53,17 +56,20 @@ Earth orbit is crowded, regulated, habitat-dense, strategically sensitive, and l
 
 Mars is a major hub but not assigned a final role yet. Do not overdefine Mars until a dedicated pass. It may eventually carry terraforming, labor, sovereignty, industrial, military, or identity conflicts.
 
+<!-- source-slice: lore.location.jupiter-moons-outer-system -->
 ### Jupiter moons / outer system
 
 The Jupiter moons and outer-system routes are strong candidates for implant megacorp research, Choir outbreak seeds, corporate sovereignty, cold industrial habitats, server infrastructure, risky research, and distant proxy activity.
 
 Outer-system communities may understand Choir effects earlier or more sharply than Earth-orbit populations.
 
+<!-- source-slice: lore.location.frontier-habitats -->
 ### Frontier habitats
 
 Frontier habitats, asteroid mines, remote stations, refineries, clinics, and independent ships are brittle, practical, and mission-rich. Small failures can kill communities. Local law often mixes system law, corporate contract, emergency custom, and crew reputation.
 
 
+<!-- source-slice: lore.location.habitat-body-fit-notes -->
 ## Habitat and body-fit location notes
 
 Mass-intake source updates added stronger body/infrastructure pressure to the setting. Location writing should consider whether the local infrastructure assumes Standard Fit bodies or has adapted for splicers, low-G bodies, heavy cyberware, upload sleeves, industrial frames, or other nonstandard bodies.
@@ -81,13 +87,14 @@ Lizard people's long-spaceflight origin may belong in outer-system or long-route
 
 Uploaded TacMap or concept images are visual/prototype evidence only unless later promoted as named locations.
 
+<!-- source-slice: lore.location.campaign-derived-place-names -->
 ## Campaign-derived place names
 
 Names such as Heliomed, E43, Nereid-3, Ternary Lock, and other live campaign places are useful source candidates but are not automatically general setting canon. Preserve them in campaign state and route them into lore only after review.
 
+<!-- source-slice: lore.location.travel-tone -->
 ## Travel tone
 
 Travel should feel like route pressure, logistics, access, risk, fuel, clearance, credentials, and fragile infrastructure. The setting should support FTL-like route decisions without requiring actual faster-than-light travel.
-
 
 

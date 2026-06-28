@@ -8,6 +8,20 @@ These instructions apply to the Nexus app repo at:
 
 This repo should mirror the GitHub repo `quinnlivdahl-cmd/Nexus-App` after review, commit, and push. Repo-root Markdown workflow files are intended to be shared repo content unless explicitly marked local-only.
 
+## Global Rule Inheritance
+
+This repo follows the global Codex agent rules at:
+
+`C:\Users\Quintin Livdahl\.codex\AGENTS.md`
+
+The Codex Workflow Control project mirrors and expands those reusable workflow rules at:
+
+`C:\Users\Quintin Livdahl\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
+
+Local Nexus rules may specialize those global rules, but should not silently contradict them.
+
+If a Nexus-specific rule must override a global rule, make the override explicit and preserve the reason in the relevant repo or workflow-control surface.
+
 ## Required Read
 
 Before app work, read:
@@ -43,6 +57,12 @@ Public release, hosted multi-user play, auth, monetization, and cloud sync are o
 
 GitHub Issues are the active task packets for this repo.
 
+Refer to every GitHub Issue by a short human-readable name followed by its number, for example `Local Save Export #17`.
+
+Do not refer to issues by number alone. If the official title is unknown, too long, or awkward in running chat, make up a concise working name and keep the issue number after it.
+
+Apply the same rule to pull requests and other numbered GitHub artifacts. Say `Source Context Pack PR #52`, `Issue 9 Source Context Pack #9`, or another short name plus number. Do not write bare references like `#9`, `Issue 9`, `PR #52`, or `52?` unless quoting a literal GitHub UI label or command output.
+
 `NEXUS_ISSUE_INDEX.md` is the AI-readable queue/control surface for active, blocked, parked, and completed issue work. It is intentionally a Markdown index first; GitHub Projects may be added later as a visual board, but it is not required for batch-one workflow.
 
 Use `NEXUS_ISSUE_TRANSITION.md` to understand current queue order, gate sequencing, and any remaining local-only planning residue until the index fully supersedes that role.
@@ -72,6 +92,13 @@ When doing Codex work sessions, keep work tied to one roadmap gate, one explicit
 ## Session Discipline
 
 For non-trivial Nexus work, use `docs/admin/task-planning/codex-session-discipline-workflow.md` and `.agents/skills/nexus-session-discipline/SKILL.md`.
+
+For complex multi-step work that needs durable cross-session context, use the repo planning-with-files overlay in `planning/`:
+
+- `planning/task_plan.md` for phase tracking, decisions, and errors.
+- `planning/findings.md` for research and verification findings.
+- `planning/progress.md` for session logs and validation results.
+- `planning/planning-rules.md` for the reusable planning rules.
 
 Start with a compact session frame when the task is not a simple answer:
 

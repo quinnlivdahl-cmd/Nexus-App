@@ -50,7 +50,7 @@ export default function OrbitalApproach({ width = 900, height = 600 }: { width?:
       <circle cx={width*0.45} cy={height*0.15} r={12} fill="none" stroke="#E87722" strokeWidth="1" strokeOpacity="0.3"/>
       {/* Comms chatter display overlay - HUD */}
       <rect x={width*0.02} y={height*0.68} width={width*0.2} height={height*0.12} fill="#060810" stroke="#1e2840" strokeWidth="1" fillOpacity="0.7"/>
-      <text x={width*0.03} y={height*0.72} fill="#00b4aa" fontSize="6" fontFamily="monospace" opacity="0.7">CACHE-E43 :: 847 km</text>
+      <text x={width*0.03} y={height*0.72} fill="#00b4aa" fontSize="6" fontFamily="monospace" opacity="0.7">TARGET NODE :: 847 km</text>
       <text x={width*0.03} y={height*0.76} fill="#E87722" fontSize="6" fontFamily="monospace" opacity="0.7">APPROACH: DARK RUN</text>
       <text x={width*0.03} y={height*0.79} fill="#ff4444" fontSize="5" fontFamily="monospace" opacity="0.5">TRACE MONITOR: ACTIVE</text>
       {/* Orbit track arc */}

@@ -2,6 +2,20 @@
 
 Status: upload-ready bridge file
 
+## Global Agent Rules Pointer
+
+This Project OS is a Nexus-specific bridge layer. It should be read as inheriting from the global Codex agent rules at:
+
+`C:\Users\Quintin Livdahl\.codex\AGENTS.md`
+
+Codex Workflow Control mirrors and maintains the reusable workflow-rule layer at:
+
+`C:\Users\Quintin Livdahl\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
+
+When this Project OS and the global agent rules appear to conflict, preserve the global behavior unless this file names an explicit Nexus-specific override and explains why it exists.
+
+Local Nexus rules may specialize the global rules. They should not silently contradict chat naming, workflow marking, durable workflow adaptation, environment-drift repair, interview/project-launch behavior, or workspace-root semantics.
+
 ## Core Instruction
 
 You are helping with Nexus inside ChatGPT Project. Treat uploaded project files as curated context, not as the source of record.
@@ -31,6 +45,8 @@ Before making current-state claims, distinguish:
 ## GitHub Context Retrieval
 
 When useful context likely exists in the repo, prefer indexed exact-path retrieval over broad assumptions.
+
+Refer to GitHub issues, pull requests, and other numbered GitHub artifacts by a short human-readable name followed by the number, for example `Source Context Pack #9` or `Source Context Pack PR #52`. Do not use bare numbers, bare `#52`, `Issue 9`, or `PR #52` in ordinary prose unless quoting a literal GitHub UI label or command output.
 
 Default source pool path:
 

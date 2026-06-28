@@ -29,6 +29,7 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # TacMap Node Movement and Positioning
 
+<!-- source-slice: combat.tacmap.core-definition -->
 ## 1. Core TacMap definition
 A TacMap is a simplified tabletop encounter map made of meaningful **nodes** connected by **paths**. It is a node-web, not a full grid and not a single abstract zone.
 
@@ -40,6 +41,7 @@ Hard current boundary:
 
 TacMaps may include positions, routes, cover, hazards, objectives, elevation, NPCs, enemies, events, points of interest, and interactable objects.
 
+<!-- source-slice: combat.tacmap.core-numeric-movement-rule -->
 ## 2. Core numeric movement rule
 
 Working rule:
@@ -64,6 +66,7 @@ Cost: 6 MP
 Requires Speed 6+, AP movement boost, skill/gear reduction, accepted risk, or ending in transit.
 ```
 
+<!-- source-slice: combat.tacmap.nodes -->
 ## 3. Nodes
 
 Nodes are meaningful positions. A node may represent cover, a doorway, a gantry section, a terminal, a balcony, a cargo stack, a medbay threshold, an airlock, an objective point, or any tactical location that matters.
@@ -76,6 +79,7 @@ A node should clearly communicate:
 - what cover, elevation, hazards, node status, or objectives it contains;
 - what can be done there.
 
+<!-- source-slice: combat.tacmap.node-status-and-path-status -->
 ## 4. Node status and path status
 
 Node Status and Path Status are environmental/tactical status surfaces.
@@ -89,6 +93,7 @@ Use Path Status when the movement connection changes cost, risk, access, visibil
 
 If an alternate route is the only option, do not show a "blocked path" as a normal available path. A blocked path means the route exists but needs action, tool, key, force, hacking, repair, accepted risk, or scenario permission to use.
 
+<!-- source-slice: combat.tacmap.paths-and-line-of-sight -->
 ## 5. Paths and line of sight
 
 Paths are connections between nodes. A path has a distance and may have tags or modifiers such as debris, climb, exposed, narrow, smoke, low gravity, vent, ladder, lift, hatch, broken rail, vacuum risk, or sensor-watched.
@@ -101,6 +106,7 @@ Path connection does not equal line of sight.
 
 Cover, visibility, line-of-fire, and movement path data should be represented distinctly enough that players know what their characters can do.
 
+<!-- source-slice: combat.tacmap.node-capacity-and-character-size -->
 ## 6. Node capacity and character size
 
 Nodes have character capacity.
@@ -149,6 +155,7 @@ Current boundary:
 - dense cluster = several connected nodes;
 - neither creates a standalone area, zone, or free-placement unit.
 
+<!-- source-slice: combat.tacmap.in-transit-state -->
 ## 10. In-transit state
 
 When a character cannot fully complete a route, the character may be in transit if the map supports it. In-transit status should usually imply increased exposure, uncertain cover, or risk from reactions / hazards.
@@ -165,6 +172,7 @@ Body-blocking should interact with node capacity, size, Anchor stance, forced mo
 
 Shove and forced movement are supported, but not automatic. Shove likely costs AP and should interact with size, stance, heavy frame, path width, node capacity, hazards, cover, and elevation.
 
+<!-- source-slice: combat.tacmap.map-scale-and-movement-support -->
 ## 13. Map scale and movement support
 
 Encounter maps should support movement across multiple turns. A good TacMap creates reasons to advance, retreat, flank, reposition, climb, cross exposed routes, interact with objectives, and protect vulnerable nodes.
@@ -183,5 +191,4 @@ Still open:
 - path status icon grammar;
 - dense cluster display standard;
 - structured TacMap data template ownership with `Automation` and `Play Aids`.
-
 

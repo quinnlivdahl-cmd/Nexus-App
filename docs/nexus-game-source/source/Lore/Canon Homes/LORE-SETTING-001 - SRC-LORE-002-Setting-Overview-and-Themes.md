@@ -26,6 +26,7 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE
 
 # Setting Overview and Themes
 
+<!-- source-slice: lore.setting.core-premise -->
 ## Core premise
 
 Nexus is a near-future-to-medium-future solar-system science fiction tabletop setting. It is not a galaxy-spanning fantasy reskin. The default frame remains inside the solar system, with crews moving between habitats, stations, moons, corporate holdings, frontier nodes, and contested routes.
@@ -36,12 +37,14 @@ The setting is at the brink of contact, not after clean first contact.
 
 The Signal, UAP phenomena, rare anomalies, implant disturbances, and altered cognition all feed fear and speculation, but none should prove direct, simple alien contact at campaign start.
 
+<!-- source-slice: lore.setting.primary-theme -->
 ## Primary theme
 
 There are no fantasy races in Nexus. There are only arguments about what still counts as human.
 
 This theme should guide lore, mechanics, factions, art direction, and mission writing. Body forms, implants, uploads, AI, splicers, and Signal-touched phenomena are not decorative species choices. They are legal, biological, technological, spiritual, economic, and military arguments.
 
+<!-- source-slice: lore.setting.setting-pressures -->
 ## Setting pressures
 
 Nexus is shaped by layered scars rather than a single clean catastrophe:
@@ -57,6 +60,7 @@ Nexus is shaped by layered scars rather than a single clean catastrophe:
 - Habitat fragility, station dependence, route control, and supply-chain politics.
 - An approaching proxy war whose causes may already be entangled with the Signal.
 
+<!-- source-slice: lore.setting.player-facing-scale -->
 ## Player-facing scale
 
 The player-facing scale is crew-scale action, not empire management. Crews matter because they can move evidence, people, credentials, salvage, repair skill, secrets, and violence through places where large institutions are slow, compromised, or constrained.
@@ -64,6 +68,7 @@ The player-facing scale is crew-scale action, not empire management. Crews matte
 Player crews should plausibly operate as couriers, rescue teams, defectors, fixers, smugglers, investigators, whistleblower escorts, small security contractors, deniable operators, or mixed-purpose ship crews.
 
 
+<!-- source-slice: lore.setting.body-origin-infrastructure-pressure -->
 ## Body, origin, and infrastructure as setting pressure
 
 Origin and body categories are never just biology in Nexus. They create arguments over:
@@ -77,13 +82,14 @@ Origin and body categories are never just biology in Nexus. They create argument
 
 The practical setting question is often: who built the room, suit, law, database, or emergency procedure, and what kind of body or person did they assume would use it?
 
+<!-- source-slice: lore.setting.mechanics-aware-lore-principle -->
 ## Mechanics-aware lore principle
 
 Lore does not need finalized mechanics before it can be preserved, but strong lore should remain playable. Body, caste, cyberware, Signal, faction, habitat, and personhood ideas should carry potential gameplay hooks, even when the exact rule lives later in `Combat`, `Characters`, `Skills`, `Equipment`, `Content`, or `Dashboards`.
 
+<!-- source-slice: lore.setting.source-handling -->
 ## Source handling
 
 This document states the broad setting frame. Specific factions, named stations, live campaign state, enemy rosters, loot lists, and mission libraries belong in other domains unless promoted here through Draft or Steward review.
-
 
 

@@ -26,6 +26,7 @@ metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-fir
 
 # Resolution Core Rules
 
+<!-- source-slice: skills.resolution.purpose-and-scope -->
 ## 1. Purpose
 
 This document defines the current Nexus resolution substrate for playtest.
@@ -54,6 +55,7 @@ Current RNG handling:
 
 The project should not continue broad three-way RNG redesign unless playtest or source integration exposes a concrete failure.
 
+<!-- source-slice: skills.resolution.lattice-100-core-roll-call -->
 ## 3. Lattice-100 core roll call
 
 Lattice-100 uses a d100 roll against a **Target Score**.
@@ -82,6 +84,7 @@ TS = 50 + Actor Bonus - (Hazard Rating - 15)
 
 Use this notation as the active table-facing form. Do not prefer older inverted or compressed notation as the source form, even when algebraically equivalent.
 
+<!-- source-slice: skills.resolution.combat-outcome-bands -->
 ## 4. Combat / attack outcome bands
 
 Use these bands for attacks and attack-like effects.
@@ -95,6 +98,7 @@ Use these bands for attacks and attack-like effects.
 
 Direct should not automatically mean "ignore all defenses." Weapon, Mitigation, Shield, cover, and ability tags decide what Direct improves.
 
+<!-- source-slice: skills.resolution.noncombat-outcome-bands -->
 ## 5. Noncombat / general check outcome bands
 
 Noncombat keeps its original provisional bands for now. Do not automatically replace these with the combat-tuned Graze / Hit / Direct ranges. Combat should be more predictable; noncombat may preserve wider room for cost, trace, leverage, scene pressure, Op Knowledge, counters, and negotiated consequence.
@@ -111,6 +115,7 @@ Use these bands for social, infiltration, technical, medical, survival, recovery
 
 The same d100 Target Score structure supports both combat and noncombat, but the band ladder is not universal. Noncombat results should match the action's stakes, active counters, trace pressure, and available setup.
 
+<!-- source-slice: skills.resolution.check-families-and-domain-tags -->
 ## 5.1 Check families and domain tags
 
 Use check families as resolution-behavior categories, not as fiction labels.
@@ -155,6 +160,7 @@ Trade fire with a drone
 -> attack check against Defense, Firewall, or another defined defensive surface
 ```
 
+<!-- source-slice: skills.resolution.core-check-flow -->
 ## 6. Core check flow
 
 1. DM describes the situation narratively.
@@ -166,6 +172,7 @@ Trade fire with a drone
 7. Read the outcome band and apply the effect, cost, counter movement, damage, state change, or future option.
 8. DM presents the changed situation and next meaningful choice.
 
+<!-- source-slice: skills.resolution.thresholds-for-competence -->
 ## 7. Thresholds for competence, rolls for uncertainty
 
 Approved principle:
@@ -192,6 +199,7 @@ A skill, focus, power/effect, threshold, item, credential, or piece of Op Knowle
 
 The player must still attempt and pass the relevant check unless the DM rules that the plan, equipment, prior setup, threshold, or context bypasses the roll.
 
+<!-- source-slice: skills.resolution.gate-pressure-setup-split -->
 ## 9. Gate / Pressure / Setup check split
 
 For noncombat and mixed scenes, classify checks by function.
@@ -268,6 +276,7 @@ Players are never limited to presented options. They may propose freeform action
 
 The system should reward genuinely clever, grounded, or well-supported plans without converting every idea into a permanent menu item.
 
+<!-- source-slice: skills.resolution.dm-mode-required-use -->
 ## 14. DM Mode required-use note
 
 DM Mode must not treat Lattice-100 as optional background reading.
@@ -282,5 +291,4 @@ Until superseded, DM Mode should:
 ## 15. Scene-beat routing note
 
 Full scene-beat procedure belongs in Core and Modes templates. Skills preserves the resolution principle only: complex plans should resolve in meaningful beats when there are real choices, costs, risks, and consequences.
-
 

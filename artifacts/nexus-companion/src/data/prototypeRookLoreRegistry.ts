@@ -1,5 +1,10 @@
 /**
- * Lore Registry — Nexus: Rook Protocol
+ * Prototype Rook Lore Registry — quarantined from default Nexus context.
+ *
+ * This data is retained as campaign-state evidence/prototype material. It is
+ * intentionally not imported by the default source-backed Context Broker path.
+ * Promote or rework it through a campaign-specific context pack before using it
+ * as active runtime lore again.
  *
  * Each entry has:
  *   id          — unique string key
@@ -11,15 +16,15 @@
  *   linkedEntityId — crew member id / route node id used for entity-linking
  *                    (crew and location entries use this, not tags, for activation)
  *
- * Selection rules (see contextSelector.ts):
+ * Legacy prototype selection rules from the former lore-registry path:
  *   world   → tag match (always / arc slug / location slug)
  *   faction → tag match OR encounter faction match
  *   crew    → entity linking only (linkedEntityId matches active/ship-support crew)
  *   location → entity linking only (linkedEntityId matches current/next route node)
  *
- * NOTE: Mechanical reference tables (weapon damage, enemy stats, cyberware tiers,
- * disciplines) live in TIER1_CORE of dmSystemPrompt.ts — not here. This registry
- * is for narrative/contextual lore only.
+ * NOTE: The active default DM runtime now uses the source-backed context pack.
+ * This registry is intentionally quarantined prototype campaign material and is
+ * not imported by the default selector/prompt path.
  */
 
 export type LoreCategory = 'crew' | 'location' | 'faction' | 'world';
@@ -32,9 +37,9 @@ export interface LoreEntry {
   linkedEntityId?: string;
 }
 
-export const LORE_REGISTRY: LoreEntry[] = [
-  // ─── ALWAYS-ON MECHANICAL REFERENCE (moved from TIER1_CORE to save budget) ─
-  // These are short, always-injected reference tables the DM needs each turn.
+export const PROTOTYPE_ROOK_LORE_REGISTRY: LoreEntry[] = [
+  // ─── LEGACY PROTOTYPE MECHANICAL REFERENCE ───────────────────────────────
+  // Kept only as Rook campaign evidence until promoted or rewritten.
 
   {
     id: 'ref-weapon-damage',
