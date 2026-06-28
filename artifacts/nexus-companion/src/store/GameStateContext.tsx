@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import type { GameState, GameAction } from '../types/game';
 import { INITIAL_NEXUS_PRIMER_STATE } from '../data/nexusPrimerCampaign';
+import { stripRuntimeFlags } from '../lib/gameStateSave';
 
 const STORAGE_KEY = 'nexus-companion-state';
 const PROTOTYPE_ROOK_STORAGE_KEY = 'nexus-companion-prototype-rook-state';
@@ -74,23 +75,19 @@ function loadStoredState(): GameState {
 
     if (parsed.campaign?.campaignName === 'Nexus: Rook Protocol') {
       localStorage.setItem(PROTOTYPE_ROOK_STORAGE_KEY, JSON.stringify(parsed));
-      return {
+      return stripRuntimeFlags({
         ...INITIAL_NEXUS_PRIMER_STATE,
         settings: {
           ...INITIAL_NEXUS_PRIMER_STATE.settings,
           ...parsed.settings,
         },
-        isGeneratingImage: false,
-        isAiThinking: false,
-      };
+      });
     }
 
-    return {
+    return stripRuntimeFlags({
       ...INITIAL_NEXUS_PRIMER_STATE,
       ...parsed,
-      isGeneratingImage: false,
-      isAiThinking: false,
-    };
+    });
   } catch {
     return INITIAL_NEXUS_PRIMER_STATE;
   }
@@ -109,11 +106,7 @@ export function GameStateProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const toStore: GameState = {
-        ...state,
-        isGeneratingImage: false,
-        isAiThinking: false,
-      };
+      const toStore: GameState = stripRuntimeFlags(state);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore));
     } catch {
     }

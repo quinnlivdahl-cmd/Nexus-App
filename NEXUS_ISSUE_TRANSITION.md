@@ -71,7 +71,7 @@ These are active, but they are not the app-runtime critical path.
 ### App critical path
 
 - Gate A: `#7` Prove local launch and runtime foundation - verified locally and ready to close
-- Gate B: `#8` Add recoverable local save export and import flow
+- Gate B: Save Export/Import #8 - satisfied by local Settings JSON export/import flow
 - Gate C: Source Context Pack #9 - satisfied by Source Context Pack PR #52 merge
 - Gate D: Backend AI Routing #10 - dependent/eligible after Source Context Pack #9, not in progress
 - Gate D: App-Native Campaign Seed #11 - dependent/eligible after Source Context Pack #9, not in progress
@@ -86,10 +86,11 @@ These are active, but they are not the app-runtime critical path.
   Queue role: satisfied blocker
   Status note: local install, typecheck, build, API health, and companion app launch were verified on 2026-06-15.
 
-- `#8` Add recoverable local save export and import flow
+- Save Export/Import #8
   Gate: B
-  Queue role: dependent
+  Queue role: satisfied
   Depends on: `#7`
+  Status note: Settings now supports JSON export/import for recoverable local saves; export/import validation passed locally on 2026-06-28. File-backed or backend-backed persistence remains later backlog work.
 
 - Source Context Pack #9
   Gate: C
@@ -184,7 +185,7 @@ These are active, but they are not the app-runtime critical path.
 Critical path now reads:
 
 - Gate A: `#7` satisfied
-- Gate B: `#8`
+- Gate B: Save Export/Import #8 satisfied
 - Gate C: Source Context Pack #9 satisfied
 - Gate D: Backend AI Routing #10 and App-Native Campaign Seed #11 eligible for future sequencing, not in progress
 - Gate E: `#12`, `#14`

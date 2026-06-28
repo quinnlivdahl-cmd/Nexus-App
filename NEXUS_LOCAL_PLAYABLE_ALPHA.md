@@ -118,17 +118,19 @@ Remaining tasks: none for Gate A.
 
 Goal: campaign state survives closing and reopening the app.
 
-Status: prototype present.
+Status: export/import recovery present; deeper file-backed persistence remains backlog.
 
 Completed:
 
 - Browser localStorage persistence exists.
+- Manual JSON export/import exists in Settings.
+- Exported saves include the recoverable `GameState` object, including transcript, campaign state, encounter state, settings, and generated image references.
+- Exports strip browser-only runtime flags and the OpenAI API key.
+- Imports validate the save structure, reset transient runtime flags, and preserve the current browser API key.
 
 Remaining tasks:
 
-- Add manual export/import of saves.
 - Add file-backed or backend-backed local persistence.
-- Store transcript, campaign state, encounter state, settings, and generated image references as one recoverable session object.
 - Define crash/refresh recovery behavior.
 
 ### Gate C - Source Context Proven

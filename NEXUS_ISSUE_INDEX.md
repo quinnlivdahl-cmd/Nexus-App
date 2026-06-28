@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-27 by Codex closeout sync after Source Context Pack PR #52 merged. This index removes Source Context Pack #9 from the open queue and records its merge evidence. For exact live issue count, verify against GitHub.
+Last synced: 2026-06-28 by Codex closeout sync after Save Export/Import #8. This index removes Save Export/Import #8 from the open queue and records its local validation evidence. For exact live issue count, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -81,7 +81,6 @@ Last synced: 2026-06-27 by Codex closeout sync after Source Context Pack PR #52 
 
 | Issue | Title | Gate | Queue role | Depends on | Notes |
 |---|---|---|---|---|---|
-| #8 | Add recoverable local save export and import flow | B | dependent | #7 | Local state/recovery |
 | #10 | Route DM and scene image AI calls through local backend | D | dependent/eligible | #7 satisfied, #9 satisfied | Backend/local AI path; not started by Source Context Pack #9 closeout |
 | #11 | Add app-native campaign seed and reset path | D | dependent/eligible | #7 satisfied, #9 satisfied | New app-native campaign start; not started by Source Context Pack #9 closeout |
 | #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
@@ -151,6 +150,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | local | Complete domain-source live migration | Promoted live Obsidian `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh legacy path traceability separately if needed |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
+| #8 | Add recoverable local save export and import flow | Local save export/import controls added in Settings; `gameStateSave.ts` strips transient runtime flags and API key from exports, validates imports, preserves transcript/campaign/encounter/settings/image references, and keeps the current browser API key on import; `corepack pnpm --filter @workspace/nexus-companion run typecheck` and `corepack pnpm run validate:workflow` passed on 2026-06-28; helper smoke confirmed export/import/invalid-save behavior; local app health returned API 200 and app 200 | File-backed or backend-backed local persistence remains a later backlog item; browser-side API key storage remains prototype-only until Backend AI Routing #10 |
 | #9 | Build source-backed context pack for app DM runtime | Source Context Pack PR #52 merged to `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb`; PR branch fix commit `63265bc` addressed runtime budgeting before merge | Backend AI Routing #10, App-Native Campaign Seed #11, Source Lookup #18, and Prompt Debug Panel #20 are eligible for future sequencing but not started by this closeout |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
