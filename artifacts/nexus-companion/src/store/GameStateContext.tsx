@@ -36,7 +36,15 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       return { ...state, messages: [...state.messages, action.payload] };
 
     case 'UPDATE_SETTINGS':
-      return { ...state, settings: { ...state.settings, ...action.payload } };
+      return {
+        ...state,
+        settings: { ...state.settings, ...action.payload },
+        lastDMDebug:
+          action.payload.debugMode === false ? undefined : state.lastDMDebug,
+      };
+
+    case 'SET_LAST_DM_DEBUG':
+      return { ...state, lastDMDebug: action.payload };
 
     case 'APPLY_DM_STATE': {
       const p = action.payload;
@@ -71,14 +79,15 @@ function loadStoredState(): GameState {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return INITIAL_NEXUS_PRIMER_STATE;
     const parsed = JSON.parse(raw) as GameState;
+    const { lastDMDebug: _lastDMDebug, ...parsedState } = parsed;
 
-    if (parsed.campaign?.campaignName === 'Nexus: Rook Protocol') {
-      localStorage.setItem(PROTOTYPE_ROOK_STORAGE_KEY, JSON.stringify(parsed));
+    if (parsedState.campaign?.campaignName === 'Nexus: Rook Protocol') {
+      localStorage.setItem(PROTOTYPE_ROOK_STORAGE_KEY, JSON.stringify(parsedState));
       return {
         ...INITIAL_NEXUS_PRIMER_STATE,
         settings: {
           ...INITIAL_NEXUS_PRIMER_STATE.settings,
-          ...parsed.settings,
+          ...parsedState.settings,
         },
         isGeneratingImage: false,
         isAiThinking: false,
@@ -87,7 +96,7 @@ function loadStoredState(): GameState {
 
     return {
       ...INITIAL_NEXUS_PRIMER_STATE,
-      ...parsed,
+      ...parsedState,
       isGeneratingImage: false,
       isAiThinking: false,
     };
@@ -109,8 +118,9 @@ export function GameStateProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const toStore: GameState = {
-        ...state,
+      const { lastDMDebug: _lastDMDebug, ...stateToPersist } = state;
+      const toStore = {
+        ...stateToPersist,
         isGeneratingImage: false,
         isAiThinking: false,
       };

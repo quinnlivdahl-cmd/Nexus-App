@@ -802,6 +802,97 @@ function DebugStateEditor() {
   );
 }
 
+function PromptDebugPanel() {
+  const { state } = useGameState();
+  const [open, setOpen] = useState(false);
+  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const snapshot = state.lastDMDebug;
+
+  const copyPrompt = async () => {
+    if (!snapshot || !navigator.clipboard) {
+      setCopyState('failed');
+      window.setTimeout(() => setCopyState('idle'), 1600);
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(snapshot.systemPrompt);
+      setCopyState('copied');
+      window.setTimeout(() => setCopyState('idle'), 1600);
+    } catch {
+      setCopyState('failed');
+      window.setTimeout(() => setCopyState('idle'), 1600);
+    }
+  };
+
+  return (
+    <div className="border border-amber-500/20 bg-amber-500/5 rounded overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-amber-500/5 transition-colors"
+      >
+        <span className="text-amber-400/80">
+          <IconBug />
+        </span>
+        <span className="flex-1 min-w-0">
+          <span className="block text-[9px] uppercase tracking-widest text-amber-500/60 font-mono">
+            DM Prompt Debug
+          </span>
+          <span className="block text-[9px] text-white/35 font-mono truncate">
+            {snapshot
+              ? `system ${snapshot.tokenEstimate.system} tokens | total ${snapshot.tokenEstimate.total} tokens | ${new Date(snapshot.createdAt).toLocaleTimeString()}`
+              : 'No DM prompt captured'}
+          </span>
+        </span>
+        <span className="text-white/35">{open ? <IconChevronD /> : <IconChevronR />}</span>
+      </button>
+
+      {open && (
+        <div className="border-t border-white/10">
+          {snapshot ? (
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 p-3 border-b border-white/10">
+                {[
+                  ['System', snapshot.tokenEstimate.system],
+                  ['History', snapshot.tokenEstimate.history],
+                  ['User', snapshot.tokenEstimate.user],
+                  ['Total', snapshot.tokenEstimate.total],
+                ].map(([label, value]) => (
+                  <div key={label} className="border border-white/10 bg-black/25 rounded px-2 py-1">
+                    <div className="text-[8px] uppercase tracking-widest text-white/25 font-mono">{label}</div>
+                    <div className="text-xs text-amber-300/80 font-mono">{value}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-white/10">
+                <div className="text-[9px] text-white/35 font-mono truncate">
+                  {snapshot.model} | history turns {snapshot.compression.historyTurns} | threshold {snapshot.compression.threshold}
+                </div>
+                <button
+                  type="button"
+                  onClick={copyPrompt}
+                  className="border border-white/15 text-white/45 text-[9px] font-mono rounded px-2 py-1 hover:bg-white/5 transition-colors"
+                >
+                  {copyState === 'copied' ? 'Copied' : copyState === 'failed' ? 'Unavailable' : 'Copy'}
+                </button>
+              </div>
+              <pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words bg-black/35 p-3 text-[10px] leading-relaxed text-teal-200/75 font-mono">
+                {snapshot.systemPrompt}
+              </pre>
+            </>
+          ) : (
+            <div className="p-3 text-[10px] text-white/30 font-mono">
+              No prompt captured yet.
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SettingsPanel() {
   const { state, dispatch, resetToNexusPrimer } = useGameState();
   const [apiKey, setApiKey] = useState(state.settings.openaiApiKey);
@@ -887,7 +978,10 @@ function SettingsPanel() {
       {/* Debug state editor — only visible in debug mode */}
       {state.settings.debugMode && (
         <div>
-          <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mb-2">State Editor</div>
+          <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mb-2">Prompt</div>
+          <PromptDebugPanel />
+
+          <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mt-4 mb-2">State Editor</div>
           <div className="text-[9px] text-white/30 font-mono mb-2">
             Inspect and manually patch any state slice. Changes apply immediately to the live game state.
           </div>
