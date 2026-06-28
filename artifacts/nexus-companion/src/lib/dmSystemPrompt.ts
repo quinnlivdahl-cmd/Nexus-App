@@ -113,14 +113,18 @@ Clocks:
 ${clocks || '(none)'}`;
 }
 
-export function buildSystemMessage(state: GameState): string {
+export function buildSystemMessage(state: GameState, retrievedSourceBlock = ''): string {
   const debugContext = state.settings.debugMode ? DEBUG_MODE_CONTEXT : '';
   const tier1 = debugContext ? `${TIER1_CORE}\n\n---\n\n${debugContext}` : TIER1_CORE;
   const tier1Tokens = estimateTokens(tier1);
   const tier2 = TIER2_SCENE(state);
   const tier2Tokens = estimateTokens(tier2);
-  const separatorTokens = 20;
-  const contextBudget = Math.max(0, TOTAL_PROMPT_BUDGET_TOKENS - tier1Tokens - tier2Tokens - separatorTokens);
+  const retrievedSourceTokens = retrievedSourceBlock ? estimateTokens(retrievedSourceBlock) : 0;
+  const separatorTokens = retrievedSourceBlock ? 40 : 20;
+  const contextBudget = Math.max(
+    0,
+    TOTAL_PROMPT_BUDGET_TOKENS - tier1Tokens - tier2Tokens - retrievedSourceTokens - separatorTokens,
+  );
 
   const activeEntries = selectActiveContext(state);
   const budgetedEntries = applyContextBudget(activeEntries, contextBudget);
@@ -132,6 +136,7 @@ export function buildSystemMessage(state: GameState): string {
 
   const parts = [tier1, tier2];
   if (contextBlock) parts.push(contextBlock);
+  if (retrievedSourceBlock) parts.push(retrievedSourceBlock);
 
   return parts.join('\n\n---\n\n');
 }

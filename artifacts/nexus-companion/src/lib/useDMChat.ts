@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useGameState } from '../store/GameStateContext';
 import { buildSystemMessage } from './dmSystemPrompt';
 import { estimateTokens } from './contextSelector';
+import { retrieveSourceContext } from './runtimeSourceRetrieval';
 import { parseDMMessage, applyStateBlocks } from './stateParser';
 import type { ChatMessage, GameState } from '../types/game';
 
@@ -162,7 +163,8 @@ export function useDMChat() {
           });
         }
 
-        const systemContent = buildSystemMessage(state);
+        const retrievedSource = await retrieveSourceContext(state, userText);
+        const systemContent = buildSystemMessage(state, retrievedSource.block);
 
         const compressedHistory = await buildCompressedHistory(
           state.messages,
@@ -215,6 +217,7 @@ export function useDMChat() {
               },
               systemContent,
               compressedHistory,
+              retrievedSource: retrievedSource.debug,
             },
           });
         }
@@ -266,6 +269,7 @@ export function useDMChat() {
                 historyTurns: compressedHistory.length,
                 threshold: state.settings.compressionThreshold ?? 20,
               },
+              retrievedSource: retrievedSource.debug,
             },
           });
         }

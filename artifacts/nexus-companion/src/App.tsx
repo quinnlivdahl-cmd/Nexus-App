@@ -879,6 +879,36 @@ function PromptDebugPanel() {
                   {copyState === 'copied' ? 'Copied' : copyState === 'failed' ? 'Unavailable' : 'Copy'}
                 </button>
               </div>
+              {snapshot.retrievedSource && (
+                <div className="border-b border-white/10 p-3">
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <div className="text-[8px] uppercase tracking-widest text-white/25 font-mono">
+                      Retrieved Source
+                    </div>
+                    <div className="text-[9px] text-amber-300/70 font-mono">
+                      {snapshot.retrievedSource.status === 'available'
+                        ? `${snapshot.retrievedSource.resultCount} slices`
+                        : 'unavailable'}
+                    </div>
+                  </div>
+                  {snapshot.retrievedSource.error && (
+                    <div className="mb-2 text-[9px] text-red-300/70 font-mono">
+                      {snapshot.retrievedSource.error}
+                    </div>
+                  )}
+                  <div className="space-y-1">
+                    {snapshot.retrievedSource.results.map((item) => (
+                      <div key={item.sliceId} className="text-[9px] text-white/45 font-mono">
+                        <span className="text-teal-200/75">{item.sliceId}</span>
+                        {' | '}
+                        {item.docId}
+                        {' | '}
+                        {item.exactRepoPath}:{item.lineRange}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               <pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words bg-black/35 p-3 text-[10px] leading-relaxed text-teal-200/75 font-mono">
                 {snapshot.systemPrompt}
               </pre>

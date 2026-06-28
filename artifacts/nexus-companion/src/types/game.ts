@@ -188,6 +188,22 @@ export interface DMDebugSnapshot {
     historyTurns: number;
     threshold: number;
   };
+  retrievedSource?: {
+    status: 'available' | 'unavailable';
+    authority: string;
+    query: string;
+    terms: string[];
+    resultCount: number;
+    results: Array<{
+      sliceId: string;
+      docId: string;
+      heading: string;
+      exactRepoPath: string;
+      lineRange: string;
+      score: number;
+    }>;
+    error?: string;
+  };
 }
 
 export interface ChatMessage {
