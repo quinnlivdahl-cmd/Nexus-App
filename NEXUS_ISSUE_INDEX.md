@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-27 by Codex closeout sync after Source Context Pack PR #52 merged. This index removes Source Context Pack #9 from the open queue and records its merge evidence. For exact live issue count, verify against GitHub.
+Last synced: 2026-06-28 by Codex closeout sync after Prompt Debug Panel #20 local validation and branch push. This index removes Prompt Debug Panel #20 from the open queue and records its implementation evidence. For exact live issue count, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -99,7 +99,6 @@ Last synced: 2026-06-27 by Codex closeout sync after Source Context Pack PR #52 
 | #17 | Give each backdrop its own default node web | later | standalone | #12 | Encounter quality, later |
 | #18 | Build a searchable index of the Nexus vault for fast rules lookup | C extension | dependent/eligible | #9 satisfied | Source lookup extension; not started by Source Context Pack #9 closeout |
 | #19 | Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes | D extension | dependent | #10, #11 | DM quality tuning |
-| #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | C support | standalone/eligible | #9 satisfied | Debug/validation surface; not started by Source Context Pack #9 closeout |
 | #21 | Let the DM look up vault rules mid-session when a specific rule reference is needed | C extension | dependent | #18, #10 | Second-step retrieval feature |
 
 ### Rules-Core / System Design Sequence
@@ -152,6 +151,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
 | #9 | Build source-backed context pack for app DM runtime | Source Context Pack PR #52 merged to `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb`; PR branch fix commit `63265bc` addressed runtime budgeting before merge | Backend AI Routing #10, App-Native Campaign Seed #11, Source Lookup #18, and Prompt Debug Panel #20 are eligible for future sequencing but not started by this closeout |
+| #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | Commit `414c144` on branch `codex/issue-20-prompt-debug-panel` adds a debug-mode-gated, collapsed DM prompt panel with token estimates, response-scoped prompt capture, localStorage prompt exclusion, typecheck/build validation, browser smoke with mocked OpenAI response, and three-lane review (`PASS`, `PASS_WITH_NOTES`, `PASS_WITH_NOTES`) | Close GitHub issue after PR merge and final evidence comment |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |
 | #45 | Create source mirror index maintenance workflow | Repo-side source index role documented, deterministic index generator/check scripts added, repo-local maintainer skill added, and `validate:workflow` now checks for stale generated index files | Follow-up rename completed by moving the dated rebuild folder to `docs/nexus-game-source` and updating exact indexed paths, bridge references, validators, and promotion scripts |
