@@ -173,6 +173,23 @@ export interface Settings {
   compressionThreshold: number;
 }
 
+export interface DMDebugSnapshot {
+  messageId: string;
+  createdAt: number;
+  model: string;
+  systemPrompt: string;
+  tokenEstimate: {
+    system: number;
+    history: number;
+    user: number;
+    total: number;
+  };
+  compression: {
+    historyTurns: number;
+    threshold: number;
+  };
+}
+
 export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';
@@ -194,6 +211,7 @@ export interface GameState {
   crew: CrewMember[];
   messages: ChatMessage[];
   settings: Settings;
+  lastDMDebug?: DMDebugSnapshot;
   isGeneratingImage: boolean;
   isAiThinking: boolean;
 }
@@ -208,6 +226,7 @@ export type GameAction =
   | { type: 'UPDATE_CREW_MEMBER'; payload: { id: string; updates: Partial<CrewMember> } }
   | { type: 'ADD_MESSAGE'; payload: ChatMessage }
   | { type: 'UPDATE_SETTINGS'; payload: Partial<Settings> }
+  | { type: 'SET_LAST_DM_DEBUG'; payload?: DMDebugSnapshot }
   | { type: 'APPLY_DM_STATE'; payload: Partial<Pick<GameState, 'encounter' | 'scene' | 'campaign' | 'crew'>> }
   | { type: 'SET_SCENE_IMAGE'; payload: string }
   | { type: 'SET_GENERATING_IMAGE'; payload: boolean }

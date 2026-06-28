@@ -155,6 +155,13 @@ export function useDMChat() {
 
       try {
         const assistantMessageId = generateId();
+        if (state.settings.debugMode) {
+          dispatch({
+            type: 'SET_LAST_DM_DEBUG',
+            payload: undefined,
+          });
+        }
+
         const systemContent = buildSystemMessage(state);
 
         const compressedHistory = await buildCompressedHistory(
@@ -169,18 +176,20 @@ export function useDMChat() {
           { role: 'user', content: userText },
         ];
 
+        const promptTokenEstimate = estimateTokens(systemContent);
+        const historyTokenEstimate = compressedHistory.reduce(
+          (acc, m) => acc + estimateTokens(m.content),
+          0
+        );
+        const userTokenEstimate = estimateTokens(userText);
+        const totalEstimate = promptTokenEstimate + historyTokenEstimate + userTokenEstimate;
+
         if (state.settings.debugMode) {
-          const promptTokenEstimate = estimateTokens(systemContent);
-          const historyTokenEstimate = compressedHistory.reduce(
-            (acc, m) => acc + estimateTokens(m.content),
-            0
-          );
-          const totalEstimate = promptTokenEstimate + historyTokenEstimate + estimateTokens(userText);
           console.log(
             '[Nexus DM Debug] Token estimates:',
             `system=${promptTokenEstimate}`,
             `history=${historyTokenEstimate}`,
-            `user=${estimateTokens(userText)}`,
+            `user=${userTokenEstimate}`,
             `total≈${totalEstimate}`,
             `| history turns=${compressedHistory.length}`,
             `| threshold=${state.settings.compressionThreshold ?? 20}`
@@ -197,7 +206,7 @@ export function useDMChat() {
               tokenEstimate: {
                 system: promptTokenEstimate,
                 history: historyTokenEstimate,
-                user: estimateTokens(userText),
+                user: userTokenEstimate,
                 total: totalEstimate,
               },
               compression: {
@@ -238,6 +247,28 @@ export function useDMChat() {
         const rawContent = data.choices[0]?.message?.content ?? '';
 
         const { cleanContent, stateBlocks, hasStateBlocks } = parseDMMessage(rawContent);
+
+        if (state.settings.debugMode) {
+          dispatch({
+            type: 'SET_LAST_DM_DEBUG',
+            payload: {
+              messageId: assistantMessageId,
+              createdAt: Date.now(),
+              model: state.settings.model || 'gpt-4o',
+              systemPrompt: systemContent,
+              tokenEstimate: {
+                system: promptTokenEstimate,
+                history: historyTokenEstimate,
+                user: userTokenEstimate,
+                total: totalEstimate,
+              },
+              compression: {
+                historyTurns: compressedHistory.length,
+                threshold: state.settings.compressionThreshold ?? 20,
+              },
+            },
+          });
+        }
 
         const assistantMsg: ChatMessage = {
           id: assistantMessageId,
