@@ -28,6 +28,14 @@ node_modules
 !.vscode/extensions.json
 
 # misc
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.pfx
+*.p12
+secrets/
 /.sass-cache
 /connect.lock
 /coverage
