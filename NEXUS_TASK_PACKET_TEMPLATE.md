@@ -18,6 +18,9 @@ Planning anchor:
 Relevant sources/files:
 Current known state:
 Progress notes:
+Review gate:
+Reviewer result:
+Reviewer feedback / fix status:
 
 Prerequisites / readiness:
 - Ready now: yes/no
@@ -54,8 +57,19 @@ For active issue work, progress updates should be short but concrete. Use them t
 - whether work is local-only, committed, pushed, or closed on GitHub;
 - whether side items were noticed and where they will be routed;
 - what validation is still pending.
+- whether the independent review gate is pending, passed, passed with notes, needs fixes, or blocked.
 
 Avoid saying a task is complete when the precise state is only "implemented locally", "committed but not pushed", or "ready to close".
+
+## Review Gate
+
+Non-trivial Nexus work should include an independent review after implementation and validation. Use `.agents/skills/nexus-reviewer/SKILL.md` and `docs/admin/task-planning/nexus-review-rubric.md`.
+
+Allowed reviewer results are `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, and `BLOCKED`.
+
+Use `Reviewer feedback / fix status` to record unresolved reviewer findings, targeted fixes made, re-review status, or the reason review is blocked.
+
+Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.
 
 ## Closeout Rule
 
@@ -67,6 +81,7 @@ An issue can be called complete when the task's `Done when` condition is satisfi
 - commit pushed, when repo files changed;
 - GitHub issue comment added, when applicable;
 - GitHub issue closed, when the issue itself is complete.
+- reviewer result and unresolved reviewer findings, when the review gate applies.
 
 ## Code Implementation Add-On
 
@@ -123,6 +138,9 @@ Future scripts should be able to check whether a packet includes:
 - in-scope and out-of-scope boundaries;
 - `Do Not Do`;
 - validation method;
+- review gate;
+- reviewer result;
+- reviewer feedback / fix status;
 - progress notes;
 - side items / closeout routing;
 - next action;

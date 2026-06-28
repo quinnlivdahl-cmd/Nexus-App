@@ -26,6 +26,12 @@ Suggested thread title:
 ## Progress State
 
 
+## Review State
+
+
+## Unresolved Reviewer Findings
+
+
 ## Closeout Evidence
 
 
@@ -129,6 +135,8 @@ Use state suffixes sparingly:
 - Name the planning anchor or roadmap lane.
 - Separate inspected files from changed files.
 - State whether the task is local-only, committed, pushed, ready to close, or closed.
+- State whether independent review is not applicable, pending, `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, or `BLOCKED`.
+- Include unresolved reviewer findings and targeted fix status when the review gate has not fully passed.
 - Include closeout evidence when the handoff ends a task.
 - Include side items and closeout routing when the session noticed off-scope work, follow-ups, or tiny observations worth preserving.
 - Include blockers and unresolved questions.

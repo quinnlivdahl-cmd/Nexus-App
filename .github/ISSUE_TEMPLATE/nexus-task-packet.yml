@@ -74,6 +74,32 @@ body:
     validations:
       required: true
   - type: textarea
+    id: review-gate
+    attributes:
+      label: Review gate
+      description: State whether independent Nexus review is applicable, pending, complete, or blocked.
+      value: |
+        Review required:
+        Reviewer lane:
+        Review timing:
+  - type: dropdown
+    id: reviewer-result
+    attributes:
+      label: Reviewer result
+      description: Use after independent review completes.
+      options:
+        - pending
+        - not applicable
+        - PASS
+        - PASS_WITH_NOTES
+        - NEEDS_FIXES
+        - BLOCKED
+  - type: textarea
+    id: reviewer-feedback-fix-status
+    attributes:
+      label: Reviewer feedback / fix status
+      description: Record unresolved reviewer findings, targeted fixes made, re-review status, or blocker details.
+  - type: textarea
     id: risks
     attributes:
       label: Risks / challenge

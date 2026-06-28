@@ -15,6 +15,7 @@ const requiredFiles = [
   ".agents/skills/nexus-source-router/SKILL.md",
   ".agents/skills/nexus-handoff-bridge/SKILL.md",
   ".agents/skills/nexus-session-discipline/SKILL.md",
+  ".agents/skills/nexus-reviewer/SKILL.md",
   ".agents/skills/nexus-source-index-maintainer/SKILL.md",
   ".agents/skills/nexus-golden-source-promoter/SKILL.md",
   ".agents/skills/nexus-roadmap-maintainer/SKILL.md",
@@ -41,6 +42,7 @@ const requiredFiles = [
   "docs/chatgpt-project-bridge/preservation/README.md",
   "docs/chatgpt-project-bridge/task-packets/README.md",
   "docs/admin/task-planning/codex-session-discipline-workflow.md",
+  "docs/admin/task-planning/nexus-review-rubric.md",
   "docs/game-system-contracts/drafts/README.md",
   "docs/source-draft-candidates/README.md",
   "docs/nexus-game-source/README.md",
@@ -50,16 +52,39 @@ const requiredFiles = [
 
 const sectionChecks = [
   {
+    file: "AGENTS.md",
+    includes: [
+      "Independent Review",
+      "PASS_WITH_NOTES",
+      "Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.",
+      "implement -> validate -> independent review -> targeted fixes -> re-review when needed",
+    ],
+  },
+  {
     file: "NEXUS_TASK_PACKET_TEMPLATE.md",
     includes: [
       "Task name:",
       "Progress notes:",
+      "Review gate:",
+      "Reviewer result:",
+      "Reviewer feedback / fix status:",
       "Side items / closeout routing:",
       "Prerequisites / readiness:",
       "Do Not Do:",
       "Validation / review method:",
       "Next action:",
       "Closeout evidence:",
+    ],
+  },
+  {
+    file: ".github/ISSUE_TEMPLATE/nexus-task-packet.yml",
+    includes: [
+      "label: Review gate",
+      "label: Reviewer result",
+      "label: Reviewer feedback / fix status",
+      "PASS_WITH_NOTES",
+      "NEEDS_FIXES",
+      "BLOCKED",
     ],
   },
   {
@@ -71,6 +96,8 @@ const sectionChecks = [
       "## Files / Sources Inspected",
       "## Files Changed",
       "## Progress State",
+      "## Review State",
+      "## Unresolved Reviewer Findings",
       "## Closeout Evidence",
       "## Side Items / Closeout Routing",
       "## Next Safe Action",
@@ -166,6 +193,8 @@ const sectionChecks = [
       "Session Frame",
       "Side-Item Classes",
       "Mirrored Platform Specs",
+      "implement -> validate -> independent review -> targeted fixes -> re-review when needed",
+      "PASS_WITH_NOTES",
       "Do Not Automate Yet",
     ],
   },
@@ -177,6 +206,25 @@ const sectionChecks = [
       "side task",
       "side finding",
       "tiny observation",
+    ],
+  },
+  {
+    file: ".agents/skills/nexus-reviewer/SKILL.md",
+    includes: [
+      "name: nexus-reviewer",
+      "Reviewer status: PASS | PASS_WITH_NOTES | NEEDS_FIXES | BLOCKED",
+      "Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.",
+      "targeted fix",
+    ],
+  },
+  {
+    file: "docs/admin/task-planning/nexus-review-rubric.md",
+    includes: [
+      "Nexus Review Rubric",
+      "PASS_WITH_NOTES",
+      "Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.",
+      "implement -> validate -> independent review -> targeted fixes -> re-review when needed",
+      "Local-First Behavior",
     ],
   },
   {

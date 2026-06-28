@@ -6,14 +6,30 @@ Supplements:
 - `AGENTS.md`
 - `NEXUS_TASK_PACKET_TEMPLATE.md`
 - `NEXUS_HANDOFF_TEMPLATE.md`
+- `docs/admin/task-planning/nexus-review-rubric.md`
 - `docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md`
 - `.agents/skills/nexus-session-discipline/SKILL.md`
+- `.agents/skills/nexus-reviewer/SKILL.md`
 
 ## Purpose
 
 This workflow keeps Nexus Codex and ChatGPT work focused without losing useful side discoveries.
 
-It does not replace GitHub Issues, the issue index, handoff template, task packet template, bridge docs, or Nexus source authority. It gives those existing surfaces a shared session frame and side-item lifecycle.
+It does not replace GitHub Issues, the issue index, handoff template, task packet template, bridge docs, review rubric, or Nexus source authority. It gives those existing surfaces a shared session frame, side-item lifecycle, and independent review loop.
+
+## Implementation Review Loop
+
+For non-trivial Nexus work, use this loop:
+
+```text
+implement -> validate -> independent review -> targeted fixes -> re-review when needed -> closeout
+```
+
+Implementation belongs to the executor. Review belongs to an independent reviewer lane using `.agents/skills/nexus-reviewer/SKILL.md` and `docs/admin/task-planning/nexus-review-rubric.md`.
+
+The reviewer returns one of `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, or `BLOCKED`. Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.
+
+When the result is `NEEDS_FIXES`, the executor should make targeted fixes, rerun relevant validation, and request re-review of the changed surface. When the result is `BLOCKED`, the executor should name the missing context, authority, validation, approval, or external state before continuing.
 
 ## Shared Lifecycle
 
@@ -147,6 +163,7 @@ Codex should:
 - classify side items without chasing them;
 - record side items at closeout when durable routing is needed;
 - run relevant checks when practical;
+- use the implement -> validate -> independent review -> targeted fixes -> re-review loop for non-trivial work;
 - report local, committed, pushed, and GitHub states separately.
 
 ### ChatGPT Project
@@ -168,6 +185,7 @@ If side items appeared, closeout should include:
 - active task result;
 - files or issues touched;
 - checks run or skipped;
+- reviewer result and unresolved reviewer findings when the review gate applies;
 - side items routed;
 - records created or updated;
 - follow-up chats or issues created or recommended;

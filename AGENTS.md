@@ -93,6 +93,14 @@ Side items may be noticed and recorded, but should not be pursued unless they bl
 
 Route side items to existing approved destinations: GitHub issue/comment, `NEXUS_ISSUE_INDEX.md`, roadmap/index, synced-chat packet, task packet, handoff, or source-router workflow. If no destination is clear, ask for the route in plain language.
 
+## Independent Review
+
+For non-trivial Nexus implementation, workflow, source-routing, bridge, handoff, or issue-closeout work, run an independent review after implementation and local validation and before calling the work complete. Use `.agents/skills/nexus-reviewer/SKILL.md` and `docs/admin/task-planning/nexus-review-rubric.md`.
+
+Reviewer statuses are `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, and `BLOCKED`. Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.
+
+The normal loop is: implement -> validate -> independent review -> targeted fixes -> re-review when needed -> closeout. Reviewer findings should cite evidence with paths or command output and give targeted fix instructions.
+
 ## Progress and Closeout
 
 For issue-based work, keep progress visible:
