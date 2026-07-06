@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { GameStateProvider, useGameState } from './store/GameStateContext';
 import { useDMChat } from './lib/useDMChat';
 import { useImageGeneration } from './lib/useImageGeneration';
+import { createExportableGameState, parseGameStateSave } from './lib/gameStateSave';
 import TacMap from './components/tacmap/TacMap';
 import type { AppView, MenuTab, CrewMember, Actor } from './types/game';
 import { BACKDROP_LABELS } from './components/tacmap/backdrops';
@@ -897,11 +898,67 @@ function SettingsPanel() {
   const { state, dispatch, resetToNexusPrimer } = useGameState();
   const [apiKey, setApiKey] = useState(state.settings.openaiApiKey);
   const [saved, setSaved] = useState(false);
+  const [saveMessage, setSaveMessage] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const importInputRef = useRef<HTMLInputElement | null>(null);
 
   const saveKey = () => {
     dispatch({ type: 'UPDATE_SETTINGS', payload: { openaiApiKey: apiKey } });
     setSaved(true);
     setTimeout(() => setSaved(false), 1500);
+  };
+
+  const exportSave = () => {
+    const exportState = createExportableGameState(state);
+    const campaignSlug = exportState.campaign.campaignName
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '') || 'nexus-session';
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const blob = new Blob([`${JSON.stringify(exportState, null, 2)}\n`], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${campaignSlug}-${timestamp}.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    setSaveError(null);
+    setSaveMessage('Save exported');
+  };
+
+  const importSave = async (file: File | null) => {
+    setSaveMessage(null);
+    setSaveError(null);
+    if (!file) return;
+
+    try {
+      const result = parseGameStateSave(await file.text());
+
+      if (!result.ok) {
+        setSaveError(result.error);
+        return;
+      }
+
+      const importedState = {
+        ...result.state,
+        settings: {
+          ...result.state.settings,
+          openaiApiKey: state.settings.openaiApiKey,
+        },
+      };
+
+      dispatch({ type: 'LOAD_STATE', payload: importedState });
+      setApiKey(importedState.settings.openaiApiKey);
+      setSaveMessage('Save imported');
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : 'Unable to read save file.');
+    } finally {
+      if (importInputRef.current) importInputRef.current.value = '';
+    }
   };
 
   return (
@@ -925,6 +982,41 @@ function SettingsPanel() {
           </button>
         </div>
         <div className="text-[9px] text-white/25 font-mono mt-1">Stored in browser localStorage. Never sent to any server except OpenAI.</div>
+      </div>
+
+      {/* Local Save */}
+      <div className="border-t border-white/10 pt-4">
+        <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-2">Local Save</div>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            onClick={exportSave}
+            className="border border-teal-500/40 text-teal-300/80 text-xs font-mono rounded px-3 py-2 hover:bg-teal-500/10 transition-colors"
+          >
+            Export JSON
+          </button>
+          <button
+            onClick={() => importInputRef.current?.click()}
+            className="border border-amber-500/40 text-amber-300/80 text-xs font-mono rounded px-3 py-2 hover:bg-amber-500/10 transition-colors"
+          >
+            Import JSON
+          </button>
+        </div>
+        <input
+          ref={importInputRef}
+          type="file"
+          accept="application/json,.json"
+          className="hidden"
+          onChange={(event) => void importSave(event.target.files?.[0] ?? null)}
+        />
+        <div className="text-[9px] text-white/25 font-mono mt-1">
+          Exports campaign state, transcript, encounter state, settings, and image references. API key is not included.
+        </div>
+        {saveMessage && (
+          <div className="text-[9px] text-teal-300/80 font-mono mt-2">{saveMessage}</div>
+        )}
+        {saveError && (
+          <div className="text-[9px] text-red-400 font-mono mt-2">Import error: {saveError}</div>
+        )}
       </div>
 
       {/* Model */}
