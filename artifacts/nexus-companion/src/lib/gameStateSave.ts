@@ -72,18 +72,22 @@ function validateGameStateShape(value: unknown): string | null {
 }
 
 export function stripRuntimeFlags(state: GameState): GameState {
+  const { lastDMDebug: _lastDMDebug, ...persistableState } = state;
+
   return {
-    ...state,
+    ...persistableState,
     isGeneratingImage: false,
     isAiThinking: false,
   };
 }
 
 export function createExportableGameState(state: GameState): GameState {
+  const exportableState = stripRuntimeFlags(state);
+
   return {
-    ...stripRuntimeFlags(state),
+    ...exportableState,
     settings: {
-      ...state.settings,
+      ...exportableState.settings,
       openaiApiKey: '',
     },
   };
