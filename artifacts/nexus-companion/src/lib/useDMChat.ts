@@ -4,6 +4,11 @@ import { buildSystemMessage } from './dmSystemPrompt';
 import { estimateTokens } from './contextSelector';
 import { retrieveSourceContext } from './runtimeSourceRetrieval';
 import { parseDMMessage, applyStateBlocks } from './stateParser';
+import {
+  buildDMMemoryDebug,
+  deriveDMMemoryRefresh,
+  projectGameState,
+} from './dmMemory';
 import type { ChatMessage, GameState } from '../types/game';
 
 const COMPRESSION_KEEP_TAIL = 8;
@@ -164,6 +169,7 @@ export function useDMChat() {
         }
 
         const retrievedSource = await retrieveSourceContext(state, userText);
+        const suppliedMemory = buildDMMemoryDebug(state.dmMemory);
         const systemContent = buildSystemMessage(state, retrievedSource.block);
 
         const compressedHistory = await buildCompressedHistory(
@@ -218,6 +224,7 @@ export function useDMChat() {
               systemContent,
               compressedHistory,
               retrievedSource: retrievedSource.debug,
+              suppliedMemory,
             },
           });
         }
@@ -270,6 +277,7 @@ export function useDMChat() {
                 threshold: state.settings.compressionThreshold ?? 20,
               },
               retrievedSource: retrievedSource.debug,
+              suppliedMemory,
             },
           });
         }
@@ -296,12 +304,22 @@ export function useDMChat() {
               cleanContent,
               hasStateBlocks,
               stateBlocks,
+              suppliedMemory,
             },
           });
         }
 
+        const stateUpdates = hasStateBlocks ? applyStateBlocks(state, stateBlocks) : {};
+        const projectedState = hasStateBlocks ? projectGameState(state, stateUpdates) : state;
+        const memoryRefresh = deriveDMMemoryRefresh(
+          state,
+          projectedState,
+          userText,
+          assistantMsg,
+          stateBlocks
+        );
+
         if (hasStateBlocks) {
-          const stateUpdates = applyStateBlocks(state, stateBlocks);
           dispatch({ type: 'APPLY_DM_STATE', payload: stateUpdates });
 
           const firstBlock = stateBlocks[0];
@@ -317,6 +335,8 @@ export function useDMChat() {
             dispatch({ type: 'SET_VIEW', payload: 'scene' });
           }
         }
+
+        dispatch({ type: 'REFRESH_DM_MEMORY', payload: memoryRefresh });
       } catch (err) {
         const message = err instanceof Error ? err.message : 'Unknown error';
         if (state.settings.debugMode) {

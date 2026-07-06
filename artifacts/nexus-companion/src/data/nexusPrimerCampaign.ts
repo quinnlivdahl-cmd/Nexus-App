@@ -5,6 +5,9 @@ export const INITIAL_NEXUS_PRIMER_STATE: GameState = {
   menuTab: 'campaign',
   isGeneratingImage: false,
   isAiThinking: false,
+  dmMemory: {
+    records: [],
+  },
 
   settings: {
     openaiApiKey: '',

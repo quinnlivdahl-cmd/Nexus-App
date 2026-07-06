@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect, useCallback } 
 import type { GameState, GameAction } from '../types/game';
 import { INITIAL_NEXUS_PRIMER_STATE } from '../data/nexusPrimerCampaign';
 import { stripRuntimeFlags } from '../lib/gameStateSave';
+import { mergeDMMemory, normalizeDMMemory } from '../lib/dmMemory';
 
 const STORAGE_KEY = 'nexus-companion-state';
 const PROTOTYPE_ROOK_STORAGE_KEY = 'nexus-companion-prototype-rook-state';
@@ -58,6 +59,17 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     }
 
+    case 'REFRESH_DM_MEMORY':
+      return {
+        ...state,
+        dmMemory: mergeDMMemory(
+          state.dmMemory,
+          action.payload.records,
+          action.payload.activeRecordIds,
+          action.payload.supersededAt
+        ),
+      };
+
     case 'SET_SCENE_IMAGE':
       return { ...state, scene: { ...state.scene, generatedImageUrl: action.payload } };
 
@@ -96,6 +108,7 @@ function loadStoredState(): GameState {
     return stripRuntimeFlags({
       ...INITIAL_NEXUS_PRIMER_STATE,
       ...parsedState,
+      dmMemory: normalizeDMMemory(parsedState.dmMemory),
     });
   } catch {
     return INITIAL_NEXUS_PRIMER_STATE;

@@ -909,6 +909,29 @@ function PromptDebugPanel() {
                   </div>
                 </div>
               )}
+              {snapshot.suppliedMemory && (
+                <div className="border-b border-white/10 p-3">
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <div className="text-[8px] uppercase tracking-widest text-white/25 font-mono">
+                      Supplied Memory
+                    </div>
+                    <div className="text-[9px] text-amber-300/70 font-mono">
+                      {snapshot.suppliedMemory.activeCount} active / {snapshot.suppliedMemory.recordCount} total
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    {snapshot.suppliedMemory.records.map((item) => (
+                      <div key={item.id} className="text-[9px] text-white/45 font-mono">
+                        <span className="text-teal-200/75">{item.id}</span>
+                        {' | '}
+                        {item.kind}
+                        {' | '}
+                        {item.title}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               <pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words bg-black/35 p-3 text-[10px] leading-relaxed text-teal-200/75 font-mono">
                 {snapshot.systemPrompt}
               </pre>
@@ -917,6 +940,72 @@ function PromptDebugPanel() {
             <div className="p-3 text-[10px] text-white/30 font-mono">
               No prompt captured yet.
             </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DMMemoryPanel() {
+  const { state } = useGameState();
+  const [open, setOpen] = useState(false);
+  const activeCount = state.dmMemory.records.filter((record) => record.status === 'active').length;
+  const lastUpdated = state.dmMemory.lastUpdatedAt
+    ? new Date(state.dmMemory.lastUpdatedAt).toLocaleTimeString()
+    : 'never';
+
+  return (
+    <div className="border border-teal-500/20 bg-teal-500/5 rounded overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-teal-500/5 transition-colors"
+      >
+        <span className="text-teal-300/80">
+          <IconBug />
+        </span>
+        <span className="flex-1 min-w-0">
+          <span className="block text-[9px] uppercase tracking-widest text-teal-400/60 font-mono">
+            DM Memory
+          </span>
+          <span className="block text-[9px] text-white/35 font-mono truncate">
+            {activeCount} active / {state.dmMemory.records.length} total | updated {lastUpdated}
+          </span>
+        </span>
+        <span className="text-white/35">{open ? <IconChevronD /> : <IconChevronR />}</span>
+      </button>
+
+      {open && (
+        <div className="border-t border-white/10 p-3 space-y-2">
+          {state.dmMemory.records.length === 0 ? (
+            <div className="text-[10px] text-white/30 font-mono">
+              No persistent memory has been recorded yet.
+            </div>
+          ) : (
+            state.dmMemory.records.map((record) => (
+              <div
+                key={record.id}
+                className={`border rounded px-2 py-2 ${
+                  record.status === 'active'
+                    ? 'border-teal-500/25 bg-black/20'
+                    : 'border-white/10 bg-black/15 opacity-60'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-[9px] text-teal-200/80 font-mono truncate">
+                    {record.title}
+                  </div>
+                  <div className="text-[8px] uppercase tracking-widest text-white/30 font-mono">
+                    {record.kind} | {record.status}
+                  </div>
+                </div>
+                <div className="mt-1 text-[9px] leading-relaxed text-white/45 font-mono">
+                  {record.content}
+                </div>
+              </div>
+            ))
           )}
         </div>
       )}
@@ -1039,7 +1128,7 @@ function SettingsPanel() {
           onChange={(event) => void importSave(event.target.files?.[0] ?? null)}
         />
         <div className="text-[9px] text-white/25 font-mono mt-1">
-          Exports campaign state, transcript, encounter state, settings, and image references. API key is not included.
+          Exports campaign state, transcript, DM memory, encounter state, settings, and image references. API key is not included.
         </div>
         {saveMessage && (
           <div className="text-[9px] text-teal-300/80 font-mono mt-2">{saveMessage}</div>
@@ -1102,6 +1191,12 @@ function SettingsPanel() {
         <div>
           <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mb-2">Prompt</div>
           <PromptDebugPanel />
+
+          <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mt-4 mb-2">Memory</div>
+          <div className="text-[9px] text-white/30 font-mono mb-2">
+            Persistent play-session memory is lower authority than current app state and canonical source.
+          </div>
+          <DMMemoryPanel />
 
           <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mt-4 mb-2">State Editor</div>
           <div className="text-[9px] text-white/30 font-mono mb-2">

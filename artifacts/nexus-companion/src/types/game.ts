@@ -173,6 +173,41 @@ export interface Settings {
   compressionThreshold: number;
 }
 
+export type DMMemoryKind =
+  | 'session_summary'
+  | 'decision'
+  | 'unresolved_thread'
+  | 'npc_fact'
+  | 'location_fact'
+  | 'consequence';
+
+export type DMMemoryStatus = 'active' | 'superseded';
+
+export interface DMMemoryRecord {
+  id: string;
+  kind: DMMemoryKind;
+  title: string;
+  content: string;
+  status: DMMemoryStatus;
+  createdAt: number;
+  updatedAt: number;
+  sourceMessageIds?: string[];
+  supersededBy?: string;
+}
+
+export interface DMMemoryState {
+  records: DMMemoryRecord[];
+  lastUpdatedAt?: number;
+}
+
+export interface DMMemoryDebugRecord {
+  id: string;
+  kind: DMMemoryKind;
+  title: string;
+  status: DMMemoryStatus;
+  updatedAt: number;
+}
+
 export interface DMDebugSnapshot {
   messageId: string;
   createdAt: number;
@@ -204,6 +239,12 @@ export interface DMDebugSnapshot {
     }>;
     error?: string;
   };
+  suppliedMemory?: {
+    status: 'available';
+    recordCount: number;
+    activeCount: number;
+    records: DMMemoryDebugRecord[];
+  };
 }
 
 export interface ChatMessage {
@@ -226,6 +267,7 @@ export interface GameState {
   campaign: CampaignState;
   crew: CrewMember[];
   messages: ChatMessage[];
+  dmMemory: DMMemoryState;
   settings: Settings;
   lastDMDebug?: DMDebugSnapshot;
   isGeneratingImage: boolean;
@@ -244,6 +286,14 @@ export type GameAction =
   | { type: 'UPDATE_SETTINGS'; payload: Partial<Settings> }
   | { type: 'SET_LAST_DM_DEBUG'; payload?: DMDebugSnapshot }
   | { type: 'APPLY_DM_STATE'; payload: Partial<Pick<GameState, 'encounter' | 'scene' | 'campaign' | 'crew'>> }
+  | {
+      type: 'REFRESH_DM_MEMORY';
+      payload: {
+        records: DMMemoryRecord[];
+        activeRecordIds: string[];
+        supersededAt: number;
+      };
+    }
   | { type: 'SET_SCENE_IMAGE'; payload: string }
   | { type: 'SET_GENERATING_IMAGE'; payload: boolean }
   | { type: 'SET_AI_THINKING'; payload: boolean }

@@ -6,6 +6,7 @@ import {
   buildContextTrace,
   estimateTokens,
 } from './contextSelector';
+import { renderDMMemoryBlock } from './dmMemory';
 
 // ─── TOKEN BUDGET ─────────────────────────────────────────────────────────
 // Target: ~4,200 estimated tokens total per turn.
@@ -119,11 +120,13 @@ export function buildSystemMessage(state: GameState, retrievedSourceBlock = ''):
   const tier1Tokens = estimateTokens(tier1);
   const tier2 = TIER2_SCENE(state);
   const tier2Tokens = estimateTokens(tier2);
+  const memoryBlock = renderDMMemoryBlock(state.dmMemory);
+  const memoryTokens = memoryBlock ? estimateTokens(memoryBlock) : 0;
   const retrievedSourceTokens = retrievedSourceBlock ? estimateTokens(retrievedSourceBlock) : 0;
-  const separatorTokens = retrievedSourceBlock ? 40 : 20;
+  const separatorTokens = (retrievedSourceBlock ? 40 : 20) + (memoryBlock ? 20 : 0);
   const contextBudget = Math.max(
     0,
-    TOTAL_PROMPT_BUDGET_TOKENS - tier1Tokens - tier2Tokens - retrievedSourceTokens - separatorTokens,
+    TOTAL_PROMPT_BUDGET_TOKENS - tier1Tokens - tier2Tokens - memoryTokens - retrievedSourceTokens - separatorTokens,
   );
 
   const activeEntries = selectActiveContext(state);
@@ -135,6 +138,7 @@ export function buildSystemMessage(state: GameState, retrievedSourceBlock = ''):
   }
 
   const parts = [tier1, tier2];
+  if (memoryBlock) parts.push(memoryBlock);
   if (contextBlock) parts.push(contextBlock);
   if (retrievedSourceBlock) parts.push(retrievedSourceBlock);
 

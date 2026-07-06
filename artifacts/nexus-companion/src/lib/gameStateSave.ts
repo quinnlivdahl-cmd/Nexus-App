@@ -1,8 +1,17 @@
 import { INITIAL_NEXUS_PRIMER_STATE } from '../data/nexusPrimerCampaign';
-import type { AppView, GameState, MenuTab } from '../types/game';
+import { normalizeDMMemory } from './dmMemory';
+import type { AppView, DMMemoryKind, GameState, MenuTab } from '../types/game';
 
 const APP_VIEWS: AppView[] = ['encounter', 'scene', 'menu'];
 const MENU_TABS: MenuTab[] = ['crew', 'campaign', 'route', 'settings'];
+const DM_MEMORY_KINDS = new Set<DMMemoryKind>([
+  'session_summary',
+  'decision',
+  'unresolved_thread',
+  'npc_fact',
+  'location_fact',
+  'consequence',
+]);
 
 type SaveParseResult =
   | { ok: true; state: GameState }
@@ -22,6 +31,10 @@ function isBoolean(value: unknown): value is boolean {
 
 function isNumber(value: unknown): value is number {
   return typeof value === 'number' && Number.isFinite(value);
+}
+
+function isDMMemoryKind(value: unknown): value is DMMemoryKind {
+  return typeof value === 'string' && DM_MEMORY_KINDS.has(value as DMMemoryKind);
 }
 
 function validateGameStateShape(value: unknown): string | null {
@@ -60,6 +73,23 @@ function validateGameStateShape(value: unknown): string | null {
 
   if (!Array.isArray(value.crew)) return 'Save file is missing crew state.';
   if (!Array.isArray(value.messages)) return 'Save file is missing transcript messages.';
+  if ('dmMemory' in value) {
+    if (!isRecord(value.dmMemory)) return 'DM memory must be a JSON object.';
+    if (!Array.isArray(value.dmMemory.records)) return 'DM memory is missing records.';
+
+    for (const record of value.dmMemory.records) {
+      if (!isRecord(record)) return 'DM memory records must be JSON objects.';
+      if (!isString(record.id)) return 'DM memory record is missing id.';
+      if (!isDMMemoryKind(record.kind)) return 'DM memory record is missing valid kind.';
+      if (!isString(record.title)) return 'DM memory record is missing title.';
+      if (!isString(record.content)) return 'DM memory record is missing content.';
+      if (record.status !== 'active' && record.status !== 'superseded') {
+        return 'DM memory record is missing valid status.';
+      }
+      if (!isNumber(record.createdAt)) return 'DM memory record is missing createdAt.';
+      if (!isNumber(record.updatedAt)) return 'DM memory record is missing updatedAt.';
+    }
+  }
 
   if (!isRecord(value.settings)) return 'Save file is missing settings.';
   if (!isBoolean(value.settings.debugMode)) return 'Settings are missing debugMode.';
@@ -127,6 +157,7 @@ export function parseGameStateSave(raw: string): SaveParseResult {
         ...INITIAL_NEXUS_PRIMER_STATE.campaign,
         ...parsedState.campaign,
       },
+      dmMemory: normalizeDMMemory(parsedState.dmMemory),
       settings: {
         ...INITIAL_NEXUS_PRIMER_STATE.settings,
         ...parsedState.settings,
