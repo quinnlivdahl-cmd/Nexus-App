@@ -1,5 +1,6 @@
 import { INITIAL_NEXUS_PRIMER_STATE } from '../data/nexusPrimerCampaign';
 import { normalizeDMMemory } from './dmMemory';
+import { validateEncounterState } from './encounter/validateEncounter';
 import type { AppView, DMMemoryKind, GameState, MenuTab } from '../types/game';
 
 const APP_VIEWS: AppView[] = ['encounter', 'scene', 'menu'];
@@ -139,29 +140,41 @@ export function parseGameStateSave(raw: string): SaveParseResult {
   if (validationError) return { ok: false, error: validationError };
 
   const parsedState = parsed as GameState;
+  const mergedState = stripRuntimeFlags({
+    ...INITIAL_NEXUS_PRIMER_STATE,
+    ...parsedState,
+    scene: {
+      ...INITIAL_NEXUS_PRIMER_STATE.scene,
+      ...parsedState.scene,
+    },
+    encounter: {
+      ...INITIAL_NEXUS_PRIMER_STATE.encounter,
+      ...parsedState.encounter,
+    },
+    campaign: {
+      ...INITIAL_NEXUS_PRIMER_STATE.campaign,
+      ...parsedState.campaign,
+    },
+    dmMemory: normalizeDMMemory(parsedState.dmMemory),
+    settings: {
+      ...INITIAL_NEXUS_PRIMER_STATE.settings,
+      ...parsedState.settings,
+    },
+  });
+
+  const encounterValidation = validateEncounterState(mergedState.encounter);
+  if (!encounterValidation.ok) {
+    return {
+      ok: false,
+      error: `Encounter state is invalid: ${encounterValidation.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; ')}`,
+    };
+  }
 
   return {
     ok: true,
-    state: stripRuntimeFlags({
-      ...INITIAL_NEXUS_PRIMER_STATE,
-      ...parsedState,
-      scene: {
-        ...INITIAL_NEXUS_PRIMER_STATE.scene,
-        ...parsedState.scene,
-      },
-      encounter: {
-        ...INITIAL_NEXUS_PRIMER_STATE.encounter,
-        ...parsedState.encounter,
-      },
-      campaign: {
-        ...INITIAL_NEXUS_PRIMER_STATE.campaign,
-        ...parsedState.campaign,
-      },
-      dmMemory: normalizeDMMemory(parsedState.dmMemory),
-      settings: {
-        ...INITIAL_NEXUS_PRIMER_STATE.settings,
-        ...parsedState.settings,
-      },
-    }),
+    state: {
+      ...mergedState,
+      encounter: encounterValidation.encounter,
+    },
   };
 }

@@ -3,7 +3,7 @@ import { useGameState } from '../store/GameStateContext';
 import { buildSystemMessage } from './dmSystemPrompt';
 import { estimateTokens } from './contextSelector';
 import { retrieveSourceContext } from './runtimeSourceRetrieval';
-import { parseDMMessage, applyStateBlocks } from './stateParser';
+import { parseDMMessage, applyStateBlocks, getViewForAppliedStateTransition } from './stateParser';
 import {
   buildDMMemoryDebug,
   deriveDMMemoryRefresh,
@@ -322,18 +322,8 @@ export function useDMChat() {
         if (hasStateBlocks) {
           dispatch({ type: 'APPLY_DM_STATE', payload: stateUpdates });
 
-          const firstBlock = stateBlocks[0];
-          if (
-            firstBlock?.type === 'encounter_start' ||
-            (firstBlock?.encounter?.active === true)
-          ) {
-            dispatch({ type: 'SET_VIEW', payload: 'encounter' });
-          } else if (
-            firstBlock?.type === 'scene_transition' ||
-            (firstBlock?.encounter?.active === false && state.encounter.active)
-          ) {
-            dispatch({ type: 'SET_VIEW', payload: 'scene' });
-          }
+          const nextView = getViewForAppliedStateTransition(state, projectedState);
+          if (nextView) dispatch({ type: 'SET_VIEW', payload: nextView });
         }
 
         dispatch({ type: 'REFRESH_DM_MEMORY', payload: memoryRefresh });

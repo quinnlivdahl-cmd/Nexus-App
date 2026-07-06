@@ -3,7 +3,10 @@ import { GameStateProvider, useGameState } from './store/GameStateContext';
 import { useDMChat } from './lib/useDMChat';
 import { useImageGeneration } from './lib/useImageGeneration';
 import { createExportableGameState, parseGameStateSave } from './lib/gameStateSave';
+import { formatEncounterResultForScene } from './lib/encounter/encounterRules';
+import { formatEncounterValidationIssues, validateEncounterState } from './lib/encounter/validateEncounter';
 import TacMap from './components/tacmap/TacMap';
+import EncounterHarnessControls from './components/encounter/EncounterHarnessControls';
 import type { AppView, MenuTab, CrewMember, Actor } from './types/game';
 import { BACKDROP_LABELS } from './components/tacmap/backdrops';
 
@@ -196,6 +199,22 @@ function CombatTracker() {
       <div className="flex flex-col items-center justify-center h-full gap-2 text-center p-4">
         <div className="text-white/20 text-xs font-mono uppercase tracking-widest">No Active Encounter</div>
         <p className="text-white/15 text-[10px]">Tell the DM to initiate an encounter to start the tactical display.</p>
+        {encounter.notes && (
+          <div className="mt-2 max-w-full border border-amber-500/20 bg-amber-500/5 rounded px-2 py-1.5 text-left">
+            <div className="text-[8px] uppercase tracking-widest text-amber-400/60 font-mono mb-1">Encounter Notes</div>
+            <div className="text-[9px] text-amber-100/60 font-mono leading-relaxed whitespace-pre-wrap">
+              {encounter.notes}
+            </div>
+          </div>
+        )}
+        {encounter.resultSummary && (
+          <div className="mt-2 max-w-full border border-teal-500/20 bg-teal-500/5 rounded px-2 py-1.5 text-left">
+            <div className="text-[8px] uppercase tracking-widest text-teal-400/60 font-mono mb-1">Last Result</div>
+            <div className="text-[9px] text-teal-100/60 font-mono leading-relaxed whitespace-pre-wrap">
+              {formatEncounterResultForScene(encounter.resultSummary)}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -235,6 +254,20 @@ function CombatTracker() {
             {encounter.objectives.map((obj, i) => (
               <div key={i} className="text-[11px] text-white/60 font-mono pl-2 border-l border-amber-500/30 mb-1">{obj}</div>
             ))}
+            {encounter.objectiveStates && encounter.objectiveStates.length > 0 && (
+              <div className="mt-2 space-y-1">
+                {encounter.objectiveStates.map((objective) => (
+                  <div key={objective.id} className="text-[9px] text-white/40 font-mono pl-2 border-l border-teal-500/20">
+                    <span className={objective.status === 'complete' ? 'text-teal-300/80' : objective.status === 'failed' ? 'text-red-300/80' : 'text-white/50'}>
+                      {objective.status.toUpperCase()}
+                    </span>
+                    {' '}
+                    {objective.progress}/{objective.maxProgress}
+                    {objective.nodeId ? ` @ ${objective.nodeId}` : ''}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
@@ -244,6 +277,28 @@ function CombatTracker() {
             <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-2">Clocks</div>
             <div className="space-y-1.5">
               {encounter.clocks.map((c, i) => <Clock key={i} {...c} />)}
+            </div>
+          </div>
+        )}
+
+        {encounter.notes && (
+          <div>
+            <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-1">Notes</div>
+            <div className="text-[10px] text-white/45 font-mono leading-relaxed whitespace-pre-wrap border-l border-white/10 pl-2">
+              {encounter.notes}
+            </div>
+          </div>
+        )}
+
+        {encounter.eventLog && encounter.eventLog.length > 0 && (
+          <div>
+            <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-1">Event Log</div>
+            <div className="space-y-1 max-h-32 overflow-y-auto pr-1">
+              {encounter.eventLog.slice(-8).map((entry) => (
+                <div key={entry.id} className="text-[10px] text-white/45 font-mono leading-relaxed border-l border-teal-500/20 pl-2">
+                  <span className="text-teal-400/70">R{entry.round}</span> {entry.message}
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -317,6 +372,11 @@ function ActorRow({ actor, currentActorId }: { actor: Actor; currentActorId: str
           {actor.statusEffects.map((s, i) => (
             <span key={i} className="text-[9px] border border-amber-500/40 bg-amber-500/10 text-amber-400/90 px-1.5 py-0.5 rounded-sm font-mono tracking-wide">{s}</span>
           ))}
+        </div>
+      )}
+      {actor.isDowned && (
+        <div className={`mt-1.5 text-[9px] font-mono ${actor.isCritical ? 'text-red-300/90' : 'text-red-400/70'} ${isActive ? 'pl-2' : ''}`}>
+          {actor.isCritical ? 'CRITICAL STATE' : `DOWNED ${actor.downedCountdown ?? 3}`}
         </div>
       )}
     </div>
@@ -726,7 +786,12 @@ function DebugStateEditor() {
       const parsed = JSON.parse(draft);
       setError(null);
       if (section === 'encounter') {
-        dispatch({ type: 'APPLY_DM_STATE', payload: { encounter: parsed } });
+        const validation = validateEncounterState(parsed);
+        if (!validation.ok) {
+          setError(formatEncounterValidationIssues(validation.issues));
+          return;
+        }
+        dispatch({ type: 'SET_ENCOUNTER', payload: validation.encounter });
       } else if (section === 'scene') {
         dispatch({ type: 'APPLY_DM_STATE', payload: { scene: parsed } });
       } else if (section === 'campaign') {
@@ -1379,8 +1444,15 @@ function EncounterView() {
   const { encounter } = state;
   const [backdropOverride, setBackdropOverride] = useState<string | null>(null);
   const [showBackdropPicker, setShowBackdropPicker] = useState(false);
+  const [selectedActorId, setSelectedActorId] = useState<string | null>(encounter.currentActorId);
 
   const backdropType = (backdropOverride ?? encounter.backdropType) as typeof encounter.backdropType;
+
+  useEffect(() => {
+    if (!selectedActorId || !encounter.actors.some((actor) => actor.id === selectedActorId)) {
+      setSelectedActorId(encounter.currentActorId ?? encounter.actors[0]?.id ?? null);
+    }
+  }, [encounter.actors, encounter.currentActorId, selectedActorId]);
 
   return (
     <div className="flex h-full">
@@ -1394,6 +1466,7 @@ function EncounterView() {
             paths={encounter.paths}
             actors={encounter.actors}
             currentActorId={encounter.currentActorId}
+            onActorClick={setSelectedActorId}
           />
 
           {/* Backdrop picker */}
@@ -1458,6 +1531,9 @@ function EncounterView() {
 
       {/* Right panel: Combat tracker + Chat */}
       <div className="w-[340px] border-l border-white/20 flex flex-col bg-[hsl(228_22%_7%)]">
+        {state.settings.debugMode && (
+          <EncounterHarnessControls selectedActorId={selectedActorId} onSelectActor={setSelectedActorId} />
+        )}
         <div className="flex-1 min-h-0 border-b border-white/20 overflow-hidden bg-black/20">
           <CombatTracker />
         </div>

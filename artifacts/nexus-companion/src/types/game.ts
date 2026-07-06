@@ -43,7 +43,16 @@ export interface TacMapNode {
   status?: string[];
   elevation?: number;
   markers?: MarkerType[];
+  coverEdges?: CoverEdge[];
   isObjective?: boolean;
+}
+
+export type CoverLevel = 'none' | 'half' | 'full';
+
+export interface CoverEdge {
+  fromNodeId: string;
+  level: CoverLevel;
+  blocksVisibility?: boolean;
 }
 
 export interface TacMapPath {
@@ -76,6 +85,54 @@ export interface Actor {
   statusEffects: string[];
   isActive: boolean;
   isDowned: boolean;
+  downedAtRound?: number;
+  downedCountdown?: number;
+  isCritical?: boolean;
+  turnFlags?: ActorTurnFlags;
+}
+
+export interface ActorTurnFlags {
+  attacked?: boolean;
+  dashed?: boolean;
+  defending?: boolean;
+  microInteracted?: boolean;
+  movementBoost?: number;
+}
+
+export interface EncounterLogEntry {
+  id: string;
+  type: string;
+  message: string;
+  round: number;
+  actorId?: string;
+  targetActorId?: string;
+}
+
+export interface EncounterResultSummary {
+  outcome: string;
+  resolvedAtRound: number;
+  survivingActors: string[];
+  downedActors: string[];
+  completedObjectives: string[];
+  openObjectives: string[];
+  clockStates: string[];
+  notes?: string;
+}
+
+export type EncounterObjectiveStatus = 'open' | 'complete' | 'failed';
+export type EncounterObjectiveInteraction = 'micro' | 'action';
+
+export interface EncounterObjectiveState {
+  id: string;
+  label: string;
+  status: EncounterObjectiveStatus;
+  nodeId?: string;
+  progress: number;
+  maxProgress: number;
+  interaction?: EncounterObjectiveInteraction;
+  apCost?: number;
+  legacyObjectiveIndex?: number;
+  tags?: string[];
 }
 
 export interface EncounterState {
@@ -87,9 +144,12 @@ export interface EncounterState {
   paths: TacMapPath[];
   actors: Actor[];
   objectives: string[];
+  objectiveStates?: EncounterObjectiveState[];
   clocks: Clock[];
   notes?: string;
   title?: string;
+  eventLog?: EncounterLogEntry[];
+  resultSummary?: EncounterResultSummary;
 }
 
 export interface SceneState {
@@ -277,6 +337,7 @@ export interface GameState {
 export type GameAction =
   | { type: 'SET_VIEW'; payload: AppView }
   | { type: 'SET_MENU_TAB'; payload: MenuTab }
+  | { type: 'SET_ENCOUNTER'; payload: EncounterState }
   | { type: 'UPDATE_ENCOUNTER'; payload: Partial<EncounterState> }
   | { type: 'UPDATE_SCENE'; payload: Partial<SceneState> }
   | { type: 'UPDATE_CAMPAIGN'; payload: Partial<CampaignState> }
