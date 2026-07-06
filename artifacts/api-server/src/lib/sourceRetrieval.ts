@@ -6,6 +6,15 @@ const SOURCE_SLICE_CATALOG = `${SOURCE_ROOT}/SOURCE-SLICES.json`;
 const DEFAULT_MAX_RESULTS = 5;
 const DEFAULT_MAX_CHARS = 5200;
 const MAX_QUERY_CHARS = 6000;
+const SHORT_MECHANICS_TOKENS = new Set(["ap", "fw", "hp", "mp", "si", "ts"]);
+const QUERY_SYNONYMS = new Map<string, string[]>([
+  ["ap", ["action", "actions"]],
+  ["fw", ["friction", "wear"]],
+  ["hp", ["health"]],
+  ["mp", ["movement", "move"]],
+  ["si", ["systems", "integrity"]],
+  ["ts", ["target", "score"]],
+]);
 const STOP_WORDS = new Set([
   "about",
   "after",
@@ -139,7 +148,7 @@ function tokenize(text: string): string[] {
     .toLowerCase()
     .replace(/['’]/g, "")
     .split(/[^a-z0-9]+/)
-    .filter((term) => term.length >= 3 && !STOP_WORDS.has(term));
+    .filter((term) => (term.length >= 3 || SHORT_MECHANICS_TOKENS.has(term)) && !STOP_WORDS.has(term));
 }
 
 function termCounts(text: string): Map<string, number> {
@@ -216,7 +225,9 @@ function scoreSlice(slice: IndexedSlice, terms: string[]): number {
 }
 
 function uniqueTerms(query: string): string[] {
-  return [...new Set(tokenize(query.slice(0, MAX_QUERY_CHARS)))].slice(0, 80);
+  const terms = tokenize(query.slice(0, MAX_QUERY_CHARS));
+  const expandedTerms = terms.flatMap((term) => [term, ...(QUERY_SYNONYMS.get(term) ?? [])]);
+  return [...new Set(expandedTerms)].slice(0, 80);
 }
 
 function trimToBudget(results: RetrievedSourceSlice[], maxChars: number): RetrievedSourceSlice[] {
