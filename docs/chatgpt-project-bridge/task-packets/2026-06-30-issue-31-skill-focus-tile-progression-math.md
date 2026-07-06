@@ -22,7 +22,7 @@ Goal: Define the minimum behavior a future Skill Focus tile and progression math
 Why this matters: Skill/Ability Structure #31 is the current ready source/play document task, and the app needs a simple, playable progression posture before final balance exists.
 Review gate: Nexus bridge review after validation.
 Reviewer result: PASS_WITH_NOTES on 2026-06-30.
-Reviewer feedback / fix status: No targeted fixes required. Note that the repo has many unrelated dirty files and these bridge changes are local-only and uncommitted.
+Reviewer feedback / fix status: Original bridge review required no targeted content fixes. Recovery review on 2026-07-06 found and corrected stale local-worktree status text before publication.
 
 ## Current Known State
 
