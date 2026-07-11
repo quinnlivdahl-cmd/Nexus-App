@@ -29,8 +29,12 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # TacMap Node Movement and Positioning
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
+
 <!-- source-slice: combat.tacmap.core-definition -->
 ## 1. Core TacMap definition
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 A TacMap is a simplified tabletop encounter map made of meaningful **nodes** connected by **paths**. It is a node-web, not a full grid and not a single abstract zone.
 
 Hard current boundary:
@@ -43,6 +47,7 @@ TacMaps may include positions, routes, cover, hazards, objectives, elevation, NP
 
 <!-- source-slice: combat.tacmap.core-numeric-movement-rule -->
 ## 2. Core numeric movement rule
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 Working rule:
 
@@ -68,6 +73,7 @@ Requires Speed 6+, AP movement boost, skill/gear reduction, accepted risk, or en
 
 <!-- source-slice: combat.tacmap.nodes -->
 ## 3. Nodes
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 Nodes are meaningful positions. A node may represent cover, a doorway, a gantry section, a terminal, a balcony, a cargo stack, a medbay threshold, an airlock, an objective point, or any tactical location that matters.
 
@@ -81,6 +87,7 @@ A node should clearly communicate:
 
 <!-- source-slice: combat.tacmap.node-status-and-path-status -->
 ## 4. Node status and path status
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 Node Status and Path Status are environmental/tactical status surfaces.
 
@@ -95,6 +102,7 @@ If an alternate route is the only option, do not show a "blocked path" as a norm
 
 <!-- source-slice: combat.tacmap.paths-and-line-of-sight -->
 ## 5. Paths and line of sight
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 Paths are connections between nodes. A path has a distance and may have tags or modifiers such as debris, climb, exposed, narrow, smoke, low gravity, vent, ladder, lift, hatch, broken rail, vacuum risk, or sensor-watched.
 
@@ -108,6 +116,7 @@ Cover, visibility, line-of-fire, and movement path data should be represented di
 
 <!-- source-slice: combat.tacmap.node-capacity-and-character-size -->
 ## 6. Node capacity and character size
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 Nodes have character capacity.
 
@@ -157,6 +166,7 @@ Current boundary:
 
 <!-- source-slice: combat.tacmap.in-transit-state -->
 ## 10. In-transit state
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 When a character cannot fully complete a route, the character may be in transit if the map supports it. In-transit status should usually imply increased exposure, uncertain cover, or risk from reactions / hazards.
 
@@ -174,6 +184,7 @@ Shove and forced movement are supported, but not automatic. Shove likely costs A
 
 <!-- source-slice: combat.tacmap.map-scale-and-movement-support -->
 ## 13. Map scale and movement support
+> [!note] Slice status — historical spatial model. Node/path/capacity/in-transit rules in this slice are prototype evidence; continuous Location geometry and authored Interaction/Cover Positions in `CORE-SPATIAL-001` control.
 
 Encounter maps should support movement across multiple turns. A good TacMap creates reasons to advance, retreat, flank, reposition, climb, cross exposed routes, interact with objectives, and protect vulnerable nodes.
 
@@ -191,4 +202,3 @@ Still open:
 - path status icon grammar;
 - dense cluster display standard;
 - structured TacMap data template ownership with `Automation` and `Play Aids`.
-

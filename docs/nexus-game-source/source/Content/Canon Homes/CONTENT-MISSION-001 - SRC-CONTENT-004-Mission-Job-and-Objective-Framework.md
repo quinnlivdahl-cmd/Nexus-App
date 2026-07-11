@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Mission, Job, and Objective Framework
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
+
 ## Purpose
 
 Mission and job content should give play structure without forcing rigid menus. The player can use short commands or freeform plans; DM Mode interprets intent and asks for clarification only when needed.
@@ -179,6 +182,5 @@ When a mission element expects tactical play, the content entry should identify 
 - DM-only hidden layer, if any.
 
 `Content` may request TacMap support, but `Combat` owns the TacMap rules, `Play Aids` owns display-aid specs, `Automation` owns data and renderer implications, and `Art` owns visual and asset direction.
-
 
 

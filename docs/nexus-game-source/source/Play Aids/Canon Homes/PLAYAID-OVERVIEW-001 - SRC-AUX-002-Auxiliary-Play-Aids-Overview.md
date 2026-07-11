@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-C
 
 # Auxiliary Play Aids Overview
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Play aids derive from authoritative Location and Game Truth state under `CORE-SPATIAL-001`. Encounter-start packets, TacMap handoffs, node webs, and DM-facing bundles below are historical presentation patterns where they imply a separate Encounter authority.
+
 <!-- source-slice: playaid.overview.definition -->
 ## 1. Definition
 
@@ -92,6 +95,7 @@ The player should not have to ask for the TacMap when a tactical encounter begin
 
 <!-- source-slice: playaid.overview.encounter-start-packet -->
 ## 6. Encounter Start Packet
+> [!note] Slice status — historical presentation pattern. Tactical Pressure begins inside the persistent Location; derived player-safe or Developer Mode aids may appear, but no Encounter Start Packet or TacMap handoff creates spatial or rules authority under `CORE-SPATIAL-001`.
 
 An Encounter Start Packet is the player/DM-facing aid bundle used when tactical or structured encounter play begins.
 
@@ -132,5 +136,4 @@ Each substantial play aid should state or imply the relevant owners:
 - Automation and data model implications: `Automation`.
 - Dashboards and current state: `Dashboards`.
 - Art and visual direction: `Art`.
-
 

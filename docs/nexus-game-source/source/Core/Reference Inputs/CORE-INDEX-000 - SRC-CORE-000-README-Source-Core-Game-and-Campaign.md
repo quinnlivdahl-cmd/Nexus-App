@@ -27,7 +27,7 @@ metadata_notes: "Phase 10 Core consolidation. Core describes game/campaign owner
 
 ## Purpose
 
-The `Core` domain owns Nexus's high-level game identity, tabletop-first design principles, campaign loop, route/node procedure, ship phase, mission-node structure, core terminology, and core open questions.
+The `Core` domain owns Nexus's high-level spatial-game identity, campaign loop, persistent Location model, Route Node procedure, Ship Time, core terminology, and core open questions.
 
 Core answers: **what is Nexus, what is the playable loop, and how does campaign play advance from ship state to node to consequence?**
 
@@ -51,8 +51,9 @@ Current Core surfaces include:
 
 - `CORE-INDEX-000`: domain readme.
 - `CORE-INDEX-001`: domain manifest.
+- `CORE-SPATIAL-001`: controlling spatial gameplay and Location model.
 - `CORE-PILLARS-001`: Nexus core game pillars.
-- `CORE-DESIGN-001`: tabletop-first design principles.
+- `CORE-DESIGN-001`: retained tabletop design evidence and surviving principles.
 - `CORE-CAMPAIGN-001`: campaign loop and route structure.
 - `CORE-SHIP-001`: ship phase and crew operations.
 - `CORE-MISSION-001`: mission-node structure.
@@ -67,14 +68,14 @@ Use Core first for:
 - route/node structure;
 - ship phase and campaign-scale consequences;
 - mission-node entry and choice structure;
-- tabletop-first vs automation boundary;
+- spatial product and deterministic-authority boundary;
 - core terminology and high-level game identity.
 
 Do not treat a campaign dashboard, playtest handoff, or old backup as universal Core canon unless promoted into Core source.
 
 ## Cross-Domain Routing
 
-- `Combat`: tactical combat, TacMap movement, cover, statuses, and encounter pacing.
+- `Combat`: Tactical Pressure, Turn-Based Mode, action economy, cover, statuses, and objective pacing.
 - `Characters`: chassis, crew, recovery, advancement, and character identity.
 - `Skills`: resolution, Target Score, skill hierarchy, and noncombat checks.
 - `Equipment`: gear, loadout, cyberware, weapons, defenses, and tools.
@@ -88,5 +89,4 @@ Do not treat a campaign dashboard, playtest handoff, or old backup as universal 
 No old core/campaign source, route/node file, phone backup, handoff, dashboard, or playtest file is deletion-approved by this readme.
 
 Cleanup requires unique-content coverage verification and explicit user approval.
-
 

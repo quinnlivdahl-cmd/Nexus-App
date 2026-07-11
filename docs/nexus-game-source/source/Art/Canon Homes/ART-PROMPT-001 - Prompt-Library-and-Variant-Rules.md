@@ -26,13 +26,18 @@ metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language n
 
 # Prompt Library and Variant Rules
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Prompts may create concept art, modular-asset references, or Live Illustrations, but generated output cannot define Location geometry, navigation, occlusion, Cover Positions, legal movement, or committed Game Truth. TacMap collage and backdrop language below is historical where it claims spatial authority.
+
 <!-- source-slice: art.prompt.purpose -->
 ## Purpose
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 This is a seeded prompt library for Art Mode and visual support. It gives reusable prompt structures without locking final art generation workflows.
 
 <!-- source-slice: art.prompt.metadata-block -->
 ## Prompt metadata block
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 Use this before important prompts when practical:
 
@@ -50,6 +55,7 @@ Post-generation review question:
 
 <!-- source-slice: art.prompt.base-nexus-style -->
 ## Base Nexus style prompt
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 ```md
 Grounded NASApunk sci-fi tabletop RPG visual, near-future solar-system setting, cyberpunk density with dieselpunk grit, practical NASA-like industrial design, modular spacecraft and habitats, exposed mechanicals, patched hulls, analog switches, glowing diagnostics, thick cables, industrial warning labels, utilitarian crew gear, lived-in dangerous environment, off-white panels, worn orange safety markings, faded teal displays, rusted metal, warning yellow, emergency red, electric cyan accents, readable sourcebook composition.
@@ -59,6 +65,7 @@ Avoid glossy Star Trek cleanliness, pure military realism, overdesigned anime ar
 
 <!-- source-slice: art.prompt.character-concept-skeleton -->
 ## Character concept prompt skeleton
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 ```md
 Create a [character/body type/crew role] concept for Nexus, a grounded NASApunk sci-fi tabletop RPG. Emphasize practical lived-in space gear, visible maintenance burden, body/personhood implications, readable silhouette, and cyberpunk-dieselpunk solar-system grit. Show how the character survives fragile habitats and institutional pressure. Preserve Nexus rule: no fantasy races, only arguments about what still counts as human. Do not invent final mechanics or faction canon.
@@ -66,6 +73,7 @@ Create a [character/body type/crew role] concept for Nexus, a grounded NASApunk 
 
 <!-- source-slice: art.prompt.environment-concept-skeleton -->
 ## Environment concept prompt skeleton
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 ```md
 Create a [ship/station/habitat/location] concept for Nexus. Make it practical, modular, worn, and lived-in: pressure doors, service corridors, hazard markings, exposed conduits, patched panels, cargo restraints, analog backups, teal diagnostics, orange safety markings, and signs of corporate/state control. Keep the layout readable enough for tabletop use. Do not overcanonize geography, factions, or exact route structure.
@@ -85,6 +93,7 @@ Create a simple readable tabletop icon for [concept] in Nexus. Style: NASApunk t
 
 <!-- source-slice: art.prompt.tacmap-diagram-skeleton -->
 ## TacMap diagram prompt skeleton
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 ```md
 Create a tactical sourcebook-style node-web map diagram for a Nexus encounter. Prioritize readability over illustration. Include labeled nodes, movement links, cover, half cover, elevation, hazards, interactables, objective markers, extraction, enemy positions, and a compact legend. Use grounded NASApunk industrial visual language with off-white panels, worn orange markings, teal diagnostics, warning yellow, emergency red, and black void/industrial negative space. Do not add rules not supplied in the encounter data.
@@ -92,6 +101,7 @@ Create a tactical sourcebook-style node-web map diagram for a Nexus encounter. P
 
 <!-- source-slice: art.prompt.variant-rules -->
 ## Variant rules
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 When requesting variants, vary one dimension at a time:
 
@@ -118,6 +128,7 @@ For image repair prompts:
 
 <!-- source-slice: art.prompt.art-mode-behavior-note -->
 ## Art Mode behavior note
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 Art Mode has two lanes. Art Direction is the default text-only lane for prompts, edit prompts, variants, critique, style locks, and routing. Art Production is the explicit execution lane for image generation or image editing.
 
@@ -125,6 +136,7 @@ Actual image generation should occur only when the user explicitly invokes Art P
 
 <!-- source-slice: art.prompt.art-production-packet-format -->
 ## Art Production Packet format - 2026-05-15
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 Use this packet when an Art Direction chat prepares a separate Art Production chat. It is designed to keep source context centralized while preventing accidental image generation in planning chats.
 
@@ -160,6 +172,7 @@ Production packets should be specific enough that Art Production can execute wit
 
 <!-- source-slice: art.prompt.tacmap-prompt-additions -->
 ## TacMap prompt additions - 2026-05-15
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 ### Top-down TacMap icon prompt skeleton
 
@@ -184,5 +197,3 @@ Create a top-down/slight-isometric NASApunk TacMap prototype for `[LOCATION]`. S
 ### Repair prompt rule
 
 Repair prompts must say what tactical truth may not change: node count, node labels, path connections, objective labels, hazard placement, faction positions, and route status. Visual polish may improve only after tactical readability is preserved.
-
-

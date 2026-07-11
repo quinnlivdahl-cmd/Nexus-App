@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Enemy and NPC Content Framework
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
+
 ## Current status
 
 Enemy and recruit-NPC source coverage was thin in the active old source. The old enemy and recruit docs were placeholders. This package therefore creates a seeded framework rather than a finalized roster.
@@ -142,6 +145,5 @@ Useful NPC/content distinctions:
 - **Crew member:** belongs in campaign state once active.
 
 Content entries may reference Standard Status, System Status, morale pressure, surrender, capture, legal or custody complications, or faction outcomes, but those rules remain outside `Content`.
-
 
 

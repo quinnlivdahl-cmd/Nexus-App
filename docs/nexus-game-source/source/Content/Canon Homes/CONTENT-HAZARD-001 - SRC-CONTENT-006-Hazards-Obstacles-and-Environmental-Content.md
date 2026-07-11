@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Hazards, Obstacles, and Environmental Content
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
+
 ## Purpose
 
 Hazards and obstacles create tactical decisions that are not only enemy HP. They can pressure movement, timing, resources, tools, objectives, and route decisions.
@@ -158,6 +161,5 @@ Wall breach and destructible-wall content remains a parked content branch. Do no
 ### Marker routing
 
 Hazard content may request icons or map markers, but display grammar belongs to `Play Aids` and visual or icon direction belongs to `Art`.
-
 
 

@@ -30,6 +30,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Recovery, Revival, and Consequence Model
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Recovery, the Character Build Stack, and compatible progression rules below survive under `CORE-SPATIAL-001`. Each campaign begins with a new Captain; the Crew Archive supplies eligible starting Crewmates; Rook references are Campaign Fixture evidence. Exact Growth Trait timing/cost and archive migration edges remain open.
+
 ## 1. Purpose
 
 This doc owns character-facing recovery and revival consequences. Combat procedure belongs to `Combat`; ship and campaign loop timing belong to `Core`; detailed equipment and medical tech belong to `Equipment`; setting ethics and law belong to `Lore`.
@@ -184,5 +187,4 @@ Examples to keep in the candidate pool:
 - neural pattern archive;
 - personhood black box;
 - Signal-anomaly recovery.
-
 

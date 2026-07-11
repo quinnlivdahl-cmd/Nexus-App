@@ -27,6 +27,9 @@ metadata_notes: "Phase 10 Dashboards consolidation. Art dashboard now uses domai
 
 # Art Mode Live Asset Dashboard
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This dashboard is historical production evidence. Current art work must distinguish validated modular Location assets from Live Illustrations and must not treat TacMap backdrops or collages as spatial truth.
+
 > [!summary]+ Snapshot
 > - **Mode owner:** Art.
 > - **Intended placement:** `01_Admin/Live_Dashboards/`.
@@ -130,5 +133,4 @@ metadata_notes: "Phase 10 Dashboards consolidation. Art dashboard now uses domai
 
 - Art dashboard tracks prompts, review, direction, and asset status.
 - Generation happens outside the Nexus project.
-
 

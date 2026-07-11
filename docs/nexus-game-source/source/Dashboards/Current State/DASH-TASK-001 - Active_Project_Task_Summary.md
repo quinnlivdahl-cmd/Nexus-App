@@ -29,6 +29,9 @@ metadata_notes: "Phase 10 Dashboards consolidation. Task routing now uses domain
 
 # Active Project Task Summary
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This task summary is historical and not the live execution queue. Use live GitHub and revised planning controls; product interpretation follows `CORE-SPATIAL-001`.
+
 ## Snapshot
 
 This is the consolidated active task/tracker surface for the current mass-intake pass. A task list already exists here, so no duplicate tracker should be created unless a future review proves this surface cannot hold the work cleanly.
@@ -267,5 +270,4 @@ Examples: `Water Sd1.17e`, `Draft Route Node End Report template`, `Produce SVG 
 - Do not call outputs current until metadata/content status is checked.
 - Use current chat files and latest source docs over stale backups when conflicts exist.
 - Check existing trackers before creating new task lists.
-
 

@@ -26,8 +26,12 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Encounter Content Library
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
+
 <!-- source-slice: content.encounter.status-and-use -->
 ## Status
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 This is a seeded library of reusable patterns, not a final encounter roster.
 
@@ -35,6 +39,7 @@ Use these entries as DM/content scaffolds. Promote, rename, or rewrite through D
 
 <!-- source-slice: content.encounter.pattern-objective-runner -->
 ## Pattern: Objective Runner
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Source basis: RNG Appendix D test profile.
 
@@ -53,6 +58,7 @@ Content hooks:
 
 <!-- source-slice: content.encounter.pattern-system-vulnerable-machine -->
 ## Pattern: System-Vulnerable Machine
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Source basis: RNG Appendix D test profile.
 
@@ -70,6 +76,7 @@ Content hooks:
 
 <!-- source-slice: content.encounter.pattern-hazard-clock-room -->
 ## Pattern: Hazard Clock Room
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Source basis: procedural mission source and Dq9 counter guidance.
 
@@ -94,6 +101,7 @@ Content requirements:
 
 <!-- source-slice: content.encounter.pattern-requirement-escape -->
 ## Pattern: Requirement Escape
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Source basis: Dq9 escape procedure.
 
@@ -103,6 +111,7 @@ Use a checklist of requirements. Add a pressure counter only when needed. Requir
 
 <!-- source-slice: content.encounter.pattern-dead-drop-investigation-node -->
 ## Pattern: Dead-Drop Investigation Node
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Source basis: Rook campaign handoff to Maintenance Relay Cache E-43.
 
@@ -118,6 +127,7 @@ Core ingredients:
 
 <!-- source-slice: content.encounter.pattern-custody-legal-pressure-node -->
 ## Pattern: Custody/Legal Pressure Node
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Source basis: Dq9 aftermath, Rook Vale custody pressure, and current campaign-state concepts.
 
@@ -138,6 +148,7 @@ Content hooks:
 
 <!-- source-slice: content.encounter.pattern-salvage-vs-delay-choice -->
 ## Pattern: Salvage vs Delay Choice
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 A node where the valuable thing is available, but taking it costs time, risk, heat, or counter progress.
 
@@ -150,6 +161,7 @@ Use to make rewards tactical:
 
 <!-- source-slice: content.encounter.library-growth-rule -->
 ## Library growth rule
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Add new patterns only when a handoff, playtest, Seed harvest, or Draft pass produces reusable content. Do not fill the library with invented lists just to make it look complete.
 
@@ -157,6 +169,7 @@ Add new patterns only when a handoff, playtest, Seed harvest, or Draft pass prod
 
 <!-- source-slice: content.encounter.pattern-node-path-hazard -->
 ### Pattern: Node/Path Hazard Pattern
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 A tactical or mission scene built around node/path conditions rather than enemy count. Useful for vacuum leaks, electrical paths, smoke lanes, watched corridors, pressure doors, fire spread, gravity shifts, or contaminated zones.
 
@@ -179,7 +192,6 @@ A route that avoids a choke point, objective lock, patrol, legal checkpoint, haz
 
 <!-- source-slice: content.encounter.pattern-tacmap-ready-requirement-escape -->
 ### Pattern: TacMap-Ready Requirement Escape
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 A Requirement Escape that needs tactical spatial support. Content should list requirements, visible route pressures, hidden route pressures, hazards, exits, and what must appear in the encounter-start package.
-
-

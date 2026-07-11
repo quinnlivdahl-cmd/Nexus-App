@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-C
 
 # Route Node Map Companion
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This aid represents campaign-scale Route Prospects and Route Choices only. It does not define movement or geometry inside a selected Route Node Location; `CORE-SPATIAL-001` owns that spatial boundary.
+
 ## 1. Purpose
 
 Route-node map companions help display campaign, mission, pursuit, escape, clue-chain, and travel choices. They are distinct from TacMaps.
@@ -124,6 +127,5 @@ Current Pressures:
 ## 8. Rook playtest carry-forward
 
 The Rook-style route-node lessons remain relevant: route displays should make choices concrete, but not collapse the whole route into a decorative map with no actionable structure.
-
 
 

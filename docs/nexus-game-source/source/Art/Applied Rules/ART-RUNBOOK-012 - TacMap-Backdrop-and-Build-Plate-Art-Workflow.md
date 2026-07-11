@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 complete for the Art domain. TacMap backdrop workflow 
 
 # TacMap Backdrop and Build Plate Art Workflow
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> TacMap backdrops and build plates are historical concept/prototype evidence, not production spatial truth. Validated Location Modules own geometry, navigation, occlusion, interactions, and Cover Positions; generated or composited art may illustrate but cannot define legal play.
+
 ## 1. Purpose
 
 This document gives Art Mode and prompt work the durable TacMap visual workflow. It should prevent endless redesign loops by making geometry preservation and overlay compatibility the first priority.
@@ -138,5 +141,4 @@ The next Art/TacMap goal is one working TacMap for playtest. The output should p
 5. enough NASApunk vessel flavor to play.
 
 Style polish can come later.
-
 

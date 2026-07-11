@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 Modes consolidation. DM behavior now uses domain-first
 
 # DM Mode Rules AI
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> DM Mode is retained as tabletop/prototype workflow history and playtest support, not the primary product loop or runtime authority. In-world interaction is primary; the hidden Campaign Director is bounded by deterministic Game Truth and validation under `CORE-SPATIAL-001`.
+
 ## 1. Purpose
 
 DM Mode owns tabletop play, campaign state, rulings, playtest logs, pacing, player-facing execution, and temporary encounter state.
@@ -223,4 +226,3 @@ At session close or transfer, preserve:
 - suggested next session entry point.
 
 Closeouts should make future continuation easy without turning DM chat output into a durable source document.
-

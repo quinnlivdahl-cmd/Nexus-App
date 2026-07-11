@@ -9,7 +9,7 @@
   "authority_note": "Nexus-App canonical source index for exact GitHub retrieval, app source-pack work, and Obsidian working-copy promotion. The Obsidian source working-copy layer is C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source.",
   "update_command": "corepack pnpm run source:index",
   "check_command": "corepack pnpm run source:index:check",
-  "file_count": 189,
+  "file_count": 190,
   "domain_counts": [
     {
       "domain": "Admin",
@@ -37,7 +37,7 @@
     },
     {
       "domain": "Core",
-      "files": 9
+      "files": 10
     },
     {
       "domain": "Dashboards",
@@ -1056,6 +1056,18 @@
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
       "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Ship_Phase_and_Crew_Operations. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
       "key_terms": "CORE-SHIP-001, SRC-CORE-005, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, ship_phase_and_crew_operations, Ship, Phase, and, Crew, Operations"
+    },
+    {
+      "domain": "Core",
+      "section": "Canon Homes",
+      "file": "CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "title": "Spatial_Gameplay_and_Location_Model",
+      "doc_id": "CORE-SPATIAL-001",
+      "placement_domain": "Core",
+      "role_status": "canon_home; canon_home; working_draft; provisional_canon; revised_vision_reconciled",
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Spatial_Gameplay_and_Location_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
+      "key_terms": "CORE-SPATIAL-001, Core, Canon Homes, canon_home, working_draft, provisional_canon, revised_vision_reconciled, spatial_gameplay_and_location_model, location_mode_continuity, campaign_director_authority_boundary, campaign_fixture_boundary, Spatial, Gameplay, and, Location, Model"
     },
     {
       "domain": "Core",

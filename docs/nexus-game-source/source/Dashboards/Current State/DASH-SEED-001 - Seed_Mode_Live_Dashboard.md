@@ -27,6 +27,9 @@ metadata_notes: "Phase 10 Dashboards consolidation. Seed dashboard now uses doma
 
 # Seed Mode Live Dashboard
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This dashboard is historical planning evidence. Seed capture may inform Campaign Fixtures or modular source, but DM-chat, Encounter, node-web, and TacMap-collage assumptions do not control the revised product.
+
 > [!tip]+ Canopy
 > - Mode: Seed
 > - What grows here: broad branching, early system pressure, harvest prep, and route-forward planning
@@ -194,5 +197,4 @@ Route to Handoff(item)
 
 > [!note]- Soil Boundary
 > Source is the rooted canon. This dashboard is a live garden map for unfinished work, not the place where canon settles.
-
 

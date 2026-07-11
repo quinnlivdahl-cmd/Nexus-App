@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first
 
 # Ship Phase and Crew Operations
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` now controls the spatial product model. Material below remains current only where it preserves compatible campaign, crew, route, preparation, recovery, or terminology detail. Tabletop-first identity, menu-only Ship Phase, one-main-Encounter structure, node/TacMap spatial authority, and primary DM-chat assumptions are historical.
+
 ## 1. Purpose
 
 The ship phase is the campaign home base. It is where the player reviews state, manages crew and loadouts, handles recovery and consequences, chooses or confirms routes, and prepares for the next playable node.
@@ -128,6 +131,5 @@ These belong primarily to `Dashboards`, but they are preserved here because they
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
 
 

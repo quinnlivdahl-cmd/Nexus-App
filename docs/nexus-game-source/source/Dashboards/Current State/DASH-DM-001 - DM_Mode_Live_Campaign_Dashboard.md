@@ -29,6 +29,9 @@ metadata_notes: "Phase 10 Dashboards consolidation. DM dashboard now uses domain
 
 # DM Mode Live Campaign Dashboard
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This dashboard is historical playtest/current-state evidence and does not define the revised product. Rook is a Campaign Fixture, DM chat is not the primary runtime surface, and current execution must follow `CORE-SPATIAL-001` plus live planning controls.
+
 > [!summary]+ Snapshot
 > - **Mode owner:** DM.
 > - **Intended placement:** `01_Admin/Live_Dashboards/`.
@@ -128,5 +131,4 @@ metadata_notes: "Phase 10 Dashboards consolidation. DM dashboard now uses domain
 
 - Companion summaries such as campaign-state and playtest/rulings remain useful support files, not the primary live dashboard.
 - This dashboard is a live execution surface, not the canon home for combat, character, or campaign-loop rules.
-
 

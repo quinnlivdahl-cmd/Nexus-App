@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 complete for the Art domain. Environment and location 
 
 # Environment and Location Art Direction
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Production environment art supports a fixed shallow tilted top-down camera and validated modular Locations. Live Illustrations and concept composites may establish mood or depict committed moments, but they never define authoritative geometry, cover, navigation, or state.
+
 ## Environment principles
 
 Nexus locations should look like places where people live, work, hide, trade, breathe, and fail. Use the built environment to show economics, faction pressure, maintenance burden, and survival risk.
@@ -115,6 +118,5 @@ This image is not a clean canonical playable map until structured node/path/obje
 ### Orbital/station exterior visual reference
 
 The uploaded orbital/station exterior image is useful as visual reference for lived-in industrial orbital architecture: modular hulls, exposed service infrastructure, patched surfaces, dock arms, pressure systems, warning bands, and maintenance history. It is not a named canon location unless later promoted through source review.
-
 
 

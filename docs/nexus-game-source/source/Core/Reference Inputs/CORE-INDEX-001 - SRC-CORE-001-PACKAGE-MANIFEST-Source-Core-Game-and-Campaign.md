@@ -31,6 +31,7 @@ metadata_notes: "Phase 10 Core consolidation. Tracks Core domain docs, ownership
 |---|---|---|---|
 | `CORE-INDEX-000` | `SRC-CORE-000` | Reference input | Domain readme and authority boundary. |
 | `CORE-INDEX-001` | `SRC-CORE-001` | Reference input | Domain manifest and routing map. |
+| `CORE-SPATIAL-001` | — | Canon home | Controlling spatial gameplay, Location, mode-continuity, Campaign Director, and fixture boundary. |
 | `CORE-PILLARS-001` | `SRC-CORE-002` | Canon home | Nexus core game pillars. |
 | `CORE-DESIGN-001` | `SRC-CORE-003` | Canon home | Tabletop-first design principles. |
 | `CORE-CAMPAIGN-001` | `SRC-CORE-004` | Canon home | Campaign loop and route structure. |
@@ -54,7 +55,7 @@ Core transition evidence included:
 
 - Core keeps campaign-scale procedure and play loop.
 - Campaign-specific dashboard/handoff state remains evidence unless promoted.
-- TT/VG details route to `Automation` unless they define tabletop-first core principles.
+- Historical TT/VG details route to `Automation`; compatible tabletop lessons survive only where they support the spatial product model.
 - Non-core mechanics route to the relevant domain rather than being discarded.
 - Open questions remain explicit instead of hidden in legacy package notes.
 
@@ -63,5 +64,4 @@ Core transition evidence included:
 No old core/campaign source, route/node file, mission-system file, phone backup, dashboard, handoff, or playtest evidence is deletion-approved by this manifest.
 
 Cleanup requires coverage verification and explicit user approval.
-
 

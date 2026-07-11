@@ -26,6 +26,9 @@ metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 rev
 
 # Auxiliary Play Aids Open Questions
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Questions that assume a TacMap collage, node web, or external table owns spatial truth are historical. Keep open only display, accessibility, Developer Mode diagnostic, and derived-visualization questions compatible with `CORE-SPATIAL-001`.
+
 ## 1. Current open questions
 
 - What is the minimum TacMap Render Spec v0.1?
@@ -75,5 +78,4 @@ These should route to the consolidated tracker in `Dashboards` rather than creat
 - Should TacMap icons include a small official legend sheet before more icons are produced?
 - What is the threshold for using a generated image instead of Markdown or SVG collage?
 - How should external display snapshots be archived after a session?
-
 

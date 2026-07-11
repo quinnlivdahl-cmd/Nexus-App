@@ -26,6 +26,9 @@ metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 rev
 
 # Automation Open Questions
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Deterministic Game Truth authority and the bounded Campaign Director Harness are settled by `CORE-SPATIAL-001`. Runtime schemas, harness interfaces, evaluation, recovery, model fallback, and cost control remain open; questions that grant a DM/model or TacMap packet authority are historical.
+
 ## 1. TacMap packet questions
 
 1. What is the minimum TacMap packet schema?
@@ -76,5 +79,4 @@ metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 rev
 - Route visual style, assets, and prompts to `Art`.
 - Route live dashboards and active state to `Dashboards`.
 - Do not reorganize TacMap source during this pass.
-
 
