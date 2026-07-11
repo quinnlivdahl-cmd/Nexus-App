@@ -20,24 +20,28 @@ Use it to answer four questions quickly:
 For app work, read in this order:
 
 1. `AGENTS.md`
-2. This file: `NEXUS_ISSUE_TRANSITION.md`
-3. Open GitHub issues in `quinnlivdahl-cmd/Nexus-App`
-4. `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
-5. Nexus source docs linked from the roadmap when design authority is needed
+2. `CONTEXT-MAP.md`
+3. `docs/contexts/nexus-game/CONTEXT.md`
+4. `docs/adr/README.md` and relevant accepted ADRs
+5. This file: `NEXUS_ISSUE_TRANSITION.md`
+6. Open GitHub issues in `quinnlivdahl-cmd/Nexus-App`
+7. Nexus source docs when canonical design authority is needed
+8. `NEXUS_LOCAL_PLAYABLE_ALPHA.md` only as historical planning evidence
 
 Current app-side Golden Truth source:
 
 - `docs/nexus-game-source/source`
-- Source home: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App\docs\nexus-game-source`
+- Source home: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App-Clean-Review-2026-07-06\docs\nexus-game-source`
 
 Path caveat: this source home was renamed from the dated 2026-06-10 rebuild folder after live migration. Its `legacy_paths` should point at archived slot-source material when path traceability matters.
 
 ## Control Model
 
 - GitHub Issues are the active execution queue.
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` holds app scope, phase gates, backlog detail, and task context.
-- Nexus `00 Source` is now domain-first and remains design/source authority.
-- This transition doc tracks the queue shape and any remaining local-only planning residue.
+- `CONTEXT-MAP.md`, the Nexus Game context, and `docs/adr/README.md` form the revised decision baseline.
+- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` is retained historical planning evidence and is non-controlling until Golden Truth reconciliation, the implementation-ready vertical-slice contract, and revised planning controls land.
+- `docs/nexus-game-source/source` remains canonical game-source authority pending explicit reconciliation.
+- This transition doc tracks queue shape and local-only planning residue; live GitHub is authoritative for issue state and blockers.
 
 ## Queue Rules
 
