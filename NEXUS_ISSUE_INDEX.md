@@ -2,7 +2,7 @@
 
 Status: active Markdown index
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App`
+Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App`
 
 ## Purpose
 

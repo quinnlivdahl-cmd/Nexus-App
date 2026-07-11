@@ -1,0 +1,227 @@
+import type { EncounterState } from '../types/game';
+
+export type EncounterFixtureId = 'dock-nine-breach';
+
+export interface EncounterFixture {
+  id: EncounterFixtureId;
+  label: string;
+  encounter: EncounterState;
+}
+
+export const ENCOUNTER_FIXTURES: Record<EncounterFixtureId, EncounterFixture> = {
+  'dock-nine-breach': {
+    id: 'dock-nine-breach',
+    label: 'Dock Nine Breach',
+    encounter: {
+      active: true,
+      title: 'Dock Nine Breach Test',
+      backdropType: 'station-dock',
+      round: 1,
+      currentActorId: 'pc-field-lead',
+      notes:
+        'Playtest fixture: rival salvage boarders have forced the outer lock while the dock is still on reserve air.',
+      objectives: [
+        'Secure the inner lock before the reserve-air clock fills.',
+        'Recover the dock manifest fragment from the control plinth.',
+        'Keep at least one crew actor standing.',
+      ],
+      objectiveStates: [
+        {
+          id: 'secure-inner-lock',
+          label: 'Secure the inner lock before the reserve-air clock fills.',
+          status: 'open',
+          nodeId: 'inner-lock',
+          progress: 0,
+          maxProgress: 1,
+          interaction: 'action',
+          apCost: 1,
+          legacyObjectiveIndex: 0,
+          tags: ['secure', 'airlock'],
+        },
+        {
+          id: 'recover-manifest-fragment',
+          label: 'Recover the dock manifest fragment from the control plinth.',
+          status: 'open',
+          nodeId: 'control-plinth',
+          progress: 0,
+          maxProgress: 1,
+          interaction: 'micro',
+          legacyObjectiveIndex: 1,
+          tags: ['recover', 'data'],
+        },
+        {
+          id: 'keep-crew-standing',
+          label: 'Keep at least one crew actor standing.',
+          status: 'open',
+          progress: 0,
+          maxProgress: 1,
+          legacyObjectiveIndex: 2,
+          tags: ['survival'],
+        },
+      ],
+      clocks: [
+        { name: 'Reserve Air', current: 1, max: 6 },
+        { name: 'Boarders Reinforce', current: 0, max: 4 },
+      ],
+      nodes: [
+        {
+          id: 'outer-lock',
+          label: 'Outer Lock',
+          x: 14,
+          y: 52,
+          capacity: 3,
+          markers: ['entry', 'half-cover'],
+          coverEdges: [
+            { fromNodeId: 'transfer-spine', level: 'half' },
+          ],
+        },
+        {
+          id: 'transfer-spine',
+          label: 'Transfer Spine',
+          x: 36,
+          y: 50,
+          capacity: 4,
+          markers: ['half-cover'],
+          coverEdges: [
+            { fromNodeId: 'outer-lock', level: 'half' },
+            { fromNodeId: 'control-plinth', level: 'half' },
+          ],
+        },
+        {
+          id: 'control-plinth',
+          label: 'Control Plinth',
+          x: 58,
+          y: 34,
+          capacity: 2,
+          isObjective: true,
+          markers: ['objective', 'high-ground'],
+          elevation: 1,
+          coverEdges: [
+            { fromNodeId: 'transfer-spine', level: 'half' },
+            { fromNodeId: 'inner-lock', level: 'none' },
+          ],
+        },
+        {
+          id: 'cargo-shadow',
+          label: 'Cargo Shadow',
+          x: 61,
+          y: 68,
+          capacity: 3,
+          markers: ['full-cover', 'loot-cache'],
+          coverEdges: [
+            { fromNodeId: 'transfer-spine', level: 'full' },
+            { fromNodeId: 'inner-lock', level: 'half' },
+          ],
+        },
+        {
+          id: 'inner-lock',
+          label: 'Inner Lock',
+          x: 84,
+          y: 50,
+          capacity: 3,
+          isObjective: true,
+          markers: ['exit', 'locked-route'],
+          status: ['sealed'],
+        },
+      ],
+      paths: [
+        { id: 'outer-transfer', fromId: 'outer-lock', toId: 'transfer-spine', distance: 2 },
+        { id: 'transfer-control', fromId: 'transfer-spine', toId: 'control-plinth', distance: 2, tags: ['exposed'] },
+        { id: 'transfer-cargo', fromId: 'transfer-spine', toId: 'cargo-shadow', distance: 1 },
+        { id: 'control-inner', fromId: 'control-plinth', toId: 'inner-lock', distance: 2, tags: ['elevated'] },
+        { id: 'cargo-inner', fromId: 'cargo-shadow', toId: 'inner-lock', distance: 2, status: 'locked' },
+      ],
+      actors: [
+        {
+          id: 'pc-field-lead',
+          name: 'Field Lead',
+          faction: 'player',
+          nodeId: 'transfer-spine',
+          health: 10,
+          maxHealth: 10,
+          systemIntegrity: 0,
+          maxSystemIntegrity: 0,
+          defense: 10,
+          firewall: 10,
+          mitigation: 0,
+          shield: 1,
+          maxShield: 1,
+          ap: 2,
+          maxAp: 2,
+          mp: 3,
+          maxMp: 3,
+          statusEffects: [],
+          isActive: true,
+          isDowned: false,
+        },
+        {
+          id: 'ally-engineer',
+          name: 'Engineer',
+          faction: 'ally',
+          nodeId: 'outer-lock',
+          health: 8,
+          maxHealth: 8,
+          systemIntegrity: 2,
+          maxSystemIntegrity: 2,
+          defense: 8,
+          firewall: 12,
+          mitigation: 0,
+          shield: 0,
+          maxShield: 0,
+          ap: 2,
+          maxAp: 2,
+          mp: 3,
+          maxMp: 3,
+          statusEffects: ['support'],
+          isActive: false,
+          isDowned: false,
+        },
+        {
+          id: 'rival-cutter',
+          name: 'Rival Cutter',
+          faction: 'enemy',
+          nodeId: 'control-plinth',
+          health: 7,
+          maxHealth: 7,
+          defense: 9,
+          mitigation: 1,
+          shield: 0,
+          maxShield: 0,
+          ap: 2,
+          maxAp: 2,
+          mp: 3,
+          maxMp: 3,
+          statusEffects: [],
+          isActive: false,
+          isDowned: false,
+        },
+        {
+          id: 'rival-breacher',
+          name: 'Rival Breacher',
+          faction: 'elite-enemy',
+          nodeId: 'inner-lock',
+          health: 12,
+          maxHealth: 12,
+          defense: 11,
+          mitigation: 2,
+          shield: 1,
+          maxShield: 1,
+          ap: 2,
+          maxAp: 2,
+          mp: 2,
+          maxMp: 2,
+          statusEffects: ['armored'],
+          isActive: false,
+          isDowned: false,
+        },
+      ],
+    },
+  },
+};
+
+export function cloneEncounterFixture(id: EncounterFixtureId): EncounterState {
+  const fixture = ENCOUNTER_FIXTURES[id];
+  return JSON.parse(JSON.stringify(fixture.encounter)) as EncounterState;
+}
+
+export const DEFAULT_ENCOUNTER_FIXTURE_ID: EncounterFixtureId = 'dock-nine-breach';

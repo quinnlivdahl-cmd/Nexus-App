@@ -2,7 +2,11 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { GameStateProvider, useGameState } from './store/GameStateContext';
 import { useDMChat } from './lib/useDMChat';
 import { useImageGeneration } from './lib/useImageGeneration';
+import { createExportableGameState, parseGameStateSave } from './lib/gameStateSave';
+import { formatEncounterResultForScene } from './lib/encounter/encounterRules';
+import { formatEncounterValidationIssues, validateEncounterState } from './lib/encounter/validateEncounter';
 import TacMap from './components/tacmap/TacMap';
+import EncounterHarnessControls from './components/encounter/EncounterHarnessControls';
 import type { AppView, MenuTab, CrewMember, Actor } from './types/game';
 import { BACKDROP_LABELS } from './components/tacmap/backdrops';
 
@@ -195,6 +199,22 @@ function CombatTracker() {
       <div className="flex flex-col items-center justify-center h-full gap-2 text-center p-4">
         <div className="text-white/20 text-xs font-mono uppercase tracking-widest">No Active Encounter</div>
         <p className="text-white/15 text-[10px]">Tell the DM to initiate an encounter to start the tactical display.</p>
+        {encounter.notes && (
+          <div className="mt-2 max-w-full border border-amber-500/20 bg-amber-500/5 rounded px-2 py-1.5 text-left">
+            <div className="text-[8px] uppercase tracking-widest text-amber-400/60 font-mono mb-1">Encounter Notes</div>
+            <div className="text-[9px] text-amber-100/60 font-mono leading-relaxed whitespace-pre-wrap">
+              {encounter.notes}
+            </div>
+          </div>
+        )}
+        {encounter.resultSummary && (
+          <div className="mt-2 max-w-full border border-teal-500/20 bg-teal-500/5 rounded px-2 py-1.5 text-left">
+            <div className="text-[8px] uppercase tracking-widest text-teal-400/60 font-mono mb-1">Last Result</div>
+            <div className="text-[9px] text-teal-100/60 font-mono leading-relaxed whitespace-pre-wrap">
+              {formatEncounterResultForScene(encounter.resultSummary)}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -234,6 +254,20 @@ function CombatTracker() {
             {encounter.objectives.map((obj, i) => (
               <div key={i} className="text-[11px] text-white/60 font-mono pl-2 border-l border-amber-500/30 mb-1">{obj}</div>
             ))}
+            {encounter.objectiveStates && encounter.objectiveStates.length > 0 && (
+              <div className="mt-2 space-y-1">
+                {encounter.objectiveStates.map((objective) => (
+                  <div key={objective.id} className="text-[9px] text-white/40 font-mono pl-2 border-l border-teal-500/20">
+                    <span className={objective.status === 'complete' ? 'text-teal-300/80' : objective.status === 'failed' ? 'text-red-300/80' : 'text-white/50'}>
+                      {objective.status.toUpperCase()}
+                    </span>
+                    {' '}
+                    {objective.progress}/{objective.maxProgress}
+                    {objective.nodeId ? ` @ ${objective.nodeId}` : ''}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
@@ -243,6 +277,28 @@ function CombatTracker() {
             <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-2">Clocks</div>
             <div className="space-y-1.5">
               {encounter.clocks.map((c, i) => <Clock key={i} {...c} />)}
+            </div>
+          </div>
+        )}
+
+        {encounter.notes && (
+          <div>
+            <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-1">Notes</div>
+            <div className="text-[10px] text-white/45 font-mono leading-relaxed whitespace-pre-wrap border-l border-white/10 pl-2">
+              {encounter.notes}
+            </div>
+          </div>
+        )}
+
+        {encounter.eventLog && encounter.eventLog.length > 0 && (
+          <div>
+            <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-1">Event Log</div>
+            <div className="space-y-1 max-h-32 overflow-y-auto pr-1">
+              {encounter.eventLog.slice(-8).map((entry) => (
+                <div key={entry.id} className="text-[10px] text-white/45 font-mono leading-relaxed border-l border-teal-500/20 pl-2">
+                  <span className="text-teal-400/70">R{entry.round}</span> {entry.message}
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -316,6 +372,11 @@ function ActorRow({ actor, currentActorId }: { actor: Actor; currentActorId: str
           {actor.statusEffects.map((s, i) => (
             <span key={i} className="text-[9px] border border-amber-500/40 bg-amber-500/10 text-amber-400/90 px-1.5 py-0.5 rounded-sm font-mono tracking-wide">{s}</span>
           ))}
+        </div>
+      )}
+      {actor.isDowned && (
+        <div className={`mt-1.5 text-[9px] font-mono ${actor.isCritical ? 'text-red-300/90' : 'text-red-400/70'} ${isActive ? 'pl-2' : ''}`}>
+          {actor.isCritical ? 'CRITICAL STATE' : `DOWNED ${actor.downedCountdown ?? 3}`}
         </div>
       )}
     </div>
@@ -725,7 +786,12 @@ function DebugStateEditor() {
       const parsed = JSON.parse(draft);
       setError(null);
       if (section === 'encounter') {
-        dispatch({ type: 'APPLY_DM_STATE', payload: { encounter: parsed } });
+        const validation = validateEncounterState(parsed);
+        if (!validation.ok) {
+          setError(formatEncounterValidationIssues(validation.issues));
+          return;
+        }
+        dispatch({ type: 'SET_ENCOUNTER', payload: validation.encounter });
       } else if (section === 'scene') {
         dispatch({ type: 'APPLY_DM_STATE', payload: { scene: parsed } });
       } else if (section === 'campaign') {
@@ -878,6 +944,59 @@ function PromptDebugPanel() {
                   {copyState === 'copied' ? 'Copied' : copyState === 'failed' ? 'Unavailable' : 'Copy'}
                 </button>
               </div>
+              {snapshot.retrievedSource && (
+                <div className="border-b border-white/10 p-3">
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <div className="text-[8px] uppercase tracking-widest text-white/25 font-mono">
+                      Retrieved Source
+                    </div>
+                    <div className="text-[9px] text-amber-300/70 font-mono">
+                      {snapshot.retrievedSource.status === 'available'
+                        ? `${snapshot.retrievedSource.resultCount} slices`
+                        : 'unavailable'}
+                    </div>
+                  </div>
+                  {snapshot.retrievedSource.error && (
+                    <div className="mb-2 text-[9px] text-red-300/70 font-mono">
+                      {snapshot.retrievedSource.error}
+                    </div>
+                  )}
+                  <div className="space-y-1">
+                    {snapshot.retrievedSource.results.map((item) => (
+                      <div key={item.sliceId} className="text-[9px] text-white/45 font-mono">
+                        <span className="text-teal-200/75">{item.sliceId}</span>
+                        {' | '}
+                        {item.docId}
+                        {' | '}
+                        {item.exactRepoPath}:{item.lineRange}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {snapshot.suppliedMemory && (
+                <div className="border-b border-white/10 p-3">
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <div className="text-[8px] uppercase tracking-widest text-white/25 font-mono">
+                      Supplied Memory
+                    </div>
+                    <div className="text-[9px] text-amber-300/70 font-mono">
+                      {snapshot.suppliedMemory.activeCount} active / {snapshot.suppliedMemory.recordCount} total
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    {snapshot.suppliedMemory.records.map((item) => (
+                      <div key={item.id} className="text-[9px] text-white/45 font-mono">
+                        <span className="text-teal-200/75">{item.id}</span>
+                        {' | '}
+                        {item.kind}
+                        {' | '}
+                        {item.title}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               <pre className="max-h-80 overflow-auto whitespace-pre-wrap break-words bg-black/35 p-3 text-[10px] leading-relaxed text-teal-200/75 font-mono">
                 {snapshot.systemPrompt}
               </pre>
@@ -893,15 +1012,137 @@ function PromptDebugPanel() {
   );
 }
 
+function DMMemoryPanel() {
+  const { state } = useGameState();
+  const [open, setOpen] = useState(false);
+  const activeCount = state.dmMemory.records.filter((record) => record.status === 'active').length;
+  const lastUpdated = state.dmMemory.lastUpdatedAt
+    ? new Date(state.dmMemory.lastUpdatedAt).toLocaleTimeString()
+    : 'never';
+
+  return (
+    <div className="border border-teal-500/20 bg-teal-500/5 rounded overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-teal-500/5 transition-colors"
+      >
+        <span className="text-teal-300/80">
+          <IconBug />
+        </span>
+        <span className="flex-1 min-w-0">
+          <span className="block text-[9px] uppercase tracking-widest text-teal-400/60 font-mono">
+            DM Memory
+          </span>
+          <span className="block text-[9px] text-white/35 font-mono truncate">
+            {activeCount} active / {state.dmMemory.records.length} total | updated {lastUpdated}
+          </span>
+        </span>
+        <span className="text-white/35">{open ? <IconChevronD /> : <IconChevronR />}</span>
+      </button>
+
+      {open && (
+        <div className="border-t border-white/10 p-3 space-y-2">
+          {state.dmMemory.records.length === 0 ? (
+            <div className="text-[10px] text-white/30 font-mono">
+              No persistent memory has been recorded yet.
+            </div>
+          ) : (
+            state.dmMemory.records.map((record) => (
+              <div
+                key={record.id}
+                className={`border rounded px-2 py-2 ${
+                  record.status === 'active'
+                    ? 'border-teal-500/25 bg-black/20'
+                    : 'border-white/10 bg-black/15 opacity-60'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div className="text-[9px] text-teal-200/80 font-mono truncate">
+                    {record.title}
+                  </div>
+                  <div className="text-[8px] uppercase tracking-widest text-white/30 font-mono">
+                    {record.kind} | {record.status}
+                  </div>
+                </div>
+                <div className="mt-1 text-[9px] leading-relaxed text-white/45 font-mono">
+                  {record.content}
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function SettingsPanel() {
   const { state, dispatch, resetToNexusPrimer } = useGameState();
   const [apiKey, setApiKey] = useState(state.settings.openaiApiKey);
   const [saved, setSaved] = useState(false);
+  const [saveMessage, setSaveMessage] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const importInputRef = useRef<HTMLInputElement | null>(null);
 
   const saveKey = () => {
     dispatch({ type: 'UPDATE_SETTINGS', payload: { openaiApiKey: apiKey } });
     setSaved(true);
     setTimeout(() => setSaved(false), 1500);
+  };
+
+  const exportSave = () => {
+    const exportState = createExportableGameState(state);
+    const campaignSlug = exportState.campaign.campaignName
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '') || 'nexus-session';
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const blob = new Blob([`${JSON.stringify(exportState, null, 2)}\n`], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${campaignSlug}-${timestamp}.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    setSaveError(null);
+    setSaveMessage('Save exported');
+  };
+
+  const importSave = async (file: File | null) => {
+    setSaveMessage(null);
+    setSaveError(null);
+    if (!file) return;
+
+    try {
+      const result = parseGameStateSave(await file.text());
+
+      if (!result.ok) {
+        setSaveError(result.error);
+        return;
+      }
+
+      const importedState = {
+        ...result.state,
+        settings: {
+          ...result.state.settings,
+          openaiApiKey: state.settings.openaiApiKey,
+        },
+      };
+
+      dispatch({ type: 'LOAD_STATE', payload: importedState });
+      setApiKey(importedState.settings.openaiApiKey);
+      setSaveMessage('Save imported');
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : 'Unable to read save file.');
+    } finally {
+      if (importInputRef.current) importInputRef.current.value = '';
+    }
   };
 
   return (
@@ -925,6 +1166,41 @@ function SettingsPanel() {
           </button>
         </div>
         <div className="text-[9px] text-white/25 font-mono mt-1">Stored in browser localStorage. Never sent to any server except OpenAI.</div>
+      </div>
+
+      {/* Local Save */}
+      <div className="border-t border-white/10 pt-4">
+        <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-2">Local Save</div>
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            onClick={exportSave}
+            className="border border-teal-500/40 text-teal-300/80 text-xs font-mono rounded px-3 py-2 hover:bg-teal-500/10 transition-colors"
+          >
+            Export JSON
+          </button>
+          <button
+            onClick={() => importInputRef.current?.click()}
+            className="border border-amber-500/40 text-amber-300/80 text-xs font-mono rounded px-3 py-2 hover:bg-amber-500/10 transition-colors"
+          >
+            Import JSON
+          </button>
+        </div>
+        <input
+          ref={importInputRef}
+          type="file"
+          accept="application/json,.json"
+          className="hidden"
+          onChange={(event) => void importSave(event.target.files?.[0] ?? null)}
+        />
+        <div className="text-[9px] text-white/25 font-mono mt-1">
+          Exports campaign state, transcript, DM memory, encounter state, settings, and image references. API key is not included.
+        </div>
+        {saveMessage && (
+          <div className="text-[9px] text-teal-300/80 font-mono mt-2">{saveMessage}</div>
+        )}
+        {saveError && (
+          <div className="text-[9px] text-red-400 font-mono mt-2">Import error: {saveError}</div>
+        )}
       </div>
 
       {/* Model */}
@@ -980,6 +1256,12 @@ function SettingsPanel() {
         <div>
           <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mb-2">Prompt</div>
           <PromptDebugPanel />
+
+          <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mt-4 mb-2">Memory</div>
+          <div className="text-[9px] text-white/30 font-mono mb-2">
+            Persistent play-session memory is lower authority than current app state and canonical source.
+          </div>
+          <DMMemoryPanel />
 
           <div className="text-[9px] uppercase tracking-widest text-amber-500/50 font-mono mt-4 mb-2">State Editor</div>
           <div className="text-[9px] text-white/30 font-mono mb-2">
@@ -1162,8 +1444,15 @@ function EncounterView() {
   const { encounter } = state;
   const [backdropOverride, setBackdropOverride] = useState<string | null>(null);
   const [showBackdropPicker, setShowBackdropPicker] = useState(false);
+  const [selectedActorId, setSelectedActorId] = useState<string | null>(encounter.currentActorId);
 
   const backdropType = (backdropOverride ?? encounter.backdropType) as typeof encounter.backdropType;
+
+  useEffect(() => {
+    if (!selectedActorId || !encounter.actors.some((actor) => actor.id === selectedActorId)) {
+      setSelectedActorId(encounter.currentActorId ?? encounter.actors[0]?.id ?? null);
+    }
+  }, [encounter.actors, encounter.currentActorId, selectedActorId]);
 
   return (
     <div className="flex h-full">
@@ -1177,6 +1466,7 @@ function EncounterView() {
             paths={encounter.paths}
             actors={encounter.actors}
             currentActorId={encounter.currentActorId}
+            onActorClick={setSelectedActorId}
           />
 
           {/* Backdrop picker */}
@@ -1241,6 +1531,9 @@ function EncounterView() {
 
       {/* Right panel: Combat tracker + Chat */}
       <div className="w-[340px] border-l border-white/20 flex flex-col bg-[hsl(228_22%_7%)]">
+        {state.settings.debugMode && (
+          <EncounterHarnessControls selectedActorId={selectedActorId} onSelectActor={setSelectedActorId} />
+        )}
         <div className="flex-1 min-h-0 border-b border-white/20 overflow-hidden bg-black/20">
           <CombatTracker />
         </div>

@@ -26,20 +26,21 @@ If a Nexus-specific rule must override a global rule, make the override explicit
 
 Before app work, read:
 
-1. `NEXUS_ISSUE_INDEX.md` when present.
-2. `NEXUS_ISSUE_TRANSITION.md`.
-3. `NEXUS_LOCAL_PLAYABLE_ALPHA.md`.
+1. `CONTEXT-MAP.md`, the relevant context, and `docs/adr/README.md`.
+2. `NEXUS_ISSUE_INDEX.md` when present.
+3. `NEXUS_ISSUE_TRANSITION.md`.
 4. `replit.md`.
 5. `docs/admin/nexus-distributed-surfaces.md`.
 6. `docs/nexus-game-source/README.md`.
 7. Relevant Nexus source docs named by the task, roadmap, or app planning files.
-8. `docs/admin/task-planning/codex-session-discipline-workflow.md` for non-trivial planning, handoff, issue, or multi-step Codex work.
+8. `NEXUS_LOCAL_PLAYABLE_ALPHA.md` only as historical planning evidence until the revised implementation contract and finish line are integrated.
+9. `docs/admin/task-planning/codex-session-discipline-workflow.md` for non-trivial planning, handoff, issue, or multi-step Codex work.
 
 ## Product Direction
 
-The app is the primary local playtest surface for Nexus.
+Nexus Game is the primary local playtest and product surface. The application historically described as the "companion app" is becoming the game itself; `companion` is legacy implementation naming, not the product's role.
 
-The target is a local-first text RPG application with DM-led narrative play, integrated encounters, TacMaps, play aids, scene images, and source-backed rules/lore.
+The target is a local-first, polished 2D/slight-isometric indie RPG/roguelike with spatial exploration and non-combat play, integrated tactical encounters, play aids, scene imagery, and source-backed rules and lore. Text supports the experience rather than constituting the whole game.
 
 Replit may be used to implement tasks, but the app must remain runnable from the user's local machine.
 
@@ -88,6 +89,20 @@ When the user references ChatGPT, Stewy, a synced chat, a planning chat, or a no
 When creating Replit tasks, use the task format in `NEXUS_LOCAL_PLAYABLE_ALPHA.md` plus any relevant Replit add-on from the task packet template.
 
 When doing Codex work sessions, keep work tied to one roadmap gate, one explicit task packet, or one GitHub issue when practical.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues in `quinnlivdahl-cmd/Nexus-App` are the live execution tracker. External pull requests are not a request or triage surface. Preserve Nexus issue naming and supporting planning surfaces. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the Nexus status-prefixed mapping for Matt Pocock's five triage roles. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Use a multi-context layout with `Nexus Game` and `Nexus Project Operations`. See `docs/agents/domain.md`.
 
 ## Session Discipline
 

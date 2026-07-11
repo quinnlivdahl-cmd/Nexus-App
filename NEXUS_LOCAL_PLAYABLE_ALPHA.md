@@ -1,6 +1,6 @@
 # Nexus Local Playable Alpha
 
-Status: active implementation plan
+Status: historical, non-controlling implementation plan
 Owner: local app workstream
 Primary surface: this app repo
 Related repo roadmap surface: `docs/nexus-roadmap/ROADMAP.md`
@@ -8,8 +8,9 @@ Related repo roadmap surface: `docs/nexus-roadmap/ROADMAP.md`
 Active execution queue note:
 
 - GitHub Issues are the active task queue for `quinnlivdahl-cmd/Nexus-App`.
-- This roadmap remains the scope, gate, and backlog context surface.
-- Use `NEXUS_ISSUE_TRANSITION.md` for queue order and migration status.
+- This document preserves the former text-RPG/DM-chat implementation scope, gates, and backlog as dated evidence.
+- It must not control new work until Golden Truth Spatial Reconciliation #59, Integration-Ready Vertical Slice Contract #30, and Revised Vision Planning Controls #60 establish the replacement implementation boundary and finish line.
+- Use `CONTEXT-MAP.md`, `docs/contexts/nexus-game/CONTEXT.md`, and `docs/adr/README.md` for the revised product baseline; use live GitHub for execution state.
 
 ## Purpose
 

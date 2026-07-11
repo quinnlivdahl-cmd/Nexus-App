@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import type { GameState, GameAction } from '../types/game';
 import { INITIAL_NEXUS_PRIMER_STATE } from '../data/nexusPrimerCampaign';
+import { stripRuntimeFlags } from '../lib/gameStateSave';
+import { validateEncounterState } from '../lib/encounter/validateEncounter';
+import { mergeDMMemory, normalizeDMMemory } from '../lib/dmMemory';
 
 const STORAGE_KEY = 'nexus-companion-state';
 const PROTOTYPE_ROOK_STORAGE_KEY = 'nexus-companion-prototype-rook-state';
@@ -12,6 +15,13 @@ function gameReducer(state: GameState, action: GameAction): GameState {
 
     case 'SET_MENU_TAB':
       return { ...state, menuTab: action.payload };
+
+    case 'SET_ENCOUNTER':
+      return {
+        ...state,
+        encounter: action.payload,
+        view: action.payload.active ? 'encounter' : state.view,
+      };
 
     case 'UPDATE_ENCOUNTER':
       return { ...state, encounter: { ...state.encounter, ...action.payload } };
@@ -57,6 +67,17 @@ function gameReducer(state: GameState, action: GameAction): GameState {
       };
     }
 
+    case 'REFRESH_DM_MEMORY':
+      return {
+        ...state,
+        dmMemory: mergeDMMemory(
+          state.dmMemory,
+          action.payload.records,
+          action.payload.activeRecordIds,
+          action.payload.supersededAt
+        ),
+      };
+
     case 'SET_SCENE_IMAGE':
       return { ...state, scene: { ...state.scene, generatedImageUrl: action.payload } };
 
@@ -83,22 +104,31 @@ function loadStoredState(): GameState {
 
     if (parsedState.campaign?.campaignName === 'Nexus: Rook Protocol') {
       localStorage.setItem(PROTOTYPE_ROOK_STORAGE_KEY, JSON.stringify(parsedState));
-      return {
+      return stripRuntimeFlags({
         ...INITIAL_NEXUS_PRIMER_STATE,
         settings: {
           ...INITIAL_NEXUS_PRIMER_STATE.settings,
           ...parsedState.settings,
         },
-        isGeneratingImage: false,
-        isAiThinking: false,
-      };
+      });
     }
 
-    return {
+    const hydratedState = stripRuntimeFlags({
       ...INITIAL_NEXUS_PRIMER_STATE,
       ...parsedState,
-      isGeneratingImage: false,
-      isAiThinking: false,
+      dmMemory: normalizeDMMemory(parsedState.dmMemory),
+    });
+
+    const encounterValidation = validateEncounterState(hydratedState.encounter);
+    return {
+      ...hydratedState,
+      encounter: encounterValidation.ok
+        ? encounterValidation.encounter
+        : {
+            ...INITIAL_NEXUS_PRIMER_STATE.encounter,
+            notes: `Stored encounter state was rejected during load: ${encounterValidation.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; ')}`,
+          },
+      view: encounterValidation.ok ? hydratedState.view : 'scene',
     };
   } catch {
     return INITIAL_NEXUS_PRIMER_STATE;
@@ -119,11 +149,7 @@ export function GameStateProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const { lastDMDebug: _lastDMDebug, ...stateToPersist } = state;
-      const toStore = {
-        ...stateToPersist,
-        isGeneratingImage: false,
-        isAiThinking: false,
-      };
+      const toStore = stripRuntimeFlags(stateToPersist);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore));
     } catch {
     }

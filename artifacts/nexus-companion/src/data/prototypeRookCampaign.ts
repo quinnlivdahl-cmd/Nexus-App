@@ -7,6 +7,9 @@ export const PROTOTYPE_ROOK_STATE: GameState = {
   menuTab: 'crew',
   isGeneratingImage: false,
   isAiThinking: false,
+  dmMemory: {
+    records: [],
+  },
 
   settings: {
     openaiApiKey: '',

@@ -1,4 +1,5 @@
-import type { GameState, EncounterState, SceneState, CampaignState, CrewMember, Actor } from '../types/game';
+import type { AppView, GameState, EncounterState, SceneState, CampaignState, CrewMember, Actor } from '../types/game';
+import { validateEncounterState } from './encounter/validateEncounter';
 
 export interface ParsedDMBlock {
   type: 'encounter_start' | 'turn_end' | 'scene_transition' | 'route_node_end' | 'campaign_update' | 'crew_update';
@@ -79,6 +80,45 @@ function mergeActors(currentActors: Actor[], updates: Partial<Actor>[]): Actor[]
   return result;
 }
 
+function sanitizeEncounterPatch(
+  block: ParsedDMBlock,
+  currentEncounter: EncounterState
+): Partial<EncounterState> | undefined {
+  if (!block.encounter) return undefined;
+
+  const {
+    actors: _actors,
+    currentActorId: _currentActorId,
+    round: _round,
+    nodes: _nodes,
+    paths: _paths,
+    clocks: _clocks,
+    objectives: _objectives,
+    objectiveStates: _objectiveStates,
+    active: _incomingActive,
+    eventLog: _eventLog,
+    resultSummary: _resultSummary,
+    ...nonMechanical
+  } = block.encounter;
+
+  if (block.type === 'encounter_start' && !currentEncounter.active) {
+    const {
+      eventLog: _startEventLog,
+      resultSummary: _startResultSummary,
+      ...startEncounter
+    } = block.encounter;
+    return startEncounter;
+  }
+
+  return {
+    ...nonMechanical,
+    notes: [
+      typeof nonMechanical.notes === 'string' ? nonMechanical.notes : undefined,
+      'DM encounter mechanics ignored; use app encounter controls for movement, turns, resources, damage, clocks, objectives, and resolution.',
+    ].filter(Boolean).join('\n'),
+  };
+}
+
 /**
  * Apply parsed DM state blocks onto the current GameState.
  * Returns only the top-level keys that actually changed.
@@ -97,8 +137,9 @@ export function applyStateBlocks(
   let crew = [...currentState.crew];
 
   for (const block of blocks) {
-    if (block.encounter) {
-      const { actors: incomingActors, ...encounterRest } = block.encounter;
+    const encounterPatch = sanitizeEncounterPatch(block, encounter);
+    if (encounterPatch) {
+      const { actors: incomingActors, ...encounterRest } = encounterPatch;
 
       // Shallow-merge all non-actor encounter fields
       encounter = { ...encounter, ...encounterRest };
@@ -139,5 +180,27 @@ export function applyStateBlocks(
     }
   }
 
+  const encounterValidation = validateEncounterState(encounter);
+  if (encounterValidation.ok) {
+    encounter = encounterValidation.encounter;
+  } else {
+    encounter = {
+      ...currentState.encounter,
+      notes: [
+        currentState.encounter.notes,
+        `DM encounter update rejected: ${encounterValidation.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; ')}`,
+      ].filter(Boolean).join('\n'),
+    };
+  }
+
   return { encounter, scene, campaign, crew };
+}
+
+export function getViewForAppliedStateTransition(
+  currentState: GameState,
+  projectedState: GameState
+): AppView | null {
+  if (!currentState.encounter.active && projectedState.encounter.active) return 'encounter';
+  if (currentState.encounter.active && !projectedState.encounter.active) return 'scene';
+  return null;
 }

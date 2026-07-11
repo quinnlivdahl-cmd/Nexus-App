@@ -2,7 +2,7 @@
 
 Status: active repo-accessible planning surface
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App\docs\nexus-roadmap`
+Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App\docs\nexus-roadmap`
 
 ## Purpose
 
