@@ -28,6 +28,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Character Open Questions
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Rook and Nexus Primer are Campaign Fixtures, not active default campaigns. Preserve unresolved build, recovery, Growth Trait, Campaign Build, and Crew Archive questions; historical live-campaign status questions no longer control current design.
+
 ## 1. Purpose
 
 This doc records unresolved `Characters` questions and routes content to the current owning domains. It is not a deletion list.
@@ -132,5 +135,4 @@ Still open after this pass:
 - exact EMP/cyber-disruption modeling for individual modules;
 - Upload/AI playability scope;
 - exact Standard Fit mechanical consequences across nodes, suits, tools, vehicles, and recovery.
-
 

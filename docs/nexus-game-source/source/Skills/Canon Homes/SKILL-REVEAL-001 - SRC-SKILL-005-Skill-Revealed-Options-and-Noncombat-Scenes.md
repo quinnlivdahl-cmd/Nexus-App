@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-fir
 
 # Skill Revealed Options
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve capability-revealed options and Lattice Check Opportunities, but present them through in-world interaction, the Context Action Menu, or the Intent Bar. DM chat and menu-only scene framing below are historical presentation assumptions.
+
 ## 1. Key rule
 
 Skills, focuses, and lower-tier powers/effects reveal possibilities; they do not automatically solve them.
@@ -113,6 +116,5 @@ Examples:
 ## 7. Strong plans routing note
 
 Strong plans can bypass rolls, lower difficulty, change target defense, convert failure into partial success, or reduce consequence. Skills preserves that resolution principle, but full DM procedure for presenting and pacing those plans belongs in Core and Modes.
-
 
 

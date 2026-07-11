@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-C
 
 # TacMap Display Aids
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> The collage, backdrop, paper-doll, node-web, and external-table workflows below are historical prototype and display evidence. They may inform a derived Developer Mode diagnostic, but authoritative Location geometry, world positions, navigation, occlusion, Interaction Positions, and Cover Positions come from deterministic spatial state under `CORE-SPATIAL-001`.
+
 ## 1. Purpose
 
 TacMap display aids help players understand tactical space, movement choices, cover, hazards, objectives, exits, hackable objects, enemy positions, and verticality.
@@ -180,6 +183,5 @@ It is **not** clean canonical playable map data yet. It should not be promoted a
 ## 13. Display discipline
 
 During play, use the smallest display that clarifies the decision. Do not force a polished map when a path list is enough. Do not bury tactical choices in a decorative image that cannot be edited or queried.
-
 
 

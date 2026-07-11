@@ -29,6 +29,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Encounter Building and Pacing
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Treat the reusable pacing, objective, role, hazard, and exit guidance below as Tactical Pressure authoring inside a persistent Location. A top-level Encounter container, encounter-start map handoff, or encounter-results authority is historical; Local Aftermath resolves in place and Route Node Resolution occurs on departure.
+
 ## 1. Purpose
 
 This document owns combat encounter building and tactical pacing guidance. It covers encounter presentation, approach phase, objectives, scale, map generation, nonviolent tactical scenes, TacMap auto-display, and end states.
@@ -203,5 +206,4 @@ Still open:
 - generated map validation process;
 - encounter family template list;
 - whether escape structures need a dedicated procedure doc later.
-
 

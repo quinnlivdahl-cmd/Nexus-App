@@ -6,7 +6,7 @@
   "marker_format": "<!-- source-slice: domain.topic.slice-id --> followed immediately by the indexed Markdown heading",
   "update_command": "corepack pnpm run source:slices",
   "check_command": "corepack pnpm run source:slices:check",
-  "slice_count": 111,
+  "slice_count": 122,
   "domain_counts": [
     {
       "domain": "Art",
@@ -26,7 +26,7 @@
     },
     {
       "domain": "Core",
-      "slices": 21
+      "slices": 32
     },
     {
       "domain": "Lore",
@@ -52,9 +52,9 @@
       "heading": "Art Mode behavior note",
       "heading_level": 2,
       "heading_anchor": "art-mode-behavior-note",
-      "start_line": 120,
-      "end_line": 126,
-      "content_sha256": "cc200e9ac5054c2f7e1bc7e6a3ab6315b727c3e4aa1c54686552ecdcf8696a05"
+      "start_line": 130,
+      "end_line": 137,
+      "content_sha256": "f24b9a3d6307ca88fd612a89df0aae9fee43d85162fcc40fbdbdbf214614e337"
     },
     {
       "slice_id": "art.prompt.art-production-packet-format",
@@ -66,9 +66,9 @@
       "heading": "Art Production Packet format - 2026-05-15",
       "heading_level": 2,
       "heading_anchor": "art-production-packet-format-2026-05-15",
-      "start_line": 127,
-      "end_line": 131,
-      "content_sha256": "3bf58f6b8a228afdcb5b889df8e1619186d94869cbccc8c14a22d6e5c16f3d81"
+      "start_line": 138,
+      "end_line": 143,
+      "content_sha256": "9dc18f73d5a2375073ee20049cac251f4c7cdae40f86ab481f00c7bd05eef71a"
     },
     {
       "slice_id": "art.prompt.base-nexus-style",
@@ -80,9 +80,9 @@
       "heading": "Base Nexus style prompt",
       "heading_level": 2,
       "heading_anchor": "base-nexus-style-prompt",
-      "start_line": 52,
-      "end_line": 60,
-      "content_sha256": "16288ba9c34ffbbe84aad602d8d18802060fafacf91aa41764ac7393110a9148"
+      "start_line": 57,
+      "end_line": 66,
+      "content_sha256": "48fc2248713325a103df9a3bb1928d03a328e8d90a69bb9428f94fcd61987f24"
     },
     {
       "slice_id": "art.prompt.character-concept-skeleton",
@@ -94,9 +94,9 @@
       "heading": "Character concept prompt skeleton",
       "heading_level": 2,
       "heading_anchor": "character-concept-prompt-skeleton",
-      "start_line": 61,
-      "end_line": 67,
-      "content_sha256": "62c482f6b2859737b3af085fa8cc41e71fef62bb8b205334202af9b98464c9f3"
+      "start_line": 67,
+      "end_line": 74,
+      "content_sha256": "379d11d7befa6658c34babc56ea80767eb8de19f47657b6300eb5e4f9f673885"
     },
     {
       "slice_id": "art.prompt.environment-concept-skeleton",
@@ -108,9 +108,9 @@
       "heading": "Environment concept prompt skeleton",
       "heading_level": 2,
       "heading_anchor": "environment-concept-prompt-skeleton",
-      "start_line": 68,
-      "end_line": 73,
-      "content_sha256": "93ae4f7c9d9baf80b04e6fc14ca3c53e188f6b9cfe78dacf3798a5526d11ea84"
+      "start_line": 75,
+      "end_line": 81,
+      "content_sha256": "8af0486628c6a6e7c99c45d505874c70ccbd97063b349b2e4deba29163859c32"
     },
     {
       "slice_id": "art.prompt.metadata-block",
@@ -122,9 +122,9 @@
       "heading": "Prompt metadata block",
       "heading_level": 2,
       "heading_anchor": "prompt-metadata-block",
-      "start_line": 35,
-      "end_line": 51,
-      "content_sha256": "5f6d49d61eded6726016593c96864f24b6f086eaceaaf2402b7a94d79f8df1d3"
+      "start_line": 39,
+      "end_line": 56,
+      "content_sha256": "151b05bbcba39d59a49a3e4667d6deafd128b8edd6791724f771a997801c8320"
     },
     {
       "slice_id": "art.prompt.purpose",
@@ -136,9 +136,9 @@
       "heading": "Purpose",
       "heading_level": 2,
       "heading_anchor": "purpose",
-      "start_line": 30,
-      "end_line": 34,
-      "content_sha256": "c0767e40e519aaddd5b84f419f7055d1f110da8644fa6df87538a9112eeafeb3"
+      "start_line": 33,
+      "end_line": 38,
+      "content_sha256": "c89e64e2aa98f5046e2a9e74840d87928f517552ddb521511bba9f3ece088070"
     },
     {
       "slice_id": "art.prompt.tacmap-diagram-skeleton",
@@ -150,9 +150,9 @@
       "heading": "TacMap diagram prompt skeleton",
       "heading_level": 2,
       "heading_anchor": "tacmap-diagram-prompt-skeleton",
-      "start_line": 87,
-      "end_line": 93,
-      "content_sha256": "741e4d7b2e282f119674bea5b7b05666aee5db54b81d49a0068ea7ae7993bb01"
+      "start_line": 95,
+      "end_line": 102,
+      "content_sha256": "0ac3de1e2d758694529f869472b3694eecd289852521af7882b571524a686769"
     },
     {
       "slice_id": "art.prompt.tacmap-prompt-additions",
@@ -164,9 +164,9 @@
       "heading": "TacMap prompt additions - 2026-05-15",
       "heading_level": 2,
       "heading_anchor": "tacmap-prompt-additions-2026-05-15",
-      "start_line": 162,
-      "end_line": 189,
-      "content_sha256": "d56190c8baae677e4f705cd054b816d6e46a3ae1e3cb94a0050bf66578ea9728"
+      "start_line": 174,
+      "end_line": 200,
+      "content_sha256": "9f2cd48844d77387c5ddc5f993200abf66e2e2037af4b9c69e0f3830dd1c3505"
     },
     {
       "slice_id": "art.prompt.variant-rules",
@@ -178,9 +178,9 @@
       "heading": "Variant rules",
       "heading_level": 2,
       "heading_anchor": "variant-rules",
-      "start_line": 94,
-      "end_line": 108,
-      "content_sha256": "db986c9606fb7112b53a637980eba5fba726fcf17e9a427d9a34d4260550d7f9"
+      "start_line": 103,
+      "end_line": 118,
+      "content_sha256": "067c57cc2b7195bef5a4602de2571dd034742ec8e3c1d83fd10b4c7f9051324d"
     },
     {
       "slice_id": "automation.context-broker.source-backed-packets",
@@ -262,9 +262,9 @@
       "heading": "9.1 App-facing authority and state mutation boundary",
       "heading_level": 3,
       "heading_anchor": "9-1-app-facing-authority-and-state-mutation-boundary",
-      "start_line": 165,
-      "end_line": 197,
-      "content_sha256": "aa90e41338e99e2d92d70dfda013b7816547212703fbc64717b8b5ce9bf15c86"
+      "start_line": 174,
+      "end_line": 207,
+      "content_sha256": "5ef0266e3a9015e8dc8eb0a3ef759eb170ce587abcedb7999d7c7d16ec89ebb9"
     },
     {
       "slice_id": "combat.core.combat-state-to-track",
@@ -276,9 +276,9 @@
       "heading": "6. Combat state to track",
       "heading_level": 2,
       "heading_anchor": "6-combat-state-to-track",
-      "start_line": 78,
-      "end_line": 89,
-      "content_sha256": "3fe22b7306102fb341726d449941847c4e3a75d76f1d6d333818bd9382dfabf2"
+      "start_line": 84,
+      "end_line": 96,
+      "content_sha256": "3d3420df8338dee89ccc8f352b6d55d0d2d44c965cd4cd3633687c2db94586f2"
     },
     {
       "slice_id": "combat.core.defensive-display-spine",
@@ -290,9 +290,9 @@
       "heading": "7. Defensive display spine",
       "heading_level": 2,
       "heading_anchor": "7-defensive-display-spine",
-      "start_line": 90,
-      "end_line": 113,
-      "content_sha256": "d1c7ee6b2464f4bca17f39c23026ec1d4ca5077e1c2908dc02656a6f19127b6c"
+      "start_line": 97,
+      "end_line": 121,
+      "content_sha256": "3175d2ab49c2c15f59abe2a64faa800ab28362b8de123e9d1990f299925179df"
     },
     {
       "slice_id": "combat.core.durability-application-order",
@@ -304,9 +304,9 @@
       "heading": "9. Durability application order",
       "heading_level": 2,
       "heading_anchor": "9-durability-application-order",
-      "start_line": 141,
-      "end_line": 197,
-      "content_sha256": "5b3c4d979a03763ed54f21c809b85489761ef8ac0033539ffa0e0b0721b00cc5"
+      "start_line": 149,
+      "end_line": 207,
+      "content_sha256": "55a762cec18ae4edf82487ad0a4248730e051bfdea2d72fb3e546abe0af1d8fe"
     },
     {
       "slice_id": "combat.core.encounter-start-procedure",
@@ -318,9 +318,9 @@
       "heading": "2. Encounter start procedure",
       "heading_level": 2,
       "heading_anchor": "2-encounter-start-procedure",
-      "start_line": 41,
-      "end_line": 55,
-      "content_sha256": "0b1c0046f0fd024e7730d6391498137c48ff6eb001f29a054fb5e1e02e91c55c"
+      "start_line": 45,
+      "end_line": 60,
+      "content_sha256": "0efa7ea2e733c3a0e9ae2b83ea38f80370dd51de1fcbb7875d3a6b150c69158c"
     },
     {
       "slice_id": "combat.core.end-conditions",
@@ -332,9 +332,9 @@
       "heading": "11. Combat end conditions",
       "heading_level": 2,
       "heading_anchor": "11-combat-end-conditions",
-      "start_line": 205,
-      "end_line": 208,
-      "content_sha256": "253370fb6a39771a438c99d49731266e789a44a0d72a5133af0553844d893d46"
+      "start_line": 215,
+      "end_line": 219,
+      "content_sha256": "4e48db32ae5216e9f1a4f01498b0d6baafe6e6608fab7b1749007359167f3f99"
     },
     {
       "slice_id": "combat.core.purpose-and-tactical-principles",
@@ -346,9 +346,9 @@
       "heading": "1. Purpose",
       "heading_level": 2,
       "heading_anchor": "1-purpose",
-      "start_line": 34,
-      "end_line": 40,
-      "content_sha256": "8c8cc941dd343e28146bd58ef8e7c41667920af82bbe1468d535cb92e7dbb515"
+      "start_line": 37,
+      "end_line": 44,
+      "content_sha256": "4a62da41f47f215e2cabce43854f73a1e10c99bd86715c28ec34b00e924c8d26"
     },
     {
       "slice_id": "combat.core.turn-and-activation-baseline",
@@ -360,9 +360,9 @@
       "heading": "5. Turn and activation baseline",
       "heading_level": 2,
       "heading_anchor": "5-turn-and-activation-baseline",
-      "start_line": 67,
-      "end_line": 77,
-      "content_sha256": "a73a029d1f2e75819453743237c93499295f9bd4bb52d166e1c83235df1e0265"
+      "start_line": 72,
+      "end_line": 83,
+      "content_sha256": "434b42de6192cda0efba1175a870b15fef9f1c6b30cf64ff485375a2efaa3d41"
     },
     {
       "slice_id": "combat.tacmap.core-definition",
@@ -374,9 +374,9 @@
       "heading": "1. Core TacMap definition",
       "heading_level": 2,
       "heading_anchor": "1-core-tacmap-definition",
-      "start_line": 33,
-      "end_line": 44,
-      "content_sha256": "f80a7451e1f3fb65c5759aa17e9008b81da52dc3dfa04f8aa6b3f19e914fafc5"
+      "start_line": 36,
+      "end_line": 48,
+      "content_sha256": "79f50e2c82b68e787ab963632ac9b6f2a83ac2fb98bd44f3b0345a35e3c8d345"
     },
     {
       "slice_id": "combat.tacmap.core-numeric-movement-rule",
@@ -388,9 +388,9 @@
       "heading": "2. Core numeric movement rule",
       "heading_level": 2,
       "heading_anchor": "2-core-numeric-movement-rule",
-      "start_line": 45,
-      "end_line": 69,
-      "content_sha256": "b9bcb0677e8fd6ca66d05f68b4ea45c4a15b2e1d55a8c888b33d7624e762c2a4"
+      "start_line": 49,
+      "end_line": 74,
+      "content_sha256": "510d55e59ca011bc04f377cf0d83fd3e2699493cda447e606ce160271b026c64"
     },
     {
       "slice_id": "combat.tacmap.in-transit-state",
@@ -402,9 +402,9 @@
       "heading": "10. In-transit state",
       "heading_level": 2,
       "heading_anchor": "10-in-transit-state",
-      "start_line": 159,
-      "end_line": 164,
-      "content_sha256": "207b159a5b7b69c559dc506647ace1560250f1053cfdd18be3b49e63a321fe9a"
+      "start_line": 168,
+      "end_line": 174,
+      "content_sha256": "e169f39219f8e50804e607d7890704983f3a74bd34e5cbc4b94f8cc192ed5be2"
     },
     {
       "slice_id": "combat.tacmap.map-scale-and-movement-support",
@@ -416,9 +416,9 @@
       "heading": "13. Map scale and movement support",
       "heading_level": 2,
       "heading_anchor": "13-map-scale-and-movement-support",
-      "start_line": 176,
-      "end_line": 181,
-      "content_sha256": "d9bf84472a0ff82ae636671a456ca228b535dc593ff274967838c8ae83e6bb65"
+      "start_line": 186,
+      "end_line": 192,
+      "content_sha256": "8c022ef57d75bbefe98aebe160f6f90ef2977ae446f40ea46953f8024634f965"
     },
     {
       "slice_id": "combat.tacmap.node-capacity-and-character-size",
@@ -430,9 +430,9 @@
       "heading": "6. Node capacity and character size",
       "heading_level": 2,
       "heading_anchor": "6-node-capacity-and-character-size",
-      "start_line": 110,
-      "end_line": 123,
-      "content_sha256": "9b7cd644cdbb116f613bbb94af374c1ab7ebe5d4299c02a50c184ccdb656e989"
+      "start_line": 118,
+      "end_line": 132,
+      "content_sha256": "ef4a620245ff17302b56fe3c276be2807327094857dc3e9b9fa8c5df72e3d060"
     },
     {
       "slice_id": "combat.tacmap.node-status-and-path-status",
@@ -444,9 +444,9 @@
       "heading": "4. Node status and path status",
       "heading_level": 2,
       "heading_anchor": "4-node-status-and-path-status",
-      "start_line": 83,
-      "end_line": 96,
-      "content_sha256": "69c778bbaec9293395a44e4378e3e7b5294c7f89def93adac7b9bb5f155acbde"
+      "start_line": 89,
+      "end_line": 103,
+      "content_sha256": "d31adca7ba8dfcdcae62c0191a65f097815912b9183a7e651080335c94aee9c0"
     },
     {
       "slice_id": "combat.tacmap.nodes",
@@ -458,9 +458,9 @@
       "heading": "3. Nodes",
       "heading_level": 2,
       "heading_anchor": "3-nodes",
-      "start_line": 70,
-      "end_line": 82,
-      "content_sha256": "eb39d1225f7d07b912a731ba276c59c1e7d857b6215331f4cc3f7123955029fc"
+      "start_line": 75,
+      "end_line": 88,
+      "content_sha256": "b77f0889a8b20037ed3045e08e8544677ca10d8a61cde74ff2d024bf2de9be15"
     },
     {
       "slice_id": "combat.tacmap.paths-and-line-of-sight",
@@ -472,9 +472,9 @@
       "heading": "5. Paths and line of sight",
       "heading_level": 2,
       "heading_anchor": "5-paths-and-line-of-sight",
-      "start_line": 97,
-      "end_line": 109,
-      "content_sha256": "fbad2574132a155c07813576e7fd7b00c93f5ba1cc10fdf32360524d2e3da4d4"
+      "start_line": 104,
+      "end_line": 117,
+      "content_sha256": "a40658563fe38a19a247eeeb87ce6a5a4314edcc31f8383f434bb38dcfd50a37"
     },
     {
       "slice_id": "content.encounter.library-growth-rule",
@@ -486,9 +486,9 @@
       "heading": "Library growth rule",
       "heading_level": 2,
       "heading_anchor": "library-growth-rule",
-      "start_line": 152,
-      "end_line": 155,
-      "content_sha256": "aaa1d1d7fc8b4ece7bd229f151885c0c88a8f10f03cc566677e905fb9e821f1a"
+      "start_line": 163,
+      "end_line": 167,
+      "content_sha256": "abac7e957d66b39bd26e0f042ebdac90e7675b5ce64ad90fa89167b80186fcb5"
     },
     {
       "slice_id": "content.encounter.pattern-custody-legal-pressure-node",
@@ -500,9 +500,9 @@
       "heading": "Pattern: Custody/Legal Pressure Node",
       "heading_level": 2,
       "heading_anchor": "pattern-custody-legal-pressure-node",
-      "start_line": 120,
-      "end_line": 139,
-      "content_sha256": "47c792caa07453abc0854c11390293fb4e0409a035217ba8da28f3fc0c2eb7f7"
+      "start_line": 129,
+      "end_line": 149,
+      "content_sha256": "48345ce59d937762496641679b139d94417930ee130aa7a248de0932ccd9568d"
     },
     {
       "slice_id": "content.encounter.pattern-dead-drop-investigation-node",
@@ -514,9 +514,9 @@
       "heading": "Pattern: Dead-Drop Investigation Node",
       "heading_level": 2,
       "heading_anchor": "pattern-dead-drop-investigation-node",
-      "start_line": 105,
-      "end_line": 119,
-      "content_sha256": "cd3b03dd1a82e8a07d8cb64a89c839892d159ea292d7e7aab69bfbd43c7d692f"
+      "start_line": 113,
+      "end_line": 128,
+      "content_sha256": "b4635abf1f14056c2264d6fc3a3f8e303e3db296fc6b66a98e2accfd96a119f5"
     },
     {
       "slice_id": "content.encounter.pattern-hazard-clock-room",
@@ -528,9 +528,9 @@
       "heading": "Pattern: Hazard Clock Room",
       "heading_level": 2,
       "heading_anchor": "pattern-hazard-clock-room",
-      "start_line": 72,
-      "end_line": 95,
-      "content_sha256": "19b00e2cfa052be52ab82f67e7e260a3547e8da01cceaa0104466fad2fe2e609"
+      "start_line": 78,
+      "end_line": 102,
+      "content_sha256": "79eb2ffeee6aae11edf5cabfd5734e68bbe2c0e954806fe6e9fb858219009485"
     },
     {
       "slice_id": "content.encounter.pattern-node-path-hazard",
@@ -542,9 +542,9 @@
       "heading": "Pattern: Node/Path Hazard Pattern",
       "heading_level": 3,
       "heading_anchor": "pattern-node-path-hazard-pattern",
-      "start_line": 159,
-      "end_line": 169,
-      "content_sha256": "4b18d4fd2cdd8b262e18a6a533f59860982a96006a674d26ac107cd312522b9c"
+      "start_line": 171,
+      "end_line": 182,
+      "content_sha256": "ce79b0db305c2f4bd3ff6bf67b2f21bc36ede2fcd723eb4462c19f7ac3777a9a"
     },
     {
       "slice_id": "content.encounter.pattern-objective-runner",
@@ -556,9 +556,9 @@
       "heading": "Pattern: Objective Runner",
       "heading_level": 2,
       "heading_anchor": "pattern-objective-runner",
-      "start_line": 37,
-      "end_line": 54,
-      "content_sha256": "e962dc90396d1a1bb312d0981d34486c6b2f2e4d2eb79dcc16d74b84725e17b1"
+      "start_line": 41,
+      "end_line": 59,
+      "content_sha256": "96f81797e7002e4907e0eca66d1a842ee89fab4da92ae3b3054a2ad70f5edcc2"
     },
     {
       "slice_id": "content.encounter.pattern-requirement-escape",
@@ -570,9 +570,9 @@
       "heading": "Pattern: Requirement Escape",
       "heading_level": 2,
       "heading_anchor": "pattern-requirement-escape",
-      "start_line": 96,
-      "end_line": 104,
-      "content_sha256": "b77c8d3937a36fd8e754bea1afa11f2f3bbadd618c8e9d3d22a7ab780d6b0697"
+      "start_line": 103,
+      "end_line": 112,
+      "content_sha256": "bda840cb766b4d6752359fb258130c45e678471ae1be7d55064ae8036117e70d"
     },
     {
       "slice_id": "content.encounter.pattern-salvage-vs-delay-choice",
@@ -584,9 +584,9 @@
       "heading": "Pattern: Salvage vs Delay Choice",
       "heading_level": 2,
       "heading_anchor": "pattern-salvage-vs-delay-choice",
-      "start_line": 140,
-      "end_line": 151,
-      "content_sha256": "5d1d043d422adffac39410fad766b556091bcc3b269a05663e3e4a9dc8fa8104"
+      "start_line": 150,
+      "end_line": 162,
+      "content_sha256": "3f241712e95fe7948d601179e0a240a9eb3708cc0fcbe480e8d9afa56fb4f811"
     },
     {
       "slice_id": "content.encounter.pattern-system-vulnerable-machine",
@@ -598,9 +598,9 @@
       "heading": "Pattern: System-Vulnerable Machine",
       "heading_level": 2,
       "heading_anchor": "pattern-system-vulnerable-machine",
-      "start_line": 55,
-      "end_line": 71,
-      "content_sha256": "51f023115cf02f377a0daec8521c638fae14516d68d1eb0a981984a4689c8ca0"
+      "start_line": 60,
+      "end_line": 77,
+      "content_sha256": "863d6ed48fbd70a0bac85727b3ac379890448530e8e4269ae410956a93f14af3"
     },
     {
       "slice_id": "content.encounter.pattern-tacmap-ready-requirement-escape",
@@ -612,9 +612,9 @@
       "heading": "Pattern: TacMap-Ready Requirement Escape",
       "heading_level": 3,
       "heading_anchor": "pattern-tacmap-ready-requirement-escape",
-      "start_line": 181,
-      "end_line": 186,
-      "content_sha256": "2535c26449c81b2e730b508941e7b84b245d222a5b7128018167a8f9e0b7aaaa"
+      "start_line": 194,
+      "end_line": 198,
+      "content_sha256": "36d40698ff1fc1824e534e7bb0c1502db151b84f36e3e3b2b3c6f1d67ff9c221"
     },
     {
       "slice_id": "content.encounter.status-and-use",
@@ -626,9 +626,9 @@
       "heading": "Status",
       "heading_level": 2,
       "heading_anchor": "status",
-      "start_line": 30,
-      "end_line": 36,
-      "content_sha256": "59ae17c1ca3b385704074e8ebea4a85f516b3ee0a6186cd9c7bc83f9585ccde7"
+      "start_line": 33,
+      "end_line": 40,
+      "content_sha256": "f238f77d917f2e3dd6e3443ae3cf8f464056d67dee774040d158a0150f8069cf"
     },
     {
       "slice_id": "content.route-node.campaign-specific-node-caution",
@@ -640,9 +640,9 @@
       "heading": "Campaign-specific node caution",
       "heading_level": 2,
       "heading_anchor": "campaign-specific-node-caution",
-      "start_line": 107,
-      "end_line": 111,
-      "content_sha256": "f5091d45ea8bbca362a59d9aafde26b0938b123e05494b52e232fc11c0e93b1c"
+      "start_line": 115,
+      "end_line": 120,
+      "content_sha256": "be45821a63f60d40225556b1196a8a5647abadb2d0af062d06610ff64570a05f"
     },
     {
       "slice_id": "content.route-node.content-fields",
@@ -654,9 +654,9 @@
       "heading": "Node content fields",
       "heading_level": 2,
       "heading_anchor": "node-content-fields",
-      "start_line": 37,
-      "end_line": 62,
-      "content_sha256": "df8c40f8edcb8268935221efbb91d7004e6352ff6dfe77df22ffe1c08ae69b20"
+      "start_line": 41,
+      "end_line": 67,
+      "content_sha256": "4e46ef6a0bb8b7b175f012f8b89344afbef73991efa0527f69131165aa1048bb"
     },
     {
       "slice_id": "content.route-node.node-end-report",
@@ -668,9 +668,9 @@
       "heading": "Node end report",
       "heading_level": 2,
       "heading_anchor": "node-end-report",
-      "start_line": 87,
-      "end_line": 101,
-      "content_sha256": "308a5d692752f4f3080c032ae31edf42f545a27233b1a316370b28c88ef78103"
+      "start_line": 94,
+      "end_line": 109,
+      "content_sha256": "9c8629c25b28178c220621c1851e2ca2337e045e34528cdbb3c8473372a36b73"
     },
     {
       "slice_id": "content.route-node.objectives-and-opportunities",
@@ -682,9 +682,9 @@
       "heading": "Objectives and opportunities",
       "heading_level": 2,
       "heading_anchor": "objectives-and-opportunities",
-      "start_line": 76,
-      "end_line": 86,
-      "content_sha256": "307f662e0cd862d81d02ae3740fe6cb638feb21ac7fa1f41a19be8a2db305adf"
+      "start_line": 82,
+      "end_line": 93,
+      "content_sha256": "0c24828d07ef4452176e5dbdea1d199568f63aaef2c6b833a4954a87f15f3166"
     },
     {
       "slice_id": "content.route-node.pre-node-procedure",
@@ -696,9 +696,9 @@
       "heading": "Pre-node procedure",
       "heading_level": 2,
       "heading_anchor": "pre-node-procedure",
-      "start_line": 63,
-      "end_line": 75,
-      "content_sha256": "8efc07366f5c9e2867a6801ed4f9c1c9c4d3219c59781826807c41eb0815d6de"
+      "start_line": 68,
+      "end_line": 81,
+      "content_sha256": "d60c2d2b0d1db80a7fbdf5a310ebe6bc4c1d15c6a348b9685352c0c883153dc9"
     },
     {
       "slice_id": "content.route-node.purpose",
@@ -710,9 +710,9 @@
       "heading": "Purpose",
       "heading_level": 2,
       "heading_anchor": "purpose",
-      "start_line": 30,
-      "end_line": 36,
-      "content_sha256": "5fd4a9fb19d8e8360af81d5de8440a54bf4de33cb0fad20e4c0ebcacaa558605"
+      "start_line": 33,
+      "end_line": 40,
+      "content_sha256": "3309eecfa100504ad0b475505226638111b4e4a4621fa60e81a4338412921917"
     },
     {
       "slice_id": "content.route-node.route-consequences",
@@ -724,9 +724,9 @@
       "heading": "Node content and route consequences",
       "heading_level": 2,
       "heading_anchor": "node-content-and-route-consequences",
-      "start_line": 112,
-      "end_line": 128,
-      "content_sha256": "d5dace88f38fc31a811de33e1c85c1b181c68c81b6e8246703dc6456fd114b3e"
+      "start_line": 121,
+      "end_line": 138,
+      "content_sha256": "340c331b48d6030dc99f5ef123c69296269cd35e4b4b2cfa401e7ca38a87098a"
     },
     {
       "slice_id": "content.route-node.route-node-end-report-fields",
@@ -738,9 +738,9 @@
       "heading": "Mass-intake alignment: Route Node End Report fields",
       "heading_level": 2,
       "heading_anchor": "mass-intake-alignment-route-node-end-report-fields",
-      "start_line": 129,
-      "end_line": 150,
-      "content_sha256": "ff7efaef9e74908e2d07928e9eccae2f480abe313c5304d08ab4d0bacf1e2949"
+      "start_line": 139,
+      "end_line": 159,
+      "content_sha256": "daddc487460ca5de6baff0ac7b824acf47674ea7e9cb9db757765927ab55a139"
     },
     {
       "slice_id": "core.campaign.core-loop",
@@ -752,9 +752,9 @@
       "heading": "2. Core Loop",
       "heading_level": 2,
       "heading_anchor": "2-core-loop",
-      "start_line": 34,
-      "end_line": 51,
-      "content_sha256": "037fddf4b353bb8d01c94fb7caba89d706a9f1c70c8075f93593937ff487113f"
+      "start_line": 37,
+      "end_line": 55,
+      "content_sha256": "4d9b55765fa1a186d07443d664e0b7a68fa247e55c9fd6325a7f370579744ed9"
     },
     {
       "slice_id": "core.campaign.node-definition",
@@ -766,9 +766,9 @@
       "heading": "5. Node Definition",
       "heading_level": 2,
       "heading_anchor": "5-node-definition",
-      "start_line": 68,
-      "end_line": 88,
-      "content_sha256": "bf22705c5fdcb97fb13a6a7ee3b8c9add203f1ddd61800c62f295067b9f9f256"
+      "start_line": 74,
+      "end_line": 95,
+      "content_sha256": "40ac46d4ed12de7b6dc121bc0210fa6615a24182e4f695c672b11f558788afaf"
     },
     {
       "slice_id": "core.campaign.pre-node-timing",
@@ -780,9 +780,9 @@
       "heading": "3. C1 Clarification - Pre-Node Timing",
       "heading_level": 2,
       "heading_anchor": "3-c1-clarification-pre-node-timing",
-      "start_line": 52,
-      "end_line": 60,
-      "content_sha256": "c23227926ad8ff6f8c451b2f8fb3863d7e586c855a67ec17ef833459857d1680"
+      "start_line": 56,
+      "end_line": 65,
+      "content_sha256": "2eb6b038dd6242174b1adb50d7258904fd13670875d1d23edb8fa2a2711c360d"
     },
     {
       "slice_id": "core.campaign.route-choice-display",
@@ -794,9 +794,9 @@
       "heading": "7. Route Choice Display",
       "heading_level": 2,
       "heading_anchor": "7-route-choice-display",
-      "start_line": 104,
-      "end_line": 109,
-      "content_sha256": "233ae1ac633e57a11edab02e72dd2e74aacff616985a5b36abeeb0f1d25808e9"
+      "start_line": 111,
+      "end_line": 117,
+      "content_sha256": "a13fd19938d0fb70ed1a64e27fb5685be5b8270ad21af66630aca67a638cca64"
     },
     {
       "slice_id": "core.campaign.route-node-end-report",
@@ -808,9 +808,9 @@
       "heading": "12. Route Node End Report and Save Workflow",
       "heading_level": 2,
       "heading_anchor": "12-route-node-end-report-and-save-workflow",
-      "start_line": 146,
-      "end_line": 169,
-      "content_sha256": "929ed2f95544844f820eafdef34401e893e965b3d06a7845c0cb559aff20fdf5"
+      "start_line": 154,
+      "end_line": 178,
+      "content_sha256": "1512ea3243f3fba4d4be67790ecbfc7cb740fb31b8b75902f8cf36476b9ac3f5"
     },
     {
       "slice_id": "core.campaign.route-structure",
@@ -822,9 +822,9 @@
       "heading": "4. Route Structure",
       "heading_level": 2,
       "heading_anchor": "4-route-structure",
-      "start_line": 61,
-      "end_line": 67,
-      "content_sha256": "1253127ff6bb965e06c2b1577a5442c833852862443fcd0975e23b7720a8ac55"
+      "start_line": 66,
+      "end_line": 73,
+      "content_sha256": "8b63e9a279b4907f70a4264a3bd319b3057cbafbf7ee907d1ce00dbad0708e37"
     },
     {
       "slice_id": "core.glossary.crew",
@@ -836,9 +836,9 @@
       "heading": "Crew",
       "heading_level": 3,
       "heading_anchor": "crew",
-      "start_line": 53,
-      "end_line": 57,
-      "content_sha256": "d432f1ce05315bf7553a9933e1c83644b87472e7b29a5b8960614220c8429aa4"
+      "start_line": 57,
+      "end_line": 62,
+      "content_sha256": "14314419fa9544e01d53b3a51f78becc4a3b28ef77e5942d1a1586c54883f183"
     },
     {
       "slice_id": "core.glossary.encounter-start-packet",
@@ -850,9 +850,9 @@
       "heading": "Encounter Start Packet",
       "heading_level": 3,
       "heading_anchor": "encounter-start-packet",
-      "start_line": 132,
-      "end_line": 136,
-      "content_sha256": "c5fdc2d6faa87ef67309d35bc367b42a57cff01478d8a2772cd2d5855ab6c27c"
+      "start_line": 143,
+      "end_line": 148,
+      "content_sha256": "de217067d422f296b2bdefef983b5942da950a57d01c25bbe02e54b88a64dd5a"
     },
     {
       "slice_id": "core.glossary.mission-node",
@@ -864,9 +864,9 @@
       "heading": "Mission Node",
       "heading_level": 3,
       "heading_anchor": "mission-node",
-      "start_line": 78,
-      "end_line": 82,
-      "content_sha256": "0b0c064787383e01392014dc5daebd90764c7ee697f433536f1cdb1cb8152039"
+      "start_line": 87,
+      "end_line": 92,
+      "content_sha256": "dcd6fac3804a22210ea11667d74fe5e8d63361f8939762abd012fa298b980448"
     },
     {
       "slice_id": "core.glossary.nexus",
@@ -878,9 +878,9 @@
       "heading": "Nexus",
       "heading_level": 3,
       "heading_anchor": "nexus",
-      "start_line": 36,
-      "end_line": 39,
-      "content_sha256": "37e496cb2203f3036ce2d4dd171b9bb6c7ebf7dec36bab40c97b63504d2f946e"
+      "start_line": 39,
+      "end_line": 43,
+      "content_sha256": "7b1c9230f463b041749645b157e2eda7bda4dbeb589ce935b6ac78c6bb52252e"
     },
     {
       "slice_id": "core.glossary.node",
@@ -892,9 +892,9 @@
       "heading": "Node",
       "heading_level": 3,
       "heading_anchor": "node",
-      "start_line": 68,
-      "end_line": 72,
-      "content_sha256": "41e2f74d62099de9a7f56e3cc97c1a8fa9a04c6697527f2ac1291ef1ffb26489"
+      "start_line": 75,
+      "end_line": 80,
+      "content_sha256": "841789bc630ab09e8bedf53ca332d1c6ac7dbe80f6bd71b0cd9026a7e74a3d86"
     },
     {
       "slice_id": "core.glossary.pre-node-procedure",
@@ -906,9 +906,9 @@
       "heading": "Pre-Node Procedure",
       "heading_level": 3,
       "heading_anchor": "pre-node-procedure",
-      "start_line": 73,
-      "end_line": 77,
-      "content_sha256": "7a004252aae9d23d5598b07d6643151ca2613c4066344105abefd7f22e4dce4c"
+      "start_line": 81,
+      "end_line": 86,
+      "content_sha256": "1d4d8877be814291e7f13828a979f38d741c713c65a85130a3b2524b0924e61a"
     },
     {
       "slice_id": "core.glossary.route",
@@ -920,9 +920,9 @@
       "heading": "Route",
       "heading_level": 3,
       "heading_anchor": "route",
-      "start_line": 63,
-      "end_line": 67,
-      "content_sha256": "fa735cf3309caa7a086f9e3cb4d06bff6c1c6b7bb9fb31f562890ea874863d67"
+      "start_line": 69,
+      "end_line": 74,
+      "content_sha256": "708caa5301ee4791636c5184eb58c34f9cbb2c8dcf95f13981b6c05d3eaf3686"
     },
     {
       "slice_id": "core.glossary.ship-phase",
@@ -934,9 +934,9 @@
       "heading": "Ship Phase",
       "heading_level": 3,
       "heading_anchor": "ship-phase",
-      "start_line": 58,
-      "end_line": 62,
-      "content_sha256": "ef4d3ffa0543ddeb61d57d24190f82bcfe12ef7552baa001c604977892991371"
+      "start_line": 63,
+      "end_line": 68,
+      "content_sha256": "2a32ae43ca903bf3ce294b1b50ff83da4b7ea0ac83b327b2980c8dcb41945be9"
     },
     {
       "slice_id": "core.glossary.structured-tacmap-data",
@@ -948,9 +948,9 @@
       "heading": "Structured TacMap Data",
       "heading_level": 3,
       "heading_anchor": "structured-tacmap-data",
-      "start_line": 137,
-      "end_line": 140,
-      "content_sha256": "cf32ea9f578a2321689a8875adfb96760138cb60bf65e0c8808b6062390a6fae"
+      "start_line": 149,
+      "end_line": 153,
+      "content_sha256": "5b21d8e3c69e9781d48ed96098f4775c6aaccf3fe17fcc5f33821965b5c50e95"
     },
     {
       "slice_id": "core.glossary.tacmap",
@@ -962,9 +962,9 @@
       "heading": "TacMap",
       "heading_level": 3,
       "heading_anchor": "tacmap",
-      "start_line": 83,
-      "end_line": 86,
-      "content_sha256": "3a9dcc2d7151a0d46a0d38be8b2aa9ab59b867a1fc34942d2c1b43065761c310"
+      "start_line": 93,
+      "end_line": 97,
+      "content_sha256": "48bbc3e18b231861edb89a1bdb2c4c550483dd6a8d950687210bdb71b0f14fd9"
     },
     {
       "slice_id": "core.pillars.campaign-scale",
@@ -976,9 +976,9 @@
       "heading": "7. Campaign Scale",
       "heading_level": 2,
       "heading_anchor": "7-campaign-scale",
-      "start_line": 108,
-      "end_line": 117,
-      "content_sha256": "6e161698d47fad8ff7f29a82a152abd44cf7483622745f45a82f30ee11ba2b3d"
+      "start_line": 115,
+      "end_line": 125,
+      "content_sha256": "b82115c7e2c9c01b10aa8078757e9efcb4958a3d443f4f8a1505ac7d9c017a7f"
     },
     {
       "slice_id": "core.pillars.campaign-structure",
@@ -990,9 +990,9 @@
       "heading": "5. Core Campaign Structure",
       "heading_level": 2,
       "heading_anchor": "5-core-campaign-structure",
-      "start_line": 58,
-      "end_line": 68,
-      "content_sha256": "e5e44b0e211091d2aaa0755ff0289cabd8a9ecde1970888191275ef6b183dc26"
+      "start_line": 63,
+      "end_line": 74,
+      "content_sha256": "a6377d39212cf8f3e799b9668470c816b602605116e6eaabed87ca39aab34066"
     },
     {
       "slice_id": "core.pillars.core-pitch",
@@ -1004,9 +1004,9 @@
       "heading": "1. Core Pitch",
       "heading_level": 2,
       "heading_anchor": "1-core-pitch",
-      "start_line": 30,
-      "end_line": 37,
-      "content_sha256": "34f00eaa468612e459328f0d4a7d84f78a7e51b8c90ea0ceb98847b2fffcc1f1"
+      "start_line": 33,
+      "end_line": 41,
+      "content_sha256": "689d92061555ae32341d47d4eddb56a0ac9b7da1572fc922d519e11ff502abf5"
     },
     {
       "slice_id": "core.pillars.design-pillars",
@@ -1018,9 +1018,9 @@
       "heading": "6. Design Pillars",
       "heading_level": 2,
       "heading_anchor": "6-design-pillars",
-      "start_line": 69,
-      "end_line": 107,
-      "content_sha256": "3e529a4140e0740b4f894abeedbe097341a64e9afee50e7933edf82e48338dac"
+      "start_line": 75,
+      "end_line": 114,
+      "content_sha256": "1f29e4c428ca652dafb88fa0432effa17093d98fa56f4ca8a037159b0a86b08c"
     },
     {
       "slice_id": "core.pillars.setting-boundary",
@@ -1032,9 +1032,163 @@
       "heading": "3. Setting Boundary at Core Level",
       "heading_level": 2,
       "heading_anchor": "3-setting-boundary-at-core-level",
-      "start_line": 43,
-      "end_line": 48,
-      "content_sha256": "0f2a770dd362d15acfb2190dc64828339fbc4849746b2f502310b242df8232df"
+      "start_line": 47,
+      "end_line": 53,
+      "content_sha256": "0e7d01fe33eee36a787b90ed0c5b5c226f2bd682c969ceee1fda5cdbf9a975fd"
+    },
+    {
+      "slice_id": "core.spatial.authority-and-purpose",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "1. Authority and purpose",
+      "heading_level": 2,
+      "heading_anchor": "1-authority-and-purpose",
+      "start_line": 35,
+      "end_line": 43,
+      "content_sha256": "f857eb5908133cc7ae552677490dfd8f9a9834b54148fff9312290432e5ba043"
+    },
+    {
+      "slice_id": "core.spatial.campaign-director",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "6. Campaign Director boundary",
+      "heading_level": 2,
+      "heading_anchor": "6-campaign-director-boundary",
+      "start_line": 85,
+      "end_line": 91,
+      "content_sha256": "66fd38c16f1cc6ac597a0ade47346d50d293e784a1a0a7fd934fa214c684a53b"
+    },
+    {
+      "slice_id": "core.spatial.campaign-fixtures",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "9. Campaign Fixtures",
+      "heading_level": 2,
+      "heading_anchor": "9-campaign-fixtures",
+      "start_line": 117,
+      "end_line": 123,
+      "content_sha256": "70e373538f5df24f224a79bbf74437c065286a6523759191311bf04195c29c72"
+    },
+    {
+      "slice_id": "core.spatial.campaign-loop",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "2. Campaign and Location loop",
+      "heading_level": 2,
+      "heading_anchor": "2-campaign-and-location-loop",
+      "start_line": 44,
+      "end_line": 57,
+      "content_sha256": "cd6602fc2e9ec7af288d900242857504f899a1db3210197802088ac14cf6471c"
+    },
+    {
+      "slice_id": "core.spatial.family-reconciliation",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "11. Source-family reconciliation",
+      "heading_level": 2,
+      "heading_anchor": "11-source-family-reconciliation",
+      "start_line": 141,
+      "end_line": 158,
+      "content_sha256": "dad2eb17f741861b97781f8b2e4e16247af472888f7798bcfbed9940cea84151"
+    },
+    {
+      "slice_id": "core.spatial.interaction-and-generated-performance",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "5. In-world interaction and generated performance",
+      "heading_level": 2,
+      "heading_anchor": "5-in-world-interaction-and-generated-performance",
+      "start_line": 78,
+      "end_line": 84,
+      "content_sha256": "7bf5af8a9d06f546d7df545bad6b3bc804abff782b73134a13803acc78895656"
+    },
+    {
+      "slice_id": "core.spatial.movement-and-position",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "3. Movement, interaction, and cover",
+      "heading_level": 2,
+      "heading_anchor": "3-movement-interaction-and-cover",
+      "start_line": 58,
+      "end_line": 68,
+      "content_sha256": "3e6a70446ff0df50a092ed896506722cebca1eaf23f61593569a8d16b68f5dc7"
+    },
+    {
+      "slice_id": "core.spatial.preserved-systems",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "8. Preserved systems",
+      "heading_level": 2,
+      "heading_anchor": "8-preserved-systems",
+      "start_line": 101,
+      "end_line": 116,
+      "content_sha256": "0fcd2052cfb44a8d54de6528428d5bb8fcdcaf7d580c9c6cff7bab52a555f975"
+    },
+    {
+      "slice_id": "core.spatial.ship-time",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "7. Ship Time",
+      "heading_level": 2,
+      "heading_anchor": "7-ship-time",
+      "start_line": 92,
+      "end_line": 100,
+      "content_sha256": "4640521ba16556d4b7c89e2c37d199459bcb15ae4870fed4342d09d6ab8077df"
+    },
+    {
+      "slice_id": "core.spatial.tactical-pressure",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "4. Tactical Pressure and initiative",
+      "heading_level": 2,
+      "heading_anchor": "4-tactical-pressure-and-initiative",
+      "start_line": 69,
+      "end_line": 77,
+      "content_sha256": "2d1e2cb86226dac87bb28e7a745cd81c3f431cf01d864c66a4ff610f00c46a46"
+    },
+    {
+      "slice_id": "core.spatial.unresolved",
+      "doc_id": "CORE-SPATIAL-001",
+      "doc_title": "Spatial_Gameplay_and_Location_Model",
+      "domain": "Core",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-SPATIAL-001 - Spatial_Gameplay_and_Location_Model.md",
+      "heading": "10. Explicit unresolved questions",
+      "heading_level": 2,
+      "heading_anchor": "10-explicit-unresolved-questions",
+      "start_line": 124,
+      "end_line": 140,
+      "content_sha256": "c8ed9158d69da6ad8c9dc4278d5fb41169c002a0ec59633c476e8f6e56f68081"
     },
     {
       "slice_id": "lore.faction.campaign-derived-lore-caution",
@@ -1396,8 +1550,8 @@
       "heading": "4. Aid categories",
       "heading_level": 2,
       "heading_anchor": "4-aid-categories",
-      "start_line": 63,
-      "end_line": 76,
+      "start_line": 66,
+      "end_line": 79,
       "content_sha256": "6f699442a86c301fe19b1f1c19b2ab1cd9ec159b22780660e72453697b40ae2d"
     },
     {
@@ -1410,8 +1564,8 @@
       "heading": "1. Definition",
       "heading_level": 2,
       "heading_anchor": "1-definition",
-      "start_line": 30,
-      "end_line": 36,
+      "start_line": 33,
+      "end_line": 39,
       "content_sha256": "63fe07ff2ae2c72f07e3b690fd4f38b7c42bdbe7357878c4466c4195fffaf77f"
     },
     {
@@ -1424,9 +1578,9 @@
       "heading": "6. Encounter Start Packet",
       "heading_level": 2,
       "heading_anchor": "6-encounter-start-packet",
-      "start_line": 94,
-      "end_line": 110,
-      "content_sha256": "099f03a1852a8e4fdd59dea66f2575b29a9a3776e693410545b6c7f4a5e90980"
+      "start_line": 97,
+      "end_line": 114,
+      "content_sha256": "22e6c9a0ed8b65a724763c0010fa0c7215ba8d604e87f5c263f3364d27029350"
     },
     {
       "slice_id": "playaid.overview.non-authority-rule",
@@ -1438,8 +1592,8 @@
       "heading": "2. Non-authority rule",
       "heading_level": 2,
       "heading_anchor": "2-non-authority-rule",
-      "start_line": 37,
-      "end_line": 49,
+      "start_line": 40,
+      "end_line": 52,
       "content_sha256": "e07b577e37d60ba94fc4bb7f4a2105f89e682184c3538c205b1ef428cc8aa788"
     },
     {
@@ -1452,8 +1606,8 @@
       "heading": "8. Required source pointers",
       "heading_level": 2,
       "heading_anchor": "8-required-source-pointers",
-      "start_line": 123,
-      "end_line": 137,
+      "start_line": 127,
+      "end_line": 140,
       "content_sha256": "7da79e7d2daa892a076ba8ff1827c4b6036bc0a3453c86ab17c2df46440d3208"
     },
     {
@@ -1466,8 +1620,8 @@
       "heading": "5. Trigger rules",
       "heading_level": 2,
       "heading_anchor": "5-trigger-rules",
-      "start_line": 77,
-      "end_line": 93,
+      "start_line": 80,
+      "end_line": 96,
       "content_sha256": "926054a393028d1605244503be2041faa08643ab9f30c6d705174bb8c55bfdcf"
     },
     {
@@ -1480,8 +1634,8 @@
       "heading": "5.1 Check families and domain tags",
       "heading_level": 2,
       "heading_anchor": "5-1-check-families-and-domain-tags",
-      "start_line": 119,
-      "end_line": 163,
+      "start_line": 122,
+      "end_line": 166,
       "content_sha256": "f03901d60f815af2c10901249be126a1acff6f9b2947d01c91665639e76357f8"
     },
     {
@@ -1494,8 +1648,8 @@
       "heading": "4. Combat / attack outcome bands",
       "heading_level": 2,
       "heading_anchor": "4-combat-attack-outcome-bands",
-      "start_line": 88,
-      "end_line": 101,
+      "start_line": 91,
+      "end_line": 104,
       "content_sha256": "3d469b79583fb3f4b851396fb1b0aa402bd0f6af8d21462300c23ca135588882"
     },
     {
@@ -1508,8 +1662,8 @@
       "heading": "6. Core check flow",
       "heading_level": 2,
       "heading_anchor": "6-core-check-flow",
-      "start_line": 164,
-      "end_line": 175,
+      "start_line": 167,
+      "end_line": 178,
       "content_sha256": "b4392f20936e22b8e2cde8fe9216a40e64029a7ac18e8b93ef727d30751014b7"
     },
     {
@@ -1522,9 +1676,9 @@
       "heading": "14. DM Mode required-use note",
       "heading_level": 2,
       "heading_anchor": "14-dm-mode-required-use-note",
-      "start_line": 280,
-      "end_line": 290,
-      "content_sha256": "0f88b455e5fe807ae83ecbc24751a0e1f8ca545021134a5334c4b44f92fcac44"
+      "start_line": 283,
+      "end_line": 294,
+      "content_sha256": "b4998bdaae38d7cbd768a6396487c47f3697bb5d7087318a4da4dff155246878"
     },
     {
       "slice_id": "skills.resolution.gate-pressure-setup-split",
@@ -1536,8 +1690,8 @@
       "heading": "9. Gate / Pressure / Setup check split",
       "heading_level": 2,
       "heading_anchor": "9-gate-pressure-setup-check-split",
-      "start_line": 203,
-      "end_line": 214,
+      "start_line": 206,
+      "end_line": 217,
       "content_sha256": "1b194a040e644f1724a83fbcf294e66ba605c818bc1e32459d54e1d4c2e60b98"
     },
     {
@@ -1550,8 +1704,8 @@
       "heading": "3. Lattice-100 core roll call",
       "heading_level": 2,
       "heading_anchor": "3-lattice-100-core-roll-call",
-      "start_line": 59,
-      "end_line": 87,
+      "start_line": 62,
+      "end_line": 90,
       "content_sha256": "e9d5fdf0becbf7a1ba695cfcad95c2a483da5d48cd2dffacb86901742314902f"
     },
     {
@@ -1564,8 +1718,8 @@
       "heading": "5. Noncombat / general check outcome bands",
       "heading_level": 2,
       "heading_anchor": "5-noncombat-general-check-outcome-bands",
-      "start_line": 102,
-      "end_line": 118,
+      "start_line": 105,
+      "end_line": 121,
       "content_sha256": "19acec273e8f387d39c0f8104d6c3dbe9c0a81f6879dc5efd1d90af225eb47f1"
     },
     {
@@ -1578,8 +1732,8 @@
       "heading": "1. Purpose",
       "heading_level": 2,
       "heading_anchor": "1-purpose",
-      "start_line": 30,
-      "end_line": 45,
+      "start_line": 33,
+      "end_line": 48,
       "content_sha256": "d5743507657e8dba432b2e18a383e90ef7c68fce025212478289c707fbaebdd5"
     },
     {
@@ -1592,8 +1746,8 @@
       "heading": "7. Thresholds for competence, rolls for uncertainty",
       "heading_level": 2,
       "heading_anchor": "7-thresholds-for-competence-rolls-for-uncertainty",
-      "start_line": 176,
-      "end_line": 195,
+      "start_line": 179,
+      "end_line": 198,
       "content_sha256": "0be44d5564842dc65d2c8aa7eab207f3d0624f30a8981bcfa345f237f312aaaf"
     }
   ]

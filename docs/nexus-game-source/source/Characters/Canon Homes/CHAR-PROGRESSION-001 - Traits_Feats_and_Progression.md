@@ -30,6 +30,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Traits, Feats, and Progression
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Recovery, the Character Build Stack, and compatible progression rules below survive under `CORE-SPATIAL-001`. Each campaign begins with a new Captain; the Crew Archive supplies eligible starting Crewmates; Rook references are Campaign Fixture evidence. Exact Growth Trait timing/cost and archive migration edges remain open.
+
 ## 1. Current status
 
 Traits, feats, powers, techniques, and selectable focuses are not finalized. They are preserved as the likely progression surface for making body/origin, discipline, skill, and cyberware choices concrete.
@@ -145,4 +148,3 @@ Routing:
 - `Characters` preserves character-facing progression implications.
 - `Skills` owns skill/ability/focus math.
 - `Equipment` owns cyberware item trees, CP costs, EMP/system-disruption hooks, and module rules.
-

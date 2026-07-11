@@ -28,6 +28,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Action Economy and Reactions
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
+
 ## 1. Current baseline
 
 The current v0.1 combat benchmark is:
@@ -187,5 +190,4 @@ Still open:
 - reaction refresh timing;
 - whether objective-progressing micro-interaction needs a per-round limit;
 - action-card anchor tags and whether templates should display them.
-
 

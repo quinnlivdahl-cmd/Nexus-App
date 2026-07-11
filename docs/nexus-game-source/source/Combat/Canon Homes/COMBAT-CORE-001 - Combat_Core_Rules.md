@@ -30,8 +30,12 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Combat Core Rules
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
+
 <!-- source-slice: combat.core.purpose-and-tactical-principles -->
 ## 1. Purpose
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Combat in Nexus is tactical, readable, and meaningful. Combat should occupy a large share of player time, but not every encounter must become combat.
 
@@ -39,6 +43,7 @@ Characters are expected to be relatively squishy. Success should come from plann
 
 <!-- source-slice: combat.core.encounter-start-procedure -->
 ## 2. Encounter start procedure
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Combat encounters should begin with:
 
@@ -65,6 +70,7 @@ The working combat party baseline is PC + 2 crew. The player controls the PC and
 
 <!-- source-slice: combat.core.turn-and-activation-baseline -->
 ## 5. Turn and activation baseline
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Current v0.1 baseline:
 
@@ -76,6 +82,7 @@ Current v0.1 baseline:
 
 <!-- source-slice: combat.core.combat-state-to-track -->
 ## 6. Combat state to track
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Combat state should track:
 
@@ -88,6 +95,7 @@ Combat state should track:
 
 <!-- source-slice: combat.core.defensive-display-spine -->
 ## 7. Defensive display spine
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 Use this tactical display spine when a combatant needs a full profile:
 
 ```text
@@ -139,6 +147,7 @@ This conversion rule is strongest for PCs, crew, important NPCs, recurring enemi
 
 <!-- source-slice: combat.core.durability-application-order -->
 ## 9. Durability application order
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 `Combat` owns tactical application order only. Detailed gear balance belongs to `Equipment`.
 
 Working order:
@@ -163,6 +172,7 @@ If one effect both applies a temporary Standard Status and causes Downed or Disa
 
 <!-- source-slice: combat.core.app-authority-state-mutation-boundary -->
 ### 9.1 App-facing authority and state mutation boundary
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Nexus uses an API DM for interpretation, narration, NPC response, scene feel, and flexible freeform play. The API DM does not become the final authority for combat legality, roll result, effect, state mutation, or committed truth.
 
@@ -203,6 +213,7 @@ Robust tactical healing, revival from Downed, permanent-loss prevention, cyberne
 
 <!-- source-slice: combat.core.end-conditions -->
 ## 11. Combat end conditions
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Combat can end through victory, retreat, surrender, escape, objective completion, negotiation, collapse, timer resolution, enemy withdrawal, system shutdown, reinforcements changing the situation, or other consequences. Killing every enemy is only one possible end condition.
 
@@ -228,4 +239,3 @@ Still open:
 - exact status duration and clearance rules;
 - exact critical/status interaction rules beyond the Downed/Disabled conversion rule;
 - whether "Severe" becomes a defined rule term beyond the Downed/Disabled + status conversion rule.
-

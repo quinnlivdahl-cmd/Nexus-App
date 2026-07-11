@@ -29,6 +29,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Combat Playtest Gaps and Rulings
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Alternating activation and whether Initiative exists are resolved by `CORE-SPATIAL-001`: every relevant combatant rolls individual Lattice-100 Initiative for a fixed order during Tactical Pressure. Exact modifiers, ties, surprise, late entry, movement scale, cover tuning, and participation thresholds remain open.
+
 ## 1. Purpose
 
 This document collects combat, TacMap, action economy, encounter, and enemy behavior gaps identified during consolidation and restrained mass-intake integration.
@@ -205,5 +208,4 @@ Mass intake reinforced that templates likely need updates after this source-upda
 - `Play Aids` and `Art` templates or manifests should handle TacMap visual and icon assets.
 - `Dashboards` should eventually rebuild live tactical surfaces without brittle legacy behavior.
 - `Automation` may later need a structured TacMap data template if runtime automation becomes active.
-
 

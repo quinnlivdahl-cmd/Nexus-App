@@ -26,8 +26,12 @@ metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first
 
 # Nexus Core Game Pillars
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` now controls the spatial product model. Material below remains current only where it preserves compatible campaign, crew, route, preparation, recovery, or terminology detail. Tabletop-first identity, menu-only Ship Phase, one-main-Encounter structure, node/TacMap spatial authority, and primary DM-chat assumptions are historical.
+
 <!-- source-slice: core.pillars.core-pitch -->
 ## 1. Core Pitch
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 Nexus is a turn-based sci-fi squad RPG where the player controls one primary player character, recruits NPC party members, and travels with a mobile crew on a ship through a dangerous solar-system route structure inspired by FTL.
 
@@ -41,6 +45,7 @@ FTL route progression plus XCOM-style tactical missions plus Pokemon-style recru
 
 <!-- source-slice: core.pillars.setting-boundary -->
 ## 3. Setting Boundary at Core Level
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 The game remains within the solar system. The major mystery is extrasolar contact. Conflict arises from the ways solar-system factions react to that contact.
 
@@ -56,6 +61,7 @@ Detailed character chassis, origins, species-facing hooks, skills, disciplines, 
 
 <!-- source-slice: core.pillars.campaign-structure -->
 ## 5. Core Campaign Structure
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 The game progresses through an FTL-style route map. The player travels through the solar system from node to node with a mobile crew on a ship.
 
@@ -67,6 +73,7 @@ Current mass-intake refinement: the practical rhythm should remain visible as **
 
 <!-- source-slice: core.pillars.design-pillars -->
 ## 6. Design Pillars
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 ### Playable Tabletop Foundation
 
@@ -106,6 +113,7 @@ Replit or other digital tools should implement tested tabletop systems rather th
 
 <!-- source-slice: core.pillars.campaign-scale -->
 ## 7. Campaign Scale
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 Nexus campaigns begin with crew-scale action inside a larger multi-polar solar-system crisis. The player crew should not start by controlling empires, commanding major factions, or solving the entire system.
 
@@ -155,5 +163,3 @@ TT v0.1 should be able to:
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
-

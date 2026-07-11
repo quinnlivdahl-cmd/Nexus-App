@@ -26,12 +26,16 @@ metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first
 
 # Campaign Loop and Route Structure
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` now controls the spatial product model. Material below remains current only where it preserves compatible campaign, crew, route, preparation, recovery, or terminology detail. Tabletop-first identity, menu-only Ship Phase, one-main-Encounter structure, node/TacMap spatial authority, and primary DM-chat assumptions are historical.
+
 ## 1. Purpose
 
 This document defines the current v0.1 campaign loop and route-node structure for Nexus.
 
 <!-- source-slice: core.campaign.core-loop -->
 ## 2. Core Loop
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 The current campaign loop is:
 
@@ -50,6 +54,7 @@ The current campaign loop is:
 
 <!-- source-slice: core.campaign.pre-node-timing -->
 ## 3. C1 Clarification - Pre-Node Timing
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 Current user decision for the Core domain: **pre-node preparation occurs prior to starting the node.**
 
@@ -59,6 +64,7 @@ This incorporates the Rook campaign pause state: after selecting Relay Cache E-4
 
 <!-- source-slice: core.campaign.route-structure -->
 ## 4. Route Structure
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 The player controls a mobile crew on a ship traveling through the solar system. Each node is a playable stop on an arbitrary journey across the solar system with a range of potential reasons and outcomes.
 
@@ -66,6 +72,7 @@ The route structure exists to make choice, loss, opportunity, travel resources, 
 
 <!-- source-slice: core.campaign.node-definition -->
 ## 5. Node Definition
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 A node is a playable ship stop, not merely a map point.
 
@@ -102,6 +109,7 @@ PC skills, crew skills, ship systems, equipment, faction status, and prior choic
 
 <!-- source-slice: core.campaign.route-choice-display -->
 ## 7. Route Choice Display
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 Rook playtest evidence indicates that too many accumulated opportunities can reduce decision quality. Core guidance: keep next-node or next-step choices readable and limited when possible.
 
@@ -144,6 +152,7 @@ Major campaign escalation is possible later, but the first campaign should not r
 
 <!-- source-slice: core.campaign.route-node-end-report -->
 ## 12. Route Node End Report and Save Workflow
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
 Dq9 handoff evidence adds a procedure cue: when a route node ends, DM Mode should produce a compact Route Node End Report before free ship time resumes.
 
@@ -179,5 +188,3 @@ This is a procedural source cue, not final campaign math. Detailed dashboard lay
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
-

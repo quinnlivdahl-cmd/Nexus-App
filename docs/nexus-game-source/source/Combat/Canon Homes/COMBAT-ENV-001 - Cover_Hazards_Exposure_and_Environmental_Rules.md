@@ -28,6 +28,9 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 # Cover, Hazards, Exposure, and Environmental Rules
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
+
 ## 1. Purpose
 
 This document defines the current source surface for cover, half cover, full cover, exposure, hazards, elevation, distance, flanking, status families, node/path environment effects, visibility, line-of-fire, and environment-facing tactical rules.
@@ -251,6 +254,5 @@ Still open:
 - exact Crowded cover downgrade;
 - exact node-edge icon grammar;
 - final wall breach procedure.
-
 
 

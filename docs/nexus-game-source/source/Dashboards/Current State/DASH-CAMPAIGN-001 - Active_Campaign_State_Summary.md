@@ -29,6 +29,9 @@ metadata_notes: "Phase 10 Dashboards consolidation. Campaign summary now uses do
 
 # Active Campaign State Summary
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This dashboard is historical playtest/current-state evidence and does not define the revised product. Rook is a Campaign Fixture, DM chat is not the primary runtime surface, and current execution must follow `CORE-SPATIAL-001` plus live planning controls.
+
 ## Campaign identity
 
 - Campaign: Rook test campaign.
@@ -153,5 +156,4 @@ Ship support:
 This campaign-state summary is preserved during the tracker/dashboard repair pass. The active campaign remains paused before E-43. Dashboard/template changes should improve Obsidian display and DM execution support without altering campaign facts.
 
 This summary is a current-state resume surface, not the canon home for campaign-loop procedure, character rules, or combat rules.
-
 

@@ -29,6 +29,9 @@ metadata_notes: "Phase 10 Dashboards consolidation. Playtest summary now uses do
 
 # Active Playtest and Rulings Summary
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> This dashboard is historical playtest/current-state evidence and does not define the revised product. Rook is a Campaign Fixture, DM chat is not the primary runtime surface, and current execution must follow `CORE-SPATIAL-001` plus live planning controls.
+
 ## Snapshot
 
 This doc summarizes playtest findings and unresolved rulings from available DM handoffs and dashboards. It is not final rules source. Route rules changes to Draft/Steward and the relevant domain canon home.
@@ -175,5 +178,4 @@ When DM creates a provisional ruling during play, preserve it here or in the nex
 - Noncombat major-time-consuming-choice procedure.
 
 These are tracked in `DASH-007 - Active_Project_Task_Summary.md` rather than in a separate shadow queue.
-
 

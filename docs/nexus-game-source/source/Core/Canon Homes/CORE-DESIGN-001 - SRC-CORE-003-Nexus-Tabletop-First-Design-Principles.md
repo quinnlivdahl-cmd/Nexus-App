@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first
 
 # Nexus Tabletop-First Design Principles
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> `CORE-SPATIAL-001` replaces tabletop-first product identity with a local-first spatial RPG. Preserve the tabletop possibility, visible Lattice rolls, repairability, meaningful choices, and human-readable state lessons below; tabletop/notebook operation, DM-chat primacy, and node/TacMap abstractions are historical constraints rather than current product authority.
+
 ## 1. Tabletop-First Scope
 
 The first playable form of Nexus is not a coded app. It is a tabletop/notebook RPG ruleset and campaign procedure that can be run in this project notebook.
@@ -127,6 +130,5 @@ When TT play improvises a rule, NPC status, display convention, or pacing correc
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
 
 

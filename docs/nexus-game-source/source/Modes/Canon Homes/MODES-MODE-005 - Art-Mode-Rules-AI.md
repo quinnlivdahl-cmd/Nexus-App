@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 Modes consolidation. Art behavior now uses domain-firs
 
 # Art Mode Rules AI
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Art Mode may support production asset exploration and Live Illustrations, but generated images and TacMap collages cannot define authoritative spatial geometry, interactions, cover, movement, or Game Truth under `CORE-SPATIAL-001`.
+
 ## 1. Purpose
 
 Art Mode owns art direction, visual prompts, prompt packs, asset guidance, style locks, and canon/non-canon art routing.
@@ -161,5 +164,4 @@ TacMap icon work should prioritize top-down readability, fast state changes, mob
 - `Build Prompt(item)` is a prompt-building function that gathers intent, style lock, references, constraints, and output target, then produces prompt text only.
 - The Art dashboard should explicitly include `Style Lock`, `Banned Drift`, `Allowed Variation`, `Style Override / Test Lane`, `Concepts`, `In Progress`, `Generated Externally`, `Canon Approved`, and `Non-Canon / Scrap`.
 - Generated images are not canon by default and must route through canon or non-canon review.
-
 

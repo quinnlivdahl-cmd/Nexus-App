@@ -26,6 +26,9 @@ metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-fir
 
 # Resolution Core Rules
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Lattice-100 remains authoritative and visible. DM Mode language below is tabletop/prototype workflow history; the spatial runtime and deterministic rules layer apply Lattice-100 under `CORE-SPATIAL-001`.
+
 <!-- source-slice: skills.resolution.purpose-and-scope -->
 ## 1. Purpose
 
@@ -278,6 +281,7 @@ The system should reward genuinely clever, grounded, or well-supported plans wit
 
 <!-- source-slice: skills.resolution.dm-mode-required-use -->
 ## 14. DM Mode required-use note
+> [!note] Slice status — preserved mechanic, historical operator. Lattice-100 remains required, but the deterministic spatial runtime—not a primary DM-chat mode—owns its mechanical application under `CORE-SPATIAL-001`.
 
 DM Mode must not treat Lattice-100 as optional background reading.
 
@@ -291,4 +295,3 @@ Until superseded, DM Mode should:
 ## 15. Scene-beat routing note
 
 Full scene-beat procedure belongs in Core and Modes templates. Skills preserves the resolution principle only: complex plans should resolve in meaningful beats when there are real choices, costs, risks, and consequences.
-

@@ -26,6 +26,9 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Enemy Roles, Tags, and Stat Blocks
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
+
 ## Canon caution
 
 The profile names below are test and balance scaffolds unless promoted later. They do not define the official enemy roster, species, factions, AI, or lore.
@@ -195,6 +198,5 @@ DM-Only
 Use Firewall/System Integrity only when a tech surface is tactically meaningful. Minor devices may only need a tag or System Status hook; major systems, bosses, drones, locked doors, turrets, suits, or station systems may need explicit fields.
 
 Stat blocks should not grow just because a tag exists. Add a field only when it changes a decision, target, vulnerability, reward, or consequence.
-
 
 

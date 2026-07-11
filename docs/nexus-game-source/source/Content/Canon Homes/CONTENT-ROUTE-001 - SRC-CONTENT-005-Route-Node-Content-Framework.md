@@ -26,8 +26,12 @@ metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-C
 
 # Route Node Content Framework
 
+> [!important] Revised vision reconciliation — 2026-07-11
+> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
+
 <!-- source-slice: content.route-node.purpose -->
 ## Purpose
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Route nodes are the campaign-scale content unit that link FTL-style travel, ship phase, encounters, objectives, and consequences.
 
@@ -35,6 +39,7 @@ A route node is not always a fight. It may be a tactical mission, investigation,
 
 <!-- source-slice: content.route-node.content-fields -->
 ## Node content fields
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 A route node seed should include:
 
@@ -61,6 +66,7 @@ Reward / lead / salvage outcomes:
 
 <!-- source-slice: content.route-node.pre-node-procedure -->
 ## Pre-node procedure
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 The current preferred flow includes pre-mission crew and loadout selection before starting a node. "Level ups" or progression choices may happen during this selection window when appropriate.
 
@@ -74,6 +80,7 @@ Pre-node questions should be practical:
 
 <!-- source-slice: content.route-node.objectives-and-opportunities -->
 ## Objectives and opportunities
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Separate objectives from opportunities.
 
@@ -85,6 +92,7 @@ The Rook handoff produced a useful discipline: when a lead opens, do not create 
 
 <!-- source-slice: content.route-node.node-end-report -->
 ## Node end report
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 At route-node end, DM Mode should produce a Route Node End Report before free ship time.
 
@@ -105,11 +113,13 @@ Persistent updates may include heat, damage, complications, opportunities, objec
 
 <!-- source-slice: content.route-node.campaign-specific-node-caution -->
 ## Campaign-specific node caution
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Playtest nodes such as Ternary Lock and Maintenance Relay Cache E-43 are useful examples of node structure, but they are campaign state until promoted. Do not treat them as default canonical route-node content.
 
 <!-- source-slice: content.route-node.route-consequences -->
 ## Node content and route consequences
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Route nodes may cost or create:
 
@@ -127,6 +137,7 @@ Route nodes may cost or create:
 
 <!-- source-slice: content.route-node.route-node-end-report-fields -->
 ## Mass-intake alignment: Route Node End Report fields
+> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Route-node content should identify what may be summarized in the Route Node End Report:
 
@@ -145,5 +156,3 @@ Route-node content should identify what may be summarized in the Route Node End 
 ### Pickup correction
 
 Pickups are added to inventory. They are not carried inactive equipment by default and do not imply extra equipment slots. If a pickup changes immediate loadout use, the content entry must state the special rule or scene permission explicitly.
-
-
