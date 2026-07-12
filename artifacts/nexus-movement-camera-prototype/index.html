@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus — Interaction + Followers Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="prototype-shell">
+      <canvas id="game" aria-label="Playable derelict station interaction and follower prototype"></canvas>
+
+      <header class="prototype-banner">
+        <div>
+          <span class="eyebrow">Disposable spatial feel-test · Prototype interaction, auto-pathing, facing, and simple followers</span>
+          <h1>DERELICT KESTREL / SERVICE DECK 04</h1>
+        </div>
+        <div class="status-cluster">
+          <span id="areaBadge" class="area-badge">Docking spine</span>
+          <span class="provisional">Provisional Canvas + grid navigation</span>
+        </div>
+      </header>
+
+      <section class="objective-card" aria-live="polite">
+        <span class="objective-kicker">PLAYTEST ROUTE</span>
+        <strong id="objectiveTitle">Direct a crewmate, then select an object</strong>
+        <p id="objectiveText">Click a person (or press 1–3), use WASD, then click an object. IP circles are diagnostics, not movement commands.</p>
+      </section>
+
+      <aside class="diagnostics" aria-label="Prototype diagnostics">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">Visible state</span>
+            <h2>Interaction diagnostics</h2>
+          </div>
+          <button id="resetButton" class="icon-button" type="button" title="Reset prototype">↺</button>
+        </div>
+
+        <div class="button-grid">
+          <button id="tacticalButton" type="button"><b>T</b> Pullback <em id="tacticalState">OFF</em></button>
+          <button id="captureButton" type="button"><b>P</b> Capture <em id="captureState">READY</em></button>
+        </div>
+
+        <div class="toggle-grid">
+          <label><input id="diagnosticToggle" type="checkbox" checked /> Show paths, sockets, and targets</label>
+          <label><input id="occlusion" type="checkbox" /> Fade tall obstruction</label>
+        </div>
+
+        <dl class="telemetry">
+          <div><dt>Controlled</dt><dd id="controlledReadout">A · Cyan</dd></div>
+          <div><dt>Selected object</dt><dd id="selectedReadout">None</dd></div>
+          <div><dt>Selected action</dt><dd id="actionReadout">None</dd></div>
+          <div><dt>Facing</dt><dd id="facingReadout">E</dd></div>
+          <div><dt>Interaction target</dt><dd id="targetReadout">None</dd></div>
+          <div><dt>Interaction Position</dt><dd id="positionReadout">None</dd></div>
+          <div><dt>Auto-path</dt><dd id="pathReadout">Idle</dd></div>
+          <div><dt>Path state / failure</dt><dd id="pathStateReadout">Manual control</dd></div>
+          <div><dt>Follower B</dt><dd id="followerOneReadout">Settling</dd></div>
+          <div><dt>Follower C</dt><dd id="followerTwoReadout">Settling</dd></div>
+          <div><dt>Captured positions</dt><dd id="captureReadout">None</dd></div>
+          <div><dt>Movement / camera</dt><dd>190 u/s · 0.82× · softness 3.2</dd></div>
+          <div><dt>View / tactical</dt><dd>10° · adaptive · 1.70×</dd></div>
+        </dl>
+      </aside>
+
+      <section id="contextMenu" class="context-menu hidden" aria-live="polite">
+        <div class="context-heading">
+          <div>
+            <span class="objective-kicker">CONTEXT ACTION MENU</span>
+            <h2 id="contextTitle">Object</h2>
+          </div>
+          <button id="closeContext" class="icon-button" type="button" aria-label="Close context menu">×</button>
+        </div>
+        <p id="contextDescription"></p>
+        <div id="contextActions" class="context-actions"></div>
+      </section>
+
+      <div id="pauseOverlay" class="pause-overlay hidden" role="status">
+        <span>TACTICAL-POSITION CHECK</span>
+        <strong>POSITIONS CAPTURED</strong>
+        <p>The visible A/B/C markers are the exact Free Movement positions. Press <kbd>P</kbd> to resume.</p>
+      </div>
+
+      <footer class="controls-strip">
+        <span><kbd>WASD</kbd> Move / cancel path</span>
+        <span><kbd>Click person</kbd> or <kbd>1–3</kbd>/<kbd>Tab</kbd> Take direct control</span>
+        <span><kbd>Click</kbd> Select object</span>
+        <span><kbd>T</kbd> Pullback</span>
+        <span><kbd>P</kbd> Capture / pause</span>
+        <span><kbd>G</kbd> Diagnostics</span>
+        <span><kbd>R</kbd> Reset</span>
+      </footer>
+
+      <div id="toast" class="toast" role="status"></div>
+    </main>
+
+    <script type="module" src="./prototype.js"></script>
+  </body>
+</html>
