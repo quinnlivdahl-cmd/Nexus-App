@@ -3,7 +3,7 @@
 ## Contexts
 
 - [Nexus Game](./docs/contexts/nexus-game/CONTEXT.md) — defines the product language for player experience, gameplay, rules, presentation, and game state; its accepted decisions are indexed in [System-wide ADRs](./docs/adr/README.md)
-- **Nexus Project Operations** — owns project-control language; its glossary will be created at `docs/contexts/nexus-project-operations/CONTEXT.md` when this workflow first resolves an operations term
+- [Nexus Project Operations](./docs/contexts/nexus-project-operations/CONTEXT.md) — owns project-control language for GitHub workflow, planning, agent behavior, source maintenance, validation, handoffs, roadmap maintenance, and project memory
 
 ## Relationships
 
