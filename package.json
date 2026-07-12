@@ -18,6 +18,8 @@
     "source:slices:check": "node scripts/update-source-slice-catalog.mjs --check",
     "context:pack:check": "node scripts/validate-context-pack.mjs",
     "context:runtime:check": "node scripts/validate-runtime-context-budget.mjs",
+    "prototype:location-assembly": "node artifacts/nexus-location-assembly-prototype/server.mjs",
+    "prototype:location-assembly:check": "node artifacts/nexus-location-assembly-prototype/checks.mjs",
     "validate:workflow": "node scripts/validate-nexus-workflow.mjs",
     "build": "corepack pnpm run typecheck && corepack pnpm -r --if-present run build",
     "typecheck:libs": "tsc --build",

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Nexus — Disposable Location Assembly Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="prototype-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Nexus spatial proof · Location assembly</p>
+          <h1>Derelict Location Assembly Review</h1>
+        </div>
+        <div class="warning-chip">Disposable prototype — do not ship</div>
+      </header>
+
+      <main class="workspace">
+        <section class="stage-panel" aria-label="Playable assembled Location">
+          <div class="stage-toolbar">
+            <div class="segmented-control" aria-label="Blueprint diagnostic cases">
+              <button id="validBlueprintButton" class="active" type="button">Valid Blueprint</button>
+              <button id="invalidBlueprintButton" type="button">Invalid seam case</button>
+            </div>
+            <div class="toolbar-actions">
+              <button id="resetButton" class="quiet" type="button">Reset actor</button>
+              <button id="traversalButton" class="primary" type="button">Run guided traversal</button>
+            </div>
+          </div>
+
+          <div class="canvas-frame">
+            <canvas id="worldCanvas" tabindex="0" aria-label="Playable three-area derelict Location"></canvas>
+            <div class="scene-caption">
+              <span>Scene-first test art</span>
+              <strong id="sceneCaption">Docking Spine</strong>
+            </div>
+            <div class="canvas-overlay canvas-overlay-left">
+              <span><kbd>WASD</kbd> move</span>
+              <span><kbd>T</kbd> tactical pullback</span>
+            </div>
+            <div class="canvas-overlay canvas-overlay-right" id="canvasStatus">Ready</div>
+          </div>
+
+          <div class="stage-status">
+            <span id="validationBadge" class="status-badge pass">VALIDATION PASS</span>
+            <strong id="activeBlueprintName">Representative derelict / valid assembly</strong>
+            <span id="assemblySummary" class="muted"></span>
+          </div>
+        </section>
+
+        <aside class="diagnostics" aria-label="Location assembly diagnostics">
+          <section class="diagnostic-section diagnostic-intro">
+            <p class="section-kicker">Question under review</p>
+            <p>
+              Can validated Location Modules and a Location Blueprint assemble this three-area derelict while preserving its spatial metadata?
+            </p>
+            <p class="presentation-note">The ship dressing is disposable test art for legibility—not a proposed final visual style.</p>
+          </section>
+
+          <section class="diagnostic-section">
+            <div class="section-heading">
+              <h2>Inspection mode</h2>
+              <span>one layer at a time</span>
+            </div>
+            <div class="layer-grid" role="group" aria-label="Choose one inspection mode">
+              <button class="layer-button active" data-layer="scene" type="button">Scene only</button>
+              <button class="layer-button" data-layer="assembly" type="button">Modules + seams</button>
+              <button class="layer-button" data-layer="navigation" type="button">Navigation</button>
+              <button class="layer-button" data-layer="interactions" type="button">Interactions</button>
+              <button class="layer-button" data-layer="occlusion" type="button">Occlusion</button>
+              <button class="layer-button" data-layer="cover" type="button">Cover</button>
+              <button class="layer-button" data-layer="path" type="button">Traversal route</button>
+            </div>
+            <div id="layerLegend" class="layer-legend" aria-live="polite"></div>
+            <label class="fade-control"><input id="fadeControl" type="checkbox" /> Fade nearby foreground walls (fallback)</label>
+          </section>
+
+          <section class="diagnostic-section">
+            <div class="section-heading">
+              <h2>Live state</h2>
+              <span id="activeAreaLabel">Docking Spine</span>
+            </div>
+            <dl id="liveState" class="live-state"></dl>
+            <div id="visitedAreas" class="visited-areas"></div>
+          </section>
+
+          <section class="diagnostic-section">
+            <div class="section-heading">
+              <h2>Placed modules</h2>
+              <span id="moduleCount">3</span>
+            </div>
+            <div id="moduleList" class="module-list"></div>
+          </section>
+
+          <section class="diagnostic-section validation-section">
+            <div class="section-heading">
+              <h2>Validator evidence</h2>
+              <span id="validationCount"></span>
+            </div>
+            <div id="validationResults" class="validation-results"></div>
+          </section>
+
+          <section class="diagnostic-section fixed-inputs">
+            <div class="section-heading">
+              <h2>Fixed accepted inputs</h2>
+              <span>movement ticket verdict</span>
+            </div>
+            <p>10° overhead tilt · E→right / N→up · 190 u/s · 0.82× normal · follow 3.2 · 1.70× tactical</p>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>
