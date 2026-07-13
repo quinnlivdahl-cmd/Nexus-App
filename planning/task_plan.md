@@ -8,7 +8,7 @@ Define the spatial action validation and commit transaction for the first vertic
 
 ### Current Phase
 
-**Design contract accepted; publication and GitHub closeout in progress; implementation not started**
+**Design contract accepted and published; GitHub closeout complete; implementation not started**
 
 ### Phases
 
@@ -18,7 +18,7 @@ Define the spatial action validation and commit transaction for the first vertic
 - [x] Draft and harden the spatial action transaction contract.
 - [x] Run independent contract and documentation review; correct findings; receive final PASS.
 - [x] Obtain user confirmation that shared understanding has been reached.
-- [ ] Publish the accepted contract package and close Spatial Action Transaction #5 with evidence.
+- [x] Publish the accepted contract package and close Spatial Action Transaction #5 with evidence.
 
 ---
 

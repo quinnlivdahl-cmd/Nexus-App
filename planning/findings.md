@@ -9,7 +9,7 @@
 - The accepted contract lives at `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`.
 - Independent contract and documentation reviews passed after authority-boundary, terminology, and ADR-threshold corrections.
 - Canonical source files were not changed.
-- The accepted package is prepared on a scoped publication branch; merge, evidence comment, Spatial Vertical Slice Map #57 update, and GitHub closure remain pending.
+- PR #69 published the accepted dependency and spatial-contract package; Spatial Action Transaction #5 received its evidence comment and closeout sync, while Spatial Vertical Slice Map #57 remains open with the accepted child decision recorded.
 
 ---
 
