@@ -120,6 +120,7 @@ Note: #34, #35, #36, #37, #38, #39, #40, and #41 are closed and are therefore no
 | #30 | Draft check-display examples and noncombat scene procedure template | source/play doc | none listed | Noncombat/check display |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure; recommended next Draft chat |
 | #32 | Improve character chassis and origin sheet usability for play | source/play doc | none listed | Character sheet usability |
+| #68 | Complete Crew Archive pool and former-PC conversion design | design/grilling | #11 and #32 related | Split from AI Contracts #4; complete cross-campaign eligibility, candidate-pool, and conversion contracts |
 
 ## Blocked Issues
 

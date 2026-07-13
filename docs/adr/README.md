@@ -21,7 +21,7 @@ The baseline does not silently rewrite Golden Truth. `docs/nexus-game-source/sou
 
 ## Accepted decisions
 
-All decisions below were accepted on 2026-07-10 from the Grill with Docs revised-vision decision session and published through Revised Vision Decision Baseline #58.
+ADRs 0001–0034 were accepted on 2026-07-10 from the Grill with Docs revised-vision decision session and published through Revised Vision Decision Baseline #58. Later accepted records preserve their own date and provenance.
 
 | ADR | Decision |
 |---|---|
