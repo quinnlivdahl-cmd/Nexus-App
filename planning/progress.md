@@ -20,7 +20,7 @@
 - Canonical source scope remained unchanged.
 
 **Next Step**:
-- Shared understanding was confirmed on 2026-07-13. Publish the reviewed dependency and spatial-contract package, then post evidence, synchronize final closeout state, update Spatial Vertical Slice Map #57, and close Spatial Action Transaction #5. Production implementation remains unstarted.
+- Shared understanding was confirmed on 2026-07-13. PR #69 published the reviewed dependency and spatial-contract package; the evidence comment, final closeout sync, parent-map update, and Spatial Action Transaction #5 closure are complete. Production implementation remains unstarted.
 
 ---
 
