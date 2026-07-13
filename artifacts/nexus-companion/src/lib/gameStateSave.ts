@@ -3,7 +3,7 @@ import { normalizeDMMemory } from './dmMemory';
 import { validateEncounterState } from './encounter/validateEncounter';
 import type { AppView, DMMemoryKind, GameState, MenuTab } from '../types/game';
 
-const APP_VIEWS: AppView[] = ['encounter', 'scene', 'menu'];
+const APP_VIEWS: AppView[] = ['encounter', 'scene', 'menu', 'skill-tree-lab'];
 const MENU_TABS: MenuTab[] = ['crew', 'campaign', 'route', 'settings'];
 const DM_MEMORY_KINDS = new Set<DMMemoryKind>([
   'session_summary',

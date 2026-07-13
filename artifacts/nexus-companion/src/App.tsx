@@ -9,6 +9,8 @@ import TacMap from './components/tacmap/TacMap';
 import EncounterHarnessControls from './components/encounter/EncounterHarnessControls';
 import type { AppView, MenuTab, CrewMember, Actor } from './types/game';
 import { BACKDROP_LABELS } from './components/tacmap/backdrops';
+import { Orbit } from 'lucide-react';
+import SkillTreeLab from './features/skill-tree-lab/SkillTreeLab';
 
 /* ── Icons (simple SVG) ── */
 function Icon({ d, size = 16 }: { d: string; size?: number }) {
@@ -1555,6 +1557,7 @@ function TopNav({ onMenuOpen }: { onMenuOpen: () => void }) {
   const navItems: { id: AppView; label: string; icon: React.ReactNode }[] = [
     { id: 'scene',    label: 'Scene',    icon: <IconMap /> },
     { id: 'encounter',label: 'Encounter',icon: <IconSword /> },
+    { id: 'skill-tree-lab', label: 'Skill Lab', icon: <Orbit size={14} /> },
   ];
 
   return (
@@ -1574,6 +1577,8 @@ function TopNav({ onMenuOpen }: { onMenuOpen: () => void }) {
           <button
             key={item.id}
             onClick={() => dispatch({ type: 'SET_VIEW', payload: item.id })}
+            aria-label={item.label}
+            title={item.label}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[2px] text-[10px] font-mono uppercase tracking-widest transition-all ${
               view === item.id
                 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/60 shadow-[0_0_8px_rgba(232,119,34,0.25)] font-bold'
@@ -1581,7 +1586,7 @@ function TopNav({ onMenuOpen }: { onMenuOpen: () => void }) {
             }`}
           >
             <span className="w-3.5 h-3.5">{item.icon}</span>
-            {item.label}
+            <span className="hidden min-[420px]:inline">{item.label}</span>
           </button>
         ))}
       </div>
@@ -1606,9 +1611,10 @@ function TopNav({ onMenuOpen }: { onMenuOpen: () => void }) {
       {/* Menu button */}
       <button
         onClick={onMenuOpen}
+        aria-label="Menu"
         className="flex items-center gap-1.5 px-3 py-1.5 border border-white/20 text-white/50 text-[10px] font-mono rounded-[2px] hover:border-amber-500/50 hover:text-amber-400 hover:bg-amber-500/10 transition-all font-bold shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)]"
       >
-        <IconMenu /> MENU
+        <IconMenu /> <span className="hidden min-[420px]:inline">MENU</span>
       </button>
     </header>
   );
@@ -1628,6 +1634,7 @@ function AppShell() {
       <main className="flex-1 min-h-0 overflow-hidden">
         {state.view === 'scene'     && <SceneView />}
         {state.view === 'encounter' && <EncounterView />}
+        {state.view === 'skill-tree-lab' && <SkillTreeLab />}
       </main>
 
       {menuOpen && <MenuOverlay onClose={() => setMenuOpen(false)} />}
