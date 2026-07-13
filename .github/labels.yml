@@ -6,6 +6,15 @@
 - name: status:needs-triage
   color: "FBCA04"
   description: Needs intake before it is ready work.
+- name: status:needs-info
+  color: "D876E3"
+  description: Needs information or a decision before triage can continue.
+- name: status:ready-for-agent
+  color: "0E8A16"
+  description: Fully specified and ready for an autonomous agent to claim.
+- name: status:ready-for-human
+  color: "1D76DB"
+  description: Ready work that requires human judgment or implementation.
 - name: status:ready
   color: "0E8A16"
   description: Scoped, unblocked, and ready to execute.
@@ -18,6 +27,9 @@
 - name: status:in-progress
   color: "1D76DB"
   description: Actively being worked.
+- name: wontfix
+  color: "FFFFFF"
+  description: This will not be worked on.
 - name: workflow:task-packet
   color: "5319E7"
   description: Uses the Nexus task packet workflow.
