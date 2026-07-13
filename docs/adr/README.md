@@ -21,7 +21,7 @@ The baseline does not silently rewrite Golden Truth. `docs/nexus-game-source/sou
 
 ## Accepted decisions
 
-All decisions below were accepted on 2026-07-10 from the Grill with Docs revised-vision decision session and published through Revised Vision Decision Baseline #58.
+ADRs 0001–0034 were accepted on 2026-07-10 from the Grill with Docs revised-vision decision session and published through Revised Vision Decision Baseline #58. Later accepted records preserve their own date and provenance.
 
 | ADR | Decision |
 |---|---|
@@ -59,3 +59,46 @@ All decisions below were accepted on 2026-07-10 from the Grill with Docs revised
 | [0032](0032-character-profiles-create-backstory-threads.md) | Character Profiles create Backstory Threads |
 | [0033](0033-individual-variation-uses-aptitude-and-growth-traits.md) | Individual variation uses Aptitude and Growth Traits |
 | [0034](0034-every-combatant-rolls-individual-initiative.md) | Every combatant rolls individual Initiative |
+| [0035](0035-model-runtime-is-provider-neutral-and-task-routed.md) | The Model Runtime is provider-neutral and task-routed |
+| [0036](0036-game-truth-and-director-state-use-separate-local-lanes.md) | Game Truth and Director State use separate local lanes |
+| [0037](0037-generated-performance-uses-local-dialogue-sessions-and-bounded-proposals.md) | Generated Performance uses local Dialogue Sessions and bounded proposals |
+| [0038](0038-enemy-tactical-intent-is-model-proposed-and-locally-executed.md) | Enemy tactical intent is model-proposed and locally executed |
+| [0039](0039-model-spend-caps-protect-active-scene-completion.md) | Model spend caps protect active-scene completion |
+| [0040](0040-director-planning-is-checkpoint-triggered-and-prepares-each-node.md) | Director planning is checkpoint-triggered and prepares each node |
+| [0041](0041-campaigns-open-with-a-director-selected-node-zero.md) | Campaigns open with a Director-selected Node 0 |
+| [0042](0042-player-character-and-ship-ownership-are-separate.md) | Player Character identity and Ship ownership are separate |
+| [0043](0043-downtime-is-location-neutral-between-route-nodes.md) | Downtime is location-neutral between Route Nodes |
+| [0044](0044-transit-normally-connects-distinct-route-node-locations.md) | Transit normally connects distinct Route Node Locations |
+| [0045](0045-route-prospects-show-deterministic-travel-consequences.md) | Route Prospects show deterministic Travel Consequences |
+| [0046](0046-route-choice-precedes-deployment-preparation.md) | Route Choice precedes Deployment Preparation |
+| [0047](0047-four-stage-node-transition-planning-is-provisional.md) | Four-stage node-transition planning is provisional |
+| [0048](0048-route-choices-mix-main-thread-and-consequential-side-paths.md) | Route Choices mix main-thread and consequential side paths |
+| [0049](0049-campaign-pressure-creates-non-obvious-consequential-route-choices.md) | Campaign pressure creates non-obvious consequential Route Choices |
+| [0050](0050-unchosen-route-prospects-normally-lapse.md) | Unchosen Route Prospects normally lapse |
+| [0051](0051-the-final-three-route-nodes-form-an-order-sensitive-climax-set.md) | The final three Route Nodes form an order-sensitive Climax Set |
+| [0052](0052-the-climax-is-communicated-through-diegetic-convergence.md) | The climax is communicated through diegetic convergence |
+| [0053](0053-climax-order-effects-are-dynamically-replanned.md) | Climax order effects are dynamically replanned |
+| [0054](0054-node-ten-hosts-the-playable-finale-and-resolution-follows.md) | Node 10 hosts the Playable Finale and Campaign Resolution follows |
+| [0055](0055-campaign-resolution-separates-closure-planning-from-epilogue-performance.md) | Campaign Resolution separates closure planning from epilogue performance |
+| [0056](0056-campaign-resolution-preserves-material-unresolved-threads.md) | Campaign Resolution preserves material unresolved threads |
+| [0057](0057-completed-campaigns-append-retrievable-saga-sources.md) | Completed campaigns append retrievable Saga Sources |
+| [0058](0058-campaigns-create-bounded-world-consequences.md) | Campaigns create bounded world consequences |
+| [0059](0059-campaign-reach-and-legacy-consequence-scope-are-separate.md) | Campaign Reach and Legacy Consequence scope are separate |
+| [0060](0060-legacy-world-campaigns-advance-one-forward-sequence.md) | Legacy World campaigns advance one forward sequence |
+| [0061](0061-legacy-worlds-use-literal-calendar-chronology.md) | Legacy Worlds use literal calendar chronology |
+| [0062](0062-campaign-start-dates-follow-player-and-crew-selection.md) | Campaign start dates follow player and crew selection |
+| [0063](0063-legacy-worlds-have-bounded-between-campaign-developments.md) | Legacy Worlds have bounded between-campaign developments |
+| [0064](0064-world-timeline-is-reference-not-a-forced-recap.md) | World Timeline is reference, not a forced recap |
+| [0065](0065-world-timeline-is-public-while-the-director-can-use-secret-canon.md) | World Timeline is public while the Director can use secret canon |
+| [0066](0066-crewmates-age-but-stasis-suspends-biological-aging.md) | Crewmates age but Stasis suspends biological aging |
+| [0067](0067-aged-out-crewmates-remain-living-world-characters.md) | Aged-out Crewmates remain living world characters |
+| [0068](0068-validated-legacy-consequences-promote-automatically.md) | Validated Legacy Consequences promote automatically |
+| [0069](0069-early-campaign-loss-still-enters-the-legacy-world.md) | Early campaign loss still enters the Legacy World |
+| [0070](0070-surviving-player-characters-become-archive-crewmates.md) | Surviving Player Characters become Archive Crewmates |
+| [0071](0071-campaigns-start-at-level-zero-and-advance-before-node-one.md) | Campaigns start at level 0 and advance before Node 1 |
+| [0072](0072-character-state-has-five-persistence-layers.md) | Character state has five persistence layers |
+| [0073](0073-character-identity-is-separate-from-embodiment.md) | Character identity is separate from Embodiment |
+| [0074](0074-proximity-actions-use-linked-staged-commits.md) | Proximity actions use linked staged commits |
+| [0075](0075-clarification-is-a-rare-player-agency-safeguard.md) | Clarification is a rare player-agency safeguard |
+| [0076](0076-freeform-actions-use-existing-rules-beyond-authored-actions.md) | Freeform Actions use existing rules beyond authored actions |
+| [0077](0077-freeform-actions-confirm-only-consequential-interpretations.md) | Freeform Actions confirm only consequential interpretations |

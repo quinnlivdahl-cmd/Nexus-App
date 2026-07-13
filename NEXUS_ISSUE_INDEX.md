@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-28 by Codex closeout sync after Prompt Debug Panel #20 local validation and branch push. This index removes Prompt Debug Panel #20 from the open queue and records its implementation evidence. For exact live issue count, verify against GitHub.
+Last synced: 2026-07-13 by Codex publication preparation after Spatial Action Transaction #5 Grill with Docs acceptance, contract hardening, validation, and independent review. This index marks AI Contracts #4 closed/satisfied and Spatial Action Transaction #5 design-complete pending publication and GitHub closeout. For exact live issue count, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -86,8 +86,7 @@ Last synced: 2026-06-28 by Codex closeout sync after Prompt Debug Panel #20 loca
 | #11 | Add app-native campaign seed and reset path | D | dependent/eligible | #7 satisfied, #9 satisfied | New app-native campaign start; not started by Source Context Pack #9 closeout |
 | #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
 | #14 | Let the AI DM trigger and populate encounters automatically during play | E | dependent | #10, #11, #12 | Narrative-to-encounter bridge |
-| #4 | Prepare API-DM plus deterministic rules-core scaffold | F foundation | blocker | none listed | Rules-core foundation |
-| #5 | Define first rules-core vertical slice | F | dependent | #4 | First minimum rules slice |
+| #5 | Define the spatial action validation and commit transaction | F | design-complete/pending closeout | #4 satisfied | Accepted contract, glossary term, and ADRs define the first spatial rules transaction; publication and GitHub closure remain pending |
 | #13 | Make the encounter screen actually playable - turn order, movement, and actions | F | dependent | #12, #4, #5 | Encounter interaction after harness/rules slice |
 
 ### Support / Extension / Later
@@ -120,6 +119,7 @@ Note: #34, #35, #36, #37, #38, #39, #40, and #41 are closed and are therefore no
 | #30 | Draft check-display examples and noncombat scene procedure template | source/play doc | none listed | Noncombat/check display |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure; recommended next Draft chat |
 | #32 | Improve character chassis and origin sheet usability for play | source/play doc | none listed | Character sheet usability |
+| #68 | Complete Crew Archive pool and former-PC conversion design | design/grilling | #11 and #32 related | Split from AI Contracts #4; complete cross-campaign eligibility, candidate-pool, and conversion contracts |
 
 ## Blocked Issues
 
@@ -159,6 +159,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #47 | Create repo-accessible roadmap mirror and maintained issue index | `docs/nexus-roadmap` roadmap mirror/index, `scripts/update-roadmap-index.mjs`, `roadmap:index` scripts, maintainer skill, bridge pointers, and `validate:workflow` roadmap-index checks | ChatGPT Project still needs upload or exact-path retrieval confirmation before the roadmap can be called refreshed there |
 | #43 | Design Codex Chat Focus and Session Discipline Workflow for Nexus | Discovery report added to Issue #43, session discipline workflow spec added, repo-local session skill added, task/handoff/bridge templates wired, synced-chat index updated, and `validate:workflow` plus `typecheck` passed | Do not build duplicate-check, observation-mining, or packet-index automation until separate follow-up issues scope them |
 | #34 | Define API DM / rules-core authority split | `docs/game-system-contracts/drafts/DM_Authority_Split_Contract_rev0.1.md` added in commit `a6b2b91`; final GitHub comment records acceptance coverage and routed follow-up dependencies | Continue the child sequence through #35, #36, #38, #39, #40, and #41 |
+| #4 | Define Game Truth, Director, and Context Broker contracts for the slice | `CAMPAIGN_DIRECTOR_HARNESS_AI_CONTRACT_rev0.1.md`, decision handoff, ADRs 0035–0073, glossary updates, and Crew Archive Design #68 routing committed in `a075b82`; workflow validation and independent review returned `PASS` | Contract design is complete; numeric profiles and fixture execution remain implementation calibration, not unfinished design |
 | #35 | Define turn transaction for API DM + rules-core play | `docs/game-system-contracts/drafts/Turn_Transaction_Contract_rev0.1.md`; acceptance coverage recorded in the draft and prior issue comment | Closed by Steward cleanup after issue-state drift review |
 | #36 | Define game state lanes and mutation boundaries | ChatGPT Draft approval / closeout comment records acceptance coverage and user approval | Closed on GitHub as completed |
 | #40 | Define effect and state-delta grammar | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01.md`; closeout evidence comment records acceptance coverage | Closed on GitHub as completed |
