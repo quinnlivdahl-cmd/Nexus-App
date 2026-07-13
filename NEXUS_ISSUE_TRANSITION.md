@@ -118,9 +118,10 @@ These are active, but they are not the app-runtime critical path.
   Queue role: dependent
   Depends on: `#7`, `#10`, `#11`
 
-- `#4` Prepare API-DM plus deterministic rules-core scaffold
+- AI Contracts #4 - Define Game Truth, Director, and Context Broker contracts for the slice
   Gate: F foundation
-  Queue role: blocker
+  Queue role: satisfied blocker
+  Status note: provider-neutral AI contracts, ADRs, glossary, handoff, and evaluation boundaries were committed in `a075b82`; validation passed and independent review returned `PASS`.
 
 - Spatial Action Transaction #5 - Define the spatial action validation and commit transaction
   Gate: F
