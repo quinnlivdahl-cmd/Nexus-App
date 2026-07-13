@@ -58,12 +58,12 @@
       "linked_issues": [
         {
           "number": 4,
-          "title": "Prepare API-DM plus deterministic rules-core scaffold",
+          "title": "Define Game Truth, Director, and Context Broker contracts for the slice",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/4"
         },
         {
           "number": 5,
-          "title": "Define first rules-core vertical slice",
+          "title": "Define the spatial action validation and commit transaction",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/5"
         },
         {

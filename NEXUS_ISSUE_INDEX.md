@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-06-28 by Codex closeout sync after Prompt Debug Panel #20 local validation and branch push. This index removes Prompt Debug Panel #20 from the open queue and records its implementation evidence. For exact live issue count, verify against GitHub.
+Last synced: 2026-07-13 by Codex closeout publication for Spatial Action Transaction #5 after Grill with Docs acceptance, contract hardening, validation, and independent review. This index marks AI Contracts #4 and Spatial Action Transaction #5 closed/satisfied. For exact live issue count, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -86,8 +86,8 @@ Last synced: 2026-06-28 by Codex closeout sync after Prompt Debug Panel #20 loca
 | #11 | Add app-native campaign seed and reset path | D | dependent/eligible | #7 satisfied, #9 satisfied | New app-native campaign start; not started by Source Context Pack #9 closeout |
 | #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
 | #14 | Let the AI DM trigger and populate encounters automatically during play | E | dependent | #10, #11, #12 | Narrative-to-encounter bridge |
-| #4 | Prepare API-DM plus deterministic rules-core scaffold | F foundation | blocker | none listed | Rules-core foundation |
-| #5 | Define first rules-core vertical slice | F | dependent | #4 | First minimum rules slice |
+| #4 | Define Game Truth, Director, and Context Broker contracts for the slice | F foundation | closed/satisfied | none listed | AI contract formalization complete in `a075b82`; independently reviewed `PASS`; closed on GitHub after evidence comment |
+| #5 | Define the spatial action validation and commit transaction | F | closed/satisfied | #4 satisfied | Accepted contract, glossary term, and ADRs define the first spatial rules transaction; implementation remains separate |
 | #13 | Make the encounter screen actually playable - turn order, movement, and actions | F | dependent | #12, #4, #5 | Encounter interaction after harness/rules slice |
 
 ### Support / Extension / Later
@@ -151,6 +151,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
 | #9 | Build source-backed context pack for app DM runtime | Source Context Pack PR #52 merged to `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb`; PR branch fix commit `63265bc` addressed runtime budgeting before merge | Backend AI Routing #10, App-Native Campaign Seed #11, Source Lookup #18, and Prompt Debug Panel #20 are eligible for future sequencing but not started by this closeout |
+| #5 | Define the spatial action validation and commit transaction | `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`, Nexus Game `Freeform Action` glossary term, and ADRs 0074–0077; workflow validation and independent contract/documentation review passed | Spatial Vertical Slice Map #57 records the accepted child decision; production implementation remains out of scope |
 | #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | Commit `414c144` on branch `codex/issue-20-prompt-debug-panel` adds a debug-mode-gated, collapsed DM prompt panel with token estimates, response-scoped prompt capture, localStorage prompt exclusion, typecheck/build validation, browser smoke with mocked OpenAI response, and three-lane review (`PASS`, `PASS_WITH_NOTES`, `PASS_WITH_NOTES`) | Close GitHub issue after PR merge and final evidence comment |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |
 | #44 | Create ChatGPT Project bridge layer docs | `docs/chatgpt-project-bridge` baseline bridge docs, app `AGENTS.md` pointer, and validator coverage added in commit `464eeab`; final index closeout in follow-up commit | Upload the baseline bridge set to ChatGPT Project only when ready; do not call it refreshed until confirmed or logged |

@@ -1,5 +1,18 @@
 # Findings: Nexus-App Planning Overlay and Issue 9 Closeout Sync
 
+## Spatial Action Transaction #5 — 2026-07-12
+
+- Live Spatial Action Transaction #5 is a child decision ticket of Spatial Vertical Slice Map #57; local queue surfaces retain an older generic title.
+- AI Contracts #4 is closed and its contract package is a settled dependency.
+- One authoritative Location persists across Free Movement, Turn-Based Mode, and Local Aftermath; Tactical Pressure is the condition that triggers ordered Turn-Based resolution.
+- Approved decisions are captured in ADRs 0074–0077 and the Nexus Game glossary.
+- The accepted contract lives at `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`.
+- Independent contract and documentation reviews passed after authority-boundary, terminology, and ADR-threshold corrections.
+- Canonical source files were not changed.
+- The accepted package was published through a scoped PR; Spatial Action Transaction #5 was closed with evidence and Spatial Vertical Slice Map #57 was updated while remaining open.
+
+---
+
 ## Requirements
 
 - Update or create `planning/task_plan.md`, `planning/findings.md`, `planning/progress.md`, and `planning/planning-rules.md`.

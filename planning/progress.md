@@ -2,6 +2,28 @@
 
 ## Session Log
 
+### Session 2 - 2026-07-12
+
+**Focus**: Define Spatial Action Transaction #5 through a Grill with Docs design-contract session.
+
+**Actions Taken**:
+- Read repository instructions, live issues #5 and #57, settled contracts, glossary, spatial source, and relevant accepted ADRs.
+- Resolved player-facing boundaries for staged proximity actions, rare clarification, Freeform Actions, consequential confirmation, multi-step Free Movement plans, menu availability, selective Generated Performance, coordinated intent, and goal-preserving alternatives.
+- Added the `Freeform Action` glossary term and sharpened `Improvise`.
+- Added accepted ADRs 0074–0077 and drafted the spatial action validation/commit working contract.
+- Hardened field specialization, dependency revisions, validation-status behavior, Effect-to-StateDelta authorization, commit membership, and deterministic fallback.
+- Ran independent contract and documentation reviews, corrected all findings, and received final PASS.
+
+**Validation**:
+- `corepack pnpm run validate:workflow` passed.
+- `git diff --check` passed.
+- Canonical source scope remained unchanged.
+
+**Next Step**:
+- Shared understanding was confirmed on 2026-07-13. The reviewed contract package was published through a scoped PR, Spatial Action Transaction #5 was closed with evidence, and Spatial Vertical Slice Map #57 was updated. Production implementation remains unstarted.
+
+---
+
 ### Session 1 - 2026-06-27
 
 **Focus**: Create the repo planning overlay, sync queue files after Source Context Pack PR #52 merge, validate, and close Source Context Pack #9 if all repo/GitHub gates pass.

@@ -308,6 +308,10 @@ _Avoid_: Uncommitted event image, disposable chat image
 Freeform text expressing exact speech, a desired message, a supported physical action, or a combination of them. Interpretation proposes actions or Generated Performance; validation and execution are required before any result becomes Game Truth.
 _Avoid_: Chat prompt, narrated command
 
+**Freeform Action**:
+A physically plausible action derived from Player Intent when no authored action matches exactly and resolved through existing rules, state, costs, Checks, Effects, and StateDeltas. It is used primarily during Free Movement and may be entered during Turn-Based Mode through Improvise.
+_Avoid_: Generic Improvise, custom command
+
 **Intent Bar**:
 The contextual game-native field for entering Player Intent. It is deliberately summoned during Free Movement, embedded in Freeform Dialogue, and opened by the Improvise action during Turn-Based Mode rather than remaining as a permanent chat panel.
 _Avoid_: Chat box, command console
@@ -321,7 +325,7 @@ A structured campaign consequence proposed from Freeform Dialogue and validated 
 _Avoid_: Uncommitted narration, hidden model assumption
 
 **Improvise**:
-A Turn-Based Mode action that opens the Intent Bar for an unusual Player Intent, then previews and validates its mechanical interpretation and action cost before execution.
+A Turn-Based Mode action that opens the Intent Bar to enter a Freeform Action, then previews and validates its mechanical interpretation and action cost before execution.
 _Avoid_: Freeform free action
 
 **Area Introduction**:

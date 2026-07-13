@@ -1,4 +1,28 @@
-# Task Plan: Nexus-App Planning Overlay and Issue 9 Closeout Sync
+# Task Plan: Nexus-App Active Work
+
+## Active Task: Spatial Action Transaction #5
+
+### Goal
+
+Define the spatial action validation and commit transaction for the first vertical slice without production implementation or canonical source rewriting.
+
+### Current Phase
+
+**Design contract accepted and closeout publication completed; implementation not started**
+
+### Phases
+
+- [x] Read live Spatial Action Transaction #5, parent Spatial Vertical Slice Map #57, settled dependencies, glossary, canonical spatial model, and relevant ADRs.
+- [x] Separate settled constraints from genuine player-facing decisions.
+- [x] Grill and immediately capture approved terms and ADR-worthy decisions.
+- [x] Draft and harden the spatial action transaction contract.
+- [x] Run independent contract and documentation review; correct findings; receive final PASS.
+- [x] Obtain user confirmation that shared understanding has been reached.
+- [x] Publish the accepted contract package and close Spatial Action Transaction #5 with evidence.
+
+---
+
+## Historical Completed Plan: Source Context Pack #9
 
 ## Goal
 

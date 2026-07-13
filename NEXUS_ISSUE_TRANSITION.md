@@ -80,8 +80,8 @@ These are active, but they are not the app-runtime critical path.
 - Gate D: Backend AI Routing #10 - dependent/eligible after Source Context Pack #9, not in progress
 - Gate D: App-Native Campaign Seed #11 - dependent/eligible after Source Context Pack #9, not in progress
 - Gate E: `#12` Add manual encounter harness and narrative return flow
-- Gate F: `#4` Prepare API-DM plus deterministic rules-core scaffold
-- Gate F: `#5` Define first rules-core vertical slice
+- Gate F: AI Contracts #4 - closed/satisfied by the reviewed contract package in commit `a075b82`
+- Gate F: Spatial Action Transaction #5 - closed/satisfied by the accepted spatial action validation and commit contract
 
 ### Existing issue placement
 
@@ -122,10 +122,11 @@ These are active, but they are not the app-runtime critical path.
   Gate: F foundation
   Queue role: blocker
 
-- `#5` Define first rules-core vertical slice
+- Spatial Action Transaction #5 - Define the spatial action validation and commit transaction
   Gate: F
-  Queue role: dependent
-  Depends on: `#4`
+  Queue role: closed/satisfied
+  Depends on: AI Contracts #4 satisfied
+  Status note: Grill with Docs decisions are accepted in `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`, the Nexus Game glossary, and ADRs 0074–0077; validation and independent review passed, and production implementation remains separate.
 
 ### Newly added issues - curated placement
 
@@ -192,7 +193,7 @@ Critical path now reads:
 - Gate C: Source Context Pack #9 satisfied
 - Gate D: Backend AI Routing #10 and App-Native Campaign Seed #11 eligible for future sequencing, not in progress
 - Gate E: `#12`, `#14`
-- Gate F: `#4`, `#5`, `#13`
+- Gate F: AI Contracts #4 and Spatial Action Transaction #5 closed/satisfied; Encounter Interaction #13 remains
 
 Support issues:
 
