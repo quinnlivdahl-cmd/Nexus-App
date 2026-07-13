@@ -317,7 +317,7 @@ export interface ChatMessage {
 }
 
 export type MenuTab = 'crew' | 'campaign' | 'route' | 'settings';
-export type AppView = 'encounter' | 'scene' | 'menu';
+export type AppView = 'encounter' | 'scene' | 'menu' | 'skill-tree-lab';
 
 export interface GameState {
   view: AppView;

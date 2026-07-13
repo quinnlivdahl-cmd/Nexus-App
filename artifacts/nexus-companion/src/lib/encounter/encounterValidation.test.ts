@@ -651,6 +651,13 @@ const invalidSave = parseGameStateSave(JSON.stringify({
 assert.equal(invalidSave.ok, false);
 if (!invalidSave.ok) assert.match(invalidSave.error, /Encounter state is invalid/);
 
+const skillLabViewSave = parseGameStateSave(JSON.stringify({
+  ...INITIAL_NEXUS_PRIMER_STATE,
+  view: 'skill-tree-lab',
+}));
+assert.equal(skillLabViewSave.ok, true);
+if (skillLabViewSave.ok) assert.equal(skillLabViewSave.state.view, 'skill-tree-lab');
+
 const normalizedLoggedEncounter = expectOk(validateEncounterState({
   ...fixture,
   eventLog: [{ id: '', type: 'custom', message: 'Logged event', round: 2 }],
