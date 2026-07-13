@@ -81,7 +81,7 @@ These are active, but they are not the app-runtime critical path.
 - Gate D: App-Native Campaign Seed #11 - dependent/eligible after Source Context Pack #9, not in progress
 - Gate E: `#12` Add manual encounter harness and narrative return flow
 - Gate F: AI Contracts #4 - closed/satisfied by the reviewed contract package in commit `a075b82`
-- Gate F: Spatial Action Transaction #5 - closed/satisfied by the accepted spatial action validation and commit contract
+- Gate F: Spatial Action Transaction #5 - design-complete; accepted contract pending publication and GitHub closeout
 
 ### Existing issue placement
 
@@ -125,9 +125,9 @@ These are active, but they are not the app-runtime critical path.
 
 - Spatial Action Transaction #5 - Define the spatial action validation and commit transaction
   Gate: F
-  Queue role: closed/satisfied
+  Queue role: design-complete/pending closeout
   Depends on: AI Contracts #4 satisfied
-  Status note: Grill with Docs decisions are accepted in `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`, the Nexus Game glossary, and ADRs 0074–0077; validation and independent review passed, and production implementation remains separate.
+  Status note: Grill with Docs decisions are accepted in `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`, the Nexus Game glossary, and ADRs 0074–0077; validation and independent review passed. Publication, evidence comment, and GitHub closure remain pending; production implementation remains separate.
 
 ### Newly added issues - curated placement
 
@@ -194,7 +194,7 @@ Critical path now reads:
 - Gate C: Source Context Pack #9 satisfied
 - Gate D: Backend AI Routing #10 and App-Native Campaign Seed #11 eligible for future sequencing, not in progress
 - Gate E: `#12`, `#14`
-- Gate F: AI Contracts #4 and Spatial Action Transaction #5 closed/satisfied; Encounter Interaction #13 remains
+- Gate F: AI Contracts #4 closed/satisfied; Spatial Action Transaction #5 design-complete pending closeout; Encounter Interaction #13 remains
 
 Support issues:
 
