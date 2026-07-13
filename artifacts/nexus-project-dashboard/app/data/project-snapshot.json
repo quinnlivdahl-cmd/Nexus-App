@@ -1,0 +1,656 @@
+{
+  "schemaVersion": "1.1.0",
+  "generatedAt": "2026-07-13T13:17:11.007Z",
+  "freshness": {
+    "status": "stale",
+    "thresholdHours": 24,
+    "reasons": [
+      "Freshness is calculated from observed timestamps using a 24-hour threshold; aging extends to 48 hours.",
+      "The GitHub issue index explicitly reports an older mirror sync and is therefore stale until verified against GitHub.",
+      "Snapshot generated locally at 2026-07-13T13:17:11.007Z; it is not a live polling service."
+    ]
+  },
+  "sources": [
+    {
+      "id": "vision",
+      "owner": "Nexus Game decision baseline",
+      "location": "docs/adr/README.md + docs/contexts/nexus-game/CONTEXT.md",
+      "observedAt": "2026-07-13T13:11:17.761Z",
+      "hash": "178f60bda530",
+      "freshness": "fresh",
+      "authorityRole": "Product direction and planning precedence",
+      "inputs": [
+        "docs/adr/README.md",
+        "docs/contexts/nexus-game/CONTEXT.md"
+      ],
+      "freshnessBasis": "source-mtime"
+    },
+    {
+      "id": "source",
+      "owner": "Canonical game source",
+      "location": "docs/nexus-game-source/source/SOURCE-INDEX.json",
+      "observedAt": "2026-07-13T13:11:17.867Z",
+      "hash": "09207526b43e",
+      "freshness": "fresh",
+      "authorityRole": "Game truth",
+      "inputs": [
+        "docs/nexus-game-source/source/SOURCE-INDEX.json"
+      ],
+      "freshnessBasis": "source-mtime"
+    },
+    {
+      "id": "issues",
+      "owner": "GitHub Issues (local mirror)",
+      "location": "NEXUS_ISSUE_INDEX.md",
+      "observedAt": "2026-07-13T00:00:00.000Z",
+      "hash": "faf9cb555bb0",
+      "freshness": "stale",
+      "authorityRole": "Execution packet mirror — verify against GitHub",
+      "inputs": [
+        "NEXUS_ISSUE_INDEX.md"
+      ],
+      "freshnessBasis": "known-stale-local-mirror"
+    },
+    {
+      "id": "operations",
+      "owner": "Nexus Project Operations",
+      "location": "docs/contexts/nexus-project-operations/CONTEXT.md + docs/contexts/nexus-project-operations/docs/adr/0001-project-control-hub-derives-state.md",
+      "observedAt": "2026-07-12T02:42:29.085Z",
+      "hash": "147521c65a3d",
+      "freshness": "aging",
+      "authorityRole": "Hub language and authority boundaries",
+      "inputs": [
+        "docs/contexts/nexus-project-operations/CONTEXT.md",
+        "docs/contexts/nexus-project-operations/docs/adr/0001-project-control-hub-derives-state.md"
+      ],
+      "freshnessBasis": "source-mtime"
+    }
+  ],
+  "roadmapStages": [
+    {
+      "id": "ship-time",
+      "name": "Ship Time",
+      "summary": "Persistent explorable home phase, preparation, crew and ship systems.",
+      "maturity": "defined",
+      "ticketIds": [],
+      "worktreeIds": [],
+      "decisionIds": [
+        "ship-systems"
+      ],
+      "evidence": "Accepted decision baseline: Ship Time is an explorable home phase."
+    },
+    {
+      "id": "route-prospects",
+      "name": "Route Prospects",
+      "summary": "Consequential candidate destinations and route choice.",
+      "maturity": "defined",
+      "ticketIds": [],
+      "worktreeIds": [],
+      "decisionIds": [
+        "route-contract"
+      ],
+      "evidence": "Route Prospect and Route Choice vocabulary is accepted."
+    },
+    {
+      "id": "explore-location",
+      "name": "Explore Location",
+      "summary": "Spatial, persistent locations assembled from validated modules.",
+      "maturity": "prototyped",
+      "ticketIds": [
+        17
+      ],
+      "worktreeIds": [
+        "location-assembly",
+        "movement-camera"
+      ],
+      "decisionIds": [
+        "location-schema"
+      ],
+      "evidence": "Location Assembly and Movement + Camera prototypes exist locally."
+    },
+    {
+      "id": "dialogue-checks",
+      "name": "Dialogue + Checks",
+      "summary": "Game-native dialogue, visible Lattice checks, and validated outcomes.",
+      "maturity": "defined",
+      "ticketIds": [
+        10,
+        11
+      ],
+      "worktreeIds": [],
+      "decisionIds": [
+        "intent-schema"
+      ],
+      "evidence": "Decision baseline replaces primary DM chat with in-world interaction."
+    },
+    {
+      "id": "tactical-resolution",
+      "name": "Tactical Resolution",
+      "summary": "Location-wide turn-based pressure, AP/MP/reactions, and committed outcomes.",
+      "maturity": "prototyped",
+      "ticketIds": [
+        13
+      ],
+      "worktreeIds": [
+        "movement-camera"
+      ],
+      "decisionIds": [
+        "location-schema",
+        "tactical-thresholds"
+      ],
+      "evidence": "Movement/camera prototype exists; tactical contracts remain open."
+    },
+    {
+      "id": "aftermath-recruitment",
+      "name": "Aftermath + Recruitment",
+      "summary": "Persistent local aftermath, roster consequences, and recruitment.",
+      "maturity": "unframed",
+      "ticketIds": [
+        31
+      ],
+      "worktreeIds": [],
+      "decisionIds": [
+        "aftermath-contract"
+      ],
+      "evidence": "Product language is accepted; implementation contract is not yet framed."
+    },
+    {
+      "id": "return-save",
+      "name": "Return + Save",
+      "summary": "Route-node resolution, consequences, return to ship, and recoverable saves.",
+      "maturity": "validated",
+      "ticketIds": [
+        11
+      ],
+      "worktreeIds": [],
+      "decisionIds": [
+        "aftermath-contract"
+      ],
+      "evidence": "Recoverable local save work is recorded; revised alignment requires reconciliation."
+    }
+  ],
+  "tickets": [
+    {
+      "id": 10,
+      "title": "Route DM and scene image AI calls through local backend",
+      "state": "mirror: eligible",
+      "alignment": "needs-revision",
+      "stageIds": [
+        "dialogue-checks"
+      ],
+      "worktreeIds": [],
+      "note": "Legacy DM wording needs a revised Campaign Director / model-runtime scope before execution.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/10",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 11,
+      "title": "Add app-native campaign seed and reset path",
+      "state": "mirror: eligible",
+      "alignment": "needs-decision",
+      "stageIds": [
+        "dialogue-checks",
+        "return-save"
+      ],
+      "worktreeIds": [],
+      "note": "Align the campaign start with the new captain and spatial route-node baseline.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/11",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 13,
+      "title": "Make the encounter screen actually playable — turn order, movement, and actions",
+      "state": "mirror: dependent",
+      "alignment": "needs-revision",
+      "stageIds": [
+        "tactical-resolution"
+      ],
+      "worktreeIds": [
+        "movement-camera"
+      ],
+      "note": "Reframe from an encounter screen to the accepted location-wide Turn-Based Mode contract.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/13",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 17,
+      "title": "Give each backdrop its own default node web",
+      "state": "mirror: later",
+      "alignment": "superseded",
+      "stageIds": [
+        "explore-location"
+      ],
+      "worktreeIds": [
+        "location-assembly"
+      ],
+      "note": "Replace backdrop/node assumptions with validated spatial Location Modules and blueprints.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/17",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 31,
+      "title": "Formalize skill focus and ability tree structure for playable drafts",
+      "state": "mirror: ready",
+      "alignment": "operational",
+      "stageIds": [
+        "aftermath-recruitment"
+      ],
+      "worktreeIds": [],
+      "note": "A bounded source/play-document task; verify the live packet before starting.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/31",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    }
+  ],
+  "worktrees": [
+    {
+      "id": "main",
+      "purpose": "Main checkout",
+      "branch": "main",
+      "displayPath": "Nexus-App / main",
+      "health": "dirty",
+      "ahead": 8,
+      "behind": 23,
+      "activity": "7901393 · Add Issue 31 bridge planning packet · local changes present",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "declared",
+      "upstream": "origin/main",
+      "lastCommit": "7901393",
+      "lastCommitAt": "2026-07-06T00:46:36-06:00"
+    },
+    {
+      "id": "clean-review",
+      "purpose": "Canonical clean review",
+      "branch": "clean/nexus-reviewed-2026-07-06",
+      "displayPath": "Nexus-App / clean review",
+      "health": "dirty",
+      "ahead": 1,
+      "behind": 0,
+      "activity": "4850d8a · docs(game): define spatial action transaction · local changes present",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "declared",
+      "upstream": "origin/clean/nexus-reviewed-2026-07-06",
+      "lastCommit": "4850d8a",
+      "lastCommitAt": "2026-07-13T04:09:22-06:00"
+    },
+    {
+      "id": "location-assembly",
+      "purpose": "Location Assembly prototype",
+      "branch": "prototype/issue-17-location-assembly",
+      "displayPath": "Nexus-App / location assembly",
+      "health": "clean",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "1cc525a · Add modular Location assembly prototype · clean",
+      "ticketIds": [
+        17
+      ],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "declared",
+      "upstream": "origin/prototype/issue-17-location-assembly",
+      "lastCommit": "1cc525a",
+      "lastCommitAt": "2026-07-11T18:56:44-06:00"
+    },
+    {
+      "id": "movement-camera",
+      "purpose": "Movement + Camera prototype",
+      "branch": "prototype/issue-13-movement-camera",
+      "displayPath": "Nexus-App / movement + camera",
+      "health": "clean",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "966e1cd · Archive movement camera prototype evidence · clean",
+      "ticketIds": [
+        13
+      ],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "declared",
+      "upstream": "origin/prototype/issue-13-movement-camera",
+      "lastCommit": "966e1cd",
+      "lastCommitAt": "2026-07-12T07:34:52-06:00"
+    },
+    {
+      "id": "docs-issue-49-project-operations-context",
+      "purpose": "docs · issue 49 project operations context checkout",
+      "branch": "docs/issue-49-project-operations-context",
+      "displayPath": "Nexus-App / docs · issue 49 project operations context",
+      "health": "clean",
+      "ahead": null,
+      "behind": null,
+      "activity": "9bf10dd · Add Nexus project operations context · clean",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": null,
+      "lastCommit": "9bf10dd",
+      "lastCommitAt": "2026-07-12T07:55:55-06:00"
+    },
+    {
+      "id": "agent-publish-project-control-hub",
+      "purpose": "agent · publish project control hub checkout",
+      "branch": "agent/publish-project-control-hub",
+      "displayPath": "Nexus-App / agent · publish project control hub",
+      "health": "dirty",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": "origin/main",
+      "lastCommit": "185671c",
+      "lastCommitAt": "2026-07-13T03:28:42-06:00"
+    },
+    {
+      "id": "prototype-issue-12-location-continuity",
+      "purpose": "issue 12 location continuity checkout",
+      "branch": "prototype/issue-12-location-continuity",
+      "displayPath": "Nexus-App / issue 12 location continuity",
+      "health": "clean",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "6fb2f62 · Prototype persistent spatial continuity · clean",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": "origin/prototype/issue-12-location-continuity",
+      "lastCommit": "6fb2f62",
+      "lastCommitAt": "2026-07-12T08:29:47-06:00"
+    },
+    {
+      "id": "agent-publish-matt-tracker-config-66",
+      "purpose": "agent · publish matt tracker config 66 checkout",
+      "branch": "agent/publish-matt-tracker-config-66",
+      "displayPath": "Nexus-App / agent · publish matt tracker config 66",
+      "health": "dirty",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": "origin/main",
+      "lastCommit": "185671c",
+      "lastCommitAt": "2026-07-13T03:28:42-06:00"
+    },
+    {
+      "id": "agent-spatial-action-closeout-sync-5",
+      "purpose": "agent · spatial action closeout sync 5 checkout",
+      "branch": "agent/spatial-action-closeout-sync-5",
+      "displayPath": "Nexus-App / agent · spatial action closeout sync 5",
+      "health": "clean",
+      "ahead": null,
+      "behind": null,
+      "activity": "35d6efa · docs(project): close spatial action transaction · clean",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": null,
+      "lastCommit": "35d6efa",
+      "lastCommitAt": "2026-07-13T04:24:14-06:00"
+    },
+    {
+      "id": "agent-spatial-action-transaction-5",
+      "purpose": "agent · spatial action transaction 5 checkout",
+      "branch": "agent/spatial-action-transaction-5",
+      "displayPath": "Nexus-App / agent · spatial action transaction 5",
+      "health": "clean",
+      "ahead": null,
+      "behind": null,
+      "activity": "18297f4 · docs(project): prepare spatial action publication · clean",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-13T13:17:11.007Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": null,
+      "lastCommit": "18297f4",
+      "lastCommitAt": "2026-07-13T04:17:54-06:00"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "location-schema",
+      "title": "Define validated Location Module and blueprint schemas",
+      "priority": "P0",
+      "affectedStageIds": [
+        "explore-location",
+        "tactical-resolution"
+      ],
+      "blocker": "Spatial prototypes need a shared implementation contract.",
+      "evidence": "ADR 0006 and CORE-SPATIAL-001",
+      "action": "Prototype with Codex",
+      "owner": "Nexus Game decision baseline",
+      "sourceId": "vision",
+      "freshness": "fresh"
+    },
+    {
+      "id": "tactical-thresholds",
+      "title": "Set Tactical Pressure and turn-based entry thresholds",
+      "priority": "P0",
+      "affectedStageIds": [
+        "tactical-resolution"
+      ],
+      "blocker": "Movement proof cannot become play without a pressure contract.",
+      "evidence": "ADR 0012 and accepted vocabulary",
+      "action": "Grill with Docs",
+      "owner": "Nexus Game decision baseline",
+      "sourceId": "vision",
+      "freshness": "fresh"
+    },
+    {
+      "id": "intent-schema",
+      "title": "Define Intent Bar and validated dialogue-outcome schema",
+      "priority": "P1",
+      "affectedStageIds": [
+        "dialogue-checks"
+      ],
+      "blocker": "Legacy DM-ticket wording conflicts with in-world interaction.",
+      "evidence": "ADR 0003, ADR 0024",
+      "action": "Plan with GPT",
+      "owner": "Nexus Game decision baseline",
+      "sourceId": "vision",
+      "freshness": "fresh"
+    },
+    {
+      "id": "aftermath-contract",
+      "title": "Frame Local Aftermath and recruitment evidence",
+      "priority": "P2",
+      "affectedStageIds": [
+        "aftermath-recruitment",
+        "return-save"
+      ],
+      "blocker": "No focused implementation packet is mapped.",
+      "evidence": "Nexus Game context",
+      "action": "Create / Update Ticket with Codex",
+      "owner": "Nexus Game decision baseline",
+      "sourceId": "vision",
+      "freshness": "fresh"
+    },
+    {
+      "id": "ship-systems",
+      "title": "Bound Ship System preparation and support actions",
+      "priority": "P2",
+      "affectedStageIds": [
+        "ship-time"
+      ],
+      "blocker": "System boundaries are defined but not sequenced.",
+      "evidence": "ADRs 0025–0029",
+      "action": "Plan with GPT",
+      "owner": "Nexus Game decision baseline",
+      "sourceId": "vision",
+      "freshness": "fresh"
+    },
+    {
+      "id": "route-contract",
+      "title": "Establish route-choice fixture and prospect evidence",
+      "priority": "P2",
+      "affectedStageIds": [
+        "route-prospects"
+      ],
+      "blocker": "No focused implementation packet is mapped.",
+      "evidence": "Nexus Game context",
+      "action": "Create / Update Ticket with Codex",
+      "owner": "Nexus Game decision baseline",
+      "sourceId": "vision",
+      "freshness": "fresh"
+    }
+  ],
+  "attention": [
+    {
+      "id": "issue-mirror",
+      "severity": "attention",
+      "title": "Ticket mirror is stale",
+      "detail": "The local issue index was last synced Jun 28. Treat ticket state as a prompt to verify, not live truth.",
+      "tab": "tickets"
+    },
+    {
+      "id": "vision-mismatch",
+      "severity": "attention",
+      "title": "Three ticket packets need vision alignment",
+      "detail": "Legacy DM/backdrop/encounter language must be revised or superseded explicitly.",
+      "tab": "vision"
+    },
+    {
+      "id": "drive-bundle",
+      "severity": "watch",
+      "title": "Context Bundle needs its first curated refresh",
+      "detail": "The deterministic manifest is designed; Drive publication remains a separately confirmed action.",
+      "tab": "launch"
+    },
+    {
+      "id": "worktree-main",
+      "severity": "attention",
+      "title": "Main checkout needs review",
+      "detail": "dirty; ahead 8 / behind 23; 7901393 · Add Issue 31 bridge planning packet · local changes present",
+      "tab": "worktrees"
+    },
+    {
+      "id": "worktree-clean-review",
+      "severity": "watch",
+      "title": "Canonical clean review needs review",
+      "detail": "dirty; ahead 1 / behind 0; 4850d8a · docs(game): define spatial action transaction · local changes present",
+      "tab": "worktrees"
+    },
+    {
+      "id": "worktree-agent-publish-project-control-hub",
+      "severity": "watch",
+      "title": "agent · publish project control hub checkout needs review",
+      "detail": "dirty; ahead 0 / behind 0; 185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "tab": "worktrees"
+    },
+    {
+      "id": "worktree-agent-publish-matt-tracker-config-66",
+      "severity": "watch",
+      "title": "agent · publish matt tracker config 66 checkout needs review",
+      "detail": "dirty; ahead 0 / behind 0; 185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "tab": "worktrees"
+    }
+  ],
+  "contextBundle": {
+    "status": "designed — not yet published",
+    "manifestVersion": "1.0.0",
+    "manifestPath": "app/data/drive-context-bundle-manifest.json",
+    "lastVerified": "Not yet verified",
+    "entries": 4,
+    "manifestEntries": [
+      {
+        "id": "revised-vision",
+        "driveId": null,
+        "ownerPath": "Drive:Nexus Game/Project Control Context/Revised Vision",
+        "sourcePath": "docs/contexts/nexus-game/CONTEXT.md",
+        "sourceId": "vision",
+        "freshness": "fresh",
+        "hash": "a3f81b9c7471",
+        "authorityRole": "Product direction and accepted terminology",
+        "retrievalIntent": "Ground GPT planning in the current spatial-game vision and vocabulary.",
+        "publicationStatus": "pending"
+      },
+      {
+        "id": "canonical-source-index",
+        "driveId": null,
+        "ownerPath": "Drive:Nexus Game/Project Control Context/Canonical Source Index",
+        "sourcePath": "docs/nexus-game-source/source/SOURCE-INDEX.json",
+        "sourceId": "source",
+        "freshness": "fresh",
+        "hash": "09207526b43e",
+        "authorityRole": "Index into canonical game truth",
+        "retrievalIntent": "Route retrieval to a declared canonical source document rather than broad Drive search.",
+        "publicationStatus": "pending"
+      },
+      {
+        "id": "issue-index-mirror",
+        "driveId": null,
+        "ownerPath": "Drive:Nexus Game/Project Control Context/Issue Index Mirror",
+        "sourcePath": "NEXUS_ISSUE_INDEX.md",
+        "sourceId": "issues",
+        "freshness": "stale",
+        "hash": "faf9cb555bb0",
+        "authorityRole": "Stale local mirror of execution packets; verify against GitHub",
+        "retrievalIntent": "Supply queue context while forcing live GitHub verification before execution.",
+        "publicationStatus": "pending"
+      },
+      {
+        "id": "operations-contract",
+        "driveId": null,
+        "ownerPath": "Drive:Nexus Game/Project Control Context/Operations Contract",
+        "sourcePath": "docs/contexts/nexus-project-operations/CONTEXT.md",
+        "sourceId": "operations",
+        "freshness": "aging",
+        "hash": "cd44253d35d2",
+        "authorityRole": "Project Control authority and handoff boundaries",
+        "retrievalIntent": "Keep GPT recommendations inside the approved authority and approval model.",
+        "publicationStatus": "pending"
+      }
+    ]
+  },
+  "derivation": {
+    "mode": "declared-mappings-plus-observed-state",
+    "declaredSections": [
+      "roadmapStages",
+      "tickets",
+      "decisions",
+      "worktree purpose/ticket mappings"
+    ],
+    "note": "Mappings are reviewed declarations preserved from the approved plan; the generator does not claim to parse them from prose. Source provenance, freshness, manifest hashes, and Git worktree state are recomputed."
+  }
+}
