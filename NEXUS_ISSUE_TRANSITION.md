@@ -120,8 +120,8 @@ These are active, but they are not the app-runtime critical path.
 
 - AI Contracts #4 - Define Game Truth, Director, and Context Broker contracts for the slice
   Gate: F foundation
-  Queue role: satisfied blocker
-  Status note: provider-neutral AI contracts, ADRs, glossary, handoff, and evaluation boundaries were committed in `a075b82`; validation passed and independent review returned `PASS`.
+  Queue role: closed/satisfied blocker
+  Status note: provider-neutral AI contracts, ADRs, glossary, handoff, and evaluation boundaries were committed in `a075b82`; validation passed, independent review returned `PASS`, and the issue closed on GitHub after its evidence comment.
 
 - Spatial Action Transaction #5 - Define the spatial action validation and commit transaction
   Gate: F
