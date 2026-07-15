@@ -61,64 +61,40 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-13 by Codex closeout sync after Spatial Action Transaction #5 acceptance, publication in PR #69, validation, independent review, and evidence comment. This index marks AI Contracts #4 and Spatial Action Transaction #5 closed/satisfied. For exact live issue count, verify against GitHub.
+Last synced: 2026-07-15 by Codex during Starting Crew and Slice Recruitment #11 closeout. The queue below reflects live GitHub titles and states immediately before #11 closure; for exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
-| #2 | Establish repo collaboration lanes for Nexus App | support | none listed | Active workflow/control work |
-| #3 | Create GitHub issue and PR templates for Nexus AI collaboration | support | none listed | Overlaps with Issue 42 template/label work |
-| #6 | Plan Domain Source text-doc reorganization for repo and GitHub collaboration | support | none listed | Source/repo planning, not app-runtime critical path |
-| #22 | Create root README and AGENTS instructions for Nexus App | support | none listed | Partly advanced by repo `AGENTS.md`; README still needs review |
-| #23 | Create admin operating model docs for repo-first collaboration | support | none listed | Repo-first collaboration docs |
-| #24 | Create initial ADRs for repo authority and AI tool roles | support | none listed | Architecture decision records |
-| #25 | Set up GitHub labels and milestones for Nexus App task planning | support | none listed | Label reference exists; live labels/milestones still need setup |
-| #49 | Create project glossary and ChatGPT/Codex maintenance workflow | documentation/workflow | none listed | Seed glossary and Glossary Manager workflow; open |
-| #50 | Define Seed Mode substantive-input capture and mining workflow | workflow/mode behavior | #43 related | Seed-specific capture/mining workflow; open |
+| #22 | Add a minimal Nexus repository README entrypoint | ready-for-agent | none listed | Repository entrypoint work |
+| #50 | Define Seed Mode substantive-input capture and mining workflow | workflow/mode behavior | #43 related | Seed-specific capture and mining workflow |
+| #60 | Rebuild Nexus planning controls for the revised vision | ready-for-agent | none listed | Revised planning-control work |
+| #61 | Align the Obsidian project front door and planning history | ready-for-agent | #60 related | Obsidian planning alignment |
+| #62 | Regenerate and validate Nexus pointer navigation | ready-for-agent | #60 and #61 related | Pointer and navigation validation |
+| #66 | Publish Matt tracker and triage configuration | ready-for-agent | none listed | Tracker and triage configuration |
+| #67 | Align Nexus Game product identity with the preserved companion regression surface | ready-for-agent | none listed | Product/repository identity alignment |
 
-### App Critical Path
-
-| Issue | Title | Gate | Queue role | Depends on | Notes |
-|---|---|---|---|---|---|
-| #8 | Add recoverable local save export and import flow | B | dependent | #7 | Local state/recovery |
-| #10 | Route DM and scene image AI calls through local backend | D | dependent/eligible | #7 satisfied, #9 satisfied | Backend/local AI path; not started by Source Context Pack #9 closeout |
-| #11 | Add app-native campaign seed and reset path | D | dependent/eligible | #7 satisfied, #9 satisfied | New app-native campaign start; not started by Source Context Pack #9 closeout |
-| #12 | Add manual encounter harness and narrative return flow | E | dependent | #7, #10, #11 | Manual encounter proof |
-| #14 | Let the AI DM trigger and populate encounters automatically during play | E | dependent | #10, #11, #12 | Narrative-to-encounter bridge |
-| #13 | Make the encounter screen actually playable - turn order, movement, and actions | F | dependent | #12, #4, #5 | Encounter interaction after harness/rules slice |
-
-### Support / Extension / Later
-
-| Issue | Title | Gate | Queue role | Depends on | Notes |
-|---|---|---|---|---|---|
-| #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | E support | standalone | #12 | Playtest support |
-| #16 | UI readability pass - contrast, font sizes, and backdrop scrims | support | standalone | none | Usability polish |
-| #17 | Give each backdrop its own default node web | later | standalone | #12 | Encounter quality, later |
-| #18 | Build a searchable index of the Nexus vault for fast rules lookup | C extension | dependent/eligible | #9 satisfied | Source lookup extension; not started by Source Context Pack #9 closeout |
-| #19 | Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes | D extension | dependent | #10, #11 | DM quality tuning |
-| #21 | Let the DM look up vault rules mid-session when a specific rule reference is needed | C extension | dependent | #18, #10 | Second-step retrieval feature |
-
-### Rules-Core / System Design Sequence
+### Spatial Vertical Slice Wayfinder
 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
-| #33 | Epic: Sequence Nexus app-facing game-rule/system design | epic | none listed | Parent/design sequence for rules-core work |
+| #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | map | child decisions | Canonical map for the implementation-ready first vertical slice |
+| #14 | Define Tactical Pressure activation and participation | grilling | #12 satisfied | Open, unassigned frontier decision |
+| #19 | Define Lattice opportunities, ticker, and partial consequences | grilling | #5 satisfied | Open, unassigned frontier decision |
+| #28 | Define Local Aftermath, return-to-Ship, and save contracts | grilling | #4 and #12 satisfied | Open, unassigned frontier decision |
+| #30 | Integrate an implementation-ready vertical slice contract | grilling | remaining map decisions | Blocked integration ticket |
+| #68 | Complete Crew Archive pool and former-PC conversion design | related grilling | #11 satisfied; #32 related | Must reconcile accepted Crew Library, independent-instance, organic-recruitment, and promotion decisions from #11 |
 
-Note: #34, #35, #36, #37, #38, #39, #40, and #41 are closed and are therefore not #9 blockers.
-
-### Source / Play Document Tasks
+### Support / Source / Play Documents
 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #26 | Draft pre-node crew sheets, level-up, and loadout display for E-43 | source/play doc | none listed | Draft-facing play support |
-| #27 | Draft DM display backpatch for narrative, rolls, state, and options | source/play doc | none listed | DM display procedure |
-| #28 | Draft route-node end report and encounter result templates | source/play doc | none listed | Route/encounter closeout templates |
-| #29 | Draft encounter start package template for DM and TacMap setup | source/play doc | none listed | Encounter-start package |
-| #30 | Draft check-display examples and noncombat scene procedure template | source/play doc | none listed | Noncombat/check display |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure; recommended next Draft chat |
-| #32 | Improve character chassis and origin sheet usability for play | source/play doc | none listed | Character sheet usability |
-| #68 | Complete Crew Archive pool and former-PC conversion design | design/grilling | #11 and #32 related | Split from AI Contracts #4; complete cross-campaign eligibility, candidate-pool, and conversion contracts |
+| #32 | Improve character chassis and origin sheet usability for play | source/play doc | #11 related | Owns the standard sheet and quick-view comparison used by starting-crew selection |
+| #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | support | none listed | Legacy companion playtest support |
+| #16 | UI readability pass — contrast, font sizes, and backdrop scrims | support | none listed | Legacy companion usability work |
 
 ## Blocked Issues
 
@@ -150,6 +126,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
 | #9 | Build source-backed context pack for app DM runtime | Source Context Pack PR #52 merged to `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb`; PR branch fix commit `63265bc` addressed runtime budgeting before merge | Backend AI Routing #10, App-Native Campaign Seed #11, Source Lookup #18, and Prompt Debug Panel #20 are eligible for future sequencing but not started by this closeout |
+| #11 | Define first-run starting crew and slice recruitment | Live Wayfinder grilling accepted the out-of-play Crew Library, independent campaign instances, seeded starting selection, organic fiction-driven recruitment, bounded Campaign Director discretion, role-fitting current-level recruit builds, completion-gated Library promotion, and a validated campaign-local slice fixture | Full Crew Library/former-PC normalization and terminology reconciliation remain in #68; standard character-sheet and quick-view presentation remain in #32 |
 | #5 | Define the spatial action validation and commit transaction | PR #69 published `docs/game-system-contracts/drafts/Spatial_Action_Validation_and_Commit_Transaction_Contract_rev0.1.md`, the Nexus Game `Freeform Action` glossary term, and ADRs 0074–0077; workflow validation and independent reviews passed | Spatial Vertical Slice Map #57 records the accepted child decision; production implementation remains out of scope |
 | #20 | Show the DM's assembled system prompt in a debug panel so rules can be verified mid-session | Commit `414c144` on branch `codex/issue-20-prompt-debug-panel` adds a debug-mode-gated, collapsed DM prompt panel with token estimates, response-scoped prompt capture, localStorage prompt exclusion, typecheck/build validation, browser smoke with mocked OpenAI response, and three-lane review (`PASS`, `PASS_WITH_NOTES`, `PASS_WITH_NOTES`) | Close GitHub issue after PR merge and final evidence comment |
 | #42 | Complete Codex agent and task-intake workflow setup | Repo/folder `AGENTS.md`, task packet template, handoff template, issue template, label reference, repo-local skills, closeout/progress rules, and `validate:workflow` all exist and validate | Closed on GitHub after final evidence comment; continue live labels/milestones in #25 |

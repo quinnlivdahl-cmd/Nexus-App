@@ -68,17 +68,17 @@
         },
         {
           "number": 12,
-          "title": "Add manual encounter harness and narrative return flow",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/12"
         },
         {
           "number": 13,
-          "title": "Make the encounter screen actually playable - turn order, movement, and actions",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/13"
         },
         {
           "number": 14,
-          "title": "Let the AI DM trigger and populate encounters automatically during play",
+          "title": "Define Tactical Pressure activation and participation",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14"
         },
         {
@@ -88,7 +88,7 @@
         },
         {
           "number": 19,
-          "title": "Tune the DM's noncombat checks so Partial outcomes feel as meaningful as combat Grazes",
+          "title": "Define Lattice opportunities, ticker, and partial consequences",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/19"
         },
         {
@@ -98,7 +98,7 @@
         },
         {
           "number": 33,
-          "title": "Epic: Sequence Nexus app-facing game-rule/system design",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/33"
         },
         {
@@ -182,7 +182,7 @@
         },
         {
           "number": 8,
-          "title": "Add recoverable local save export and import flow",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/8"
         },
         {
@@ -192,37 +192,37 @@
         },
         {
           "number": 10,
-          "title": "Route DM and scene image AI calls through local backend",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/10"
         },
         {
           "number": 11,
-          "title": "Add app-native campaign seed and reset path",
+          "title": "Define first-run starting crew and slice recruitment",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/11"
         },
         {
           "number": 12,
-          "title": "Add manual encounter harness and narrative return flow",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/12"
         },
         {
           "number": 13,
-          "title": "Make the encounter screen actually playable - turn order, movement, and actions",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/13"
         },
         {
           "number": 14,
-          "title": "Let the AI DM trigger and populate encounters automatically during play",
+          "title": "Define Tactical Pressure activation and participation",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14"
         },
         {
           "number": 16,
-          "title": "UI readability pass - contrast, font sizes, and backdrop scrims",
+          "title": "UI readability pass — contrast, font sizes, and backdrop scrims",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/16"
         },
         {
           "number": 17,
-          "title": "Give each backdrop its own default node web",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/17"
         },
         {
@@ -232,7 +232,7 @@
         },
         {
           "number": 21,
-          "title": "Let the DM look up vault rules mid-session when a specific rule reference is needed",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/21"
         }
       ]
@@ -270,7 +270,7 @@
       "linked_issues": [
         {
           "number": 6,
-          "title": "Plan Domain Source text-doc reorganization for repo and GitHub collaboration",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/6"
         },
         {
@@ -280,12 +280,12 @@
         },
         {
           "number": 18,
-          "title": "Build a searchable index of the Nexus vault for fast rules lookup",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/18"
         },
         {
           "number": 21,
-          "title": "Let the DM look up vault rules mid-session when a specific rule reference is needed",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/21"
         },
         {
@@ -329,22 +329,22 @@
       "linked_issues": [
         {
           "number": 8,
-          "title": "Add recoverable local save export and import flow",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/8"
         },
         {
           "number": 11,
-          "title": "Add app-native campaign seed and reset path",
+          "title": "Define first-run starting crew and slice recruitment",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/11"
         },
         {
           "number": 12,
-          "title": "Add manual encounter harness and narrative return flow",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/12"
         },
         {
           "number": 14,
-          "title": "Let the AI DM trigger and populate encounters automatically during play",
+          "title": "Define Tactical Pressure activation and participation",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14"
         }
       ]
@@ -386,32 +386,32 @@
       "linked_issues": [
         {
           "number": 2,
-          "title": "Establish repo collaboration lanes for Nexus App",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/2"
         },
         {
           "number": 3,
-          "title": "Create GitHub issue and PR templates for Nexus AI collaboration",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/3"
         },
         {
           "number": 22,
-          "title": "Create root README and AGENTS instructions for Nexus App",
+          "title": "Add a minimal Nexus repository README entrypoint",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/22"
         },
         {
           "number": 23,
-          "title": "Create admin operating model docs for repo-first collaboration",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/23"
         },
         {
           "number": 24,
-          "title": "Create initial ADRs for repo authority and AI tool roles",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/24"
         },
         {
           "number": 25,
-          "title": "Set up GitHub labels and milestones for Nexus App task planning",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/25"
         },
         {
@@ -473,7 +473,7 @@
       "linked_issues": [
         {
           "number": 17,
-          "title": "Give each backdrop its own default node web",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/17"
         },
         {
@@ -483,22 +483,22 @@
         },
         {
           "number": 27,
-          "title": "Draft DM display backpatch for narrative, rolls, state, and options",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/27"
         },
         {
           "number": 28,
-          "title": "Draft route-node end report and encounter result templates",
+          "title": "Define Local Aftermath, return-to-Ship, and save contracts",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/28"
         },
         {
           "number": 29,
-          "title": "Draft encounter start package template for DM and TacMap setup",
+          "title": "Title not found in NEXUS_ISSUE_INDEX.md",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/29"
         },
         {
           "number": 30,
-          "title": "Draft check-display examples and noncombat scene procedure template",
+          "title": "Integrate an implementation-ready vertical slice contract",
           "url": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/30"
         },
         {
