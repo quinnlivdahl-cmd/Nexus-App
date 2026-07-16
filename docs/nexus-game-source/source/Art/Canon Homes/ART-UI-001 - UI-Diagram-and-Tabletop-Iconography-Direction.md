@@ -18,8 +18,8 @@ owns_topics:
   - 'ui_diagram_and_tabletop_iconography_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership."
 ---
@@ -35,7 +35,7 @@ Nexus table aids should be tactical-sourcebook readable. The visual system shoul
 Use:
 
 - high-contrast sourcebook diagrams;
-- labeled node-web maps;
+- labeled Location and tactical overlays;
 - simple icons;
 - route arrows and path tags;
 - terrain/cover/elevation symbols;
@@ -60,7 +60,7 @@ TacMap images and diagrams should represent the underlying TacMap data. Core vis
 - actor/enemy positions;
 - visible clocks/counters when useful.
 
-Combat owns TacMap rules. Play Aids owns play-aid specifications. Art owns visual and iconography style.
+Core owns Location authority. Combat owns tactical spatial rules. Play Aids owns play-aid specifications. Art owns visual and iconography style.
 
 ## Route-node map visual grammar
 
@@ -165,6 +165,4 @@ Path lines may carry route/path status, including electrical, smoke, breach, loc
 - entry / exit.
 - unknown contact.
 - ally / enemy / elite / reinforcement.
-
-
 

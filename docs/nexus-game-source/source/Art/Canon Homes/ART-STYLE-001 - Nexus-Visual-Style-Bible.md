@@ -18,8 +18,8 @@ owns_topics:
   - 'nexus_visual_style_bible'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance."
 ---
@@ -99,7 +99,7 @@ Visuals can suggest tone and design language, but they do not prove lore or mech
 TacMap visuals extend the core visual style but are held to a stricter usability standard:
 
 - tabletop clarity beats illustration polish.
-- node-web readability stays visible over any backdrop.
+- authoritative walkable geometry, actor placement, and tactical overlays stay readable over any backdrop.
 - atmosphere may engulf and support the tactical skeleton, but must not obscure nodes, paths, labels, actor positions, hazards, objectives, or exits.
 - standalone tactical icons should favor thick, simple, SVG-compatible silhouettes with transparent backgrounds.
 - top-down tactical art should communicate usable play state before cinematic depth.
@@ -116,6 +116,4 @@ Avoid:
 - fantasy runes or medieval icon language.
 - icons that require text labels to function at token scale.
 - beautiful backdrops that make the playable map harder to read.
-
-
 

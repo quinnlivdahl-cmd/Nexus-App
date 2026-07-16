@@ -16,6 +16,8 @@ Do not rename this path casually. Any future rename must update bridge docs, val
 
 The repo source folder is the Golden Truth source corpus and canonical Nexus text source authority. Obsidian is a reading/index and promoted working-copy layer, not an independent authority over this repo source.
 
+Accepted Nexus Game ADRs control the specific domain claims they change. Reconciliation edits the owning source documents so this corpus remains the current textual representation of the game; unaffected source material remains current, and ADRs remain the rationale and provenance for reconciled changes.
+
 Canonical source:
 
 `docs/nexus-game-source/source`

@@ -6,9 +6,9 @@ Provenance: accepted July 2026 Grill with Docs revised-vision decision session; 
 
 ## Authority
 
-This directory, [`CONTEXT-MAP.md`](../../CONTEXT-MAP.md), and the [Nexus Game context](../contexts/nexus-game/CONTEXT.md) form the revised product decision baseline. Accepted decisions control product language and planning when they conflict with legacy roadmap, Local Playable Alpha, DM-chat, or Encounter-screen assumptions.
+`docs/nexus-game-source/source` is the canonical current textual definition of Nexus. Accepted records in this directory are controlling decisions: when an ADR changes a domain-source claim, the ADR controls that affected claim until the owning source document is reconciled, while unrelated source material remains current.
 
-The baseline does not silently rewrite Golden Truth. `docs/nexus-game-source/source` remains canonical game-source authority until Golden Truth Spatial Reconciliation #59 reviews and reconciles the affected source families. Application code remains implementation authority. Conflicts must be reported rather than resolved by implication.
+Reconciliation updates the owning domain document to express the accepted decision and cite the relevant ADR. After reconciliation, the domain document is the primary current-game reference and the ADR remains the durable explanation and provenance for the change. The [Nexus Game context](../contexts/nexus-game/CONTEXT.md) supplies shared product language; it does not replace domain source. Application code remains implementation authority, and source/code mismatches must be reported rather than resolved by implication.
 
 ## Conventions
 

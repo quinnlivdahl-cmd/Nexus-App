@@ -18,8 +18,8 @@ owns_topics:
   - 'canva_pdf_and_printable_aids'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-CORE-007 to PLAYAID-PRINT-001. Phase 10 reviewed the body for domain-first printable-aid routing and asset-boundary language."
 ---
@@ -37,7 +37,7 @@ Good candidates include:
 - compact combat card;
 - status icon reference;
 - TacMap legend;
-- node/path snapshot;
+- derived Location/state snapshot;
 - route-node end report sheet;
 - player-safe faction/route handout;
 - equipment/loadout card;
@@ -90,6 +90,4 @@ Printable aids should:
 ## 8. Canon/non-canon routing
 
 A polished visual is still non-canon unless its content is approved and reflected in the appropriate source/state doc. Preserve visually useful drafts, but do not let polish outrun source status.
-
-
 

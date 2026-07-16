@@ -18,8 +18,8 @@ owns_topics:
   - 'dashboard_update_procedure'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 reviewed this dashboard procedure for rebuild use. It remains an active Admin support surface while routing language is normalized toward current domains."
 ---
@@ -103,7 +103,7 @@ Task items should use action verbs and concrete targets, such as:
 
 - `Water Sx`
 - `Draft [specific doc]`
-- `Produce SVG node-web set`
+- `Produce SVG Location-overlay and tactical-marker set`
 - `Integrate handoff`
 - `Verify upload/searchability`
 - `Backpatch source package`
@@ -113,5 +113,3 @@ Task items should use action verbs and concrete targets, such as:
 ### rev0.1 - 2026-05-13
 
 - Created from Routing Map guidance and older dashboard update note evidence.
-
-

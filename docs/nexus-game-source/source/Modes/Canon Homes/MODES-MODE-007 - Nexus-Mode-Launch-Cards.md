@@ -18,8 +18,8 @@ owns_topics:
   - 'nexus_mode_launch_cards'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Modes consolidation. Launch cards now use domain-first routing, review lanes, and bridge-aware source handling; legacy package and slot wording is retained only where needed for migration history or evidence."
 ---
@@ -106,7 +106,5 @@ Use when an encounter begins or resumes. Present the encounter-start packet auto
 
 Mode: Art
 
-Use for icon sets, sprite sheets, node-web visual markers, collage backdrops, or prompt families. Distinguish visual prototype from canonical structured map.
-
-
+Use for icon sets, sprite sheets, Location-overlay markers, environment backdrops, or prompt families. Distinguish visual prototype from canonical authored geometry and structured state.
 

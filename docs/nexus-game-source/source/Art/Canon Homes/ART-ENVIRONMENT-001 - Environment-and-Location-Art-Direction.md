@@ -18,8 +18,8 @@ owns_topics:
   - 'environment_and_location_art_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Environment and location visual-direction language now follows domain-first boundaries and preserved-reference handling."
 ---
@@ -111,12 +111,10 @@ The uploaded 64-node asteroid mine TacMap prototype is useful as visual evidence
 - pressure-boundary contrast between exterior vacuum and interior atmosphere.
 - mining machinery, gantries, exposed conduits, dust, regolith, and hazard signage.
 - bypass routes, service crawls, maintenance ducts, and alternate pressure routes.
-- slight isometric or engulfing backdrop treatment around a clear top-down node-web.
+- slight-isometric or engulfing backdrop treatment around a clear top-down authored Location view.
 
-This image is not a clean canonical playable map until structured node/path/objective data is rebuilt and verified.
+This image is not canonical playable Location data until useful topology and content are rebuilt as authored geometry, objects, objectives, Interaction Positions, Cover Positions, and validated state.
 
 ### Orbital/station exterior visual reference
 
 The uploaded orbital/station exterior image is useful as visual reference for lived-in industrial orbital architecture: modular hulls, exposed service infrastructure, patched surfaces, dock arms, pressure systems, warning bands, and maintenance history. It is not a named canon location unless later promoted through source review.
-
-

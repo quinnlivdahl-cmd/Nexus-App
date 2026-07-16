@@ -20,20 +20,17 @@ owns_topics:
   - 'exposure'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the active cover, hazard, and exposure grammar without relying on package-era framing."
 ---
 
 # Cover, Hazards, Exposure, and Environmental Rules
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
-
 ## 1. Purpose
 
-This document defines the current source surface for cover, half cover, full cover, exposure, hazards, elevation, distance, flanking, status families, node/path environment effects, visibility, line-of-fire, and environment-facing tactical rules.
+This document defines the current source surface for cover, half cover, full cover, exposure, hazards, elevation, distance, flanking, status families, geometry-facing environment effects, visibility, line of fire, and environment-facing tactical rules inside persistent Locations.
 
 Cover and hazard Target Score rules below are current for the Lattice integration pass. Other environmental numbers remain open unless specifically resolved here.
 
@@ -91,7 +88,7 @@ Use **Cover / Visibility / Line-of-Fire** as the umbrella for tactical display a
 
 - **Cover** = physical protection.
 - **Visibility** = can a character see, target, scan, react to, or observe through the relation?
-- **Line-of-Fire** = broader relationship for cover, visibility, suppression, watched routes, firing lanes, and sightline constraints.
+- **Line-of-Fire** = broader relationship for cover, visibility, suppression, watched approaches, firing lanes, and sightline constraints.
 
 Smoke is not physical cover, but it can protect by breaking targeting, scanning, or visibility.
 
@@ -125,47 +122,29 @@ Cover should interact with:
 - elevation;
 - visibility;
 - line-of-fire;
-- in-transit status;
+- movement through exposed space;
 - destructible, movable, or breachable objects if later added.
 
 ## 6. Relative cover
-Cover is relative. A node does not simply "have cover" against everything.
+Cover is relative. An Area or object does not simply "have cover" against everything.
 
-A node may provide:
+Authored directional **Cover Positions** identify valid protected placements and their intended protection. Authoritative geometry, occlusion, and line of fire determine whether that protection applies between a shooter and target. A surface may provide Half Cover from one approach, Full Cover from another, no cover from a third, a visibility block without physical protection, or physical protection without blocking all visibility.
 
-- Half Cover against attacks from one path relationship;
-- Full Cover against attacks from another path relationship;
-- No Cover against attacks from a third path relationship;
-- visibility block without physical cover;
-- cover without blocking all visibility.
+Shooter and target on the same side of a surface may not grant cover. Shooter and target on opposite sides may grant cover. One-sided, directional, elevated, or destructible protection must be represented by authored data and geometry. Exact arcs, tolerances, and angle calculations remain unresolved; node/path relationships are not spatial authority.
 
-Shooter and target on the same side of a surface may not grant cover. Shooter and target on opposite sides may grant cover. Some cover surfaces may be one-sided or path-limited even when shooter and target appear opposite each other.
+## 7. Cover Position display model
 
-Resolve relative cover through node/path relationships and explicit markers. Do not use continuous angle calculation.
-
-## 7. Node-edge marker model
-
-Working display model:
-
-- node = circle;
-- path = line from node to node;
-- node-edge marker = what happens across that relationship into that node.
-
-If cover, visibility, or line modifier applies between adjacent nodes, place the marker near the target node edge, tangent to the node, centered on the relevant path relationship. The marker shows what applies to that node from the opposite adjacent direction.
-
-The marker should be more than a bare arc when needed. Its shape should indicate Half Cover, Full Cover, visibility block, one-sided protection, path-limited cover, or another line modifier.
-
-Visibility is assumed unless marked unavailable. Cover/visibility blockers should be represented visually rather than as a displayed cover matrix.
+The Location view should make authored Cover Positions, protection level, directional alignment, visibility blocks, and important line-of-fire constraints readable without presenting a giant relation matrix. Derived markers or overlays may explain this state, but they cannot create protection that authoritative geometry and the Cover Position do not support.
 
 ## 8. Cover sharing
 
-Cover sharing is governed by node capacity, not separate cover slots by default.
+Cover sharing is governed by authored Cover Positions and physical space.
 
 Working rule shape:
 
-- if two human-scale characters fit within node capacity, both can usually benefit from the node's available cover relation;
-- if a large body plus a human-scale body exceeds comfort capacity, the node may become Crowded;
-- the first occupant at a node keeps cover-use priority unless fiction, shove, movement, stance, trait, or scenario procedure changes control;
+- if two human-scale characters can occupy valid protected positions without collision, both may benefit from supported cover;
+- if a large body plus a human-scale body exceeds the available protected space, the position may become Crowded;
+- the first occupant keeps position priority unless fiction, shove, movement, stance, trait, or scenario procedure changes control;
 - over-capacity users may downgrade cover, lose cover, create exposure, or contest position depending on final Crowded rules.
 
 This keeps the system universal instead of requiring individual capacity math for every cover object.
@@ -183,15 +162,15 @@ Wall breach and destructible wall procedures are preserved as a parked branch. D
 
 ## 10. Exposure
 
-Exposure is the state of being tactically vulnerable because of position, movement, line of sight, lack of cover, in-transit movement, suppressed route crossing, elevation disadvantage, objective interaction under fire, or hazard pressure.
+Exposure is the state of being tactically vulnerable because of position, movement, line of sight, lack of cover, crossing suppressed space, elevation disadvantage, objective interaction under fire, or hazard pressure.
 
-Exposure should be readable on the TacMap and should create reasons to use cover, smoke, suppression, scans, speed, alternate paths, teamwork, or equipment.
+Exposure should be readable in the Location view and should create reasons to use cover, smoke, suppression, scans, speed, alternate approaches, teamwork, or equipment.
 
 On Fire is an Exposure-facing Standard Status. Burned/Burn as a persistent aftermath effect should be treated as Persistent Health Status when it survives the encounter.
 
 ## 11. Distance, flanking, and elevation
 
-TacMaps should support modifiers based on distance, flanking, and elevation. Exact numbers remain open.
+Locations should support modifiers based on distance, flanking, and elevation. Exact numbers remain open.
 
 Design direction:
 
@@ -217,12 +196,12 @@ Hazards can be static, active, timed, triggered, hidden, telegraphed, or player-
 
 Current hazard surfaces include:
 
-- debris / difficult route;
+- debris / difficult terrain;
 - coolant, fire, radiation, vacuum, breach, pressure, smoke, darkness;
 - electrified floors, exposed machinery, moving industrial equipment;
-- alarmed routes, sensor cones, locked doors, unstable lifts;
+- alarmed passages, sensor cones, locked doors, unstable lifts;
 - hostile network surfaces, trace, lock, shutdown, jam, system counterpressure;
-- node status and path status such as Signal Echo, Sensor Fog, Suppressed, Hacked Lighting, No Atmosphere, Pressurized, Low-G, or Maintenance Route.
+- Area, object, passage, and field states such as Signal Echo, Sensor Fog, Suppressed, Hacked Lighting, No Atmosphere, Pressurized, Low-G, or Maintenance Access.
 
 Hazards should produce meaningful tactical decisions rather than mere punishment.
 
@@ -241,7 +220,7 @@ Resolved for current Lattice integration:
 - Full Cover = `+40 Defense`;
 - cover modifies Defense only;
 - cover does not provide damage reduction or Mitigation;
-- no continuous angle calculation;
+- continuous Location geometry is authoritative; exact cover arcs and angle tolerances remain unresolved;
 - hazard Target Score formula: `TS = 50 + Actor Bonus - (Hazard Rating - 15)`.
 
 Still open:
@@ -252,7 +231,5 @@ Still open:
 - falling / breach / vacuum hazard consequences;
 - status duration and clearance rules;
 - exact Crowded cover downgrade;
-- exact node-edge icon grammar;
+- exact Cover Position and directional overlay grammar;
 - final wall breach procedure.
-
-

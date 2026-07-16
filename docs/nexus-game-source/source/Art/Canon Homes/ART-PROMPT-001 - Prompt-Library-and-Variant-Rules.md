@@ -18,8 +18,8 @@ owns_topics:
   - 'prompt_library_and_variant_rules'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language now follows the domain-first model while preserving direction-vs-production workflow guidance."
 ---
@@ -88,7 +88,7 @@ Create a [weapon/tool/armor/cyberware/accessory] concept for Nexus. The object s
 ## Icon prompt skeleton
 
 ```md
-Create a simple readable tabletop icon for [concept] in Nexus. Style: NASApunk tactical sourcebook UI, flat high-contrast shape, clear silhouette, minimal details, usable at small size, compatible with node-web TacMaps and dashboard legends. Use restrained teal/orange/yellow/red accents on a neutral industrial base. Include a label/legend version and an unlabeled version if possible.
+Create a simple readable icon for [concept] in Nexus. Style: NASApunk tactical UI, flat high-contrast shape, clear silhouette, minimal details, usable at small size, compatible with Location overlays and dashboard legends. Use restrained teal/orange/yellow/red accents on a neutral industrial base. Include a label/legend version and an unlabeled version if possible.
 ```
 
 <!-- source-slice: art.prompt.tacmap-diagram-skeleton -->
@@ -96,7 +96,7 @@ Create a simple readable tabletop icon for [concept] in Nexus. Style: NASApunk t
 > [!note] Slice status — interpret under `CORE-SPATIAL-001`. Visual guidance survives, but generated art, TacMap backdrops, collages, and prompts cannot define geometry, movement, cover, or Game Truth.
 
 ```md
-Create a tactical sourcebook-style node-web map diagram for a Nexus encounter. Prioritize readability over illustration. Include labeled nodes, movement links, cover, half cover, elevation, hazards, interactables, objective markers, extraction, enemy positions, and a compact legend. Use grounded NASApunk industrial visual language with off-white panels, worn orange markings, teal diagnostics, warning yellow, emergency red, and black void/industrial negative space. Do not add rules not supplied in the encounter data.
+Create a derived tactical diagram for a Nexus Location. Prioritize readability over illustration. Show labeled Areas, passages, Cover Positions, elevation, hazards, interactables, objective markers, exits, actor positions, and a compact legend based only on supplied authoritative Location data. Use grounded NASApunk industrial visual language. Do not invent geometry or rules.
 ```
 
 <!-- source-slice: art.prompt.variant-rules -->
@@ -150,7 +150,7 @@ What this image or edit test is for.
 Relevant Nexus source constraints, style rules, canon boundaries, domain references, and dashboard/routing notes.
 
 ## Preserve
-Elements that must remain unchanged, including attached-image features, symbol grammar, node/path truth, layout, labels, character identity, or source-specific constraints.
+Elements that must remain unchanged, including attached-image features, symbol grammar, authoritative Location geometry/state, layout, labels, character identity, or source-specific constraints.
 
 ## Change
 The specific visual changes or generated elements requested.
@@ -192,7 +192,7 @@ Create a cohesive SVG-compatible sprite sheet of tabletop TacMap icons for Nexus
 
 ### TacMap collage prototype prompt skeleton
 
-Create a top-down/slight-isometric NASApunk TacMap prototype for `[LOCATION]`. Show a clear node-web tactical skeleton over an engulfing environmental backdrop. Tactical readability is more important than illustration polish. Include clear nodes, paths, objectives, hazards, exits, and route/status markers. Do not crop for phone display. Preserve structured tactical truth if provided.
+Create a top-down/slight-isometric NASApunk Location-view prototype for `[LOCATION]`. Show supplied walkable geometry, Areas, passages, objectives, hazards, exits, Interaction Positions, Cover Positions, actors, and state markers over an engulfing environmental backdrop. Tactical readability is more important than illustration polish. Do not crop for phone display. Preserve supplied authoritative geometry and structured state; do not invent either.
 
 ### Repair prompt rule
 

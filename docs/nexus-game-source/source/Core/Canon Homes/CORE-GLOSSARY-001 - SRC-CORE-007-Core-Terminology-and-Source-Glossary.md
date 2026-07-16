@@ -18,16 +18,13 @@ owns_topics:
   - 'core_terminology_and_source_glossary'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
 
 # Core Terminology and Source Glossary
-
-> [!important] Revised vision reconciliation — 2026-07-11
-> `CORE-SPATIAL-001` now controls the spatial product model. Material below remains current only where it preserves compatible campaign, crew, route, preparation, recovery, or terminology detail. Tabletop-first identity, menu-only Ship Phase, one-main-Encounter structure, node/TacMap spatial authority, and primary DM-chat assumptions are historical.
 
 ## 1. Purpose
 
@@ -37,71 +34,63 @@ This glossary defines core campaign terms and routing boundaries for the `Core` 
 
 <!-- source-slice: core.glossary.nexus -->
 ### Nexus
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
 
-The project/game: a tabletop-first sci-fi squad RPG about a mobile crew traveling through a dangerous solar-system route structure, resolving tactical missions, crew growth, route pressure, faction consequences, and survival.
+The local-first 2D spatial sci-fi party RPG about a mobile crew traveling through a dangerous solar-system route structure, exploring persistent Locations, resolving Tactical Pressure, growing characters, and carrying consequences into a Legacy World.
 
 ### TT
 
-Tabletop/notebook version. The first playable source of truth.
+Historical shorthand for the tabletop/notebook prototype. It is evidence, not the current product authority.
 
 ### VG
 
-Later video-game or app implementation. Downstream from tested TT systems.
+Historical shorthand for a video-game/app implementation. Nexus is now directly designed as a spatial application.
 
-### PC
+### Player Character
 
-Player character. The single main player character who affects starting conditions, background/story goal, faction relationships, equipment, dialogue, recruit options, and campaign framing.
+The single player-owned primary character for a campaign. Player Character is an identity/ownership role, not a synonym for Captain, Ship owner, commander, or Embodiment. `PC` is acceptable shorthand after the full term is established.
 
 <!-- source-slice: core.glossary.crew -->
 ### Crew
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
 
-The shipboard team around the PC. Crew members may be active squad members, ship support, recruits, contacts, or other stateful NPCs depending on rules and campaign state.
+The current campaign party and support roster around the Player Character. Crewmates may be active Field Team members, support, recruits, contacts, retired characters, or other stateful characters depending on rules and campaign state. A Crew does not require a Ship.
 
 <!-- source-slice: core.glossary.ship-phase -->
-### Ship Phase
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
+### Downtime
 
-The state-review and preparation layer between active nodes. It includes campaign state, route options, resources, ship condition, crew state, loadouts, advancement/prep, and consequences.
+The location-neutral interval between Route Nodes. It may include recovery, relationships, inventory, Route Choice, advancement, and Deployment Preparation aboard a Ship or at another suitable Location. `Ship Phase` and `Ship Time` are historical names when used as universal phases.
 
 <!-- source-slice: core.glossary.route -->
 ### Route
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
 
 The campaign-scale travel structure through the solar system. Routes carry resource pressure, faction pressure, known/hidden options, and consequences forward.
 
 <!-- source-slice: core.glossary.node -->
-### Node
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
+### Route Node
 
-A playable ship stop, not merely a map point. A node can be a station, colony, derelict, orbital platform, moon settlement, asteroid site, ship contact, faction checkpoint, distress signal, research site, black-market dock, or anomaly.
+A campaign-scale playable stop realized as one persistent explorable Location. A Route Node can be a station, colony, derelict, orbital platform, moon settlement, asteroid site, ship contact, faction checkpoint, distress signal, research site, black-market dock, or anomaly.
 
 <!-- source-slice: core.glossary.pre-node-procedure -->
-### Pre-Node Procedure
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
+### Deployment Preparation
 
-The process that happens before starting an active node scene. It may include advancement/level-up, crew/team selection, loadout, ship readiness, planning, route forecasting, and support assignments.
+The preparation after Route Choice and before the selected Route Node begins. It includes advancement, Field Team selection, loadout, relevant readiness, planning, and support assignments.
 
 <!-- source-slice: core.glossary.mission-node -->
 ### Mission Node
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
 
-A node with a defined playable mission, encounter, objective, or scene structure. It may resolve through combat, non-combat checks, a mapped nonviolent/ship-stop TacMap, or a mixed procedure.
+Historical or content-facing label for a Route Node with a defined mission or objective. It does not create a separate spatial or state authority.
 
 <!-- source-slice: core.glossary.tacmap -->
 ### TacMap
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
 
-A tactical map made of meaningful nodes and paths. In `Core`, the term is used only at the high level: TacMaps provide spatial clarity for combat and significant nonviolent scenes. Detailed TacMap movement and rules route to `Combat`.
+A historical prototype map or a derived tactical overlay. A TacMap may aid display or diagnostics, but authoritative Location geometry, continuous actor positions, Interaction Positions, Cover Positions, and object state determine play.
 
 ### Combat TacMap
 
-A TacMap used for detailed tactical combat.
+A derived tactical display for a combat scene; not a separate Encounter authority.
 
 ### Mapped Nonviolent / Ship-Stop TacMap
 
-A TacMap used for significant non-combat or mixed scenes where spatial clarity matters: markets, rescues, checkpoints, wreckage searches, hearings, station crises, or shipboard emergencies.
+A historical label for using spatial display in significant noncombat or mixed scenes. Current scenes use the same persistent Location runtime.
 
 ### Assessment / Approach Phase
 
@@ -109,7 +98,7 @@ The pre-resolution phase where the player asks questions, uses skills, plans, sc
 
 ### Campaign Tracker
 
-The structured record updated after nodes. It should include PC/crew state, ship state, resources, injuries, equipment changes, faction changes, quest hooks, side leads, known route options, open questions, and consequences.
+The structured record updated after Route Nodes. It includes Player Character and crew state, relevant Ship state, resources, injuries, equipment changes, faction changes, leads, known Route Prospects, open questions, and consequences.
 
 ### Working Truth Candidate
 
@@ -117,7 +106,7 @@ A source doc or review packet that has been consolidated and is intended for dur
 
 ### Route Node End Report
 
-A compact report shown after a route node resolves and before free ship time resumes. It confirms results, persistent aftermath, counters/clocks, crew/ship/resource changes, open leads, save routing, and next-state options.
+A compact report shown after a Route Node resolves and before Downtime or the next Route Choice. It confirms results, persistent aftermath, counters/clocks, crew/Ship/resource changes, open leads, save routing, and next-state options.
 
 ### Persistent Aftermath
 
@@ -140,26 +129,56 @@ A rare expanded escape structure where escape is the core premise of the node.
 Preferred noncombat pacing phrase for a meaningful choice that consumes time, changes risk, advances a counter, or creates consequence.
 
 <!-- source-slice: core.glossary.encounter-start-packet -->
-### Encounter Start Packet
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
+### Tactical Pressure Transition
 
-The player-facing start display for a tactical or structured encounter. It may include framing, stakes, TacMap/schematic, node/path/objective data, actors, hazards/pressure, and player options.
+The transition to sequential, consequential action resolution inside the current Location. The runtime presents framing, stakes, relevant geometry and objectives, actors, hazards or pressure, initiative, and player options without loading a separate Encounter object.
 
 <!-- source-slice: core.glossary.structured-tacmap-data -->
-### Structured TacMap Data
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Legacy TT/VG, Ship Phase, Mission Node, TacMap, Encounter, and DM terms in this slice are historical aliases where they conflict with Location, Ship Time, Tactical Pressure, and Campaign Director language.
+### Location State
 
-The authoritative node/path/objective/status data behind a TacMap. Images and visual aids support this data but do not replace it.
+The authoritative geometry, actor positions, objects, hazards, objectives, discoveries, relationships, and committed consequences for one persistent Location. Images and overlays display this state but do not replace it.
 
 ### Standard Fit
 
-Baseline infrastructure compatibility assumption for common suits, armor, medkits, restraints, crash couches, tools, doors, emergency systems, and other human-scale equipment. Detailed body/gear implications route to Slots 09 and 11.
+Baseline infrastructure compatibility assumption for common suits, armor, medkits, restraints, crash couches, tools, doors, emergency systems, and other human-scale equipment. Detailed body and gear implications route to `Characters` and `Equipment`.
+
+### Game Truth
+
+Committed player-facing world and rules state. Only validated deterministic mutations may change it.
+
+### Director State
+
+The separate hidden local lane for Campaign Director plans, pressures, mysteries, and prepared prospects. It may inform proposals but cannot overwrite Game Truth.
+
+### Model Runtime
+
+The provider-neutral, task-routed service that requests generated proposals and performance. It is not a rules engine, state store, or mutation authority.
+
+### Route Prospect
+
+A prepared possible next Route Node with enough identity, opportunity, risk, and deterministic Travel Consequences to support Route Choice. Unchosen prospects normally lapse when a choice commits.
+
+### Saga Source
+
+The retrievable record appended when a campaign resolves, preserving its validated events, outcomes, unresolved threads, and legacy consequences.
+
+### Legacy World
+
+A continuing world containing a forward literal chronology, Saga Sources, validated campaign consequences, Crew Archive history, and bounded between-campaign developments.
+
+### Character Profile
+
+The persistent identity and Personal Canon of a continuing person, independent of Campaign Build or current body.
+
+### Embodiment
+
+The character's current body or platform and its physical state, including Bioform where applicable, Chassis tier, Installed Cyberware, durable gene modifications, and compatibility consequences.
 
 ## 3. Routing Glossary
 
 ### Core
 
-Owns the campaign loop, core pitch, TT-first principle, ship phase overview, route/node structure, and source boundaries.
+Owns the campaign loop, core pitch, spatial product principles, Downtime overview, Route Node structure, and source boundaries.
 
 ### Modes
 
@@ -203,4 +222,4 @@ When a term appears here with only a high-level definition, do not infer detaile
 
 ## Source Handling Note
 
-This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
+This current Core-domain glossary preserves useful terminology from prior Nexus work while applying accepted spatial, campaign, runtime, and character-continuity decisions.

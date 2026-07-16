@@ -18,8 +18,8 @@ owns_topics:
   - 'content_systems_open_questions'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved unresolved content questions without relying on slot-era wording."
 ---
@@ -84,7 +84,7 @@ metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 con
 - Which encounter patterns need playable examples first?
 - What is the minimum content entry format for a TacMap-ready encounter?
 - How should System Status encounters avoid making Cyberwarfare universal?
-- Which hazards need full counters, and which only need node/path/status markers?
+- Which hazards need full counters, and which only need Area, field, object, or status markers?
 - How should route-node aftermath create concrete future gameplay effects?
 - Should content entries include explicit player-safe and DM-only layer fields?
 - Which airlock/pressure-boundary patterns deserve early playtest examples?
@@ -101,5 +101,3 @@ These are no longer open at the `Content` level:
 - Cover values are not open at the content level: Half Cover grants +20 Defense and Full Cover grants +40 Defense after cover permission exists. Cover does not reduce damage.
 
 Still open: exact enemy roster, exact role-profile values, boss design, first v0.1 hazard library, damage/Health tuning through playtest, and how much enemy behavior should be scripted versus improvised.
-
-

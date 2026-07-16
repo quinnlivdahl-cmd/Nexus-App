@@ -18,23 +18,20 @@ owns_topics:
   - 'route_node_map_companion'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-CORE-003 to PLAYAID-ROUTE-001. Phase 10 reviewed the body for domain-first route-map display boundaries and report-linkage language."
 ---
 
 # Route Node Map Companion
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> This aid represents campaign-scale Route Prospects and Route Choices only. It does not define movement or geometry inside a selected Route Node Location; `CORE-SPATIAL-001` owns that spatial boundary.
-
 ## 1. Purpose
 
-Route-node map companions help display campaign, mission, pursuit, escape, clue-chain, and travel choices. They are distinct from TacMaps.
+Route-node map companions help display campaign, mission, pursuit, escape, clue-chain, and travel choices. They are distinct from the persistent Location view and any derived tactical overlay.
 
 - Route-node map = campaign/mission navigation and choice structure.
-- TacMap = tactical encounter space.
+- Location view = authoritative playable spatial state inside a selected Route Node; tactical overlays are derived displays of that state.
 
 ## 2. Use cases
 
@@ -45,7 +42,7 @@ Route-node map companions may be useful during:
 - escape or pursuit;
 - faction lead branching;
 - clue-chain branching;
-- ship travel;
+- Transit and travel;
 - route-node end recap;
 - campaign archive review.
 
@@ -64,9 +61,9 @@ A route-node map may show:
 - discovered shortcuts or bypasses;
 - hidden/unknown branches as vague markers if player-facing.
 
-## 4. Hidden or DM-only fields
+## 4. Hidden or Director-only fields
 
-DM-only route-node displays may include:
+Director-only route-node displays may include:
 
 - hidden branches;
 - unrevealed faction clocks;
@@ -89,7 +86,7 @@ Potential route-map changes after the report:
 - route collapsed;
 - faction route revealed;
 - pursuit route activated;
-- recovery/ship-time route selected;
+- recovery/Downtime route selected;
 - hidden branch discovered;
 - previous route becomes unsafe or unavailable.
 
@@ -127,5 +124,3 @@ Current Pressures:
 ## 8. Rook playtest carry-forward
 
 The Rook-style route-node lessons remain relevant: route displays should make choices concrete, but not collapse the whole route into a decorative map with no actionable structure.
-
-

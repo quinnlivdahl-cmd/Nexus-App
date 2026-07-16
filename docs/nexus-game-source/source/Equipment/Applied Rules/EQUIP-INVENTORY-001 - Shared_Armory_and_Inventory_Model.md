@@ -20,19 +20,19 @@ owns_topics:
 borrows_topics:
   - 'equipment_loadout'
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the active shared-armory and inventory procedure without relying on package-era framing."
 ---
 
 # Shared Armory and Inventory Model
 
-## 1. Ship storage
+## 1. Shared storage
 
-Equipment is stored on the ship. The ship phase and pre-node procedure are where the crew should choose node loadouts.
+Owned equipment is stored in the crew's accessible shared armory, cache, or other committed storage. When the campaign has a Ship, its armory is the normal mobile store; the rule does not require every crew or Downtime interval to be Ship-based.
 
-The ship's shared armory holds owned gear. Crew select node loadouts from that shared inventory, subject to availability, permissions, credentials, body compatibility, role, and scenario access.
+Crew select Route Node loadouts from accessible shared inventory during post-choice Deployment Preparation, subject to availability, permissions, credentials, body compatibility, role, and scenario access.
 
 ## 2. Shared armory rule
 
@@ -48,7 +48,7 @@ This supports crew selection and loadout choice without forcing every character 
 
 The active rule is no carried-but-inactive gear by default.
 
-If gear is not in a loadout slot, it is on the ship or otherwise unavailable during the node.
+If gear is not in a loadout slot, it remains in committed storage or is otherwise unavailable during the node.
 
 This keeps DM display clean and makes preparation meaningful.
 
@@ -58,8 +58,8 @@ Purchased or acquired items can be:
 
 - equipped into a slot;
 - assigned to a crew member;
-- stored in ship inventory;
-- installed as ship equipment;
+- stored in accessible shared inventory;
+- installed as Ship equipment when the campaign has a Ship;
 - converted into a credential/access relationship;
 - reserved for future crafting/fabrication.
 
@@ -74,11 +74,11 @@ Consumables are restored only through:
 - mission reward;
 - scenario permission.
 
-Armor and shields may reset by default after ship time or encounter end unless damaged, broken, overloaded, compromised, or tagged otherwise.
+Armor and shields may reset by default during Downtime or after Tactical Pressure ends unless damaged, broken, overloaded, compromised, or tagged otherwise.
 
-## 6. DM display requirement
+## 6. Runtime display requirement
 
-Before away scenes, DM Mode should show concise loadout/current inventory for PC and crew.
+Before deployment, the runtime should show concise loadout and relevant current inventory for the Player Character and crew.
 
 In tactical scenes, combat dashboards should include inventory shortcuts when gear choices matter.
 
@@ -90,22 +90,20 @@ Items gained in playtest, such as custody gear, access cards, transfer chits, ob
 
 ## 8. Mass-intake clarifications
 
-### 9.1 Pre-node loadout
+### 8.1 Pre-node loadout
 
-Node loadouts are chosen from ship inventory before the node. During the node, the crew uses equipped, installed, integrated, credentialed, or scenario-granted gear.
+Route Node loadouts are chosen from accessible shared inventory after Route Choice and before the node begins. During the node, the crew uses equipped, installed, integrated, credentialed, or scenario-granted gear.
 
-### 9.2 No inactive carried gear
+### 8.2 No inactive carried gear
 
 No carried inactive gear is the active rule. This is not a conflict with pickups.
 
-### 9.3 Pickups and inventory
+### 8.3 Pickups and inventory
 
 Pickups are added to inventory. They are not related to equipment slots by default.
 
 During a scene, a pickup may be treated as a scene object, evidence, salvage, quest item, immediate-use prop, or carried object if the fiction allows. It becomes normal active equipment only when equipped during a valid loadout or preparation window, unless a specific scene rule grants immediate use.
 
-### 9.4 DM display requirement
+### 8.4 Runtime display requirement
 
-DM Mode should show concise loadout/current inventory before away scenes and tactical scenes when gear matters. It should not display a giant private carried-inactive gear list, because such a list is not part of the active rule.
-
-
+The runtime should show concise loadout and relevant inventory before deployment and during Tactical Pressure when gear matters. It should not display a giant private carried-inactive gear list, because such a list is not part of the active rule.

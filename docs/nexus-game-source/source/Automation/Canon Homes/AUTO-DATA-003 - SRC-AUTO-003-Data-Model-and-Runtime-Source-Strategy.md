@@ -18,8 +18,8 @@ owns_topics:
   - 'data_model_runtime_source_strategy'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-14"
-last_reviewed: "2026-06-14"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 reviewed the body for domain-first source hierarchy, runtime-packet boundaries, and structured-data routing language. 2026-06-14 source reconciliation added context-broker, source-slice, and traceability expectations for app context packs."
 ---
@@ -42,26 +42,24 @@ Current source hierarchy:
 
 Runtime data helps execution. It does not become creative authority by accident.
 
-## 3. Structured TacMap truth
+## 3. Structured Location truth
 
 A generated image alone is not enough for automation or reliable play.
 
-A playable TacMap instance should eventually have structured truth for:
+A playable Location instance has structured truth for:
 
-- nodes;
-- paths;
-- path costs and restrictions;
-- node states;
-- path states;
-- cover/visibility/line markers;
-- actor/token positions;
+- Areas and authored navigable geometry;
+- movement costs, collision, and traversal restrictions;
+- doors, passages, objects, and interactables;
+- authored Interaction Positions and directional Cover Positions;
+- occlusion, visibility, and line of fire derived from geometry;
+- continuous actor positions;
 - objectives;
 - hazards;
-- interactables;
 - hidden versus player-visible information;
 - asset references or rendered visual layers.
 
-The image, collage, or visual backdrop is a display layer. The structured node/path/objective/actor/state data is the runtime truth for that instance.
+The image, collage, overlay, or visual backdrop is a display/performance layer. Structured Location geometry and state are the runtime truth for that instance.
 
 <!-- source-slice: automation.runtime.creative-source-versus-runtime-instance -->
 ## 4. Creative source versus runtime instance
@@ -76,7 +74,7 @@ Markdown/source docs answer:
 Runtime packets answer:
 
 - where the actors are now;
-- which node/path states currently apply;
+- which geometry, passage, object, and hazard states currently apply;
 - which objective is active;
 - which data has been revealed to the player;
 - what changed since the last state.
@@ -86,7 +84,7 @@ A runtime packet can be authoritative for a single active encounter state withou
 <!-- source-slice: automation.context-broker.source-backed-packets -->
 ## 4.1 Context Broker and source-backed packets
 
-An app-side Context Broker may select compact context packets for API DM calls. The Context Broker is not Rules Core, Game State Store, API DM, source canon, a reducer, or a mutation authority.
+An app-side Context Broker may select compact context packets for Model Runtime calls. The Context Broker is not Rules Core, Game State Store, Model Runtime, source canon, a reducer, or a mutation authority.
 
 The Context Broker may select:
 
@@ -107,7 +105,26 @@ Context packets should be traceable enough for debugging. Where practical, inclu
 
 Source slices are retrievable context units, not new source authority. A source slice should point back to a Golden Truth source document and should carry enough metadata to answer why it was selected. Sectioning, indexing, and slice IDs should support source-backed app context without dumping full source docs or full state into every prompt.
 
-The API DM may interpret and narrate from the packet, but final legality, cost, roll, result band, effect, state delta, concealed truth, and committed state remain with the rules/state authorities.
+The Model Runtime may propose interpretation and narration from the packet, but final legality, cost, roll, result band, effect, state delta, concealed truth, and committed state remain with the rules/state authorities.
+
+<!-- source-slice: automation.runtime.model-runtime-and-state-lanes -->
+## 4.2 Model Runtime and state lanes
+
+The **Model Runtime** is provider-neutral and task-routed. Nexus selects a configured model by task capability, quality, availability, latency, and cost rather than treating one vendor or model name as a game rule. Provider adapters normalize requests and responses; provider-specific details do not leak into domain logic. Deterministic fallback behavior must preserve play when no suitable model call is available. This reconciles [ADR-0035](../../../../adr/0035-model-runtime-is-provider-neutral-and-task-routed.md).
+
+Local runtime state uses two separate authoritative lanes:
+
+- **Game Truth** contains committed player-facing world and rules state.
+- **Director State** contains hidden planning, pressures, mysteries, prospect preparation, and other Campaign Director working state.
+
+Both lanes are local, versioned, recoverable, and auditable. Director State may inform proposals, but only validated mutations may change Game Truth. The separation is a secrecy and authority boundary, not permission for either lane to become model memory. This reconciles [ADR-0036](../../../../adr/0036-game-truth-and-director-state-use-separate-local-lanes.md).
+
+<!-- source-slice: automation.runtime.generated-performance-transactions -->
+## 4.3 Generated performance transactions
+
+Generated dialogue and other live performance use local **Dialogue Sessions** scoped to the active participants, scene facts, visibility, and permitted history. A model response returns a bounded typed proposal rather than directly mutating state. Deterministic validation either commits the complete linked result atomically or commits none of it. This reconciles [ADR-0037](../../../../adr/0037-generated-performance-uses-local-dialogue-sessions-and-bounded-proposals.md).
+
+Model spending is governed by a configured cap that protects a **Scene Completion Reserve**. The reserve must be sufficient to finish an active scene coherently, including a playable finale, campaign resolution, or early-loss resolution already underway. When ordinary budget is exhausted, Nexus degrades optional generated performance before risking completion. This reconciles [ADR-0039](../../../../adr/0039-model-spend-caps-protect-active-scene-completion.md).
 
 ## 5. Candidate data surfaces
 

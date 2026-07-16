@@ -18,8 +18,8 @@ owns_topics:
   - 'asset_canon_status_and_routing'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Asset-canon handling and routing now follow domain-first boundaries while preserving Obsidian asset-library usage."
 ---
@@ -170,16 +170,14 @@ Use these routing categories when indexing or promoting TacMap visuals:
 - **SVG icon kit:** reusable icons or marker parts; may be useful before mechanics are final.
 - **Sprite sheet:** organized reusable asset sheet for AI/human composition.
 - **Test composition:** proof that icons can work together; not automatically canon.
-- **Map prototype:** visual demonstration of a possible TacMap; not playable source unless node/path/objective truth is structured and verified.
-- **Canonical playable map spec:** structured node/path/objective data plus approved visual display.
+- **Map prototype:** visual demonstration of a possible Location or tactical view; not playable source unless geometry, authored positions, objects, objectives, and state are structured and verified.
+- **Canonical playable Location spec:** authored geometry and structured Location/objective state plus approved visual display.
 - **Visual reference image:** mood, architecture, materials, or environmental reference; not canon location by default.
 
 ### Promotion path
 
 Visual prototype -> Art review -> route implications to Play Aids display spec and/or Combat mechanics -> asset index entry -> possible canonical visual source if approved.
 
-An SVG icon can be a reusable visual asset without making its implied mechanic final. A TacMap image can be an excellent visual prototype without being a valid node/path source.
+An SVG icon can be a reusable visual asset without making its implied mechanic final. A tactical image can be an excellent visual prototype without being valid Location geometry or state.
 
 Actual SVG/PNG/JPEG files should live in Obsidian asset folders. Art indexes and routes them; it does not need to duplicate every binary asset inside source docs.
-
-

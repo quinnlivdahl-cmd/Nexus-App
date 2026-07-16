@@ -40,7 +40,7 @@ Path caveat: this source home was renamed from the dated 2026-06-10 rebuild fold
 - GitHub Issues are the active execution queue.
 - `CONTEXT-MAP.md`, the Nexus Game context, and `docs/adr/README.md` form the revised decision baseline.
 - `NEXUS_LOCAL_PLAYABLE_ALPHA.md` is retained historical planning evidence and is non-controlling until Golden Truth reconciliation, the implementation-ready vertical-slice contract, and revised planning controls land.
-- `docs/nexus-game-source/source` remains canonical game-source authority pending explicit reconciliation.
+- `docs/nexus-game-source/source` is the canonical current textual definition of the game. Accepted ADRs control the specific claims they change until those decisions are reconciled into the owning source documents; unaffected source material remains current.
 - This transition doc tracks queue shape and local-only planning residue; live GitHub is authoritative for issue state and blockers.
 
 ## Queue Rules

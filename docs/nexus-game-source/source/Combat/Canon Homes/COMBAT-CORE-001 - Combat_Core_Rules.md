@@ -22,80 +22,72 @@ borrows_topics:
   - 'recovery_check_calls'
   - 'equipment_defense_spine'
 created: "2026-05-13"
-last_updated: "2026-06-14"
-last_reviewed: "2026-06-14"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the active combat core without relying on package-era framing. 2026-06-14 source reconciliation folded app-facing authority, effect, and state-delta boundaries into the combat source home."
 ---
 
 # Combat Core Rules
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
-
 <!-- source-slice: combat.core.purpose-and-tactical-principles -->
 ## 1. Purpose
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
-Combat in Nexus is tactical, readable, and meaningful. Combat should occupy a large share of player time, but not every encounter must become combat.
+Combat in Nexus is tactical, readable, and meaningful. Combat should occupy a large share of player time, but not every period of Tactical Pressure must be combat.
 
 Characters are expected to be relatively squishy. Success should come from planning, lined-up shots, positioning, cover, objective execution, non-attack options, reactions, items, party synergy, and retreat or bypass when appropriate, not simply from trading damage.
 
 <!-- source-slice: combat.core.encounter-start-procedure -->
-## 2. Encounter start procedure
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
+## 2. Tactical Pressure transition
 
-Combat encounters should begin with:
+Combat escalation should present:
 
 1. scene title;
 2. brief narrative description;
 3. immediate stakes;
 4. assessment / approach phase;
-5. TacMap or tactical sketch when spatial play matters;
+5. the current Location view and relevant spatial state;
 6. visible enemies, hazards, objectives, and interactable objects.
 
-When a tactical encounter requires a TacMap, the DM should produce it automatically. The player should not have to ask for the map after the fiction has reached a map-relevant encounter start.
+When Tactical Pressure begins, the runtime exposes initiative, controls, objectives, visible threats, and relevant geometry automatically. The player should not have to request a separate map or required play structure.
 
-The structured combat state is the mechanical source of truth. Narrative description provides atmosphere, sensory context, stakes, and tactical framing. A rendered TacMap is a play aid; when a map image and structured node/path/object data disagree, the structured data controls until corrected.
+The structured Location and combat state is the mechanical source of truth. Narrative description provides atmosphere, sensory context, stakes, and tactical framing. A rendered map or overlay is a play aid; when it disagrees with authoritative geometry or state, the structured truth controls until the display is corrected.
 
 ## 3. Approach phase
 
-Before combat begins, the player should be able to evaluate or alter the encounter. Typical approach actions include observing, scanning, talking, negotiating, bribing, deceiving, intimidating, sneaking, hacking, preparing ambushes, repositioning, retreating, disabling systems, or pursuing objective-focused bypasses.
+Before combat begins, the player should be able to evaluate or alter the situation. Typical approach actions include observing, scanning, talking, negotiating, bribing, deceiving, intimidating, sneaking, hacking, preparing ambushes, repositioning, retreating, disabling systems, or pursuing objective-focused bypasses.
 
 Combat begins when the player attacks, enemies attack, talks fail, stealth fails, alarms trigger, the fiction demands it, or an objective timer forces open conflict.
 
 ## 4. Party control
 
-The working combat party baseline is PC + 2 crew. The player controls the PC and active crew in combat. Crew turns are individual, not grouped.
+The working combat party baseline is Player Character plus two Crewmates. The player controls the Player Character and active crew in combat. Crew turns are individual, not grouped.
 
 <!-- source-slice: combat.core.turn-and-activation-baseline -->
 ## 5. Turn and activation baseline
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Current v0.1 baseline:
 
-- alternating activations;
-- initiative / tempo start system pending;
+- every relevant combatant rolls individual Lattice-100 Initiative when Turn-Based Mode begins;
+- the resulting order remains fixed for that Tactical Pressure period unless an accepted mechanic explicitly changes it;
 - each standard activation has MP from Speed, 2 AP, one reaction permission / prepared reaction surface as applicable, and one free micro-interaction;
 - actions resolve sequentially unless a feature, prepared process, triggered system, passive effect, automation, or scenario rule explicitly says otherwise;
-- exact initiative math is deferred.
+- exact initiative modifiers, ties, surprise, late entry, and participant selection remain unresolved.
 
 <!-- source-slice: combat.core.combat-state-to-track -->
 ## 6. Combat state to track
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Combat state should track:
 
 - round and current activation;
-- character node / path / in-transit status;
+- continuous actor positions, facing when relevant, collision, and movement state;
 - AP, MP, reaction readiness, stance, and micro-interaction use;
 - Health, System Integrity, Defense, Firewall, Mitigation, and Shield where applicable;
-- cover, visibility, line-of-fire, exposure, elevation, hazards, node status, path status, and status effects;
+- Cover Positions, visibility, line of fire, exposure, elevation, hazards, Area/object/field state, and status effects;
 - objectives, clocks, alarms, reinforcements, extraction, and interactables.
 
 <!-- source-slice: combat.core.defensive-display-spine -->
 ## 7. Defensive display spine
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 Use this tactical display spine when a combatant needs a full profile:
 
 ```text
@@ -147,7 +139,6 @@ This conversion rule is strongest for PCs, crew, important NPCs, recurring enemi
 
 <!-- source-slice: combat.core.durability-application-order -->
 ## 9. Durability application order
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 `Combat` owns tactical application order only. Detailed gear balance belongs to `Equipment`.
 
 Working order:
@@ -172,22 +163,21 @@ If one effect both applies a temporary Standard Status and causes Downed or Disa
 
 <!-- source-slice: combat.core.app-authority-state-mutation-boundary -->
 ### 9.1 App-facing authority and state mutation boundary
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
-Nexus uses an API DM for interpretation, narration, NPC response, scene feel, and flexible freeform play. The API DM does not become the final authority for combat legality, roll result, effect, state mutation, or committed truth.
+Nexus uses the Model Runtime for bounded interpretation, narration, NPC response, scene feel, and generated performance. Model output does not become authority for combat legality, roll result, effect, state mutation, or committed truth.
 
 Combat-facing authority should follow this boundary:
 
 ```text
 Player and UI state intent.
-API DM may interpret and narrate.
+Model Runtime may propose interpretation and performance.
 Rules Core validates and resolves mechanics.
 Game State Store commits validated state changes.
-Context Broker controls what the API DM can see.
+Context Broker controls what the Model Runtime can see.
 UI / App Shell displays committed results.
 ```
 
-No player statement, UI display, API DM narration, or context packet becomes combat truth until the correct authority validates, resolves, and commits it.
+No player statement, UI display, model narration, or context packet becomes combat truth until the correct authority validates, resolves, and commits it.
 
 Use this distinction for app-facing rules and source-backed play aids:
 
@@ -197,11 +187,11 @@ StateDelta = what state changes because of it.
 Committed state = validated StateDelta after the commit boundary.
 ```
 
-An effect may describe damage, healing, movement, status application, resource change, objective progress, trace, exposure, suspicion, disposition, reveal, conceal, route change, map-option change, scheduled consequence, or other mechanical consequence. The effect itself is not committed state.
+An effect may describe damage, healing, movement, status application, resource change, objective progress, trace, exposure, suspicion, disposition, reveal, conceal, route change, Location-option change, scheduled consequence, or another mechanical consequence. The effect itself is not committed state.
 
-A state change must identify enough information to validate the mutation: target, state surface, operation, payload, visibility, source, and transaction/log reference where practical. Hidden consequences are still state. If they matter later, preserve them as committed hidden state, a scheduled effect, counter, clock, log, summary, or review flag rather than leaving them only in DM memory.
+A state change must identify enough information to validate the mutation: target, state surface, operation, payload, visibility, source, and transaction/log reference where practical. Hidden consequences are still state. If they matter later, preserve them as committed hidden Game Truth, a scheduled effect, counter, clock, log, summary, or review flag rather than leaving them only in model or Director memory.
 
-Draft mutable state surfaces include actor resources, actor health, System Integrity, action economy, position, status, inventory/equipment, Shield, Mitigation, map position, map options, cover/visibility, scene entities, objectives, clocks, counters, exposure, disposition, operational knowledge, relationships, faction state, hidden/internal state, scheduled effects, summaries, logs, and review flags. These names are source-facing categories, not final TypeScript names.
+Draft mutable state surfaces include actor resources, actor health, System Integrity, action economy, position, status, inventory/equipment, Shield, Mitigation, Location state, movement options, cover/visibility, scene entities, objectives, clocks, counters, exposure, disposition, operational knowledge, relationships, faction state, hidden/internal state, scheduled effects, summaries, logs, and review flags. These names are source-facing categories, not final TypeScript names.
 
 If a proposed state change cannot name an allowed surface, target, operation, and payload, it should not commit.
 
@@ -213,13 +203,12 @@ Robust tactical healing, revival from Downed, permanent-loss prevention, cyberne
 
 <!-- source-slice: combat.core.end-conditions -->
 ## 11. Combat end conditions
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible combat mechanics survive, but Encounter-container, TacMap handoff, and alternating-activation claims in this slice are historical; Tactical Pressure and individual Initiative control.
 
 Combat can end through victory, retreat, surrender, escape, objective completion, negotiation, collapse, timer resolution, enemy withdrawal, system shutdown, reinforcements changing the situation, or other consequences. Killing every enemy is only one possible end condition.
 
 ## 12. Display routing
 
-This doc may mention the need to keep tactical state legible. It does not own DM chat formatting. Display rules belong in `Modes` and live tactical state presentation belongs in `Dashboards`.
+This doc may mention the need to keep tactical state legible. It does not own application UI formatting. Display rules belong in `Modes` and live tactical state presentation belongs in `Dashboards` and the app shell.
 
 ## 13. Open items
 Resolved for current Lattice integration:

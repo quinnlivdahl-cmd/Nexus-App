@@ -18,8 +18,8 @@ owns_topics:
   - 'auxiliary_play_aids_open_questions'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 reviewed the body for domain-first display-boundary questions, tracker routing, and open-question bucket alignment."
 ---
@@ -34,12 +34,12 @@ metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 rev
 - What is the minimum TacMap Render Spec v0.1?
 - Which TacMap layer model is primary for play aids: SVG, Markdown, Canvas, PNG, or hybrid?
 - What state changes must be fast enough to update during live play?
-- What is the first reusable SVG node-web set?
+- What is the first reusable SVG Location-overlay and tactical-marker set?
 - What belongs in `Play Aids` display spec versus `Art` asset kit versus `Automation` renderer data?
 - Should every TacMap snapshot include a required external truth table?
 - What is the default player-facing encounter-start display on mobile?
 - How should hidden TacMap layers be represented in Obsidian?
-- How should a generated TacMap image be validated against its node/path truth table?
+- How should a generated tactical image be validated against authoritative Location geometry and state?
 - What is the minimum route-node map format for routine route choices?
 - How much of a Route Node End Report should become a printable/player-facing aid?
 
@@ -52,7 +52,7 @@ Potential `Modes` template tasks:
 - Encounter Result Card template.
 - TacMap display/spec block.
 - Player-facing handout header.
-- Node/path truth table pattern.
+- Location geometry/state diagnostic pattern.
 - Obsidian-friendly dashboard/callout layout examples.
 
 These should route to the consolidated tracker in `Dashboards` rather than creating duplicate task lists.
@@ -62,7 +62,7 @@ These should route to the consolidated tracker in `Dashboards` rather than creat
 - `Combat`: final cover, visibility, and status-marker rules.
 - `Automation`: structured data and renderer handoff model.
 - `Dashboards`: active dashboard and task-tracker updates.
-- `Art`: visual style, icon kit, SVG node-web set, and TacMap collage asset language.
+- `Art`: visual style, icon kit, SVG Location-overlay set, and tactical display asset language.
 - Asset folders: raw SVG/PNG/prototype storage and index.
 
 ## 4. User-review flags
@@ -78,4 +78,3 @@ These should route to the consolidated tracker in `Dashboards` rather than creat
 - Should TacMap icons include a small official legend sheet before more icons are produced?
 - What is the threshold for using a generated image instead of Markdown or SVG collage?
 - How should external display snapshots be archived after a session?
-

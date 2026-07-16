@@ -21,8 +21,8 @@ borrows_topics:
   - 'combat_core'
   - 'recovery_rules'
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved unresolved combat questions without relying on package-era framing."
 ---
@@ -70,7 +70,7 @@ The 2026-05-15 mass-intake review approved restrained combat-domain updates for 
 - First occupant at a node keeps cover-use priority unless changed by fiction/rule/procedure.
 - Full Wall blocks visibility/movement by default; Half Wall may allow visibility while providing cover.
 - Tactical encounter start should automatically include TacMap support when spatial play matters.
-- Canonical TacMap truth should be structured node/path/object data, with visual render as aid.
+- Canonical spatial truth is authored Location geometry and structured state, with visual overlays as derived aids.
 - Lattice combat formula: `TS = 50 + Actor Bonus - (Defense - 15)`.
 - Effective Defense: `Effective Defense = Defense + cover + situational defensive modifiers`.
 - Lattice combat formula with Effective Defense: `TS = 50 + Actor Bonus - (Effective Defense - 15)`.
@@ -123,7 +123,7 @@ The 2026-05-15 mass-intake review approved restrained combat-domain updates for 
 - Node-edge marker icon grammar.
 - Wall breach/destructible wall procedure.
 - Dense cluster display standard.
-- Noncombat TacMap procedure examples.
+- Noncombat spatial-interaction and Tactical Pressure procedure examples.
 
 ## 7. Open encounter gaps
 
@@ -135,8 +135,8 @@ The 2026-05-15 mass-intake review approved restrained combat-domain updates for 
 - Reinforcement rules.
 - Retreat and surrender procedure.
 - Encounter reward / loot / salvage link.
-- Final Node-Web Quality Checklist wording.
-- Encounter Layer Checklist vs Node-Web Quality Checklist boundary.
+- Final Location Quality Checklist wording.
+- Location realization checklist versus tactical-content checklist boundary.
 - Trust ladder validation process for AI-generated maps.
 - Environment-family template list.
 
@@ -148,7 +148,7 @@ The 2026-05-15 mass-intake review approved restrained combat-domain updates for 
 - Defense profile tuning.
 - NetSec / system enemy behavior.
 - Morale, rout, surrender, and capture.
-- How enemies use node/path/cover/status surfaces.
+- How enemies use geometry, Cover Positions, hazards, and status surfaces.
 
 ## 9. Playtest evidence to preserve
 
@@ -172,10 +172,10 @@ Rook / Ternary Lock / E-43 produced useful encounter/process lessons:
 Seed systems and TacMap handoffs produced useful rules-surface lessons:
 
 - status grammar must be explicit enough for mechanics to target;
-- node/path status tags need visual support;
+- Area, passage, field, object, and status tags need visual support;
 - cover must be relative, not a flat node property;
 - cover display should be visual, not a visible cover matrix;
-- TacMap generated images should be backed by structured node/path/object data;
+- generated tactical images should be backed by authoritative Location geometry and structured state;
 - reusable SVG/icon/collage systems belong primarily to `Play Aids` and `Art`, while `Combat` owns the rules grammar.
 
 ## 10. Cross-domain correction: DM display rules
@@ -208,4 +208,3 @@ Mass intake reinforced that templates likely need updates after this source-upda
 - `Play Aids` and `Art` templates or manifests should handle TacMap visual and icon assets.
 - `Dashboards` should eventually rebuild live tactical surfaces without brittle legacy behavior.
 - `Automation` may later need a structured TacMap data template if runtime automation becomes active.
-

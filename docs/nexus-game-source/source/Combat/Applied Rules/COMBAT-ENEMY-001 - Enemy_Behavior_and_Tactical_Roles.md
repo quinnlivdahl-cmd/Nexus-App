@@ -20,8 +20,8 @@ owns_topics:
 borrows_topics:
   - 'content_enemy_framework'
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the seeded enemy-behavior guidance without relying on package-era framing."
 ---
@@ -37,6 +37,8 @@ It does not define a final enemy roster, faction roster, stat block system, or e
 ## 2. Current principle
 
 Enemies should create tactical problems, not merely HP pools. Enemy behavior should pressure movement, cover, objectives, reactions, information, systems, resources, and morale.
+
+When Tactical Pressure begins, the Model Runtime may propose one bounded, situation-scoped **Tactical Directive** for an enemy group. The directive describes approved goals, posture, priorities, restraints, and authored contingencies. Local deterministic logic then executes legal movement, targeting, actions, reactions, and contingency transitions throughout the situation. Nexus does not call a model for each enemy turn. If the group directive is unavailable or invalid, deterministic fallback behavior governs the situation. The model never moves actors, rolls, spends resources, or writes Game Truth directly. This reconciles [ADR-0038](../../../../adr/0038-enemy-tactical-intent-is-model-proposed-and-locally-executed.md).
 
 ## 3. Tactical role surfaces
 
@@ -64,9 +66,9 @@ Enemy pressure should often be visible or inferable before it resolves. Telegrap
 Examples:
 
 - a guard calls reinforcement request;
-- a drone marks a route;
+- a drone marks an approach;
 - NetSec trace increases;
-- a heavy unit anchors a path;
+- a heavy unit anchors a passage;
 - a runner moves toward an objective;
 - an alarm door starts cycling;
 - suppressive fire makes a path dangerous.
@@ -120,5 +122,3 @@ Still needed:
 - reinforcement procedures;
 - special boss / elite controls;
 - automated enemy behavior tables, if desired later.
-
-

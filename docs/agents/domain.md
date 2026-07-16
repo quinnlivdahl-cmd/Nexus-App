@@ -64,4 +64,4 @@ GitHub Issues remain execution packets. The issue index, transition document, Lo
 
 ## Revised-vision work
 
-The Nexus Game context and accepted ADR set are the revised decision baseline. The current roadmap, issue queue, canonical source, and implementation remain inputs to reconciliation: accepted decisions control planning where they conflict with stale assumptions, while canonical source changes require the separately authorized Golden Truth reconciliation workflow.
+The canonical domain source is the current textual definition of Nexus. Accepted ADRs control only the claims they change; reconcile those decisions into the owning source documents and preserve unaffected source material as current. After reconciliation, use the domain document for the current rule or concept and the ADR for decision rationale and provenance.

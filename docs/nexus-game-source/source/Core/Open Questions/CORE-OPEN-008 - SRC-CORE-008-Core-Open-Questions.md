@@ -18,8 +18,8 @@ owns_topics:
   - 'core_open_questions'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
@@ -96,7 +96,7 @@ Routing: `Play Aids`, `Art`, `Dashboards`, and `Data`.
 Rook corrections should be reviewed for inclusion in DM rules, dashboard templates, and encounter pacing docs:
 
 - avoid too many gated checks;
-- keep routine ship-time handling quick;
+- keep routine Downtime handling quick;
 - declare objective/counter/encounter structure for set pieces;
 - avoid overwhelming options;
 - show character tracker/skill sheets;
@@ -185,4 +185,3 @@ Do not use this open-question doc to delete old material. If an old source conta
 ## Source Handling Note
 
 This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-

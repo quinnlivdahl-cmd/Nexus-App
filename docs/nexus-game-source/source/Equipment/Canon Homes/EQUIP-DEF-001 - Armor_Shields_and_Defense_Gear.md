@@ -22,8 +22,8 @@ owns_topics:
 borrows_topics:
   - 'combat_core'
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the active defense-gear split without relying on package-era framing."
 ---
@@ -141,7 +141,7 @@ After fight:
 - shields reset by default unless damaged/overloaded/broken;
 - per-encounter cooldowns may reset if used.
 
-Ship time:
+Downtime with suitable repair access:
 
 - Health generally restores to full by default for PCs/crew unless persistent injury rules apply;
 - Mitigation/protective gear resets to functional baseline by default;
@@ -194,5 +194,3 @@ A later Shield-check model remains possible, but it is not the active default.
 One character Firewall is the default character-facing model.
 
 Important objects, drones, suits, ship systems, station systems, bosses, and major modules may have separate Firewall and/or System Integrity. Minor hackable gear may only need Firewall plus System Status.
-
-

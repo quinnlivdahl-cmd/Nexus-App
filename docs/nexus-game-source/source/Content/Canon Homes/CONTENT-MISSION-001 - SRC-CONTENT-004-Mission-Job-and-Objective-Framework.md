@@ -18,8 +18,8 @@ owns_topics:
   - 'mission_job_and_objective_framework'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-CORE-004 to CONTENT-MISSION-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active mission and objective framework without relying on slot-era wording."
 ---
@@ -39,7 +39,7 @@ A mission/job seed should eventually define:
 
 ```text
 Working title:
-Node / route context:
+Route Node / Location context:
 Primary objective:
 Pressure objective:
 Optional objective:
@@ -48,7 +48,7 @@ Likely opposition:
 Hazards / obstacles:
 Approach phase affordances:
 Nonviolent paths:
-TacMap needs:
+Location realization and display needs:
 Counters / clocks:
 Aftermath categories:
 Reward / salvage / lead outcomes:
@@ -57,7 +57,7 @@ Failure / partial-success outcomes:
 
 ## Objective categories
 
-Tactical encounters should not default to "kill all enemies." Current objective examples include:
+Tactical situations should not default to "kill all enemies." Current objective examples include:
 
 - extract VIP;
 - hold position;
@@ -89,7 +89,7 @@ Objects, cover, and objectives use a tactical hybrid model.
 
 ## Approach phase
 
-Before combat begins, the player should often be able to evaluate the scene and choose an approach. Skills, equipment, crew, and prior information affect what the DM presents.
+Before combat begins, the player should often be able to evaluate the situation and choose an approach. Skills, equipment, crew, and prior information affect what the runtime reveals or makes possible.
 
 Approach actions may include:
 
@@ -133,7 +133,7 @@ Counters should be campaign-understood categories, not one-off mystery meters.
 `Hazard` - an environment, system, body, weather, pressure, radiation, software, or anomaly is becoming dangerous.
 ```
 
-Counter display rules belong to DM Mode, but mission content should record what the counter represents, what changes it, what happens at the trigger, and what relief options exist.
+Counter display rules belong to the application UI, but mission content should record what the counter represents, what changes it, what happens at the trigger, and what relief options exist.
 
 ## Aftermath categories
 
@@ -156,7 +156,7 @@ Health
 
 Do not accumulate too many opportunities. When new evidence opens a path, usually add one objective and maybe one opportunity, not a long list. Opportunities should steer through reward, shortcut, leverage, or easier objective completion without forcing the party toward them.
 
-## Mass-intake alignment: planning and encounter start fields
+## Mass-intake alignment: planning and Tactical Pressure fields
 
 Mission content should support the current **planning matters** principle:
 
@@ -169,18 +169,17 @@ Mission content should support the current **planning matters** principle:
 
 Content should avoid collapsing meaningful choices into one giant roll when the crew still has useful choices about approach, route, prep, cleanup, barter, takedown, or consequence management.
 
-### Encounter-start content field
+### Tactical Pressure transition content field
 
-When a mission element expects tactical play, the content entry should identify what must be surfaced at encounter start:
+When a mission element expects Tactical Pressure, the content entry should identify what must be surfaced at the transition:
 
 - objective or pressure;
 - visible hazards;
 - relevant actors;
-- known routes/exits;
-- required TacMap/schematic support;
+- known passages, approaches, and exits;
+- required Location view or derived tactical-overlay support;
 - player-safe information;
-- DM-only hidden layer, if any.
+- Director-only hidden layer, if any.
 
-`Content` may request TacMap support, but `Combat` owns the TacMap rules, `Play Aids` owns display-aid specs, `Automation` owns data and renderer implications, and `Art` owns visual and asset direction.
-
+`Content` may request Location realization and derived tactical display support. `Core` owns Location authority, `Combat` owns tactical spatial rules, `Play Aids` owns display-aid specs, `Automation` owns data and renderer implications, and `Art` owns visual and asset direction.
 

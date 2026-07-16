@@ -18,8 +18,8 @@ owns_topics:
   - 'encounter_content_library'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-CORE-008 to CONTENT-ENCOUNTER-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active encounter-pattern library without relying on slot-era wording."
 ---
@@ -168,10 +168,10 @@ Add new patterns only when a handoff, playtest, Seed harvest, or Draft pass prod
 ## Mass-intake pattern additions
 
 <!-- source-slice: content.encounter.pattern-node-path-hazard -->
-### Pattern: Node/Path Hazard Pattern
+### Pattern: Spatial Hazard Pattern
 > [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
-A tactical or mission scene built around node/path conditions rather than enemy count. Useful for vacuum leaks, electrical paths, smoke lanes, watched corridors, pressure doors, fire spread, gravity shifts, or contaminated zones.
+A tactical or mission situation built around geometry and environmental state rather than enemy count. Useful for vacuum leaks, electrified surfaces, smoke lanes, watched corridors, pressure doors, fire spread, gravity shifts, or contaminated Areas.
 
 Requirements:
 
@@ -184,7 +184,7 @@ Requirements:
 
 A location where pressure, atmosphere, vacuum, seals, locks, suit readiness, and route control matter. Useful for mining sites, shipboard breaches, orbital habitats, station maintenance, and low-G industrial spaces.
 
-Do not promote the uploaded asteroid mine TacMap prototype as a canonical encounter yet. It is inspiration and visual evidence until a clean node/path spec is built.
+Do not promote the uploaded asteroid mine TacMap prototype as canonical Location content. It remains inspiration and visual evidence until its useful topology and content are rebuilt as authored geometry, objects, positions, objectives, and validated state.
 
 ### Pattern: Bypass Route
 

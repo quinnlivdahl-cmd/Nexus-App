@@ -18,23 +18,26 @@ owns_topics:
   - 'tt_mode_vg_mode_design_boundaries'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 reviewed the body for domain-first TT versus VG boundaries, encounter-start packet language, and cross-domain ownership notes."
 ---
 
-# TT Mode vs VG Mode Design Boundaries
+# Runtime and Automation Design Boundaries
 
-## 1. Tabletop-first priority
+> [!important] Spatial RPG reconciliation — 2026-07-16
+> Nexus is now a local-first spatial party RPG. The tabletop lineage remains valuable design evidence, but it is not the current product boundary. `CORE-SPATIAL-001` controls spatial play; accepted ADRs control the runtime decisions cited below.
 
-Nexus remains tabletop-first. DM Mode and source documents are the design authority for current play.
+## 1. Current priority
 
-Automation may support play, but it should not outrank:
+Nexus is a local-first spatial party RPG. Current domain source documents define the game, deterministic systems own rules and committed state, and generated performance supports the experience without becoming authority.
+
+Automation and model-assisted performance must not outrank:
 
 - the current source docs;
-- the DM's tactical and narrative judgment;
-- active campaign state;
+- deterministic rules and validated outcomes;
+- committed Game Truth;
 - player-facing clarity;
 - preservation of unresolved options.
 
@@ -44,7 +47,7 @@ Automation can assist with:
 
 - encounter-start packets;
 - TacMap rendering or schematic display;
-- node/path/objective tables;
+- Location geometry, object, and objective state;
 - actor and token position updates;
 - state deltas such as hazards, locks, statuses, and objective progress;
 - Route Node End Report generation;
@@ -52,58 +55,61 @@ Automation can assist with:
 - export/import packets;
 - validation checklists.
 
-Automation should make the table faster and clearer, not make the game less repairable.
+Automation should make play faster, clearer, and more responsive without making the game less recoverable or auditable.
 
 ## 3. Tactical encounter automation rule
 
-When a tactical encounter begins and a TacMap is required, the system/DM should present TacMap support automatically. The player should not need to ask for the map or node/path structure.
+When Tactical Pressure begins, the runtime continues inside the same authoritative Location and presents the controls and information needed for turn-based resolution. The player should not need to request a separate encounter map.
 
-The automation-adjacent encounter-start packet may include:
+The transition packet may include:
 
 - scene frame;
 - objective and pressure;
-- TacMap image, schematic, or node-web list;
-- node/path/objective data;
+- the current Location view or derived tactical overlay;
+- geometry, movement, cover, interaction, and objective data;
 - actor positions and visible hazards;
 - player-safe information layer;
 - DM-only notes or hidden data where needed.
 
-`Modes` owns DM execution templates. `Core` owns the core requirement. `Play Aids` owns display-aid format. `Automation` owns the data and tooling implications.
+`Core` owns Location continuity and Tactical Pressure. `Combat` owns turn-based rules. `Play Aids` owns derived display formats. `Automation` owns runtime packets, state routing, validation support, and tooling implications.
 
-## 4. TT/VG boundary
+## 4. Runtime boundary
 
-A future VG or companion may translate tabletop structures into runtime objects, but current tabletop play should not be constrained by app assumptions.
+The application expresses current source rules through local runtime objects. App implementation may not silently redefine those rules.
 
-Working TT-first constraints:
+Current constraints:
 
 - short player commands remain valid when intent, target, risk, and resource are clear;
-- DM Mode may summarize and resolve complex actions without requiring app-like inputs;
-- visual maps are aids, not sole source truth;
-- Markdown source remains creative authority;
-- runtime packets mirror current play state rather than replacing source docs.
+- the in-world interface supports authored actions and freeform intent;
+- authoritative geometry and structured state, not a generated image, determine spatial truth;
+- domain source remains the textual definition of the game;
+- runtime packets carry current play state without replacing source docs;
+- Game Truth and Director State remain separate local lanes; and
+- model output is a bounded proposal, never a direct mutation.
 
-## 5. Future VG translation
+These boundaries reflect [ADR-0035](../../../../adr/0035-model-runtime-is-provider-neutral-and-task-routed.md), [ADR-0036](../../../../adr/0036-game-truth-and-director-state-use-separate-local-lanes.md), and [ADR-0037](../../../../adr/0037-generated-performance-uses-local-dialogue-sessions-and-bounded-proposals.md).
 
-Future VG or app work may use:
+## 5. Current application surfaces
 
-- node-web movement rather than grid movement;
+The application may use:
+
+- continuous movement over authored Location geometry;
 - object interactions for terminals, doors, hazards, and objectives;
 - structured route-node maps;
 - player-safe and hidden-state layers;
-- exportable campaign and TacMap packets.
+- exportable campaign and Location-state packets;
+- task-routed, provider-neutral model calls; and
+- local Dialogue Sessions for generated performance.
 
-These remain future translation paths, not current development commitments.
+Enemy decisions may use a model-proposed, bounded Tactical Directive, but legal actions, target validation, movement, rolls, costs, effects, and commits remain deterministic. This reconciles [ADR-0038](../../../../adr/0038-enemy-tactical-intent-is-model-proposed-and-locally-executed.md).
 
 ## 6. Non-commitments
 
 This source does not commit to:
 
-- a live app;
-- a Replit build;
-- API-based synchronization;
 - fully automated tactical adjudication;
 - final JSON schemas;
-- mobile app UI architecture;
-- replacing DM Mode.
-
-
+- a specific model provider;
+- cloud-owned game state;
+- model-authored geometry or mechanics; or
+- model authority over committed state.
