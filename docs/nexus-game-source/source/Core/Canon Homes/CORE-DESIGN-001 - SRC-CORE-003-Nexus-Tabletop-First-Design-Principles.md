@@ -5,7 +5,7 @@ legacy_ids:
   - 'SRC-CORE-003'
 legacy_paths:
   - 'C:\Users\Quintin Livdahl\Nexus\Nexus\99 Archive\01 Superseded Source\00 Source Slots 2026-06-10\07 Core Game Campaign rev0.3\SRC-CORE-003 - Nexus_Tabletop_First_Design_Principles.md'
-title: "Nexus_Tabletop_First_Design_Principles"
+title: "Nexus_Spatial_RPG_Design_Principles"
 doc_status: "working_draft"
 working_state: "domain_rebuild_full_migration"
 mode_owner: "Steward"
@@ -13,122 +13,87 @@ source_role: "canon_home"
 canon_status: "provisional_source"
 placement_domain: "Core"
 content_role: "canon_home"
-topic_family: "tabletop_first_design_principles"
+topic_family: "spatial_rpg_design_principles"
 owns_topics:
-  - 'tabletop_first_design_principles'
+  - 'spatial_rpg_design_principles'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
 
-# Nexus Tabletop-First Design Principles
+# Nexus Spatial RPG Design Principles
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> `CORE-SPATIAL-001` replaces tabletop-first product identity with a local-first spatial RPG. Preserve the tabletop possibility, visible Lattice rolls, repairability, meaningful choices, and human-readable state lessons below; tabletop/notebook operation, DM-chat primacy, and node/TacMap abstractions are historical constraints rather than current product authority.
+## 1. Product scope
 
-## 1. Tabletop-First Scope
+Nexus is a local-first, full 2D spatial party RPG. The player controls one Player Character and a changing crew through persistent explorable Locations, Route Nodes, Tactical Pressure, relationships, growth, faction consequences, and Legacy World continuation.
 
-The first playable form of Nexus is not a coded app. It is a tabletop/notebook RPG ruleset and campaign procedure that can be run in this project notebook.
+The earlier tabletop/notebook form remains useful prototype and playtest evidence. It does not define the current product boundary.
 
-This ruleset becomes the source of truth for a future Replit app or other digital implementation.
+## 2. Deterministic authority
 
-## 2. TT and VG Labels
+Authoritative geometry, rules, Game Truth, and validated state changes are deterministic and local. Generated dialogue, narration, illustrations, and Campaign Director planning support play but cannot invent mechanics, geometry, possessions, legal outcomes, or committed truth.
 
-- **TT** means tabletop/notebook version.
-- **VG** means later video-game or app implementation.
+The Model Runtime is provider-neutral and task-routed. Game Truth and Director State use separate local lanes. Model output is a bounded proposal that must pass deterministic validation before any atomic commit. Detailed boundaries live in `Automation` and reconcile [ADR-0035](../../../../adr/0035-model-runtime-is-provider-neutral-and-task-routed.md), [ADR-0036](../../../../adr/0036-game-truth-and-director-state-use-separate-local-lanes.md), and [ADR-0037](../../../../adr/0037-generated-performance-uses-local-dialogue-sessions-and-bounded-proposals.md).
 
-The TT version is the authority until a system is tested enough to translate. VG planning may preserve data fields, user interface implications, and automation affordances, but it should not force premature app architecture.
+## 3. In-world interaction
 
-## 3. GM / Notebook Role
+The main interaction surface is the world. Nearby authored Context Actions handle common verbs; a freeform Intent Bar expresses dialogue and unusual intent. Short commands remain valid when intent is clear. Clarification and confirmation are reserved for materially consequential ambiguity, not used as routine friction.
 
-The notebook version should support ChatGPT acting as:
+Freeform actions compose existing rules rather than bypassing them. Proximity actions may link movement and interaction in a staged validated commit. `Combat` owns the exact action procedure.
 
-- GM;
-- rules assistant;
-- encounter builder;
-- content generator;
-- campaign tracker;
-- source-routing assistant after playtests.
+Clear short commands remain useful input, for example:
 
-The assistant should run from source docs, not from memory. When a rule is missing or improvised, it should be logged as a gap rather than silently becoming permanent canon.
+- hack the door switch;
+- climb the wall;
+- scan the turret;
+- aim at the weak point;
+- suppress the sniper;
+- dash to the console; or
+- anchor the hallway.
 
-## 4. Playable First, Expandable Second, Automatable Third
+## 4. Persistent spatial play
 
-Core systems should be tested in play before being automated.
+One authoritative Location persists through Free Movement, Tactical Pressure, Turn-Based Mode, and Local Aftermath. Switching time resolution does not create a separate Encounter map or reset actors, objects, hazards, objectives, or consequences.
 
-A future digital build may be considered only after the campaign loop, TacMaps, action economy, skill visibility, and campaign tracking are fun and trackable in tabletop form.
+Continuous positions, navigable geometry, Interaction Positions, Cover Positions, occlusion, and line of fire define spatial truth. Images, overlays, diagrams, and node webs may aid display or diagnostics but cannot define legal movement or cover.
 
-A small utility prototype may be considered earlier only if it supports TT play without forcing premature app architecture.
+## 5. Meaningful preparation and consequence
 
-## 5. TT Short Commands
+Route Choice precedes Deployment Preparation. Skills, crew, equipment, relationships, Ship capabilities when present, and prior choices should change the available approaches and consequences. Good planning may avoid a roll, reduce risk, reveal an option, or change the problem without erasing drama.
 
-TT play must support short natural-language commands. The DM should infer likely intent and ask for clarification only when needed.
+The campaign records concrete aftermath. A consequence must change current play, future options, relationships, resources, chronology, or the Legacy World rather than existing only as flavor text.
 
-Player short commands remain valid when target, risk, and resource are clear. DM Mode should resolve them without requiring over-formal phrasing, while still asking a focused clarification if the command could meaningfully change target, cost, or consequence.
+## 6. Crew and character continuity
 
-Examples:
+The Player Character is not automatically the Captain, Ship owner, or permanent embodiment. Character identity, Embodiment, cross-campaign archive history, Campaign Build, current crew membership, and live Actor State remain separate ownership layers.
 
-- hack door switch
-- blast door
-- climb wall
-- sneak left
-- scan turret
-- aim weak point
-- suppress sniper
-- dash to console
-- anchor hallway
+Characters begin each campaign at a complete level 0, advance after Node 0 and each subsequent Route Choice, and may carry validated identity and history across campaigns without carrying the entire prior run-specific build.
 
-## 6. Tactical and Nonviolent Spatial Clarity
+## 7. Legibility and player agency
 
-Structured TacMap data is the source of truth for mapped tactical scenes. Optional images, Canva pages, PDFs, or other visual aids can help players, but they do not override the node/path/objective/status data or the text state.
+The interface must make current state, meaningful choices, known risks, Travel Consequences, objectives, pressure, and committed results legible. Required play structure appears when needed; the player should not have to ask the runtime to reveal the controls or information necessary to act.
 
-TacMaps may represent combat scenes or significant nonviolent scenes such as markets, rescues, checkpoints, wreckage exploration, hearings, station crises, or ship stops where spatial position and interactables matter.
+Dense state belongs in readable trackers, logs, evidence views, route views, and character panels. Hidden Director information remains hidden without making player-visible outcomes arbitrary.
 
-Detailed TacMap movement, cover, hazards, node capacity, path widths, and enemy pacing route to `Combat`.
+## 8. Visual and asset boundary
 
-## 7. Required Play Structure
+Authoritative Location geometry and structured state determine legal play. Rendered environments, live illustrations, portraits, effects, route views, dashboards, diagrams, and other visual assets communicate or perform that truth; they do not override it.
 
-The player should not need to ask for required play structure. If a tactical encounter begins, DM Mode should automatically present the encounter-start packet appropriate to the scene: framing, immediate stakes, TacMap or schematic when needed, node/path/objective data, actors, hazards/pressure, and player-facing options.
+Art direction and production assets route to `Art`. Derived diagrams and reference displays route to `Play Aids`. Player-facing state presentation routes to the application UI and `Dashboards`. Structured geometry, state, visibility, and runtime traceability route to `Core`, `Automation`, and the relevant rules domain.
 
-This is a core design principle. The exact display template belongs to `Modes` and/or `Dashboards`.
+## 9. Resilience and repairability
 
-## 8. Player-Facing Display Principle
+Local state is versioned, auditable, recoverable, and exportable. Invalid model proposals, unavailable providers, interrupted transactions, or exhausted optional model budget must degrade gracefully without corrupting Game Truth or preventing an active scene from reaching coherent completion.
 
-TT play should stay readable on a phone and usable in chat. Dense displays should be condensed, broken into blocks, or routed to dashboards/reference aids when needed.
+## 10. Source discipline
 
-Rook playtest evidence reinforced that campaign decisions need readable character trackers, evidence displays, key event logs, and node-to-node pressure tracking. These are `Dashboards` and `Play Aids` concerns, but the core principle is that the TT experience must make state legible enough for meaningful choices.
+Domain source docs are the current textual definition of Nexus. Accepted ADRs control the specific decisions they make until those decisions are reconciled into their owning domain docs. Once reconciled, use the domain doc for the current rule and the ADR for rationale and provenance. Unaffected source material remains current.
 
-## 9. Data and Automation Boundary
+Playtests and runtime discoveries should route corrections to the owning domain source or an explicit open question. Temporary convenience, generated text, model memory, implementation accident, and fixture state do not silently become game rules.
 
-Future schemas may track campaign state, route-node state, encounters, TacMaps, assets, and campaign saves. Those details belong in `Data` and `Automation`.
+## 11. Preserved prototype lessons
 
-At the core level, keep only the principle: data fields should serve TT play and preserve future automation affordances without making the app the source of truth too early.
-
-## 10. Asset and Visual Boundary
-
-Images and visual aids may be useful for important encounters, boss scenes, new locations, set pieces, route maps, dashboards, or player reference sheets. They are optional and illustrative unless a later source doc makes them mechanical.
-
-Asset metadata, art direction, route-node companions, Canva/PDF aids, and auxiliary displays route to `Art` and `Play Aids`.
-
-## 11. Replit Readiness Gate
-
-Replit should not be used for the main game build until TT/notebook MVP play reveals whether the core loop, TacMaps, action economy, skill visibility, and campaign tracking are fun and trackable.
-
-## 12. Source Discipline
-
-When TT play improvises a rule, NPC status, display convention, or pacing correction, route it to the appropriate domain source doc, dashboard, register, or open-question doc. Do not let temporary play convenience silently become global source truth.
-
-## 13. Mass-Intake Source Notes
-
-- Required structure should appear automatically at encounter start.
-- Structured text/data state remains authoritative even when images are present.
-- Visual aids are valuable, but they must support readable tabletop execution rather than replace structured state.
-
-## Source Handling Note
-
-This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
-
-
+The spatial RPG preserves the useful lessons of the tabletop prototype: visible Lattice rolls, human-readable state, short natural-language intent, repairability, meaningful planning, tactical and nonviolent spatial clarity, consequences that carry forward, and systems that can be tested in play before unnecessary complexity is added.

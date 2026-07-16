@@ -18,8 +18,8 @@ owns_topics:
   - 'difficulty_modifiers_and_check_display'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
@@ -188,7 +188,7 @@ Difficulty can be shown as:
 - a clock or trace threshold;
 - a hazard severity;
 - a status severity;
-- a node/path tag;
+- an Area, passage, terrain, or spatial-state tag;
 - a system Firewall;
 - a social suspicion/access state;
 - a Disposition, Exposure, Trace, or alarm pressure state.
@@ -241,6 +241,4 @@ Template pass needed: Modes should receive or cross-reference the Lattice-100 ch
 ## 16. When to ask for clarification
 
 DM Mode should not stop for clarification every time a player gives a short command. If target, method, resource, and stakes are reasonably clear, resolve the action. Ask clarification only when ambiguity would materially change risk, cost, target, or consequence.
-
-
 

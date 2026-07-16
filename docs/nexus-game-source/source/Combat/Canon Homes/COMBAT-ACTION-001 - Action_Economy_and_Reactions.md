@@ -20,16 +20,13 @@ owns_topics:
   - 'movement_anchors'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the active action-economy baseline without relying on package-era framing."
 ---
 
 # Action Economy and Reactions
-
-> [!important] Revised vision reconciliation — 2026-07-11
-> `CORE-SPATIAL-001` controls Location continuity, continuous placement, authored Interaction and Cover Positions, Tactical Pressure, and individual Initiative. Compatible AP, MP, reaction, defense, hazard, objective, action, and recovery rules below survive. Alternating activation, node/path/capacity placement, in-transit nodes, and separate Encounter-map authority are historical.
 
 ## 1. Current baseline
 
@@ -61,7 +58,7 @@ Characters may spend AP, use skills, use gear, accept risk, exploit traits, or t
 | Assist | 1 AP |
 | Scan | 1 AP |
 | Defend / Guard Self | 1 AP |
-| Screen Route / Screen Node | 1 AP |
+| Screen Space | 1 AP |
 | Stance | 1 AP by default |
 | Ready | 1 AP by default, permission-gated |
 | Dash | 1 AP |
@@ -124,7 +121,7 @@ Aim spends action economy to improve attack quality, offset distance, improve li
 
 ### Suppress
 
-Suppress applies pressure to routes, nodes, exposed targets, or objective interaction. It should create tactical control, not only damage.
+Suppress applies pressure to passages, exposed spaces, targets, or objective interaction. It should create tactical control, not only damage.
 
 ### Assist
 
@@ -132,7 +129,7 @@ Assist spends action economy to improve another character's action, protect them
 
 ### Scan
 
-Scan reveals or clarifies targets, hazards, routes, sensors, hidden systems, objective states, enemy roles, or hackable surfaces.
+Scan reveals or clarifies targets, hazards, passages, sensors, hidden systems, objective states, enemy roles, or hackable surfaces.
 
 ### Utility / reset
 
@@ -145,9 +142,9 @@ Utility and reset actions are tag- and context-dependent. They cover reloads, eq
 Working constraint:
 
 - one active personal defense action or stance at a time;
-- cover still applies automatically by node/angle/route/elevation/line of attack;
+- cover still applies automatically from authored Cover Positions, geometry, occlusion, elevation, and line of attack;
 - Guard Self includes active Take Cover behavior;
-- Screen Route / Screen Node is the baseline spatial/team defense: it protects space, not one ally directly;
+- Screen Space is the baseline spatial/team defense: it protects an Area, passage, or approach rather than one ally directly;
 - ally protection exists through Assist, Protect, Interpose, gear, traits, or abilities when explicitly granted;
 - deeper stacked defense math remains unresolved.
 
@@ -160,7 +157,7 @@ Stances are the default source of tactical reactions. A stance costs 1 AP by def
 | Stance | Identity | Reaction family |
 |---|---|---|
 | Overwatch | fire / movement control | punish movement, exposure, watched routes, objective interaction |
-| Anchor | territory / protection / resistance | hold nodes, paths, objectives; protect nearby allies; resist shove, blast, displacement |
+| Anchor | territory / protection / resistance | hold Areas, passages, objectives; protect nearby allies; resist shove, blast, displacement |
 | Skirmish | reactive repositioning | slip away, reposition, retreat from collapse, exploit movement openings |
 
 Stances are not simply reaction versions of active actions. They are prepared combat postures.
@@ -179,15 +176,23 @@ Objective-progressing micro-interaction should normally be limited and should no
 
 Remote micro-interaction requires permission from a tool, drone, hack, sensor link, remote limb, pre-placed device, authorized system route, body/chassis capability, or Signal/Contact effect.
 
-## 12. Open items
+<!-- source-slice: combat.actions.freeform-and-linked-commits -->
+## 12. Freeform and proximity actions
+
+The player may express an action through an authored Context Action or through freeform intent. A freeform action does not create a separate rule system: the interpreter composes existing movement, interaction, check, attack, ability, equipment, resource, and consequence rules into a bounded proposal. During Turn-Based Mode, an improvised consequential action remains subject to the normal AP, MP, offense, reaction, range, target, and legality rules. This reconciles [ADR-0076](../../../../adr/0076-freeform-actions-use-existing-rules-beyond-authored-actions.md).
+
+If an action requires proximity, the runtime stages automatic approach movement and the intended interaction as linked steps under one Player Intent. Movement becomes persistent Location truth as it occurs and is never rolled back. On arrival, the interaction is revalidated and commits atomically only if still valid. Interruption, a stale or blocked target, or Tactical Pressure beginning does not undo completed movement; an uncommitted Free Movement interaction is discarded, and the changed situation requires a fresh player choice. Turn-Based Mode accounts for movement and other costs through normal AP, MP, reaction, and sequencing rules. Only an explicitly defined compound action may make movement and effect genuinely indivisible. This reconciles [ADR-0074](../../../../adr/0074-proximity-actions-use-linked-staged-commits.md).
+
+Clarification is a rare player-agency safeguard, used when materially different legal interpretations would create meaningfully different consequences and the player's intent cannot be safely inferred. The runtime otherwise proceeds with the least surprising valid interpretation. During Free Movement, a routine, reversible interpretation with no meaningful Check, scarce cost, known material risk, or irreversible consequence executes without confirmation. If any of those stakes are present, Nexus previews the acting character, target, approach, costs, applicable Check and Target Score, and known immediate stakes, then requires confirmation. Turn-Based Improvise always previews its interpretation and tactical cost. Hidden information stays hidden. This reconciles [ADR-0075](../../../../adr/0075-clarification-is-a-rare-player-agency-safeguard.md) and [ADR-0077](../../../../adr/0077-freeform-actions-confirm-only-consequential-interpretations.md).
+
+## 13. Open items
 
 Still open:
 
 - exact Dash value;
 - exact Sprint procedure;
 - final Ready action template;
-- final Screen Route / Screen Node numbers;
+- final Screen Space numbers and label;
 - reaction refresh timing;
 - whether objective-progressing micro-interaction needs a per-round limit;
 - action-card anchor tags and whether templates should display them.
-

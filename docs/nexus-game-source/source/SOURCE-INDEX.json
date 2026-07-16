@@ -558,12 +558,12 @@
       "section": "Canon Homes",
       "file": "AUTO-DATA-006 - SRC-AUTO-006-TacMap-Companion-Local-Data-Model.md",
       "exact_repo_path": "docs/nexus-game-source/source/Automation/Canon Homes/AUTO-DATA-006 - SRC-AUTO-006-TacMap-Companion-Local-Data-Model.md",
-      "title": "TacMap_Companion_Local_Data_Model",
+      "title": "Location_Runtime_Local_Data_Model",
       "doc_id": "AUTO-DATA-006",
       "placement_domain": "Automation",
-      "role_status": "canon_home; canon_home; working_draft; provisional-source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for TacMap_Companion_Local_Data_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
-      "key_terms": "AUTO-DATA-006, SRC-AUTO-006, Automation, Canon Homes, canon_home, working_draft, provisional-source, domain_rebuild_full_migration, tacmap_companion_local_data_model, TacMap, Companion, Local, Data, Model"
+      "role_status": "canon_home; canon_home; working_draft; provisional-source; revised_vision_reconciled",
+      "use_when": "Use when ChatGPT or app work needs Automation canon homes source context for Location_Runtime_Local_Data_Model. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
+      "key_terms": "AUTO-DATA-006, SRC-AUTO-006, Automation, Canon Homes, canon_home, working_draft, provisional-source, revised_vision_reconciled, location_runtime_local_data_model, Location, Runtime, Local, Data, Model"
     },
     {
       "domain": "Automation",
@@ -798,12 +798,12 @@
       "section": "Canon Homes",
       "file": "COMBAT-TACMAP-001 - TacMap_Node_Movement_and_Positioning.md",
       "exact_repo_path": "docs/nexus-game-source/source/Combat/Canon Homes/COMBAT-TACMAP-001 - TacMap_Node_Movement_and_Positioning.md",
-      "title": "TacMap_Node_Movement_and_Positioning",
+      "title": "Location_Movement_and_Positioning",
       "doc_id": "COMBAT-TACMAP-001",
       "placement_domain": "Combat",
-      "role_status": "canon_home; canon_home; working_draft; provisional_canon; domain_rebuild_pilot_migration",
-      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for TacMap_Node_Movement_and_Positioning. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
-      "key_terms": "COMBAT-TACMAP-001, SRC-COMBAT-004, Combat, Canon Homes, canon_home, working_draft, provisional_canon, domain_rebuild_pilot_migration, tacmap_rules, node_movement, positioning, TacMap, Node, Movement, and, Positioning"
+      "role_status": "canon_home; canon_home; working_draft; provisional_canon; revised_vision_reconciled",
+      "use_when": "Use when ChatGPT or app work needs Combat canon homes source context for Location_Movement_and_Positioning. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
+      "key_terms": "COMBAT-TACMAP-001, SRC-COMBAT-004, Combat, Canon Homes, canon_home, working_draft, provisional_canon, revised_vision_reconciled, location_movement_and_positioning, turn_based_movement, positioning, Location, Movement, and, Positioning"
     },
     {
       "domain": "Combat",
@@ -1002,12 +1002,12 @@
       "section": "Canon Homes",
       "file": "CORE-DESIGN-001 - SRC-CORE-003-Nexus-Tabletop-First-Design-Principles.md",
       "exact_repo_path": "docs/nexus-game-source/source/Core/Canon Homes/CORE-DESIGN-001 - SRC-CORE-003-Nexus-Tabletop-First-Design-Principles.md",
-      "title": "Nexus_Tabletop_First_Design_Principles",
+      "title": "Nexus_Spatial_RPG_Design_Principles",
       "doc_id": "CORE-DESIGN-001",
       "placement_domain": "Core",
       "role_status": "canon_home; canon_home; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Nexus_Tabletop_First_Design_Principles. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
-      "key_terms": "CORE-DESIGN-001, SRC-CORE-003, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, tabletop_first_design_principles, Nexus, Tabletop, First, Design, Principles"
+      "use_when": "Use when ChatGPT or app work needs Core canon homes source context for Nexus_Spatial_RPG_Design_Principles. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.",
+      "key_terms": "CORE-DESIGN-001, SRC-CORE-003, Core, Canon Homes, canon_home, working_draft, provisional_source, domain_rebuild_full_migration, spatial_rpg_design_principles, Nexus, Spatial, RPG, Design, Principles"
     },
     {
       "domain": "Core",

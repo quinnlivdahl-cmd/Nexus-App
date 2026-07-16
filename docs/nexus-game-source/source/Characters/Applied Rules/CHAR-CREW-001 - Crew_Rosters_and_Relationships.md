@@ -20,8 +20,8 @@ owns_topics:
 borrows_topics:
   - 'character_roles'
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the reusable crew-state model without relying on legacy slot wording."
 ---
@@ -38,7 +38,7 @@ A useful crew record should eventually track:
 
 ```text
 name / callsign
-origin / body / chassis notes
+Character Profile / Embodiment / Bioform / Chassis notes
 discipline / role
 key skills or focuses
 loadout / tools / cyberware highlights
@@ -123,4 +123,16 @@ Preserve as a future model, not a current requirement:
 
 Named crew state and current campaign values belong in `Dashboards`. This doc owns the reusable system concept.
 
+## 9. Crew Archive and former Player Characters
 
+A surviving Player Character automatically becomes a Crew Archive entry after Campaign Resolution. Player Character Permanent Loss prevents conversion. In a later campaign, the converted character may serve only as an ordinary Crewmate and never replaces the newly created Player Character as group leader.
+
+Conversion preserves the Character Profile, Personal Canon, applicable Archive Memories, authored build foundations, Aptitude Traits, and the committed Embodiment—including Installed Cyberware and durable gene modifications. Run-specific level, Ability ranks, Skill Focus investment, ordinary carried equipment/loadout, temporary upgrades, and cyberware-tree investment reset or rebase into the universal complete level-0 Campaign Build.
+
+Resolution produces one evidence-backed, capped **Converted Crewmate Package** for player review. It uses the normal creation allowance; mandatory persistent modifications are costed first. During review, the player may adjust discretionary traits and starting Abilities only among evidence-unlocked options and within the cap; committed Embodiment facts are not editable. A **Legacy Allowance** may cover only unavoidable mandatory overage and grants no discretionary points. A character whose mandatory modifications exceed the normal level-0 allowance remains archived but is ineligible for Starting Crew until the current campaign level can support a legal package, at which point the character may enter the Director's recruitment candidate pool rather than appearing automatically. This reconciles [ADR-0070](../../../../adr/0070-surviving-player-characters-become-archive-crewmates.md) and [ADR-0071](../../../../adr/0071-campaigns-start-at-level-zero-and-advance-before-node-one.md).
+
+## 10. Aging, stasis, and retirement
+
+Crewmates have a World Calendar age and a deterministic **Biological Age** based on elapsed non-stasis time. Long Ship Transits normally use Stasis, advancing chronology without equal biological aging. Validated Transit Events may interrupt stasis without aging the entire journey. Real-world product time never advances the Legacy World. The current simple natural-death baseline is Biological Age 100; the Campaign Director cannot author off-screen Crewmate death. This reconciles [ADR-0066](../../../../adr/0066-crewmates-age-but-stasis-suspends-biological-aging.md).
+
+When age or another explicit continuity rule makes a Crewmate unavailable for field play, the character becomes a **Retired Crewmate**. They remain a living Legacy World person and Crew Archive entry who may appear as a contact, mentor, relationship figure, faction participant, or other NPC. Retirement, archive status, campaign absence, and context omission never imply death. This reconciles [ADR-0067](../../../../adr/0067-aged-out-crewmates-remain-living-world-characters.md).

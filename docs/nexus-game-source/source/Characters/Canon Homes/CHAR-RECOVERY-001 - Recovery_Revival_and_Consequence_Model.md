@@ -22,8 +22,8 @@ borrows_topics:
   - 'combat_core'
   - 'resolution_calls'
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active recovery and revival baseline without relying on legacy slot wording."
 ---
@@ -31,7 +31,7 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 # Recovery, Revival, and Consequence Model
 
 > [!important] Revised vision reconciliation — 2026-07-11
-> Recovery, the Character Build Stack, and compatible progression rules below survive under `CORE-SPATIAL-001`. Each campaign begins with a new Captain; the Crew Archive supplies eligible starting Crewmates; Rook references are Campaign Fixture evidence. Exact Growth Trait timing/cost and archive migration edges remain open.
+> Recovery, the Character Build Stack, and compatible progression rules below survive under `CORE-SPATIAL-001`. Each campaign begins with a newly created Player Character; Captain is optional. The Crew Archive supplies eligible Starting Crewmates. Rook references are Campaign Fixture evidence.
 
 ## 1. Purpose
 
@@ -149,11 +149,11 @@ Use these as current recovery lanes:
 
 Exact skills, tools, and facility requirements route to `Skills` and `Equipment`.
 
-## 11. Ship-time recovery split
+## 11. Downtime recovery split
 
-Default ship-time assumptions, pending later balance:
+Default Downtime assumptions, pending later balance:
 
-- Health usually restores during ship time unless blocked by tag or fiction;
+- Health usually restores during Downtime when available care and the fiction support it, unless blocked by tag or fiction;
 - equipment that provides Mitigation resets to functional baseline by default if basic repair access exists;
 - ordinary tactical statuses usually clear by tag or scene end;
 - persistent statuses and long-term Health/Morale/Loyalty effects require intentional recovery, repair, treatment, social work, downtime, route choices, or resource spend.
@@ -188,3 +188,6 @@ Examples to keep in the candidate pool:
 - personhood black box;
 - Signal-anomaly recovery.
 
+## 14. Permanent Loss and Legacy World handling
+
+Player Character Permanent Loss is a real campaign outcome. It prevents that Player Character from converting into an Archive Crewmate. Surviving Player Characters convert under `CHAR-CREW-001`. An early campaign loss still receives structured resolution and enters the Legacy World with its validated consequences; loss does not erase the campaign from chronology. This reconciles [ADR-0069](../../../../adr/0069-early-campaign-loss-still-enters-the-legacy-world.md) and [ADR-0070](../../../../adr/0070-surviving-player-characters-become-archive-crewmates.md).

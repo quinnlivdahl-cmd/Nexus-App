@@ -21,8 +21,8 @@ borrows_topics:
   - 'combat_core'
   - 'content_enemy_roles'
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the active encounter procedure without relying on package-era framing."
 ---
@@ -34,7 +34,7 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 
 ## 1. Purpose
 
-This document owns combat encounter building and tactical pacing guidance. It covers encounter presentation, approach phase, objectives, scale, map generation, nonviolent tactical scenes, TacMap auto-display, and end states.
+This document owns combat-situation building and tactical pacing guidance inside persistent Locations. It covers presentation, approach, objectives, scale, Location realization, nonviolent Tactical Pressure, required display, and end states.
 
 ## 2. Encounter presentation order
 
@@ -44,15 +44,15 @@ Default order:
 2. short flavorful scene description;
 3. immediate stakes;
 4. assessment / approach phase;
-5. TacMap or tactical sketch when spatial play matters;
+5. current Location view and relevant spatial state;
 6. visible enemies, hazards, objectives, interactables, exits, and pressure;
 7. player declaration or menu of possible approaches.
 
-When a tactical encounter begins and the scene needs spatial play, the DM should automatically include a TacMap support packet. The player should not have to ask for the map.
+When Tactical Pressure begins, the runtime automatically exposes the current Location view, relevant spatial state, objectives, hazards, actors, initiative, and control surface. The player should not have to ask for required display.
 
-## 3. TacMap packet at encounter start
+## 3. Tactical Pressure display at transition
 
-A complete tactical TacMap packet may include:
+A complete player-safe tactical display may include:
 
 - visual or schematic map;
 - node list;
@@ -63,7 +63,7 @@ A complete tactical TacMap packet may include:
 - clocks/timers/pressure;
 - immediate legal approach options.
 
-For fast chat play, a compact map plus node/path table is acceptable. For source or reusable maps, structured node/path/object data should be canonical and the image should be considered a rendered aid.
+Authoritative Location geometry and structured state remain canonical. Compact diagrams, overlays, and structured summaries are derived aids for clarity, accessibility, or debugging.
 
 ## 4. Assessment / approach phase
 
@@ -96,7 +96,7 @@ The mock combat handoff reinforces this: opening a door, jamming reinforcement r
 
 ## 6. Nonviolent and mixed encounters
 
-Nonviolent scenes may still use TacMaps when spatial clarity matters. Mapped nonviolent TacMaps can support infiltration, investigation, social positioning, chases, negotiations, emergency engineering, rescue, exploration, market movement, and shipboard crisis.
+Nonviolent scenes remain spatial when position matters. The persistent Location can support infiltration, investigation, social positioning, chases, negotiations, emergency engineering, rescue, exploration, market movement, and Shipboard crisis.
 
 ## 7. Encounter skeleton + AI flavor
 
@@ -113,32 +113,32 @@ An encounter can be designed as a skeleton plus flavor:
 - escalation or timer;
 - faction / location flavor.
 
-A stable skeleton helps AI produce repairable maps and avoids treating every TacMap as a one-off illustration.
+A stable Location skeleton helps the Director propose repairable content without treating every site as a one-off illustration.
 
-## 8. Generated TacMap trust ladder
+## 8. Generated Location-content trust ladder
 
-Use a trust ladder for AI-generated or semi-generated TacMaps:
+Use a trust ladder for model-proposed or procedurally assembled Location content:
 
 1. fixed template + generated dressing;
-2. fixed node-web + generated backdrop/hazards/cover;
-3. generated node-web from trusted pattern library;
-4. fully generated map with validation checklist.
+2. authored geometry + model-proposed dressing, hazards, objects, and objectives;
+3. modular Location assembled from validated Location Modules;
+4. generated candidate geometry and content that passes the full deterministic Location validation checklist.
 
-Higher trust levels require stronger validation. If validation fails, fall back to a simpler template or fixed node-web.
+Higher trust levels require stronger validation. If validation fails, fall back to a simpler authored template or validated module assembly.
 
-## 9. Node-Web Quality Checklist direction
+## 9. Location Quality Checklist direction
 
-A Node-Web Quality Checklist should eventually validate generated or revised TacMaps. Use statuses such as Required / Optional / N/A.
+A Location Quality Checklist should validate generated or revised Location content. Use statuses such as Required / Optional / N/A.
 
 Direction for Required checks:
 
-- the map has enough nodes/routes for the intended round count;
+- the Location has enough navigable space, alternatives, and objective distance for the intended pressure and round count;
 - the objective is reachable and legible;
 - enemies/hazards create tactical pressure without blocking all viable play;
 - cover/visibility/line-of-fire are readable;
 - movement alternatives exist when a choke point matters;
-- node capacity and body fit are not obviously broken;
-- path status and node status are distinguishable;
+- collision, body fit, Interaction Positions, and Cover Positions are valid;
+- Area, passage, field, object, and actor states are distinguishable;
 - extraction/escape/end-state route is clear if relevant;
 - visual readability passes at intended display scale.
 
@@ -146,7 +146,7 @@ Visual readability is a hard gate. A beautiful map that cannot be read at table 
 
 ## 10. Environment-family templates
 
-Useful future encounter/TacMap template families include:
+Useful future Location and tactical-content template families include:
 
 - Space Station;
 - Asteroid Surface;
@@ -163,13 +163,13 @@ These are template families, not finalized map catalogs.
 
 ## 11. Encounter scale
 
-Maps should support expected round count and movement pressure. If a scene is meant to last multiple rounds, the map needs enough nodes, routes, objectives, hazards, and repositioning incentives to avoid static attack trading.
+Locations should support expected round count and movement pressure. If a situation is meant to last multiple rounds, its geometry needs enough movement alternatives, objectives, hazards, and repositioning incentives to avoid static attack trading.
 
-Earlier 3-4 round guidance remains useful for quick skirmishes, but standard tactical encounters may need slightly more turns and larger maps once enemy durability and objective timers exist.
+Earlier 3-4 round guidance remains useful for quick skirmishes, but standard tactical situations may need more turns and larger navigable spaces once enemy durability and objective timers exist.
 
 ## 12. Pre-node preparation
 
-This domain inherits the earlier pre-node correction: loadout, level-up, and preparation happen before starting the node. Encounter design should therefore assume the player may choose crew, equipment, route posture, and prep after node selection but before encounter start, unless the fiction denies that window.
+Loadout, advancement, and preparation happen after Route Choice and before starting the selected Route Node. Location and tactical-content design should assume the player may choose crew, equipment, route posture, and prep in that window unless the fiction explicitly denies an option.
 
 ## 13. Playtest lessons integrated
 
@@ -194,16 +194,15 @@ Default escape structures:
 
 An encounter normally chooses one escape structure. Two structures signal high pressure. More than two should be treated as a full set piece or reframed.
 
-Aftermath should be summarized before returning to ship/free time. Persistent aftermath belongs in `Dashboards` or later campaign-state surfaces.
+Aftermath should be summarized before location-neutral Downtime or the next Route Choice. Persistent aftermath belongs in `Dashboards` or later campaign-state surfaces.
 
 ## 15. Open items
 
 Still open:
 
-- final Node-Web Quality Checklist wording;
-- final structured TacMap data template;
-- exact boundary between combat map rules, `Automation` schemas, `Play Aids`, and `Art` visual assets;
+- final Location Quality Checklist wording;
+- final structured Location data template;
+- exact boundary between combat spatial rules, `Automation` schemas, `Play Aids`, and `Art` visual assets;
 - generated map validation process;
 - encounter family template list;
 - whether escape structures need a dedicated procedure doc later.
-

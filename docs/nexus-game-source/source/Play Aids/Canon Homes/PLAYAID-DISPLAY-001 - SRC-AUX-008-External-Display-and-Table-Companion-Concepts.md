@@ -18,8 +18,8 @@ owns_topics:
   - 'external_display_and_table_companion_concepts'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-CORE-008 to PLAYAID-DISPLAY-001. Phase 10 reviewed the body for domain-first external-display boundaries and companion-routing language."
 ---
@@ -34,29 +34,29 @@ This doc is exploratory source guidance, not an implementation commitment.
 
 ## 2. Current principle
 
-The player should not have to ask for required display structure. When an encounter begins, the DM should provide the appropriate encounter-start display: TacMap, schematic, node/path list, or equivalent.
+The player should not have to ask for required display structure. When Tactical Pressure begins, the runtime exposes the current Location view, initiative, objectives, hazards, visible actors, and legal control surface automatically.
 
 ## 3. Near-term in-chat workflow
 
 Near-term workflow:
 
-1. Encounter starts.
-2. DM outputs encounter-start packet.
-3. TacMap spec/display appears if tactical space matters.
-4. Node/path/objective list remains available.
-5. State changes are updated in text and, when possible, in the display.
+1. Tactical Pressure begins inside the current Location.
+2. The runtime exposes player-safe tactical state and controls.
+3. Derived overlays appear when they improve spatial clarity.
+4. Structured Location/objective state remains inspectable for accessibility and diagnostics.
+5. Committed state changes update the display.
 6. Route Node End Report or result card appears after resolution.
 
 ## 4. Long-term companion workflow
 
 Possible future companion workflow:
 
-1. AI writes structured TacMap data.
-2. Renderer places reusable SVG/node/path/icon assets.
+1. Authored Location data supplies geometry and structured state.
+2. Renderer places reusable environment, object, actor, and overlay assets.
 3. Display renders player-facing map.
-4. DM/player actions update structured state.
+4. Validated player and deterministic system actions update structured state.
 5. Renderer regenerates or patches map when state changes.
-6. Markdown node/path list remains exportable and readable.
+6. A compact structured-state summary remains exportable and readable.
 
 ## 5. Useful display targets
 
@@ -89,7 +89,7 @@ A later local companion could read structured Markdown or JSON-like state and re
 
 ## 8. Fallback principle
 
-If renderer/app/display fails, the Markdown node/path/objective list remains playable. Visual display may enhance the encounter, but it should not be the only representation of tactical truth.
+If an optional overlay, generated asset, or external display fails, structured local Location and Game Truth state remains available for recovery and deterministic play. A renderer failure must not replace or corrupt authoritative spatial state.
 
 ## 9. Non-commitments
 
@@ -100,6 +100,5 @@ This doc does not commit Nexus to:
 - Canva, Figma, Obsidian Canvas, or SVG as the only display path;
 - automatic generation without validation;
 - final map data schema.
-
 
 

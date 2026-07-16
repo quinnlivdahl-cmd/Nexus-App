@@ -18,35 +18,30 @@ owns_topics:
   - 'tacmap_display_aids'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-CORE-005 to PLAYAID-TACMAP-001. Phase 10 reviewed the body for domain-first TacMap display boundaries, layer-model readability, and support-surface language."
 ---
 
-# TacMap Display Aids
-
-> [!important] Revised vision reconciliation — 2026-07-11
-> The collage, backdrop, paper-doll, node-web, and external-table workflows below are historical prototype and display evidence. They may inform a derived Developer Mode diagnostic, but authoritative Location geometry, world positions, navigation, occlusion, Interaction Positions, and Cover Positions come from deterministic spatial state under `CORE-SPATIAL-001`.
+# Location and Tactical Display Aids
 
 ## 1. Purpose
 
-TacMap display aids help players understand tactical space, movement choices, cover, hazards, objectives, exits, hackable objects, enemy positions, and verticality.
+Location and tactical display aids help players understand movement choices, cover, hazards, objectives, exits, hackable objects, actor positions, and verticality.
 
-`Combat` owns combat and TacMap rules. `Automation` owns possible structured TacMap state packets and renderer/data implications. `Play Aids` owns display-aid guidance. `Art` owns the visual asset language.
+`Core` owns Location authority. `Combat` owns tactical rules. `Automation` owns structured Location packets and renderer/data implications. `Play Aids` owns display-aid guidance. `Art` owns visual asset language.
 
-## 2. What a TacMap display aid should show
+## 2. What a Location display aid should show
 
-A good TacMap display aid may show:
+A good display aid may show:
 
-- nodes;
-- paths and movement cost cues;
+- authored geometry, Areas, passages, and movement-cost cues;
 - vertical level or elevation tags;
-- cover, half cover, full cover, visibility blockers, and line-of-fire modifiers;
-- exposed paths or exposed nodes;
+- Cover Positions, protection level, visibility blockers, and line-of-fire cues;
+- exposed spaces and suppressed approaches;
 - hazards and environmental objects;
-- path status such as electrical, smoke, breach, suppression, locked route, or blocked route;
-- node status such as overwatch, monitored, depressurized, burning, unstable, or hacked;
+- Area, field, passage, surface, and object state such as electrical, smoke, breach, suppression, locked, monitored, depressurized, burning, unstable, or hacked;
 - hackable terminals or interactable objects;
 - side objectives;
 - enemy and ally positions;
@@ -55,33 +50,32 @@ A good TacMap display aid may show:
 
 ## 3. Required distinction
 
-A TacMap aid is not the rules engine. It should make the current tactical situation legible while pointing back to source rules for movement, cover, reactions, hazards, action economy, encounter pacing, and current state.
+A display aid is not the rules engine. It makes the current situation legible while pointing back to source rules for movement, cover, reactions, hazards, action economy, Tactical Pressure, and current state.
 
-The **structured node/path/objective data** remains the playable map truth. A generated image, collage, or visual backdrop is a display layer.
+Authoritative **Location geometry and structured state** remain the playable truth. A generated image, collage, diagram, or visual backdrop is a display/performance layer.
 
-## 4. TacMap render/display spec direction
+## 4. Location render/display direction
 
-TacMap display should prioritize tactical readability over illustration quality.
+The Location display should prioritize tactical readability while supporting the intended visual world.
 
 Working principles:
 
-- node-web diagram first, atmosphere second;
-- numbered nodes must remain readable;
-- path connections must remain clear;
-- icons must not bury node/path truth;
+- walkable geometry and actor placement must remain readable;
+- doors, passages, Interaction Positions, and Cover Positions must remain legible when relevant;
+- icons and effects must not bury authoritative state;
 - elevation and hazard cues should be visible at small scale;
-- external truth table or node/path list remains available for accuracy;
+- Developer Mode may expose structured geometry/state diagnostics for accuracy;
 - visual layers should be repairable during play.
 
 ## 5. Collage / paper-doll workflow
 
-The preferred near-term workflow is a layered collage model:
+The display uses a layered model:
 
-1. **Backdrop layer** - station, mine, ship, asteroid, hab, exterior, or other environment image.
-2. **Node-web layer** - circles, paths, labels, and movement or connection structure.
-3. **Icon/marker layer** - cover, hazards, terminals, objectives, path status, node status, visibility or line modifiers.
-4. **Token/state layer** - allies, enemies, unknown contacts, objects, downed markers, current positions.
-5. **External truth table** - node, path, and objective data that remains queryable and editable.
+1. **Environment layer** - rendered authored Location geometry and visual dressing.
+2. **Interaction layer** - doors, terminals, objectives, Interaction Positions, and other usable objects.
+3. **Tactical overlay** - Cover Positions, hazards, visibility or line cues, movement previews, and player-safe state.
+4. **Actor/state layer** - allies, enemies, unknown contacts, objects, statuses, and continuous positions.
+5. **Diagnostic layer** - optional Developer Mode geometry, navigation, and structured-state inspection.
 
 This supports the "paper doll" concept: reusable components are placed and rearranged rather than regenerated from scratch every time.
 
@@ -143,27 +137,28 @@ A future renderer or Obsidian workflow should support player-safe and DM-only la
 
 | Format | Best use |
 |---|---|
-| Markdown node/path list | fast chat or phone-readable play. |
-| Simple text diagram | quick tactical orientation. |
-| SVG collage / sprite placement | reusable node-web and icon workflow. |
+| Structured state summary | accessibility, debugging, and compact reference. |
+| Simple text diagram | quick derived orientation or fallback. |
+| SVG/canvas overlay | reusable markers and Developer Mode diagnostics. |
 | Generated image | visual play aid, poster, or recap. |
 | Obsidian Canvas | manually editable tactical sketch. |
 | Local companion display | future play support using structured state. |
 | PDF/printable | table-facing or archive-friendly session artifact. |
 
-## 11. Minimal TacMap display specification
+## 11. Minimal Location display specification
 
 ```text
-TacMap Snapshot: [Encounter / Date]
+Location Snapshot: [Location / Date]
 Visibility: Player-facing or DM-only
 Source rules: SRC-COMBAT-004, SRC-COMBAT-005, SRC-COMBAT-006
 
-Nodes:
-- A: Entry | cover: half from B | elevation: 0 | objects: door control
-- B: Catwalk | cover: none | elevation: +1 | tag: exposed
+Areas and geometry:
+- Entry Deck | elevation: 0 | objects: door control
+- Catwalk | elevation: +1 | state: exposed
 
-Paths:
-- A-B | cost: normal | tag: exposed
+Authored positions:
+- Interaction Position: Door D1 control
+- Cover Position: Catwalk barrier | Half Cover | facing entry approach
 
 Units:
 - Rill at A
@@ -176,12 +171,11 @@ State changes:
 
 ## 12. Prototype evidence note
 
-The uploaded 64-node asteroid mine TacMap prototype is useful evidence for the desired visual/display direction: node-web overlay, airlock choke points, bypass opportunities, exterior/interior zones, low-G environment, and atmospheric backdrop.
+The uploaded 64-node asteroid mine TacMap prototype is useful evidence for visual/display direction: airlock choke points, bypass opportunities, exterior/interior zones, Low-G environment, and atmospheric backdrop.
 
-It is **not** clean canonical playable map data yet. It should not be promoted as a finalized 64-node encounter until node IDs, paths, objectives, layers, and truth tables are structured and verified.
+It is **not** canonical playable Location data. Reuse requires extracting its useful topology and content into authored continuous geometry, objects, objectives, Interaction Positions, Cover Positions, and validated state.
 
 ## 13. Display discipline
 
 During play, use the smallest display that clarifies the decision. Do not force a polished map when a path list is enough. Do not bury tactical choices in a decorative image that cannot be edited or queried.
-
 

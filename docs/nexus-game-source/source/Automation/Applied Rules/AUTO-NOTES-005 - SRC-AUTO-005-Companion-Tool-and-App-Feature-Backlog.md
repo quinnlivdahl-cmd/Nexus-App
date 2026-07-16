@@ -18,8 +18,8 @@ owns_topics:
   - 'companion_tool_app_feature_backlog'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 reviewed the body for domain-first companion backlog framing and runtime-packet terminology."
 ---
@@ -51,14 +51,14 @@ Current candidate companion features:
 - TacMap renderer;
 - reusable SVG asset placement;
 - sprite-sheet/icon reference support;
-- node/path table display;
+- Location geometry/state diagnostic display;
 - player-safe and DM-only layer toggles;
 - actor/token movement updates;
 - path/node status updates;
 - objective/hazard changes;
 - map-state repair or regeneration;
 - exportable encounter-start packet;
-- fallback Markdown node/path list.
+- fallback structured Location-state summary.
 
 ## 4. Route and report concepts
 
@@ -99,5 +99,3 @@ Do not build the main companion app until tabletop play clarifies:
 - AI/DM boundaries.
 
 Small utility prototypes remain acceptable if they support tabletop play and do not force premature architecture.
-
-

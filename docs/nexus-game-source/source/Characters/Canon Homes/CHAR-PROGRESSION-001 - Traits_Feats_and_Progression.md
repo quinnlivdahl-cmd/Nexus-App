@@ -22,8 +22,8 @@ borrows_topics:
   - 'equipment_cyberware_model'
   - 'skill_links'
 created: "2026-05-13"
-last_updated: "2026-06-14"
-last_reviewed: "2026-06-14"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the current progression boundary without relying on legacy slot wording. 2026-06-14 source reconciliation added route-node level-up timing and ability-lane boundaries from the character/progression draft sequence."
 ---
@@ -31,7 +31,7 @@ metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 co
 # Traits, Feats, and Progression
 
 > [!important] Revised vision reconciliation — 2026-07-11
-> Recovery, the Character Build Stack, and compatible progression rules below survive under `CORE-SPATIAL-001`. Each campaign begins with a new Captain; the Crew Archive supplies eligible starting Crewmates; Rook references are Campaign Fixture evidence. Exact Growth Trait timing/cost and archive migration edges remain open.
+> Recovery, the Character Build Stack, and compatible progression rules below survive under `CORE-SPATIAL-001`. Each campaign begins with a newly created Player Character; Captain is an optional role. The Crew Archive supplies eligible starting Crewmates, including converted former Player Characters. Rook references are Campaign Fixture evidence.
 
 ## 1. Current status
 
@@ -54,15 +54,16 @@ Rook campaign corrections suggest level-up/loadout-style choices should occur wh
 Current timing:
 
 ```text
-node selected
--> crew assesses needs
--> advancement/loadout/prep choices if available
--> node begins
+Node 0 plays at Level 0
+-> next Route Node is selected
+-> all current campaign characters advance to that node's level
+-> Deployment Preparation and loadout choices
+-> selected Route Node begins
 ```
 
 This supports the desired feel that preparation matters and that characters grow into the next challenge.
 
-Level 0 is the pre-node-0 character creation state. Each new route node starts with a level-up or advancement/prep review when advancement is available. Some levels may become milestone levels with extra bonuses beyond ordinary Ability Points, Skill Focus improvements, or loadout choices. Exact milestone cadence remains open.
+Level 0 is a complete playable build with authored foundations, traits, starting abilities or populated trees, and a usable loadout. Newly created Player Characters and selected Starting Crewmates play Node 0 at level 0. After Node 0 and confirmation of Route Node 1, the current campaign roster advances to level 1 before Deployment Preparation. The cadence repeats so Route Node N is played at Level N through Node 10. Milestone benefits supplement rather than replace ordinary advancement. This reconciles [ADR-0071](../../../../adr/0071-campaigns-start-at-level-zero-and-advance-before-node-one.md).
 
 ## 4. Cyberware progression
 

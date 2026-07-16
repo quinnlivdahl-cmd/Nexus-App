@@ -5,199 +5,98 @@ legacy_ids:
   - 'SRC-AUTO-006'
 legacy_paths:
   - 'C:\Users\Quintin Livdahl\Nexus\Nexus\99 Archive\01 Superseded Source\00 Source Slots 2026-06-10\14 TT VG Automation rev0.2\SRC-AUTO-006 - TacMap_Companion_Local_Data_Model.md'
-title: "TacMap_Companion_Local_Data_Model"
+title: "Location_Runtime_Local_Data_Model"
 doc_status: "working_draft"
-working_state: "domain_rebuild_full_migration"
+working_state: "revised_vision_reconciled"
 mode_owner: "Shared"
 source_role: "canon_home"
 canon_status: "provisional-source"
 placement_domain: "Automation"
 content_role: "canon_home"
-topic_family: "tacmap_companion_local_data_model"
+topic_family: "location_runtime_local_data_model"
 owns_topics:
-  - 'tacmap_companion_local_data_model'
+  - 'location_runtime_local_data_model'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Full migration into the domain-first rebuild repo. Phase 10 reviewed the body for domain-first TacMap companion boundaries, packet terminology, and layer-model readability."
+metadata_notes: "Reconciled the former TacMap companion packet into the current local persistent-Location runtime model."
 ---
 
-# TacMap Companion Local Data Model
+# Location Runtime Local Data Model
 
 ## 1. Purpose
 
-This document defines future-friendly local data-model concepts for a TacMap companion or renderer. It does not require building the companion now.
+This document defines local data-model concepts for persistent Location play, derived tactical display, traceability, and recoverable state. It does not make a renderer, image, model provider, or Campaign Director authoritative over geometry or Game Truth.
 
-The lowest-risk v0.1 concept remains local copy/paste or file import. No API is required for v0.1.
+## 2. Authority boundary
 
-## 2. Source authority
+Domain source defines what Location and rules concepts mean. Authored Location data defines geometry and valid authored positions. Game Truth owns committed runtime state. Director State remains separate and hidden. The Model Runtime and renderers consume bounded packets and return proposals or displays; they do not directly mutate either state lane.
 
-The mechanical TacMap rules remain in `Combat`. Display and play-aid requirements remain in `Play Aids`. Visual asset direction remains in `Art`.
+## 3. Candidate Location packet
 
-A companion data packet mirrors a specific map instance for display, import, validation, or continuity. It does not own movement, cover, hazards, action economy, or encounter rules.
+A local Location packet may include:
 
-## 3. Candidate packet sections
+```text
+location_identity
+area_index
+navigable_geometry
+collision_and_blockers
+doors_passages_and_objects
+interaction_positions
+cover_positions
+hazards_and_fields
+objectives_and_interactables
+actors_and_continuous_positions
+visibility_and_discovery_state
+player_safe_view
+derived_display_refs
+state_version_and_transaction_ref
+```
 
-A TacMap companion packet should eventually be able to represent:
+Exact schemas remain implementation work.
 
-- `tacmap_id`;
-- scene/map title;
-- scene type or map subtype;
-- encounter-start metadata;
-- round and turn state when relevant;
-- nodes;
-- paths;
-- actors/tokens;
-- hazards;
-- objectives;
-- interactables;
-- clocks/counters;
-- visible notes;
-- hidden/DM notes;
-- start positions;
-- extraction nodes;
-- cover/visibility/line markers;
-- elevation, distance, and path tags;
-- layer and asset references;
-- delta/update operations when only changes are needed.
+## 4. Geometry and authored positions
 
-## 4. Layer model
+Geometry data should represent walkable surfaces, solid boundaries, occluders, elevation, doors, passages, and other navigation constraints. Interaction Positions and Cover Positions are authored semantic anchors attached to that geometry, not replacements for it.
 
-A renderable TacMap may use layers such as:
+Derived navigation meshes, path previews, visibility results, and tactical overlays may be cached for performance. They must be reproducible from authoritative geometry and state or invalidated when those inputs change.
 
-1. **Backdrop layer** - environment image, station deck, asteroid mine, ship bay, exterior, habitat, corridor, or abstract schematic.
-2. **Node-web layer** - nodes, labels, paths, movement connections, elevation cues.
-3. **Marker/status layer** - cover, line-of-fire, visibility, hazards, path states, node states, terminals, exits, locks, objectives.
-4. **Token/state layer** - player characters, enemies, drones, unknown contacts, downed markers, objective tokens.
-5. **Hidden/DM layer** - unrevealed actors, traps, hidden routes, clocks, secret notes, false or uncertain sensor information.
+## 5. Actor and object state
 
-A renderer may display all layers to the DM while showing only player-safe layers to players.
+Actor data may include stable identity reference, current Embodiment reference, continuous position, facing when relevant, collision footprint, movement state, AP, MP, reactions, durability, statuses, visibility, and current action transaction.
 
-## 5. Node data
+Object data may include identity, geometry reference, state, durability when relevant, interaction permissions, visibility, ownership, hazard or objective relationship, and committed deltas.
 
-Nodes may include:
+## 6. Visibility layers
 
-- stable node ID;
-- display name;
-- position/coordinate if rendered;
-- tags;
-- elevation;
-- capacity if used;
-- current node state;
-- hazard status;
-- interactables;
-- objective/extraction markers;
-- visibility/revealed status;
-- player-safe note;
-- DM-only note.
+Packets and displays distinguish:
 
-## 6. Path data
+- player-visible truth;
+- discovered but currently out-of-view truth;
+- hidden Game Truth;
+- Director-only planning state; and
+- uncertain, false, or sensor-mediated information presented intentionally.
 
-Paths may include:
+A player-safe packet never exposes hidden truth merely because the local store contains it.
 
-- stable path ID;
-- from-node and to-node IDs;
-- movement cost;
-- width or capacity constraint;
-- path tags;
-- hazard tags;
-- climb/jump/crawl/door/elevator/maintenance tags;
-- lock status;
-- visibility/revealed status;
-- current path state.
+## 7. Derived display and assets
 
-## 7. Marker data
+Rendered environments, overlays, icons, portraits, illustrations, and effects reference current state. They may improve clarity or performance but cannot define legal geometry, cover, movement, or outcomes.
 
-Markers may include:
+Asset references should identify purpose, version, source, layer, cache status, and fallback. A missing or stale asset must not prevent text/state fallback or deterministic play.
 
-- marker ID;
-- marker type;
-- affected node, path, or node-path relationship;
-- marker orientation;
-- marker source/reason;
-- player-visible or DM-only flag;
-- asset reference;
-- active/inactive state;
-- notes for rules lookup.
+## 8. Delta updates and transactions
 
-Important marker families include:
+State changes use validated typed deltas with state version and transaction references. A delta may change actor position, AP or MP, object state, hazard state, objective progress, visibility, or another committed field.
 
-- node-edge cover markers;
-- visibility blocker markers;
-- line-of-fire modifiers;
-- path-status markers;
-- hazards;
-- terminals/interactables;
-- objectives;
-- exits and entry points.
+Proximity actions use linked staged commits: completed movement persists, then the interaction is revalidated and commits atomically if still legal. Invalid or interrupted interactions do not roll back completed movement.
 
-## 8. Actor data
+## 9. Traceability and recovery
 
-Actors may include:
+Runtime records should make it possible to answer which source slices, state version, visibility policy, rules result, model proposal, validation result, and transaction produced a displayed or committed outcome. Local snapshots, logs, and deterministic revalidation support recovery after interruption or failure.
 
-- actor ID;
-- display label;
-- side/faction;
-- current node or path position;
-- token asset reference;
-- statuses;
-- HP or condition if needed;
-- AP/MP/reaction state if needed;
-- visible/hidden status;
-- objective relevance;
-- DM-only notes.
+## 10. Fallback principle
 
-## 9. Asset reference model
-
-A renderable map should be able to reference reusable assets without embedding all visual detail into the source data.
-
-Candidate fields:
-
-- SVG icon ID;
-- sprite sheet reference;
-- sprite symbol ID;
-- placement coordinate;
-- node/path anchoring;
-- rotation;
-- scale;
-- layer;
-- visibility;
-- tint/state variant if later supported.
-
-## 10. Delta updates
-
-TacMap packets may eventually support delta updates rather than full replacements.
-
-Delta categories may include:
-
-- actor moved;
-- actor status changed;
-- node state changed;
-- path state changed;
-- hazard appeared or cleared;
-- objective revealed or completed;
-- marker added, rotated, hidden, or removed;
-- clock advanced;
-- reinforcement added;
-- extraction route changed;
-- hidden layer revealed.
-
-Fast state-change support is a core requirement for useful TacMap automation.
-
-## 11. Fallback principle
-
-If the renderer fails, the structured table/list must still support play.
-
-A minimum fallback should preserve:
-
-- node IDs;
-- path list;
-- actor positions;
-- objectives;
-- hazards;
-- current visible statuses;
-- player-safe route options.
-
-
+If generated performance, a model provider, renderer, or optional asset is unavailable, Nexus continues from structured local Location and Game Truth state. Fallback may reduce presentation quality; it must not corrupt state or make an active scene impossible to complete.

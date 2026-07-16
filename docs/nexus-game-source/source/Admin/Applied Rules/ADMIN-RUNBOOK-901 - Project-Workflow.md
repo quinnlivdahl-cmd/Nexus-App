@@ -18,8 +18,8 @@ owns_topics:
   - 'project_workflow'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-05-13"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 reviewed this legacy workflow reference. It is preserved as historical governance evidence, not as the primary operating model for the domain-first rebuild."
 ---
@@ -334,7 +334,7 @@ Default routing during Phase 1:
 - package placement, index, and consistency issues go to Steward.
 - art/icon needs go to Art Mode and may cross-link `P1-ART...` tasks.
 
-The plan was corrected during intake to match current source truth: TacMaps are node-web maps, combat currently uses Speed + 2 AP + limited reactions, skills are broad domains with tags/specialties, and ship/travel language should remain solar-system/route based rather than assuming interstellar travel.
+The historical plan was corrected during intake around the then-current node-map prototype. Current source instead uses persistent Locations with authored continuous geometry, while preserving Speed-derived MP, 2 AP, limited reactions, broad skills, and solar-system route travel.
 
 
 
@@ -472,4 +472,3 @@ Steward may create or update JSON companions for package manifests, handoff reco
 ### rev0.1 - 2026-05-13
 
 - Wrapped as an ADM optional/review candidate with current frontmatter and no deletion authority.
-

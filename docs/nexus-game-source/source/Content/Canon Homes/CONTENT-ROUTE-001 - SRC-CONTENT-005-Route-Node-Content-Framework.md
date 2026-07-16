@@ -18,30 +18,25 @@ owns_topics:
   - 'route_node_content_framework'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-CORE-005 to CONTENT-ROUTE-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active route-node framework without relying on slot-era wording."
 ---
 
 # Route Node Content Framework
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
-
 <!-- source-slice: content.route-node.purpose -->
 ## Purpose
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
-Route nodes are the campaign-scale content unit that link FTL-style travel, ship phase, encounters, objectives, and consequences.
+Route Nodes are the campaign-scale content unit that link travel, Downtime, explorable Locations, objectives, and consequences.
 
 A route node is not always a fight. It may be a tactical mission, investigation, social pressure point, hazard crossing, salvage opportunity, recovery stop, faction checkpoint, dead drop, or choice fork.
 
 <!-- source-slice: content.route-node.content-fields -->
 ## Node content fields
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
-A route node seed should include:
+A Route Node seed should include:
 
 ```text
 Node name:
@@ -57,7 +52,7 @@ Hazards:
 Skill-revealed options:
 Loadout considerations:
 Entry state:
-TacMap needs:
+Location realization needs:
 Counters / clocks:
 Exit states:
 Persistent aftermath:
@@ -66,9 +61,8 @@ Reward / lead / salvage outcomes:
 
 <!-- source-slice: content.route-node.pre-node-procedure -->
 ## Pre-node procedure
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
-The current preferred flow includes pre-mission crew and loadout selection before starting a node. "Level ups" or progression choices may happen during this selection window when appropriate.
+Route Choice occurs before Deployment Preparation. Crew and loadout selection then occur before starting the selected node. Advancement choices occur during this window when available.
 
 Pre-node questions should be practical:
 
@@ -80,7 +74,6 @@ Pre-node questions should be practical:
 
 <!-- source-slice: content.route-node.objectives-and-opportunities -->
 ## Objectives and opportunities
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Separate objectives from opportunities.
 
@@ -92,9 +85,8 @@ The Rook handoff produced a useful discipline: when a lead opens, do not create 
 
 <!-- source-slice: content.route-node.node-end-report -->
 ## Node end report
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
-At route-node end, DM Mode should produce a Route Node End Report before free ship time.
+At Route Node end, the runtime produces a Route Node End Report before Downtime or the next Route Choice.
 
 Content-side structure:
 
@@ -107,19 +99,29 @@ Next State:
 
 Persistent updates may include heat, damage, complications, opportunities, objectives, active counters, and crew state.
 
+## Route Prospect selection and lapse
+
+The Director presents a bounded set of meaningful **Route Prospects**. A set may mix main-thread opportunities with consequential side paths; no display label is required to declare which is which. Campaign pressure should create non-obvious tradeoffs without hiding the concrete stakes the crew could reasonably perceive. This reconciles [ADR-0048](../../../../adr/0048-route-choices-mix-main-thread-and-consequential-side-paths.md) and [ADR-0049](../../../../adr/0049-campaign-pressure-creates-non-obvious-consequential-route-choices.md).
+
+Unchosen Route Prospects normally lapse when a choice commits. A later prospect may revisit related people, places, or pressures, but it is a newly prepared opportunity shaped by elapsed time and prior consequences, not an unchanged menu item held open indefinitely. This reconciles [ADR-0050](../../../../adr/0050-unchosen-route-prospects-normally-lapse.md).
+
+## Transit and Travel Consequences
+
+Literal **Transit** normally connects distinct Route Node Locations. Local movement within one Location is not Transit merely because it crosses distance. Exceptions must be explicit. This reconciles [ADR-0044](../../../../adr/0044-transit-normally-connects-distinct-route-node-locations.md).
+
+Before Route Choice commits, each prospect exposes deterministic **Travel Consequences** that the crew can evaluate, such as time, resource use, known hazards, access requirements, or pressure changes. Generated description may explain those consequences but cannot invent or alter them. This reconciles [ADR-0045](../../../../adr/0045-route-prospects-show-deterministic-travel-consequences.md).
+
 ## Save routing
 
 "Save" means producing an updated dashboard file or export, not merely updating internal state. `Content` owns the categories to save; `Modes` and `Dashboards` own display and export procedure.
 
 <!-- source-slice: content.route-node.campaign-specific-node-caution -->
 ## Campaign-specific node caution
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Playtest nodes such as Ternary Lock and Maintenance Relay Cache E-43 are useful examples of node structure, but they are campaign state until promoted. Do not treat them as default canonical route-node content.
 
 <!-- source-slice: content.route-node.route-consequences -->
 ## Node content and route consequences
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Route nodes may cost or create:
 
@@ -137,7 +139,6 @@ Route nodes may cost or create:
 
 <!-- source-slice: content.route-node.route-node-end-report-fields -->
 ## Mass-intake alignment: Route Node End Report fields
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible objectives, hazards, roles, routes, and modular patterns survive; Encounter containers and TacMap-ready spatial claims are historical.
 
 Route-node content should identify what may be summarized in the Route Node End Report:
 
@@ -151,7 +152,7 @@ Route-node content should identify what may be summarized in the Route Node End 
 - unlocked route options;
 - blocked/changed route options;
 - follow-up tasks;
-- state changes that must be saved before ship time or the next route choice.
+- state changes that must be saved before Downtime or the next Route Choice.
 
 ### Pickup correction
 

@@ -23,8 +23,8 @@ borrows_topics:
   - "character_recovery"
   - "character_build_structure"
 created: "2026-07-11"
-last_updated: "2026-07-11"
-last_reviewed: "2026-07-11"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Golden Truth Spatial Reconciliation #59. Reconciles the July 2026 accepted spatial-game decisions without inventing unresolved mechanics."
 ---
@@ -89,9 +89,11 @@ The Campaign Director is a hidden adaptive system inside the Campaign Director H
 The Context Broker selects compact, traceable context for model calls. The Model Runtime may propose dialogue, description, interpretation, or future content. Deterministic rules and state services validate proposals and own commits. The Campaign Director cannot bypass mechanics, retcon committed truth, improvise authoritative Location geometry, force a predetermined result, or treat model memory as state.
 
 <!-- source-slice: core.spatial.ship-time -->
-## 7. Ship Time
+## 7. Downtime and the Ship
 
-The Ship is a persistent explorable home Location. Ship Time supports recovery, loadouts, Field Team selection, relationships, recruitment, onboard events, preparation, and Route Choice through in-world spaces and interactions rather than a menu-only phase.
+**Downtime** is the location-neutral interval between Route Nodes. It supports recovery, loadouts, Field Team selection, relationships, recruitment, preparation, and Route Choice through in-world spaces and interactions rather than a mandatory menu or return-to-ship phase. Downtime may occur aboard the Ship or at another suitable Location. This reconciles [ADR-0043](../../../../adr/0043-downtime-is-location-neutral-between-route-nodes.md).
+
+When the campaign has a Ship, it is a persistent explorable home Location rather than a required identity or universal starting assumption. Player Character identity, the optional Captain role, Ship ownership, and command authority are separate concepts. This reconciles [ADR-0042](../../../../adr/0042-player-character-and-ship-ownership-are-separate.md).
 
 Five staffed Ship Systems provide preparation benefits and limited field support. Scarce Ship Modules change qualitative capability. Ship Conditions represent persistent narrative constraints and are resolved through appropriate characters, checks, resources, equipment, contacts, or opportunities.
 

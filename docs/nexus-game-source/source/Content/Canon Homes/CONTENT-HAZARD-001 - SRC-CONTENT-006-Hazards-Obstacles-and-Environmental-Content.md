@@ -18,16 +18,13 @@ owns_topics:
   - 'hazards_obstacles_and_environmental_content'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from CONTENT-CORE-006 to CONTENT-HAZARD-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active hazard framework without relying on slot-era wording."
 ---
 
 # Hazards, Obstacles, and Environmental Content
-
-> [!important] Revised vision reconciliation — 2026-07-11
-> Preserve compatible route consequences, objectives, hazards, roles, bypasses, rewards, and modular patterns. A Route Node is one explorable Location; reusable “encounters” are Tactical Pressure patterns within it, not top-level containers. “TacMap-ready” and node-web language is historical where it claims spatial authority.
 
 ## Purpose
 
@@ -95,11 +92,11 @@ Accepted object/cover guidance:
 - Objects, cover, and objectives use a tactical hybrid model.
 - Combat-relevant objects use compact stats when damage/targeting matters.
 - Tags define special interaction.
-- Cover applies only after a TacMap line, node/path relationship, or other attack permission exists.
+- Cover applies only when a valid Cover Position, authoritative geometry, occlusion, and line of fire support it.
 - Cover modifies Defense only; it does not provide damage reduction and does not add Mitigation.
 - Half Cover grants +20 Defense.
 - Full Cover grants +40 Defense.
-- Relative cover is resolved by node/path relationship, attack line, or clear cover-facing note. Do not use continuous angle calculation.
+- Relative cover is resolved through authored directional Cover Positions and authoritative geometry. Exact arcs and angle tolerances remain unresolved.
 - Valid cover is non-destructible by default.
 - If it breaks easily, it should not usually count as reliable cover.
 - Destroying or degrading cover requires special permission: Breach, Shred, Explosive, heavy weapon, environmental hazard, scripted effect, object weakness, special ability, or intentional cover-destruction action.
@@ -113,9 +110,9 @@ Hazards that call for a direct roll should list a **Hazard Rating** instead of a
 TS = 50 + Actor Bonus - (Hazard Rating - 15)
 ```
 
-Hazard Rating is the content-facing defensive surface for environmental danger, procedural pressure, hostile systems, unstable terrain, toxins, radiation, vacuum, fire, alarm structures, and similar hazards. `Content` defines the hazard, its affected node, path, object, or system, relief options, escalation, and aftermath. `Combat`, `Skills`, `Equipment`, and `Automation` decide detailed combat, resolution, equipment, or automation behavior when needed.
+Hazard Rating is the content-facing defensive surface for environmental danger, procedural pressure, hostile systems, unstable terrain, toxins, radiation, vacuum, fire, alarm structures, and similar hazards. `Content` defines the hazard, its affected Area, field, passage, surface, object, or system, relief options, escalation, and aftermath. `Combat`, `Skills`, `Equipment`, and `Automation` decide detailed combat, resolution, equipment, or automation behavior when needed.
 
-Hazard content should not create a standalone area placement unit. Use nodes, paths, objects, or systems as the attachment surface. Large environmental conditions may cover many nodes or paths, but they should still be represented by affected node/path/object/system entries for play.
+Hazard content attaches to authoritative Location surfaces such as Areas, fields, passages, geometry, objects, or systems. Large environmental conditions may span multiple Areas or surfaces, but their affected geometry and state must remain explicit for play.
 
 ## Hazard counters
 
@@ -161,5 +158,3 @@ Wall breach and destructible-wall content remains a parked content branch. Do no
 ### Marker routing
 
 Hazard content may request icons or map markers, but display grammar belongs to `Play Aids` and visual or icon direction belongs to `Art`.
-
-

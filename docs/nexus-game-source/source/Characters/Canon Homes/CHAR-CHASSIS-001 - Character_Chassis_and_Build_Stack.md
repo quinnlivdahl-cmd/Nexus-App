@@ -21,8 +21,8 @@ owns_topics:
 borrows_topics:
   - 'equipment_cyberware_model'
 created: "2026-05-13"
-last_updated: "2026-06-14"
-last_reviewed: "2026-06-14"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active character-chassis decisions without relying on legacy slot wording. 2026-06-14 source reconciliation added Bioform terminology and Bioform/Chassis relationship notes from the character rules draft sequence."
 ---
@@ -43,11 +43,11 @@ Base Body / Bioform
 + Traits / feats / techniques
 + Cyberware or bioware choices, if any
 + Equipment and loadout
-+ Crew relationships and ship function
-= playable character identity
++ Crew relationships and campaign role
+= current Campaign Build and playable expression
 ```
 
-Body matters, but build decisions and campaign consequences decide what the character becomes.
+These layers express a character in play; they do not by themselves own the continuing person's identity.
 
 ### 1.1 Bioform terminology
 
@@ -78,12 +78,26 @@ Bioform
 
 Plain Human DNA likely has the broadest default cybernetic compatibility. Gene Edited and Gene Spliced may have stronger body advantages, restrictions, medical complexity, or compatibility consequences depending on the exact edit or splice.
 
+### 1.2 Identity, Embodiment, and persistence
+
+A **Character Profile** owns the continuing person's identity and Personal Canon independently of the body or platform they currently inhabit. An **Embodiment** owns the current physical form and state: Bioform where applicable, Chassis tier, Installed Cyberware, durable gene modifications, body compatibility, appearance, and related consequences. Replacing a sleeve, shell, drone body, or Full Chassis body does not create a new person. **Chassis** remains the cybernetic integration tier, not a synonym for body. This reconciles [ADR-0073](../../../../adr/0073-character-identity-is-separate-from-embodiment.md).
+
+Character state has five ownership layers:
+
+1. **Character Profile** — persistent identity and Personal Canon.
+2. **Crew Archive Entry** — cross-campaign history, availability, and eligibility.
+3. **Campaign Build** — run-specific mechanical build and advancement.
+4. **CrewMember** — current-campaign membership, role, and relationships.
+5. **Actor State** — live scene position, resources, statuses, and immediate state.
+
+Each less-persistent layer references the more-persistent identity rather than duplicating it. Campaign reset, archive conversion, recruitment, or scene resolution must not overwrite identity or historical state. This reconciles [ADR-0072](../../../../adr/0072-character-state-has-five-persistence-layers.md).
+
 ## 2. Corrected cyberware creation model
 
 Cyborg identity is usually **derived**, not selected as a default separate starting chassis.
 
 ```text
-Base Body / Origin
+Embodiment / Bioform
 + creation-point cyberware purchases
 = cybernetic integration tier
 + cyberware upgrade trees
@@ -145,13 +159,13 @@ Default rule: a character typically uses one primary durability track: Health or
 | Tier 3 | System Integrity | Machinery supports vital body function; disabling the body-support system can Disabled/Down the character according to recovery rules. |
 | Tier 4 | System Integrity | Machinery replaces most body function; the person-core/brain boundary remains more serious than ordinary chassis damage. |
 
-Tier 3+ System Integrity is calculated from the character's base Health-equivalent value, then adds cyberware, chassis, origin, and rare feature bonuses where applicable. Exact cyberware pieces, costs, and module behavior belong to `Equipment`.
+Tier 3+ System Integrity is calculated from the character's base Health-equivalent value, then adds cyberware, Chassis, Bioform, and rare feature bonuses where applicable. Exact cyberware pieces, costs, and module behavior belong to `Equipment`.
 
 ## 3. Chassis candidates as DM-usable tags
 
-Current provisional chassis/origin candidates include:
+Current provisional embodiment/Bioform candidates include:
 
-| Candidate | Use now in DM Mode | Required tradeoff |
+| Candidate | Use now in the runtime | Required tradeoff |
 |---|---|---|
 | Regular / near-baseline human | Flexible social access, broad equipment compatibility, normal legal legibility. | Fewer extreme body affordances. |
 | Designer human | Minor gene edits, stamina, appearance, access, inherited privilege, or optimized baseline traits. | Tied to class, corporate, legal, or expectation pressures. |
@@ -163,7 +177,7 @@ Current provisional chassis/origin candidates include:
 | Upload embodiment | Digital person in Base Sleeve, Maintenance Drone, or Combat Shell. | Firewall/System Integrity, body replacement, legal/social/personhood risk. |
 | Cybernetically integrated character | Defined by selected cyberware and integration tier. | Hack-surface, repair, maintenance, cost, legality, and body-continuity tradeoffs. |
 
-These entries are not final stat blocks. DM Mode may use them as affordance-and-cost guidance.
+These entries are not final stat blocks. The runtime may use them as affordance-and-cost guidance.
 
 ## 4. DM-usable build reading
 
@@ -177,7 +191,7 @@ When running a provisional character, DM Mode should read the build in this orde
 
 ## 5. Domain boundaries
 
-- `Characters` owns character identity, body-origin logic, crew role, progression framing, and recovery consequences.
+- `Characters` owns Character Profile, Embodiment, Bioform, Chassis, crew role, progression framing, and recovery consequences.
 - `Skills` owns skills, resolution, focuses, ability-tree math, and check procedure.
 - `Equipment` owns cyberware item lists, cyberware costs, equipment tags, loadout, armor, tools, and gear balance.
 - `Lore` owns setting taxonomy, law, culture, factions, prejudice, and personhood arguments.
@@ -263,4 +277,3 @@ Exact strength math is deferred to later Skill/trait/body-balance work.
 ## 8. Durability integration note
 
 This update integrates the approved character-facing portions of the Lattice/durability/chassis intake package. It adds Health and System Integrity baselines, the character durability spine, milestone-level Health increase wording, and the provisional Tier 0-4 Health/System Integrity boundary. It preserves Standard Fit and body-hook flexibility. It does not define cyberware item math, module disable rules, EMP effects, or equipment Shield/Mitigation values; those remain `Equipment` concerns.
-

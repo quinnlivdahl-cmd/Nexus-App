@@ -86,6 +86,13 @@ function validate() {
     for (const sourceSliceId of entry.sourceSliceIds) {
       if (!sliceIds.has(sourceSliceId)) {
         failures.push(`${label} references missing source slice: ${sourceSliceId}`);
+        continue;
+      }
+
+      if (sliceMap.get(sourceSliceId)?.slice_origin !== "explicit_marker") {
+        failures.push(
+          `${label} references generated source slice ${sourceSliceId}; add an explicit source-slice marker before using it in the durable context pack`,
+        );
       }
     }
 

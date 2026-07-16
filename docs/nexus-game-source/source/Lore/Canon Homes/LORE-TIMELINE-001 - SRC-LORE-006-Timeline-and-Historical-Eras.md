@@ -18,8 +18,8 @@ owns_topics:
   - 'timeline_and_historical_eras'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-006 to LORE-TIMELINE-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active timeline frame without relying on slot-era wording."
 ---
@@ -61,6 +61,14 @@ The exact dates remain unresolved, but the causal order should preserve these pr
 
 These sequence seeds should not force exact dates until the dedicated timeline reconciliation pass.
 
+## Legacy World chronology
+
+Within a Legacy World, campaigns and between-campaign developments occupy one literal, forward-moving calendar sequence. A new campaign start date is set after Player Character and crew selection so biological age, availability, relationships, and world developments can be evaluated against the actual selected cast. The exact real-world-era anchor may remain provisional while in-world chronology is still literal and ordered. This reconciles [ADR-0060](../../../../adr/0060-legacy-world-campaigns-advance-one-forward-sequence.md), [ADR-0061](../../../../adr/0061-legacy-worlds-use-literal-calendar-chronology.md), and [ADR-0062](../../../../adr/0062-campaign-start-dates-follow-player-and-crew-selection.md).
+
+Between campaigns, the Director may commit bounded developments derived from elapsed time, prior consequences, established actors, and unresolved pressures. These developments advance the world; they cannot erase or contradict committed Saga Sources. This reconciles [ADR-0063](../../../../adr/0063-legacy-worlds-have-bounded-between-campaign-developments.md).
+
+The **World Timeline** is a public reference surface, not a mandatory recap that interrupts the opening of every campaign. It records player-knowable chronology and consequences. The Director may also use secret canon in its separate hidden state, revealing it only through play. This reconciles [ADR-0064](../../../../adr/0064-world-timeline-is-reference-not-a-forced-recap.md) and [ADR-0065](../../../../adr/0065-world-timeline-is-public-while-the-director-can-use-secret-canon.md).
+
 ## Tone of history
 
 The terror is not only that war is coming. It is that the war may already be a symptom of something listening through humanity.
@@ -72,6 +80,4 @@ The terror is not only that war is coming. It is that the war may already be a s
 - Clarify the Drone Wars / WW3 relationship.
 - Clarify when uploads became provable, legal, and publicly destabilizing.
 - Clarify the treaty order and C-POH transition from violence to legitimacy.
-
-
 

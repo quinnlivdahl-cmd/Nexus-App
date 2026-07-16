@@ -18,26 +18,22 @@ owns_topics:
   - 'core_game_pillars'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
 
 # Nexus Core Game Pillars
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> `CORE-SPATIAL-001` now controls the spatial product model. Material below remains current only where it preserves compatible campaign, crew, route, preparation, recovery, or terminology detail. Tabletop-first identity, menu-only Ship Phase, one-main-Encounter structure, node/TacMap spatial authority, and primary DM-chat assumptions are historical.
-
 <!-- source-slice: core.pillars.core-pitch -->
 ## 1. Core Pitch
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
 
-Nexus is a turn-based sci-fi squad RPG where the player controls one primary player character, recruits NPC party members, and travels with a mobile crew on a ship through a dangerous solar-system route structure inspired by FTL.
+Nexus is a local-first 2D spatial sci-fi party RPG where the player controls one primary Player Character, recruits Crewmates, and travels with a mobile crew through a dangerous solar-system route structure inspired by FTL.
 
-Individual missions use tactical squad combat, while long-term progression centers on recruits, builds, equipment, ship state, route choices, faction consequences, and survival.
+Persistent explorable Locations support free movement, in-world interaction, dialogue, and turn-based Tactical Pressure without loading separate Encounter maps. Long-term progression centers on recruits, builds, equipment, relationships, optional Ship state, Route Choices, faction consequences, survival, and Legacy World continuity.
 
-The project is developed first as a playable tabletop/notebook RPG before any Replit or video-game implementation. The notebook version should be complete enough to run an actual campaign with ChatGPT acting as GM, rules assistant, encounter builder, content generator, and campaign tracker.
+Deterministic local systems own geometry, rules, and committed state. Generated performance and Campaign Director planning make the game responsive without becoming game authority.
 
 ## 2. Working Genre Formula
 
@@ -45,15 +41,13 @@ FTL route progression plus XCOM-style tactical missions plus Pokemon-style recru
 
 <!-- source-slice: core.pillars.setting-boundary -->
 ## 3. Setting Boundary at Core Level
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
-
 The game remains within the solar system. The major mystery is extrasolar contact. Conflict arises from the ways solar-system factions react to that contact.
 
 Detailed factions, timeline, locations, and Signal/Choir canon belong in `Lore`. This document only preserves the core boundary needed to keep campaign scope stable.
 
 ## 4. Player and Crew Frame
 
-The player has a single main player character. At game start, the player creates the PC and a starting crew. The PC affects starting conditions, background and story goal, initial faction relationships, early recruit options, starting equipment, dialogue/event choices, campaign framing, and tabletop-facing hooks.
+The player has a single main Player Character. At game start, the player creates the Player Character and selects a starting crew. The Player Character affects the opening, background and story goal, initial faction relationships, early recruit options, starting equipment, dialogue/event choices, and campaign framing. Player Character identity is separate from the optional Captain role and Ship ownership.
 
 The player recruits NPC party members who function like space-D&D party members. NPCs should have layered identities and growth variation. Crew use the same broad skill structure as PCs. Which skills they have leveled affects crew action options, passive effects, ability to assist, ability to lead, and options they unlock.
 
@@ -61,23 +55,19 @@ Detailed character chassis, origins, species-facing hooks, skills, disciplines, 
 
 <!-- source-slice: core.pillars.campaign-structure -->
 ## 5. Core Campaign Structure
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
-
-The game progresses through an FTL-style route map. The player travels through the solar system from node to node with a mobile crew on a ship.
+The game progresses through an FTL-style route map. The player travels through the solar system from Route Node to Route Node with a mobile crew; campaigns may include a Ship without requiring one as identity or universal start state.
 
 A node may be a station, colony, derelict, orbital platform, moon settlement, asteroid site, ship contact, faction checkpoint, distress signal, research site, black-market dock, or anomaly.
 
-The core play loop is ship state -> route/node choice -> pre-node planning/loadout/advancement as needed -> assessment/approach -> encounter or mapped ship stop -> consequences -> tracker update -> return to ship state.
+The core play loop is Node 0 opening -> Location play -> Route Node Resolution -> Route Choice -> advancement and Deployment Preparation -> next persistent Location -> consequences -> tracker update -> location-neutral Downtime.
 
-Current mass-intake refinement: the practical rhythm should remain visible as **route choice -> pre-node prep -> mission node -> encounter/result -> Route Node End Report -> ship time / next route**. The Route Node End Report belongs after immediate node resolution and before free ship time resumes.
+The practical rhythm is **Route Choice -> advancement and Deployment Preparation -> Route Node Location -> Local Aftermath -> Route Node End Report -> Downtime / next Route Choice**.
 
 <!-- source-slice: core.pillars.design-pillars -->
 ## 6. Design Pillars
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
+### Playable Spatial Foundation
 
-### Playable Tabletop Foundation
-
-Every major rule should be understandable, runnable, and testable in the notebook before it is converted into software.
+Every major rule should be understandable, observable, and testable in play. The runtime should expose enough state and outcomes to diagnose and repair behavior.
 
 ### Route-Based Survival
 
@@ -93,28 +83,26 @@ Good plans should matter before dice are rolled. A strong plan may bypass an unn
 
 ### Flavor Changes Playstyle
 
-Character flavor must impact mechanics. Species/origin, background, faction tie, equipment, growth tendencies, traits, and personal complications should all affect how a character plays.
+Character flavor must impact mechanics. Embodiment, Bioform, background, faction tie, equipment, growth tendencies, traits, and personal complications should all affect how a character plays.
 
 ### Emergent Tactical Strategy
 
 Build layers should combine in surprising ways, creating strategies for both the player and opponents.
 
-### Procedural Missions First
+### Modular Locations First
 
-The first playable structure should focus on fighting through procedurally generated mission sites such as ships, stations, habitats, bases, labs, and outposts before building a larger quest system.
+The first playable structure should focus on exploring and resolving modular Locations such as ships, stations, habitats, bases, labs, and outposts before building the entire setting at once.
 
 ### Start Small, Expand Forever
 
 The first implementation should prove the campaign loop, tactical combat, and character growth without trying to build the entire RPG at once.
 
-### Automate Only After Validation
+### Deterministic Rules, Bounded Generation
 
-Replit or other digital tools should implement tested tabletop systems rather than inventing game logic from scratch.
+Software implements validated source rules. Model generation may propose bounded content and performance but does not invent or commit game logic.
 
 <!-- source-slice: core.pillars.campaign-scale -->
 ## 7. Campaign Scale
-> [!note] Slice status — interpret under `CORE-SPATIAL-001`. Compatible campaign and tabletop-feel lessons survive; tabletop-first identity, primary DM chat, one-main-Encounter, and node/TacMap spatial assumptions are historical.
-
 Nexus campaigns begin with crew-scale action inside a larger multi-polar solar-system crisis. The player crew should not start by controlling empires, commanding major factions, or solving the entire system.
 
 Their early power is local, mobile, and consequential. A crew can affect evidence, people, access, resources, rescue outcomes, faction leverage, station survival, mission timing, and local nodes of control.
@@ -123,25 +111,25 @@ Campaigns may escalate. By the end of a major campaign, the crew's actions may f
 
 The whistleblower / implant-network / Jupiter-moon pressure-cooker story remains a strong possible first-campaign seed, but it is not campaign canon yet. Treat it as a Seed Inbox / first-campaign candidate until explicit campaign work promotes it.
 
-## 8. TT v0.1 Target
+## 8. Vertical Slice Target
 
-Nexus TT v0.1 should create enough rules, procedures, and starter content that a short Nexus campaign can be run in the project notebook with ChatGPT acting as GM, rules assistant, encounter builder, and campaign tracker.
+The vertical slice should prove that the spatial game, deterministic rules, generated performance, Campaign Director, and campaign continuity can sustain a coherent short campaign.
 
-TT v0.1 should be able to:
+The vertical slice should be able to:
 
 1. start a new Nexus campaign;
 2. create or choose a player character;
 3. generate or choose a starting crew;
-4. review ship state, resources, equipment, and loadouts;
+4. review relevant crew, resource, equipment, loadout, and optional Ship state;
 5. generate or present route node choices;
 6. resolve at least three nodes or missions;
-7. run at least one tactical combat encounter using a Combat TacMap;
+7. enter and resolve Tactical Pressure inside a persistent Location;
 8. use at least one non-attack AP option meaningfully;
-9. resolve at least one quick branching non-combat encounter and one mapped nonviolent/ship-stop scene if starter content supports it;
+9. resolve at least one consequential noncombat interaction in the same spatial runtime;
 10. track damage, injuries, rewards, resources, ship state, faction consequences, route state, crew state, and major flags;
 11. advance at least one character or recruit;
 12. produce a readable campaign log;
-13. identify which systems are ready for later digital implementation and which need more TT testing.
+13. demonstrate recoverable local state and deterministic fallback when generated performance is unavailable.
 
 ## 9. Domain Routing Notes
 
@@ -156,10 +144,10 @@ TT v0.1 should be able to:
 
 ## 10. Mass-Intake Source Notes
 
-- Tactical play remains central, but route, prep, escape, aftermath, ship time, and recovery choices must also be meaningful.
+- Tactical play remains central, but route, prep, escape, aftermath, Downtime, and recovery choices must also be meaningful.
 - Strong plans and visible consequences are core campaign features, not only DM improvisation.
-- Detailed procedures still route to DM Mode/templates and dashboards where display/execution is needed.
+- Detailed procedures route to their owning runtime, domain, and display surfaces.
 
 ## Source Handling Note
 
-This document is a Core-domain consolidation document in the rebuild repo. It is not a verbatim copy of a single older file. It preserves and reorganizes usable content from the current vault snapshot, Nexus Future patterns, older phone/global backups, the Memory Overflow register, and Rook campaign handoff/dashboard evidence. Older material is treated as evidence. Live `00 Source` remains unchanged until the rebuilt source is accepted and migrated.
+This current Core-domain source preserves useful design pillars from prior Nexus work while applying the accepted spatial RPG product model.

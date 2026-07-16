@@ -18,21 +18,18 @@ owns_topics:
   - 'auxiliary_play_aids_overview'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 9 normalized doc_id and placement metadata from PLAYAID-CORE-002 to PLAYAID-OVERVIEW-001. Phase 10 reviewed the body for domain-first display boundaries, packet language, and source-pointer routing."
 ---
 
 # Auxiliary Play Aids Overview
 
-> [!important] Revised vision reconciliation — 2026-07-11
-> Play aids derive from authoritative Location and Game Truth state under `CORE-SPATIAL-001`. Encounter-start packets, TacMap handoffs, node webs, and DM-facing bundles below are historical presentation patterns where they imply a separate Encounter authority.
-
 <!-- source-slice: playaid.overview.definition -->
 ## 1. Definition
 
-Auxiliary play aids are supporting materials that make Nexus easier to play, display, share, teach, archive, or run. They include route-node maps, TacMap displays, handouts, quick references, dashboards, printable sheets, and external-display concepts.
+Auxiliary play aids are supporting materials that make Nexus easier to play, display, share, teach, archive, or run. They include route maps, derived Location/tactical displays, handouts, quick references, dashboards, printable sheets, and external-display concepts.
 
 They are **not** automatically source truth. They must point back to the appropriate source docs for rules, state, lore, or art direction.
 
@@ -69,7 +66,7 @@ Current aid categories include:
 
 - Route-node map companions.
 - Solar-system and faction displays.
-- TacMap display aids.
+- Location and tactical display aids.
 - Player-facing dashboards and handouts.
 - Printable / PDF / Canva / Figma style aids.
 - External display and table companion concepts.
@@ -91,22 +88,21 @@ Strong triggers:
 - complex objective/hazard/status information must stay visible;
 - a printable/session artifact is needed.
 
-The player should not have to ask for the TacMap when a tactical encounter begins and the tactical space matters.
+The player should not have to ask for required tactical display when Tactical Pressure begins.
 
 <!-- source-slice: playaid.overview.encounter-start-packet -->
-## 6. Encounter Start Packet
-> [!note] Slice status — historical presentation pattern. Tactical Pressure begins inside the persistent Location; derived player-safe or Developer Mode aids may appear, but no Encounter Start Packet or TacMap handoff creates spatial or rules authority under `CORE-SPATIAL-001`.
+## 6. Tactical Pressure display bundle
 
-An Encounter Start Packet is the player/DM-facing aid bundle used when tactical or structured encounter play begins.
+A Tactical Pressure display bundle is the player-safe aid set exposed when sequential consequential resolution begins inside the current Location.
 
 Minimum expected components:
 
 - scene frame;
 - immediate objective or pressure;
 - visible actors and hazards;
-- TacMap, schematic, or node/path list when tactical space matters;
-- node/path/objective data sufficient for play;
-- current visible statuses and route/path tags;
+- current Location view or derived tactical overlay;
+- relevant geometry, objectives, Interaction Positions, Cover Positions, and visible state;
+- current visible statuses and spatial conditions;
 - immediate player options;
 - hidden/DM-only layers kept separate.
 
@@ -129,11 +125,10 @@ For dashboards and structured aids:
 Each substantial play aid should state or imply the relevant owners:
 
 - Core loop and mission structure: `Core`.
-- Combat and TacMap rules: `Combat`.
+- Combat and Turn-Based spatial rules: `Combat`.
 - Skills and checks: `Skills`.
 - Equipment and loadout: `Equipment`.
 - Content and encounter libraries: `Content`.
 - Automation and data model implications: `Automation`.
 - Dashboards and current state: `Dashboards`.
 - Art and visual direction: `Art`.
-

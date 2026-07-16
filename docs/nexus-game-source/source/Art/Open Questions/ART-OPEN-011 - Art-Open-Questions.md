@@ -18,8 +18,8 @@ owns_topics:
   - 'art_open_questions'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Open-question routing now follows domain-first boundaries while preserving unresolved asset and workflow questions."
 ---
@@ -72,7 +72,7 @@ metadata_notes: "Phase 10 complete for the Art domain. Open-question routing now
 - What is the final TacMap icon grammar for cover, visibility, line-of-fire, node status, path status, and actor state?
 - What belongs in one unified TacMap source slot if TacMap organization is later consolidated?
 - Which current TacMap assets should become canon visual source, and which remain evidence/prototype?
-- What is the minimum SVG node-web set needed for useful map composition?
+- What is the minimum SVG Location-overlay and tactical-marker set needed for useful display composition?
 - How many path/status marker families are needed before playtest?
 - Should node-edge cover markers be a single flexible symbol family or separate icons for half, full, directional, path-limited, and visibility-blocking effects?
 - Where should actual SVG sprite sheets live in Obsidian, and how should Art source indexes reference them?
@@ -89,5 +89,3 @@ Art should remain inside the Nexus project so it has access to central source ro
 - **Art Production:** explicit image generation/editing lane.
 
 Preferred workflow: plan in one Art Direction chat, produce an Art Production Packet, then execute in a separate Art Production chat. This preserves source-grounded planning while preventing accidental generation in planning chats.
-
-

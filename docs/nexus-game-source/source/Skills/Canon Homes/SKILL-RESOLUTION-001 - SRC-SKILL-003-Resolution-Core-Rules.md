@@ -18,8 +18,8 @@ owns_topics:
   - 'resolution_core_rules'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-14"
-last_reviewed: "2026-06-14"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths. 2026-06-14 source reconciliation added check-family boundaries from the app-facing rules-core draft sequence."
 ---
@@ -266,7 +266,7 @@ Useful check types include:
 - clear check at end of turn or scene;
 - action-based clear check;
 - assist or tool-enabled clear check;
-- recovery/ship-time check;
+- recovery/Downtime check;
 - special Signal/Contact pressure check when campaign-gated.
 
 When a status calls for a roll, resolve it through the Lattice-100 noncombat/general bands unless the status defines a special combat-facing band result.
