@@ -18,10 +18,10 @@ owns_topics:
   - 'humanity_posthumanity_and_origin_frame'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-003 to LORE-PERSONHOOD-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active personhood framing without relying on slot-era wording."
+metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-003 to LORE-PERSONHOOD-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active personhood framing without relying on slot-era wording. The 2026-07-16 art-direction review added Vatborn creator marks and proprietary body-interface lore."
 ---
 
 # Humanity, Posthumanity, and Origin Frame
@@ -59,6 +59,14 @@ These are lore categories, not locked character packages. `Characters` owns the 
 Vatborn should be understood as human, not manufactured monsters or fantasy clones. Their conflict comes from how institutions categorize their birth, purpose, ownership, contract, caste, and independence.
 
 Low Caste is a social/legal/cultural pressure, not a universal incompetence trait. It may make elites ignore a Vatborn, discount testimony, doubt authority, treat them as assigned-function labor, or assume they belong in service spaces. The same pressure may sometimes help them move through back-of-house areas, blend into labor networks, or hear what high-status people say when they think no equal is present.
+
+#### Creator marks and proprietary body interfaces
+
+Many Vatborn lines carry patterned pigmentation added during artificial development by their creator institution. These patterns are actual skin color—genetically directed or otherwise biologically laid down—not tattoos applied after birth. They may identify the creator, production lineage, assigned function, contract class, or other status the institution intended the body to advertise. Marks may cross the scalp, face, throat, arms, hands, or legs so that the creator's claim remains difficult to conceal.
+
+Creator institutions often design a Vatborn line and its supporting technology together. Company-issued cyberware may therefore use proprietary interfaces tuned to that line's engineered biology. The result can be more elegant, intimate, and reliable than generic augmentation while also creating dependence on maker-approved clinics, parts, firmware, or specialized black markets.
+
+Creator marks persist after emancipation, escape, contract transfer, corporate collapse, or legal recognition as an independent person. Vatborn may hide, alter, deface, reclaim, decorate, or deliberately display them. A creator mark records what an institution intended to own; it does not establish that the marked person remains property.
 
 The Anti-Uprising Frame remains unresolved: it may be universal, common, line-specific, propaganda, optional background, or false assumption. Do not lock it as default without later review.
 
@@ -106,6 +114,5 @@ Do not flatten the setting into a list of playable races. Keep origin, body, leg
 - `Characters` owns playable character origin and chassis implications, trait hooks, Standard Fit as a character-facing compatibility tag, and body-fit mechanics.
 - `Equipment` owns cyberware pieces, integrated tools, EMP and cyber-disruption, and enhancement modules.
 - `Lore` owns full lore, history, law, caste, faction ideology, personhood arguments, and social meaning.
-
 
 

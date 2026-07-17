@@ -18,10 +18,10 @@ owns_topics:
   - 'character_art_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership."
+metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts plus the Tier 3/Tier 4 visual boundary."
 ---
 
 # Character Art Direction
@@ -33,6 +33,18 @@ There are no fantasy races in Nexus. Character visuals should express arguments 
 ## Human baseline
 
 Organic humans should remain visually viable and interesting. Use practical clothing, pressure-rated layers, medical patches, cheap implants, occupational wear, fatigue, grime, body language, and social context rather than making unmodified humans look boring.
+
+## Vatborn
+
+Vatborn should remain recognizably human while looking deliberately made. Favor lean, fine-boned, compact bodies, precise hands, intense task focus, and practical institutional clothing over bulky industrial-brute or fantasy-clone imagery.
+
+Patterned markings on Vatborn may be engineered skin pigmentation placed by the creator institution, not tattoos. These creator marks can advertise manufacturer, production line, assigned function, contract class, or intended ownership. Let different institutions develop distinct marking grammars rather than giving every Vatborn one universal pattern.
+
+Vatborn cyberware may look unusually intimate and well fitted because the creator designed the augmentation to interface with the line's engineered biology. Show proprietary neural ports, bio-interface tracery, or compact precision systems rather than generic military replacement limbs. This elegance should also imply dependence on specialized parts, clinics, or corporate support.
+
+![Favored Vatborn property-mark and proprietary-interface concept](<../Reference Inputs/concepts/2026-07-16/nexus-vatborn-property-mark-concept-2026-07-16.png>)
+
+This is a favored concept for Vatborn body language, creator pigmentation, and biological/cybernetic interface direction. The exact individual, garment, palette, and arrangement of markings are not a universal Vatborn template.
 
 ## Splicers and biological modification
 
@@ -59,6 +71,12 @@ Visual tiers may include:
 - full chassis: biological brain/person-core supported by mostly mechanical body.
 
 Full chassis cyborgs are not Uploads by default. Their visuals should preserve body-continuity and person-core implications.
+
+![Favored Tier 3 Chassis-dependent concept](<../Reference Inputs/concepts/2026-07-16/nexus-tier-3-chassis-concept-2026-07-16.png>)
+
+For Tier 3, favor a clearly recognizable organic person whose head and face remain visible within a mechanically dominant life-support chassis. The machinery should read as indispensable body infrastructure, not removable armor. Personal effects may remain as strong identity anchors.
+
+Tier 4 must be much less human in silhouette than Tier 3. Treat it as a biological brain/person-core in a canister integrated into a fully mechanical body. Avoid a visible face, human-headed helmet silhouette, or powered-armor reading. Almost no exterior humanity should remain; identity survives through voice, conduct, possessions, wear, and chassis customization.
 
 ## Uploads and sleeves
 
@@ -103,6 +121,5 @@ These are visual anchors, not fixed classes.
 ## Character sheet art boundary
 
 Character sheet and crew card visuals should be manually readable before decorative. Portraits may support identity, but loadout, skills, wounds, recovery, relationships, and current state must remain clear.
-
 
 

@@ -123,6 +123,14 @@ Provisional cybernetic integration tiers:
 | Tier 3 | Chassis-Dependent | Body function depends on integrated systems; repair, hacking, and maintenance matter. |
 | Tier 4 | Full Chassis | Biological brain/person-core in a mostly mechanical body. Not an Upload. |
 
+### Tier 3 and Tier 4 embodiment boundary
+
+Tier 3 should read as a recognizable biological person whose survival and body function have become inseparable from a mechanical support frame. A favored visual expression preserves an exposed or clearly visible organic head and face inside a protective collar or transparent enclosure while the torso and limbs are dominated by life-support machinery, structural interfaces, conduits, pumps, and repairable chassis components. This is not powered armor: removing or disabling the machinery threatens the person's vital function.
+
+Favored working visual reference: [Tier 3 Chassis concept](<../../Art/Reference Inputs/concepts/2026-07-16/nexus-tier-3-chassis-concept-2026-07-16.png>).
+
+Tier 4 should cross a much harder visual boundary. The remaining biological brain/person-core is sealed inside a mostly mechanical body with almost no exterior humanity. A Tier 4 body should not read as a human wearing a helmet or suit. Human identity is carried through behavior, voice, personal effects, wear, and chassis customization rather than a visible face. Tier 4 remains a biological person-core and is not an Upload.
+
 ### 2.1 Character durability spine
 
 Use this character-facing durability spine when a character sheet, recovery note, or chassis note needs the full defensive/durability line:

@@ -18,10 +18,10 @@ owns_topics:
   - 'concept_art_library_index'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concept references."
 ---
 
 # Concept Art Library Index
@@ -186,4 +186,17 @@ Status: visual reference / non-canon location unless later promoted.
 
 Useful for lived-in industrial orbital structure, hull texture, maintenance infrastructure, and NASA/cyberpunk density reference.
 
+## Character concept selections - 2026-07-16
+
+### Tier 3 Chassis-dependent concept
+
+- Asset: [`concepts/2026-07-16/nexus-tier-3-chassis-concept-2026-07-16.png`](<concepts/2026-07-16/nexus-tier-3-chassis-concept-2026-07-16.png>)
+- Status: favored visual concept.
+- Direction carried forward: visible organic person inside an indispensable, mechanically dominant life-support chassis; personal effects preserve identity; not powered armor and not yet Full Chassis.
+
+### Vatborn creator-mark concept
+
+- Asset: [`concepts/2026-07-16/nexus-vatborn-property-mark-concept-2026-07-16.png`](<concepts/2026-07-16/nexus-vatborn-property-mark-concept-2026-07-16.png>)
+- Status: favored visual and lore concept.
+- Direction carried forward: lean, intensely focused Vatborn; engineered skin-color patterns used as creator/property marks; proprietary cyberware designed to interface with the creator's engineered biology.
 
