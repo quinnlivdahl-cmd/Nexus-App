@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added the approved C-POH/frontier range concept, faction-range rules, and a no-steampunk boundary."
+metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added approved C-POH/frontier and Treaty/corporate faction-range concepts plus faction-range and no-steampunk rules."
 ---
 
 # NASApunk Cyber Noir Design Language
@@ -105,6 +105,12 @@ For C-POH concepts, keep the human body and face visually primary. Their equipme
 
 Frontier and independent-habitat art should carry the widest internal variation. Different habitats, bodies, local industries, supply chains, and repair cultures may produce radically different silhouettes, palettes, garments, and tool layouts. The shared logic is local authorship: accessible repairs, visible adapters, practical redundancy, mixed-generation equipment, and personal or community marks overwriting former ownership. Frontier is not one patched uniform, and it is not random junk or post-apocalyptic costuming.
 
+![Approved Treaty/System Authority and corporate-sovereignty range concept](<../Reference Inputs/concepts/2026-07-17/nexus-treaty-corporate-range-concept-2026-07-17.png>)
+
+Treaty/System Authority concepts should show interoperability across bodies, departments, habitats, and jurisdictions. Repeat connector families, certification markings, evidence systems, tamper seals, inspection tags, rescue markings, and replaceable modules without forcing every person into the same cut of uniform. The institution should read as bureaucratically repairable public infrastructure, not sleek space police or a monolithic military.
+
+Corporate-sovereignty concepts should vary by company, sector, body, and service ecosystem. Habitat construction, biotechnology, identity/logistics, compute, implant, and Upload-service institutions may have radically different silhouettes and palettes. Their shared visual logic is proprietary integration: matched components, service lockouts, credential dependence, ecosystem-specific connectors, ownership/service marks, excellent fit, and difficulty surviving outside authorized support. Corporate art should not collapse into one megacorp uniform, luxury fashion, or generic villain styling.
+
 ## TacMap/collage extension - 2026-05-15
 
 TacMap and diagram assets should translate NASApunk cyber-noir into a schematic language:
@@ -119,5 +125,4 @@ TacMap and diagram assets should translate NASApunk cyber-noir into a schematic 
 ### Icon and marker tone
 
 Use compact practical shapes that feel like signage, maintenance glyphs, hard-suit labels, industrial warning tags, or pressure-system schematics. The icon language should feel like it could exist inside the Nexus setting, but it must still function as a tabletop play aid.
-
 

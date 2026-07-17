@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier faction-range concept."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier and Treaty/corporate faction-range concepts."
 ---
 
 # Concept Art Library Index
@@ -228,3 +228,11 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Mapping: B1-B2 are modern C-POH range examples; D1-D4 are deliberately varied frontier/independent-habitat examples spanning habitat needs and embodiments.
 - Direction carried forward: faction visuals define ranges rather than single costumes; C-POH presentation keeps human bodily continuity primary without requiring zero cyberware; broad C-POH concept art should not use an obvious bionic replacement limb as its shorthand; frontier has the widest variation, unified by local authorship, repair access, adapters, redundancy, and personal/community marks rather than a shared uniform.
 - Global avoid: steampunk and retro-futurist cues, including brass-and-leather technology, decorative gears, antique gauges, Victorian garments, clockwork, retro diving suits, rayguns, and historical costume used to signify manual or human-centered technology.
+
+### Treaty/System Authority and corporate-sovereignty range
+
+- Asset: [`concepts/2026-07-17/nexus-treaty-corporate-range-concept-2026-07-17.png`](<concepts/2026-07-17/nexus-treaty-corporate-range-concept-2026-07-17.png>)
+- Status: approved working visual direction; not a finished faction uniform, portrait set, logo sheet, or sprite family.
+- Mapping: A1-A2 show Treaty/System Authority interoperability across a near-baseline human and genuine Ape uplift; C1-C4 show habitat/life-support, medical/biotechnology, identity/logistics, and compute/Upload-service corporate ecosystems.
+- Direction carried forward: Treaty/System Authority repeats certification, connector, evidence, inspection, and replaceable-module standards across varied bodies and departments; corporate sovereignties vary strongly by company and sector while sharing proprietary integration, service lockouts, credential dependence, ownership marks, and ecosystem-specific support.
+- Avoid: monolithic uniforms, sleek space-police shorthand, one generic megacorp style, luxury-fashion corporate shorthand, generic villain styling, and Japanese-anime character-model language.

@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling."
+metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling and added Japanese-anime character models to the avoid list."
 ---
 
 # Nexus Visual Style Bible
@@ -93,6 +93,7 @@ Avoid by default:
 - magic glyphs for Contact/Signal effects;
 - generic blue hologram everything.
 - steampunk or retro-futurist styling, including brass ornament, exposed decorative gears, clockwork, antique gauges, Victorian garments, retro diving suits, rayguns, filigree, or leather-and-brass technology.
+- Japanese anime-style character models, including anime-derived faces, proportions, hair, poses, costume layering, armor, expressions, or character-rendering shorthand.
 
 ## Canon boundary
 

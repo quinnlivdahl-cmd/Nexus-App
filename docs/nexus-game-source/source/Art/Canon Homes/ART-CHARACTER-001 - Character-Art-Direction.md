@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, approved Splicer lines, and approved Upload starting-embodiment direction. The 2026-07-17 review added the approved working concept for a person-bearing quadrupedal utility sleeve with visible interaction tools and a restrained screen face."
+metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, approved Splicer lines, and approved Upload starting-embodiment direction. The 2026-07-17 review added the approved working concept for a person-bearing quadrupedal utility sleeve with visible interaction tools and a restrained screen face plus explicit gender-representation guidance."
 ---
 
 # Character Art Direction
@@ -29,6 +29,12 @@ metadata_notes: "Phase 10 complete for the Art domain. Character visual-directio
 ## Core rule
 
 There are no fantasy races in Nexus. Character visuals should express arguments about what still counts as human through bodies, modifications, care systems, labor, survival, and legal/social status.
+
+## Gender representation and presentation
+
+Character, faction, crew, and occupational comparison sheets should visibly include women rather than allowing the generic adult default to drift male. Use varied ages, builds, faces, occupations, authority levels, modifications, and styles of presentation; women should not be confined to medical, social, decorative, or lightly equipped roles.
+
+Do not force gender coding onto polities, server habitats, infrastructure, drones, or bodies whose design does not require it. Individual Upload persons may choose bodies and presentations that read as women, men, neither, mixed, or otherwise self-defined. Apply gender representation to people and chosen presentation without treating every vessel or political entity as inherently gendered.
 
 ## Human baseline
 

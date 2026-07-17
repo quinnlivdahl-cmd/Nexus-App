@@ -3,8 +3,8 @@
 Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-game-source/source`
 Indexed source documents: 191
-Indexed source slices: 1692
-Level-two section coverage: 1640/1640
+Indexed source slices: 1693
+Level-two section coverage: 1641/1641
 
 ## Authority Note
 
@@ -34,7 +34,7 @@ Marker format:
 | Domain | Documents | Slices |
 |---|---:|---:|
 | Admin | 21 | 177 |
-| Art | 16 | 149 |
+| Art | 16 | 150 |
 | Automation | 8 | 57 |
 | Characters | 10 | 87 |
 | Combat | 10 | 115 |
@@ -55,7 +55,7 @@ Marker format:
 |---|---:|
 | explicit_marker | 128 |
 | generated_document_context | 36 |
-| generated_heading | 1528 |
+| generated_heading | 1529 |
 
 ## Source Slices
 
@@ -248,16 +248,17 @@ Marker format:
 | `auto.admin-runbook-901.work-anchor-id-separation-rule` | generated_heading | ADMIN-RUNBOOK-901 | Work Anchor / ID Separation Rule | `docs/nexus-game-source/source/Admin/Applied Rules/ADMIN-RUNBOOK-901 - Project-Workflow.md` | 187-198 | `9fd98de8a777...` |
 | `auto.admin-runbook-902.package-changelog` | generated_heading | ADMIN-RUNBOOK-902 | Package Changelog | `docs/nexus-game-source/source/Admin/Applied Rules/ADMIN-RUNBOOK-902 - Upload-Instructions.md` | 43-50 | `2fc1518b73a3...` |
 | `auto.admin-runbook-902.package-handling-note` | generated_heading | ADMIN-RUNBOOK-902 | Package Handling Note | `docs/nexus-game-source/source/Admin/Applied Rules/ADMIN-RUNBOOK-902 - Upload-Instructions.md` | 29-38 | `d2950e71ef69...` |
-| `auto.art-character-001.ai-drones-and-custodian-shells` | generated_heading | ART-CHARACTER-001 | AI, drones, and custodian shells | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 121-124 | `80842e7505e6...` |
-| `auto.art-character-001.character-sheet-art-boundary` | generated_heading | ART-CHARACTER-001 | Character sheet art boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 150-153 | `2fa9e910bbf3...` |
+| `auto.art-character-001.ai-drones-and-custodian-shells` | generated_heading | ART-CHARACTER-001 | AI, drones, and custodian shells | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 127-130 | `80842e7505e6...` |
+| `auto.art-character-001.character-sheet-art-boundary` | generated_heading | ART-CHARACTER-001 | Character sheet art boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 156-159 | `2fa9e910bbf3...` |
 | `auto.art-character-001.core-rule` | generated_heading | ART-CHARACTER-001 | Core rule | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 29-32 | `beca08bd6275...` |
-| `auto.art-character-001.crew-composition-and-silhouettes` | generated_heading | ART-CHARACTER-001 | Crew composition and silhouettes | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 137-149 | `608c39b74b64...` |
-| `auto.art-character-001.cyborg-and-cyberware-visuals` | generated_heading | ART-CHARACTER-001 | Cyborg and cyberware visuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 72-91 | `f9d1f46d2877...` |
-| `auto.art-character-001.human-baseline` | generated_heading | ART-CHARACTER-001 | Human baseline | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 33-36 | `5d226a81edf2...` |
-| `auto.art-character-001.signal-touched-and-contact-affected-individuals` | generated_heading | ART-CHARACTER-001 | Signal-touched and Contact-affected individuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 125-136 | `1eb8ab14b40e...` |
-| `auto.art-character-001.splicers-and-biological-modification` | generated_heading | ART-CHARACTER-001 | Splicers and biological modification | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 49-71 | `9133b61cfd8c...` |
-| `auto.art-character-001.uploads-and-sleeves` | generated_heading | ART-CHARACTER-001 | Uploads and sleeves | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 92-120 | `923e5483a5cb...` |
-| `auto.art-character-001.vatborn` | generated_heading | ART-CHARACTER-001 | Vatborn | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 37-48 | `787753bbfbd9...` |
+| `auto.art-character-001.crew-composition-and-silhouettes` | generated_heading | ART-CHARACTER-001 | Crew composition and silhouettes | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 143-155 | `608c39b74b64...` |
+| `auto.art-character-001.cyborg-and-cyberware-visuals` | generated_heading | ART-CHARACTER-001 | Cyborg and cyberware visuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 78-97 | `f9d1f46d2877...` |
+| `auto.art-character-001.gender-representation-and-presentation` | generated_heading | ART-CHARACTER-001 | Gender representation and presentation | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 33-38 | `944faea37577...` |
+| `auto.art-character-001.human-baseline` | generated_heading | ART-CHARACTER-001 | Human baseline | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 39-42 | `5d226a81edf2...` |
+| `auto.art-character-001.signal-touched-and-contact-affected-individuals` | generated_heading | ART-CHARACTER-001 | Signal-touched and Contact-affected individuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 131-142 | `1eb8ab14b40e...` |
+| `auto.art-character-001.splicers-and-biological-modification` | generated_heading | ART-CHARACTER-001 | Splicers and biological modification | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 55-77 | `9133b61cfd8c...` |
+| `auto.art-character-001.uploads-and-sleeves` | generated_heading | ART-CHARACTER-001 | Uploads and sleeves | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 98-126 | `923e5483a5cb...` |
+| `auto.art-character-001.vatborn` | generated_heading | ART-CHARACTER-001 | Vatborn | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 43-54 | `787753bbfbd9...` |
 | `auto.art-environment-001.asteroid-mines-and-industrial-sites` | generated_heading | ART-ENVIRONMENT-001 | Asteroid mines and industrial sites | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 63-74 | `63174a74bd6f...` |
 | `auto.art-environment-001.contact-and-alien-signal-scenes` | generated_heading | ART-ENVIRONMENT-001 | Contact and alien-signal scenes | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 97-100 | `4c20245b29db...` |
 | `auto.art-environment-001.corporate-state-station-life` | generated_heading | ART-ENVIRONMENT-001 | Corporate/state/station life | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 84-96 | `a6186fa5bc54...` |
@@ -294,10 +295,10 @@ Marker format:
 | `auto.art-nasapunk-001.contact-choir-visual-language` | generated_heading | ART-NASAPUNK-001 | Contact / Choir visual language | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 73-85 | `3c97ff7cfd12...` |
 | `auto.art-nasapunk-001.cyber-noir-layer` | generated_heading | ART-NASAPUNK-001 | Cyber noir layer | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 41-51 | `421a40712851...` |
 | `auto.art-nasapunk-001.diesel-grit-layer` | generated_heading | ART-NASAPUNK-001 | Diesel grit layer | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 52-61 | `cba4e71ff6e1...` |
-| `auto.art-nasapunk-001.faction-and-culture-marks` | generated_heading | ART-NASAPUNK-001 | Faction and culture marks | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 86-107 | `f71cef63c652...` |
+| `auto.art-nasapunk-001.faction-and-culture-marks` | generated_heading | ART-NASAPUNK-001 | Faction and culture marks | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 86-113 | `ee10f771cb05...` |
 | `auto.art-nasapunk-001.interface-style` | generated_heading | ART-NASAPUNK-001 | Interface style | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 62-72 | `8542e34eac5c...` |
 | `auto.art-nasapunk-001.nasapunk-layer` | generated_heading | ART-NASAPUNK-001 | NASApunk layer | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 29-40 | `f0bf48430f61...` |
-| `auto.art-nasapunk-001.tacmap-collage-extension-2026-05-15` | generated_heading | ART-NASAPUNK-001 | TacMap/collage extension - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 108-124 | `6e0b51437f22...` |
+| `auto.art-nasapunk-001.tacmap-collage-extension-2026-05-15` | generated_heading | ART-NASAPUNK-001 | TacMap/collage extension - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-NASAPUNK-001 - NASApunk-Cyber-Noir-Design-Language.md` | 114-129 | `6e0b51437f22...` |
 | `auto.art-open-011.asset-management-questions` | generated_heading | ART-OPEN-011 | Asset management questions | `docs/nexus-game-source/source/Art/Open Questions/ART-OPEN-011 - Art-Open-Questions.md` | 36-42 | `d579855cf8fa...` |
 | `auto.art-open-011.character-and-equipment-art-questions` | generated_heading | ART-OPEN-011 | Character and equipment art questions | `docs/nexus-game-source/source/Art/Open Questions/ART-OPEN-011 - Art-Open-Questions.md` | 50-56 | `1906b1ce3ecd...` |
 | `auto.art-open-011.cross-domain-backpatch-notes` | generated_heading | ART-OPEN-011 | Cross-domain backpatch notes | `docs/nexus-game-source/source/Art/Open Questions/ART-OPEN-011 - Art-Open-Questions.md` | 64-69 | `0de7bcc58231...` |
@@ -319,7 +320,7 @@ Marker format:
 | `auto.art-prompt-001.source-anchors` | generated_heading | ART-PROMPT-001 | Source Anchors | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 149-151 | `9abbfac4d00e...` |
 | `auto.art-prompt-001.success-criteria` | generated_heading | ART-PROMPT-001 | Success Criteria | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 164-166 | `65e6f966f0d5...` |
 | `auto.art-reference-010.active-art-asset-queue-carried-from-dashboards` | generated_heading | ART-REFERENCE-010 | Active art/asset queue carried from dashboards | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 116-127 | `d4ba5663fd56...` |
-| `auto.art-reference-010.character-concept-selections-2026-07-16` | generated_heading | ART-REFERENCE-010 | Character concept selections - 2026-07-16 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 189-231 | `974486a2a950...` |
+| `auto.art-reference-010.character-concept-selections-2026-07-16` | generated_heading | ART-REFERENCE-010 | Character concept selections - 2026-07-16 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 189-239 | `41a4a55d4af3...` |
 | `auto.art-reference-010.current-known-asset-folders-from-older-vault-material` | generated_heading | ART-REFERENCE-010 | Current known asset folders from older vault material | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 33-51 | `bd0a5ca0f851...` |
 | `auto.art-reference-010.icon-families-in-the-concept-package` | generated_heading | ART-REFERENCE-010 | Icon families in the concept package | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 81-115 | `80bf22ad98fb...` |
 | `auto.art-reference-010.intake-asset-reference-index-2026-05-15` | generated_heading | ART-REFERENCE-010 | Intake asset/reference index - 2026-05-15 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 138-188 | `7d7515544af3...` |
@@ -348,12 +349,12 @@ Marker format:
 | `auto.art-runbook-012.prompt-discipline` | generated_heading | ART-RUNBOOK-012 | 9. Prompt discipline | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-012 - TacMap-Backdrop-and-Build-Plate-Art-Workflow.md` | 121-132 | `44e3f6b0125a...` |
 | `auto.art-runbook-012.purpose` | generated_heading | ART-RUNBOOK-012 | 1. Purpose | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-012 - TacMap-Backdrop-and-Build-Plate-Art-Workflow.md` | 32-35 | `3b2cb36965b2...` |
 | `auto.art-runbook-012.style-anchor` | generated_heading | ART-RUNBOOK-012 | 8. Style anchor | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-012 - TacMap-Backdrop-and-Build-Plate-Art-Workflow.md` | 108-120 | `15d9b3226a23...` |
-| `auto.art-style-001.avoid-list` | generated_heading | ART-STYLE-001 | Avoid list | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 82-96 | `97b050030b86...` |
-| `auto.art-style-001.canon-boundary` | generated_heading | ART-STYLE-001 | Canon boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 97-99 | `64b86dd8ad96...` |
+| `auto.art-style-001.avoid-list` | generated_heading | ART-STYLE-001 | Avoid list | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 82-97 | `004fc93ee52c...` |
+| `auto.art-style-001.canon-boundary` | generated_heading | ART-STYLE-001 | Canon boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 98-100 | `64b86dd8ad96...` |
 | `auto.art-style-001.composition-cues` | generated_heading | ART-STYLE-001 | Composition cues | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 74-81 | `816118d31b0c...` |
 | `auto.art-style-001.core-visual-thesis` | generated_heading | ART-STYLE-001 | Core visual thesis | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 29-34 | `5c300a6b8675...` |
 | `auto.art-style-001.palette-cues` | generated_heading | ART-STYLE-001 | Palette cues | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 59-73 | `640e0faa767b...` |
-| `auto.art-style-001.tacmap-and-tabletop-clarity-update-2026-05-15` | generated_heading | ART-STYLE-001 | TacMap and tabletop clarity update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 100-122 | `4943b3d3680d...` |
+| `auto.art-style-001.tacmap-and-tabletop-clarity-update-2026-05-15` | generated_heading | ART-STYLE-001 | TacMap and tabletop clarity update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 101-123 | `4943b3d3680d...` |
 | `auto.art-style-001.visual-pillars` | generated_heading | ART-STYLE-001 | Visual pillars | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 35-58 | `78ce7a5fd65f...` |
 | `auto.art-trial-020.default-negative-prompt` | generated_heading | ART-TRIAL-020 | Default negative prompt | `docs/nexus-game-source/source/Art/Style Trials/ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md` | 77-80 | `459933da4211...` |
 | `auto.art-trial-020.global-nexus-visual-lock` | generated_heading | ART-TRIAL-020 | Global Nexus visual lock | `docs/nexus-game-source/source/Art/Style Trials/ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md` | 67-76 | `78d3663fcbf3...` |
