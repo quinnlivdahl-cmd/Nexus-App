@@ -1,7 +1,8 @@
 ---
-status: accepted
+status: superseded
 date: 2026-07-10
 provenance: "July 2026 Grill with Docs revised-vision decision session; published by Revised Vision Decision Baseline #58"
+superseded_by: ADR-0081
 ---
 
 # Every combatant rolls individual Initiative

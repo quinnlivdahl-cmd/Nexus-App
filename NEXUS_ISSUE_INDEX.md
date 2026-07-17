@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-15 by Codex during Starting Crew and Slice Recruitment #11 closeout. The queue below reflects live GitHub titles and states immediately before #11 closure; for exact current state, verify against GitHub.
+Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queue below reflects live GitHub titles and states during pre-publication review; for exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -80,7 +80,7 @@ Last synced: 2026-07-15 by Codex during Starting Crew and Slice Recruitment #11 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | map | child decisions | Canonical map for the implementation-ready first vertical slice |
-| #14 | Define Tactical Pressure activation and participation | grilling | #12 satisfied | Open, unassigned frontier decision |
+| #14 | Define Tactical Pressure activation and participation | grilling | #12 satisfied | Accepted in live Grill with Docs session; publication and live issue closeout in progress |
 | #19 | Define Lattice opportunities, ticker, and partial consequences | grilling | #5 satisfied | Open, unassigned frontier decision |
 | #28 | Define Local Aftermath, return-to-Ship, and save contracts | grilling | #4 and #12 satisfied | Open, unassigned frontier decision |
 | #30 | Integrate an implementation-ready vertical slice contract | grilling | remaining map decisions | Blocked integration ticket |

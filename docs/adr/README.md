@@ -58,7 +58,6 @@ ADRs 0001–0034 were accepted on 2026-07-10 from the Grill with Docs revised-vi
 | [0031](0031-each-campaign-begins-with-a-new-player-created-captain.md) | Each campaign begins with a new player-created Captain |
 | [0032](0032-character-profiles-create-backstory-threads.md) | Character Profiles create Backstory Threads |
 | [0033](0033-individual-variation-uses-aptitude-and-growth-traits.md) | Individual variation uses Aptitude and Growth Traits |
-| [0034](0034-every-combatant-rolls-individual-initiative.md) | Every combatant rolls individual Initiative |
 | [0035](0035-model-runtime-is-provider-neutral-and-task-routed.md) | The Model Runtime is provider-neutral and task-routed |
 | [0036](0036-game-truth-and-director-state-use-separate-local-lanes.md) | Game Truth and Director State use separate local lanes |
 | [0037](0037-generated-performance-uses-local-dialogue-sessions-and-bounded-proposals.md) | Generated Performance uses local Dialogue Sessions and bounded proposals |
@@ -102,3 +101,20 @@ ADRs 0001–0034 were accepted on 2026-07-10 from the Grill with Docs revised-vi
 | [0075](0075-clarification-is-a-rare-player-agency-safeguard.md) | Clarification is a rare player-agency safeguard |
 | [0076](0076-freeform-actions-use-existing-rules-beyond-authored-actions.md) | Freeform Actions use existing rules beyond authored actions |
 | [0077](0077-freeform-actions-confirm-only-consequential-interpretations.md) | Freeform Actions confirm only consequential interpretations |
+| [0078](0078-tactical-pressure-begins-from-explicit-validated-triggers.md) | Tactical Pressure begins from explicit validated triggers |
+| [0079](0079-tactical-participation-projects-existing-location-truth.md) | Tactical Participation projects existing Location truth |
+| [0080](0080-tactical-participation-changes-only-at-commit-boundaries.md) | Tactical Participation changes only at commit boundaries |
+| [0081](0081-every-participating-actor-rolls-individual-initiative.md) | Every participating actor rolls individual Initiative |
+| [0082](0082-late-entrants-join-initiative-without-interrupting.md) | Late entrants join Initiative without interrupting |
+| [0083](0083-lattice-initiative-uses-descending-team-flexible-order.md) | Lattice Initiative uses descending team-flexible order |
+| [0084](0084-nexus-uses-familiar-attributes-with-combat-replacing-strength.md) | Nexus uses familiar Attributes with Combat replacing Strength |
+| [0085](0085-timed-hazards-and-objectives-use-rules-native-entries.md) | Timed hazards and objectives use rules-native entries |
+| [0086](0086-tactical-pressure-ends-when-every-trigger-clears.md) | Tactical Pressure ends when every trigger clears |
+| [0087](0087-overlapping-triggers-compose-one-tactical-pressure-period.md) | Overlapping triggers compose one Tactical Pressure period |
+| [0088](0088-campaign-saves-serialize-location-owned-tactical-state.md) | Campaign Saves serialize Location-owned Tactical State |
+
+## Superseded decisions
+
+| ADR | Decision | Replacement |
+|---|---|---|
+| [0034](0034-every-combatant-rolls-individual-initiative.md) | Every combatant rolls individual Initiative | [0081](0081-every-participating-actor-rolls-individual-initiative.md) |
