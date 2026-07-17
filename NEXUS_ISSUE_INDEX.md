@@ -59,6 +59,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #78 | Supersede the text-RPG finish line and required-reading chain | in-progress | Instruction and Authority Consolidation #74 | #75 complete | Review and merge PR #93, then record final evidence and close #78 |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
