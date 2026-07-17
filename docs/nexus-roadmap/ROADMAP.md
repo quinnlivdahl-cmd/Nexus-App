@@ -255,7 +255,7 @@ Nexus has a readable, script-friendly, domain-first project knowledge system tha
 
 - The original driver for this lane remains active: improve archive mining and placement scripting
 - This lane is also expected to improve long-term readability, AI usability, app/script ingestion, and future tooling in general
-- The Obsidian `00 Source` working-copy layer remains protected while the repo canonical source home matures
+- Obsidian `00 Source` is generated pointer-card navigation only; canonical source currentness lives in the repo
 - Remaining work includes Phase 8 cleanup, metadata normalization, and deeper domain-by-domain consolidation
 
 ### Detailed current work

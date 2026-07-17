@@ -10,11 +10,11 @@ The canonical source path is:
 
 `docs/nexus-game-source/source`
 
-Do not rename this path casually. Any future rename must update bridge docs, validation checks, exact indexed GitHub paths, promotion scripts, and app/source-pack references in one reviewed batch.
+Do not rename this path casually. Any future rename must update bridge docs, validation checks, exact indexed GitHub paths, generated pointer cards, and app/source-pack references in one reviewed batch.
 
 ## Authority Boundary
 
-The repo source folder is the Golden Truth source corpus and canonical Nexus text source authority. Obsidian is a reading/index and promoted working-copy layer, not an independent authority over this repo source.
+The repo source folder is the Golden Truth source corpus and canonical Nexus text source authority. Obsidian is a reading/index layer with generated pointer cards, not a copied source tree or an independent authority over this repo source.
 
 Accepted Nexus Game ADRs control the specific domain claims they change. Reconciliation edits the owning source documents so this corpus remains the current textual representation of the game; unaffected source material remains current, and ADRs remain the rationale and provenance for reconciled changes.
 
@@ -26,7 +26,7 @@ Obsidian Nexus note/index layer:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
 
-Promoted Obsidian source working copy:
+Obsidian source pointer-card navigation:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
 
@@ -50,12 +50,6 @@ Run the full workflow validator before closeout:
 
 `corepack pnpm run validate:workflow`
 
-Promote Golden Truth into the Obsidian source working copy with:
+Use `.agents/skills/nexus-source-index-maintainer/SKILL.md` for future source-index work. Do not copy this corpus into Obsidian; update generated pointer cards when navigation paths change.
 
-`corepack pnpm run source:promote-golden -- --execute`
-
-or, when `corepack` is not on PATH:
-
-`node scripts/promote-golden-source.mjs --execute`
-
-Use `.agents/skills/nexus-source-index-maintainer/SKILL.md` for future source index work and `.agents/skills/nexus-golden-source-promoter/SKILL.md` for future live-vault promotions.
+Before Retire Source Promotion #76, a one-way repo-to-Obsidian copy workflow supported the 2026 source migration. That workflow is retired; Git history preserves its implementation and migration provenance.

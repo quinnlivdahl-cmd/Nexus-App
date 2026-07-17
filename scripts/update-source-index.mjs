@@ -8,7 +8,7 @@ const sourceName = "Nexus-App Canonical Source";
 const sourceEstablished = "2026-06-10";
 const goldenTruthConfirmed = "2026-06-14";
 const sourceHomeRenamed = "2026-06-14";
-const obsidianSource = "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
+const obsidianPointerRoot = "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
 const indexMdPath = `${sourceRoot}/SOURCE-INDEX.md`;
 const indexJsonPath = `${sourceRoot}/SOURCE-INDEX.json`;
 
@@ -165,7 +165,7 @@ function sourceItem(filePath) {
     doc_id: docId,
     placement_domain: frontmatter.placement_domain || domain,
     role_status: roleStatus,
-    use_when: `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated canonical source; verify Obsidian working-copy currentness only when local Obsidian state matters.`,
+    use_when: `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.`,
     key_terms: uniqueTerms([
       docId,
       asArray(frontmatter.legacy_ids),
@@ -209,7 +209,7 @@ function buildIndex() {
     path_status:
       "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
     authority_note:
-      `Nexus-App canonical source index for exact GitHub retrieval, app source-pack work, and Obsidian working-copy promotion. The Obsidian source working-copy layer is ${obsidianSource}.`,
+      `Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at ${obsidianPointerRoot} and is not a source copy.`,
     update_command: "corepack pnpm run source:index",
     check_command: "corepack pnpm run source:index:check",
     file_count: files.length,
@@ -233,7 +233,7 @@ function renderMarkdown(index) {
     "",
     "## Authority Note",
     "",
-    `This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval, app source-pack work, and Obsidian working-copy promotion. The Obsidian source working-copy layer lives at \`${obsidianSource}\`; verify local Obsidian state only when it matters.`,
+    `This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. Generated Obsidian pointer cards live at \`${obsidianPointerRoot}\`; they navigate to repo files and do not form a second source corpus.`,
     "",
     "ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.",
     "",

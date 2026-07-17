@@ -168,16 +168,16 @@ Future scripts may automate this sequence, but the human-readable evidence shoul
 - This repo is the canonical Nexus source and app implementation surface, including text source docs.
 - The Nexus-App canonical source path is `docs/nexus-game-source/source`. It is the durable repo home for game source documents.
 - The Obsidian note/index layer is `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`.
-- The Obsidian source folder is `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`; treat it as a reading/index or promoted working-copy layer, not as independent source authority.
+- The Obsidian source folder is `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`; treat it as generated pointer-card navigation only, never as a copied source tree or independent source authority.
 - The Drive payload home is `G:\My Drive\10_Projects\Nexus Game`.
 - Keep bulky generated artifacts, handoff bundles, zips, candidate runs, and workbench outputs in Drive or purpose-built repo paths, not in the Obsidian note layer.
 - Link between repo docs, Obsidian notes, and Drive payloads where useful, but do not bulk-copy one surface into another.
 
 - Do not bulk-copy Obsidian `00 Source`, Drive payloads, or archive material into this repo unless the user explicitly approves that direction.
 - Treat the canonical repo source as the app/ChatGPT source corpus for context-pack and rules-core work. Do not overwrite it from Obsidian, Drive, or archive material unless explicitly approved.
-- Before source edits, check whether the Obsidian working-copy layer has relevant drift from `docs/nexus-game-source/source`; report drift instead of silently overwriting either surface.
+- Do not compare Obsidian pointer cards as if they were a second source corpus. Inspect the canonical repo source directly; report stale or broken cards as navigation drift.
 - When canonical source docs are added, removed, renamed, or changed, use `.agents/skills/nexus-source-index-maintainer/SKILL.md` and regenerate the index with `corepack pnpm run source:index` or `node scripts/update-source-index.mjs`.
-- When canonical source must be promoted into the Obsidian working-copy/source layer, use `.agents/skills/nexus-golden-source-promoter/SKILL.md` and `node scripts/promote-golden-source.mjs`.
+- Do not copy canonical source documents into Obsidian for browsing. Refresh generated pointer cards through the Obsidian navigation workflow when repo paths change.
 - Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
 - The repo-trackable ChatGPT Project bridge layer lives at `docs/chatgpt-project-bridge`. Those files are upload-ready context for the ChatGPT Nexus Project, but upload is not complete until the user confirms it or a refresh ledger records it.
 - ChatGPT Project synced-chat, handoff, preservation, and task packets must use approved repo destinations under `docs/chatgpt-project-bridge` unless a more specific repo path is explicitly approved by the user or a controlling issue.

@@ -14,7 +14,7 @@ Use these states for ChatGPT Project context:
 - `sent-pending-verification`: files were uploaded or pasted, but searchability/use has not been checked.
 - `verified-current-for-scope`: ChatGPT Project was checked and is current for a named scope.
 
-Never use these states as proof of repo source, Obsidian working-copy, or Drive payload currentness.
+Never use these states as proof of repo source, Obsidian pointer-card freshness, or Drive payload currentness.
 
 ## Readiness Gate
 
@@ -315,7 +315,7 @@ Expected index path:
 
 `docs/nexus-game-source/source/SOURCE-INDEX.md`
 
-A source-index check proves only that ChatGPT can discover repo-side context files by path. It does not prove Obsidian working-copy or Drive payload currentness.
+A source-index check proves only that ChatGPT can discover repo-side context files by path. It does not prove Obsidian pointer-card freshness or Drive payload currentness.
 
 If canonical source files changed locally, Codex should regenerate the index with `corepack pnpm run source:index` and validate with `corepack pnpm run validate:workflow` before calling the index current.
 

@@ -18,7 +18,8 @@ owns_topics:
   - 'global_mode_operations_rules'
 borrows_topics: []
 created: "2026-05-12"
-last_updated: "2026-06-07"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Modes consolidation. Global mode behavior now uses domain-first source authority and targeted ChatGPT bridge context; legacy upload and slot wording is retained only where needed for migration history or evidence."
 ---
@@ -87,7 +88,7 @@ Use this authority order:
 
 1. current explicit user instruction;
 2. current Nexus-App canonical source in `docs/nexus-game-source/source`;
-3. Obsidian source working-copy/current-state notes when local Obsidian currentness matters;
+3. Obsidian project-memory notes and generated pointer-card navigation when local navigation or planning context matters;
 4. Drive payload/workbench material when generated artifacts, exports, handoffs, or Google-native files matter;
 5. accepted review outputs;
 6. dashboards for current state;

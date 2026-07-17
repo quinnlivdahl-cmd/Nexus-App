@@ -29,7 +29,7 @@ Known preserved prior commits:
 - `02ea59ccf24ecd910d0b0b28de74a2c10b74c1e9` — added character/progression schema scaffold.
 - `c3930c110548bc7a0b5d57679fbeaf4791d093c1` — added Bioform/Chassis append.
 
-Do not delete old files after adding this document. Any future promotion to canonical source must be verified through the repo source workflow, with Obsidian working-copy currentness checked when relevant.
+Do not delete old files after adding this document. Any future integration into canonical source must be verified through the repo source workflow.
 
 ---
 
@@ -37,11 +37,11 @@ Do not delete old files after adding this document. Any future promotion to cano
 
 This is a repo-side draft contract. It is intended to clarify schema construction order, validation boundaries, and ability/progression object relationships. It is not a direct edit to live Nexus source canon.
 
-Canonical source authority remains in the repo. The Obsidian source working-copy layer is:
+Canonical source authority remains in the repo. Generated Obsidian pointer-card navigation is located at:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
 
-Repo-side contract drafts are useful planning and implementation scaffolds, but they must be promoted or reconciled into `docs/nexus-game-source/source` before being treated as final source truth.
+Repo-side contract drafts are useful planning and implementation scaffolds, but they must be reviewed and reconciled into `docs/nexus-game-source/source` before being treated as final source truth.
 
 ---
 
@@ -817,4 +817,4 @@ This rev0.1 contract is acceptable if it supports the following without contradi
 
 ## Handoff Note
 
-This document is ready as an additive repo-side draft scaffold. It should not be treated as source canon until reviewed and promoted through the local `00 Source` workflow.
+This document is ready as an additive repo-side draft scaffold. It should not be treated as source canon until reviewed and integrated into `docs/nexus-game-source/source`.

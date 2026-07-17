@@ -33,14 +33,14 @@ Before making current-state claims, distinguish:
 
 - Nexus-App is the canonical authority for Nexus source docs and app implementation.
 - Canonical Nexus source docs live at `docs/nexus-game-source/source`.
-- Obsidian is an index/current-state/working-copy layer, not an independent source authority over the repo.
+- Obsidian is an index/current-state layer with generated pointer-card navigation, not a copied source corpus or independent source authority over the repo.
 - Drive is the payload/export/workbench lane for bulky generated artifacts, handoffs, candidate runs, zips, and Google-native files.
 - GitHub Issues are task packets and evidence trails, not game/source authority.
 - ChatGPT Project is for discussion, drafting, brainstorming, planning, and playtest support.
 - ChatGPT Project is the preferred lane for broad planning, general design discussion, speculative architecture, issue-shaping, and "what should we do next?" exploration when local repo inspection or edits are not yet needed.
 - Codex is the preferred lane for current repo truth, local source inspection, file edits, validation, commits, pushes, issue updates, and source-authority checks.
 - Uploaded bridge files can orient the chat, but they do not authorize deletion, cleanup, promotion, or source replacement.
-- Repo-side source files are canonical for source-backed discussion when fetched by exact indexed path. ChatGPT uploads and Obsidian copies can still be stale, so currentness claims should name the inspected source.
+- Repo-side source files are canonical for source-backed discussion when fetched by exact indexed path. ChatGPT uploads and Obsidian notes or pointer cards can be stale, so currentness claims should name the inspected repo source.
 
 ## GitHub Context Retrieval
 
@@ -187,4 +187,4 @@ Pair pushback with the next safe action.
 
 It is acceptable to brainstorm from stale uploaded or repo-side context when the caveat is clear.
 
-It is not acceptable to claim repo source, Obsidian working-copy state, Drive payload state, repo status, issue state, upload status, or implementation currentness from stale uploaded context.
+It is not acceptable to claim repo source, Obsidian project-memory or pointer-card state, Drive payload state, repo status, issue state, upload status, or implementation currentness from stale uploaded context.

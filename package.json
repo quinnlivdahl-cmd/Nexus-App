@@ -10,8 +10,6 @@
     "local:dev:app": "node scripts/local-dev.mjs app",
     "roadmap:index": "node scripts/update-roadmap-index.mjs",
     "roadmap:index:check": "node scripts/update-roadmap-index.mjs --check",
-    "source:promote-golden": "node scripts/promote-golden-source.mjs",
-    "source:promote-golden:check": "node scripts/promote-golden-source.mjs",
     "source:index": "node scripts/update-source-index.mjs",
     "source:index:check": "node scripts/update-source-index.mjs --check",
     "source:slices": "node scripts/update-source-slice-catalog.mjs",

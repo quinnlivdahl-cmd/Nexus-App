@@ -17,13 +17,11 @@ const requiredFiles = [
   ".agents/skills/nexus-session-discipline/SKILL.md",
   ".agents/skills/nexus-reviewer/SKILL.md",
   ".agents/skills/nexus-source-index-maintainer/SKILL.md",
-  ".agents/skills/nexus-golden-source-promoter/SKILL.md",
   ".agents/skills/nexus-roadmap-maintainer/SKILL.md",
   "artifacts/nexus-companion/AGENTS.md",
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
   "scripts/AGENTS.md",
-  "scripts/promote-golden-source.mjs",
   "docs/admin/nexus-distributed-surfaces.md",
   "docs/nexus-roadmap/README.md",
   "docs/nexus-roadmap/ROADMAP.md",
@@ -168,7 +166,7 @@ const sectionChecks = [
     includes: [
       "verified-current-for-scope",
       "Upload Confirmation Rule",
-      "Never use these states as proof of repo source, Obsidian working-copy, or Drive payload currentness.",
+      "Never use these states as proof of repo source, Obsidian pointer-card freshness, or Drive payload currentness.",
       "Roadmap Index Confirmation Rule",
       "Approved ChatGPT Repo Destinations",
       "Shared Session Discipline",
@@ -248,7 +246,7 @@ const sectionChecks = [
     includes: [
       "Nexus-App Canonical Source",
       "durable repo home",
-      "source:promote-golden",
+      "generated pointer cards",
     ],
   },
   {
@@ -258,15 +256,6 @@ const sectionChecks = [
       "Indexed Markdown files:",
       "ChatGPT should fetch exact indexed GitHub paths",
       "corepack pnpm run source:index",
-    ],
-  },
-  {
-    file: ".agents/skills/nexus-golden-source-promoter/SKILL.md",
-    includes: [
-      "nexus-golden-source-promoter",
-      "canonical source",
-      "node scripts/promote-golden-source.mjs",
-      "--execute",
     ],
   },
 ];
@@ -286,6 +275,50 @@ for (const check of sectionChecks) {
   for (const expected of check.includes) {
     if (!text.includes(expected)) {
       failures.push(`${check.file} is missing required text: ${expected}`);
+    }
+  }
+}
+
+const retiredSourcePromotionFiles = [
+  ".agents/skills/nexus-golden-source-promoter/SKILL.md",
+  ".agents/skills/nexus-golden-source-promoter/agents/openai.yaml",
+  "scripts/promote-golden-source.mjs",
+];
+
+for (const file of retiredSourcePromotionFiles) {
+  if (existsSync(resolve(root, file))) {
+    failures.push(`Retired source-promotion file is active again: ${file}`);
+  }
+}
+
+const retiredSourcePromotionIdentifiers = [
+  "source:promote-golden",
+  "promote-golden-source.mjs",
+  "nexus-golden-source-promoter",
+];
+
+const activeSourceRoutingFiles = [
+  "package.json",
+  "AGENTS.md",
+  ".agents/skills/nexus-source-router/SKILL.md",
+  ".agents/skills/nexus-source-index-maintainer/SKILL.md",
+  "docs/nexus-game-source/README.md",
+  "docs/chatgpt-project-bridge/README.md",
+  "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
+  "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
+  "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+  "docs/chatgpt-project-bridge/03-OPERATING-MODEL.md",
+  "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+  "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+];
+
+for (const file of activeSourceRoutingFiles) {
+  const path = resolve(root, file);
+  if (!existsSync(path)) continue;
+  const text = readFileSync(path, "utf8");
+  for (const identifier of retiredSourcePromotionIdentifiers) {
+    if (text.includes(identifier)) {
+      failures.push(`${file} references retired source promotion: ${identifier}`);
     }
   }
 }
