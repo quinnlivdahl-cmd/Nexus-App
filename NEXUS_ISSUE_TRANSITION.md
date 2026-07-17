@@ -1,6 +1,6 @@
 # Nexus Issue Transition
 
-Status: active transition control surface
+Status: active transition router with a preserved historical queue snapshot
 Scope: Nexus App repo task routing
 Primary queue: GitHub Issues for `quinnlivdahl-cmd/Nexus-App`
 
@@ -15,6 +15,12 @@ Use it to answer four questions quickly:
 3. How is the queue sequenced?
 4. What planning/doc work is still local-only and not yet a standalone issue?
 
+## Current Product Direction
+
+Nexus is a local-first spatial party RPG. The current vertical-slice target is owned by `CORE-PILLARS-001` section 8 in canonical source, implementation-readiness decisions are coordinated by Spatial Vertical Slice Map #57, and Integration Contract #30 will define the exact production boundary.
+
+The former Local Playable Alpha, DM-chat finish line, and Gate A-F queue below are preserved as historical transition evidence. They do not control current product direction or execution order.
+
 ## Fresh AI Read Order
 
 For app work, read in this order:
@@ -26,7 +32,6 @@ For app work, read in this order:
 5. This file: `NEXUS_ISSUE_TRANSITION.md`
 6. Open GitHub issues in `quinnlivdahl-cmd/Nexus-App`
 7. Nexus source docs when canonical design authority is needed
-8. `NEXUS_LOCAL_PLAYABLE_ALPHA.md` only as historical planning evidence
 
 Current app-side Golden Truth source:
 
@@ -39,7 +44,7 @@ Path caveat: this source home was renamed from the dated 2026-06-10 rebuild fold
 
 - GitHub Issues are the active execution queue.
 - `CONTEXT-MAP.md`, the Nexus Game context, and `docs/adr/README.md` form the revised decision baseline.
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` is retained historical planning evidence and is non-controlling until Golden Truth reconciliation, the implementation-ready vertical-slice contract, and revised planning controls land.
+- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` is retained historical planning evidence and is permanently non-controlling.
 - `docs/nexus-game-source/source` is the canonical current textual definition of the game. Accepted ADRs control the specific claims they change until those decisions are reconciled into the owning source documents; unaffected source material remains current.
 - This transition doc tracks queue shape and local-only planning residue; live GitHub is authoritative for issue state and blockers.
 
@@ -61,7 +66,9 @@ Each issue should state:
 - Why now
 - Not before
 
-## Current Queue
+## Historical June Queue Snapshot
+
+The Gate A-F material in this section records the prior implementation sequence. Use live GitHub, Spatial Vertical Slice Map #57, and the current canonical source for present work.
 
 ### Workflow and control lane
 
@@ -185,7 +192,7 @@ These are active, but they are not the app-runtime critical path.
   Depends on: `#18`, `#10`
   Notes: this is a second-step retrieval feature after a vault index exists and backend DM routing is in place
 
-### Critical path vs support vs later
+### Historical critical path vs support vs later
 
 Critical path now reads:
 
@@ -214,8 +221,10 @@ These items should stay here until they either become issues or become irrelevan
 
 ## Relationship To Other Local Docs
 
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` is still the best detailed roadmap for app work.
-- `replit.md` is the short operator guide.
+- `CORE-PILLARS-001` section 8 owns the current spatial vertical-slice target.
+- Spatial Vertical Slice Map #57 coordinates the decisions and prototype evidence needed for implementation readiness.
+- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` and the June roadmap are historical planning evidence.
+- `replit.md` is an optional local operator guide, not required orientation or product authority.
 - `AGENTS.md` is the first-entry instruction surface.
 
-If this file and the roadmap disagree about current queue behavior, trust this file for queue behavior and the roadmap for scope/task detail.
+For current queue behavior, trust live GitHub. For current game direction, trust canonical source and accepted ADRs. Use the historical queue and roadmap only for provenance.

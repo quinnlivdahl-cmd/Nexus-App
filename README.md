@@ -1,6 +1,6 @@
 # Nexus
 
-Nexus is a local-first 2D/slight-isometric RPG/roguelike. The existing React/Vite application is evolving into the spatial game and primary playtest surface; `companion` remains only in some legacy implementation names.
+Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down presentation. The existing React/Vite application is evolving into the spatial game and primary playtest surface; `companion` remains only in some legacy implementation names.
 
 ## Start Here
 
@@ -16,7 +16,7 @@ Nexus is a local-first 2D/slight-isometric RPG/roguelike. The existing React/Vit
 
 - `artifacts/nexus-companion` — React/Vite Nexus game application under its legacy package path.
 - `artifacts/api-server` — local API server.
-- [replit.md](replit.md) — local setup, run commands, ports, and implementation map.
+- [replit.md](replit.md) — optional local setup and operator reference; not required orientation or product authority.
 
 Nexus remains local-first. Hosted, public-release, and account-dependent behavior is outside the default development boundary unless explicitly approved.
 

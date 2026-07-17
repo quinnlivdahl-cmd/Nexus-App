@@ -4,7 +4,7 @@ Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-roadmap`
 Roadmap: `docs/nexus-roadmap/ROADMAP.md`
 Roadmap doc id: `ROADMAP-2026-06-07-GLOBAL-CANDIDATE`
-Roadmap status: `candidate_review`; `codex_review_ready`; `candidate_not_yet_promoted`
+Roadmap status: `historical_evidence`; `superseded_by_spatial_vertical_slice`; `non_controlling_historical`
 Original review lane: `90 Codex Review/01 Review Ready`
 Indexed lanes: 6
 
@@ -12,7 +12,7 @@ Indexed lanes: 6
 
 Repo-accessible planning mirror and index. This is not Nexus source canon and does not replace NEXUS_ISSUE_INDEX.md as the active issue queue.
 
-The mirrored roadmap keeps the original candidate status until a deliberate review/promotion workflow changes it.
+The June roadmap is retained as non-controlling historical planning evidence. Use canonical source, accepted ADRs, Spatial Vertical Slice Map #57, and live GitHub Issues for current direction and work.
 
 Use `NEXUS_ISSUE_INDEX.md` for the active issue queue. Use this index for roadmap lane context, exact repo paths, and issue linkage.
 

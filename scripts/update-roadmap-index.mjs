@@ -241,7 +241,9 @@ function buildIndex() {
     authority_note:
       "Repo-accessible planning mirror and index. This is not Nexus source canon and does not replace NEXUS_ISSUE_INDEX.md as the active issue queue.",
     currentness_note:
-      "The mirrored roadmap keeps the original candidate status until a deliberate review/promotion workflow changes it.",
+      frontmatter.doc_status === "historical_evidence"
+        ? "The June roadmap is retained as non-controlling historical planning evidence. Use canonical source, accepted ADRs, Spatial Vertical Slice Map #57, and live GitHub Issues for current direction and work."
+        : "The mirrored roadmap keeps its declared status until a deliberate review or supersession workflow changes it.",
     update_command: "corepack pnpm run roadmap:index",
     check_command: "corepack pnpm run roadmap:index:check",
     lane_count: indexedLanes.length,
