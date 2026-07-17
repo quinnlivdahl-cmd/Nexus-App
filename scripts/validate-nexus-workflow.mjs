@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 
@@ -30,13 +30,8 @@ const requiredFiles = [
   "docs/nexus-roadmap/ROADMAP-INDEX.md",
   "docs/nexus-roadmap/ROADMAP-INDEX.json",
   "docs/chatgpt-project-bridge/README.md",
-  "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
-  "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
-  "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
-  "docs/chatgpt-project-bridge/03-OPERATING-MODEL.md",
-  "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
-  "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
-  "docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+  "docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md",
+  "docs/chatgpt-project-bridge/BRIDGE-INDEX.md",
   "docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md",
   "docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
   "docs/chatgpt-project-bridge/preservation/README.md",
@@ -156,41 +151,42 @@ const sectionChecks = [
   {
     file: "docs/chatgpt-project-bridge/README.md",
     includes: [
-      "repo-trackable bridge layer",
-      "Upload Set",
-      "ChatGPT Project consumes them as external context",
-      "Nexus Roadmap",
-      "Synced Chat Destinations",
-      "Do not upload changing packet indexes",
+      "## Two-File Baseline",
+      "PROJECT-INSTRUCTIONS.md",
+      "BRIDGE-INDEX.md",
+      "Changing a rule should update its single owner",
+      "## Superseded Baseline",
+      "Archival #85",
     ],
   },
   {
-    file: "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
+    file: "docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md",
     includes: [
-      "Repo-side roadmap surface",
-      "docs/nexus-roadmap/ROADMAP-INDEX.md",
+      "Status: active ChatGPT Project baseline file",
+      "## Authority And Currentness",
+      "Accepted ADRs control affected claims until reconciliation",
+      "## Context Packet Requirement",
+      "Request the smallest relevant context packet",
+      "Do not guess, continue from memory",
+      "Brainstorming may proceed from incomplete or stale context",
+      "## Clarification And Response Behavior",
     ],
   },
   {
-    file: "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
+    file: "docs/chatgpt-project-bridge/BRIDGE-INDEX.md",
     includes: [
-      "Slots are upload/context roles",
-      "Future Packet Families",
-      "Do not bulk-copy Obsidian `00 Source`",
-      "Synced chat packet",
-    ],
-  },
-  {
-    file: "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
-    includes: [
+      "Status: active ChatGPT Project baseline file",
+      "## Baseline Package",
+      "## Retrieval Routes",
+      "## Packet Routes",
+      "task-packets/YYYY-MM-DD-<issue-or-topic>.md",
+      "synced-chats/YYYY-MM-DD-<topic>.md",
+      "handoffs/YYYY-MM-DD-<topic>.md",
+      "preservation/YYYY-MM-DD-<topic>.md",
+      "## Refresh And Upload Evidence",
+      "Follow the upload-currentness rule in `PROJECT-INSTRUCTIONS.md`",
       "verified-current-for-scope",
-      "Upload Confirmation Rule",
-      "Never use these states as proof of repo source, Obsidian pointer-card freshness, or Drive payload currentness.",
-      "Roadmap Index Confirmation Rule",
-      "Approved ChatGPT Repo Destinations",
-      "Shared Session Discipline",
-      "Context Window Handoff Trigger",
-      "These destinations are GitHub repo paths",
+      "Record actual upload confirmation outside the uploaded baseline",
     ],
   },
   {
@@ -253,14 +249,6 @@ const sectionChecks = [
     ],
   },
   {
-    file: "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
-    includes: [
-      "Source Authority Summary",
-      "SOURCE-INDEX.md",
-      "source-index-needed",
-    ],
-  },
-  {
     file: "docs/nexus-game-source/README.md",
     includes: [
       "Nexus-App Canonical Source",
@@ -298,6 +286,89 @@ for (const check of sectionChecks) {
   }
 }
 
+const bridgeRoot = resolve(root, "docs/chatgpt-project-bridge");
+const activeBridgeBaselineMarker =
+  "Status: active ChatGPT Project baseline file";
+const expectedBridgeBaselineFiles = [
+  "BRIDGE-INDEX.md",
+  "PROJECT-INSTRUCTIONS.md",
+];
+const activeBridgeBaselineFiles = readdirSync(bridgeRoot)
+  .filter((file) => file.endsWith(".md"))
+  .filter((file) =>
+    readFileSync(resolve(bridgeRoot, file), "utf8").includes(
+      activeBridgeBaselineMarker,
+    ),
+  )
+  .sort();
+
+if (
+  JSON.stringify(activeBridgeBaselineFiles) !==
+  JSON.stringify(expectedBridgeBaselineFiles)
+) {
+  failures.push(
+    `ChatGPT Project must have exactly two active baseline files: ${expectedBridgeBaselineFiles.join(", ")}; found: ${activeBridgeBaselineFiles.join(", ") || "none"}`,
+  );
+}
+
+const authorityAndCurrentnessOwners = activeBridgeBaselineFiles.filter((file) =>
+  readFileSync(resolve(bridgeRoot, file), "utf8").includes(
+    "## Authority And Currentness",
+  ),
+);
+
+if (
+  authorityAndCurrentnessOwners.length !== 1 ||
+  authorityAndCurrentnessOwners[0] !== "PROJECT-INSTRUCTIONS.md"
+) {
+  failures.push(
+    "PROJECT-INSTRUCTIONS.md must be the single active baseline owner for authority and currentness language.",
+  );
+}
+
+const supersededBridgeBaselineFiles = [
+  "00-BOOTSTRAP.md",
+  "01-SLOT-MAP.md",
+  "02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+  "03-OPERATING-MODEL.md",
+  "04-REFRESH-AND-READINESS-RULES.md",
+  "20-SOURCE-AUTHORITY-SUMMARY.md",
+  "90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+];
+
+for (const file of supersededBridgeBaselineFiles) {
+  const path = resolve(bridgeRoot, file);
+  if (!existsSync(path)) {
+    failures.push(
+      `${file} must remain present until Archival #85 explicitly replaces this preservation invariant.`,
+    );
+    continue;
+  }
+  const text = readFileSync(path, "utf8");
+  if (!text.includes("do not upload") || !text.includes("non-controlling")) {
+    failures.push(
+      `${file} must remain explicitly superseded and non-controlling until archival.`,
+    );
+  }
+}
+
+const uploadCurrentnessRule =
+  "Do not claim that the ChatGPT Project was refreshed or verified unless an external upload or searchability check confirms the named scope.";
+const uploadCurrentnessOwners = activeBridgeBaselineFiles.filter((file) =>
+  readFileSync(resolve(bridgeRoot, file), "utf8").includes(
+    uploadCurrentnessRule,
+  ),
+);
+
+if (
+  uploadCurrentnessOwners.length !== 1 ||
+  uploadCurrentnessOwners[0] !== "PROJECT-INSTRUCTIONS.md"
+) {
+  failures.push(
+    "PROJECT-INSTRUCTIONS.md must be the single active baseline owner for the upload-currentness rule.",
+  );
+}
+
 const retiredSourcePromotionFiles = [
   ".agents/skills/nexus-golden-source-promoter/SKILL.md",
   ".agents/skills/nexus-golden-source-promoter/agents/openai.yaml",
@@ -323,12 +394,8 @@ const activeSourceRoutingFiles = [
   ".agents/skills/nexus-source-index-maintainer/SKILL.md",
   "docs/nexus-game-source/README.md",
   "docs/chatgpt-project-bridge/README.md",
-  "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
-  "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
-  "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
-  "docs/chatgpt-project-bridge/03-OPERATING-MODEL.md",
-  "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
-  "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+  "docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md",
+  "docs/chatgpt-project-bridge/BRIDGE-INDEX.md",
 ];
 
 for (const file of activeSourceRoutingFiles) {
@@ -357,9 +424,8 @@ const activePathPolicyFiles = [
   "docs/contexts/nexus-project-operations/CONTEXT.md",
   "docs/game-system-contracts/drafts/Ability_and_Skill_Focus_Schema_Contract_rev0.1.md",
   "docs/chatgpt-project-bridge/README.md",
-  "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
-  "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
-  "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+  "docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md",
+  "docs/chatgpt-project-bridge/BRIDGE-INDEX.md",
 ];
 
 // Historical handoffs and source legacy_paths remain outside this active-policy guard.

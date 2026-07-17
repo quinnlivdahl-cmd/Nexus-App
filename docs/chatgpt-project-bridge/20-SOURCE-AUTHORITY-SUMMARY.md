@@ -1,6 +1,8 @@
 # Source Authority Summary
 
-Status: upload-ready bridge file
+Status: superseded bridge baseline; do not upload
+
+> Superseded by `PROJECT-INSTRUCTIONS.md` and `BRIDGE-INDEX.md` through Bridge Consolidation #80. Retained temporarily for provenance until Archival #85. The content below is historical and non-controlling.
 
 ## Purpose
 

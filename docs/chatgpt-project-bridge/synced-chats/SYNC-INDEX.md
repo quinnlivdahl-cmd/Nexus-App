@@ -16,7 +16,7 @@ Synced chat packets live at:
 
 `docs/chatgpt-project-bridge/synced-chats/YYYY-MM-DD-<topic>.md`
 
-Do not invent alternate synced-chat destinations. If a packet needs a more specific container, route it through one of the approved bridge destinations named in `docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md`.
+Do not invent alternate synced-chat destinations. If a packet needs a more specific container, route it through one of the approved bridge destinations named in `docs/chatgpt-project-bridge/BRIDGE-INDEX.md`.
 
 ## Packet States
 
