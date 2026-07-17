@@ -1,6 +1,6 @@
 # Nexus Local Playable App
 
-Nexus is a local-first text RPG application. The app is intended to become the primary playtest surface for DM-led narrative play, integrated encounters, TacMaps, play aids, scene companion images, and source-backed rules/lore.
+Nexus is a local-first 2D/slight-isometric RPG/roguelike application. The existing React/Vite implementation is evolving into the spatial game and primary playtest surface for exploration, narrative play, integrated encounters, play aids, scene imagery, and source-backed rules/lore.
 
 Read first:
 
@@ -20,7 +20,7 @@ corepack pnpm run local:dev
 Default local URLs:
 
 - API health: `http://127.0.0.1:5000/api/healthz`
-- Companion app: `http://127.0.0.1:5173`
+- Nexus game app: `http://127.0.0.1:5173`
 
 Run one side only:
 
@@ -61,7 +61,7 @@ Current local blocker noted by Codex on 2026-06-08:
 - Workspace: pnpm workspaces
 - Runtime: Node.js 24
 - Language: TypeScript
-- Companion app: React + Vite
+- Nexus game app: React + Vite (`artifacts/nexus-companion` is the legacy package path)
 - API scaffold: Express
 - Validation: Zod and generated API types
 - Database scaffold: Drizzle/PostgreSQL, but Local Playable Alpha should not become Replit/Postgres-only
@@ -71,7 +71,7 @@ Current local blocker noted by Codex on 2026-06-08:
 - `NEXUS_ISSUE_TRANSITION.md` - GitHub-first queue control surface during migration
 - `NEXUS_LOCAL_PLAYABLE_ALPHA.md` - active app roadmap, Replit tasks, Codex work-session queue
 - `AGENTS.md` - app-local instructions for Codex/Replit/agents
-- `artifacts/nexus-companion` - React/Vite app
+- `artifacts/nexus-companion` - React/Vite Nexus game app under its legacy package path
 - `artifacts/nexus-companion/src/store/GameStateContext.tsx` - current browser localStorage persistence
 - `artifacts/nexus-companion/src/lib/useDMChat.ts` - current DM chat runtime
 - `artifacts/nexus-companion/src/lib/stateParser.ts` - `nexus-state` block parsing/application
