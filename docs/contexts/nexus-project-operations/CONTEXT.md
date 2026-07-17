@@ -34,6 +34,18 @@ _Avoid_: Synced-Chat Packet, broad planning archive, permission to skip discover
 A narrow task-shaped packet, prompt, or template for focused work. In Nexus, GitHub Issues are the primary task packets; repo task packets support bridge and handoff flows without replacing the live issue tracker.
 _Avoid_: Broad roadmap, general chat transcript, duplicate issue tracker
 
+**Durable Planning Note**:
+A human-facing plan, finding, or progress record retained in the Obsidian Nexus hub under `02 Planning`. It preserves useful project thinking without becoming executable task state, game-source authority, or a required duplicate of a GitHub Issue.
+_Avoid_: GitHub Issue, temporary session plan, repo planning overlay
+
+**Session Plan**:
+A temporary sequence used by the active chat or tool to coordinate the current session. It may be revised or discarded as work progresses and is not copied into durable planning merely because the task is long or uses many tools.
+_Avoid_: Durable planning note, handoff, task tracker
+
+**Executable Continuity**:
+The minimum cross-session state needed to resume scoped work, recorded in a linked GitHub Issue comment or approved handoff. It names the next safe action and current constraints without becoming a second task queue.
+_Avoid_: Session transcript, broad planning archive, duplicate issue state
+
 **Source Draft Candidate**:
 Draft material that may become Nexus source after review and promotion. It can preserve source-like language for later work, but it is not canonical game source until it passes the approved source-promotion route.
 _Avoid_: Live source, accepted canon, implementation authority

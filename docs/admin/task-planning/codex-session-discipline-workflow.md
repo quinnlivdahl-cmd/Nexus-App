@@ -17,6 +17,21 @@ This workflow keeps Nexus Codex and ChatGPT work focused without losing useful s
 
 It does not replace GitHub Issues, the issue index, handoff template, task packet template, bridge docs, review rubric, or Nexus source authority. It gives those existing surfaces a shared session frame, side-item lifecycle, and independent review loop.
 
+## Planning Ownership
+
+Use exactly one owner for each kind of planning state:
+
+| Information | Owner |
+|---|---|
+| Executable task state and acceptance criteria | Live GitHub Issues |
+| Durable human-facing plans, findings, and progress | Obsidian Nexus hub `02 Planning` |
+| Temporary current-session sequencing | The active chat or tool plan |
+| Cross-session executable continuity | A linked GitHub Issue comment or approved handoff |
+
+Temporary session plans are disposable coordination aids. Do not copy them into durable planning merely because a session is long or uses many tools. Create or update an Obsidian planning note only when the user requests durable planning or the work produces a human-facing plan, finding, or progress record worth retaining.
+
+The repo `planning/` folder is a retired compatibility pointer, not an active planning overlay. Repo workflow documents may define stable behavior, but they do not own changing project plans or progress.
+
 ## Implementation Review Loop
 
 For non-trivial Nexus work, use this loop:
@@ -129,7 +144,10 @@ Use existing destinations before inventing new ones.
 | Side item kind | Default destination |
 |---|---|
 | Actionable side task | Existing issue comment, new GitHub issue, task packet, or roadmap/index entry |
-| Planning structure | `NEXUS_ISSUE_INDEX.md`, `docs/nexus-roadmap`, or existing planning issue |
+| Executable task or acceptance change | Existing GitHub Issue or a new linked issue when distinct criteria are needed |
+| Durable human-facing plan, finding, or progress | Obsidian Nexus hub `02 Planning` |
+| Temporary session sequence | Active chat or tool plan; do not preserve by default |
+| Cross-session executable continuity | Existing issue comment or approved handoff |
 | ChatGPT-bound exploration | `docs/chatgpt-project-bridge/synced-chats/` or `task-packets/` |
 | Concrete handoff | `NEXUS_HANDOFF_TEMPLATE.md` shape or `docs/chatgpt-project-bridge/handoffs/` |
 | Tiny observation | Issue closeout, handoff, synced-chat packet, or future observation log |
@@ -168,7 +186,7 @@ Codex should:
 
 ### ChatGPT Project
 
-ChatGPT Project owns broad planning, brainstorming, issue shaping, synced-chat packets, task packets, and discussion that does not yet require local repo truth.
+ChatGPT Project supports broad planning, brainstorming, issue shaping, synced-chat packets, task packets, and discussion that does not yet require local repo truth. Durable planning produced there still belongs in Obsidian `02 Planning`; executable work belongs in GitHub Issues.
 
 ChatGPT should:
 

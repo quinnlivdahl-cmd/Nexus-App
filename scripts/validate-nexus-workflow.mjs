@@ -38,6 +38,8 @@ const requiredFiles = [
   "docs/chatgpt-project-bridge/task-packets/README.md",
   "docs/admin/task-planning/codex-session-discipline-workflow.md",
   "docs/admin/task-planning/nexus-review-rubric.md",
+  "docs/admin/task-planning/repo-first-task-planning-workflow.md",
+  "planning/README.md",
   "docs/game-system-contracts/drafts/README.md",
   "docs/source-draft-candidates/README.md",
   "docs/nexus-game-source/README.md",
@@ -208,7 +210,40 @@ const sectionChecks = [
       "Mirrored Platform Specs",
       "implement -> validate -> independent review -> targeted fixes -> re-review when needed",
       "PASS_WITH_NOTES",
+      "## Planning Ownership",
+      "Durable human-facing plans, findings, and progress",
+      "Temporary current-session sequencing",
+      "Cross-session executable continuity",
+      "do not preserve by default",
       "Do Not Automate Yet",
+    ],
+  },
+  {
+    file: "planning/README.md",
+    includes: [
+      "Status: pointer only; not a planning-state owner",
+      "Live GitHub Issues",
+      "Obsidian Nexus hub `02 Planning`",
+      "active chat or tool plan",
+      "GitHub Issue comment or approved handoff",
+      "Do not recreate `task_plan.md`",
+    ],
+  },
+  {
+    file: "docs/admin/task-planning/repo-first-task-planning-workflow.md",
+    includes: [
+      "Status: superseded workflow candidate; historical pointer only",
+      "Planning Ownership #81",
+      "docs/admin/task-planning/codex-session-discipline-workflow.md",
+      "Do not restore its repo planning overlay",
+    ],
+  },
+  {
+    file: "docs/contexts/nexus-project-operations/CONTEXT.md",
+    includes: [
+      "**Durable Planning Note**:",
+      "**Session Plan**:",
+      "**Executable Continuity**:",
     ],
   },
   {
@@ -219,6 +254,10 @@ const sectionChecks = [
       "side task",
       "side finding",
       "tiny observation",
+      "Durable human-facing plans, findings, and progress",
+      "Temporary session sequencing",
+      "Cross-session executable continuity",
+      "retired repo `planning/` overlay",
     ],
   },
   {
@@ -283,6 +322,36 @@ for (const check of sectionChecks) {
     if (!text.includes(expected)) {
       failures.push(`${check.file} is missing required text: ${expected}`);
     }
+  }
+}
+
+const retiredRepoPlanningOverlayFiles = [
+  "planning/task_plan.md",
+  "planning/findings.md",
+  "planning/progress.md",
+  "planning/planning-rules.md",
+];
+
+for (const file of retiredRepoPlanningOverlayFiles) {
+  if (existsSync(resolve(root, file))) {
+    failures.push(`Retired repo planning overlay file is active again: ${file}`);
+  }
+}
+
+const historicalPlanningFiles = [
+  ".agents/plans/2026-06-08_repo-collaboration-workflow.md",
+];
+
+for (const file of historicalPlanningFiles) {
+  const path = resolve(root, file);
+  if (!existsSync(path)) continue;
+  const text = readFileSync(path, "utf8");
+  if (
+    !text.includes('doc_status: "superseded"') ||
+    !text.includes("Planning Ownership #81") ||
+    !text.includes("historical and non-controlling")
+  ) {
+    failures.push(`${file} must remain explicitly historical and non-controlling.`);
   }
 }
 
