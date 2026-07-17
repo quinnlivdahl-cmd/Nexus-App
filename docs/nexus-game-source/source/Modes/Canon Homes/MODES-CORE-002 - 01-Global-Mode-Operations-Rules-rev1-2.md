@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Shared"
 source_role: "canon_home"
 canon_status: "Instruction"
+authority: "project_operations"
+applicability:
+  - 'content_authoring_workflow'
+  - 'project_operations'
 placement_domain: "Modes"
 content_role: "canon_home"
 topic_family: "global_mode_operations_rules"

@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Steward"
 source_role: "retired_legacy_placeholder"
 canon_status: "non_source_reference"
+authority: "historical_reference"
+applicability:
+  - 'project_operations'
+  - 'historical_provenance'
 placement_domain: "Admin"
 content_role: "reference_input"
 topic_family: "pc_transfer_readme"

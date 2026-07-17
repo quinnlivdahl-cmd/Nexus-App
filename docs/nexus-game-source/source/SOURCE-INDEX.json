@@ -7,6 +7,22 @@
   "base_path": "docs/nexus-game-source/source",
   "path_status": "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
   "authority_note": "Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source and is not a source copy.",
+  "authority_values": [
+    "game_current",
+    "game_provisional",
+    "runtime_ai_behavior",
+    "project_operations",
+    "historical_reference",
+    "non_authoritative"
+  ],
+  "applicability_values": [
+    "player_game_rules",
+    "campaign_director_runtime",
+    "content_authoring_workflow",
+    "project_operations",
+    "historical_provenance"
+  ],
+  "default_game_retrieval_policy": "Include game_current, game_provisional, and runtime_ai_behavior. Exclude project_operations, historical_reference, and non_authoritative. Documents outside the explicitly classified Admin and Modes domains retain legacy inclusion until classified.",
   "update_command": "corepack pnpm run source:index",
   "check_command": "corepack pnpm run source:index:check",
   "file_count": 191,
@@ -72,6 +88,36 @@
       "files": 11
     }
   ],
+  "authority_counts": [
+    {
+      "authority": "game_current",
+      "files": 0
+    },
+    {
+      "authority": "game_provisional",
+      "files": 0
+    },
+    {
+      "authority": "runtime_ai_behavior",
+      "files": 0
+    },
+    {
+      "authority": "project_operations",
+      "files": 16
+    },
+    {
+      "authority": "historical_reference",
+      "files": 13
+    },
+    {
+      "authority": "non_authoritative",
+      "files": 15
+    },
+    {
+      "authority": "unclassified",
+      "files": 147
+    }
+  ],
   "files": [
     {
       "domain": "Admin",
@@ -81,9 +127,15 @@
       "title": "Legacy Source Routing Map",
       "doc_id": "ADMIN-MAP-003",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; legacy_reference; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Legacy Source Routing Map. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-MAP-003, SLOT-001, Admin, Applied Rules, applied_rule, legacy_reference, active, admin_reference, domain_rebuild_full_migration, legacy_slot_map_reference, Legacy, Source, Routing, Map"
+      "role_status": "applied_rule; legacy_reference; active; admin_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Legacy Source Routing Map. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-MAP-003, SLOT-001, Admin, Applied Rules, applied_rule, legacy_reference, active, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, legacy_slot_map_reference, Legacy, Source, Routing, Map"
     },
     {
       "domain": "Admin",
@@ -93,9 +145,14 @@
       "title": "Nexus Source Bootstrap",
       "doc_id": "ADMIN-RUNBOOK-001",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus Source Bootstrap. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-001, BOOT-001, Admin, Applied Rules, applied_rule, active, admin_reference, domain_rebuild_full_migration, project_bootstrap, Nexus, Source, Bootstrap"
+      "role_status": "applied_rule; applied_rule; active; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Nexus Source Bootstrap. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-001, BOOT-001, Admin, Applied Rules, applied_rule, active, admin_reference, domain_rebuild_full_migration, project_operations, project_bootstrap, Nexus, Source, Bootstrap"
     },
     {
       "domain": "Admin",
@@ -105,9 +162,14 @@
       "title": "02_GLOBAL_Project_Operations_Runbook",
       "doc_id": "ADMIN-RUNBOOK-002",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for 02_GLOBAL_Project_Operations_Runbook. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-002, ADM-002, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, global_project_operations_runbook, 02, GLOBAL, Project, Operations, Runbook"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for 02_GLOBAL_Project_Operations_Runbook. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-002, ADM-002, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, global_project_operations_runbook, 02, GLOBAL, Project, Operations, Runbook"
     },
     {
       "domain": "Admin",
@@ -117,9 +179,14 @@
       "title": "01_STEWY_Project_Manager_Runbook",
       "doc_id": "ADMIN-RUNBOOK-003",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for 01_STEWY_Project_Manager_Runbook. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-003, ADM-003, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, stewy_project_manager_runbook, 01, STEWY, Project, Manager, Runbook"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for 01_STEWY_Project_Manager_Runbook. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-003, ADM-003, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, stewy_project_manager_runbook, 01, STEWY, Project, Manager, Runbook"
     },
     {
       "domain": "Admin",
@@ -129,9 +196,14 @@
       "title": "Domain Placement and Content Routing Rules",
       "doc_id": "ADMIN-RUNBOOK-004",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Domain Placement and Content Routing Rules. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-004, ADM-004, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, document_placement_and_content_routing_rules, Domain, Placement, and, Content, Routing, Rules"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Domain Placement and Content Routing Rules. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-004, ADM-004, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, document_placement_and_content_routing_rules, Domain, Placement, and, Content, Routing, Rules"
     },
     {
       "domain": "Admin",
@@ -141,9 +213,15 @@
       "title": "Nexus_Obsidian_Folder_Map",
       "doc_id": "ADMIN-RUNBOOK-005",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus_Obsidian_Folder_Map. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-005, ADM-005, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, nexus_obsidian_folder_map, Nexus, Obsidian, Folder, Map"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Obsidian_Folder_Map. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-RUNBOOK-005, ADM-005, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_obsidian_folder_map, Nexus, Obsidian, Folder, Map"
     },
     {
       "domain": "Admin",
@@ -153,9 +231,15 @@
       "title": "Project_Source_Upload_and_Verification_Checklist",
       "doc_id": "ADMIN-RUNBOOK-006",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Project_Source_Upload_and_Verification_Checklist. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-006, ADM-006, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_source_upload_and_verification_checklist, Project, Source, Upload, and, Verification, Checklist"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Project_Source_Upload_and_Verification_Checklist. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-RUNBOOK-006, ADM-006, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, project_source_upload_and_verification_checklist, Project, Source, Upload, and, Verification, Checklist"
     },
     {
       "domain": "Admin",
@@ -165,9 +249,14 @@
       "title": "Package_Rebuild_Process",
       "doc_id": "ADMIN-RUNBOOK-007",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Package_Rebuild_Process. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-007, ADM-007, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, domain_source_rebuild_process, Package, Rebuild, Process"
+      "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Package_Rebuild_Process. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-007, ADM-007, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, project_operations, domain_source_rebuild_process, Package, Rebuild, Process"
     },
     {
       "domain": "Admin",
@@ -177,9 +266,14 @@
       "title": "Metadata_Verification_Procedure",
       "doc_id": "ADMIN-RUNBOOK-008",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Metadata_Verification_Procedure. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-008, ADM-008, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, metadata_verification_procedure, Metadata, Verification, Procedure"
+      "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Metadata_Verification_Procedure. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-008, ADM-008, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, project_operations, metadata_verification_procedure, Metadata, Verification, Procedure"
     },
     {
       "domain": "Admin",
@@ -189,9 +283,14 @@
       "title": "Replacement_Supplement_Deletion_Guidance",
       "doc_id": "ADMIN-RUNBOOK-009",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Replacement_Supplement_Deletion_Guidance. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-009, ADM-009, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, replacement_supplement_deletion_guidance, Replacement, Supplement, Deletion, Guidance"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Replacement_Supplement_Deletion_Guidance. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-009, ADM-009, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, replacement_supplement_deletion_guidance, Replacement, Supplement, Deletion, Guidance"
     },
     {
       "domain": "Admin",
@@ -201,9 +300,15 @@
       "title": "Stewy_Platform_and_Output_Handling",
       "doc_id": "ADMIN-RUNBOOK-010",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Stewy_Platform_and_Output_Handling. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-010, ADM-010, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, stewy_platform_and_output_handling, Stewy, Platform, and, Output, Handling"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Stewy_Platform_and_Output_Handling. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-RUNBOOK-010, ADM-010, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, stewy_platform_and_output_handling, Stewy, Platform, and, Output, Handling"
     },
     {
       "domain": "Admin",
@@ -213,9 +318,14 @@
       "title": "Dashboard_Update_Procedure",
       "doc_id": "ADMIN-RUNBOOK-011",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Dashboard_Update_Procedure. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-011, ADM-011, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, dashboard_update_procedure, Dashboard, Update, Procedure"
+      "role_status": "applied_rule; applied_rule; working_draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Dashboard_Update_Procedure. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-011, ADM-011, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, dashboard_update_procedure, Dashboard, Update, Procedure"
     },
     {
       "domain": "Admin",
@@ -225,9 +335,14 @@
       "title": "Domain Source Rebuild Runbook",
       "doc_id": "ADMIN-RUNBOOK-012",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Domain Source Rebuild Runbook. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-012, ADM-012, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, nexus_source_reorganization_runbook, Domain, Source, Rebuild, Runbook"
+      "role_status": "applied_rule; applied_rule; draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Domain Source Rebuild Runbook. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-012, ADM-012, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, project_operations, nexus_source_reorganization_runbook, Domain, Source, Rebuild, Runbook"
     },
     {
       "domain": "Admin",
@@ -237,9 +352,14 @@
       "title": "Nexus Source-First Routing Map",
       "doc_id": "ADMIN-RUNBOOK-013",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_truth_candidate; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Nexus Source-First Routing Map. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-013, ADM-013, Admin, Applied Rules, applied_rule, working_truth_candidate, admin_reference, domain_rebuild_full_migration, nexus_source_first_routing_map, Nexus, Source, First, Routing, Map"
+      "role_status": "applied_rule; applied_rule; working_truth_candidate; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Nexus Source-First Routing Map. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-013, ADM-013, Admin, Applied Rules, applied_rule, working_truth_candidate, admin_reference, domain_rebuild_full_migration, project_operations, nexus_source_first_routing_map, Nexus, Source, First, Routing, Map"
     },
     {
       "domain": "Admin",
@@ -249,9 +369,15 @@
       "title": "AGENTS",
       "doc_id": "ADMIN-RUNBOOK-143",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; working_draft; provisional_source; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for AGENTS. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-143, AGENTS, Admin, Applied Rules, applied_rule, working_draft, provisional_source, domain_rebuild_full_migration, agents"
+      "role_status": "applied_rule; applied_rule; working_draft; provisional_source; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for AGENTS. Exclude from default game retrieval.",
+      "key_terms": "ADMIN-RUNBOOK-143, AGENTS, Admin, Applied Rules, applied_rule, working_draft, provisional_source, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, agents"
     },
     {
       "domain": "Admin",
@@ -261,9 +387,15 @@
       "title": "Project_Workflow",
       "doc_id": "ADMIN-RUNBOOK-901",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Project_Workflow. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-901, ADM-901, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, project_workflow, Project, Workflow"
+      "role_status": "applied_rule; applied_rule; legacy_reference; non_source_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Project_Workflow. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-RUNBOOK-901, ADM-901, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, project_workflow, Project, Workflow"
     },
     {
       "domain": "Admin",
@@ -273,9 +405,15 @@
       "title": "Upload_Instructions",
       "doc_id": "ADMIN-RUNBOOK-902",
       "placement_domain": "Admin",
-      "role_status": "applied_rule; applied_rule; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin applied rules source context for Upload_Instructions. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-RUNBOOK-902, ADM-902, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, upload_instructions, Upload, Instructions"
+      "role_status": "applied_rule; applied_rule; legacy_reference; non_source_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Upload_Instructions. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-RUNBOOK-902, ADM-902, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, upload_instructions, Upload, Instructions"
     },
     {
       "domain": "Admin",
@@ -285,9 +423,15 @@
       "title": "README_Admin_Runbooks_Source_Management",
       "doc_id": "ADMIN-INDEX-000",
       "placement_domain": "Admin",
-      "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for README_Admin_Runbooks_Source_Management. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-INDEX-000, ADM-000, Admin, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, admin_domain_readme, README, Runbooks, Source, Management"
+      "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for README_Admin_Runbooks_Source_Management. Exclude from default game retrieval.",
+      "key_terms": "ADMIN-INDEX-000, ADM-000, Admin, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, admin_domain_readme, README, Runbooks, Source, Management"
     },
     {
       "domain": "Admin",
@@ -297,9 +441,15 @@
       "title": "PACKAGE_MANIFEST_Admin_Runbooks_Source_Management",
       "doc_id": "ADMIN-INDEX-001",
       "placement_domain": "Admin",
-      "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for PACKAGE_MANIFEST_Admin_Runbooks_Source_Management. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-INDEX-001, ADM-001, Admin, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, admin_domain_manifest, PACKAGE, MANIFEST, Runbooks, Source, Management"
+      "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for PACKAGE_MANIFEST_Admin_Runbooks_Source_Management. Exclude from default game retrieval.",
+      "key_terms": "ADMIN-INDEX-001, ADM-001, Admin, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, admin_domain_manifest, PACKAGE, MANIFEST, Runbooks, Source, Management"
     },
     {
       "domain": "Admin",
@@ -309,9 +459,15 @@
       "title": "Project_Readme",
       "doc_id": "ADMIN-INDEX-903",
       "placement_domain": "Admin",
-      "role_status": "reference_input; retired_legacy_placeholder; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for Project_Readme. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-INDEX-903, ADM-903, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, project_readme, Project, Readme"
+      "role_status": "reference_input; retired_legacy_placeholder; legacy_reference; non_source_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Project_Readme. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-INDEX-903, ADM-903, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, project_readme, Project, Readme"
     },
     {
       "domain": "Admin",
@@ -321,9 +477,15 @@
       "title": "PC_TRANSFER_README",
       "doc_id": "ADMIN-INDEX-904",
       "placement_domain": "Admin",
-      "role_status": "reference_input; retired_legacy_placeholder; legacy_reference; non_source_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Admin reference inputs source context for PC_TRANSFER_README. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "ADMIN-INDEX-904, ADM-904, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, pc_transfer_readme, PC, TRANSFER, README"
+      "role_status": "reference_input; retired_legacy_placeholder; legacy_reference; non_source_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving PC_TRANSFER_README. Do not treat it as current game or runtime authority.",
+      "key_terms": "ADMIN-INDEX-904, ADM-904, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, pc_transfer_readme, PC, TRANSFER, README"
     },
     {
       "domain": "Art",
@@ -1581,9 +1743,15 @@
       "title": "Global Mode Operations Rules",
       "doc_id": "MODES-CORE-002",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; draft; Instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Global Mode Operations Rules. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-CORE-002, 01, Modes, Canon Homes, canon_home, draft, Instruction, domain_rebuild_full_migration, global_mode_operations_rules, Global, Mode, Operations, Rules"
+      "role_status": "canon_home; canon_home; draft; Instruction; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "content_authoring_workflow",
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Global Mode Operations Rules. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "MODES-CORE-002, 01, Modes, Canon Homes, canon_home, draft, Instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, global_mode_operations_rules, Global, Mode, Operations, Rules"
     },
     {
       "domain": "Modes",
@@ -1593,9 +1761,15 @@
       "title": "Steward Mode Rules AI",
       "doc_id": "MODES-CORE-003",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Steward Mode Rules AI. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-CORE-003, 02, Modes, Canon Homes, canon_home, draft, admin_reference, domain_rebuild_full_migration, steward_mode_rules_ai, Steward, Mode, Rules, AI"
+      "role_status": "canon_home; canon_home; draft; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "content_authoring_workflow",
+        "project_operations"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Steward Mode Rules AI. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "MODES-CORE-003, 02, Modes, Canon Homes, canon_home, draft, admin_reference, domain_rebuild_full_migration, project_operations, content_authoring_workflow, steward_mode_rules_ai, Steward, Mode, Rules, AI"
     },
     {
       "domain": "Modes",
@@ -1605,9 +1779,14 @@
       "title": "Function_Bindings",
       "doc_id": "MODES-MODE-001",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; active; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Function_Bindings. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-001, MODE-FUNC-001, Modes, Canon Homes, canon_home, active, admin_reference, domain_rebuild_full_migration, mode_func_001_function_bindings, Function, Bindings"
+      "role_status": "canon_home; canon_home; active; admin_reference; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "content_authoring_workflow"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Function_Bindings. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "MODES-MODE-001, MODE-FUNC-001, Modes, Canon Homes, canon_home, active, admin_reference, domain_rebuild_full_migration, project_operations, content_authoring_workflow, mode_func_001_function_bindings, Function, Bindings"
     },
     {
       "domain": "Modes",
@@ -1617,9 +1796,14 @@
       "title": "Draft Mode Rules AI",
       "doc_id": "MODES-MODE-002",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Draft Mode Rules AI. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-002, MODE-002, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, draft_mode_rules_ai, Draft, Mode, Rules, AI"
+      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "content_authoring_workflow"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Draft Mode Rules AI. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "MODES-MODE-002, MODE-002, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, draft_mode_rules_ai, Draft, Mode, Rules, AI"
     },
     {
       "domain": "Modes",
@@ -1629,9 +1813,14 @@
       "title": "Seed Mode Rules AI",
       "doc_id": "MODES-MODE-003",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Seed Mode Rules AI. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-003, MODE-003, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, seed_mode_rules_ai, Seed, Mode, Rules, AI"
+      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "content_authoring_workflow"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Seed Mode Rules AI. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "MODES-MODE-003, MODE-003, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, seed_mode_rules_ai, Seed, Mode, Rules, AI"
     },
     {
       "domain": "Modes",
@@ -1641,9 +1830,15 @@
       "title": "DM Mode Rules AI",
       "doc_id": "MODES-MODE-004",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for DM Mode Rules AI. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-004, MODE-004, Modes, Canon Homes, canon_home, draft, instruction, domain_rebuild_full_migration, dm_mode_rules_ai, DM, Mode, Rules, AI"
+      "role_status": "canon_home; canon_home; draft; instruction; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving DM Mode Rules AI. Do not treat it as current game or runtime authority.",
+      "key_terms": "MODES-MODE-004, MODE-004, Modes, Canon Homes, canon_home, draft, instruction, domain_rebuild_full_migration, historical_reference, content_authoring_workflow, historical_provenance, dm_mode_rules_ai, DM, Mode, Rules, AI"
     },
     {
       "domain": "Modes",
@@ -1653,9 +1848,14 @@
       "title": "Art_Mode_Rules_AI",
       "doc_id": "MODES-MODE-005",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Art_Mode_Rules_AI. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-005, MODE-005, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, art_mode_rules_ai, Art, Mode, Rules, AI"
+      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration; project_operations",
+      "authority": "project_operations",
+      "applicability": [
+        "content_authoring_workflow"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Art_Mode_Rules_AI. Exclude from default game-rule and lore retrieval.",
+      "key_terms": "MODES-MODE-005, MODE-005, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, art_mode_rules_ai, Art, Mode, Rules, AI"
     },
     {
       "domain": "Modes",
@@ -1665,9 +1865,15 @@
       "title": "Nexus_Mode_Menu",
       "doc_id": "MODES-MODE-006",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus_Mode_Menu. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-006, MODE-006, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, nexus_mode_menu, Nexus, Mode, Menu"
+      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Mode_Menu. Do not treat it as current game or runtime authority.",
+      "key_terms": "MODES-MODE-006, MODE-006, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_mode_menu, Nexus, Mode, Menu"
     },
     {
       "domain": "Modes",
@@ -1677,9 +1883,15 @@
       "title": "Nexus_Mode_Launch_Cards",
       "doc_id": "MODES-MODE-007",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus_Mode_Launch_Cards. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-007, MODE-007, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, nexus_mode_launch_cards, Nexus, Mode, Launch, Cards"
+      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Mode_Launch_Cards. Do not treat it as current game or runtime authority.",
+      "key_terms": "MODES-MODE-007, MODE-007, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_mode_launch_cards, Nexus, Mode, Launch, Cards"
     },
     {
       "domain": "Modes",
@@ -1689,9 +1901,15 @@
       "title": "Nexus Command Key",
       "doc_id": "MODES-MODE-008",
       "placement_domain": "Modes",
-      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes canon homes source context for Nexus Command Key. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-MODE-008, MODE-008, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, nexus_command_key, Nexus, Command, Key"
+      "role_status": "canon_home; canon_home; working_draft; instruction; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus Command Key. Do not treat it as current game or runtime authority.",
+      "key_terms": "MODES-MODE-008, MODE-008, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_command_key, Nexus, Command, Key"
     },
     {
       "domain": "Modes",
@@ -1701,9 +1919,15 @@
       "title": "Nexus_Open_Questions_Register",
       "doc_id": "MODES-OPEN-003",
       "placement_domain": "Modes",
-      "role_status": "open_questions; open_questions; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes open questions source context for Nexus_Open_Questions_Register. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-OPEN-003, REG-003, Modes, Open Questions, open_questions, working_draft, admin_reference, domain_rebuild_full_migration, nexus_open_questions_register, Nexus, Open, Questions, Register"
+      "role_status": "open_questions; open_questions; working_draft; admin_reference; domain_rebuild_full_migration; historical_reference",
+      "authority": "historical_reference",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Open_Questions_Register. Do not treat it as current game or runtime authority.",
+      "key_terms": "MODES-OPEN-003, REG-003, Modes, Open Questions, open_questions, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_open_questions_register, Nexus, Open, Questions, Register"
     },
     {
       "domain": "Modes",
@@ -1713,9 +1937,15 @@
       "title": "README_Mode_Operations_Registers_Templates",
       "doc_id": "MODES-INDEX-000",
       "placement_domain": "Modes",
-      "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for README_Mode_Operations_Registers_Templates. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-INDEX-000, MODE-000, Modes, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, modes_domain_readme, README, Mode, Operations, Registers, Templates"
+      "role_status": "reference_input; domain_readme; draft; admin_reference; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for README_Mode_Operations_Registers_Templates. Exclude from default game retrieval.",
+      "key_terms": "MODES-INDEX-000, MODE-000, Modes, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, modes_domain_readme, README, Mode, Operations, Registers, Templates"
     },
     {
       "domain": "Modes",
@@ -1725,9 +1955,15 @@
       "title": "PACKAGE_MANIFEST_Mode_Operations_Registers_Templates",
       "doc_id": "MODES-INDEX-001",
       "placement_domain": "Modes",
-      "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for PACKAGE_MANIFEST_Mode_Operations_Registers_Templates. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-INDEX-001, MODE-001, Modes, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, modes_domain_manifest, PACKAGE, MANIFEST, Mode, Operations, Registers, Templates"
+      "role_status": "reference_input; domain_manifest; draft; admin_reference; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "project_operations",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for PACKAGE_MANIFEST_Mode_Operations_Registers_Templates. Exclude from default game retrieval.",
+      "key_terms": "MODES-INDEX-001, MODE-001, Modes, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, modes_domain_manifest, PACKAGE, MANIFEST, Mode, Operations, Registers, Templates"
     },
     {
       "domain": "Modes",
@@ -1737,9 +1973,15 @@
       "title": "Domain Readme Template",
       "doc_id": "MODES-INDEX-002",
       "placement_domain": "Modes",
-      "role_status": "reference_input; reference_input; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Domain Readme Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-INDEX-002, TPL-002, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, domain_readme_template, Domain, Readme, Template"
+      "role_status": "reference_input; reference_input; draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Domain Readme Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-INDEX-002, TPL-002, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, domain_readme_template, Domain, Readme, Template"
     },
     {
       "domain": "Modes",
@@ -1749,9 +1991,15 @@
       "title": "Domain Manifest Template",
       "doc_id": "MODES-INDEX-003",
       "placement_domain": "Modes",
-      "role_status": "reference_input; reference_input; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Domain Manifest Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-INDEX-003, TPL-003, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, domain_manifest_template, Domain, Manifest, Template"
+      "role_status": "reference_input; reference_input; draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Domain Manifest Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-INDEX-003, TPL-003, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, domain_manifest_template, Domain, Manifest, Template"
     },
     {
       "domain": "Modes",
@@ -1761,9 +2009,15 @@
       "title": "Nexus_Output_Register",
       "doc_id": "MODES-REGISTER-001",
       "placement_domain": "Modes",
-      "role_status": "reference_input; register; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Output_Register. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-REGISTER-001, REG-001, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, nexus_output_register, Nexus, Output, Register"
+      "role_status": "reference_input; register; working_draft; admin_reference; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Nexus_Output_Register. Exclude from default game retrieval.",
+      "key_terms": "MODES-REGISTER-001, REG-001, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, nexus_output_register, Nexus, Output, Register"
     },
     {
       "domain": "Modes",
@@ -1773,9 +2027,15 @@
       "title": "Nexus_Source_Status_Register",
       "doc_id": "MODES-REGISTER-002",
       "placement_domain": "Modes",
-      "role_status": "reference_input; register; working_draft; admin_reference; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Source_Status_Register. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-REGISTER-002, REG-002, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, nexus_source_status_register, Nexus, Source, Status, Register"
+      "role_status": "reference_input; register; working_draft; admin_reference; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Nexus_Source_Status_Register. Exclude from default game retrieval.",
+      "key_terms": "MODES-REGISTER-002, REG-002, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, nexus_source_status_register, Nexus, Source, Status, Register"
     },
     {
       "domain": "Modes",
@@ -1785,9 +2045,15 @@
       "title": "Nexus_Obsidian_Property_Schema",
       "doc_id": "MODES-TEMPLATE-001",
       "placement_domain": "Modes",
-      "role_status": "reference_input; template; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Nexus_Obsidian_Property_Schema. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-TEMPLATE-001, TPL-001, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, nexus_obsidian_property_schema, Nexus, Obsidian, Property, Schema"
+      "role_status": "reference_input; template; draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Nexus_Obsidian_Property_Schema. Exclude from default game retrieval.",
+      "key_terms": "MODES-TEMPLATE-001, TPL-001, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, nexus_obsidian_property_schema, Nexus, Obsidian, Property, Schema"
     },
     {
       "domain": "Modes",
@@ -1797,9 +2063,15 @@
       "title": "Source_Doc_Template",
       "doc_id": "MODES-TEMPLATE-004",
       "placement_domain": "Modes",
-      "role_status": "reference_input; template; draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Source_Doc_Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-TEMPLATE-004, TPL-004, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, source_doc_template, Source, Doc, Template"
+      "role_status": "reference_input; template; draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Source_Doc_Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-TEMPLATE-004, TPL-004, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, source_doc_template, Source, Doc, Template"
     },
     {
       "domain": "Modes",
@@ -1809,9 +2081,15 @@
       "title": "Dashboard_Template",
       "doc_id": "MODES-TEMPLATE-005",
       "placement_domain": "Modes",
-      "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Dashboard_Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-TEMPLATE-005, TPL-005, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, dashboard_template, Dashboard, Template"
+      "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Dashboard_Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-TEMPLATE-005, TPL-005, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, dashboard_template, Dashboard, Template"
     },
     {
       "domain": "Modes",
@@ -1821,9 +2099,15 @@
       "title": "Handoff_Passoff_Template",
       "doc_id": "MODES-TEMPLATE-006",
       "placement_domain": "Modes",
-      "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Handoff_Passoff_Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-TEMPLATE-006, TPL-006, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, handoff_passoff_template, Handoff, Passoff, Template"
+      "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Handoff_Passoff_Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-TEMPLATE-006, TPL-006, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, handoff_passoff_template, Handoff, Passoff, Template"
     },
     {
       "domain": "Modes",
@@ -1833,9 +2117,15 @@
       "title": "Data_Dictionary_Template",
       "doc_id": "MODES-TEMPLATE-007",
       "placement_domain": "Modes",
-      "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Data_Dictionary_Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-TEMPLATE-007, TPL-007, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, data_dictionary_template, Data, Dictionary, Template"
+      "role_status": "reference_input; template; working_draft; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Data_Dictionary_Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-TEMPLATE-007, TPL-007, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, data_dictionary_template, Data, Dictionary, Template"
     },
     {
       "domain": "Modes",
@@ -1845,9 +2135,15 @@
       "title": "Seed_Mode_Dashboard_Template",
       "doc_id": "MODES-TEMPLATE-008",
       "placement_domain": "Modes",
-      "role_status": "reference_input; template; active; instruction; domain_rebuild_full_migration",
-      "use_when": "Use when ChatGPT or app work needs Modes reference inputs source context for Seed_Mode_Dashboard_Template. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
-      "key_terms": "MODES-TEMPLATE-008, TPL-008, Modes, Reference Inputs, reference_input, template, active, instruction, domain_rebuild_full_migration, seed_mode_dashboard_template, Seed, Mode, Dashboard, Template"
+      "role_status": "reference_input; template; active; instruction; domain_rebuild_full_migration; non_authoritative",
+      "authority": "non_authoritative",
+      "applicability": [
+        "content_authoring_workflow",
+        "historical_provenance"
+      ],
+      "default_game_retrieval": false,
+      "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Seed_Mode_Dashboard_Template. Exclude from default game retrieval.",
+      "key_terms": "MODES-TEMPLATE-008, TPL-008, Modes, Reference Inputs, reference_input, template, active, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, seed_mode_dashboard_template, Seed, Mode, Dashboard, Template"
     },
     {
       "domain": "Play Aids",

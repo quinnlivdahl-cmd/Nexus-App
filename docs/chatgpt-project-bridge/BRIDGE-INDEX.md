@@ -22,7 +22,8 @@ The complete permanent upload set is:
 
 | Needed context | Retrieve or request |
 |---|---|
-| Canonical rules, lore, game concepts, or domain language | `docs/nexus-game-source/source/SOURCE-INDEX.md`, then the exact indexed source files |
+| Canonical rules, lore, game concepts, or domain language | `docs/nexus-game-source/source/SOURCE-INDEX.md`, select entries marked for default game retrieval, then fetch the exact indexed source files |
+| Legacy GPT modes, project operations, or source-workflow provenance | `docs/nexus-game-source/source/SOURCE-INDEX.md`, deliberately select the relevant `project_operations`, `historical_reference`, or `non_authoritative` entries |
 | Accepted decision rationale | `docs/adr/README.md`, then the applicable accepted ADR |
 | Current task state or acceptance criteria | The live GitHub Issue; use `NEXUS_ISSUE_INDEX.md` only as a repo-readable map |
 | Current implementation behavior | Nexus-App code through Codex/local inspection |

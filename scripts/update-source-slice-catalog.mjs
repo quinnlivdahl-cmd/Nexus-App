@@ -1,13 +1,25 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  writeFileSync,
+} from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { createHash } from "node:crypto";
+import {
+  applicabilityValues,
+  authorityValues,
+  retrievalMetadata,
+} from "./source-retrieval-policy.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
 const sourceRoot = "docs/nexus-game-source/source";
 const catalogMdPath = `${sourceRoot}/SOURCE-SLICES.md`;
 const catalogJsonPath = `${sourceRoot}/SOURCE-SLICES.json`;
-const markerPattern = /^\s*<!--\s*source-slice:\s*([a-z][a-z0-9]*(?:[.-][a-z0-9]+)*)\s*-->\s*$/;
+const markerPattern =
+  /^\s*<!--\s*source-slice:\s*([a-z][a-z0-9]*(?:[.-][a-z0-9]+)*)\s*-->\s*$/;
 const headingPattern = /^(#{1,6})\s+(.+?)\s*$/;
 const automaticHeadingLevel = 2;
 
@@ -89,7 +101,8 @@ function discoverMarkdownFiles(dir) {
     }
 
     if (!entry.isFile() || !entry.name.endsWith(".md")) continue;
-    if (entry.name === "SOURCE-INDEX.md" || entry.name === "SOURCE-SLICES.md") continue;
+    if (entry.name === "SOURCE-INDEX.md" || entry.name === "SOURCE-SLICES.md")
+      continue;
     files.push(fullPath);
   }
 
@@ -141,11 +154,17 @@ function discoverSlices(filePath) {
   const frontmatter = parseFrontmatter(text);
   const lines = text.split(/\r?\n/);
   const repoPath = toRepoPath(filePath);
-  const relativeSourcePath = relative(resolve(root, sourceRoot), filePath).split(sep);
+  const relativeSourcePath = relative(
+    resolve(root, sourceRoot),
+    filePath,
+  ).split(sep);
   const [domain = "Unsorted", section = "Unsorted"] = relativeSourcePath;
   const file = relativeSourcePath.at(-1);
-  const docId = frontmatter.doc_id || file.replace(/ - .+$/, "").replace(/\.md$/, "");
-  const docTitle = frontmatter.title || firstHeading(text) || file.replace(/\.md$/, "");
+  const docId =
+    frontmatter.doc_id || file.replace(/ - .+$/, "").replace(/\.md$/, "");
+  const docTitle =
+    frontmatter.title || firstHeading(text) || file.replace(/\.md$/, "");
+  const retrieval = retrievalMetadata(frontmatter, domain, repoPath);
   const slices = [];
   const errors = [];
   const explicitIdsByHeadingIndex = new Map();
@@ -155,7 +174,9 @@ function discoverSlices(filePath) {
     const markerMatch = lines[index].match(markerPattern);
     if (!markerMatch) {
       if (/source-slice:/i.test(lines[index])) {
-        errors.push(`${repoPath}:${index + 1} has malformed source-slice marker`);
+        errors.push(
+          `${repoPath}:${index + 1} has malformed source-slice marker`,
+        );
       }
       continue;
     }
@@ -165,7 +186,9 @@ function discoverSlices(filePath) {
     const headingMatch = lines[headingIndex]?.match(headingPattern);
 
     if (!headingMatch) {
-      errors.push(`${repoPath}:${index + 1} source-slice ${id} must be followed immediately by a Markdown heading`);
+      errors.push(
+        `${repoPath}:${index + 1} source-slice ${id} must be followed immediately by a Markdown heading`,
+      );
       continue;
     }
 
@@ -193,10 +216,20 @@ function discoverSlices(filePath) {
       const baseGeneratedId = `auto.${headingId(docId)}.${generatedHeadingId(heading.title)}`;
       const generatedIdCount = (generatedIds.get(baseGeneratedId) ?? 0) + 1;
       generatedIds.set(baseGeneratedId, generatedIdCount);
-      id = generatedIdCount === 1 ? baseGeneratedId : `${baseGeneratedId}-${generatedIdCount}`;
+      id =
+        generatedIdCount === 1
+          ? baseGeneratedId
+          : `${baseGeneratedId}-${generatedIdCount}`;
     }
-    const endIndex = endIndexForHeading(lines, heading.index, heading.headingLevel);
-    const content = lines.slice(heading.index, endIndex + 1).join("\n").trimEnd();
+    const endIndex = endIndexForHeading(
+      lines,
+      heading.index,
+      heading.headingLevel,
+    );
+    const content = lines
+      .slice(heading.index, endIndex + 1)
+      .join("\n")
+      .trimEnd();
 
     slices.push({
       slice_id: id,
@@ -217,18 +250,28 @@ function discoverSlices(filePath) {
       doc_status: frontmatter.doc_status ?? null,
       working_state: frontmatter.working_state ?? null,
       topic_family: frontmatter.topic_family ?? null,
+      ...retrieval,
     });
   }
 
   const titleHeading = headings.find((heading) => heading.headingLevel === 1);
-  const firstH2 = headings.find((heading) => heading.headingLevel === automaticHeadingLevel);
+  const firstH2 = headings.find(
+    (heading) => heading.headingLevel === automaticHeadingLevel,
+  );
   if (titleHeading && firstH2 && firstH2.index > titleHeading.index + 1) {
     let contextEndIndex = firstH2.index - 1;
     if (markerPattern.test(lines[contextEndIndex] ?? "")) contextEndIndex -= 1;
-    const contextRange = trimLineRange(lines, titleHeading.index + 1, contextEndIndex);
+    const contextRange = trimLineRange(
+      lines,
+      titleHeading.index + 1,
+      contextEndIndex,
+    );
 
     if (contextRange) {
-      const content = lines.slice(contextRange.startIndex, contextRange.endIndex + 1).join("\n").trimEnd();
+      const content = lines
+        .slice(contextRange.startIndex, contextRange.endIndex + 1)
+        .join("\n")
+        .trimEnd();
       slices.push({
         slice_id: `auto.${headingId(docId)}.document-context`,
         slice_origin: "generated_document_context",
@@ -248,14 +291,21 @@ function discoverSlices(filePath) {
         doc_status: frontmatter.doc_status ?? null,
         working_state: frontmatter.working_state ?? null,
         topic_family: frontmatter.topic_family ?? null,
+        ...retrieval,
       });
     }
   }
 
-  const h2Count = headings.filter((heading) => heading.headingLevel === automaticHeadingLevel).length;
-  const coveredH2Count = slices.filter((slice) => slice.heading_level === automaticHeadingLevel).length;
+  const h2Count = headings.filter(
+    (heading) => heading.headingLevel === automaticHeadingLevel,
+  ).length;
+  const coveredH2Count = slices.filter(
+    (slice) => slice.heading_level === automaticHeadingLevel,
+  ).length;
   if (coveredH2Count !== h2Count) {
-    errors.push(`${repoPath} covers ${coveredH2Count} of ${h2Count} level-two headings`);
+    errors.push(
+      `${repoPath} covers ${coveredH2Count} of ${h2Count} level-two headings`,
+    );
   }
 
   return { slices, errors, h2Count, coveredH2Count };
@@ -301,20 +351,31 @@ function buildCatalog() {
     throw new Error(`[update-source-slice-catalog] Failed\n${message}`);
   }
 
-  const domainCounts = [...slices.reduce((counts, slice) => {
-    const count = counts.get(slice.domain) ?? { slices: 0, documents: new Set() };
-    count.slices += 1;
-    count.documents.add(slice.doc_id);
-    counts.set(slice.domain, count);
-    return counts;
-  }, new Map())]
-    .map(([domain, count]) => ({ domain, documents: count.documents.size, slices: count.slices }))
+  const domainCounts = [
+    ...slices.reduce((counts, slice) => {
+      const count = counts.get(slice.domain) ?? {
+        slices: 0,
+        documents: new Set(),
+      };
+      count.slices += 1;
+      count.documents.add(slice.doc_id);
+      counts.set(slice.domain, count);
+      return counts;
+    }, new Map()),
+  ]
+    .map(([domain, count]) => ({
+      domain,
+      documents: count.documents.size,
+      slices: count.slices,
+    }))
     .sort((a, b) => a.domain.localeCompare(b.domain));
 
-  const originCounts = [...slices.reduce((counts, slice) => {
-    counts.set(slice.slice_origin, (counts.get(slice.slice_origin) ?? 0) + 1);
-    return counts;
-  }, new Map())]
+  const originCounts = [
+    ...slices.reduce((counts, slice) => {
+      counts.set(slice.slice_origin, (counts.get(slice.slice_origin) ?? 0) + 1);
+      return counts;
+    }, new Map()),
+  ]
     .map(([origin, count]) => ({ origin, slices: count }))
     .sort((a, b) => a.origin.localeCompare(b.origin));
 
@@ -324,11 +385,16 @@ function buildCatalog() {
     base_path: sourceRoot,
     authority_note:
       "Generated broker-facing catalog of source slices in Golden Truth Markdown. Source slices are retrievable context units, not new source authority.",
+    authority_values: authorityValues,
+    applicability_values: applicabilityValues,
+    default_game_retrieval_policy:
+      "Include game_current, game_provisional, and runtime_ai_behavior. Exclude project_operations, historical_reference, and non_authoritative. Documents outside the explicitly classified Admin and Modes domains retain legacy inclusion until classified.",
     slice_policy:
       "Explicit source-slice markers keep their curated IDs. Every otherwise-unmarked level-two heading receives a deterministic generated ID, and meaningful document preambles receive a document-context slice.",
     generated_id_note:
       "Generated IDs remain stable while the owning doc_id and heading remain stable. Add an explicit source-slice marker before using a generated ID in a durable runtime contract.",
-    marker_format: "<!-- source-slice: domain.topic.slice-id --> followed immediately by the indexed Markdown heading",
+    marker_format:
+      "<!-- source-slice: domain.topic.slice-id --> followed immediately by the indexed Markdown heading",
     update_command: "corepack pnpm run source:slices",
     check_command: "corepack pnpm run source:slices:check",
     document_count: documentCount,
@@ -343,7 +409,9 @@ function buildCatalog() {
 }
 
 function escapeTable(value) {
-  return String(value ?? "").replaceAll("|", "\\|").replace(/\r?\n/g, " ");
+  return String(value ?? "")
+    .replaceAll("|", "\\|")
+    .replace(/\r?\n/g, " ");
 }
 
 function renderMarkdown(catalog) {
@@ -366,6 +434,8 @@ function renderMarkdown(catalog) {
     "",
     "The runtime app context pack should reference these slice IDs; this catalog does not decide which slices are selected for a prompt.",
     "",
+    `Default game retrieval policy: ${catalog.default_game_retrieval_policy}`,
+    "",
     "## Maintenance",
     "",
     `Regenerate after source documents or embedded source-slice markers change: \`${catalog.update_command}\`.`,
@@ -386,16 +456,12 @@ function renderMarkdown(catalog) {
   ];
 
   for (const count of catalog.domain_counts) {
-    lines.push(`| ${escapeTable(count.domain)} | ${count.documents} | ${count.slices} |`);
+    lines.push(
+      `| ${escapeTable(count.domain)} | ${count.documents} | ${count.slices} |`,
+    );
   }
 
-  lines.push(
-    "",
-    "## Slice Origins",
-    "",
-    "| Origin | Slices |",
-    "|---|---:|",
-  );
+  lines.push("", "## Slice Origins", "", "| Origin | Slices |", "|---|---:|");
 
   for (const count of catalog.origin_counts) {
     lines.push(`| ${escapeTable(count.origin)} | ${count.slices} |`);
@@ -438,22 +504,31 @@ try {
   const json = renderJson(catalog);
 
   if (checkOnly) {
-    const failures = [...checkFile(catalogMdPath, md), ...checkFile(catalogJsonPath, json)];
+    const failures = [
+      ...checkFile(catalogMdPath, md),
+      ...checkFile(catalogJsonPath, json),
+    ];
     if (failures.length > 0) {
       console.error("[update-source-slice-catalog] Failed");
       for (const failure of failures) console.error(`- ${failure}`);
-      console.error(`Run \`${catalog.update_command}\` and review the generated diff.`);
+      console.error(
+        `Run \`${catalog.update_command}\` and review the generated diff.`,
+      );
       process.exit(1);
     }
 
-    console.log(`[update-source-slice-catalog] OK (${catalog.slice_count} slices)`);
+    console.log(
+      `[update-source-slice-catalog] OK (${catalog.slice_count} slices)`,
+    );
     process.exit(0);
   }
 
   mkdirSync(dirname(resolve(root, catalogMdPath)), { recursive: true });
   writeFileSync(resolve(root, catalogMdPath), md, "utf8");
   writeFileSync(resolve(root, catalogJsonPath), json, "utf8");
-  console.log(`[update-source-slice-catalog] Wrote ${catalog.slice_count} slices to ${catalogMdPath}`);
+  console.log(
+    `[update-source-slice-catalog] Wrote ${catalog.slice_count} slices to ${catalogMdPath}`,
+  );
 } catch (error) {
   console.error(error instanceof Error ? error.message : error);
   process.exit(1);

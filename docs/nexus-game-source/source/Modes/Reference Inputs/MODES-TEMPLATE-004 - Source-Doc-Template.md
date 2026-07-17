@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Shared"
 source_role: "template"
 canon_status: "instruction"
+authority: "non_authoritative"
+applicability:
+  - 'content_authoring_workflow'
+  - 'historical_provenance'
 placement_domain: "Modes"
 content_role: "reference_input"
 topic_family: "source_doc_template"

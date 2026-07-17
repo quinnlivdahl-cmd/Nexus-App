@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Steward"
 source_role: "register"
 canon_status: "admin_reference"
+authority: "non_authoritative"
+applicability:
+  - 'content_authoring_workflow'
+  - 'historical_provenance'
 placement_domain: "Modes"
 content_role: "reference_input"
 topic_family: "nexus_output_register"

@@ -1,5 +1,16 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  writeFileSync,
+} from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
+import {
+  applicabilityValues,
+  authorityValues,
+  retrievalMetadata,
+} from "./source-retrieval-policy.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
@@ -8,7 +19,8 @@ const sourceName = "Nexus-App Canonical Source";
 const sourceEstablished = "2026-06-10";
 const goldenTruthConfirmed = "2026-06-14";
 const sourceHomeRenamed = "2026-06-14";
-const obsidianPointerRoot = "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
+const obsidianPointerRoot =
+  "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
 const indexMdPath = `${sourceRoot}/SOURCE-INDEX.md`;
 const indexJsonPath = `${sourceRoot}/SOURCE-INDEX.json`;
 
@@ -90,7 +102,8 @@ function discoverMarkdownFiles(dir) {
     }
 
     if (!entry.isFile() || !entry.name.endsWith(".md")) continue;
-    if (entry.name === "SOURCE-INDEX.md" || entry.name === "SOURCE-SLICES.md") continue;
+    if (entry.name === "SOURCE-INDEX.md" || entry.name === "SOURCE-SLICES.md")
+      continue;
     files.push(fullPath);
   }
 
@@ -104,7 +117,22 @@ function asArray(value) {
 }
 
 function compactJoin(values) {
-  return values.filter((value) => value !== undefined && value !== null && value !== "").join("; ");
+  return values
+    .filter((value) => value !== undefined && value !== null && value !== "")
+    .join("; ");
+}
+
+function useWhenForRetrieval(retrieval, domain, section, title) {
+  if (retrieval.authority === "project_operations") {
+    return `Use only when work needs Nexus ${domain} ${section.toLowerCase()} project or content-authoring operations for ${title}. Exclude from default game-rule and lore retrieval.`;
+  }
+  if (retrieval.authority === "historical_reference") {
+    return `Use deliberately for legacy workflow, prototype behavior, or provenance involving ${title}. Do not treat it as current game or runtime authority.`;
+  }
+  if (retrieval.authority === "non_authoritative") {
+    return `Use deliberately as a non-authoritative template, register, manifest, or structural reference for ${title}. Exclude from default game retrieval.`;
+  }
+  return `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.`;
 }
 
 function titleTerms(title) {
@@ -131,29 +159,38 @@ function uniqueTerms(values) {
 }
 
 function escapeTable(value) {
-  return String(value ?? "").replaceAll("|", "\\|").replace(/\r?\n/g, " ");
+  return String(value ?? "")
+    .replaceAll("|", "\\|")
+    .replace(/\r?\n/g, " ");
 }
 
 function sourceItem(filePath) {
   const text = readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
   const frontmatter = parseFrontmatter(text);
   const repoPath = toRepoPath(filePath);
-  const relativeSourcePath = relative(resolve(root, sourceRoot), filePath).split(sep);
+  const relativeSourcePath = relative(
+    resolve(root, sourceRoot),
+    filePath,
+  ).split(sep);
   const [domain = "Unsorted", section = "Unsorted"] = relativeSourcePath;
   const file = relativeSourcePath.at(-1);
-  const docId = frontmatter.doc_id || file.replace(/ - .+$/, "").replace(/\.md$/, "");
-  const title = frontmatter.title || firstHeading(text) || file.replace(/\.md$/, "");
+  const docId =
+    frontmatter.doc_id || file.replace(/ - .+$/, "").replace(/\.md$/, "");
+  const title =
+    frontmatter.title || firstHeading(text) || file.replace(/\.md$/, "");
   const contentRole = frontmatter.content_role;
   const sourceRole = frontmatter.source_role;
   const docStatus = frontmatter.doc_status;
   const canonStatus = frontmatter.canon_status;
   const workingState = frontmatter.working_state;
+  const retrieval = retrievalMetadata(frontmatter, domain, repoPath);
   const roleStatus = compactJoin([
     contentRole,
     sourceRole,
     docStatus,
     canonStatus,
     workingState,
+    retrieval.authority,
   ]);
 
   return {
@@ -165,7 +202,8 @@ function sourceItem(filePath) {
     doc_id: docId,
     placement_domain: frontmatter.placement_domain || domain,
     role_status: roleStatus,
-    use_when: `Use when ChatGPT or app work needs ${domain} ${section.toLowerCase()} source context for ${title}. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.`,
+    ...retrieval,
+    use_when: useWhenForRetrieval(retrieval, domain, section, title),
     key_terms: uniqueTerms([
       docId,
       asArray(frontmatter.legacy_ids),
@@ -176,6 +214,8 @@ function sourceItem(filePath) {
       docStatus,
       canonStatus,
       workingState,
+      retrieval.authority,
+      retrieval.applicability,
       frontmatter.topic_family,
       asArray(frontmatter.owns_topics),
       titleTerms(title),
@@ -190,14 +230,22 @@ function buildIndex() {
   }
 
   const files = discoverMarkdownFiles(sourceRootPath).map(sourceItem);
-  const domainCounts = [...files.reduce((counts, file) => {
-    counts.set(file.domain, (counts.get(file.domain) ?? 0) + 1);
-    return counts;
-  }, new Map())]
+  const domainCounts = [
+    ...files.reduce((counts, file) => {
+      counts.set(file.domain, (counts.get(file.domain) ?? 0) + 1);
+      return counts;
+    }, new Map()),
+  ]
     .map(([domain, count]) => ({ domain, files: count }))
     .sort((a, b) => a.domain.localeCompare(b.domain));
 
   files.sort((a, b) => a.exact_repo_path.localeCompare(b.exact_repo_path));
+
+  const authorityCounts = authorityValues.map((authority) => ({
+    authority,
+    files: files.filter((file) => file.authority === authority).length,
+  }));
+  const unclassifiedCount = files.filter((file) => !file.authority).length;
 
   return {
     source_name: sourceName,
@@ -208,12 +256,19 @@ function buildIndex() {
     base_path: sourceRoot,
     path_status:
       "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
-    authority_note:
-      `Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at ${obsidianPointerRoot} and is not a source copy.`,
+    authority_note: `Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at ${obsidianPointerRoot} and is not a source copy.`,
+    authority_values: authorityValues,
+    applicability_values: applicabilityValues,
+    default_game_retrieval_policy:
+      "Include game_current, game_provisional, and runtime_ai_behavior. Exclude project_operations, historical_reference, and non_authoritative. Documents outside the explicitly classified Admin and Modes domains retain legacy inclusion until classified.",
     update_command: "corepack pnpm run source:index",
     check_command: "corepack pnpm run source:index:check",
     file_count: files.length,
     domain_counts: domainCounts,
+    authority_counts: [
+      ...authorityCounts,
+      { authority: "unclassified", files: unclassifiedCount },
+    ],
     files,
   };
 }
@@ -237,6 +292,8 @@ function renderMarkdown(index) {
     "",
     "ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.",
     "",
+    `Default game retrieval policy: ${index.default_game_retrieval_policy}`,
+    "",
     "## Maintenance",
     "",
     `Regenerate after canonical source docs are added, removed, renamed, or changed: \`${index.update_command}\`.`,
@@ -257,13 +314,13 @@ function renderMarkdown(index) {
     "",
     "## Source Files",
     "",
-    "| Title | Exact repo path | Role/status | Use when | Key terms |",
-    "|---|---|---|---|---|",
+    "| Title | Exact repo path | Authority | Applicability | Default game retrieval | Role/status | Use when | Key terms |",
+    "|---|---|---|---|---|---|---|---|",
   );
 
   for (const file of index.files) {
     lines.push(
-      `| ${escapeTable(file.title)} | \`${escapeTable(file.exact_repo_path)}\` | ${escapeTable(file.role_status)} | ${escapeTable(file.use_when)} | ${escapeTable(file.key_terms)} |`,
+      `| ${escapeTable(file.title)} | \`${escapeTable(file.exact_repo_path)}\` | ${escapeTable(file.authority ?? "unclassified")} | ${escapeTable((file.applicability ?? []).join(", "))} | ${file.default_game_retrieval !== false ? "yes" : "no"} | ${escapeTable(file.role_status)} | ${escapeTable(file.use_when)} | ${escapeTable(file.key_terms)} |`,
     );
   }
 
@@ -289,11 +346,16 @@ const md = renderMarkdown(index);
 const json = renderJson(index);
 
 if (checkOnly) {
-  const failures = [...checkFile(indexMdPath, md), ...checkFile(indexJsonPath, json)];
+  const failures = [
+    ...checkFile(indexMdPath, md),
+    ...checkFile(indexJsonPath, json),
+  ];
   if (failures.length > 0) {
     console.error("[update-source-index] Failed");
     for (const failure of failures) console.error(`- ${failure}`);
-    console.error(`Run \`${index.update_command}\` and review the generated diff.`);
+    console.error(
+      `Run \`${index.update_command}\` and review the generated diff.`,
+    );
     process.exit(1);
   }
 
@@ -304,4 +366,6 @@ if (checkOnly) {
 mkdirSync(dirname(resolve(root, indexMdPath)), { recursive: true });
 writeFileSync(resolve(root, indexMdPath), md, "utf8");
 writeFileSync(resolve(root, indexJsonPath), json, "utf8");
-console.log(`[update-source-index] Wrote ${index.file_count} files to ${indexMdPath}`);
+console.log(
+  `[update-source-index] Wrote ${index.file_count} files to ${indexMdPath}`,
+);

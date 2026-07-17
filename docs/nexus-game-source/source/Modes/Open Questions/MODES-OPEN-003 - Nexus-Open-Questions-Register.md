@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Steward"
 source_role: "open_questions"
 canon_status: "admin_reference"
+authority: "historical_reference"
+applicability:
+  - 'project_operations'
+  - 'historical_provenance'
 placement_domain: "Modes"
 content_role: "open_questions"
 topic_family: "nexus_open_questions_register"
