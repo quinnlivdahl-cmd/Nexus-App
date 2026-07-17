@@ -6,7 +6,7 @@
   "repository": "quinnlivdahl-cmd/Nexus-App",
   "base_path": "docs/nexus-game-source/source",
   "path_status": "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
-  "authority_note": "Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source and is not a source copy.",
+  "authority_note": "Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. The maintained Obsidian pointer-card route is owned by docs/admin/nexus-distributed-surfaces.md and is not a source copy.",
   "authority_values": [
     "game_current",
     "game_provisional",

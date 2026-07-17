@@ -19,8 +19,6 @@ const sourceName = "Nexus-App Canonical Source";
 const sourceEstablished = "2026-06-10";
 const goldenTruthConfirmed = "2026-06-14";
 const sourceHomeRenamed = "2026-06-14";
-const obsidianPointerRoot =
-  "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
 const indexMdPath = `${sourceRoot}/SOURCE-INDEX.md`;
 const indexJsonPath = `${sourceRoot}/SOURCE-INDEX.json`;
 
@@ -256,7 +254,8 @@ function buildIndex() {
     base_path: sourceRoot,
     path_status:
       "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
-    authority_note: `Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at ${obsidianPointerRoot} and is not a source copy.`,
+    authority_note:
+      "Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. The maintained Obsidian pointer-card route is owned by docs/admin/nexus-distributed-surfaces.md and is not a source copy.",
     authority_values: authorityValues,
     applicability_values: applicabilityValues,
     default_game_retrieval_policy:
@@ -288,7 +287,7 @@ function renderMarkdown(index) {
     "",
     "## Authority Note",
     "",
-    `This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. Generated Obsidian pointer cards live at \`${obsidianPointerRoot}\`; they navigate to repo files and do not form a second source corpus.`,
+    "This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. The generated Obsidian pointer-card route is owned by `docs/admin/nexus-distributed-surfaces.md`; those cards navigate to repo files and do not form a second source corpus.",
     "",
     "ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.",
     "",
