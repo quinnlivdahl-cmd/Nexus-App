@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queue below reflects live GitHub titles and states during pre-publication review; for exact current state, verify against GitHub.
+Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queue below reflects live GitHub titles and states immediately before Tactical Pressure #14 closure; for exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -80,7 +80,6 @@ Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queu
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | map | child decisions | Canonical map for the implementation-ready first vertical slice |
-| #14 | Define Tactical Pressure activation and participation | grilling | #12 satisfied | Accepted in live Grill with Docs session; publication and live issue closeout in progress |
 | #19 | Define Lattice opportunities, ticker, and partial consequences | grilling | #5 satisfied | Open, unassigned frontier decision |
 | #28 | Define Local Aftermath, return-to-Ship, and save contracts | grilling | #4 and #12 satisfied | Open, unassigned frontier decision |
 | #30 | Integrate an implementation-ready vertical slice contract | grilling | remaining map decisions | Blocked integration ticket |
@@ -123,6 +122,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 |---|---|---|---|
 | #75 | Integrate the current source/ADR authority reconciliation | Source/ADR reconciliation merged through Source Authority Reconciliation PR #86 in merge commit `c557db2`; source-index, source-slice, context-pack, and workflow validation pass on integrated `main` | Foundation for Instruction and Authority Consolidation #74 is complete; authority-sensitive child work may proceed |
 | #76 | Retire the obsolete Obsidian source-copy promotion system | Pointer-only Obsidian routing and retirement of the promoter skill, script, package commands, and active references merged through Source-Promotion Retirement PR #87 in merge commit `76ba252`; workflow validation guards against reintroduction | Continue the remaining initial-frontier work in Instruction and Authority Consolidation #74 |
+| #14 | Define Tactical Pressure activation and participation | Live Grill with Docs accepted explicit triggers, projected participation, three-member Field Team auto-inclusion, Lattice Initiative with Shared Initiative Blocks and late entry, Timing Entries, inactive-Area pause, Surprise Evaluation, all-trigger exit, Location-owned Tactical State, and Passive Bystanders; contract and ADRs published in commit `78fcee6`; workflow validation and independent review passed | Derived Attribute-modifier math remains owned by Skill Focus and Ability Tree #31; future manual entry and fuller split-crew policy must reuse the versioned Tactical Rules Policy |
 | local | Add approved domain-first source corpus to app repo | `docs/nexus-game-source/source` | The repo path is now the canonical source home; historical app-copy references are archive context |
 | local | Historical domain-source live migration | The retired 2026 migration copied domain-first source into Obsidian and archived the old slot source at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Preserved as migration provenance; current `00 Source` is pointer-only |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
