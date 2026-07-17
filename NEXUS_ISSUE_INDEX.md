@@ -60,7 +60,7 @@ Use this section for ready or in-progress issue packets.
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
-| #82 | Consolidate repo-local Nexus skills | in-progress | Instruction and Authority Consolidation #74 | #76, #77, and #78 complete | Validate the four-workflow set, obtain independent review, and prepare the skill-consolidation PR |
+| #82 | Consolidate repo-local Nexus skills | in-progress | Instruction and Authority Consolidation #74 | #76, #77, and #78 complete | Review and merge Skill Consolidation PR #99, then record evidence and close #82 |
 
 ## Known Open GitHub Issues
 
