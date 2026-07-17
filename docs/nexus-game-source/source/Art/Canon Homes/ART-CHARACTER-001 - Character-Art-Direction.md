@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-16"
 last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, and an approved working direction for four Splicer lines."
+metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, approved Splicer lines, and approved Upload starting-embodiment direction."
 ---
 
 # Character Art Direction
@@ -93,10 +93,22 @@ Tier 4 must be much less human in silhouette than Tier 3. Treat it as a biologic
 
 Upload visuals should distinguish personhood, vessel, and interface:
 
-- base sleeves: utilitarian human-shaped service bodies;
+- base sleeves: utilitarian humanoid service bodies with bare manufactured construction, integrated body plating, and nonhuman sensor/interface heads;
 - maintenance drones: tool-first bodies with social awkwardness;
 - combat shells: ruggedized bodies with tactical affordances;
 - shell status markers: access ports, diagnostic tags, legal marks, synthetic skin gaps, service labels.
+
+Standard Base Sleeves should be hairless and unclothed. Their humanoid scale, hands, posture, and gaze direction support ordinary interaction, but their heads should use readable optical sensors, display/status surfaces, speaker systems, and service ports rather than simulated human faces. Convincing faces, hair, synthetic skin, and human social presentation belong to specialized HR, concierge, hospitality, diplomatic, therapeutic, care, or premium social models.
+
+![Approved Upload starting-embodiment comparison](<../Reference Inputs/concepts/2026-07-16/nexus-upload-embodiment-comparison-concept-2026-07-16.png>)
+
+The approved working comparison maps:
+
+- **A — Base Sleeve:** humanoid, socially navigable, visibly robotic, bare manufactured body, nonhuman interface head, and normal infrastructure compatibility.
+- **B — Maintenance Drone:** low, broad, nonhumanoid, tool-first body for ducts, hulls, repair, and ship-system access.
+- **C — Combat Shell:** tall, faceless, heavily protected tactical vessel whose armor, interlocks, legal markings, and silhouette make security attention unavoidable.
+
+When showing one Upload across multiple bodies, repeat a personal object, repair habit, color accent, or other chosen identity marker. Personhood continuity should come from behavior and personalization rather than forcing every vessel to share a human face or silhouette.
 
 Avoid treating Uploads as generic robots. The art should support questions about continuity, ownership, embodiment, and rights.
 
@@ -132,4 +144,3 @@ These are visual anchors, not fixed classes.
 ## Character sheet art boundary
 
 Character sheet and crew card visuals should be manually readable before decorative. Portraits may support identity, but loadout, skills, wounds, recovery, relationships, and current state must remain clear.
-

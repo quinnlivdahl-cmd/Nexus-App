@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-16"
 last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concept references and the approved working Splicer line comparison."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons."
 ---
 
 # Concept Art Library Index
@@ -206,3 +206,10 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Status: approved working visual direction; not a finished character asset.
 - Mapping: A Ape uplift; B Lizard long-flight line; C Mycelial line; D Cephalopod line.
 - Direction carried forward: genuine ape uplift anatomy for A; human-derived reptilian anatomy for B; recognizably human bodies integrated with fungal and cephalopod biology for C and D; dense pixel detail with strong tabletop-readable silhouettes.
+
+### Upload starting-embodiment comparison
+
+- Asset: [`concepts/2026-07-16/nexus-upload-embodiment-comparison-concept-2026-07-16.png`](<concepts/2026-07-16/nexus-upload-embodiment-comparison-concept-2026-07-16.png>)
+- Status: approved working visual and lore direction; not a finished character asset.
+- Mapping: A Base Sleeve; B Maintenance Drone; C Combat Shell.
+- Direction carried forward: standard Base Sleeves are hairless, unclothed, visibly robotic humanoid bodies with nonhuman interface heads; human-faced sleeves are specialized social-service models; Maintenance Drones are nonhumanoid and tool-first; Combat Shells are faceless, tactical, and legally conspicuous; personal markers may persist across every body.

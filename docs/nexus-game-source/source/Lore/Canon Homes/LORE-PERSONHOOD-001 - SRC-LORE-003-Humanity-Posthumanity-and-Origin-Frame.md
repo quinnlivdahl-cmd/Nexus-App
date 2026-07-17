@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-16"
 last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-003 to LORE-PERSONHOOD-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active personhood framing without relying on slot-era wording. The 2026-07-16 art-direction review added Vatborn creator marks and proprietary body-interface lore."
+metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-003 to LORE-PERSONHOOD-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active personhood framing without relying on slot-era wording. The 2026-07-16 art-direction review added Vatborn creator marks, proprietary body-interface lore, and the Base Sleeve social-model hierarchy."
 ---
 
 # Humanity, Posthumanity, and Origin Frame
@@ -97,6 +97,12 @@ Full-chassis cyborgs remain distinct from uploads. A full-chassis cyborg can sti
 
 Upload persons raise questions of continuity, copying, death, consent, legal recognition, forks, memory edits, inheritance, testimony, and bodily embodiment. The personhood question belongs here and in `Characters`; server infrastructure and polity scale belong in the faction and polity section.
 
+Common Base Sleeves are visibly robotic product bodies. They use humanoid scale, posture, hands, and infrastructure compatibility for social navigation, but their ordinary form has a bare manufactured chassis, integrated body plating, and a nonhuman sensor/interface head rather than hair, clothing, or a simulated human face.
+
+Convincing human faces, hair, and highly natural social presentation belong primarily to specialized or premium sleeve classes built for human resources, concierge and hospitality work, diplomacy, therapy, care, reception, public relations, or other jobs where institutions pay for a familiar human likeness. Access to such a body is therefore also a question of money, employment, ownership, permissions, fraud law, and who is allowed to appear comfortably human.
+
+This is a product and access hierarchy, not a personhood hierarchy. An Upload in a standard Base Sleeve, Maintenance Drone, or Combat Shell is no less a person because the current body lacks a human face.
+
 ### AI persons and AI systems
 
 AI may appear as tools, corporate infrastructure, ship systems, legal agents, crew candidates, or persons. Not every AI is a person and not every person-like AI is legally recognized. AI should remain part of the personhood conflict rather than an easy background utility.
@@ -114,5 +120,4 @@ Do not flatten the setting into a list of playable races. Keep origin, body, leg
 - `Characters` owns playable character origin and chassis implications, trait hooks, Standard Fit as a character-facing compatibility tag, and body-fit mechanics.
 - `Equipment` owns cyberware pieces, integrated tools, EMP and cyber-disruption, and enhancement modules.
 - `Lore` owns full lore, history, law, caste, faction ideology, personhood arguments, and social meaning.
-
 
