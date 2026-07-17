@@ -362,7 +362,10 @@ const retainedSkillDescriptions = new Set();
 
 for (const skill of retainedRepoSkills) {
   const skillPath = resolve(root, `.agents/skills/${skill}/SKILL.md`);
-  const metadataPath = resolve(root, `.agents/skills/${skill}/agents/openai.yaml`);
+  const metadataPath = resolve(
+    root,
+    `.agents/skills/${skill}/agents/openai.yaml`,
+  );
   if (!existsSync(skillPath) || !existsSync(metadataPath)) continue;
 
   const skillText = readFileSync(skillPath, "utf8");
@@ -370,7 +373,9 @@ for (const skill of retainedRepoSkills) {
   const description = skillText.match(/^description:\s*(.+)$/m)?.[1]?.trim();
 
   if (!description || !description.includes("Use when")) {
-    failures.push(`${skill} must have a trigger-rich description containing "Use when".`);
+    failures.push(
+      `${skill} must have a trigger-rich description containing "Use when".`,
+    );
   } else if (retainedSkillDescriptions.has(description)) {
     failures.push(`${skill} duplicates another retained skill description.`);
   } else {
@@ -387,7 +392,9 @@ for (const skill of retainedRepoSkills) {
     `default_prompt: \"Use $${skill}`,
   ]) {
     if (!metadataText.includes(expected)) {
-      failures.push(`${skill}/agents/openai.yaml is missing discoverability metadata: ${expected}`);
+      failures.push(
+        `${skill}/agents/openai.yaml is missing discoverability metadata: ${expected}`,
+      );
     }
   }
 }
@@ -412,7 +419,9 @@ const retiredRepoPlanningOverlayFiles = [
 
 for (const file of retiredRepoPlanningOverlayFiles) {
   if (existsSync(resolve(root, file))) {
-    failures.push(`Retired repo planning overlay file is active again: ${file}`);
+    failures.push(
+      `Retired repo planning overlay file is active again: ${file}`,
+    );
   }
 }
 
@@ -429,7 +438,9 @@ for (const file of historicalPlanningFiles) {
     !text.includes("Planning Ownership #81") ||
     !text.includes("historical and non-controlling")
   ) {
-    failures.push(`${file} must remain explicitly historical and non-controlling.`);
+    failures.push(
+      `${file} must remain explicitly historical and non-controlling.`,
+    );
   }
 }
 
@@ -550,7 +561,9 @@ for (const file of activeSourceRoutingFiles) {
   const text = readFileSync(path, "utf8");
   for (const identifier of retiredSourcePromotionIdentifiers) {
     if (text.includes(identifier)) {
-      failures.push(`${file} references retired source promotion: ${identifier}`);
+      failures.push(
+        `${file} references retired source promotion: ${identifier}`,
+      );
     }
   }
 }
@@ -600,7 +613,9 @@ for (const file of activeSkillReferenceFiles) {
   const text = readFileSync(path, "utf8");
   for (const identifier of retiredRepoSkillIdentifiers) {
     if (text.includes(identifier)) {
-      failures.push(`${file} references retired repo-local skill: ${identifier}`);
+      failures.push(
+        `${file} references retired repo-local skill: ${identifier}`,
+      );
     }
   }
 }
@@ -659,8 +674,13 @@ if (existsSync(sourceIndexJsonPath)) {
     const sourceIndex = JSON.parse(
       readFileSync(sourceIndexJsonPath, "utf8").replace(/^\uFEFF/, ""),
     );
-    if (typeof sourceIndex.file_count !== "number" || sourceIndex.file_count < 1) {
-      failures.push(`SOURCE-INDEX.json has invalid file_count: ${sourceIndex.file_count}`);
+    if (
+      typeof sourceIndex.file_count !== "number" ||
+      sourceIndex.file_count < 1
+    ) {
+      failures.push(
+        `SOURCE-INDEX.json has invalid file_count: ${sourceIndex.file_count}`,
+      );
     }
 
     if (sourceIndex.file_count !== (sourceIndex.files ?? []).length) {
@@ -669,14 +689,63 @@ if (existsSync(sourceIndexJsonPath)) {
       );
     }
 
+    const approvedAuthorityValues = new Set([
+      "game_current",
+      "game_provisional",
+      "runtime_ai_behavior",
+      "project_operations",
+      "historical_reference",
+      "non_authoritative",
+    ]);
+    const approvedApplicabilityValues = new Set([
+      "player_game_rules",
+      "campaign_director_runtime",
+      "content_authoring_workflow",
+      "project_operations",
+      "historical_provenance",
+    ]);
+
     for (const item of sourceIndex.files ?? []) {
       if (!item.exact_repo_path) {
-        failures.push("SOURCE-INDEX.json contains an item without exact_repo_path");
+        failures.push(
+          "SOURCE-INDEX.json contains an item without exact_repo_path",
+        );
         continue;
       }
 
       if (!existsSync(resolve(root, item.exact_repo_path))) {
-        failures.push(`SOURCE-INDEX.json points to a missing file: ${item.exact_repo_path}`);
+        failures.push(
+          `SOURCE-INDEX.json points to a missing file: ${item.exact_repo_path}`,
+        );
+      }
+
+      if (item.authority && !approvedAuthorityValues.has(item.authority)) {
+        failures.push(
+          `SOURCE-INDEX.json has invalid authority for ${item.exact_repo_path}: ${item.authority}`,
+        );
+      }
+      for (const applicability of item.applicability ?? []) {
+        if (!approvedApplicabilityValues.has(applicability)) {
+          failures.push(
+            `SOURCE-INDEX.json has invalid applicability for ${item.exact_repo_path}: ${applicability}`,
+          );
+        }
+      }
+      if (item.domain === "Admin" || item.domain === "Modes") {
+        if (
+          !item.authority ||
+          !Array.isArray(item.applicability) ||
+          item.applicability.length === 0
+        ) {
+          failures.push(
+            `SOURCE-INDEX.json lacks explicit retrieval classification for ${item.exact_repo_path}`,
+          );
+        }
+        if (item.default_game_retrieval !== false) {
+          failures.push(
+            `SOURCE-INDEX.json includes operational or historical material in default game retrieval: ${item.exact_repo_path}`,
+          );
+        }
       }
     }
   } catch (error) {

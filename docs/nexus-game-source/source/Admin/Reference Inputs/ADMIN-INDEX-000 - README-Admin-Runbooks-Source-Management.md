@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Shared"
 source_role: "domain_readme"
 canon_status: "admin_reference"
+authority: "non_authoritative"
+applicability:
+  - 'project_operations'
+  - 'historical_provenance'
 placement_domain: "Admin"
 content_role: "reference_input"
 topic_family: "admin_domain_readme"

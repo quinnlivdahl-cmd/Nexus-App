@@ -16,6 +16,8 @@ Do not rename this path casually. Any future rename must update bridge docs, val
 
 The repo source folder is the Golden Truth source corpus and canonical Nexus text source authority. Obsidian is a reading/index layer with generated pointer cards, not a copied source tree or an independent authority over this repo source.
 
+The corpus also preserves explicitly labeled operational and historical documents. Their document-level `authority` and `applicability` metadata controls retrieval and prevents their location inside the corpus from promoting them into current game truth.
+
 Accepted Nexus Game ADRs control the specific domain claims they change. Reconciliation edits the owning source documents so this corpus remains the current textual representation of the game; unaffected source material remains current, and ADRs remain the rationale and provenance for reconciled changes.
 
 Canonical source:
@@ -23,6 +25,17 @@ Canonical source:
 `docs/nexus-game-source/source`
 
 The maintained Obsidian and Drive paths and their roles have one owner: the routing note reached through `docs/admin/nexus-distributed-surfaces.md`. See it before moving or copying material between repo, Obsidian, and Drive.
+
+## Retrieval Authority Metadata
+
+Source location does not decide whether a document belongs in default game retrieval. Documents may declare:
+
+- `authority`: `game_current`, `game_provisional`, `runtime_ai_behavior`, `project_operations`, `historical_reference`, or `non_authoritative`;
+- `applicability`: one or more of `player_game_rules`, `campaign_director_runtime`, `content_authoring_workflow`, `project_operations`, and `historical_provenance`.
+
+Default game retrieval includes `game_current`, `game_provisional`, and `runtime_ai_behavior`. It excludes `project_operations`, `historical_reference`, and `non_authoritative` while keeping those documents and slices available for deliberate operational or historical retrieval.
+
+`runtime_ai_behavior` is reserved for current behavior of the hidden Campaign Director or another game-runtime model role. Instructions for ChatGPT, Codex, drafting, source maintenance, project roles, or prototype DM chat are project operations or historical reference, not runtime AI behavior.
 
 ## Index Maintenance
 

@@ -11,6 +11,9 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Art"
 source_role: "canon_home"
 canon_status: "instruction"
+authority: "project_operations"
+applicability:
+  - 'content_authoring_workflow'
 placement_domain: "Modes"
 content_role: "canon_home"
 topic_family: "art_mode_rules_ai"

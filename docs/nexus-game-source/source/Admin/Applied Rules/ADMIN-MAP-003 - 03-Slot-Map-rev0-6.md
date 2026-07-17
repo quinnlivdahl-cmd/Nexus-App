@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Shared"
 source_role: "legacy_reference"
 canon_status: "admin_reference"
+authority: "historical_reference"
+applicability:
+  - 'project_operations'
+  - 'historical_provenance'
 placement_domain: "Admin"
 content_role: "applied_rule"
 topic_family: "legacy_slot_map_reference"

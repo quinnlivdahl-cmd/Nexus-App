@@ -2,8 +2,10 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const sourceSliceCatalogPath = "docs/nexus-game-source/source/SOURCE-SLICES.json";
-const contextPackPath = "artifacts/nexus-companion/src/data/sourceContextPack.json";
+const sourceSliceCatalogPath =
+  "docs/nexus-game-source/source/SOURCE-SLICES.json";
+const contextPackPath =
+  "artifacts/nexus-companion/src/data/sourceContextPack.json";
 const allowedCategories = new Set([
   "rules",
   "lore",
@@ -13,9 +15,14 @@ const allowedCategories = new Set([
   "image_guidance",
   "dm_contract",
 ]);
-const allowedVisibility = new Set(["player-visible", "dm-facing", "hidden-permitted"]);
+const allowedVisibility = new Set([
+  "player-visible",
+  "dm-facing",
+  "hidden-permitted",
+]);
 const quarantineEntryId = "campaign-specific-material-quarantine";
-const prototypeLeakPattern = /\b(Rook|Voss|E-?43|Nereid-3|Ternary Lock|Heliomed|C-WARDEN|Kallisto|Rill|WARDEN)\b/i;
+const prototypeLeakPattern =
+  /\b(Rook|Voss|E-?43|Nereid-3|Ternary Lock|Heliomed|C-WARDEN|Kallisto|Rill|WARDEN)\b/i;
 
 function readJson(path) {
   const absolutePath = resolve(root, path);
@@ -36,7 +43,9 @@ function validate() {
   const failures = [];
   const catalog = readJson(sourceSliceCatalogPath);
   const pack = readJson(contextPackPath);
-  const sliceMap = new Map((catalog.slices ?? []).map((slice) => [slice.slice_id, slice]));
+  const sliceMap = new Map(
+    (catalog.slices ?? []).map((slice) => [slice.slice_id, slice]),
+  );
   const sliceIds = new Set(sliceMap.keys());
 
   assertString(pack.packId, "packId", failures);
@@ -70,22 +79,31 @@ function validate() {
       failures.push(`${label}.priority must be an integer`);
     }
 
-    if (!Array.isArray(entry.tags) || entry.tags.some((tag) => typeof tag !== "string" || tag.trim() === "")) {
+    if (
+      !Array.isArray(entry.tags) ||
+      entry.tags.some((tag) => typeof tag !== "string" || tag.trim() === "")
+    ) {
       failures.push(`${label}.tags must be an array of non-empty strings`);
     }
 
     if (
       !Array.isArray(entry.sourceSliceIds) ||
       entry.sourceSliceIds.length === 0 ||
-      entry.sourceSliceIds.some((id) => typeof id !== "string" || id.trim() === "")
+      entry.sourceSliceIds.some(
+        (id) => typeof id !== "string" || id.trim() === "",
+      )
     ) {
-      failures.push(`${label}.sourceSliceIds must be a non-empty array of strings`);
+      failures.push(
+        `${label}.sourceSliceIds must be a non-empty array of strings`,
+      );
       continue;
     }
 
     for (const sourceSliceId of entry.sourceSliceIds) {
       if (!sliceIds.has(sourceSliceId)) {
-        failures.push(`${label} references missing source slice: ${sourceSliceId}`);
+        failures.push(
+          `${label} references missing source slice: ${sourceSliceId}`,
+        );
         continue;
       }
 
@@ -94,14 +112,24 @@ function validate() {
           `${label} references generated source slice ${sourceSliceId}; add an explicit source-slice marker before using it in the durable context pack`,
         );
       }
+
+      if (sliceMap.get(sourceSliceId)?.default_game_retrieval === false) {
+        failures.push(
+          `${label} references ${sourceSliceId}, which is excluded from default game retrieval by its document authority`,
+        );
+      }
     }
 
     if (
       !Array.isArray(entry.sourceDocIds) ||
       entry.sourceDocIds.length === 0 ||
-      entry.sourceDocIds.some((id) => typeof id !== "string" || id.trim() === "")
+      entry.sourceDocIds.some(
+        (id) => typeof id !== "string" || id.trim() === "",
+      )
     ) {
-      failures.push(`${label}.sourceDocIds must be a non-empty array of strings`);
+      failures.push(
+        `${label}.sourceDocIds must be a non-empty array of strings`,
+      );
     } else {
       const expectedDocs = [
         ...new Set(
@@ -118,8 +146,13 @@ function validate() {
       }
     }
 
-    if (entry.id !== quarantineEntryId && prototypeLeakPattern.test(`${entry.title}\n${entry.content}`)) {
-      failures.push(`${label} appears to leak prototype campaign material outside the quarantine entry`);
+    if (
+      entry.id !== quarantineEntryId &&
+      prototypeLeakPattern.test(`${entry.title}\n${entry.content}`)
+    ) {
+      failures.push(
+        `${label} appears to leak prototype campaign material outside the quarantine entry`,
+      );
     }
   }
 

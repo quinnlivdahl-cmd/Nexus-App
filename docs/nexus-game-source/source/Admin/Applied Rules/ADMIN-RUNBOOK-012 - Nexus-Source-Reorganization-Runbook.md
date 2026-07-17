@@ -11,6 +11,9 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Shared"
 source_role: "applied_rule"
 canon_status: "admin_reference"
+authority: "project_operations"
+applicability:
+  - 'project_operations'
 placement_domain: "Admin"
 content_role: "applied_rule"
 topic_family: "nexus_source_reorganization_runbook"

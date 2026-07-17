@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "DM"
 source_role: "canon_home"
 canon_status: "instruction"
+authority: "historical_reference"
+applicability:
+  - 'content_authoring_workflow'
+  - 'historical_provenance'
 placement_domain: "Modes"
 content_role: "canon_home"
 topic_family: "dm_mode_rules_ai"

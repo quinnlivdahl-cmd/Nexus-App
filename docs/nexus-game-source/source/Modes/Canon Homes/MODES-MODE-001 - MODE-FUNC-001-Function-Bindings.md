@@ -11,6 +11,9 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Shared"
 source_role: "canon_home"
 canon_status: "admin_reference"
+authority: "project_operations"
+applicability:
+  - 'content_authoring_workflow'
 placement_domain: "Modes"
 content_role: "canon_home"
 topic_family: "mode_func_001_function_bindings"

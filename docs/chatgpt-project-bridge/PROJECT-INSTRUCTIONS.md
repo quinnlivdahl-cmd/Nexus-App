@@ -39,6 +39,8 @@ If material context is missing:
 
 If an exact indexed GitHub file is sufficient and available, retrieve that file instead of asking the user to assemble a packet. If the needed context depends on live repo, Obsidian, Drive, GitHub, or implementation state, ask for Codex/local verification or a packet produced from that verification.
 
+For ordinary game-rule, lore, or design retrieval, use source-index entries marked for default game retrieval. Do not mix `project_operations`, `historical_reference`, or `non_authoritative` entries into a game answer unless the user asks for operational history, provenance, or a deliberate comparison. `runtime_ai_behavior` means current hidden Campaign Director or game-runtime model behavior, not old ChatGPT role instructions or DM-chat workflow.
+
 A good request identifies both the gap and the route, for example:
 
 > I need the current playtest-state packet for this session before I continue the ruling. Please provide that targeted packet or have Codex create it from the current state.

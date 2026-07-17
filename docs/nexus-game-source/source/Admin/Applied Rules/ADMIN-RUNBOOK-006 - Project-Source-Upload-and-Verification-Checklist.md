@@ -11,6 +11,10 @@ working_state: "domain_rebuild_full_migration"
 mode_owner: "Steward"
 source_role: "applied_rule"
 canon_status: "admin_reference"
+authority: "historical_reference"
+applicability:
+  - 'project_operations'
+  - 'historical_provenance'
 placement_domain: "Admin"
 content_role: "applied_rule"
 topic_family: "project_source_upload_and_verification_checklist"
