@@ -67,7 +67,6 @@ Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queu
 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
-| #22 | Add a minimal Nexus repository README entrypoint | ready-for-agent | none listed | Repository entrypoint work |
 | #50 | Define Seed Mode substantive-input capture and mining workflow | workflow/mode behavior | #43 related | Seed-specific capture and mining workflow |
 | #60 | Rebuild Nexus planning controls for the revised vision | ready-for-agent | none listed | Revised planning-control work |
 | #61 | Align the Obsidian project front door and planning history | ready-for-agent | #60 related | Obsidian planning alignment |
@@ -118,6 +117,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
+| #22 | Add a minimal Nexus repository README entrypoint | Root `README.md` now links the single-product direction, authority router, canonical source, accepted decisions, spatial implementation-readiness map, local application paths, agent instructions, and GitHub task tracker without duplicating their contents | Keep the README concise and update links only when their authoritative destinations change |
 | #67 | Align Nexus Game product identity with the preserved companion regression surface | Repo instructions, domain guidance, operator documentation, and Spatial Vertical Slice Map #57 now describe one Nexus Game product evolving from the existing React/Vite implementation; the former side-by-side companion premise is superseded | Legacy `companion` package and environment-variable names may remain as implementation identifiers until a separately scoped rename is worthwhile |
 | #66 | Publish Matt tracker and triage configuration | Tracker files merged through Matt Tracker Configuration PR #71 in merge commit `4ad4eab`; all five live Matt-role labels match the documented mapping; workflow validation and independent review passed | Apply the documented triage roles only during deliberate issue triage; no bulk relabeling was performed |
 | #75 | Integrate the current source/ADR authority reconciliation | Source/ADR reconciliation merged through Source Authority Reconciliation PR #86 in merge commit `c557db2`; source-index, source-slice, context-pack, and workflow validation pass on integrated `main` | Foundation for Instruction and Authority Consolidation #74 is complete; authority-sensitive child work may proceed |
