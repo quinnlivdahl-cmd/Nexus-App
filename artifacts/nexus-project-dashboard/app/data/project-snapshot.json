@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.1.0",
-  "generatedAt": "2026-07-13T13:17:11.007Z",
+  "generatedAt": "2026-07-17T01:18:14.327Z",
   "freshness": {
     "status": "stale",
     "thresholdHours": 24,
     "reasons": [
       "Freshness is calculated from observed timestamps using a 24-hour threshold; aging extends to 48 hours.",
       "The GitHub issue index explicitly reports an older mirror sync and is therefore stale until verified against GitHub.",
-      "Snapshot generated locally at 2026-07-13T13:17:11.007Z; it is not a live polling service."
+      "Snapshot generated locally at 2026-07-17T01:18:14.327Z; it is not a live polling service."
     ]
   },
   "sources": [
@@ -15,8 +15,8 @@
       "id": "vision",
       "owner": "Nexus Game decision baseline",
       "location": "docs/adr/README.md + docs/contexts/nexus-game/CONTEXT.md",
-      "observedAt": "2026-07-13T13:11:17.761Z",
-      "hash": "178f60bda530",
+      "observedAt": "2026-07-17T01:06:58.735Z",
+      "hash": "aa192cb9297e",
       "freshness": "fresh",
       "authorityRole": "Product direction and planning precedence",
       "inputs": [
@@ -29,8 +29,8 @@
       "id": "source",
       "owner": "Canonical game source",
       "location": "docs/nexus-game-source/source/SOURCE-INDEX.json",
-      "observedAt": "2026-07-13T13:11:17.867Z",
-      "hash": "09207526b43e",
+      "observedAt": "2026-07-17T01:06:58.910Z",
+      "hash": "94460c08b7df",
       "freshness": "fresh",
       "authorityRole": "Game truth",
       "inputs": [
@@ -42,8 +42,8 @@
       "id": "issues",
       "owner": "GitHub Issues (local mirror)",
       "location": "NEXUS_ISSUE_INDEX.md",
-      "observedAt": "2026-07-13T00:00:00.000Z",
-      "hash": "faf9cb555bb0",
+      "observedAt": "2026-07-15T00:00:00.000Z",
+      "hash": "20883551e61e",
       "freshness": "stale",
       "authorityRole": "Execution packet mirror — verify against GitHub",
       "inputs": [
@@ -55,9 +55,9 @@
       "id": "operations",
       "owner": "Nexus Project Operations",
       "location": "docs/contexts/nexus-project-operations/CONTEXT.md + docs/contexts/nexus-project-operations/docs/adr/0001-project-control-hub-derives-state.md",
-      "observedAt": "2026-07-12T02:42:29.085Z",
+      "observedAt": "2026-07-17T01:06:58.756Z",
       "hash": "147521c65a3d",
-      "freshness": "aging",
+      "freshness": "fresh",
       "authorityRole": "Hub language and authority boundaries",
       "inputs": [
         "docs/contexts/nexus-project-operations/CONTEXT.md",
@@ -72,7 +72,11 @@
       "name": "Ship Time",
       "summary": "Persistent explorable home phase, preparation, crew and ship systems.",
       "maturity": "defined",
-      "ticketIds": [],
+      "ticketIds": [
+        28,
+        30,
+        57
+      ],
       "worktreeIds": [],
       "decisionIds": [
         "ship-systems"
@@ -84,7 +88,10 @@
       "name": "Route Prospects",
       "summary": "Consequential candidate destinations and route choice.",
       "maturity": "defined",
-      "ticketIds": [],
+      "ticketIds": [
+        30,
+        57
+      ],
       "worktreeIds": [],
       "decisionIds": [
         "route-contract"
@@ -97,7 +104,10 @@
       "summary": "Spatial, persistent locations assembled from validated modules.",
       "maturity": "prototyped",
       "ticketIds": [
-        17
+        13,
+        17,
+        30,
+        57
       ],
       "worktreeIds": [
         "location-assembly",
@@ -115,7 +125,9 @@
       "maturity": "defined",
       "ticketIds": [
         10,
-        11
+        19,
+        30,
+        57
       ],
       "worktreeIds": [],
       "decisionIds": [
@@ -129,7 +141,10 @@
       "summary": "Location-wide turn-based pressure, AP/MP/reactions, and committed outcomes.",
       "maturity": "prototyped",
       "ticketIds": [
-        13
+        13,
+        14,
+        30,
+        57
       ],
       "worktreeIds": [
         "movement-camera"
@@ -146,7 +161,12 @@
       "summary": "Persistent local aftermath, roster consequences, and recruitment.",
       "maturity": "unframed",
       "ticketIds": [
-        31
+        11,
+        28,
+        30,
+        31,
+        57,
+        68
       ],
       "worktreeIds": [],
       "decisionIds": [
@@ -160,7 +180,9 @@
       "summary": "Route-node resolution, consequences, return to ship, and recoverable saves.",
       "maturity": "validated",
       "ticketIds": [
-        11
+        28,
+        30,
+        57
       ],
       "worktreeIds": [],
       "decisionIds": [
@@ -171,15 +193,270 @@
   ],
   "tickets": [
     {
+      "id": 74,
+      "title": "Consolidate Nexus Instruction, Authority, and Retrieval Layers",
+      "state": "mirror: active epic",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Controlling consolidation sequence. Foundation #75 and source-promotion retirement #76 are complete; #77 and #78 are the available frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/74",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 75,
+      "title": "Integrate the current source/ADR authority reconciliation",
+      "state": "mirror: closed foundation",
+      "alignment": "aligned",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Foundation integrated through Main PR #86; it unblocks the initial consolidation frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/75",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 76,
+      "title": "Retire the obsolete Obsidian source-copy promotion system",
+      "state": "mirror: closed and merged",
+      "alignment": "aligned",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Completed and integrated into main through Retire Source Promotion PR #87.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/76",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 77,
+      "title": "Establish one canonical path and Git-operation policy",
+      "state": "mirror: ready frontier",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Available now. Reconcile canonical paths and routine Git ownership across repo and Obsidian entry points.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/77",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 78,
+      "title": "Supersede the text-RPG finish line and required-reading chain",
+      "state": "mirror: ready frontier",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Available now. Make the spatial RPG finish line controlling while preserving prior DM-chat planning as history.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/78",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 79,
+      "title": "Reduce Nexus AGENTS.md to stable instructions and dispatch links",
+      "state": "mirror: blocked",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Blocked by completion of the #76/#77/#78 initial frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/79",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 80,
+      "title": "Consolidate the ChatGPT Project bridge baseline",
+      "state": "mirror: blocked",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Blocked by completion of the #76/#77/#78 initial frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/80",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 81,
+      "title": "Select one planning owner and retire the competing overlay",
+      "state": "mirror: blocked",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Blocked by completion of the #76/#77/#78 initial frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/81",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 82,
+      "title": "Consolidate repo-local Nexus skills",
+      "state": "mirror: blocked",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Blocked by completion of the #76/#77/#78 initial frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/82",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 83,
+      "title": "Reclassify canonical Admin and Modes documents for retrieval",
+      "state": "mirror: blocked",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Blocked by completion of the #76/#77/#78 initial frontier.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/83",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 84,
+      "title": "Replace prose-preserving validation with invariant validation",
+      "state": "mirror: blocked",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Blocked by the #79–#83 consolidation layer.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/84",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 85,
+      "title": "Archive superseded checkpoints, syntheses, and transition controls",
+      "state": "mirror: final integration",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Final consolidation cleanup after #79–#84 replacements are active.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/85",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 88,
+      "title": "Epic: Make the Nexus site GitHub-live and able to start tasks",
+      "state": "mirror: planned epic",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "New site epic: periodic GitHub-backed refresh plus a secure, auditable Start task action. Architecture discovery comes first.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/88",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 66,
+      "title": "Publish Matt tracker and triage configuration",
+      "state": "mirror: closeout drift",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Tracker configuration is functionally present on main, but the issue remains open and needs status reconciliation.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/66",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 67,
+      "title": "Align Nexus Game product identity with the preserved companion regression surface",
+      "state": "mirror: re-triage",
+      "alignment": "needs-decision",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Overlaps consolidation work in #78 and #79; re-triage after those establish the controlling product language.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/67",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 60,
+      "title": "Rebuild Nexus planning controls for the revised vision",
+      "state": "mirror: later sequence",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Later planning-control sequence after consolidation and vertical-slice decisions stabilize.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/60",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 61,
+      "title": "Align the Obsidian project front door and planning history",
+      "state": "mirror: later sequence",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Follows planning-control rebuild #60.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/61",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 62,
+      "title": "Regenerate and validate Nexus pointer navigation",
+      "state": "mirror: later sequence",
+      "alignment": "operational",
+      "stageIds": [],
+      "worktreeIds": [],
+      "note": "Follows planning-control rebuild #60 and Obsidian front-door alignment #61.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/62",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 57,
+      "title": "Wayfinder: Make the Nexus spatial vertical slice implementation-ready",
+      "state": "mirror: advanced, paused",
+      "alignment": "aligned",
+      "stageIds": [
+        "ship-time",
+        "route-prospects",
+        "explore-location",
+        "dialogue-checks",
+        "tactical-resolution",
+        "aftermath-recruitment",
+        "return-save"
+      ],
+      "worktreeIds": [],
+      "note": "The spatial slice map has substantial completed evidence; resume its remaining decisions after the consolidation sequence.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/57",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
       "id": 10,
-      "title": "Route DM and scene image AI calls through local backend",
-      "state": "mirror: eligible",
-      "alignment": "needs-revision",
+      "title": "Choose the spatial runtime and React integration boundary",
+      "state": "mirror: closed research",
+      "alignment": "aligned",
       "stageIds": [
         "dialogue-checks"
       ],
       "worktreeIds": [],
-      "note": "Legacy DM wording needs a revised Campaign Director / model-runtime scope before execution.",
+      "note": "Completed Wayfinder research evidence for the new spatial game runtime.",
       "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/10",
       "owner": "GitHub Issues (local mirror)",
       "sourceId": "issues",
@@ -187,15 +464,14 @@
     },
     {
       "id": 11,
-      "title": "Add app-native campaign seed and reset path",
-      "state": "mirror: eligible",
-      "alignment": "needs-decision",
+      "title": "Define first-run starting crew and slice recruitment",
+      "state": "mirror: closed decision",
+      "alignment": "aligned",
       "stageIds": [
-        "dialogue-checks",
-        "return-save"
+        "aftermath-recruitment"
       ],
       "worktreeIds": [],
-      "note": "Align the campaign start with the new captain and spatial route-node baseline.",
+      "note": "Completed Wayfinder decision for starting selection, campaign instances, and recruitment.",
       "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/11",
       "owner": "GitHub Issues (local mirror)",
       "sourceId": "issues",
@@ -203,16 +479,17 @@
     },
     {
       "id": 13,
-      "title": "Make the encounter screen actually playable — turn order, movement, and actions",
-      "state": "mirror: dependent",
-      "alignment": "needs-revision",
+      "title": "Prototype movement and camera in a representative derelict Location",
+      "state": "mirror: closed prototype",
+      "alignment": "aligned",
       "stageIds": [
+        "explore-location",
         "tactical-resolution"
       ],
       "worktreeIds": [
         "movement-camera"
       ],
-      "note": "Reframe from an encounter screen to the accepted location-wide Turn-Based Mode contract.",
+      "note": "Completed prototype evidence for movement, camera, and spatial presentation.",
       "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/13",
       "owner": "GitHub Issues (local mirror)",
       "sourceId": "issues",
@@ -220,17 +497,100 @@
     },
     {
       "id": 17,
-      "title": "Give each backdrop its own default node web",
-      "state": "mirror: later",
-      "alignment": "superseded",
+      "title": "Prototype modular Location assembly in the derelict Location",
+      "state": "mirror: closed prototype",
+      "alignment": "aligned",
       "stageIds": [
         "explore-location"
       ],
       "worktreeIds": [
         "location-assembly"
       ],
-      "note": "Replace backdrop/node assumptions with validated spatial Location Modules and blueprints.",
+      "note": "Completed prototype evidence for validated spatial modules and Location assembly.",
       "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/17",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 14,
+      "title": "Define Tactical Pressure activation and participation",
+      "state": "mirror: open after consolidation",
+      "alignment": "aligned",
+      "stageIds": [
+        "tactical-resolution"
+      ],
+      "worktreeIds": [],
+      "note": "Remaining Wayfinder decision: deterministic Tactical Pressure activation, participation, and exit conditions.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/14",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 19,
+      "title": "Define Lattice opportunities, ticker, and partial consequences",
+      "state": "mirror: open after consolidation",
+      "alignment": "aligned",
+      "stageIds": [
+        "dialogue-checks"
+      ],
+      "worktreeIds": [],
+      "note": "Remaining Wayfinder decision for visible checks, hidden opportunities, ticker behavior, and partial consequences.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/19",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 28,
+      "title": "Define Local Aftermath, return-to-Ship, and save contracts",
+      "state": "mirror: open after consolidation",
+      "alignment": "aligned",
+      "stageIds": [
+        "ship-time",
+        "aftermath-recruitment",
+        "return-save"
+      ],
+      "worktreeIds": [],
+      "note": "Remaining Wayfinder decision for persistent aftermath, recruitment results, return to Ship, and save records.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/28",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 30,
+      "title": "Integrate an implementation-ready vertical slice contract",
+      "state": "mirror: blocked integration",
+      "alignment": "aligned",
+      "stageIds": [
+        "ship-time",
+        "route-prospects",
+        "explore-location",
+        "dialogue-checks",
+        "tactical-resolution",
+        "aftermath-recruitment",
+        "return-save"
+      ],
+      "worktreeIds": [],
+      "note": "Final Wayfinder integration ticket; blocked until the remaining slice decisions are resolved.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/30",
+      "owner": "GitHub Issues (local mirror)",
+      "sourceId": "issues",
+      "freshness": "stale"
+    },
+    {
+      "id": 68,
+      "title": "Complete Crew Archive pool and former-PC conversion design",
+      "state": "mirror: open after consolidation",
+      "alignment": "aligned",
+      "stageIds": [
+        "aftermath-recruitment"
+      ],
+      "worktreeIds": [],
+      "note": "Related Wayfinder design for Crew Archive eligibility and former-player-character conversion.",
+      "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/68",
       "owner": "GitHub Issues (local mirror)",
       "sourceId": "issues",
       "freshness": "stale"
@@ -239,12 +599,12 @@
       "id": 31,
       "title": "Formalize skill focus and ability tree structure for playable drafts",
       "state": "mirror: ready",
-      "alignment": "operational",
+      "alignment": "aligned",
       "stageIds": [
         "aftermath-recruitment"
       ],
       "worktreeIds": [],
-      "note": "A bounded source/play-document task; verify the live packet before starting.",
+      "note": "A provisional playtest-ready skill-tree source is now on main; the GitHub issue remains open for live status reconciliation.",
       "githubUrl": "https://github.com/quinnlivdahl-cmd/Nexus-App/issues/31",
       "owner": "GitHub Issues (local mirror)",
       "sourceId": "issues",
@@ -257,38 +617,38 @@
       "purpose": "Main checkout",
       "branch": "main",
       "displayPath": "Nexus-App / main",
-      "health": "dirty",
-      "ahead": 8,
-      "behind": 23,
-      "activity": "7901393 · Add Issue 31 bridge planning packet · local changes present",
+      "health": "clean",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "19b23cc · Add provisional playtest-ready skill tree source · clean",
       "ticketIds": [],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "declared",
       "upstream": "origin/main",
-      "lastCommit": "7901393",
-      "lastCommitAt": "2026-07-06T00:46:36-06:00"
+      "lastCommit": "19b23cc",
+      "lastCommitAt": "2026-07-16T19:17:09-06:00"
     },
     {
       "id": "clean-review",
       "purpose": "Canonical clean review",
       "branch": "clean/nexus-reviewed-2026-07-06",
       "displayPath": "Nexus-App / clean review",
-      "health": "dirty",
-      "ahead": 1,
-      "behind": 0,
-      "activity": "4850d8a · docs(game): define spatial action transaction · local changes present",
+      "health": "unknown",
+      "ahead": null,
+      "behind": null,
+      "activity": "Declared worktree was not present when the snapshot was generated.",
       "ticketIds": [],
-      "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
-      "freshness": "fresh",
-      "present": true,
-      "declarationStatus": "declared",
-      "upstream": "origin/clean/nexus-reviewed-2026-07-06",
-      "lastCommit": "4850d8a",
-      "lastCommitAt": "2026-07-13T04:09:22-06:00"
+      "owner": "Declared worktree mapping",
+      "observedAt": "2026-07-17T01:18:14.327Z",
+      "freshness": "unknown",
+      "present": false,
+      "declarationStatus": "missing",
+      "upstream": null,
+      "lastCommit": null,
+      "lastCommitAt": null
     },
     {
       "id": "location-assembly",
@@ -303,7 +663,7 @@
         17
       ],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "declared",
@@ -324,7 +684,7 @@
         13
       ],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "declared",
@@ -333,42 +693,61 @@
       "lastCommitAt": "2026-07-12T07:34:52-06:00"
     },
     {
-      "id": "docs-issue-49-project-operations-context",
-      "purpose": "docs · issue 49 project operations context checkout",
-      "branch": "docs/issue-49-project-operations-context",
-      "displayPath": "Nexus-App / docs · issue 49 project operations context",
+      "id": "codex-provisional-skill-tree-source",
+      "purpose": "codex · provisional skill tree source checkout",
+      "branch": "codex/provisional-skill-tree-source",
+      "displayPath": "Nexus-App / codex · provisional skill tree source",
       "health": "clean",
       "ahead": null,
       "behind": null,
-      "activity": "9bf10dd · Add Nexus project operations context · clean",
+      "activity": "19b23cc · Add provisional playtest-ready skill tree source · clean",
       "ticketIds": [],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "discovered",
       "upstream": null,
-      "lastCommit": "9bf10dd",
-      "lastCommitAt": "2026-07-12T07:55:55-06:00"
+      "lastCommit": "19b23cc",
+      "lastCommitAt": "2026-07-16T19:17:09-06:00"
     },
     {
-      "id": "agent-publish-project-control-hub",
-      "purpose": "agent · publish project control hub checkout",
-      "branch": "agent/publish-project-control-hub",
-      "displayPath": "Nexus-App / agent · publish project control hub",
+      "id": "codex-issue-14-tactical-pressure",
+      "purpose": "codex · issue 14 tactical pressure checkout",
+      "branch": "codex/issue-14-tactical-pressure",
+      "displayPath": "Nexus-App / codex · issue 14 tactical pressure",
       "health": "dirty",
       "ahead": 0,
-      "behind": 0,
-      "activity": "185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "behind": 3,
+      "activity": "c557db2 · Merge PR #86: Complete source slicing and reconcile canonical source with ADRs · local changes present",
       "ticketIds": [],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "discovered",
       "upstream": "origin/main",
-      "lastCommit": "185671c",
-      "lastCommitAt": "2026-07-13T03:28:42-06:00"
+      "lastCommit": "c557db2",
+      "lastCommitAt": "2026-07-16T18:37:11-05:00"
+    },
+    {
+      "id": "codex-issue-76-retire-source-promotion",
+      "purpose": "codex · issue 76 retire source promotion checkout",
+      "branch": "codex/issue-76-retire-source-promotion",
+      "displayPath": "Nexus-App / codex · issue 76 retire source promotion",
+      "health": "clean",
+      "ahead": 0,
+      "behind": 0,
+      "activity": "029b5ef · Retire Obsidian source-copy promotion · clean",
+      "ticketIds": [],
+      "owner": "Local Git worktree projection",
+      "observedAt": "2026-07-17T01:18:14.327Z",
+      "freshness": "fresh",
+      "present": true,
+      "declarationStatus": "discovered",
+      "upstream": "origin/codex/issue-76-retire-source-promotion",
+      "lastCommit": "029b5ef",
+      "lastCommitAt": "2026-07-16T18:57:02-06:00"
     },
     {
       "id": "prototype-issue-12-location-continuity",
@@ -381,7 +760,7 @@
       "activity": "6fb2f62 · Prototype persistent spatial continuity · clean",
       "ticketIds": [],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "discovered",
@@ -390,61 +769,23 @@
       "lastCommitAt": "2026-07-12T08:29:47-06:00"
     },
     {
-      "id": "agent-publish-matt-tracker-config-66",
-      "purpose": "agent · publish matt tracker config 66 checkout",
-      "branch": "agent/publish-matt-tracker-config-66",
-      "displayPath": "Nexus-App / agent · publish matt tracker config 66",
+      "id": "agent-refresh-nexus-project-control-2026-07-16",
+      "purpose": "agent · refresh nexus project control 2026 07 16 checkout",
+      "branch": "agent/refresh-nexus-project-control-2026-07-16",
+      "displayPath": "Nexus-App / agent · refresh nexus project control 2026 07 16",
       "health": "dirty",
       "ahead": 0,
       "behind": 0,
-      "activity": "185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "activity": "5dc0e4f · Refresh Nexus Project Control snapshot · local changes present",
       "ticketIds": [],
       "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
+      "observedAt": "2026-07-17T01:18:14.327Z",
       "freshness": "fresh",
       "present": true,
       "declarationStatus": "discovered",
-      "upstream": "origin/main",
-      "lastCommit": "185671c",
-      "lastCommitAt": "2026-07-13T03:28:42-06:00"
-    },
-    {
-      "id": "agent-spatial-action-closeout-sync-5",
-      "purpose": "agent · spatial action closeout sync 5 checkout",
-      "branch": "agent/spatial-action-closeout-sync-5",
-      "displayPath": "Nexus-App / agent · spatial action closeout sync 5",
-      "health": "clean",
-      "ahead": null,
-      "behind": null,
-      "activity": "35d6efa · docs(project): close spatial action transaction · clean",
-      "ticketIds": [],
-      "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
-      "freshness": "fresh",
-      "present": true,
-      "declarationStatus": "discovered",
-      "upstream": null,
-      "lastCommit": "35d6efa",
-      "lastCommitAt": "2026-07-13T04:24:14-06:00"
-    },
-    {
-      "id": "agent-spatial-action-transaction-5",
-      "purpose": "agent · spatial action transaction 5 checkout",
-      "branch": "agent/spatial-action-transaction-5",
-      "displayPath": "Nexus-App / agent · spatial action transaction 5",
-      "health": "clean",
-      "ahead": null,
-      "behind": null,
-      "activity": "18297f4 · docs(project): prepare spatial action publication · clean",
-      "ticketIds": [],
-      "owner": "Local Git worktree projection",
-      "observedAt": "2026-07-13T13:17:11.007Z",
-      "freshness": "fresh",
-      "present": true,
-      "declarationStatus": "discovered",
-      "upstream": null,
-      "lastCommit": "18297f4",
-      "lastCommitAt": "2026-07-13T04:17:54-06:00"
+      "upstream": "origin/agent/refresh-nexus-project-control-2026-07-16",
+      "lastCommit": "5dc0e4f",
+      "lastCommitAt": "2026-07-16T19:14:48-06:00"
     }
   ],
   "decisions": [
@@ -538,17 +879,31 @@
   "attention": [
     {
       "id": "issue-mirror",
-      "severity": "attention",
-      "title": "Ticket mirror is stale",
-      "detail": "The local issue index was last synced Jun 28. Treat ticket state as a prompt to verify, not live truth.",
+      "severity": "watch",
+      "title": "Ticket state is a static snapshot",
+      "detail": "Live GitHub was verified Jul 16 for this publication. Recheck GitHub before execution because this site does not poll yet.",
       "tab": "tickets"
     },
     {
-      "id": "vision-mismatch",
+      "id": "consolidation-frontier",
       "severity": "attention",
-      "title": "Three ticket packets need vision alignment",
-      "detail": "Legacy DM/backdrop/encounter language must be revised or superseded explicitly.",
-      "tab": "vision"
+      "title": "Two consolidation frontier tasks are ready",
+      "detail": "Source-copy retirement #76 is merged. Canonical paths/Git policy #77 and finish-line supersession #78 are the current frontier.",
+      "tab": "tickets"
+    },
+    {
+      "id": "site-automation",
+      "severity": "watch",
+      "title": "Live GitHub and Start task controls are planned",
+      "detail": "Site Automation Epic #88 owns periodic refresh and secure task initiation. This publication remains manual.",
+      "tab": "tickets"
+    },
+    {
+      "id": "wayfinder-paused",
+      "severity": "watch",
+      "title": "Spatial Wayfinder resumes after consolidation",
+      "detail": "Wayfinder #57 is advanced but incomplete; remaining decisions #14, #19, #28, #30, and #68 stay open.",
+      "tab": "roadmap"
     },
     {
       "id": "drive-bundle",
@@ -558,31 +913,24 @@
       "tab": "launch"
     },
     {
-      "id": "worktree-main",
-      "severity": "attention",
-      "title": "Main checkout needs review",
-      "detail": "dirty; ahead 8 / behind 23; 7901393 · Add Issue 31 bridge planning packet · local changes present",
-      "tab": "worktrees"
-    },
-    {
       "id": "worktree-clean-review",
-      "severity": "watch",
-      "title": "Canonical clean review needs review",
-      "detail": "dirty; ahead 1 / behind 0; 4850d8a · docs(game): define spatial action transaction · local changes present",
+      "severity": "attention",
+      "title": "Canonical clean review is missing",
+      "detail": "This declared worktree was not found locally; its state is unknown.",
       "tab": "worktrees"
     },
     {
-      "id": "worktree-agent-publish-project-control-hub",
-      "severity": "watch",
-      "title": "agent · publish project control hub checkout needs review",
-      "detail": "dirty; ahead 0 / behind 0; 185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "id": "worktree-codex-issue-14-tactical-pressure",
+      "severity": "attention",
+      "title": "codex · issue 14 tactical pressure checkout needs review",
+      "detail": "dirty; ahead 0 / behind 3; c557db2 · Merge PR #86: Complete source slicing and reconcile canonical source with ADRs · local changes present",
       "tab": "worktrees"
     },
     {
-      "id": "worktree-agent-publish-matt-tracker-config-66",
+      "id": "worktree-agent-refresh-nexus-project-control-2026-07-16",
       "severity": "watch",
-      "title": "agent · publish matt tracker config 66 checkout needs review",
-      "detail": "dirty; ahead 0 / behind 0; 185671c · Merge pull request #70 from quinnlivdahl-cmd/agent/spatial-action-closeout-sync-5 · local changes present",
+      "title": "agent · refresh nexus project control 2026 07 16 checkout needs review",
+      "detail": "dirty; ahead 0 / behind 0; 5dc0e4f · Refresh Nexus Project Control snapshot · local changes present",
       "tab": "worktrees"
     }
   ],
@@ -612,7 +960,7 @@
         "sourcePath": "docs/nexus-game-source/source/SOURCE-INDEX.json",
         "sourceId": "source",
         "freshness": "fresh",
-        "hash": "09207526b43e",
+        "hash": "94460c08b7df",
         "authorityRole": "Index into canonical game truth",
         "retrievalIntent": "Route retrieval to a declared canonical source document rather than broad Drive search.",
         "publicationStatus": "pending"
@@ -624,7 +972,7 @@
         "sourcePath": "NEXUS_ISSUE_INDEX.md",
         "sourceId": "issues",
         "freshness": "stale",
-        "hash": "faf9cb555bb0",
+        "hash": "20883551e61e",
         "authorityRole": "Stale local mirror of execution packets; verify against GitHub",
         "retrievalIntent": "Supply queue context while forcing live GitHub verification before execution.",
         "publicationStatus": "pending"
@@ -635,7 +983,7 @@
         "ownerPath": "Drive:Nexus Game/Project Control Context/Operations Contract",
         "sourcePath": "docs/contexts/nexus-project-operations/CONTEXT.md",
         "sourceId": "operations",
-        "freshness": "aging",
+        "freshness": "fresh",
         "hash": "cd44253d35d2",
         "authorityRole": "Project Control authority and handoff boundaries",
         "retrievalIntent": "Keep GPT recommendations inside the approved authority and approval model.",

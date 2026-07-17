@@ -55,15 +55,15 @@ test("derives freshness from the recorded generation threshold", () => {
 
 test("assembles a stable, fully labelled ticket launch packet", async () => {
   const snapshot = await readJson("app/data/project-snapshot.json");
-  const input = { entryType: "ticket", entryId: "31", intent: "", worktreeId: "clean-review" };
+  const input = { entryType: "ticket", entryId: "77", intent: "", worktreeId: "clean-review" };
   const first = assembleLaunchPacket(snapshot, input);
   const second = assembleLaunchPacket(snapshot, input);
   assert.deepEqual(first, second);
-  assert.match(first.objective, /Formalize skill focus and ability tree structure for playable drafts #31/);
-  assert.doesNotMatch(first.prompt, /Issue #31/);
+  assert.match(first.objective, /Establish one canonical path and Git-operation policy #77/);
+  assert.doesNotMatch(first.prompt, /Issue #77/);
   assert.match(first.prompt, /Acceptance criteria/);
   assert.match(first.prompt, /Validation expectations/);
-  assert.match(first.prompt, /Mapped player-loop stage\nAftermath \+ Recruitment/);
+  assert.match(first.prompt, /Mapped player-loop stage\nNo stage mapping declared/);
 });
 
 test("keeps packet approval invalidation and accessible state in the UI contract", async () => {
