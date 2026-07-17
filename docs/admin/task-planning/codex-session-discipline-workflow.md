@@ -7,7 +7,7 @@ Supplements:
 - `NEXUS_TASK_PACKET_TEMPLATE.md`
 - `NEXUS_HANDOFF_TEMPLATE.md`
 - `docs/admin/task-planning/nexus-review-rubric.md`
-- `docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md`
+- `docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md`
 - `.agents/skills/nexus-session-discipline/SKILL.md`
 - `.agents/skills/nexus-reviewer/SKILL.md`
 

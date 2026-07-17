@@ -1,6 +1,8 @@
 # Open Questions And Content Plan
 
-Status: upload-ready bridge file
+Status: superseded bridge planning evidence; do not upload
+
+> Removed from the active baseline by Bridge Consolidation #80. Retained temporarily as historical planning evidence until Archival #85. The content below is non-controlling.
 
 ## Open Questions
 
