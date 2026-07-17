@@ -18,10 +18,10 @@ owns_topics:
   - 'nasapunk_cyber_noir_design_language'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing."
+metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added the approved C-POH/frontier range concept, faction-range rules, and a no-steampunk boundary."
 ---
 
 # NASApunk Cyber Noir Design Language
@@ -96,6 +96,15 @@ Faction identities should be utility-first and institutional before decorative:
 - public-facing propaganda overlays.
 
 Do not over-finalize faction logos until Lore faction work matures.
+
+Faction direction defines a range, not a single uniform. Institutions may repeat connector standards, maintenance practices, credential systems, inspection markings, preferred materials, or construction logic while individuals, habitats, departments, and equipment generations vary. This internal variation should be visible in concept sheets rather than postponed until final assets.
+
+![Approved C-POH and frontier faction-range concept](<../Reference Inputs/concepts/2026-07-17/nexus-cpoh-frontier-range-concept-2026-07-17.png>)
+
+For C-POH concepts, keep the human body and face visually primary. Their equipment may be modern, capable, and sophisticated while favoring external, inspectable, removable, or non-cognitive systems. C-POH does not mean zero cyberware, but broad faction concept art should not foreground an obvious bionic replacement arm or other body-defining cyberware as the visual shorthand. Do not translate human-continuity or sacred-boundary ideas into antique machinery, steampunk, historical religious costume, or anti-technology caricature.
+
+Frontier and independent-habitat art should carry the widest internal variation. Different habitats, bodies, local industries, supply chains, and repair cultures may produce radically different silhouettes, palettes, garments, and tool layouts. The shared logic is local authorship: accessible repairs, visible adapters, practical redundancy, mixed-generation equipment, and personal or community marks overwriting former ownership. Frontier is not one patched uniform, and it is not random junk or post-apocalyptic costuming.
+
 ## TacMap/collage extension - 2026-05-15
 
 TacMap and diagram assets should translate NASApunk cyber-noir into a schematic language:
@@ -110,6 +119,5 @@ TacMap and diagram assets should translate NASApunk cyber-noir into a schematic 
 ### Icon and marker tone
 
 Use compact practical shapes that feel like signage, maintenance glyphs, hard-suit labels, industrial warning tags, or pressure-system schematics. The icon language should feel like it could exist inside the Nexus setting, but it must still function as a tabletop play aid.
-
 
 

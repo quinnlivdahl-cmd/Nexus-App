@@ -18,17 +18,17 @@ owns_topics:
   - 'nexus_visual_style_bible'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance."
+metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling."
 ---
 
 # Nexus Visual Style Bible
 
 ## Core visual thesis
 
-Nexus is a grounded NASApunk sci-fi tabletop RPG with cyberpunk density, dieselpunk grit, and a near-future solar-system frame. Visuals should feel practical, lived-in, dangerous, and readable at the table.
+Nexus is a grounded NASApunk sci-fi tabletop RPG with cyberpunk density, diesel-industrial grit, and a near-future solar-system frame. Visuals should feel practical, lived-in, dangerous, and readable at the table.
 
 The look should imply that every piece of equipment, habitat, interface, and vehicle has a maintenance history. Nothing should look like pristine fantasy magic or frictionless utopia.
 
@@ -45,6 +45,8 @@ Use layered signage, cramped habitation, surveillance hardware, corporate access
 ### 3. Diesel-grit texture
 
 Use worn paint, oxidized panels, scuffed composite, hydraulic housings, thick doors, heavy latches, analog locks, grease, dust, frost, tape, patched insulation, and old safety markings.
+
+Diesel-industrial grit means weight, wear, repair burden, and mixed generations of modern equipment. It does not mean steampunk, retro-futurism, or antique technology. Keep controls, garments, tools, and construction grounded in contemporary or near-future industrial design even when systems are manual, mechanical, or old.
 
 ### 4. Tabletop clarity
 
@@ -90,6 +92,7 @@ Avoid by default:
 - unreadably cluttered UI;
 - magic glyphs for Contact/Signal effects;
 - generic blue hologram everything.
+- steampunk or retro-futurist styling, including brass ornament, exposed decorative gears, clockwork, antique gauges, Victorian garments, retro diving suits, rayguns, filigree, or leather-and-brass technology.
 
 ## Canon boundary
 
@@ -116,4 +119,3 @@ Avoid:
 - fantasy runes or medieval icon language.
 - icons that require text labels to function at token scale.
 - beautiful backdrops that make the playable map harder to read.
-

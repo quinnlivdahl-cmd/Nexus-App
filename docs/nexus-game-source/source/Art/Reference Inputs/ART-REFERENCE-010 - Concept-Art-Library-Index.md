@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier faction-range concept."
 ---
 
 # Concept Art Library Index
@@ -220,3 +220,11 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Status: approved working concept; not a finished portrait, sprite, or locked interface design.
 - Direction carried forward: low, broad quadrupedal utility body; prominent articulated hands and tool manipulators that make interaction affordances obvious; dark armored display with restrained eye apertures and a separate speech waveform/status trace; enough social legibility to read as a person-bearing sleeve without a humanoid silhouette.
 - Avoid: bodies that appear able only to walk, hidden interaction tools, literal line-drawn human faces, emoji or mascot expressions, sculpted skull anatomy, and skeletal faceplates.
+
+### C-POH and frontier faction range
+
+- Asset: [`concepts/2026-07-17/nexus-cpoh-frontier-range-concept-2026-07-17.png`](<concepts/2026-07-17/nexus-cpoh-frontier-range-concept-2026-07-17.png>)
+- Status: approved working visual direction; not a finished faction uniform, portrait set, or sprite family.
+- Mapping: B1-B2 are modern C-POH range examples; D1-D4 are deliberately varied frontier/independent-habitat examples spanning habitat needs and embodiments.
+- Direction carried forward: faction visuals define ranges rather than single costumes; C-POH presentation keeps human bodily continuity primary without requiring zero cyberware; broad C-POH concept art should not use an obvious bionic replacement limb as its shorthand; frontier has the widest variation, unified by local authorship, repair access, adapters, redundancy, and personal/community marks rather than a shared uniform.
+- Global avoid: steampunk and retro-futurist cues, including brass-and-leather technology, decorative gears, antique gauges, Victorian garments, clockwork, retro diving suits, rayguns, and historical costume used to signify manual or human-centered technology.
