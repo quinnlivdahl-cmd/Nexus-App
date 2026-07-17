@@ -33,7 +33,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>("Roadmap");
   const [attentionOpen, setAttentionOpen] = useState(false);
   const [notice, setNotice] = useState("");
-  const [launch, setLaunch] = useState<LaunchInput>({ entryType: "ticket", entryId: "31", intent: "", worktreeId: "clean-review" });
+  const [launch, setLaunch] = useState<LaunchInput>({ entryType: "ticket", entryId: "77", intent: "", worktreeId: "clean-review" });
   const [approved, setApproved] = useState(false);
   const [focusedStageId, setFocusedStageId] = useState(snapshot.roadmapStages[0]?.id ?? "");
 
@@ -108,7 +108,7 @@ export default function Home() {
       <section className="command-strip" aria-label="Project actions">
         <button aria-expanded={attentionOpen} aria-controls="attention-queue" onClick={() => setAttentionOpen(!attentionOpen)}>{snapshot.attention.length} attention items</button>
         <span>Snapshot: {formatDate(snapshot.generatedAt)}</span>
-        <span>Ticket state: local mirror · stale</span>
+        <span>Ticket state: static GitHub snapshot</span>
         <button onClick={() => openLaunchPacket({ entryType: "freeform", entryId: "", intent: "Refresh the deterministic Nexus Project Snapshot from declared sources.", worktreeId: "clean-review" })}>Refresh Snapshot packet</button>
       </section>
 
@@ -140,10 +140,10 @@ export default function Home() {
       </section>}
 
       {activeTab === "Tickets" && <section className="tab-content" id="tickets">
-        <div className="section-title"><p className="eyebrow">TICKET MIRROR</p><h2>Execution packets, with vision alignment visible.</h2><p>GitHub Issues remain authoritative. This local mirror is stale and must be verified before work starts.</p></div>
+        <div className="section-title"><p className="eyebrow">TICKET SNAPSHOT</p><h2>Execution packets, with sequence and alignment visible.</h2><p>GitHub Issues remain authoritative. This publication was verified on Jul 16 and must be checked again before work starts.</p></div>
         <div className="ticket-list">{snapshot.tickets.map((ticket) => <article key={ticket.id}>
           <div><span className="issue-number">GitHub execution packet</span><h3>{ticketLabel(ticket)}</h3><p>{ticket.note}</p><div className="relationship-line"><strong>Stage</strong> {ticket.stageIds.map((id) => snapshot.roadmapStages.find((stage) => stage.id === id)?.name ?? `Unresolved ${id}`).join(" · ") || "Not mapped"}</div></div>
-          <div className="ticket-meta"><span className={"alignment " + statusClass(ticket.alignment)}>{ticket.alignment.replace(/-/g, " ")}</span><small><strong>Queue role / readiness</strong> {ticket.state.replace(/^mirror:\s*/, "")} · local mirror</small><small><strong>Freshness</strong> {ticket.freshness} · {ticket.owner}</small><small><strong>Dependencies</strong> No explicit ticket edges recorded</small><small><strong>Local progress</strong> {ticket.worktreeIds.length ? ticket.worktreeIds.map((id) => { const tree = snapshot.worktrees.find((item) => item.id === id); return tree ? `${tree.purpose} (${tree.health})` : `Unresolved ${id}`; }).join(" · ") : "No worktree mapped"}</small></div>
+          <div className="ticket-meta"><span className={"alignment " + statusClass(ticket.alignment)}>{ticket.alignment.replace(/-/g, " ")}</span><small><strong>Queue role / readiness</strong> {ticket.state.replace(/^mirror:\s*/, "")} · static snapshot</small><small><strong>Freshness</strong> {ticket.freshness} · {ticket.owner}</small><small><strong>Dependencies</strong> See the packet note and GitHub issue</small><small><strong>Local progress</strong> {ticket.worktreeIds.length ? ticket.worktreeIds.map((id) => { const tree = snapshot.worktrees.find((item) => item.id === id); return tree ? `${tree.purpose} (${tree.health})` : `Unresolved ${id}`; }).join(" · ") : "No worktree mapped"}</small></div>
           <div className="ticket-actions"><a href={ticket.githubUrl} target="_blank" rel="noreferrer">Open on GitHub</a><button onClick={() => openLaunchPacket({ entryType: "ticket", entryId: String(ticket.id), intent: "", worktreeId: ticket.worktreeIds[0] ?? "clean-review" })}>Launch packet</button></div>
         </article>)}</div>
       </section>}
@@ -165,7 +165,7 @@ export default function Home() {
       {activeTab === "Launch" && <section className="tab-content launch-view" id="launch">
         <div className="section-title"><p className="eyebrow">CODEX LAUNCH PACKET</p><h2>Assemble context, review it, then start.</h2><p>This first release deliberately uses a copy/open fallback. It does not claim an undocumented direct-Codex deep link.</p></div>
         <div className="launch-grid"><form onSubmit={(event) => event.preventDefault()}>
-          <fieldset><legend>Start from</legend><div className="segmented">{(["ticket", "stage", "freeform"] as const).map((entryType) => <button type="button" aria-pressed={launch.entryType === entryType} className={launch.entryType === entryType ? "selected" : ""} key={entryType} onClick={() => updateLaunch({ ...launch, entryType, entryId: entryType === "ticket" ? "31" : entryType === "stage" ? "explore-location" : "" })}>{entryType === "stage" ? "Roadmap stage" : entryType}</button>)}</div></fieldset>
+          <fieldset><legend>Start from</legend><div className="segmented">{(["ticket", "stage", "freeform"] as const).map((entryType) => <button type="button" aria-pressed={launch.entryType === entryType} className={launch.entryType === entryType ? "selected" : ""} key={entryType} onClick={() => updateLaunch({ ...launch, entryType, entryId: entryType === "ticket" ? "77" : entryType === "stage" ? "explore-location" : "" })}>{entryType === "stage" ? "Roadmap stage" : entryType}</button>)}</div></fieldset>
           {launch.entryType === "ticket" && <label>Ticket<select value={launch.entryId} onChange={(event) => updateLaunch({ ...launch, entryId: event.target.value })}>{snapshot.tickets.map((ticket) => <option key={ticket.id} value={ticket.id}>{ticketLabel(ticket)}</option>)}</select></label>}
           {launch.entryType === "stage" && <label>Roadmap stage<select value={launch.entryId} onChange={(event) => updateLaunch({ ...launch, entryId: event.target.value })}>{snapshot.roadmapStages.map((stage) => <option key={stage.id} value={stage.id}>{stage.name} · {scoreFor(stage.maturity)}%</option>)}</select></label>}
           {launch.entryType === "freeform" && <label>Intent<textarea value={launch.intent} onChange={(event) => updateLaunch({ ...launch, intent: event.target.value })} placeholder="What should this task accomplish?" /></label>}
