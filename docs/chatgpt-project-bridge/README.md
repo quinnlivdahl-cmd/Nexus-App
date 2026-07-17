@@ -2,7 +2,7 @@
 
 Status: active bridge layer
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App\docs\chatgpt-project-bridge`
+Repo path: `docs/chatgpt-project-bridge`
 
 ## Purpose
 
@@ -57,17 +57,7 @@ The Nexus-App canonical source corpus is:
 
 This path is the durable repo home for the user-designated source corpus for source-backed repo/app work, exact GitHub retrieval, and bridge-indexed ChatGPT discussion. It was renamed from the dated 2026-06-10 rebuild folder on 2026-06-14.
 
-The Obsidian Nexus note/index layer is:
-
-`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
-
-The Obsidian source pointer-card folder is:
-
-`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
-
-The Drive payload lane is:
-
-`G:\My Drive\10_Projects\Nexus Game`
+The maintained local paths for the Obsidian note/index layer, its `00 Source` pointer-card folder, and the Drive payload lane are owned by the routing note reached through `docs/admin/nexus-distributed-surfaces.md`.
 
 When a task depends on Obsidian project-memory or Drive payload state, use local inspection instead of assuming a ChatGPT Project upload proves those surfaces are current. ChatGPT should use the repo canonical source through explicit indexed paths, source status notes, and currentness caveats.
 
@@ -101,8 +91,8 @@ When roadmap lane mapping or issue linkage changes, Codex should regenerate the 
 
 - Nexus-App canonical source is `docs/nexus-game-source/source`.
 - Nexus-App repo source is canonical for Nexus source docs.
-- Obsidian Nexus notes are an index/current-state layer, with generated source pointer cards under `00 Source`, at `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`.
-- Drive Nexus payloads live at `G:\My Drive\10_Projects\Nexus Game`.
+- Obsidian Nexus notes are an index/current-state layer with generated source pointer cards under `00 Source`; locate them through the maintained path registry.
+- Drive Nexus payloads use the location named by the maintained path registry.
 - App workflow and implementation authority lives in this repo and GitHub Issues.
 - ChatGPT Project context is curated, useful, and allowed to be stale when labeled. It is not source authority.
 - The Nexus-App canonical source is the repo-side source corpus for discussion, targeted retrieval, and app source-pack work. Generated Obsidian cards point back to it; they do not duplicate it.

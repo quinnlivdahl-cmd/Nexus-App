@@ -5,6 +5,7 @@ Nexus is a local-first 2D/slight-isometric RPG/roguelike. The existing React/Vit
 ## Start Here
 
 - [AGENTS.md](AGENTS.md) — repository instructions and working boundaries.
+- [Distributed surfaces](docs/admin/nexus-distributed-surfaces.md) — locator for the single maintained Nexus path registry.
 - [CONTEXT-MAP.md](CONTEXT-MAP.md) — authority and context router.
 - [Nexus Game context](docs/contexts/nexus-game/CONTEXT.md) — current product vocabulary and domain orientation.
 - [ADR index](docs/adr/README.md) — accepted decisions and rationale.

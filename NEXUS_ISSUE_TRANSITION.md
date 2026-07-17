@@ -31,7 +31,7 @@ For app work, read in this order:
 Current app-side Golden Truth source:
 
 - `docs/nexus-game-source/source`
-- Source home: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App-Clean-Review-2026-07-06\docs\nexus-game-source`
+- Source home within the current checkout: `docs/nexus-game-source`
 
 Path caveat: this source home was renamed from the dated 2026-06-10 rebuild folder after live migration. Its `legacy_paths` should point at archived slot-source material when path traceability matters.
 

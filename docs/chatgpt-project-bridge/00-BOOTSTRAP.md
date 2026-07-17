@@ -29,10 +29,8 @@ Do not treat this project as:
 Use these authority lanes:
 
 - Nexus-App canonical source: `docs/nexus-game-source/source`
-- App repo and workflow files: `C:\Users\Quintin Livdahl\Repos\Nexus-App`
-- Obsidian note/index layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
-- Obsidian source pointer-card layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
-- Drive payload/workbench lane: `G:\My Drive\10_Projects\Nexus Game`
+- App repo and workflow files: `quinnlivdahl-cmd/Nexus-App`; resolve local checkouts dynamically
+- Local Obsidian, pointer-card, Drive, and checkout paths: maintained registry reached through `docs/admin/nexus-distributed-surfaces.md`
 - GitHub repo: `quinnlivdahl-cmd/Nexus-App`
 - ChatGPT Project bridge files: `docs/chatgpt-project-bridge`
 - Repo-side roadmap surface: `docs/nexus-roadmap`

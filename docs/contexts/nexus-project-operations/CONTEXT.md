@@ -39,7 +39,7 @@ Draft material that may become Nexus source after review and promotion. It can p
 _Avoid_: Live source, accepted canon, implementation authority
 
 **Obsidian Project Hub**:
-The human-facing Nexus note and project-memory layer under `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`. It supports reading, routing, current-state notes, and pointer navigation; it is not an independent source authority over the repo.
+The human-facing Nexus note and project-memory layer identified by the maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md`. It supports reading, routing, current-state notes, and pointer navigation; it is not an independent source authority over the repo.
 _Avoid_: App repo, canonical source home, GitHub issue tracker
 
 **Drive Payload Home**:

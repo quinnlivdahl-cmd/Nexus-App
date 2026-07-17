@@ -56,6 +56,17 @@ const sectionChecks = [
       "PASS_WITH_NOTES",
       "Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.",
       "implement -> validate -> independent review -> targeted fixes -> re-review when needed",
+      "## Nexus Git Ownership Override",
+      "Codex owns the technical Git choices.",
+      "Changing `main` requires Quintin's explicit approval",
+    ],
+  },
+  {
+    file: "docs/admin/nexus-distributed-surfaces.md",
+    includes: [
+      "single owner for maintained absolute Nexus paths",
+      "git rev-parse --show-toplevel",
+      "current Git checkout",
     ],
   },
   {
@@ -319,6 +330,62 @@ for (const file of activeSourceRoutingFiles) {
   for (const identifier of retiredSourcePromotionIdentifiers) {
     if (text.includes(identifier)) {
       failures.push(`${file} references retired source promotion: ${identifier}`);
+    }
+  }
+}
+
+const activePathPolicyFiles = [
+  "AGENTS.md",
+  "README.md",
+  "NEXUS_ISSUE_INDEX.md",
+  "NEXUS_ISSUE_TRANSITION.md",
+  "NEXUS_LOCAL_PLAYABLE_ALPHA.md",
+  ".agents/skills/nexus-source-router/SKILL.md",
+  ".agents/skills/nexus-source-index-maintainer/SKILL.md",
+  "docs/admin/nexus-distributed-surfaces.md",
+  "docs/admin/task-planning/repo-first-task-planning-workflow.md",
+  "docs/nexus-roadmap/README.md",
+  "docs/nexus-game-source/README.md",
+  "docs/contexts/nexus-project-operations/CONTEXT.md",
+  "docs/game-system-contracts/drafts/Ability_and_Skill_Focus_Schema_Contract_rev0.1.md",
+  "docs/chatgpt-project-bridge/README.md",
+  "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
+  "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+  "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+];
+
+// Historical handoffs and source legacy_paths remain outside this active-policy guard.
+const retiredActivePathPatterns = [
+  {
+    label: "dated clean-review worktree",
+    pattern: /Nexus-App-Clean-Review-2026-07-06/,
+  },
+  {
+    label: "legacy standalone checkout",
+    pattern:
+      /C:\\Users\\Quintin Livdahl\\Repos\\Nexus-App(?=$|[^-A-Za-z0-9_])/m,
+  },
+  {
+    label: "retired pre-Obsidian vault root",
+    pattern: /C:\\Users\\Quintin Livdahl\\Nexus(?=$|[^-A-Za-z0-9_])/m,
+  },
+  {
+    label: "obsolete Workflow Control path",
+    pattern:
+      /C:\\Users\\Quintin Livdahl\\Projects\\Codex Workflow Control - 2026-06-14 - Active(?=$|[^-A-Za-z0-9_])/m,
+  },
+];
+
+for (const file of activePathPolicyFiles) {
+  const path = resolve(root, file);
+  if (!existsSync(path)) continue;
+  const text = readFileSync(path, "utf8");
+  for (const { label, pattern } of retiredActivePathPatterns) {
+    const match = text.match(pattern);
+    if (match) {
+      failures.push(
+        `${file} contains retired active path guidance (${label}): ${match[0]}`,
+      );
     }
   }
 }

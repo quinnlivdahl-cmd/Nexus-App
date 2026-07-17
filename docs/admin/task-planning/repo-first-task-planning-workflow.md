@@ -252,7 +252,7 @@ Use Codex for code implementation, test creation, code refactor, documentation e
 
 Use Replit for app preview, UI feel, runtime testing, browser-based editing, and deployment preview.
 
-Use the user for design taste, canon approval, product direction, merge approval, scope decisions, and final acceptance.
+Use the user for design taste, canon approval, product direction, approval of the produced result before `main` integration, scope decisions, and final acceptance. Once the result is approved, Codex owns the ordinary Git closeout and should not ask a second technical merge-method question.
 
 ## 11. Codex Task Prompt Pattern
 

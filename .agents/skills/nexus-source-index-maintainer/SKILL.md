@@ -16,7 +16,7 @@ Workflow:
 
 1. Inspect the current task and decide whether canonical source files were added, removed, renamed, or changed.
 2. Do not refresh canonical source from Obsidian `00 Source`, Drive, archives, or review candidates unless the user explicitly approves that direction.
-3. If Obsidian navigation matters, inspect generated pointer cards under `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source` for stale paths. Do not treat those cards as source-content currentness evidence.
+3. If Obsidian navigation matters, use the maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md` to locate generated pointer cards and inspect them for stale paths. Do not treat those cards as source-content currentness evidence.
 4. Regenerate the index from the repo root:
    `corepack pnpm run source:index`
 5. Check the generated files:

@@ -117,7 +117,7 @@ If crew, conversion, recruitment, progression, or Embodiment detail appears nece
 
 ## Workspace and publication state
 
-- Canonical working repository: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App-Clean-Review-2026-07-06`.
+- Historical session worktree: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App-Clean-Review-2026-07-06`. Current local path facts are owned by the registry reached through `docs/admin/nexus-distributed-surfaces.md`.
 - The repository contains unrelated modified and untracked user work, especially under `.github`, `artifacts`, `pnpm-lock.yaml`, and project-operation docs. Preserve it and do not clean, revert, stage, or overwrite it.
 - This session has made documentation-only changes: amended earlier ADRs, new ADRs 0035–0073, glossary updates, the working contract, the completed AI contract, the completed character/chassis research audit, and this handoff.
 - [Crew Archive and Conversion Design #68](https://github.com/quinnlivdahl-cmd/Nexus-App/issues/68) exists live on GitHub as the separate owner for crew-pool and former-PC conversion design. Its `NEXUS_ISSUE_INDEX.md` routing entry and the contract documentation remain local and uncommitted. No commit, push, pull request, production implementation, or other GitHub closeout mutation has been performed.
