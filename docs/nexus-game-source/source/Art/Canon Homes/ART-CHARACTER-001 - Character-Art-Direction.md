@@ -18,10 +18,10 @@ owns_topics:
   - 'character_art_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, approved Splicer lines, and approved Upload starting-embodiment direction."
+metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, approved Splicer lines, and approved Upload starting-embodiment direction. The 2026-07-17 review added the approved working concept for a person-bearing quadrupedal utility sleeve with visible interaction tools and a restrained screen face."
 ---
 
 # Character Art Direction
@@ -107,6 +107,12 @@ The approved working comparison maps:
 - **A — Base Sleeve:** humanoid, socially navigable, visibly robotic, bare manufactured body, nonhuman interface head, and normal infrastructure compatibility.
 - **B — Maintenance Drone:** low, broad, nonhumanoid, tool-first body for ducts, hulls, repair, and ship-system access.
 - **C — Combat Shell:** tall, faceless, heavily protected tactical vessel whose armor, interlocks, legal markings, and silhouette make security attention unavoidable.
+
+![Approved quadrupedal utility-sleeve screen-face concept](<../Reference Inputs/concepts/2026-07-17/nexus-upload-utility-sleeve-screen-face-concept-2026-07-17.png>)
+
+For person-bearing quadrupedal utility sleeves, favor a low, broad industrial body whose interaction anatomy is obvious at a glance. Prominent articulated manipulators should show how the person opens doors, operates consoles, exchanges objects, performs precision work, and uses modular tools; a body that appears able only to walk reads too much like equipment or an autonomous carrier.
+
+A dark armored display can provide social legibility without imitating a human head. The approved working concept uses restrained eye apertures for gaze and attention plus a separate speech waveform/status trace. Keep most of the display dark. Avoid literal line-drawn faces, noses, lips, smiles, emoji language, cute mascot expressions, sculpted skull anatomy, or skeletal faceplates. This screen treatment is a concept-level direction to refine during actual portrait and sprite production, not a locked final interface design.
 
 When showing one Upload across multiple bodies, repeat a personal object, repair habit, color accent, or other chosen identity marker. Personhood continuity should come from behavior and personalization rather than forcing every vessel to share a human face or silhouette.
 

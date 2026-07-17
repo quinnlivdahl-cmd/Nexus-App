@@ -3,8 +3,8 @@
 Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-game-source/source`
 Indexed source documents: 191
-Indexed source slices: 1690
-Level-two section coverage: 1638/1638
+Indexed source slices: 1692
+Level-two section coverage: 1640/1640
 
 ## Authority Note
 
@@ -34,7 +34,7 @@ Marker format:
 | Domain | Documents | Slices |
 |---|---:|---:|
 | Admin | 21 | 177 |
-| Art | 16 | 147 |
+| Art | 16 | 149 |
 | Automation | 8 | 57 |
 | Characters | 10 | 87 |
 | Combat | 10 | 115 |
@@ -55,7 +55,7 @@ Marker format:
 |---|---:|
 | explicit_marker | 128 |
 | generated_document_context | 36 |
-| generated_heading | 1526 |
+| generated_heading | 1528 |
 
 ## Source Slices
 
@@ -248,15 +248,16 @@ Marker format:
 | `auto.admin-runbook-901.work-anchor-id-separation-rule` | generated_heading | ADMIN-RUNBOOK-901 | Work Anchor / ID Separation Rule | `docs/nexus-game-source/source/Admin/Applied Rules/ADMIN-RUNBOOK-901 - Project-Workflow.md` | 187-198 | `9fd98de8a777...` |
 | `auto.admin-runbook-902.package-changelog` | generated_heading | ADMIN-RUNBOOK-902 | Package Changelog | `docs/nexus-game-source/source/Admin/Applied Rules/ADMIN-RUNBOOK-902 - Upload-Instructions.md` | 43-50 | `2fc1518b73a3...` |
 | `auto.admin-runbook-902.package-handling-note` | generated_heading | ADMIN-RUNBOOK-902 | Package Handling Note | `docs/nexus-game-source/source/Admin/Applied Rules/ADMIN-RUNBOOK-902 - Upload-Instructions.md` | 29-38 | `d2950e71ef69...` |
-| `auto.art-character-001.ai-drones-and-custodian-shells` | generated_heading | ART-CHARACTER-001 | AI, drones, and custodian shells | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 74-77 | `80842e7505e6...` |
-| `auto.art-character-001.character-sheet-art-boundary` | generated_heading | ART-CHARACTER-001 | Character sheet art boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 103-109 | `2fa9e910bbf3...` |
+| `auto.art-character-001.ai-drones-and-custodian-shells` | generated_heading | ART-CHARACTER-001 | AI, drones, and custodian shells | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 121-124 | `80842e7505e6...` |
+| `auto.art-character-001.character-sheet-art-boundary` | generated_heading | ART-CHARACTER-001 | Character sheet art boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 150-153 | `2fa9e910bbf3...` |
 | `auto.art-character-001.core-rule` | generated_heading | ART-CHARACTER-001 | Core rule | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 29-32 | `beca08bd6275...` |
-| `auto.art-character-001.crew-composition-and-silhouettes` | generated_heading | ART-CHARACTER-001 | Crew composition and silhouettes | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 90-102 | `608c39b74b64...` |
-| `auto.art-character-001.cyborg-and-cyberware-visuals` | generated_heading | ART-CHARACTER-001 | Cyborg and cyberware visuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 49-62 | `e2beda83e47d...` |
+| `auto.art-character-001.crew-composition-and-silhouettes` | generated_heading | ART-CHARACTER-001 | Crew composition and silhouettes | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 137-149 | `608c39b74b64...` |
+| `auto.art-character-001.cyborg-and-cyberware-visuals` | generated_heading | ART-CHARACTER-001 | Cyborg and cyberware visuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 72-91 | `f9d1f46d2877...` |
 | `auto.art-character-001.human-baseline` | generated_heading | ART-CHARACTER-001 | Human baseline | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 33-36 | `5d226a81edf2...` |
-| `auto.art-character-001.signal-touched-and-contact-affected-individuals` | generated_heading | ART-CHARACTER-001 | Signal-touched and Contact-affected individuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 78-89 | `1eb8ab14b40e...` |
-| `auto.art-character-001.splicers-and-biological-modification` | generated_heading | ART-CHARACTER-001 | Splicers and biological modification | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 37-48 | `c0aee5376b35...` |
-| `auto.art-character-001.uploads-and-sleeves` | generated_heading | ART-CHARACTER-001 | Uploads and sleeves | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 63-73 | `ed974161b11e...` |
+| `auto.art-character-001.signal-touched-and-contact-affected-individuals` | generated_heading | ART-CHARACTER-001 | Signal-touched and Contact-affected individuals | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 125-136 | `1eb8ab14b40e...` |
+| `auto.art-character-001.splicers-and-biological-modification` | generated_heading | ART-CHARACTER-001 | Splicers and biological modification | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 49-71 | `9133b61cfd8c...` |
+| `auto.art-character-001.uploads-and-sleeves` | generated_heading | ART-CHARACTER-001 | Uploads and sleeves | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 92-120 | `923e5483a5cb...` |
+| `auto.art-character-001.vatborn` | generated_heading | ART-CHARACTER-001 | Vatborn | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 37-48 | `787753bbfbd9...` |
 | `auto.art-environment-001.asteroid-mines-and-industrial-sites` | generated_heading | ART-ENVIRONMENT-001 | Asteroid mines and industrial sites | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 63-74 | `63174a74bd6f...` |
 | `auto.art-environment-001.contact-and-alien-signal-scenes` | generated_heading | ART-ENVIRONMENT-001 | Contact and alien-signal scenes | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 97-100 | `4c20245b29db...` |
 | `auto.art-environment-001.corporate-state-station-life` | generated_heading | ART-ENVIRONMENT-001 | Corporate/state/station life | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 84-96 | `a6186fa5bc54...` |
@@ -318,9 +319,10 @@ Marker format:
 | `auto.art-prompt-001.source-anchors` | generated_heading | ART-PROMPT-001 | Source Anchors | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 149-151 | `9abbfac4d00e...` |
 | `auto.art-prompt-001.success-criteria` | generated_heading | ART-PROMPT-001 | Success Criteria | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 164-166 | `65e6f966f0d5...` |
 | `auto.art-reference-010.active-art-asset-queue-carried-from-dashboards` | generated_heading | ART-REFERENCE-010 | Active art/asset queue carried from dashboards | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 116-127 | `d4ba5663fd56...` |
+| `auto.art-reference-010.character-concept-selections-2026-07-16` | generated_heading | ART-REFERENCE-010 | Character concept selections - 2026-07-16 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 189-223 | `ecc504505e47...` |
 | `auto.art-reference-010.current-known-asset-folders-from-older-vault-material` | generated_heading | ART-REFERENCE-010 | Current known asset folders from older vault material | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 33-51 | `bd0a5ca0f851...` |
 | `auto.art-reference-010.icon-families-in-the-concept-package` | generated_heading | ART-REFERENCE-010 | Icon families in the concept package | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 81-115 | `80bf22ad98fb...` |
-| `auto.art-reference-010.intake-asset-reference-index-2026-05-15` | generated_heading | ART-REFERENCE-010 | Intake asset/reference index - 2026-05-15 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 138-190 | `7d7515544af3...` |
+| `auto.art-reference-010.intake-asset-reference-index-2026-05-15` | generated_heading | ART-REFERENCE-010 | Intake asset/reference index - 2026-05-15 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 138-188 | `7d7515544af3...` |
 | `auto.art-reference-010.known-campaign-scene-images` | generated_heading | ART-REFERENCE-010 | Known campaign scene images | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 52-62 | `b6e8a6827bbb...` |
 | `auto.art-reference-010.known-icon-concept-package` | generated_heading | ART-REFERENCE-010 | Known icon concept package | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 63-80 | `b5c7ebe9e5b9...` |
 | `auto.art-reference-010.missing-asset-index-work` | generated_heading | ART-REFERENCE-010 | Missing asset-index work | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 128-137 | `db96a0420d4e...` |
@@ -438,14 +440,14 @@ Marker format:
 | `auto.char-ability-001.rank-design-rule` | generated_heading | CHAR-ABILITY-001 | 3. Rank design rule | `docs/nexus-game-source/source/Characters/Applied Rules/CHAR-ABILITY-001 - Ability_Taxonomy_and_Level_Up_Working_Model.md` | 98-110 | `d2c4d81e7ea8...` |
 | `auto.char-ability-001.secondary-weapon-rule` | generated_heading | CHAR-ABILITY-001 | 5. Secondary weapon rule | `docs/nexus-game-source/source/Characters/Applied Rules/CHAR-ABILITY-001 - Ability_Taxonomy_and_Level_Up_Working_Model.md` | 154-173 | `a1f8348a1a4e...` |
 | `auto.char-ability-001.tier-rank-and-focus-total` | generated_heading | CHAR-ABILITY-001 | 2. Tier, Rank, and Focus Total | `docs/nexus-game-source/source/Characters/Applied Rules/CHAR-ABILITY-001 - Ability_Taxonomy_and_Level_Up_Working_Model.md` | 70-97 | `addebaf2242c...` |
-| `auto.char-chassis-001.chassis-candidates-as-dm-usable-tags` | generated_heading | CHAR-CHASSIS-001 | 3. Chassis candidates as DM-usable tags | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 164-181 | `ade6bacf071d...` |
-| `auto.char-chassis-001.corrected-cyberware-creation-model` | generated_heading | CHAR-CHASSIS-001 | 2. Corrected cyberware creation model | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 95-163 | `3a67f1d118a8...` |
+| `auto.char-chassis-001.chassis-candidates-as-dm-usable-tags` | generated_heading | CHAR-CHASSIS-001 | 3. Chassis candidates as DM-usable tags | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 172-189 | `ade6bacf071d...` |
+| `auto.char-chassis-001.corrected-cyberware-creation-model` | generated_heading | CHAR-CHASSIS-001 | 2. Corrected cyberware creation model | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 95-171 | `689a758034c6...` |
 | `auto.char-chassis-001.current-working-principle` | generated_heading | CHAR-CHASSIS-001 | 1. Current working principle | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 32-94 | `f916069dcfd4...` |
-| `auto.char-chassis-001.dm-usable-build-reading` | generated_heading | CHAR-CHASSIS-001 | 4. DM-usable build reading | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 182-191 | `7a6b8ac24b02...` |
-| `auto.char-chassis-001.domain-boundaries` | generated_heading | CHAR-CHASSIS-001 | 5. Domain boundaries | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 192-199 | `61211769f50d...` |
-| `auto.char-chassis-001.durability-integration-note` | generated_heading | CHAR-CHASSIS-001 | 8. Durability integration note | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 277-280 | `72fd1b8d33d2...` |
-| `auto.char-chassis-001.source-handling-note` | generated_heading | CHAR-CHASSIS-001 | 6. Source handling note | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 200-203 | `e846ab735d4d...` |
-| `auto.char-chassis-001.standard-fit-and-body-hook-update` | generated_heading | CHAR-CHASSIS-001 | 7. Standard Fit and body-hook update | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 204-276 | `06466b47d560...` |
+| `auto.char-chassis-001.dm-usable-build-reading` | generated_heading | CHAR-CHASSIS-001 | 4. DM-usable build reading | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 190-199 | `7a6b8ac24b02...` |
+| `auto.char-chassis-001.domain-boundaries` | generated_heading | CHAR-CHASSIS-001 | 5. Domain boundaries | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 200-207 | `61211769f50d...` |
+| `auto.char-chassis-001.durability-integration-note` | generated_heading | CHAR-CHASSIS-001 | 8. Durability integration note | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 285-288 | `72fd1b8d33d2...` |
+| `auto.char-chassis-001.source-handling-note` | generated_heading | CHAR-CHASSIS-001 | 6. Source handling note | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 208-211 | `e846ab735d4d...` |
+| `auto.char-chassis-001.standard-fit-and-body-hook-update` | generated_heading | CHAR-CHASSIS-001 | 7. Standard Fit and body-hook update | `docs/nexus-game-source/source/Characters/Canon Homes/CHAR-CHASSIS-001 - Character_Chassis_and_Build_Stack.md` | 212-284 | `06466b47d560...` |
 | `auto.char-crew-001.aging-stasis-and-retirement` | generated_heading | CHAR-CREW-001 | 10. Aging, stasis, and retirement | `docs/nexus-game-source/source/Characters/Applied Rules/CHAR-CREW-001 - Crew_Rosters_and_Relationships.md` | 134-139 | `d35bae26c0a8...` |
 | `auto.char-crew-001.campaign-state-boundary` | generated_heading | CHAR-CREW-001 | 6. Campaign-state boundary | `docs/nexus-game-source/source/Characters/Applied Rules/CHAR-CREW-001 - Crew_Rosters_and_Relationships.md` | 87-90 | `5fe371a91513...` |
 | `auto.char-crew-001.crew-archive-and-former-player-characters` | generated_heading | CHAR-CREW-001 | 9. Crew Archive and former Player Characters | `docs/nexus-game-source/source/Characters/Applied Rules/CHAR-CREW-001 - Crew_Rosters_and_Relationships.md` | 126-133 | `7facf3662e1f...` |
@@ -1018,9 +1020,9 @@ Marker format:
 | `auto.lore-open-010.routing-notes` | generated_heading | LORE-OPEN-010 | Routing notes | `docs/nexus-game-source/source/Lore/Open Questions/LORE-OPEN-010 - SRC-LORE-010-Lore-Open-Questions.md` | 67-76 | `1575ea25d122...` |
 | `auto.lore-open-010.split-branches-to-preserve` | generated_heading | LORE-OPEN-010 | Split branches to preserve | `docs/nexus-game-source/source/Lore/Open Questions/LORE-OPEN-010 - SRC-LORE-010-Lore-Open-Questions.md` | 42-51 | `14dea5f4bdbc...` |
 | `auto.lore-personhood-001.active-frame` | generated_heading | LORE-PERSONHOOD-001 | Active frame | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 35-40 | `8d33a6cbac9f...` |
-| `auto.lore-personhood-001.cross-slot-boundary-for-origins` | generated_heading | LORE-PERSONHOOD-001 | Cross-slot boundary for origins | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 104-112 | `90a805efc6ba...` |
-| `auto.lore-personhood-001.current-broad-groups` | generated_heading | LORE-PERSONHOOD-001 | Current broad groups | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 41-99 | `fba13d8ca953...` |
-| `auto.lore-personhood-001.design-caution` | generated_heading | LORE-PERSONHOOD-001 | Design caution | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 100-103 | `a3e22e12d9a8...` |
+| `auto.lore-personhood-001.cross-slot-boundary-for-origins` | generated_heading | LORE-PERSONHOOD-001 | Cross-slot boundary for origins | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 118-124 | `90a805efc6ba...` |
+| `auto.lore-personhood-001.current-broad-groups` | generated_heading | LORE-PERSONHOOD-001 | Current broad groups | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 41-113 | `4f8d8eec2e3c...` |
+| `auto.lore-personhood-001.design-caution` | generated_heading | LORE-PERSONHOOD-001 | Design caution | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 114-117 | `a3e22e12d9a8...` |
 | `auto.lore-personhood-001.grounding-rule` | generated_heading | LORE-PERSONHOOD-001 | Grounding rule | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-PERSONHOOD-001 - SRC-LORE-003-Humanity-Posthumanity-and-Origin-Frame.md` | 29-34 | `69b68dd0db8b...` |
 | `auto.lore-signal-001.choir-relationship` | generated_heading | LORE-SIGNAL-001 | Choir relationship | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-SIGNAL-001 - SRC-LORE-007-Alien-Signal-and-Contact-Mystery.md` | 41-54 | `0ea7f5ccb263...` |
 | `auto.lore-signal-001.contact-as-game-surface` | generated_heading | LORE-SIGNAL-001 | Contact as game surface | `docs/nexus-game-source/source/Lore/Canon Homes/LORE-SIGNAL-001 - SRC-LORE-007-Alien-Signal-and-Contact-Mystery.md` | 73-76 | `4cb6dde86b12...` |

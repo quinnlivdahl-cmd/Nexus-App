@@ -18,10 +18,10 @@ owns_topics:
   - 'concept_art_library_index'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept."
 ---
 
 # Concept Art Library Index
@@ -213,3 +213,10 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Status: approved working visual and lore direction; not a finished character asset.
 - Mapping: A Base Sleeve; B Maintenance Drone; C Combat Shell.
 - Direction carried forward: standard Base Sleeves are hairless, unclothed, visibly robotic humanoid bodies with nonhuman interface heads; human-faced sleeves are specialized social-service models; Maintenance Drones are nonhumanoid and tool-first; Combat Shells are faceless, tactical, and legally conspicuous; personal markers may persist across every body.
+
+### Quadrupedal utility-sleeve screen face
+
+- Asset: [`concepts/2026-07-17/nexus-upload-utility-sleeve-screen-face-concept-2026-07-17.png`](<concepts/2026-07-17/nexus-upload-utility-sleeve-screen-face-concept-2026-07-17.png>)
+- Status: approved working concept; not a finished portrait, sprite, or locked interface design.
+- Direction carried forward: low, broad quadrupedal utility body; prominent articulated hands and tool manipulators that make interaction affordances obvious; dark armored display with restrained eye apertures and a separate speech waveform/status trace; enough social legibility to read as a person-bearing sleeve without a humanoid silhouette.
+- Avoid: bodies that appear able only to walk, hidden interaction tools, literal line-drawn human faces, emoji or mascot expressions, sculpted skull anatomy, and skeletal faceplates.
