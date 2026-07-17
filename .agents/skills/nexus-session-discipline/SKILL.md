@@ -38,6 +38,9 @@ Workflow:
 Default destinations:
 
 - Actionable side tasks -> existing issue comment, new issue, task packet, or roadmap/index entry.
+- Durable human-facing plans, findings, and progress -> Obsidian Nexus hub `02 Planning`.
+- Temporary session sequencing -> the active chat or tool plan; do not preserve by default.
+- Cross-session executable continuity -> a linked GitHub Issue comment or approved handoff.
 - ChatGPT-bound exploration -> `docs/chatgpt-project-bridge/synced-chats/` or `docs/chatgpt-project-bridge/task-packets/`.
 - Transfer context -> `NEXUS_HANDOFF_TEMPLATE.md` shape or `docs/chatgpt-project-bridge/handoffs/`.
 - Source placement questions -> source-router workflow; do not edit canonical source without approval.
@@ -46,6 +49,7 @@ Default destinations:
 Do not:
 
 - pursue side items just because they are interesting;
+- recreate the retired repo `planning/` overlay or require durable updates based only on tool-call count;
 - create new tracking locations when an approved destination exists;
 - call a side item recorded if it only appears in chat;
 - build duplicate-check, observation-mining, or packet-indexing automation unless a separate issue explicitly scopes it.

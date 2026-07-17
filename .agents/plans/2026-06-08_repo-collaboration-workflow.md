@@ -1,18 +1,19 @@
 ---
 title: "Repo Collaboration Workflow"
 project: "Nexus App"
-doc_status: "planning"
+doc_status: "superseded"
 source_role: "workflow_handoff"
 created: "2026-06-08"
 created_by: "ChatGPT Steward"
 repo_path: ".agents/plans/2026-06-08_repo-collaboration-workflow.md"
 intended_use:
-  - "Shared workflow model for ChatGPT, Codex, Replit, and GitHub"
-  - "Planning input for app-development collaboration"
-  - "Not app runtime source"
+  - "Historical workflow evidence only"
+superseded_by: "Planning Ownership #81"
 ---
 
 # Repo Collaboration Workflow
+
+> Superseded by Planning Ownership #81. This retained June 2026 plan is historical and non-controlling. Use `docs/admin/task-planning/codex-session-discipline-workflow.md` for the current ownership model.
 
 ## 1. Working principle
 
