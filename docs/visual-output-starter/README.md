@@ -1,6 +1,6 @@
 # Codex Visual Output Starter Toolkit
 
-Status: starter scaffold
+Status: reusable historical seed; active skill retired by GitHub Issue #82
 Controlling issue: GitHub Issue #51
 
 ## Purpose
@@ -15,9 +15,7 @@ Use this folder as the planning and example home:
 
 `docs/visual-output-starter`
 
-Use this skill as the agent guidance entrypoint:
-
-`.agents/skills/codex-visual-output-starter/SKILL.md`
+Use the installed global `codex-visual-output-workflow` skill as the agent guidance entrypoint. The repo-local starter skill was retired because it duplicated that global workflow.
 
 Use the existing React sandbox as the first runnable web UI lane:
 

@@ -63,7 +63,7 @@ Avoid saying a task is complete when the precise state is only "implemented loca
 
 ## Review Gate
 
-Non-trivial Nexus work should include an independent review after implementation and validation. Use `.agents/skills/nexus-reviewer/SKILL.md` and `docs/admin/task-planning/nexus-review-rubric.md`.
+Non-trivial Nexus work should include an independent review after implementation and validation. Use the installed global `code-review` skill with `docs/admin/task-planning/nexus-review-rubric.md`.
 
 Allowed reviewer results are `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, and `BLOCKED`.
 

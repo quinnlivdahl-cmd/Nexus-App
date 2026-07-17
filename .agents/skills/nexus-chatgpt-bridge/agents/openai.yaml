@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nexus ChatGPT Bridge"
+  short_description: "Maintain Nexus ChatGPT context transfers"
+  default_prompt: "Use $nexus-chatgpt-bridge to prepare or verify a Nexus ChatGPT handoff or context packet."

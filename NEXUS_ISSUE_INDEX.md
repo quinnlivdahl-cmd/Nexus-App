@@ -60,6 +60,7 @@ Use this section for ready or in-progress issue packets.
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
+| #82 | Consolidate repo-local Nexus skills | in-progress | Instruction and Authority Consolidation #74 | #76, #77, and #78 complete | Review and merge Skill Consolidation PR #99, then record evidence and close #82 |
 
 ## Known Open GitHub Issues
 
@@ -153,7 +154,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #38 | Define rules object model for actions, checks, effects, and logs | `docs/game-system-contracts/drafts/Rules_Object_Model_rev0.1.md`, `docs/game-system-contracts/drafts/Rules_Object_Model_rev0.1_ACCEPTANCE_AND_SCAFFOLD_APPENDIX.md`, and canonical source reconciliation in `docs/nexus-game-source/source` | TypeScript scaffold explicitly deferred to #4 so #38 does not block #9 |
 | #39 | Define check family contract | `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT_CONTINUATION_01.md` plus canonical source reconciliation in `SKILL-RESOLUTION-001` | TypeScript scaffold explicitly deferred to #4 so #39 does not block #9 |
 | #48 | Revise ChatGPT bridge workflow for long-chat preservation packets | Bridge refresh rules now include an explicit `Long-Chat Preservation Procedure`; ChatGPT project instructions and bridge README point to it; repo-local and workspace-local closeout-scan skills added for future issue sweeps | ChatGPT Project still needs upload or searchability confirmation before the changed bridge baseline can be called refreshed there |
-| #51 | Build Codex visual-output starter toolkit | `docs/visual-output-starter/README.md`, lane examples, and `.agents/skills/codex-visual-output-starter/SKILL.md` provide the starter plan, lane decision guidance, and reusable Codex skill | Add concrete dependency-backed lanes only when a future visual artifact needs them |
+| #51 | Build Codex visual-output starter toolkit | `docs/visual-output-starter/README.md` and lane examples preserve the starter plan and reusable Nexus assets; active skill routing now uses the installed global visual-output workflow | Add concrete dependency-backed lanes only when a future visual artifact needs them |
 
 ## Cleanup Notes
 

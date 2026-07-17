@@ -38,6 +38,6 @@ Run the full workflow validator before closeout:
 
 `corepack pnpm run validate:workflow`
 
-Use `.agents/skills/nexus-source-index-maintainer/SKILL.md` for future source-index work. Do not copy this corpus into Obsidian; update generated pointer cards when navigation paths change.
+Use `.agents/skills/nexus-source-maintenance/SKILL.md` for future source routing and source-index work. Do not copy this corpus into Obsidian; update generated pointer cards when navigation paths change.
 
 Before Retire Source Promotion #76, a one-way repo-to-Obsidian copy workflow supported the 2026 source migration. That workflow is retired; Git history preserves its implementation and migration provenance.

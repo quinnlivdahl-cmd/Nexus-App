@@ -8,8 +8,8 @@ Supplements:
 - `NEXUS_HANDOFF_TEMPLATE.md`
 - `docs/admin/task-planning/nexus-review-rubric.md`
 - `docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md`
-- `.agents/skills/nexus-session-discipline/SKILL.md`
-- `.agents/skills/nexus-reviewer/SKILL.md`
+- `.agents/skills/nexus-issue-workflow/SKILL.md`
+- `.agents/skills/nexus-chatgpt-bridge/SKILL.md`
 
 ## Purpose
 
@@ -40,7 +40,7 @@ For non-trivial Nexus work, use this loop:
 implement -> validate -> independent review -> targeted fixes -> re-review when needed -> closeout
 ```
 
-Implementation belongs to the executor. Review belongs to an independent reviewer lane using `.agents/skills/nexus-reviewer/SKILL.md` and `docs/admin/task-planning/nexus-review-rubric.md`.
+Implementation belongs to the executor. Review belongs to an independent reviewer lane using the installed global `code-review` skill and `docs/admin/task-planning/nexus-review-rubric.md`.
 
 The reviewer returns one of `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, or `BLOCKED`. Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.
 
@@ -151,7 +151,7 @@ Use existing destinations before inventing new ones.
 | ChatGPT-bound exploration | `docs/chatgpt-project-bridge/synced-chats/` or `task-packets/` |
 | Concrete handoff | `NEXUS_HANDOFF_TEMPLATE.md` shape or `docs/chatgpt-project-bridge/handoffs/` |
 | Tiny observation | Issue closeout, handoff, synced-chat packet, or future observation log |
-| Source placement question | Source-router workflow; do not edit canonical source without approval |
+| Source placement question | `.agents/skills/nexus-source-maintenance/SKILL.md`; do not edit canonical source without approval |
 
 If no correct destination is clear, ask for the route in plain language.
 

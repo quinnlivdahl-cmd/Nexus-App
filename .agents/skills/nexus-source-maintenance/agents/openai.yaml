@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nexus Source Maintenance"
+  short_description: "Maintain Nexus canonical source and indexes"
+  default_prompt: "Use $nexus-source-maintenance to route and maintain Nexus canonical source safely."
