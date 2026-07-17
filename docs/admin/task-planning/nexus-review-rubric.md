@@ -2,11 +2,11 @@
 
 Status: active workflow rubric
 Scope: Nexus repo-local Codex review loop
-Related skill: `.agents/skills/nexus-reviewer/SKILL.md`
+Related skill: installed global `code-review`
 
 ## Purpose
 
-This rubric gives Nexus work a repeatable independent review lane after implementation and validation. It is Codex-native and repo-local. It does not introduce global `.codex` behavior, Claude compatibility files, external automation, or GitHub mutation by itself.
+This rubric specializes the installed global review workflow for Nexus after implementation and validation. It does not introduce global `.codex` behavior, Claude compatibility files, external automation, or GitHub mutation by itself.
 
 Use it for non-trivial Nexus implementation, workflow, source-routing, bridge, handoff, or issue-closeout work before calling the work complete.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nexus Roadmap Maintenance"
+  short_description: "Maintain Nexus roadmap mirrors and indexes"
+  default_prompt: "Use $nexus-roadmap-maintenance to update and validate the Nexus roadmap mirror."

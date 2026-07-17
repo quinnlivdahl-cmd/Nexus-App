@@ -4,6 +4,13 @@ import { spawnSync } from "node:child_process";
 
 const root = resolve(import.meta.dirname, "..");
 
+const retainedRepoSkills = [
+  "nexus-source-maintenance",
+  "nexus-issue-workflow",
+  "nexus-chatgpt-bridge",
+  "nexus-roadmap-maintenance",
+];
+
 const requiredFiles = [
   "AGENTS.md",
   "CONTEXT-MAP.md",
@@ -12,13 +19,10 @@ const requiredFiles = [
   "NEXUS_HANDOFF_TEMPLATE.md",
   ".github/ISSUE_TEMPLATE/nexus-task-packet.yml",
   ".github/labels.yml",
-  ".agents/skills/nexus-task-intake/SKILL.md",
-  ".agents/skills/nexus-source-router/SKILL.md",
-  ".agents/skills/nexus-handoff-bridge/SKILL.md",
-  ".agents/skills/nexus-session-discipline/SKILL.md",
-  ".agents/skills/nexus-reviewer/SKILL.md",
-  ".agents/skills/nexus-source-index-maintainer/SKILL.md",
-  ".agents/skills/nexus-roadmap-maintainer/SKILL.md",
+  ...retainedRepoSkills.flatMap((skill) => [
+    `.agents/skills/${skill}/SKILL.md`,
+    `.agents/skills/${skill}/agents/openai.yaml`,
+  ]),
   "artifacts/nexus-companion/AGENTS.md",
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
@@ -60,6 +64,11 @@ const sectionChecks = [
       "docs/admin/task-planning/codex-session-discipline-workflow.md",
       "docs/admin/task-planning/nexus-review-rubric.md",
       "docs/chatgpt-project-bridge/README.md",
+      ".agents/skills/nexus-source-maintenance/SKILL.md",
+      ".agents/skills/nexus-issue-workflow/SKILL.md",
+      ".agents/skills/nexus-chatgpt-bridge/SKILL.md",
+      ".agents/skills/nexus-roadmap-maintenance/SKILL.md",
+      "installed global `code-review` skill",
       "Codex owns the technical Git choices.",
       "Changing `main` requires Quintin's explicit approval",
     ],
@@ -247,26 +256,48 @@ const sectionChecks = [
     ],
   },
   {
-    file: ".agents/skills/nexus-session-discipline/SKILL.md",
+    file: ".agents/skills/nexus-source-maintenance/SKILL.md",
     includes: [
-      "name: nexus-session-discipline",
-      "compact session frame",
-      "side task",
-      "side finding",
-      "tiny observation",
-      "Durable human-facing plans, findings, and progress",
-      "Temporary session sequencing",
-      "Cross-session executable continuity",
-      "retired repo `planning/` overlay",
+      "name: nexus-source-maintenance",
+      "## Unique Trigger",
+      "## Owner",
+      "docs/nexus-game-source/source",
+      "corepack pnpm run source:index",
+      "corepack pnpm run source:index:check",
+      "corepack pnpm run validate:workflow",
     ],
   },
   {
-    file: ".agents/skills/nexus-reviewer/SKILL.md",
+    file: ".agents/skills/nexus-issue-workflow/SKILL.md",
     includes: [
-      "name: nexus-reviewer",
-      "Reviewer status: PASS | PASS_WITH_NOTES | NEEDS_FIXES | BLOCKED",
-      "Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.",
-      "targeted fix",
+      "name: nexus-issue-workflow",
+      "## Unique Trigger",
+      "## Owner",
+      "GitHub Issues are the live execution packets",
+      "NEXUS_TASK_PACKET_TEMPLATE.md",
+      "validate -> independently review -> synchronize -> commit and push -> comment -> close",
+    ],
+  },
+  {
+    file: ".agents/skills/nexus-chatgpt-bridge/SKILL.md",
+    includes: [
+      "name: nexus-chatgpt-bridge",
+      "## Unique Trigger",
+      "## Owner",
+      "docs/chatgpt-project-bridge",
+      "NEXUS_HANDOFF_TEMPLATE.md",
+      "Do not claim ChatGPT Project refresh",
+    ],
+  },
+  {
+    file: ".agents/skills/nexus-roadmap-maintenance/SKILL.md",
+    includes: [
+      "name: nexus-roadmap-maintenance",
+      "## Unique Trigger",
+      "## Owner",
+      "docs/nexus-roadmap",
+      "corepack pnpm run roadmap:index",
+      "corepack pnpm run roadmap:index:check",
     ],
   },
   {
@@ -311,6 +342,53 @@ const failures = [];
 for (const file of requiredFiles) {
   if (!existsSync(resolve(root, file))) {
     failures.push(`Missing required workflow file: ${file}`);
+  }
+}
+
+const repoSkillRoot = resolve(root, ".agents/skills");
+const actualRepoSkills = readdirSync(repoSkillRoot, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => entry.name)
+  .sort();
+const expectedRepoSkills = [...retainedRepoSkills].sort();
+
+if (JSON.stringify(actualRepoSkills) !== JSON.stringify(expectedRepoSkills)) {
+  failures.push(
+    `Repo-local skills must be exactly: ${expectedRepoSkills.join(", ")}; found: ${actualRepoSkills.join(", ") || "none"}`,
+  );
+}
+
+const retainedSkillDescriptions = new Set();
+
+for (const skill of retainedRepoSkills) {
+  const skillPath = resolve(root, `.agents/skills/${skill}/SKILL.md`);
+  const metadataPath = resolve(root, `.agents/skills/${skill}/agents/openai.yaml`);
+  if (!existsSync(skillPath) || !existsSync(metadataPath)) continue;
+
+  const skillText = readFileSync(skillPath, "utf8");
+  const metadataText = readFileSync(metadataPath, "utf8");
+  const description = skillText.match(/^description:\s*(.+)$/m)?.[1]?.trim();
+
+  if (!description || !description.includes("Use when")) {
+    failures.push(`${skill} must have a trigger-rich description containing "Use when".`);
+  } else if (retainedSkillDescriptions.has(description)) {
+    failures.push(`${skill} duplicates another retained skill description.`);
+  } else {
+    retainedSkillDescriptions.add(description);
+  }
+
+  if (skillText.includes("TODO")) {
+    failures.push(`${skill} contains unresolved skill-template TODO text.`);
+  }
+
+  for (const expected of [
+    "display_name:",
+    "short_description:",
+    `default_prompt: \"Use $${skill}`,
+  ]) {
+    if (!metadataText.includes(expected)) {
+      failures.push(`${skill}/agents/openai.yaml is missing discoverability metadata: ${expected}`);
+    }
   }
 }
 
@@ -459,8 +537,7 @@ const retiredSourcePromotionIdentifiers = [
 const activeSourceRoutingFiles = [
   "package.json",
   "AGENTS.md",
-  ".agents/skills/nexus-source-router/SKILL.md",
-  ".agents/skills/nexus-source-index-maintainer/SKILL.md",
+  ".agents/skills/nexus-source-maintenance/SKILL.md",
   "docs/nexus-game-source/README.md",
   "docs/chatgpt-project-bridge/README.md",
   "docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md",
@@ -484,8 +561,7 @@ const activePathPolicyFiles = [
   "NEXUS_ISSUE_INDEX.md",
   "NEXUS_ISSUE_TRANSITION.md",
   "NEXUS_LOCAL_PLAYABLE_ALPHA.md",
-  ".agents/skills/nexus-source-router/SKILL.md",
-  ".agents/skills/nexus-source-index-maintainer/SKILL.md",
+  ".agents/skills/nexus-source-maintenance/SKILL.md",
   "docs/admin/nexus-distributed-surfaces.md",
   "docs/admin/task-planning/repo-first-task-planning-workflow.md",
   "docs/nexus-roadmap/README.md",
@@ -496,6 +572,40 @@ const activePathPolicyFiles = [
   "docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md",
   "docs/chatgpt-project-bridge/BRIDGE-INDEX.md",
 ];
+
+const retiredRepoSkillIdentifiers = [
+  "codex-visual-output-starter",
+  "nexus-handoff-bridge",
+  "nexus-issue-closeout-scan",
+  "nexus-reviewer",
+  "nexus-roadmap-maintainer",
+  "nexus-session-discipline",
+  "nexus-source-index-maintainer",
+  "nexus-source-router",
+  "nexus-task-intake",
+];
+
+const activeSkillReferenceFiles = [
+  "AGENTS.md",
+  "NEXUS_TASK_PACKET_TEMPLATE.md",
+  "docs/admin/task-planning/codex-session-discipline-workflow.md",
+  "docs/admin/task-planning/nexus-review-rubric.md",
+  "docs/nexus-game-source/README.md",
+  "docs/visual-output-starter/README.md",
+  "docs/chatgpt-project-bridge/synced-chats/2026-06-11-handoff-automation-planning.md",
+  "docs/chatgpt-project-bridge/handoffs/2026-06-14-source-migration-closeout-review.md",
+];
+
+for (const file of activeSkillReferenceFiles) {
+  const path = resolve(root, file);
+  if (!existsSync(path)) continue;
+  const text = readFileSync(path, "utf8");
+  for (const identifier of retiredRepoSkillIdentifiers) {
+    if (text.includes(identifier)) {
+      failures.push(`${file} references retired repo-local skill: ${identifier}`);
+    }
+  }
+}
 
 // Historical handoffs and source legacy_paths remain outside this active-policy guard.
 const disallowedActivePathPatterns = [

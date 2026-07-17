@@ -52,10 +52,12 @@ Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down 
 | Need | Owning surface |
 |---|---|
 | Product language and authority | `CONTEXT-MAP.md`, relevant contexts, `docs/adr/README.md`, and `docs/nexus-game-source/README.md` |
-| Issues, task intake, naming, and closeout | `docs/agents/issue-tracker.md`, `NEXUS_ISSUE_INDEX.md`, and the task/handoff templates |
-| Session focus, side items, and independent review | `docs/admin/task-planning/codex-session-discipline-workflow.md`, `.agents/skills/nexus-reviewer/SKILL.md`, and `docs/admin/task-planning/nexus-review-rubric.md` |
-| Source routing and generated indexes | `docs/nexus-game-source/README.md` and the repo-local source maintenance skills |
-| ChatGPT Project bridge and handoffs | `docs/chatgpt-project-bridge/README.md` |
+| Issues, task intake, naming, and closeout | `.agents/skills/nexus-issue-workflow/SKILL.md`, `docs/agents/issue-tracker.md`, `NEXUS_ISSUE_INDEX.md`, and the task/handoff templates |
+| Session focus, side items, temporary planning, and independent review | `docs/admin/task-planning/codex-session-discipline-workflow.md`, the active chat/tool planner under Planning Ownership #81, the installed global `code-review` skill, and `docs/admin/task-planning/nexus-review-rubric.md` |
+| Source routing and generated indexes | `.agents/skills/nexus-source-maintenance/SKILL.md` and `docs/nexus-game-source/README.md` |
+| ChatGPT Project bridge and handoffs | `.agents/skills/nexus-chatgpt-bridge/SKILL.md` and `docs/chatgpt-project-bridge/README.md` |
+| Roadmap mirror and generated indexes | `.agents/skills/nexus-roadmap-maintenance/SKILL.md` and `docs/nexus-roadmap/README.md` |
+| Non-image visual output | The installed global `codex-visual-output-workflow` skill; `docs/visual-output-starter` is reusable historical seed material |
 | Maintained local paths and cross-surface roles | `docs/admin/nexus-distributed-surfaces.md` |
 
 ## Execution and Validation
@@ -64,5 +66,5 @@ Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down 
 - Inspect current implementation before making claims and prefer small, reversible, verifiable changes.
 - Run checks named by the nearest scoped instructions. Workflow changes must run `corepack pnpm run validate:workflow`.
 - Canonical source changes must also regenerate and check the source index as directed by `docs/nexus-game-source/README.md`.
-- Non-trivial work requires independent review before closeout; use the dispatched reviewer skill and rubric rather than duplicating their procedure here.
+- Non-trivial work requires independent review before closeout; use the installed global `code-review` skill and the Nexus review rubric rather than duplicating their procedure here.
 - Do not change global `.codex` behavior, publish/deploy, or mutate external accounts unless the user explicitly scopes it.

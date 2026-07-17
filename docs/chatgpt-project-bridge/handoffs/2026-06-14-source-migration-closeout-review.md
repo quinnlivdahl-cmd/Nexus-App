@@ -32,10 +32,9 @@ No app code, GitHub issue updates, commits, pushes, or issue closures were perfo
 - `replit.md`
 - `NEXUS_HANDOFF_TEMPLATE.md`
 - `docs/admin/task-planning/codex-session-discipline-workflow.md`
-- `.agents/skills/nexus-handoff-bridge/SKILL.md`
-- `.agents/skills/nexus-session-discipline/SKILL.md`
-- `.agents/skills/nexus-source-router/SKILL.md`
-- `.agents/skills/nexus-source-index-maintainer/SKILL.md`
+- `.agents/skills/nexus-chatgpt-bridge/SKILL.md`
+- `docs/admin/task-planning/codex-session-discipline-workflow.md`
+- `.agents/skills/nexus-source-maintenance/SKILL.md`
 - `docs/chatgpt-project-bridge/handoffs/2026-06-14-source-drafting-consolidation-codex-handoff.md`
 - Relevant draft contracts under `docs/game-system-contracts/drafts`
 - Relevant Golden Truth source docs under `docs/nexus-game-source/source`

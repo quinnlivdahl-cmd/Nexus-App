@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nexus Issue Workflow"
+  short_description: "Shape and close Nexus GitHub issues"
+  default_prompt: "Use $nexus-issue-workflow to shape, execute, or close a Nexus GitHub issue."
