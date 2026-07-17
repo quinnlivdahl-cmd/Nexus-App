@@ -11,6 +11,7 @@ import {
   authorityValues,
   retrievalMetadata,
 } from "./source-retrieval-policy.mjs";
+import { parseFrontmatter } from "./markdown-frontmatter.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
@@ -19,8 +20,6 @@ const sourceName = "Nexus-App Canonical Source";
 const sourceEstablished = "2026-06-10";
 const goldenTruthConfirmed = "2026-06-14";
 const sourceHomeRenamed = "2026-06-14";
-const obsidianPointerRoot =
-  "C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source";
 const indexMdPath = `${sourceRoot}/SOURCE-INDEX.md`;
 const indexJsonPath = `${sourceRoot}/SOURCE-INDEX.json`;
 
@@ -29,58 +28,6 @@ const checkOnly = args.has("--check");
 
 function toRepoPath(path) {
   return relative(root, path).split(sep).join("/");
-}
-
-function stripQuotes(value) {
-  const trimmed = value.trim();
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
-    return trimmed.slice(1, -1);
-  }
-  if (trimmed === "[]") return [];
-  if (trimmed === "true") return true;
-  if (trimmed === "false") return false;
-  return trimmed;
-}
-
-function parseFrontmatter(text) {
-  if (!text.startsWith("---")) return {};
-
-  const endMatch = text.slice(3).match(/\r?\n---\r?\n/);
-  if (!endMatch?.index) return {};
-
-  const block = text.slice(3, endMatch.index + 3);
-  const frontmatter = {};
-  let activeArrayKey = null;
-
-  for (const rawLine of block.split(/\r?\n/)) {
-    const line = rawLine.replace(/\s+$/, "");
-    if (!line.trim()) continue;
-
-    const listMatch = line.match(/^\s+-\s*(.*)$/);
-    if (listMatch && activeArrayKey) {
-      frontmatter[activeArrayKey].push(stripQuotes(listMatch[1]));
-      continue;
-    }
-
-    const keyMatch = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (!keyMatch) continue;
-
-    const [, key, rawValue] = keyMatch;
-    if (!rawValue.trim()) {
-      frontmatter[key] = [];
-      activeArrayKey = key;
-      continue;
-    }
-
-    const value = stripQuotes(rawValue);
-    frontmatter[key] = value;
-    activeArrayKey = Array.isArray(value) ? key : null;
-  }
-
-  return frontmatter;
 }
 
 function firstHeading(text) {
@@ -256,7 +203,8 @@ function buildIndex() {
     base_path: sourceRoot,
     path_status:
       "Durable repo source home renamed from the dated 2026-06-10 domain-source rebuild folder on 2026-06-14; user-designated canonical source path for game source documents.",
-    authority_note: `Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at ${obsidianPointerRoot} and is not a source copy.`,
+    authority_note:
+      "Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. The maintained Obsidian pointer-card route is owned by docs/admin/nexus-distributed-surfaces.md and is not a source copy.",
     authority_values: authorityValues,
     applicability_values: applicabilityValues,
     default_game_retrieval_policy:
@@ -288,7 +236,7 @@ function renderMarkdown(index) {
     "",
     "## Authority Note",
     "",
-    `This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. Generated Obsidian pointer cards live at \`${obsidianPointerRoot}\`; they navigate to repo files and do not form a second source corpus.`,
+    "This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. The generated Obsidian pointer-card route is owned by `docs/admin/nexus-distributed-surfaces.md`; those cards navigate to repo files and do not form a second source corpus.",
     "",
     "ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.",
     "",

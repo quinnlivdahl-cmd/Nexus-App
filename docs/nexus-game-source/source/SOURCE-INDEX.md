@@ -11,7 +11,7 @@ Indexed Markdown files: 191
 
 ## Authority Note
 
-This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. Generated Obsidian pointer cards live at `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`; they navigate to repo files and do not form a second source corpus.
+This index covers the Nexus-App canonical source corpus for ChatGPT on-demand context retrieval and app source-pack work. The generated Obsidian pointer-card route is owned by `docs/admin/nexus-distributed-surfaces.md`; those cards navigate to repo files and do not form a second source corpus.
 
 ChatGPT should fetch exact indexed GitHub paths from this file instead of relying on GitHub folder/tree enumeration.
 
