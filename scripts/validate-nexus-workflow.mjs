@@ -592,8 +592,6 @@ const activeSkillReferenceFiles = [
   "docs/admin/task-planning/nexus-review-rubric.md",
   "docs/nexus-game-source/README.md",
   "docs/visual-output-starter/README.md",
-  "docs/chatgpt-project-bridge/synced-chats/2026-06-11-handoff-automation-planning.md",
-  "docs/chatgpt-project-bridge/handoffs/2026-06-14-source-migration-closeout-review.md",
 ];
 
 for (const file of activeSkillReferenceFiles) {
@@ -606,6 +604,9 @@ for (const file of activeSkillReferenceFiles) {
     }
   }
 }
+
+// Dated handoffs and synced-chat packets preserve exact provenance, including
+// paths retired later. They are historical evidence, not active skill routing.
 
 // Historical handoffs and source legacy_paths remain outside this active-policy guard.
 const disallowedActivePathPatterns = [

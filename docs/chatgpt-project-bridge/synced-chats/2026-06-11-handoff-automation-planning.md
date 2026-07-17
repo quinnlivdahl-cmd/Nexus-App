@@ -48,8 +48,8 @@ Codex should inspect these before implementation:
 - `NEXUS_HANDOFF_TEMPLATE.md`
 - `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
 - `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
-- `.agents/skills/nexus-chatgpt-bridge/SKILL.md`
-- `docs/admin/task-planning/codex-session-discipline-workflow.md`
+- `.agents/skills/nexus-handoff-bridge/SKILL.md`
+- `.agents/skills/nexus-session-discipline/SKILL.md`
 
 The packet being updated is:
 
