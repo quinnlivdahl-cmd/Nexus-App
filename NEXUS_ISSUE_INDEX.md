@@ -72,7 +72,6 @@ Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queu
 | #60 | Rebuild Nexus planning controls for the revised vision | ready-for-agent | none listed | Revised planning-control work |
 | #61 | Align the Obsidian project front door and planning history | ready-for-agent | #60 related | Obsidian planning alignment |
 | #62 | Regenerate and validate Nexus pointer navigation | ready-for-agent | #60 and #61 related | Pointer and navigation validation |
-| #66 | Publish Matt tracker and triage configuration | ready-for-agent | none listed | Tracker and triage configuration |
 | #67 | Align Nexus Game product identity with the preserved companion regression surface | ready-for-agent | none listed | Product/repository identity alignment |
 
 ### Spatial Vertical Slice Wayfinder
@@ -120,6 +119,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
+| #66 | Publish Matt tracker and triage configuration | Tracker files merged through Matt Tracker Configuration PR #71 in merge commit `4ad4eab`; all five live Matt-role labels match the documented mapping; workflow validation and independent review passed | Apply the documented triage roles only during deliberate issue triage; no bulk relabeling was performed |
 | #75 | Integrate the current source/ADR authority reconciliation | Source/ADR reconciliation merged through Source Authority Reconciliation PR #86 in merge commit `c557db2`; source-index, source-slice, context-pack, and workflow validation pass on integrated `main` | Foundation for Instruction and Authority Consolidation #74 is complete; authority-sensitive child work may proceed |
 | #76 | Retire the obsolete Obsidian source-copy promotion system | Pointer-only Obsidian routing and retirement of the promoter skill, script, package commands, and active references merged through Source-Promotion Retirement PR #87 in merge commit `76ba252`; workflow validation guards against reintroduction | Continue the remaining initial-frontier work in Instruction and Authority Consolidation #74 |
 | #14 | Define Tactical Pressure activation and participation | Live Grill with Docs accepted explicit triggers, projected participation, three-member Field Team auto-inclusion, Lattice Initiative with Shared Initiative Blocks and late entry, Timing Entries, inactive-Area pause, Surprise Evaluation, all-trigger exit, Location-owned Tactical State, and Passive Bystanders; contract and ADRs published in commit `78fcee6`; workflow validation and independent review passed | Derived Attribute-modifier math remains owned by Skill Focus and Ability Tree #31; future manual entry and fuller split-crew policy must reuse the versioned Tactical Rules Policy |
