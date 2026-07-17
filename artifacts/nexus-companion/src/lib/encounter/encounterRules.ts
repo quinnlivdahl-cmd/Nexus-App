@@ -539,7 +539,12 @@ export function setActorResource(
     return { ...a, shield: clamp(value, 0, maxShield), maxShield };
   });
 
-  return ok(clearCurrentActorIfDowned(updated), { type: 'actor.resource_set', message: `${actor.name} ${resource} set to ${value}.`, actorId });
+  const updatedActor = findActor(updated, actorId) ?? actor;
+  const normalizedValue = resource === 'systemIntegrity'
+    ? updatedActor.systemIntegrity ?? 0
+    : updatedActor[resource] ?? 0;
+
+  return ok(clearCurrentActorIfDowned(updated), { type: 'actor.resource_set', message: `${actor.name} ${resource} set to ${normalizedValue}.`, actorId });
 }
 
 export function editActorResource(

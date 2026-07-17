@@ -405,6 +405,24 @@ const downed = expectOk(setActorResource(fixture, 'rival-cutter', 'health', 0)).
 assert.equal(downed.actors.find((actor) => actor.id === 'rival-cutter')?.isDowned, true);
 assert.equal(downed.actors.find((actor) => actor.id === 'rival-cutter')?.downedAtRound, 1);
 assert.equal(downed.actors.find((actor) => actor.id === 'rival-cutter')?.downedCountdown, 3);
+const healthClampedLow = expectOk(setActorResource(fixture, 'rival-cutter', 'health', -10));
+assert.equal(healthClampedLow.encounter.actors.find((actor) => actor.id === 'rival-cutter')?.health, 0);
+assert.equal(healthClampedLow.events[0]?.message, 'Rival Cutter health set to 0.');
+const healthClampedHigh = expectOk(setActorResource(fixture, 'rival-cutter', 'health', 999));
+assert.equal(
+  healthClampedHigh.encounter.actors.find((actor) => actor.id === 'rival-cutter')?.health,
+  fixture.actors.find((actor) => actor.id === 'rival-cutter')?.maxHealth,
+);
+assert.equal(healthClampedHigh.events[0]?.message, 'Rival Cutter health set to 7.');
+const systemIntegrityClampedLow = expectOk(setActorResource(fixture, 'ally-engineer', 'systemIntegrity', -10));
+assert.equal(systemIntegrityClampedLow.encounter.actors.find((actor) => actor.id === 'ally-engineer')?.systemIntegrity, 0);
+assert.equal(systemIntegrityClampedLow.events[0]?.message, 'Engineer systemIntegrity set to 0.');
+const systemIntegrityClampedHigh = expectOk(setActorResource(fixture, 'ally-engineer', 'systemIntegrity', 999));
+assert.equal(
+  systemIntegrityClampedHigh.encounter.actors.find((actor) => actor.id === 'ally-engineer')?.systemIntegrity,
+  fixture.actors.find((actor) => actor.id === 'ally-engineer')?.maxSystemIntegrity,
+);
+assert.equal(systemIntegrityClampedHigh.events[0]?.message, 'Engineer systemIntegrity set to 2.');
 const revived = expectOk(setActorResource(downed, 'rival-cutter', 'health', 1)).encounter;
 assert.equal(revived.actors.find((actor) => actor.id === 'rival-cutter')?.isDowned, false);
 assert.equal(revived.actors.find((actor) => actor.id === 'rival-cutter')?.downedCountdown, undefined);

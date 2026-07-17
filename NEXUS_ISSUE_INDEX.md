@@ -61,7 +61,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queue below reflects live GitHub titles and states immediately before Tactical Pressure #14 closure; for exact current state, verify against GitHub.
+Last synced: 2026-07-16 by Codex during the four-issue closeout batch. The queue below reflects the completed status of #66, #67, #22, and #15; for exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -89,7 +89,6 @@ Last synced: 2026-07-16 by Codex during Tactical Pressure #14 closeout. The queu
 | #26 | Draft pre-node crew sheets, level-up, and loadout display for E-43 | source/play doc | none listed | Draft-facing play support |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | source/play doc | none listed | Skill/ability structure; recommended next Draft chat |
 | #32 | Improve character chassis and origin sheet usability for play | source/play doc | #11 related | Owns the standard sheet and quick-view comparison used by starting-crew selection |
-| #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | support | none listed | Legacy companion playtest support |
 | #16 | UI readability pass — contrast, font sizes, and backdrop scrims | support | none listed | Legacy companion usability work |
 
 ## Blocked Issues
@@ -117,6 +116,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
+| #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | Actor rows now provide inline HP/SI number editing with Enter/blur commit and Escape cancel; rules-core clamping, down/revive transitions, normalized event logging, local persistence, encounter smoke tests, typecheck/build, and a live browser playtest all pass | The `nexus-companion` package path remains a legacy implementation identifier for the single Nexus Game product |
 | #22 | Add a minimal Nexus repository README entrypoint | Root `README.md` now links the single-product direction, authority router, canonical source, accepted decisions, spatial implementation-readiness map, local application paths, agent instructions, and GitHub task tracker without duplicating their contents | Keep the README concise and update links only when their authoritative destinations change |
 | #67 | Align Nexus Game product identity with the preserved companion regression surface | Repo instructions, domain guidance, operator documentation, and Spatial Vertical Slice Map #57 now describe one Nexus Game product evolving from the existing React/Vite implementation; the former side-by-side companion premise is superseded | Legacy `companion` package and environment-variable names may remain as implementation identifiers until a separately scoped rename is worthwhile |
 | #66 | Publish Matt tracker and triage configuration | Tracker files merged through Matt Tracker Configuration PR #71 in merge commit `4ad4eab`; all five live Matt-role labels match the documented mapping; workflow validation and independent review passed | Apply the documented triage roles only during deliberate issue triage; no bulk relabeling was performed |

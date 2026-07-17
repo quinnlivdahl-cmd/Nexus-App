@@ -3,7 +3,7 @@ import { GameStateProvider, useGameState } from './store/GameStateContext';
 import { useDMChat } from './lib/useDMChat';
 import { useImageGeneration } from './lib/useImageGeneration';
 import { createExportableGameState, parseGameStateSave } from './lib/gameStateSave';
-import { formatEncounterResultForScene } from './lib/encounter/encounterRules';
+import { appendEncounterEvents, formatEncounterResultForScene, setActorResource } from './lib/encounter/encounterRules';
 import { formatEncounterValidationIssues, validateEncounterState } from './lib/encounter/validateEncounter';
 import TacMap from './components/tacmap/TacMap';
 import EncounterHarnessControls from './components/encounter/EncounterHarnessControls';
@@ -196,6 +196,22 @@ function CombatTracker() {
   const { state, dispatch } = useGameState();
   const { encounter } = state;
 
+  function commitActorResource(actorId: string, resource: 'health' | 'systemIntegrity', value: number) {
+    const result = setActorResource(encounter, actorId, resource, value);
+    if (!result.ok) {
+      console.error(`Unable to update actor resource: ${result.error}`);
+      return;
+    }
+
+    const validation = validateEncounterState(appendEncounterEvents(result.encounter, result.events));
+    if (!validation.ok) {
+      console.error(`Actor resource edit failed validation: ${formatEncounterValidationIssues(validation.issues)}`);
+      return;
+    }
+
+    dispatch({ type: 'SET_ENCOUNTER', payload: validation.encounter });
+  }
+
   if (!encounter.active) {
     return (
       <div className="flex flex-col items-center justify-center h-full gap-2 text-center p-4">
@@ -310,7 +326,7 @@ function CombatTracker() {
           <div>
             <div className="text-[9px] uppercase tracking-widest text-teal-500/60 font-mono mb-2">Crew</div>
             <div className="space-y-2">
-              {players.map((a) => <ActorRow key={a.id} actor={a} currentActorId={encounter.currentActorId} />)}
+              {players.map((a) => <ActorRow key={a.id} actor={a} currentActorId={encounter.currentActorId} onResourceCommit={commitActorResource} />)}
             </div>
           </div>
         )}
@@ -320,7 +336,7 @@ function CombatTracker() {
           <div>
             <div className="text-[9px] uppercase tracking-widest text-amber-500/60 font-mono mb-2">Hostiles</div>
             <div className="space-y-2">
-              {enemies.map((a) => <ActorRow key={a.id} actor={a} currentActorId={encounter.currentActorId} />)}
+              {enemies.map((a) => <ActorRow key={a.id} actor={a} currentActorId={encounter.currentActorId} onResourceCommit={commitActorResource} />)}
             </div>
           </div>
         )}
@@ -330,7 +346,7 @@ function CombatTracker() {
           <div>
             <div className="text-[9px] uppercase tracking-widest text-white/30 font-mono mb-2">Others</div>
             <div className="space-y-2">
-              {others.map((a) => <ActorRow key={a.id} actor={a} currentActorId={encounter.currentActorId} />)}
+              {others.map((a) => <ActorRow key={a.id} actor={a} currentActorId={encounter.currentActorId} onResourceCommit={commitActorResource} />)}
             </div>
           </div>
         )}
@@ -339,9 +355,22 @@ function CombatTracker() {
   );
 }
 
-function ActorRow({ actor, currentActorId }: { actor: Actor; currentActorId: string | null }) {
+function ActorRow({
+  actor,
+  currentActorId,
+  onResourceCommit,
+}: {
+  actor: Actor;
+  currentActorId: string | null;
+  onResourceCommit: (actorId: string, resource: 'health' | 'systemIntegrity', value: number) => void;
+}) {
+  const [resourceEdit, setResourceEdit] = useState<{
+    resource: 'health' | 'systemIntegrity';
+    draft: string;
+  } | null>(null);
   const isActive = actor.id === currentActorId;
   const isDowned = actor.isDowned;
+  const systemIntegrityMax = actor.maxSystemIntegrity ?? Math.max(actor.systemIntegrity ?? 0, 0);
   const factionColor = {
     player: 'border-teal-500/40 bg-teal-500/5',
     ally: 'border-teal-500/30 bg-teal-500/5',
@@ -349,6 +378,63 @@ function ActorRow({ actor, currentActorId }: { actor: Actor; currentActorId: str
     enemy: 'border-amber-500/40 bg-amber-500/5',
     'elite-enemy': 'border-red-500/40 bg-red-500/5',
   }[actor.faction];
+
+  function commitResourceEdit() {
+    if (!resourceEdit) return;
+    const pending = resourceEdit;
+    setResourceEdit(null);
+    if (pending.draft.trim() === '') return;
+    const value = Number(pending.draft);
+    if (!Number.isFinite(value)) return;
+    onResourceCommit(actor.id, pending.resource, value);
+  }
+
+  function renderResourceEditor(
+    label: 'HP' | 'SI',
+    resource: 'health' | 'systemIntegrity',
+    current: number,
+    max: number,
+  ) {
+    if (resourceEdit?.resource === resource) {
+      return (
+        <input
+          aria-label={`Edit ${actor.name} ${label}`}
+          title={`Edit ${actor.name} ${label}`}
+          type="number"
+          min={0}
+          max={max}
+          step={1}
+          value={resourceEdit.draft}
+          autoFocus
+          onFocus={(event) => event.currentTarget.select()}
+          onChange={(event) => setResourceEdit({ resource, draft: event.target.value })}
+          onBlur={commitResourceEdit}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              commitResourceEdit();
+            } else if (event.key === 'Escape') {
+              event.preventDefault();
+              setResourceEdit(null);
+            }
+          }}
+          className="w-16 rounded border border-teal-500/50 bg-black/70 px-1 py-0.5 text-[10px] font-mono text-white/90 outline-none focus:ring-1 focus:ring-teal-400/50"
+        />
+      );
+    }
+
+    return (
+      <button
+        type="button"
+        aria-label={`Edit ${actor.name} ${label}`}
+        title={`Edit ${actor.name} ${label}`}
+        onClick={() => setResourceEdit({ resource, draft: String(current) })}
+        className="rounded border border-transparent px-1 text-white/50 transition-colors hover:border-teal-500/30 hover:bg-teal-500/10 hover:text-white/80 focus:outline-none focus:ring-1 focus:ring-teal-400/50"
+      >
+        {label} {current}/{max}
+      </button>
+    );
+  }
 
   return (
     <div className={`rounded border px-2 py-1.5 transition-all relative overflow-hidden ${isActive ? 'ring-1 ring-teal-400/40 shadow-[0_0_10px_rgba(0,180,170,0.15)] bg-teal-500/10' : ''} ${isDowned ? 'opacity-40' : ''} ${factionColor}`}>
@@ -362,9 +448,14 @@ function ActorRow({ actor, currentActorId }: { actor: Actor; currentActorId: str
         </div>
       </div>
       <HealthBar current={actor.health} max={actor.maxHealth} className={`mb-1.5 ${isActive ? 'ml-2' : ''}`} />
-      <div className={`flex gap-2 text-[10px] font-mono text-white/50 ${isActive ? 'pl-2' : ''}`}>
-        <span>HP {actor.health}/{actor.maxHealth}</span>
-        {actor.systemIntegrity != null && <span>· SI {actor.systemIntegrity}/{actor.maxSystemIntegrity}</span>}
+      <div className={`flex items-center gap-1 text-[10px] font-mono text-white/50 ${isActive ? 'pl-2' : ''}`}>
+        {renderResourceEditor('HP', 'health', actor.health, actor.maxHealth)}
+        {actor.systemIntegrity != null && (
+          <>
+            <span>·</span>
+            {renderResourceEditor('SI', 'systemIntegrity', actor.systemIntegrity, systemIntegrityMax)}
+          </>
+        )}
         <span>· DEF <strong className="text-white/70">{actor.defense}</strong></span>
         {actor.firewall != null && <span>· FW <strong className="text-white/70">{actor.firewall}</strong></span>}
         {actor.shield != null && actor.shield > 0 && <span>· SHD <strong className="text-amber-400/80">{actor.shield}</strong></span>}
