@@ -355,10 +355,15 @@ const activePathPolicyFiles = [
 ];
 
 // Historical handoffs and source legacy_paths remain outside this active-policy guard.
-const retiredActivePathPatterns = [
+const disallowedActivePathPatterns = [
   {
     label: "dated clean-review worktree",
     pattern: /Nexus-App-Clean-Review-2026-07-06/,
+  },
+  {
+    label: "hardcoded Nexus worktree path",
+    pattern:
+      /C:\\Users\\Quintin Livdahl\\Repos\\Nexus-App-Worktrees(?=$|[^-A-Za-z0-9_])/m,
   },
   {
     label: "legacy standalone checkout",
@@ -380,7 +385,7 @@ for (const file of activePathPolicyFiles) {
   const path = resolve(root, file);
   if (!existsSync(path)) continue;
   const text = readFileSync(path, "utf8");
-  for (const { label, pattern } of retiredActivePathPatterns) {
+  for (const { label, pattern } of disallowedActivePathPatterns) {
     const match = text.match(pattern);
     if (match) {
       failures.push(
