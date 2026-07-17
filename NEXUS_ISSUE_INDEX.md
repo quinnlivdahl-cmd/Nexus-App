@@ -2,7 +2,7 @@
 
 Status: active Markdown index
 Repo: `quinnlivdahl-cmd/Nexus-App`
-Local path: `C:\Users\Quintin Livdahl\Repos\Nexus-App-Worktrees\Nexus-App`
+Path-registry locator: `docs/admin/nexus-distributed-surfaces.md`
 
 ## Purpose
 
@@ -21,9 +21,9 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Nexus-App canonical source: `docs/nexus-game-source/source`
-- Obsidian Nexus note/index layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
-- Obsidian source pointer-card layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
-- Drive payload/workbench lane: `G:\My Drive\10_Projects\Nexus Game`
+- Obsidian Nexus note/index layer: maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md`
+- Obsidian source pointer-card layer: `00 Source` within that registered Nexus hub
+- Drive payload/workbench lane: maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md`
 - ChatGPT Project synced-chat index: `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
 - ChatGPT Project non-issue handoff index: `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
 
@@ -57,6 +57,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #77 | Establish one canonical path and Git-operation policy | in-progress | Instruction and Authority Consolidation #74 | #75 satisfied | Review and merge the path-policy PR after approval |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues

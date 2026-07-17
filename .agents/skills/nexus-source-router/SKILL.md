@@ -21,7 +21,7 @@ Workflow:
 4. Treat Issue 42 and the roadmap candidate as controlling context for the current workflow redesign.
 5. Treat old slot/admin docs as historical for admin redesign unless the user explicitly restores them.
 6. Treat `docs/nexus-game-source/source` as the user-designated canonical source home unless a later task explicitly supersedes it.
-7. Treat `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source` as generated pointer-card navigation only. Inspect the repo source directly for current content and treat broken cards as navigation drift.
+7. Treat the Obsidian `00 Source` path named by the maintained registry reached through `docs/admin/nexus-distributed-surfaces.md` as generated pointer-card navigation only. Inspect the repo source directly for current content and treat broken cards as navigation drift.
 8. When canonical source files are added, removed, renamed, or changed, also use `.agents/skills/nexus-source-index-maintainer/SKILL.md`.
 9. Recommend canonical placement and pointer-card refresh boundaries without moving source files unless explicitly approved.
 

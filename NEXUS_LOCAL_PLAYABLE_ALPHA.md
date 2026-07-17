@@ -39,7 +39,7 @@ Read these before changing gameplay, context, or roadmap behavior:
 - `docs\nexus-game-source\source\Automation\Reference Inputs\AUTO-INDEX-000 - SRC-AUTO-000-README-Source-TT-VG-Automation.md`
 - `docs\nexus-game-source\source\Combat\Reference Inputs\COMBAT-INDEX-000 - Combat_Domain_Readme.md`
 - `docs\nexus-game-source\source\Content\Reference Inputs\CONTENT-INDEX-000 - SRC-CONTENT-000-README-Source-Content-Systems.md`
-- `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source\Dashboards\Current State\DASH-TASK-001 - Active_Project_Task_Summary.md` only when current Obsidian dashboard state matters.
+- `Nexus Dashboard.md` within the registered Obsidian Nexus hub located through `docs/admin/nexus-distributed-surfaces.md`, only when current human-facing project state matters.
 
 ## Current Prototype Inventory
 

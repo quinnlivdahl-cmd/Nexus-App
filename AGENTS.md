@@ -2,11 +2,11 @@
 
 ## Scope
 
-These instructions apply to the Nexus app repo at:
+These instructions apply to every checkout and worktree of the GitHub repository `quinnlivdahl-cmd/Nexus-App`.
 
-`C:\Users\Quintin Livdahl\Repos\Nexus-App`
+Resolve the current checkout with `git rev-parse --show-toplevel`; do not infer it from a dated worktree name. Maintained absolute Nexus paths have one owner: the Obsidian `Nexus Distributed Surfaces` routing note, reached through `docs/admin/nexus-distributed-surfaces.md`.
 
-This repo should mirror the GitHub repo `quinnlivdahl-cmd/Nexus-App` after review, commit, and push. Repo-root Markdown workflow files are intended to be shared repo content unless explicitly marked local-only.
+Repo-root Markdown workflow files are intended to be shared repo content unless explicitly marked local-only.
 
 ## Global Rule Inheritance
 
@@ -16,7 +16,7 @@ This repo follows the global Codex agent rules at:
 
 The Codex Workflow Control project mirrors and expands those reusable workflow rules at:
 
-`C:\Users\Quintin Livdahl\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
+`C:\Users\Quintin Livdahl\Documents\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
 
 Local Nexus rules may specialize those global rules, but should not silently contradict them.
 
@@ -75,6 +75,16 @@ Use `NEXUS_HANDOFF_TEMPLATE.md` when transferring context between Codex, ChatGPT
 Use the thread title convention in `NEXUS_HANDOFF_TEMPLATE.md` when creating, forking, sending, or naming fresh Nexus work threads. If a Codex thread title tool is available, set the title immediately after creating or identifying the thread. If the title cannot be set from the current tool, include the suggested thread title in the handoff.
 
 Fresh handoff chats must not auto-start app work merely because a handoff, continue prompt, issue packet, or next-safe-action exists. A receiving chat may read and summarize the handoff, but it must wait for explicit current user approval before moving queue files, editing repo files, running implementation/validation commands, committing, pushing, updating issues, or closing anything.
+
+## Nexus Git Ownership Override
+
+This section is the explicit Nexus specialization of inherited Git guidance.
+
+- A current user request to perform Nexus work authorizes routine, task-scoped Git operations on a task branch: inspect state, choose or create a safe worktree, stage relevant files, commit coherent validated work, push the task branch, and open or update a pull request.
+- Codex owns the technical Git choices. Do not ask Quintin to choose among branches, commits, rebases, merges, pull requests, or worktree mechanics.
+- Changing `main` requires Quintin's explicit approval of the produced result. Once that approval is given, Codex chooses and performs the ordinary integration method and verifies the result.
+- Pause only when an action could discard uncertain work, rewrite shared history materially, bypass protections or failed checks, publish or deploy beyond ordinary repository synchronization, affect credentials or accounts, or choose between competing product outcomes.
+- Preserve unrelated or unfinished work. Inspect branch, worktree, dirty state, and upstream state before mutations, and use isolation when it protects existing work.
 
 For ChatGPT Project sync, treat broad planning, general design discussion, speculative architecture, issue-shaping, and "what should we do next?" work as normal ChatGPT Project work unless current local repo truth, source inspection, file edits, validation, commits, pushes, issue updates, or source-authority checks are needed. Codex should actively suggest moving that kind of discussion to ChatGPT Project to conserve Codex usage.
 
@@ -167,9 +177,9 @@ Future scripts may automate this sequence, but the human-readable evidence shoul
 
 - This repo is the canonical Nexus source and app implementation surface, including text source docs.
 - The Nexus-App canonical source path is `docs/nexus-game-source/source`. It is the durable repo home for game source documents.
-- The Obsidian note/index layer is `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`.
-- The Obsidian source folder is `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`; treat it as generated pointer-card navigation only, never as a copied source tree or independent source authority.
-- The Drive payload home is `G:\My Drive\10_Projects\Nexus Game`.
+- Resolve repo-relative paths inside the current checkout rather than hardcoding a task worktree.
+- `docs/admin/nexus-distributed-surfaces.md` points to the single maintained registry for the Obsidian, Drive, primary-checkout, worktree-root, and retired local paths.
+- Treat the Obsidian `00 Source` role named by that registry as generated pointer-card navigation only, never as a copied source tree or independent source authority.
 - Keep bulky generated artifacts, handoff bundles, zips, candidate runs, and workbench outputs in Drive or purpose-built repo paths, not in the Obsidian note layer.
 - Link between repo docs, Obsidian notes, and Drive payloads where useful, but do not bulk-copy one surface into another.
 

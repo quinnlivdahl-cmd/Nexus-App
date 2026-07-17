@@ -39,7 +39,7 @@ This is a repo-side draft contract. It is intended to clarify schema constructio
 
 Canonical source authority remains in the repo. Generated Obsidian pointer-card navigation is located at:
 
-`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
+the Obsidian `00 Source` pointer-card surface named by `docs/admin/nexus-distributed-surfaces.md`
 
 Repo-side contract drafts are useful planning and implementation scaffolds, but they must be reviewed and reconciled into `docs/nexus-game-source/source` before being treated as final source truth.
 

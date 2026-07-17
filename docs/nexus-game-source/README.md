@@ -22,19 +22,7 @@ Canonical source:
 
 `docs/nexus-game-source/source`
 
-Obsidian Nexus note/index layer:
-
-`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
-
-Obsidian source pointer-card navigation:
-
-`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
-
-Drive payload lane:
-
-`G:\My Drive\10_Projects\Nexus Game`
-
-See `docs/admin/nexus-distributed-surfaces.md` before moving or copying material between repo, Obsidian, and Drive.
+The maintained Obsidian and Drive paths and their roles have one owner: the routing note reached through `docs/admin/nexus-distributed-surfaces.md`. See it before moving or copying material between repo, Obsidian, and Drive.
 
 ## Index Maintenance
 

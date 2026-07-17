@@ -10,7 +10,7 @@ This Project OS is a Nexus-specific bridge layer. It should be read as inheritin
 
 Codex Workflow Control mirrors and maintains the reusable workflow-rule layer at:
 
-`C:\Users\Quintin Livdahl\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
+`C:\Users\Quintin Livdahl\Documents\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
 
 When this Project OS and the global agent rules appear to conflict, preserve the global behavior unless this file names an explicit Nexus-specific override and explains why it exists.
 

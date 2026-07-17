@@ -37,13 +37,7 @@ When canonical source files change, Codex should regenerate the index with `core
 
 ## Currentness Rule
 
-The canonical source corpus lives in the repo, and the Obsidian source folder contains generated pointer-card navigation. If a task depends on exact Obsidian navigation or project-memory state, ask Codex/local workflow to inspect:
-
-`C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
-
-If a task depends on generated payloads, exports, handoff bundles, or Google-native workbench files, ask Codex/local workflow to inspect:
-
-`G:\My Drive\10_Projects\Nexus Game`
+The canonical source corpus lives in the repo, and the Obsidian source folder contains generated pointer-card navigation. If a task depends on exact Obsidian navigation, project-memory state, Drive payloads, exports, handoff bundles, or Google-native workbench files, ask Codex/local workflow to locate the relevant surface through the maintained registry reached through `docs/admin/nexus-distributed-surfaces.md` and inspect it directly.
 
 Use `source-index-needed` when the index is missing, stale, or not searchable enough for ChatGPT to retrieve exact GitHub paths.
 

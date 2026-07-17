@@ -1,9 +1,11 @@
 # Nexus Distributed Surfaces
 
-Status: pointer
+Status: active path-owner pointer
 
-The full Nexus distributed-surface map now lives in Obsidian:
+The single owner for maintained absolute Nexus paths is the Obsidian routing note:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\01 Admin\Nexus Distributed Surfaces.md`
 
-Use that Obsidian note for current admin/planning routing. This repo stub exists so repo-local validators, skills, and bridge packets have a stable pointer path.
+Use that note for the primary local checkout, worktree parent, Obsidian project hub, pointer-card root, Drive payload home, and retired-path classifications.
+
+This repo stub deliberately duplicates only the owner note's location so a fresh repo agent can find it. Resolve the current Git checkout with `git rev-parse --show-toplevel`, and use repo-relative paths everywhere else.
