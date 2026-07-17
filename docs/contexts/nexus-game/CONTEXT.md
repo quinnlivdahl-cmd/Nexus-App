@@ -22,6 +22,10 @@ _Avoid_: Universal Player Character title, party-leader override
 The mechanical identity layers preserved for Player Character Creation and Crewmates: Bioform, Background/social access, Discipline, Attribute, Skill, Skill Focus, Ability, Traits/Techniques, Installed Cyberware that derives Chassis tier, and equipment/loadout. These foundations, assigned traits, and starting abilities or trees are already populated at level 0; the stack survives the spatial-game transition while remaining open to deliberate improvement.
 _Avoid_: Race/class package, freeform mechanical generation
 
+**Nexus Attribute Set**:
+The six top-level character Attributes: Combat, Dexterity, Constitution, Intelligence, Wisdom, and Charisma. These familiar development labels replace Strength with Combat and supersede Force, Traverse, Vital, Systems, Insight, and Network as top-level Attribute names without importing the rest of D&D's rules.
+_Avoid_: Strength, Force, Traverse, Vital, Systems, Insight, Network
+
 **Installed Cyberware**:
 Cyberware physically integrated into an Embodiment and used to derive its current Chassis tier. It persists with that body through former-Player-Character conversion whether selected at creation or added during the campaign; run-earned investment in its upgrade tree resets or rebases to the appropriate campaign baseline, but the implant itself is not treated as carried equipment and removed.
 _Avoid_: Carried gear, temporary equipment grant
@@ -344,6 +348,10 @@ _Avoid_: Route Node, explorable Location
 A distinct room, exterior section, or other navigable subdivision of a Location.
 _Avoid_: Combat room, TacMap node
 
+**Inactive Area**:
+An Area containing no participating actor and outside the active scope of every Timing Entry while Turn-Based Mode governs the Location. Its consequential simulation pauses at committed Game Truth, while ambient presentation may continue without changing state.
+_Avoid_: Unloaded room, background simulation
+
 **Point of Interest**:
 A discoverable sight, character, object, environmental detail, or optional interaction that rewards Free Movement exploration without existing solely to support Turn-Based Mode.
 _Avoid_: Combat prop, filler hotspot
@@ -475,8 +483,24 @@ The Location-wide ordered time state entered when Tactical Pressure makes positi
 _Avoid_: Encounter mode, combat mode
 
 **Tactical Pressure**:
-A dangerous or contested situation in which position, timing, and action order can materially change the outcome. Tactical Pressure triggers Turn-Based Mode whether or not the situation involves combat.
+A dangerous or contested situation in which position, timing, and action order can materially change the outcome. Tactical Pressure triggers Turn-Based Mode whether or not the situation involves combat and ends only after committed Game Truth clears every active Tactical Pressure Trigger. A trigger activated after that full clear begins a new Tactical Pressure period with rebuilt participation, fresh Initiative, round 1, and a fresh Surprise Evaluation.
 _Avoid_: Combat trigger
+
+**Tactical Pressure Trigger**:
+A validated authored or rules-derived condition over committed Game Truth whose inactive-to-active transition begins one source of Tactical Pressure and whose clear condition ends that source. It belongs to an actor, hazard, objective, or committed state change; Generated Performance may propose one but cannot establish or clear it.
+_Avoid_: Narrative cue, inferred dramatic tension, Encounter start
+
+**Tactical Participation**:
+The temporary projection of existing Location actors plus hazard and objective timing entries selected by active Tactical Pressure Triggers. It references authoritative Location entities without copying their state and changes only after committed transactions; proximity may be a selector but never enrolls nearby entities automatically.
+_Avoid_: Encounter roster, proximity bubble, duplicate actor state
+
+**Passive Bystander**:
+A non-acting Location actor that remains outside Tactical Participation during Tactical Pressure. A Passive Bystander cowers without receiving Initiative, remains present and vulnerable to rules-native effects, and may leave through a committed interaction such as rescue without first becoming a tactical participant.
+_Avoid_: Civilian turn, automatic civilian enrollment
+
+**Tactical State**:
+The active Location's persisted ordered-time record containing trigger, participant, Initiative, round, cursor, Timing Entry, active-Area, and rules-policy references. Campaign Save serializes it with the Location, while actor, object, hazard, objective, geometry, and consequence state remain on their existing owners.
+_Avoid_: Encounter state, standalone save, runtime-only turn cache
 
 ## Interaction and Presentation
 
@@ -595,8 +619,24 @@ A limited tactical response triggered outside a character's normal activation by
 _Avoid_: Free action
 
 **Initiative Roll**:
-An individual Lattice-100 roll made once by every relevant combatant when Tactical Pressure begins to establish a fixed ordered turn sequence until that pressure ends. Character builds, traits, abilities, equipment, awareness, and circumstances may support a deliberately fast-acting crew.
+An individual Lattice-100 roll made once by every participating actor with a standard activation during Tactical Pressure. The d100 maps to a four-step value—01–25 = 4, 26–50 = 3, 51–75 = 2, and 76–100 = 1—which is added to the actor's Dexterity modifier and Initiative bonuses; actors are ordered from highest Initiative Score to lowest. Opposing ties favor higher Dexterity, then use visible unmodified d100 tie-break rolls where lower wins and only an exact tie rerolls. A late entrant joins at its normal ranked slot without interrupting the current activation and acts in the current round only when that slot has not passed, while hazards and objectives use deterministic timing entries instead.
 _Avoid_: Side initiative, alternating-side activation
+
+**Shared Initiative Block**:
+A consecutive group of same-alliance actors in the ordered sequence whose individual activations may be interleaved by that alliance's controller before play advances beyond the group. The rule applies symmetrically to every alliance; each actor retains its own action resources, and a block never crosses another alliance or a hazard or objective timing entry.
+_Avoid_: Side initiative, pooled activation, simultaneous turn
+
+**Timing Entry**:
+A deterministic ordered-time entry for an active Location hazard or objective, resolving at the end of the round by default or at another authored rank or cadence. It uses existing rules, Effects, StateDeltas, and commit boundaries without making an Initiative Roll or receiving actor action resources.
+_Avoid_: Environment actor, bespoke Encounter script
+
+**Surprise Evaluation**:
+A deterministic check performed when a Tactical Pressure Trigger first selects an actor, comparing that trigger with committed awareness state to decide whether to apply Surprised. It is never inferred from narration and never creates a side-wide surprise round.
+_Avoid_: Narrative surprise, automatic side-wide condition
+
+**Surprised**:
+An individual condition applied by Surprise Evaluation when an actor lacks the required awareness. From application until the end of its skipped first activation, the actor remains in Initiative but cannot act or react; awareness, traits, equipment, or explicit immunity may prevent the condition.
+_Avoid_: Side-wide surprise round, omitted Initiative
 
 **Tactical Directive**:
 A bounded enemy-group intent proposed when Tactical Pressure begins, using approved machine-readable goals, postures, priorities, restraints, and authored contingencies for deterministic enemy execution. An optional rationale may explain the intent but cannot select or resolve individual actions.
