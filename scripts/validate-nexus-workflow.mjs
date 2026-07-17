@@ -6,6 +6,7 @@ const root = resolve(import.meta.dirname, "..");
 
 const requiredFiles = [
   "AGENTS.md",
+  "CONTEXT-MAP.md",
   "NEXUS_ISSUE_INDEX.md",
   "NEXUS_TASK_PACKET_TEMPLATE.md",
   "NEXUS_HANDOFF_TEMPLATE.md",
@@ -22,6 +23,7 @@ const requiredFiles = [
   "artifacts/api-server/AGENTS.md",
   "lib/AGENTS.md",
   "scripts/AGENTS.md",
+  "docs/agents/issue-tracker.md",
   "docs/admin/nexus-distributed-surfaces.md",
   "docs/nexus-roadmap/README.md",
   "docs/nexus-roadmap/ROADMAP.md",
@@ -52,11 +54,15 @@ const sectionChecks = [
   {
     file: "AGENTS.md",
     includes: [
-      "Independent Review",
-      "PASS_WITH_NOTES",
-      "Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.",
-      "implement -> validate -> independent review -> targeted fixes -> re-review when needed",
+      "## Stable Startup",
+      "## Product and Authority",
       "## Nexus Git Ownership Override",
+      "## Workflow Dispatch",
+      "## Execution and Validation",
+      "docs/agents/issue-tracker.md",
+      "docs/admin/task-planning/codex-session-discipline-workflow.md",
+      "docs/admin/task-planning/nexus-review-rubric.md",
+      "docs/chatgpt-project-bridge/README.md",
       "Codex owns the technical Git choices.",
       "Changing `main` requires Quintin's explicit approval",
     ],

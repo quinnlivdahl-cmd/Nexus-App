@@ -2,215 +2,67 @@
 
 ## Scope
 
-These instructions apply to every checkout and worktree of the GitHub repository `quinnlivdahl-cmd/Nexus-App`.
+These instructions apply throughout `quinnlivdahl-cmd/Nexus-App` unless a nearer `AGENTS.md` adds implementation-specific rules.
 
-Resolve the current checkout with `git rev-parse --show-toplevel`; do not infer it from a dated worktree name. Maintained absolute Nexus paths have one owner: the Obsidian `Nexus Distributed Surfaces` routing note, reached through `docs/admin/nexus-distributed-surfaces.md`.
+- Inherit global Codex and workspace safety rules; this file only specializes Nexus behavior.
+- Resolve the active checkout with `git rev-parse --show-toplevel` instead of inferring it from a folder name.
+- Treat repo-root Markdown workflow files as shared repo content unless explicitly marked local-only.
+- Use `docs/admin/nexus-distributed-surfaces.md` to find the single owner for maintained absolute Nexus paths.
 
-Repo-root Markdown workflow files are intended to be shared repo content unless explicitly marked local-only.
+## Stable Startup
 
-## Global Rule Inheritance
+Before substantive work, read only the context needed for the task:
 
-This repo follows the global Codex agent rules at:
+1. `CONTEXT-MAP.md`, the relevant context, and applicable accepted ADRs.
+2. The controlling user request or live GitHub Issue; use `NEXUS_ISSUE_INDEX.md` as a repo-readable map, not live status authority.
+3. Relevant canonical source, implementation, or workflow files named by the task.
+4. The nearest scoped `AGENTS.md` for any folder being changed.
 
-`C:\Users\Quintin Livdahl\.codex\AGENTS.md`
+Do not load transition records, historical plans, bridge packets, or old roadmaps by default. Read them only when the task needs their provenance or their owning workflow points to them.
 
-The Codex Workflow Control project mirrors and expands those reusable workflow rules at:
+## Product and Authority
 
-`C:\Users\Quintin Livdahl\Documents\Projects\Codex Workflow Control - 2026-06-14 - Active\AGENTS.md`
+Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down presentation, persistent explorable Locations, in-world interaction, and Turn-Based Mode inside one spatial runtime. `Companion` is legacy package naming, not a separate product.
 
-Local Nexus rules may specialize those global rules, but should not silently contradict them.
+- `docs/nexus-game-source/source` is the canonical current textual game definition.
+- Accepted ADRs control affected claims until reconciliation; unaffected source remains current. After reconciliation, use the domain document for the current rule and the ADR for rationale.
+- Application code is implementation authority. Report source/code mismatches instead of silently rewriting either side.
+- GitHub Issues transfer work and acceptance criteria; they do not create game canon.
+- Historical DM-chat, alpha, and roadmap material remains retrievable but is non-controlling.
 
-If a Nexus-specific rule must override a global rule, make the override explicit and preserve the reason in the relevant repo or workflow-control surface.
+## Repository Boundaries
 
-## Required Read
-
-Before app work, read:
-
-1. `CONTEXT-MAP.md`, the relevant context, and `docs/adr/README.md`.
-2. `NEXUS_ISSUE_INDEX.md` when present.
-3. `NEXUS_ISSUE_TRANSITION.md`.
-4. `docs/admin/nexus-distributed-surfaces.md`.
-5. `docs/nexus-game-source/README.md`.
-6. Relevant Nexus source docs named by the task, roadmap, or app planning files.
-7. `docs/admin/task-planning/codex-session-discipline-workflow.md` for non-trivial planning, handoff, issue, or multi-step Codex work.
-
-## Optional and Historical References
-
-`replit.md` is an optional local operator reference. `NEXUS_LOCAL_PLAYABLE_ALPHA.md` and the June roadmap are historical implementation evidence, not required reading or current product direction.
-
-## Product Direction
-
-Nexus Game is the primary local playtest and product surface. The application historically described as the "companion app" is becoming the game itself; `companion` is legacy implementation naming, not the product's role.
-
-The target is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down presentation, persistent explorable Locations, in-world noncombat play, and Turn-Based Mode inside the same spatial runtime. Text supports the experience rather than constituting the whole game.
-
-Replit may be used to implement tasks, but the app must remain runnable from the user's local machine.
-
-Public release, hosted multi-user play, auth, monetization, and cloud sync are out of scope unless the user explicitly reopens them.
-
-## Gameplay Rules
-
-- Free Movement, in-world interaction, and Turn-Based Mode are one persistent-Location gameplay flow.
-- Tactical Pressure should arise inside spatial play and resolve back into Local Aftermath or Free Movement without creating a separate Encounter world.
-- AI should handle narration. App code/data should increasingly hold rules, lore, state, and mechanical authority.
-- Lattice-100 is a resolution mechanic. Do not treat it as world lore unless source docs explicitly say so.
-- Source Markdown in `docs/nexus-game-source/source` is design authority. This repo is also implementation authority for app behavior.
-
-## Task Handling
-
-GitHub Issues are the active task packets for this repo.
-
-Refer to every GitHub Issue by a short human-readable name followed by its number, for example `Local Save Export #17`.
-
-Do not refer to issues by number alone. If the official title is unknown, too long, or awkward in running chat, make up a concise working name and keep the issue number after it.
-
-Apply the same rule to pull requests and other numbered GitHub artifacts. Say `Source Context Pack PR #52`, `Issue 9 Source Context Pack #9`, or another short name plus number. Do not write bare references like `#9`, `Issue 9`, `PR #52`, or `52?` unless quoting a literal GitHub UI label or command output.
-
-`NEXUS_ISSUE_INDEX.md` is the AI-readable queue/control surface for active, blocked, parked, and completed issue work. It is intentionally a Markdown index first; GitHub Projects may be added later as a visual board, but it is not required for batch-one workflow.
-
-Use `NEXUS_ISSUE_TRANSITION.md` to understand current queue order, gate sequencing, and any remaining local-only planning residue until the index fully supersedes that role.
-
-Use `NEXUS_TASK_PACKET_TEMPLATE.md` when shaping new GitHub issues or task-intake outputs.
-
-Use `NEXUS_HANDOFF_TEMPLATE.md` when transferring context between Codex, ChatGPT, Replit, GitHub Issues, or a fresh work session.
-
-Use the thread title convention in `NEXUS_HANDOFF_TEMPLATE.md` when creating, forking, sending, or naming fresh Nexus work threads. If a Codex thread title tool is available, set the title immediately after creating or identifying the thread. If the title cannot be set from the current tool, include the suggested thread title in the handoff.
-
-Fresh handoff chats must not auto-start app work merely because a handoff, continue prompt, issue packet, or next-safe-action exists. A receiving chat may read and summarize the handoff, but it must wait for explicit current user approval before moving queue files, editing repo files, running implementation/validation commands, committing, pushing, updating issues, or closing anything.
+- Keep app code, scripts, package configuration, repo-local workflows, issue support, bridge packets, and canonical source in this repo.
+- Obsidian owns human-facing project memory, planning, dashboards, and generated pointer navigation.
+- Drive owns bulky materials, workbench outputs, exports, and handoff bundles.
+- Obsidian `00 Source` cards are navigation only; never treat them as a second source corpus or hand-edit them as source.
+- Do not bulk-copy material between repo, Obsidian, and Drive without explicit task scope.
+- Preserve local-first behavior. Public hosting, auth, monetization, multi-user play, and cloud sync require explicit scope.
 
 ## Nexus Git Ownership Override
 
-This section is the explicit Nexus specialization of inherited Git guidance.
+- A current user request authorizes routine task-scoped Git work on a task branch: inspect, isolate when useful, stage relevant files, commit, validate, push, and prepare a pull request.
+- Codex owns the technical Git choices. Do not ask Quintin to choose branches, commits, rebases, or worktree mechanics.
+- Changing `main` requires Quintin's explicit approval of the produced result. After approval, perform and verify ordinary integration and closeout.
+- Pause before discarding uncertain work, materially rewriting shared history, bypassing protections or failed checks, affecting credentials or accounts, deploying, or selecting between competing product outcomes.
+- Inspect branch, worktree, dirty, and upstream state before mutation, and preserve unrelated work.
 
-- A current user request to perform Nexus work authorizes routine, task-scoped Git operations on a task branch: inspect state, choose or create a safe worktree, stage relevant files, commit coherent validated work, push the task branch, and open or update a pull request.
-- Codex owns the technical Git choices. Do not ask Quintin to choose among branches, commits, rebases, merges, pull requests, or worktree mechanics.
-- Changing `main` requires Quintin's explicit approval of the produced result. Once that approval is given, Codex chooses and performs the ordinary integration method and verifies the result.
-- Pause only when an action could discard uncertain work, rewrite shared history materially, bypass protections or failed checks, publish or deploy beyond ordinary repository synchronization, affect credentials or accounts, or choose between competing product outcomes.
-- Preserve unrelated or unfinished work. Inspect branch, worktree, dirty state, and upstream state before mutations, and use isolation when it protects existing work.
+## Workflow Dispatch
 
-For ChatGPT Project sync, treat broad planning, general design discussion, speculative architecture, issue-shaping, and "what should we do next?" work as normal ChatGPT Project work unless current local repo truth, source inspection, file edits, validation, commits, pushes, issue updates, or source-authority checks are needed. Codex should actively suggest moving that kind of discussion to ChatGPT Project to conserve Codex usage.
+| Need | Owning surface |
+|---|---|
+| Product language and authority | `CONTEXT-MAP.md`, relevant contexts, `docs/adr/README.md`, and `docs/nexus-game-source/README.md` |
+| Issues, task intake, naming, and closeout | `docs/agents/issue-tracker.md`, `NEXUS_ISSUE_INDEX.md`, and the task/handoff templates |
+| Session focus, side items, and independent review | `docs/admin/task-planning/codex-session-discipline-workflow.md`, `.agents/skills/nexus-reviewer/SKILL.md`, and `docs/admin/task-planning/nexus-review-rubric.md` |
+| Source routing and generated indexes | `docs/nexus-game-source/README.md` and the repo-local source maintenance skills |
+| ChatGPT Project bridge and handoffs | `docs/chatgpt-project-bridge/README.md` |
+| Maintained local paths and cross-surface roles | `docs/admin/nexus-distributed-surfaces.md` |
 
-When the user asks Codex to create a synced chat, planning chat, or ChatGPT Project context for GPT/Stewy to pull, do not create a Codex thread unless the user explicitly asks for a Codex thread. The correct Codex action is to create or update the repo-side bridge packet, update the matching bridge index, validate the workflow when practical, commit and push the repo change if the user expects GPT to find it from GitHub, and return the exact GitHub/repo path plus a copy-ready ChatGPT prompt. A Codex thread is not a substitute for a ChatGPT Project synced-chat packet.
+## Execution and Validation
 
-When the user references ChatGPT, Stewy, a synced chat, a planning chat, or a non-issue handoff, check these repo bridge locations before assuming context is missing:
-
-1. `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
-2. `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
-3. Any specific bridge packet path named by the user or ChatGPT under `docs/chatgpt-project-bridge/`
-
-When creating Replit tasks, use the current GitHub Issue and `NEXUS_TASK_PACKET_TEMPLATE.md`. The task blocks in `NEXUS_LOCAL_PLAYABLE_ALPHA.md` may be consulted only as historical implementation evidence.
-
-When doing Codex work sessions, keep work tied to one roadmap gate, one explicit task packet, or one GitHub issue when practical.
-
-## Agent skills
-
-### Issue tracker
-
-GitHub Issues in `quinnlivdahl-cmd/Nexus-App` are the live execution tracker. External pull requests are not a request or triage surface. Preserve Nexus issue naming and supporting planning surfaces. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Use the Nexus status-prefixed mapping for Matt Pocock's five triage roles. See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Use a multi-context layout with `Nexus Game` and `Nexus Project Operations`. See `docs/agents/domain.md`.
-
-## Session Discipline
-
-For non-trivial Nexus work, use `docs/admin/task-planning/codex-session-discipline-workflow.md` and `.agents/skills/nexus-session-discipline/SKILL.md`.
-
-For complex multi-step work that needs durable cross-session context, use the repo planning-with-files overlay in `planning/`:
-
-- `planning/task_plan.md` for phase tracking, decisions, and errors.
-- `planning/findings.md` for research and verification findings.
-- `planning/progress.md` for session logs and validation results.
-- `planning/planning-rules.md` for the reusable planning rules.
-
-Start with a compact session frame when the task is not a simple answer:
-
-- controlling issue, packet, handoff, or user request;
-- repo/workspace path;
-- active goal;
-- work mode: discovery, candidate output, live edit, validation, commit/push, or closeout;
-- allowed file and external-system actions;
-- sources to inspect first;
-- out-of-scope areas;
-- likely validation;
-- split or stop conditions.
-
-Side items may be noticed and recorded, but should not be pursued unless they block current work, are explicitly requested, or are needed for acceptance criteria. Classify side items as:
-
-- side task: actionable work that may need an issue, task packet, roadmap/index entry, or separate chat;
-- side finding: useful evidence, risk, or relationship to record durably;
-- tiny observation: a small note to preserve at closeout if worth keeping.
-
-Route side items to existing approved destinations: GitHub issue/comment, `NEXUS_ISSUE_INDEX.md`, roadmap/index, synced-chat packet, task packet, handoff, or source-router workflow. If no destination is clear, ask for the route in plain language.
-
-## Independent Review
-
-For non-trivial Nexus implementation, workflow, source-routing, bridge, handoff, or issue-closeout work, run an independent review after implementation and local validation and before calling the work complete. Use `.agents/skills/nexus-reviewer/SKILL.md` and `docs/admin/task-planning/nexus-review-rubric.md`.
-
-Reviewer statuses are `PASS`, `PASS_WITH_NOTES`, `NEEDS_FIXES`, and `BLOCKED`. Any source-authority violation, missing required validation, or unmet acceptance criterion prevents `PASS`.
-
-The normal loop is: implement -> validate -> independent review -> targeted fixes -> re-review when needed -> closeout. Reviewer findings should cite evidence with paths or command output and give targeted fix instructions.
-
-## Progress and Closeout
-
-For issue-based work, keep progress visible:
-
-- say what is being checked before broad claims;
-- name the current phase when work moves from intake to implementation, validation, commit, push, or GitHub closeout;
-- distinguish done locally from done on GitHub;
-- include side items and closeout routing when side items appeared;
-- do not call an issue complete until required repo changes are committed, pushed, validated, and the GitHub issue is ready to close or already closed.
-
-Use this closeout order for GitHub issue tasks:
-
-1. Validate the work locally.
-2. Commit and push the relevant repo changes.
-3. Update `NEXUS_ISSUE_INDEX.md` so the issue state matches reality.
-4. Add a final GitHub issue comment with evidence.
-5. Close the GitHub issue when the acceptance criteria are satisfied.
-
-Future scripts may automate this sequence, but the human-readable evidence should stay clear enough to review without a script.
-
-## Repo, Vault, and Source Boundaries
-
-- This repo is the canonical Nexus source and app implementation surface, including text source docs.
-- The Nexus-App canonical source path is `docs/nexus-game-source/source`. It is the durable repo home for game source documents.
-- Resolve repo-relative paths inside the current checkout rather than hardcoding a task worktree.
-- `docs/admin/nexus-distributed-surfaces.md` points to the single maintained registry for the Obsidian, Drive, primary-checkout, worktree-root, and retired local paths.
-- Treat the Obsidian `00 Source` role named by that registry as generated pointer-card navigation only, never as a copied source tree or independent source authority.
-- Keep bulky generated artifacts, handoff bundles, zips, candidate runs, and workbench outputs in Drive or purpose-built repo paths, not in the Obsidian note layer.
-- Link between repo docs, Obsidian notes, and Drive payloads where useful, but do not bulk-copy one surface into another.
-
-- Do not bulk-copy Obsidian `00 Source`, Drive payloads, or archive material into this repo unless the user explicitly approves that direction.
-- Treat the canonical repo source as the app/ChatGPT source corpus for context-pack and rules-core work. Do not overwrite it from Obsidian, Drive, or archive material unless explicitly approved.
-- Do not compare Obsidian pointer cards as if they were a second source corpus. Inspect the canonical repo source directly; report stale or broken cards as navigation drift.
-- When canonical source docs are added, removed, renamed, or changed, use `.agents/skills/nexus-source-index-maintainer/SKILL.md` and regenerate the index with `corepack pnpm run source:index` or `node scripts/update-source-index.mjs`.
-- Do not copy canonical source documents into Obsidian for browsing. Refresh generated pointer cards through the Obsidian navigation workflow when repo paths change.
-- Treat ChatGPT project files as curated drafting/playtest context, not as the primary source-management layer.
-- The repo-trackable ChatGPT Project bridge layer lives at `docs/chatgpt-project-bridge`. Those files are upload-ready context for the ChatGPT Nexus Project, but upload is not complete until the user confirms it or a refresh ledger records it.
-- ChatGPT Project synced-chat, handoff, preservation, and task packets must use approved repo destinations under `docs/chatgpt-project-bridge` unless a more specific repo path is explicitly approved by the user or a controlling issue.
-- Do not treat GitHub Issues as game/source authority; issues transfer work, context, and acceptance criteria.
-- Do not treat local implementation shortcuts as Nexus rules.
-- If source docs and app implementation disagree, report the mismatch and avoid silent rule rewrites.
-
-## Code Work
-
-For code work:
-
-- inspect the current implementation before making claims;
-- preserve local-first behavior;
-- prefer small verifiable changes;
-- run checks when dependencies are available;
-- if `pnpm` is unavailable, report that as a Gate A blocker rather than guessing test results.
-
-## Important Current Blockers
-
-- Local pnpm availability must be proven.
-- Browser-side API key storage is prototype-only and should not remain the default runtime path.
-- Persistence is browser localStorage only until save export/import or file-backed local saves are implemented.
-- The app still needs a new app-native campaign seed.
-- Rules enforcement is mostly prompt-driven and needs code-backed minimum mechanics.
+- Keep work tied to one explicit request or issue when practical; route adjacent discoveries instead of expanding scope silently.
+- Inspect current implementation before making claims and prefer small, reversible, verifiable changes.
+- Run checks named by the nearest scoped instructions. Workflow changes must run `corepack pnpm run validate:workflow`.
+- Canonical source changes must also regenerate and check the source index as directed by `docs/nexus-game-source/README.md`.
+- Non-trivial work requires independent review before closeout; use the dispatched reviewer skill and rubric rather than duplicating their procedure here.
+- Do not change global `.codex` behavior, publish/deploy, or mutate external accounts unless the user explicitly scopes it.
