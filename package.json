@@ -12,6 +12,8 @@
     "roadmap:index:check": "node scripts/update-roadmap-index.mjs --check",
     "source:index": "node scripts/update-source-index.mjs",
     "source:index:check": "node scripts/update-source-index.mjs --check",
+    "source:skill-tree": "corepack pnpm --dir artifacts/nexus-companion exec tsx scripts/update-skill-tree-source.ts",
+    "source:skill-tree:check": "corepack pnpm --dir artifacts/nexus-companion exec tsx scripts/update-skill-tree-source.ts --check",
     "source:slices": "node scripts/update-source-slice-catalog.mjs",
     "source:slices:check": "node scripts/update-source-slice-catalog.mjs --check",
     "context:pack:check": "node scripts/validate-context-pack.mjs",

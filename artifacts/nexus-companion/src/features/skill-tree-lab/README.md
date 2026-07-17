@@ -1,6 +1,6 @@
 # Nexus Skill Tree Lab
 
-The Skill Tree Lab is a noncanonical planning instrument inside the existing Nexus Companion app. It keeps its draft data and light-theme settings in browser local storage and does not require a backend or account.
+The Skill Tree Lab is the editable app surface for the playtest-ready provisional Nexus Skill Tree. The bundled seed is usable for current playtests but is not final. The Lab keeps browser edits and light-theme settings in local storage and does not require a backend or account.
 
 ## Start
 
@@ -31,4 +31,4 @@ Return to the terminal running the app and press `Ctrl+C`.
 - Markdown export produces a readable tree review document.
 - Reset to seed restores the bundled research and candidate tree after confirmation.
 
-Everything in the Lab is a proposal. It does not modify canonical Nexus source files.
+The bundled seed is mirrored into `SKILL-TREE-001` as provisional source. Local browser edits remain proposals until deliberately synchronized into the seed and regenerated source document.

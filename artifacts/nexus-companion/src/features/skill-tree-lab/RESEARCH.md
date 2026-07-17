@@ -12,7 +12,7 @@ The synthesis recommends a bounded concrete middle layer for the candidate tree:
 - OR prerequisites support ordinary alternate routes. AND prerequisites are reserved for genuine synthesis.
 - Baseline survival and required-content access should not be hidden behind tax purchases.
 
-The Lab marks this recommendation and every generated tree item as noncanonical and editable. The Nexus Rules Map separately labels existing rules, prior proposals, and open questions so research synthesis is not mistaken for source authority.
+The bundled tree has been promoted to playtest-ready provisional source and remains editable. Individual entries still carry proposal status so playtest findings can revise them without implying final balance. The Nexus Rules Map separately labels existing rules, prior proposals, and open questions.
 
 Primary local context:
 

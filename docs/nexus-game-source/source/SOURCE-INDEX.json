@@ -9,7 +9,7 @@
   "authority_note": "Nexus-App canonical source index for exact GitHub retrieval and app source-pack work. Obsidian pointer-card navigation lives at C:\\Users\\Quintin Livdahl\\Obsidian\\20 Projects\\Nexus Game\\00 Source and is not a source copy.",
   "update_command": "corepack pnpm run source:index",
   "check_command": "corepack pnpm run source:index:check",
-  "file_count": 190,
+  "file_count": 191,
   "domain_counts": [
     {
       "domain": "Admin",
@@ -69,7 +69,7 @@
     },
     {
       "domain": "Skills",
-      "files": 10
+      "files": 11
     }
   ],
   "files": [
@@ -2316,6 +2316,18 @@
       "role_status": "current_state; current_state; draft; provisional_source; domain_rebuild_full_migration",
       "use_when": "Use when ChatGPT or app work needs Skills current state source context for RNG and Playtest Tuning Notes. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
       "key_terms": "SKILL-STATE-007, SRC-SKILL-007, Skills, Current State, current_state, draft, provisional_source, domain_rebuild_full_migration, rng_playtest_tuning_notes, RNG, and, Playtest, Tuning, Notes"
+    },
+    {
+      "domain": "Skills",
+      "section": "Current State",
+      "file": "SKILL-TREE-001 - Provisional_Skill_Tree_Playtest_Model.md",
+      "exact_repo_path": "docs/nexus-game-source/source/Skills/Current State/SKILL-TREE-001 - Provisional_Skill_Tree_Playtest_Model.md",
+      "title": "Provisional Skill Tree Playtest Model",
+      "doc_id": "SKILL-TREE-001",
+      "placement_domain": "Skills",
+      "role_status": "current_state; current_state; working_draft; provisional_source; playtest_ready_provisional",
+      "use_when": "Use when ChatGPT or app work needs Skills current state source context for Provisional Skill Tree Playtest Model. This repo path is the user-designated canonical source; Obsidian pointer cards provide navigation only.",
+      "key_terms": "SKILL-TREE-001, Skills, Current State, current_state, working_draft, provisional_source, playtest_ready_provisional, skill_tree_playtest_model, provisional_skill_tree_playtest_model, skill_tree_candidate_ability_catalog, Provisional, Skill, Tree, Playtest, Model"
     },
     {
       "domain": "Skills",

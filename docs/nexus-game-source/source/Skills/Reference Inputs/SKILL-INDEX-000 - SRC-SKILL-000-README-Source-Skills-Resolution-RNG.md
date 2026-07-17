@@ -18,7 +18,7 @@ owns_topics:
   - 'skills_domain_readme'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
+last_updated: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids, legacy_paths, and explicit migration history."
 ---
@@ -39,6 +39,9 @@ Lattice-100 is the active provisional roll substrate unless a newer source super
 
 Current reliable rules:
 
+- `SKILL-TREE-001` is the playtest-ready provisional Skill Tree. It is authorized for current character-build experiments and playtests, but it is not final.
+- The current hierarchy is `Attribute -> Skill -> Skill Focus -> Ability`.
+- Current playtest attributes are `Combat`, `Dexterity`, `Intelligence`, `Constitution`, `Wisdom`, and `Charisma`.
 - Lattice-100 is used for meaningful checks during playtest.
 - Combat bands are `Miss / Graze 0-9 / Hit 10-69 / Direct 70+`.
 - Noncombat retains separate provisional bands and should not be forced into combat band language by default.
@@ -52,6 +55,7 @@ Current reliable rules:
 Current Skills surfaces:
 
 - `SKILL-LIST-001`: skill vocabulary and tiered skill-tree structure.
+- `SKILL-TREE-001`: complete playtest-ready provisional tree and candidate ability-effect catalog.
 - `SKILL-RESOLUTION-001`: resolution core rules and Lattice-100 outcome bands.
 - `SKILL-DIFFICULTY-001`: difficulty, modifier lanes, Target Score, and check display.
 - `SKILL-REVEAL-001`: skill-revealed options and noncombat scene interaction.
@@ -105,5 +109,4 @@ Older RNG appendices, reports, handoffs, and transition records remain preservat
 - Confirm whether `SKILL-STATE-007` should remain `Current State` or move to `Open Questions` / `Reference Inputs` after playtest tuning stabilizes.
 - Confirm whether the current Skill doc IDs are descriptive enough after body consolidation.
 - Check whether ability taxonomy belongs primarily in `Skills`, `Characters`, or a shared cross-reference.
-
 

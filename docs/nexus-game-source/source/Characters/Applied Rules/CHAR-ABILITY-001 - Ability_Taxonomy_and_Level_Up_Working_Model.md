@@ -21,8 +21,8 @@ borrows_topics:
   - 'character_progression'
   - 'skill_links'
 created: "2026-05-21"
-last_updated: "2026-06-14"
-last_reviewed: "2026-06-14"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 consolidation complete for this rebuild pass. Metadata now uses domain-first routing vocabulary, with historical lineage preserved in legacy fields and reference-input bodies retained where they serve evidence or template continuity. 2026-06-14 source reconciliation added ability-lane and validation boundaries from the app-facing rules draft sequence."
 ---
@@ -36,6 +36,8 @@ Use this provisional taxonomy for current ability and level-up work:
 ```text
 Attribute -> Skill -> Skill Focus -> Ability
 ```
+
+`SKILL-TREE-001` is the complete playtest-ready provisional implementation of this taxonomy. It is authorized for present character-build and playtest use, while names, balance, prerequisites, ranks, and progression costs remain revisable.
 
 Terminology corrections:
 
@@ -193,9 +195,11 @@ Working meanings:
 - **Social & Network:** social leverage, trust, command presence, morale, rapport, faction/crew dynamics.
 - **Identity / Signal / Horror:** body identity, origin weirdness, Signal pressure, fear, alien/contact effects.
 
-## 7. Provisional ability tree seed
+## 7. Provisional ability tree playtest set
 
-This is not the final level-up list. It is the current seed set for the next Seed pass.
+The full current set lives in `SKILL-TREE-001`: six Attributes, 23 Skills, 55 Skill Focuses, 142 Abilities, and six Shared Branches. That document carries the detailed action cost, Lattice check surface, state surfaces, result bands, guardrail, prerequisites, validation dependencies, and candidate effect for each Ability.
+
+The examples below are retained as lineage and quick orientation. They are not the complete list; where wording differs, `SKILL-TREE-001` controls the current playtest version.
 
 ### Combat Attack
 
@@ -207,7 +211,9 @@ This is not the final level-up list. It is the current seed set for the next See
 
 ### Defense
 
-- No accepted abilities yet. This is a priority gap for level-up design.
+- **Brace Protocol / Controlled Impact:** Field Defense -> Armor Handling. Armor-use posture and impact handling.
+- **Screen Watch / Guarded Passage:** Field Defense -> Interposition. Ally and route protection.
+- **Cover Drill / Fighting Withdrawal:** Field Defense -> Defensive Positioning. Effective Defense and protected repositioning.
 
 ### Support
 
@@ -247,17 +253,17 @@ Jam means temporary disruption that degrades, delays, scrambles, or interferes w
 
 ### Identity / Signal / Horror
 
-- No accepted abilities yet. This is a priority gap for level-up design.
+- **Self-Anchor / Memory Checksum:** Resolve -> Identity Continuity. Identity and continuity safeguards.
+- **Unknown Protocol / Meaning Quarantine:** Resolve -> First-Contact Grounding. Bounded response to unknown-contact pressure.
 
-## 8. Next Seed targets for level-up
+## 8. Playtest targets for level-up
 
-The next ability pass should aim at a playable level-up list, not a complete taxonomy.
+The current pass should use the provisional tree rather than wait for final taxonomy.
 
-Priority targets:
+Priority observations:
 
-1. Build a small level-up set that covers combat, support, technical, mobility, and social pressure.
-2. Add at least a few Defense abilities.
-3. Add at least a few Identity / Signal / Horror abilities only if they are needed for the test campaign.
-4. Decide whether Tier 2 should appear in the immediate playtest or stay parked.
-5. Keep ability names and rank text concrete enough for use at the table.
-
+1. Record whether each chosen Ability changes an established rules surface clearly enough to resolve without improvising a new subsystem.
+2. Record which Abilities are never chosen, mandatory-feeling, ambiguous, redundant, or stronger than their tier peers.
+3. Test Tier 2 and Tier 3 entries only when prerequisites and Focus Total support them; exact thresholds remain parked.
+4. Capture friction in action cost, Lattice check, result bands, state change, validation, and cross-domain ownership.
+5. Revise the tree from evidence while preserving ordinary baseline actions for characters without the Ability.

@@ -17,7 +17,7 @@ import type {
 } from "./types";
 import {
   concretizeCandidateEffect,
-  deriveRulesImpact,
+  deriveAbilityRulesImpact,
   sourceActionCost,
 } from "./rules-impact";
 import {
@@ -25,7 +25,10 @@ import {
   rulesMap,
   structuralComparison,
 } from "./research-data";
-import { NONCANONICAL_NOTICE } from "./lab-state";
+import {
+  NONCANONICAL_NOTICE,
+  PLAYTEST_MODEL_DECISION,
+} from "./lab-state";
 
 type AbilitySpec = {
   name: string;
@@ -85,8 +88,15 @@ function makeAbility(focusId: string, spec: AbilitySpec): Ability {
   const id = `ability-${slug(focusId)}-${slug(spec.name)}`;
   const supportsAway = spec.tags.includes("away-team");
   const supportsShip = spec.tags.includes("ship-support");
+  const derivedRules = deriveAbilityRulesImpact(
+    spec.name,
+    spec.effect,
+    spec.type,
+    spec.tags,
+  );
   const rulesImpact = {
-    ...deriveRulesImpact(spec.type, spec.tags),
+    ...derivedRules,
+    // Hand-authored per-spec rules remain the final authority.
     ...spec.rules,
   };
   return {
@@ -1444,7 +1454,7 @@ const intelligence = makeAttribute(
                   "Trace",
                 ],
                 resultBands:
-                  "Roll vs the target Firewall. Success creates one bounded access or process change; Partial succeeds with Trace or a reduced scope; Direct improves scope or keeps the action clean.",
+                  "Roll vs the target Firewall. Success grants the one bounded access permission declared before the roll. Partial grants it and adds 1 Trace. Direct grants it and reduces the action's Trace by 1.",
               },
             },
             {
@@ -1585,7 +1595,7 @@ const intelligence = makeAttribute(
                   "targeting or sensor state",
                 ],
                 resultBands:
-                  "Roll vs Firewall. Success applies a temporary Jammed or Degraded Link status; Partial applies it with a shorter duration or counter-trace; Direct improves duration or affected link scope.",
+                  "Roll vs Firewall. Success applies the Jammed System Status to the named link until the end of its next activation. Partial applies it until the end of the current activation and adds 1 Trace. Direct applies it for two activations.",
                 guardrail:
                   "Jamming degrades, delays, or scrambles a tagged link. It never grants shutdown, data theft, permanent disable, or ownership.",
               },
@@ -2277,7 +2287,7 @@ const constitution = makeAttribute(
                 actionEconomy:
                   "1 AP touch treatment during Tactical Pressure; it is not a free micro-interaction.",
                 resultBands:
-                  "Roll only when treatment quality, speed, complication, or a status-clear attempt is meaningful. Success controls one stated Standard Status or restores the declared limited function; Partial works with a cost or reduced duration.",
+                  "Roll only when treatment quality, speed, complication, or a status-clear attempt is meaningful. Success suppresses the one named Standard Status until the next recovery check. Partial suppresses it until the end of the patient's next activation and consumes one required supply.",
               },
             },
             {
@@ -2337,7 +2347,7 @@ const constitution = makeAttribute(
                 checkSurface:
                   "No roll for basic stabilization when the helper has patient access, time, and a broad medical tool. Use Lattice Medicine vs Injury Severity only for quality, speed, complication, or a special hazard.",
                 resultBands:
-                  "Basic stabilization pauses the Downed/Disabled countdown. A successful quality check improves the recovery window or transport safety; it does not revive the patient or erase persistent consequences.",
+                  "Basic stabilization pauses the Downed/Disabled countdown through the patient's next activation. A successful quality check extends that pause until the next recovery check. This does not revive the patient or erase persistent consequences.",
               },
             },
             {
@@ -2548,7 +2558,7 @@ const constitution = makeAttribute(
                   "Firewall",
                 ],
                 resultBands:
-                  "Success restores the declared body-machine function or clears one stated cybernetic Standard Status. If the fault is hostile, Firewall validation still applies before treatment can take control of the surface.",
+                  "Success restores the one declared body-machine function until normal repair can occur. Partial restores it for the current scene and adds 1 Trace. If the fault is hostile, Firewall validation still applies before treatment can take control of the surface.",
               },
             },
             {
@@ -2570,7 +2580,7 @@ const constitution = makeAttribute(
               ],
               rules: {
                 resultBands:
-                  "On a valid trigger, spend the reaction to prevent one propagating cybernetic Standard Status or contain it to the current implant. It cannot reverse System Integrity damage already committed.",
+                  "On a valid trigger, spend the reaction to contain the propagating cybernetic Standard Status to the current implant until the end of the patient's next activation. It cannot reverse System Integrity damage already committed.",
               },
             },
           ],
@@ -2615,7 +2625,7 @@ const constitution = makeAttribute(
                   "declared after-cost",
                 ],
                 resultBands:
-                  "While active, convert one named environmental or bodily pressure into the declared after-cost. At expiry, commit that cost as a stated status, recovery need, or resource consequence.",
+                  "While active, ignore the next Standard Status caused by the one environmental or bodily pressure declared at activation. At expiry, commit the one after-cost Standard Status declared at activation.",
               },
             },
             {
@@ -4508,9 +4518,8 @@ export const seedLabData: LabData = {
   title: "Nexus Skill Tree Lab",
   noncanonicalNotice: NONCANONICAL_NOTICE,
   candidateModel: "Bounded concrete Skills with identity-rich Focuses",
-  modelDecision:
-    "Research favors concrete roll-facing Skills and broad domains as non-owning coverage lenses. This remains a proposal because current Nexus source directly supports both models.",
-  generatedAt: "2026-07-09",
+  modelDecision: PLAYTEST_MODEL_DECISION,
+  generatedAt: "2026-07-16",
   attributes: candidateAttributes,
   sharedBranches,
   research: researchEntries,

@@ -18,7 +18,7 @@ owns_topics:
   - 'skills_domain_manifest'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
+last_updated: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids, legacy_paths, and explicit migration history."
 ---
@@ -32,6 +32,7 @@ metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-fir
 | `SKILL-INDEX-000` | `SRC-SKILL-000` | Reference input | Domain readme and routing guide. |
 | `SKILL-INDEX-001` | `SRC-SKILL-001` | Reference input | Domain manifest and migration notes. |
 | `SKILL-LIST-001` | `SRC-SKILL-002` | Canon home | Skill vocabulary and current working tiered skill-tree structure. |
+| `SKILL-TREE-001` | — | Current state | Playtest-ready provisional Attribute -> Skill -> Skill Focus -> Ability tree and full candidate-effect catalog. |
 | `SKILL-RESOLUTION-001` | `SRC-SKILL-003` | Canon home | Resolution core rules and Lattice-100 outcome bands. |
 | `SKILL-DIFFICULTY-001` | `SRC-SKILL-004` | Canon home | Difficulty, modifier lanes, Target Score, and check display. |
 | `SKILL-REVEAL-001` | `SRC-SKILL-005` | Canon home | Skill-revealed options and noncombat scene interaction. |
@@ -67,7 +68,7 @@ This domain does not yet finalize:
 - final social/noncombat counter math;
 - Contact or Cyberwarfare final treatment.
 
-These belong in `SKILL-OPEN-008` or the relevant domain open-question docs until resolved.
+These open items do not prevent use of `SKILL-TREE-001` in current playtests. Use the candidate effects as written, log friction or ambiguity, and route unresolved math or ownership questions to `SKILL-OPEN-008` or the relevant domain open-question doc.
 
 ## Cross-Domain Routing
 
@@ -104,9 +105,8 @@ Archive or prune only after content coverage is verified and the user explicitly
 ## Next Recommended Work
 
 1. Review the Phase 10 Skills consolidation manifest before any permanent-source migration.
-2. Confirm where ability taxonomy lives after Characters and Skills consolidation.
-3. Run a focused DM playtest that logs Target Score, roll, margin, band, and table friction.
+2. Use `SKILL-TREE-001` as the current playtest tree while keeping final taxonomy ownership shared with `CHAR-ABILITY-001`.
+3. Run focused playtests that log Ability choice, Target Score, roll, margin, band, state change, and table friction.
 4. Patch Combat and Equipment only where Lattice interaction requires it.
 5. Preserve unresolved math and counter issues in open-question docs rather than burying them in manifests.
-
 

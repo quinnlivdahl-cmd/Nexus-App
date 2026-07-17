@@ -280,7 +280,7 @@ function OverviewView({ data }: { data: LabData }) {
   return (
     <div className="stl-view-grid">
       <Notice>
-        <strong>Proposal boundary:</strong> {cleanText(data.noncanonicalNotice)}
+        <strong>Playtest boundary:</strong> {cleanText(data.noncanonicalNotice)}
       </Notice>
       <div className="stl-metric-grid">
         <Metric
@@ -2610,7 +2610,7 @@ export default function SkillTreeLab() {
         </div>
         <div className="stl-app-status">
           <span className="stl-proposal-flag">
-            <FlaskConical size={14} /> Proposal workspace
+            <FlaskConical size={14} /> Playtest-ready · provisional
           </span>
           <span className={`stl-save-state stl-save-${saveState}`}>
             <i />

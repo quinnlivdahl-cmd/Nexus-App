@@ -16,7 +16,9 @@ import {
 
 export const LAB_STORAGE_KEY = "nexus-skill-tree-lab-v1";
 export const NONCANONICAL_NOTICE =
-  "Everything in this Lab is a proposal. Nothing here changes Nexus canon, accepted rules, character data, or GitHub state.";
+  "The bundled tree is playtest-ready provisional Nexus source, not final. Local edits remain proposals and do not change source, character data, or GitHub state until synchronized.";
+export const PLAYTEST_MODEL_DECISION =
+  "This concrete roll-facing tree is ready for provisional playtest use. Its names, effects, balance, prerequisites, and progression remain open to evidence-based revision.";
 
 export type EditableNode =
   | Attribute
@@ -51,6 +53,33 @@ function abilitiesIn(data: LabData): Ability[] {
   ];
 }
 
+const LEGACY_GENERATED_EFFECT_FRAGMENTS = [
+  "On a successful system action, apply only the permitted access, interference, or status result",
+  "Miss, Graze, Hit, and Direct use the weapon or declared action profile",
+  "Success clears or suppresses one stated Standard Status",
+  "On the stated trigger, spend the reaction",
+  "While the stated posture or condition is valid",
+  "Success reduces one qualifying route by 1 MP",
+  "Success creates one actionable Op Knowledge fact or adds +2 TS",
+  "Success restores one declared limited function, clears one qualifying System Status",
+  "Success grants one ally +2 TS from the Team lane",
+  "Success prevents or suppresses one named Standard Status",
+  "Success shifts Disposition or Exposure by one step",
+  "Success creates one bounded access or process change",
+  "Success applies a temporary Jammed or Degraded Link status",
+  "Success controls one stated Standard Status or restores the declared limited function",
+  "A successful quality check improves the recovery window or transport safety",
+  "Success restores the declared body-machine function or clears one stated cybernetic Standard Status",
+  "prevent one propagating cybernetic Standard Status or contain it to the current implant",
+  "commit that cost as a stated status, recovery need, or resource consequence",
+];
+
+const candidateConcept = (effect: string) =>
+  effect.replace(/\s*Proposed rules effect:.*$/s, "").trim();
+
+const hasLegacyGeneratedEffect = (effect: string) =>
+  LEGACY_GENERATED_EFFECT_FRAGMENTS.some((fragment) => effect.includes(fragment));
+
 export function upgradeCandidateEffects(
   data: LabData,
   reference: LabData,
@@ -61,6 +90,17 @@ export function upgradeCandidateEffects(
   );
   for (const ability of abilitiesIn(next)) {
     const referenceAbility = referenceById.get(ability.id);
+    if (
+      referenceAbility &&
+      hasLegacyGeneratedEffect(ability.candidateEffect) &&
+      candidateConcept(ability.candidateEffect) ===
+        candidateConcept(referenceAbility.candidateEffect)
+    ) {
+      ability.candidateEffect = referenceAbility.candidateEffect;
+      ability.rulesImpact = structuredClone(referenceAbility.rulesImpact);
+      ability.actionCost = referenceAbility.actionCost;
+      continue;
+    }
     ability.candidateEffect = concretizeCandidateEffect(
       ability.candidateEffect,
       referenceAbility?.rulesImpact ?? ability.rulesImpact,
@@ -1180,5 +1220,6 @@ export function parseImportedLabData(text: string): LabData {
   return {
     ...root,
     noncanonicalNotice: NONCANONICAL_NOTICE,
+    modelDecision: PLAYTEST_MODEL_DECISION,
   } as unknown as LabData;
 }

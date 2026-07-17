@@ -18,8 +18,8 @@ owns_topics:
   - 'skills_list_and_definitions'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-16"
+last_reviewed: "2026-07-16"
 metadata_verified: true
 metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
@@ -28,36 +28,33 @@ metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-fir
 
 ## 1. Current working model
 
-Nexus currently uses a layered skill model, not a finished attribute/class system.
-
-The current best working model is:
+Nexus uses this layered model for current playtests:
 
 ```text
-Tiered Skill Focus Power / Effect / Feature / Technique / etc.
-  -> Skill Focus
-      -> Skill
-          -> "Ability" / Ability Tree
+Attribute -> Skill -> Skill Focus -> Ability
 ```
 
-The player-facing pick is likely the lower-tier power/effect/feature or a tier inside a Skill Focus. That pick contributes upward:
+The current complete playtest snapshot is `SKILL-TREE-001`. It is ready for use but remains provisional rather than final.
+
+The player-facing pick is an Ability inside a Skill Focus. Investment contributes upward:
 
 ```text
-chosen power/effect/feature
+chosen or ranked Ability
   -> adds to or unlocks a Skill Focus tier
       -> contributes to the parent Skill total
-          -> contributes to the broad "Ability" total
+          -> contributes to the parent Attribute
 ```
 
-Use `"Ability"` in quotes when precision matters because the final top-level name is not locked. `Ability Tree` remains a useful older label, but it should not force a final sheet structure.
+The six current Attribute labels are `Combat`, `Dexterity`, `Intelligence`, `Constitution`, `Wisdom`, and `Charisma`. Their use is intentional for playtest clarity and does not make the tree final.
 
 ## 2. Cumulative total principle
 
 The current direction preserves cumulative totals at each split:
 
-- lower-tier powers/effects/features have their own permissions or values;
+- Abilities have their own permissions, actions, validation, effects, or values;
 - a Skill Focus can total or gate its contained tiers;
 - a parent Skill can total or gate its Skill Focuses;
-- a broad "Ability" can summarize or derive from parent Skills.
+- an Attribute can summarize or derive from parent Skills.
 
 Exact formulas, caps, point values, tier counts, and sheet display remain open.
 
@@ -67,10 +64,10 @@ This preserves the useful old tree metaphor while correcting the current directi
 
 | Older metaphor | Current interpretation |
 |---|---|
-| Ability = Tree | Broad derived "Ability" / top-level summary. |
+| Ability = Tree | Attribute / top-level tree. |
 | Skill = Branch | Parent skill/domain under the broad ability. |
 | Skill Focus = Stem | Selectable focus track or specialty. |
-| Power / Technique / Feat = Leaf | The likely player pick or individual tier/effect. |
+| Power / Technique / Feat = Leaf | Ability, the player-facing pick or individual tier/effect. |
 
 The older 30 normal + 2 restricted skill list is preserved as vocabulary/reference and migration evidence. It is not the final count.
 
@@ -78,10 +75,10 @@ The older 30 normal + 2 restricted skill list is preserved as vocabulary/referen
 
 | Term | Current meaning | Lock status |
 |---|---|---|
-| "Ability" / Ability Tree | Broad aggregate capability layer or sheet summary derived from Skills. | Provisional name and formula. |
-| Skill | Broad domain under an Ability; receives value from Skill Focus development. | Provisional count. |
+| Attribute | Top-level playtest tree and broad capability grouping. | Current playtest labels; final names and formula remain open. |
+| Skill | Roll-facing capability under an Attribute; receives value from Skill Focus development. | Current playtest count; final count remains open. |
 | Skill Focus | Specialty/track under a Skill; likely contains tiered powers/effects/features. | Current best structure. |
-| Power / Effect / Feature / Technique / Talent | Lowest or near-lowest player-facing pick; grants permissions, actions, discounts, tags, or riders. | Terminology open. |
+| Ability | Selectable or rankable capability inside a Skill Focus; grants a concrete permission, action, rules effect, discount, tag, or rider. | Active playtest term; individual entries remain provisional. |
 | Trait / Tag | Conditional permission, body fact, background fact, faction/credential marker, cyberware flag, consequence, or equipment property. | Active concept, exact format open. |
 
 ## 5. Current working vocabulary
@@ -128,22 +125,22 @@ The following current-list items are preserved as design vocabulary. They should
 | Cyberwarfare | Restricted/unlockable or special focus channel under Computing / Systems. Do not make baseline for every technical character. |
 | Contact | Signal-adjacent, relational, asset-like, or campaign-gated channel. Do not make a normal ranked skill until lore, safety, and campaign consequences are clearer. |
 
-## 7. Provisional broad scaffold
+## 7. Current playtest scaffold
 
-| Provisional "Ability" | Possible skill domains | Current-list material most naturally mapped here |
-|---|---|---|
-| Force | Offense, Guard, Command | Firearms, Heavy Weapons, Melee, Armor, Tactics. |
-| Traverse | Mobility, Infiltration, Survival, Piloting | Mobility, Stealth, Security, Survival, Vehicles. |
-| Systems | Computing, Engineering, Fabrication | Computing, Engineering, Electronics, Fabrication, Cyberwarfare. |
-| Vital | Medicine, Biotech, Cybernetics | Medicine, Biotechnology, Cybernetics, Adaptation. |
-| Insight | Cognition, Perception, Resolve | Cognition, Perception, Willpower, signal or continuity-adjacent effects. |
-| Network | Rapport, Deceit, Pressure, Streetwise, Exchange | Diplomacy, Deception, Coercion, Empathy, Performance, Streetwise, Commerce, Culture, Faction Lore, Contact-adjacent access. |
+| Attribute | Current Skills |
+|---|---|
+| Combat | Firearms, Close Combat, Heavy Weapons, Field Defense, Tactics. |
+| Dexterity | Mobility, Infiltration, Piloting. |
+| Intelligence | Computing, Engineering, Fabrication. |
+| Constitution | Endurance, Medicine, Biotechnology, Cybernetics. |
+| Wisdom | Perception, Cognition, Resolve. |
+| Charisma | Negotiation, Empathy, Deception, Pressure, Networks. |
 
-This scaffold is provisional. It is useful for retrieval, DM interpretation, and Draft work, but it should not be locked as the final character sheet.
+The older `Force / Traverse / Systems / Vital / Insight / Network` scaffold remains design lineage and a useful coverage lens. It is not the current player-facing attribute list.
 
-## 8. What a lower-tier power/effect should do
+## 8. What an Ability should do
 
-A lower-tier power/effect/feature should not be just a bonus label. It should do at least one useful thing:
+An Ability must not be just a name or bonus label. It should act on an established rules surface and do at least one useful thing:
 
 - reveal a type of option;
 - reduce an action, AP, MP, time, trace, exposure, or resource cost;
@@ -154,9 +151,8 @@ A lower-tier power/effect/feature should not be just a bonus label. It should do
 - attach a tag, status interaction, rider, or permission;
 - make a crew assist, ship system, gear item, cyberware piece, or faction technique easier to use.
 
-## 9. Current caution
+## 9. Current status boundary
 
-Do not flatten this into a D&D-style attribute list or a fixed video-game skill tree yet. The exact number of skills is TBD after the surrounding systems are more complete.
-
+Use the complete tree in `SKILL-TREE-001` for current playtests and idea generation. It is deliberately marked **playtest-ready provisional**: usable now, but not final. Playtest evidence may change names, counts, tier placement, prerequisites, candidate effects, numerical balance, and progression costs.
 
 
