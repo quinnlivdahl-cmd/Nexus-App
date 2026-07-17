@@ -7,6 +7,11 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { createHash } from "node:crypto";
+import {
+  applicabilityValues,
+  authorityValues,
+  retrievalMetadata,
+} from "./source-retrieval-policy.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
@@ -20,28 +25,6 @@ const automaticHeadingLevel = 2;
 
 const args = new Set(process.argv.slice(2));
 const checkOnly = args.has("--check");
-
-const authorityValues = [
-  "game_current",
-  "game_provisional",
-  "runtime_ai_behavior",
-  "project_operations",
-  "historical_reference",
-  "non_authoritative",
-];
-const applicabilityValues = [
-  "player_game_rules",
-  "campaign_director_runtime",
-  "content_authoring_workflow",
-  "project_operations",
-  "historical_provenance",
-];
-const defaultGameAuthorities = new Set([
-  "game_current",
-  "game_provisional",
-  "runtime_ai_behavior",
-]);
-const explicitlyClassifiedDomains = new Set(["Admin", "Modes"]);
 
 function toRepoPath(path) {
   return relative(root, path).split(sep).join("/");
@@ -102,40 +85,6 @@ function parseFrontmatter(text) {
 function firstHeading(text) {
   const match = text.match(/^#\s+(.+)$/m);
   return match ? match[1].trim() : null;
-}
-
-function asArray(value) {
-  if (Array.isArray(value)) return value;
-  if (value === undefined || value === null || value === "") return [];
-  return [value];
-}
-
-function retrievalMetadata(frontmatter, domain, repoPath) {
-  const authority = frontmatter.authority || null;
-  const applicability = asArray(frontmatter.applicability);
-
-  if (explicitlyClassifiedDomains.has(domain) && !authority) {
-    throw new Error(`${repoPath} must declare authority`);
-  }
-  if (authority && !authorityValues.includes(authority)) {
-    throw new Error(`${repoPath} has invalid authority: ${authority}`);
-  }
-  if (explicitlyClassifiedDomains.has(domain) && applicability.length === 0) {
-    throw new Error(`${repoPath} must declare applicability`);
-  }
-  for (const value of applicability) {
-    if (!applicabilityValues.includes(value)) {
-      throw new Error(`${repoPath} has invalid applicability: ${value}`);
-    }
-  }
-
-  if (!authority) return {};
-
-  return {
-    authority,
-    applicability,
-    default_game_retrieval: defaultGameAuthorities.has(authority),
-  };
 }
 
 function discoverMarkdownFiles(dir) {

@@ -133,7 +133,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Legacy Source Routing Map. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-MAP-003, SLOT-001, Admin, Applied Rules, applied_rule, legacy_reference, active, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, legacy_slot_map_reference, Legacy, Source, Routing, Map"
@@ -151,7 +150,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Nexus Source Bootstrap. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-001, BOOT-001, Admin, Applied Rules, applied_rule, active, admin_reference, domain_rebuild_full_migration, project_operations, project_bootstrap, Nexus, Source, Bootstrap"
@@ -169,7 +167,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for 02_GLOBAL_Project_Operations_Runbook. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-002, ADM-002, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, global_project_operations_runbook, 02, GLOBAL, Project, Operations, Runbook"
@@ -187,7 +184,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for 01_STEWY_Project_Manager_Runbook. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-003, ADM-003, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, stewy_project_manager_runbook, 01, STEWY, Project, Manager, Runbook"
@@ -205,7 +201,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Domain Placement and Content Routing Rules. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-004, ADM-004, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, document_placement_and_content_routing_rules, Domain, Placement, and, Content, Routing, Rules"
@@ -224,7 +219,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Obsidian_Folder_Map. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-RUNBOOK-005, ADM-005, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_obsidian_folder_map, Nexus, Obsidian, Folder, Map"
@@ -243,7 +237,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Project_Source_Upload_and_Verification_Checklist. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-RUNBOOK-006, ADM-006, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, project_source_upload_and_verification_checklist, Project, Source, Upload, and, Verification, Checklist"
@@ -261,7 +254,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Package_Rebuild_Process. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-007, ADM-007, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, project_operations, domain_source_rebuild_process, Package, Rebuild, Process"
@@ -279,7 +271,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Metadata_Verification_Procedure. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-008, ADM-008, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, project_operations, metadata_verification_procedure, Metadata, Verification, Procedure"
@@ -297,7 +288,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Replacement_Supplement_Deletion_Guidance. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-009, ADM-009, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, replacement_supplement_deletion_guidance, Replacement, Supplement, Deletion, Guidance"
@@ -316,7 +306,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Stewy_Platform_and_Output_Handling. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-RUNBOOK-010, ADM-010, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, stewy_platform_and_output_handling, Stewy, Platform, and, Output, Handling"
@@ -334,7 +323,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Dashboard_Update_Procedure. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-011, ADM-011, Admin, Applied Rules, applied_rule, working_draft, admin_reference, domain_rebuild_full_migration, project_operations, dashboard_update_procedure, Dashboard, Update, Procedure"
@@ -352,7 +340,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Domain Source Rebuild Runbook. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-012, ADM-012, Admin, Applied Rules, applied_rule, draft, admin_reference, domain_rebuild_full_migration, project_operations, nexus_source_reorganization_runbook, Domain, Source, Rebuild, Runbook"
@@ -370,7 +357,6 @@
       "applicability": [
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Admin applied rules project or content-authoring operations for Nexus Source-First Routing Map. Exclude from default game-rule and lore retrieval.",
       "key_terms": "ADMIN-RUNBOOK-013, ADM-013, Admin, Applied Rules, applied_rule, working_truth_candidate, admin_reference, domain_rebuild_full_migration, project_operations, nexus_source_first_routing_map, Nexus, Source, First, Routing, Map"
@@ -389,7 +375,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for AGENTS. Exclude from default game retrieval.",
       "key_terms": "ADMIN-RUNBOOK-143, AGENTS, Admin, Applied Rules, applied_rule, working_draft, provisional_source, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, agents"
@@ -408,7 +393,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Project_Workflow. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-RUNBOOK-901, ADM-901, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, project_workflow, Project, Workflow"
@@ -427,7 +411,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Upload_Instructions. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-RUNBOOK-902, ADM-902, Admin, Applied Rules, applied_rule, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, upload_instructions, Upload, Instructions"
@@ -446,7 +429,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for README_Admin_Runbooks_Source_Management. Exclude from default game retrieval.",
       "key_terms": "ADMIN-INDEX-000, ADM-000, Admin, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, admin_domain_readme, README, Runbooks, Source, Management"
@@ -465,7 +447,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for PACKAGE_MANIFEST_Admin_Runbooks_Source_Management. Exclude from default game retrieval.",
       "key_terms": "ADMIN-INDEX-001, ADM-001, Admin, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, admin_domain_manifest, PACKAGE, MANIFEST, Runbooks, Source, Management"
@@ -484,7 +465,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Project_Readme. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-INDEX-903, ADM-903, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, project_readme, Project, Readme"
@@ -503,7 +483,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving PC_TRANSFER_README. Do not treat it as current game or runtime authority.",
       "key_terms": "ADMIN-INDEX-904, ADM-904, Admin, Reference Inputs, reference_input, retired_legacy_placeholder, legacy_reference, non_source_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, pc_transfer_readme, PC, TRANSFER, README"
@@ -1770,7 +1749,6 @@
         "content_authoring_workflow",
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Global Mode Operations Rules. Exclude from default game-rule and lore retrieval.",
       "key_terms": "MODES-CORE-002, 01, Modes, Canon Homes, canon_home, draft, Instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, global_mode_operations_rules, Global, Mode, Operations, Rules"
@@ -1789,7 +1767,6 @@
         "content_authoring_workflow",
         "project_operations"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Steward Mode Rules AI. Exclude from default game-rule and lore retrieval.",
       "key_terms": "MODES-CORE-003, 02, Modes, Canon Homes, canon_home, draft, admin_reference, domain_rebuild_full_migration, project_operations, content_authoring_workflow, steward_mode_rules_ai, Steward, Mode, Rules, AI"
@@ -1807,7 +1784,6 @@
       "applicability": [
         "content_authoring_workflow"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Function_Bindings. Exclude from default game-rule and lore retrieval.",
       "key_terms": "MODES-MODE-001, MODE-FUNC-001, Modes, Canon Homes, canon_home, active, admin_reference, domain_rebuild_full_migration, project_operations, content_authoring_workflow, mode_func_001_function_bindings, Function, Bindings"
@@ -1825,7 +1801,6 @@
       "applicability": [
         "content_authoring_workflow"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Draft Mode Rules AI. Exclude from default game-rule and lore retrieval.",
       "key_terms": "MODES-MODE-002, MODE-002, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, draft_mode_rules_ai, Draft, Mode, Rules, AI"
@@ -1843,7 +1818,6 @@
       "applicability": [
         "content_authoring_workflow"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Seed Mode Rules AI. Exclude from default game-rule and lore retrieval.",
       "key_terms": "MODES-MODE-003, MODE-003, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, seed_mode_rules_ai, Seed, Mode, Rules, AI"
@@ -1862,7 +1836,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving DM Mode Rules AI. Do not treat it as current game or runtime authority.",
       "key_terms": "MODES-MODE-004, MODE-004, Modes, Canon Homes, canon_home, draft, instruction, domain_rebuild_full_migration, historical_reference, content_authoring_workflow, historical_provenance, dm_mode_rules_ai, DM, Mode, Rules, AI"
@@ -1880,7 +1853,6 @@
       "applicability": [
         "content_authoring_workflow"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use only when work needs Nexus Modes canon homes project or content-authoring operations for Art_Mode_Rules_AI. Exclude from default game-rule and lore retrieval.",
       "key_terms": "MODES-MODE-005, MODE-005, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, project_operations, content_authoring_workflow, art_mode_rules_ai, Art, Mode, Rules, AI"
@@ -1899,7 +1871,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Mode_Menu. Do not treat it as current game or runtime authority.",
       "key_terms": "MODES-MODE-006, MODE-006, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_mode_menu, Nexus, Mode, Menu"
@@ -1918,7 +1889,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Mode_Launch_Cards. Do not treat it as current game or runtime authority.",
       "key_terms": "MODES-MODE-007, MODE-007, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_mode_launch_cards, Nexus, Mode, Launch, Cards"
@@ -1937,7 +1907,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus Command Key. Do not treat it as current game or runtime authority.",
       "key_terms": "MODES-MODE-008, MODE-008, Modes, Canon Homes, canon_home, working_draft, instruction, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_command_key, Nexus, Command, Key"
@@ -1956,7 +1925,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately for legacy workflow, prototype behavior, or provenance involving Nexus_Open_Questions_Register. Do not treat it as current game or runtime authority.",
       "key_terms": "MODES-OPEN-003, REG-003, Modes, Open Questions, open_questions, working_draft, admin_reference, domain_rebuild_full_migration, historical_reference, project_operations, historical_provenance, nexus_open_questions_register, Nexus, Open, Questions, Register"
@@ -1975,7 +1943,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for README_Mode_Operations_Registers_Templates. Exclude from default game retrieval.",
       "key_terms": "MODES-INDEX-000, MODE-000, Modes, Reference Inputs, reference_input, domain_readme, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, modes_domain_readme, README, Mode, Operations, Registers, Templates"
@@ -1994,7 +1961,6 @@
         "project_operations",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for PACKAGE_MANIFEST_Mode_Operations_Registers_Templates. Exclude from default game retrieval.",
       "key_terms": "MODES-INDEX-001, MODE-001, Modes, Reference Inputs, reference_input, domain_manifest, draft, admin_reference, domain_rebuild_full_migration, non_authoritative, project_operations, historical_provenance, modes_domain_manifest, PACKAGE, MANIFEST, Mode, Operations, Registers, Templates"
@@ -2013,7 +1979,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Domain Readme Template. Exclude from default game retrieval.",
       "key_terms": "MODES-INDEX-002, TPL-002, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, domain_readme_template, Domain, Readme, Template"
@@ -2032,7 +1997,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Domain Manifest Template. Exclude from default game retrieval.",
       "key_terms": "MODES-INDEX-003, TPL-003, Modes, Reference Inputs, reference_input, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, domain_manifest_template, Domain, Manifest, Template"
@@ -2051,7 +2015,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Nexus_Output_Register. Exclude from default game retrieval.",
       "key_terms": "MODES-REGISTER-001, REG-001, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, nexus_output_register, Nexus, Output, Register"
@@ -2070,7 +2033,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Nexus_Source_Status_Register. Exclude from default game retrieval.",
       "key_terms": "MODES-REGISTER-002, REG-002, Modes, Reference Inputs, reference_input, register, working_draft, admin_reference, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, nexus_source_status_register, Nexus, Source, Status, Register"
@@ -2089,7 +2051,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Nexus_Obsidian_Property_Schema. Exclude from default game retrieval.",
       "key_terms": "MODES-TEMPLATE-001, TPL-001, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, nexus_obsidian_property_schema, Nexus, Obsidian, Property, Schema"
@@ -2108,7 +2069,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Source_Doc_Template. Exclude from default game retrieval.",
       "key_terms": "MODES-TEMPLATE-004, TPL-004, Modes, Reference Inputs, reference_input, template, draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, source_doc_template, Source, Doc, Template"
@@ -2127,7 +2087,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Dashboard_Template. Exclude from default game retrieval.",
       "key_terms": "MODES-TEMPLATE-005, TPL-005, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, dashboard_template, Dashboard, Template"
@@ -2146,7 +2105,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Handoff_Passoff_Template. Exclude from default game retrieval.",
       "key_terms": "MODES-TEMPLATE-006, TPL-006, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, handoff_passoff_template, Handoff, Passoff, Template"
@@ -2165,7 +2123,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Data_Dictionary_Template. Exclude from default game retrieval.",
       "key_terms": "MODES-TEMPLATE-007, TPL-007, Modes, Reference Inputs, reference_input, template, working_draft, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, data_dictionary_template, Data, Dictionary, Template"
@@ -2184,7 +2141,6 @@
         "content_authoring_workflow",
         "historical_provenance"
       ],
-      "authority_explicit": true,
       "default_game_retrieval": false,
       "use_when": "Use deliberately as a non-authoritative template, register, manifest, or structural reference for Seed_Mode_Dashboard_Template. Exclude from default game retrieval.",
       "key_terms": "MODES-TEMPLATE-008, TPL-008, Modes, Reference Inputs, reference_input, template, active, instruction, domain_rebuild_full_migration, non_authoritative, content_authoring_workflow, historical_provenance, seed_mode_dashboard_template, Seed, Mode, Dashboard, Template"

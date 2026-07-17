@@ -1,6 +1,11 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { spawnSync } from "node:child_process";
+import {
+  applicabilityValues,
+  authorityValues,
+  explicitlyClassifiedDomains,
+} from "./source-retrieval-policy.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 
@@ -689,22 +694,6 @@ if (existsSync(sourceIndexJsonPath)) {
       );
     }
 
-    const approvedAuthorityValues = new Set([
-      "game_current",
-      "game_provisional",
-      "runtime_ai_behavior",
-      "project_operations",
-      "historical_reference",
-      "non_authoritative",
-    ]);
-    const approvedApplicabilityValues = new Set([
-      "player_game_rules",
-      "campaign_director_runtime",
-      "content_authoring_workflow",
-      "project_operations",
-      "historical_provenance",
-    ]);
-
     for (const item of sourceIndex.files ?? []) {
       if (!item.exact_repo_path) {
         failures.push(
@@ -719,19 +708,19 @@ if (existsSync(sourceIndexJsonPath)) {
         );
       }
 
-      if (item.authority && !approvedAuthorityValues.has(item.authority)) {
+      if (item.authority && !authorityValues.includes(item.authority)) {
         failures.push(
           `SOURCE-INDEX.json has invalid authority for ${item.exact_repo_path}: ${item.authority}`,
         );
       }
       for (const applicability of item.applicability ?? []) {
-        if (!approvedApplicabilityValues.has(applicability)) {
+        if (!applicabilityValues.includes(applicability)) {
           failures.push(
             `SOURCE-INDEX.json has invalid applicability for ${item.exact_repo_path}: ${applicability}`,
           );
         }
       }
-      if (item.domain === "Admin" || item.domain === "Modes") {
+      if (explicitlyClassifiedDomains.has(item.domain)) {
         if (
           !item.authority ||
           !Array.isArray(item.applicability) ||
