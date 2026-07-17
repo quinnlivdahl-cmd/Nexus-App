@@ -59,6 +59,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #79 | Reduce Nexus AGENTS.md to stable instructions and dispatch links | in-progress | Instruction and Authority Consolidation #74 | #76, #77, and #78 complete | Review and merge the Stable Agent Instructions pull request, then record evidence and close #79 |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
