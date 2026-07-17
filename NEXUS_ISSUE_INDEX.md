@@ -22,7 +22,7 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Nexus-App canonical source: `docs/nexus-game-source/source`
 - Obsidian Nexus note/index layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
-- Obsidian source working-copy layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
+- Obsidian source pointer-card layer: `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
 - Drive payload/workbench lane: `G:\My Drive\10_Projects\Nexus Game`
 - ChatGPT Project synced-chat index: `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`
 - ChatGPT Project non-issue handoff index: `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`
@@ -122,7 +122,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
 | local | Add approved domain-first source corpus to app repo | `docs/nexus-game-source/source` | The repo path is now the canonical source home; historical app-copy references are archive context |
-| local | Complete domain-source live migration | Promoted live Obsidian `00 Source` is now domain-first; old slot source is archived at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Refresh legacy path traceability separately if needed |
+| local | Historical domain-source live migration | The retired 2026 migration copied domain-first source into Obsidian and archived the old slot source at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Preserved as migration provenance; current `00 Source` is pointer-only |
 | #42 batch 1 | Establish instruction/index layer | `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_TASK_PACKET_TEMPLATE.md`, `NEXUS_HANDOFF_TEMPLATE.md` | Use templates on future issues |
 | #7 | Prove local launch and runtime foundation | `corepack pnpm install`, `corepack pnpm run typecheck`, `corepack pnpm run build`, `corepack pnpm run local:dev`; API health returned `{"status":"ok"}` and companion app returned HTTP 200 on 2026-06-15 | Gate C / #9 dependency is satisfied |
 | #9 | Build source-backed context pack for app DM runtime | Source Context Pack PR #52 merged to `main` on 2026-06-27 with merge commit `4dd084e4054dd8347adf8848f1b5bc8d116e5cbb`; PR branch fix commit `63265bc` addressed runtime budgeting before merge | Backend AI Routing #10, App-Native Campaign Seed #11, Source Lookup #18, and Prompt Debug Panel #20 are eligible for future sequencing but not started by this closeout |

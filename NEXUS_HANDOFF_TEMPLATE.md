@@ -111,8 +111,8 @@ Use these lane tags as the stable vocabulary:
 | `GitHub` | Repo, issue, label, milestone, CI/debug, or PR work |
 | `Replit` | Replit-specific task execution or sync |
 | `ChatGPT` | ChatGPT Project upload, context refresh, or searchability checks |
-| `Source` | Live `00 Source` review or candidate source work |
-| `Golden Truth Source` | Repo Golden Truth source corpus, promotion, and generated index upkeep |
+| `Source` | Canonical source review or candidate source routing |
+| `Canonical Source` | Repo source corpus and generated index upkeep |
 | `Playtest` | Session/playtest state, DM run, or encounter test |
 | `Archive` | Archive mining, review packets, or preserved candidates |
 

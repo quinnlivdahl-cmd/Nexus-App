@@ -4,14 +4,14 @@ Status: upload-ready bridge file
 
 ## Purpose
 
-This file tells ChatGPT Project how to use the Nexus-App canonical source corpus without confusing it for ChatGPT Project upload currentness, Obsidian working-copy currentness, or Drive payload state.
+This file tells ChatGPT Project how to use the Nexus-App canonical source corpus without confusing it for ChatGPT Project upload currentness, Obsidian pointer-card freshness, or Drive payload state.
 
 ## Authority Lanes
 
 | Lane | Use for | Authority limit |
 |---|---|---|
-| Nexus-App canonical source | Source-backed repo/app work, richer ChatGPT discussion, and exact GitHub retrieval | Source corpus authority; does not prove ChatGPT upload currentness or Obsidian working-copy currentness by itself |
-| Obsidian Nexus notes | Reading/index layer, current-state notes, dashboards, links, and promoted working-copy views | Requires Codex/local inspection when exact currentness matters; does not override repo source |
+| Nexus-App canonical source | Source-backed repo/app work, richer ChatGPT discussion, and exact GitHub retrieval | Source corpus authority; does not prove ChatGPT upload currentness or Obsidian pointer-card freshness by itself |
+| Obsidian Nexus notes | Reading/index layer, current-state notes, dashboards, links, and generated pointer cards | Navigation and project memory only; does not override or duplicate repo source |
 | Drive Nexus payloads | Bulky payloads, generated outputs, exports, zips, candidate runs, handoff bundles, and Google-native files | Payload/export authority only; not source canon |
 | Repo-side Nexus Roadmap | Shared planning lanes and roadmap-to-issue linkage | Planning context only; does not replace the issue queue or source canon |
 | App repo workflow files | Task packets, validation, bridge docs, app planning | Workflow/implementation authority, not game canon |
@@ -37,7 +37,7 @@ When canonical source files change, Codex should regenerate the index with `core
 
 ## Currentness Rule
 
-The canonical source corpus lives in the repo, and the Obsidian source folder is a readable working-copy/index layer. If a task depends on exact current Obsidian state, ask Codex/local workflow to inspect:
+The canonical source corpus lives in the repo, and the Obsidian source folder contains generated pointer-card navigation. If a task depends on exact Obsidian navigation or project-memory state, ask Codex/local workflow to inspect:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
 

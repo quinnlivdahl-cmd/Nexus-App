@@ -5,7 +5,7 @@ Date created: 2026-06-10
 Origin chat: `Draft — Game System Schema Continuation — 2026-06-10`  
 Primary mode: Draft  
 Repository role: app-facing TacMap selection and encounter-activation scaffold  
-Canon status: not source canon; not live `00 Source`; not final implementation contract
+Canon status: not source canon; not final implementation contract
 
 ## 0. Purpose
 
@@ -21,7 +21,7 @@ Intended placement:
 
 - Repo draft path: `docs/game-system-contracts/drafts/TACMAP_CANDIDATE_RESOLVER_WORKING_DRAFT.md`
 - Parent draft: `docs/game-system-contracts/drafts/GAME_SYSTEM_SCHEMA_DEFINITION_WORKING_DRAFT.md`
-- Future source routing: Draft/Steward Review before promotion into live domain-first source.
+- Future source routing: Draft/Steward Review before integration into canonical domain source.
 - Related issues: #33, #34, #35, #36, #38, #41, and future TacMap/content-library issue work.
 
 What this supplements:
@@ -52,8 +52,8 @@ Repo-side Golden Truth source context used during the originating chat:
 
 Currentness note:
 
-- These are Nexus-App canonical source files; the originating chat did not directly verify the Obsidian source working-copy layer.
-- Exact Obsidian working-copy currentness still requires Codex/local inspection of `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`.
+- These are Nexus-App canonical source files; the originating chat did not inspect generated Obsidian pointer-card navigation.
+- Pointer-card freshness is a navigation concern only and does not affect the repo source files' authority.
 
 ## 3. Accepted TacMap activation premise
 

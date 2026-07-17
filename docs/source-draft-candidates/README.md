@@ -2,7 +2,7 @@
 
 Status: active candidate destination
 
-Use this folder for ChatGPT or Codex draft material that may later become Nexus source, but has not been verified, promoted, or integrated into live `00 Source`.
+Use this folder for ChatGPT or Codex draft material that may later become Nexus source, but has not been verified, reconciled, or integrated into `docs/nexus-game-source/source`.
 
 Approved file pattern:
 

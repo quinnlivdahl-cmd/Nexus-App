@@ -35,7 +35,7 @@ These families are planned as bridge extension points after the seven-file basel
 | Long-chat preservation packet | `preservation/YYYY-MM-DD-topic.md` | Durable container for accepted prose, decisions, schemas, or source-ready language from a long chat | The work should not be carried forward only through a large handoff prompt |
 | Targeted task packet | `task-packets/YYYY-MM-DD-topic.md` | One-off context for a specific chat, issue, or play session | A task needs narrow current context |
 | Evolving game-system draft | `../game-system-contracts/drafts/TOPIC_WORKING_DRAFT.md` | Stable working draft for multi-chat rules-core or game-system design sequences | Accepted design material should accumulate in one durable draft file |
-| Source draft candidate | `../source-draft-candidates/YYYY-MM-DD-domain-topic.md` | Candidate material that may later become Nexus source but is not canonical source authority | ChatGPT produces source-ready language that still needs review and promotion |
+| Source draft candidate | `../source-draft-candidates/YYYY-MM-DD-domain-topic.md` | Candidate material that may later become Nexus source but is not canonical source authority | ChatGPT produces source-ready language that still needs review and canonical integration |
 | Oversized bundle | `bundles/YYYY-MM-DD-topic.zip` | Zip only when Markdown is too large or awkward | A later packet cannot remain readable as flat Markdown |
 
 ## Repo-Side Expanded Source Index
@@ -47,7 +47,7 @@ Preferred files:
 - `docs/nexus-game-source/source/SOURCE-INDEX.md`
 - optional machine-readable companion: `docs/nexus-game-source/source/SOURCE-INDEX.json`
 
-The index provides exact canonical source paths and routing metadata so ChatGPT can fetch relevant context when useful. It does not prove ChatGPT upload currentness or Obsidian working-copy currentness.
+The index provides exact canonical source paths and routing metadata so ChatGPT can fetch relevant context when useful. It does not prove ChatGPT upload currentness or Obsidian pointer-card freshness.
 
 `20-SOURCE-AUTHORITY-SUMMARY.md` is part of the bridge baseline after the source index exists.
 
@@ -60,7 +60,7 @@ The index provides exact canonical source paths and routing metadata so ChatGPT 
 - Do not treat uploaded slots as source ownership.
 - Do not invent ChatGPT packet destinations; use the approved paths in `04-REFRESH-AND-READINESS-RULES.md`.
 - Do not rely on GitHub folder/tree URLs as the only source discovery method; provide exact indexed paths.
-- When exact currentness matters, verify against repo source, Obsidian working-copy state, Drive payload state, or GitHub before answering.
+- When exact currentness matters, verify against repo source, Obsidian project-memory or pointer-card state, Drive payload state, or GitHub before answering.
 
 ## Recommended Upload Order
 

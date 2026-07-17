@@ -13,7 +13,7 @@ The bridge does not replace the app repo, canonical source docs, GitHub Issues, 
 | Lane | Owns | Does not own |
 |---|---|---|
 | Nexus-App repo | Canonical source docs, app implementation, repo workflow files, bridge files, validation scripts, source index | Bulky generated payloads unless purpose-built for repo use |
-| Obsidian Nexus notes | Reading/index layer, current-state notes, dashboards, links, promoted working-copy views | Independent source authority over the repo |
+| Obsidian Nexus notes | Reading/index layer, current-state notes, dashboards, links, and generated pointer cards | Copied source corpus or independent source authority over the repo |
 | Drive Nexus payloads | Workbench payloads, handoff bundles, exports, zips, candidate runs, Google-native files | Source authority or app implementation |
 | GitHub Issues | Task packets, acceptance criteria, progress and closeout evidence | Game/source truth |
 | ChatGPT Project | Curated context for discussion, drafting, planning, playtest support | Current source/repo authority |
@@ -41,7 +41,7 @@ The index should include exact paths, domains, source roles, status/currentness 
 Before updating bridge files, Codex should pull from:
 
 - repo canonical source when source truth matters;
-- Obsidian Nexus notes when index/current-state or readable working-copy context matters;
+- Obsidian Nexus notes when index/current-state or pointer-card navigation matters;
 - Drive Nexus payloads when generated/export/workbench material matters;
 - app repo files when workflow or implementation context matters;
 - GitHub Issues when task state matters;

@@ -61,7 +61,7 @@ The Obsidian Nexus note/index layer is:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`
 
-The Obsidian source working-copy folder is:
+The Obsidian source pointer-card folder is:
 
 `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game\00 Source`
 
@@ -69,7 +69,7 @@ The Drive payload lane is:
 
 `G:\My Drive\10_Projects\Nexus Game`
 
-When a task depends on Obsidian currentness or Drive payload state, use local inspection or promotion evidence instead of assuming a ChatGPT Project upload proves those surfaces are current. ChatGPT should use the repo canonical source through explicit indexed paths, source status notes, and currentness caveats.
+When a task depends on Obsidian project-memory or Drive payload state, use local inspection instead of assuming a ChatGPT Project upload proves those surfaces are current. ChatGPT should use the repo canonical source through explicit indexed paths, source status notes, and currentness caveats.
 
 Because ChatGPT may not reliably enumerate GitHub tree URLs, this source pool should include a deterministic index file such as:
 
@@ -101,12 +101,12 @@ When roadmap lane mapping or issue linkage changes, Codex should regenerate the 
 
 - Nexus-App canonical source is `docs/nexus-game-source/source`.
 - Nexus-App repo source is canonical for Nexus source docs.
-- Obsidian Nexus notes are an index/current-state/working-copy layer at `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`.
+- Obsidian Nexus notes are an index/current-state layer, with generated source pointer cards under `00 Source`, at `C:\Users\Quintin Livdahl\Obsidian\20 Projects\Nexus Game`.
 - Drive Nexus payloads live at `G:\My Drive\10_Projects\Nexus Game`.
 - App workflow and implementation authority lives in this repo and GitHub Issues.
 - ChatGPT Project context is curated, useful, and allowed to be stale when labeled. It is not source authority.
-- The Nexus-App canonical source is the repo-side source corpus for discussion, targeted retrieval, app source-pack work, and promotion into the Obsidian working-copy layer. It does not prove ChatGPT Project upload currentness by itself.
-- Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove repo source, Obsidian working-copy, or Drive payload currentness.
+- The Nexus-App canonical source is the repo-side source corpus for discussion, targeted retrieval, and app source-pack work. Generated Obsidian cards point back to it; they do not duplicate it.
+- Upload/searchability checks prove only ChatGPT Project currentness for a named scope. They do not prove repo source, Obsidian project-memory or pointer-card freshness, or Drive payload currentness.
 
 ## Refresh Rule
 
