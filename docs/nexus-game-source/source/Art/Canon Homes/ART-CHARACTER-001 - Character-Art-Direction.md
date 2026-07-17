@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-16"
 last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts plus the Tier 3/Tier 4 visual boundary."
+metadata_notes: "Phase 10 complete for the Art domain. Character visual-direction language now follows domain-first boundaries and remains positioned as visual canon rather than rules ownership. The 2026-07-16 review added favored Vatborn and Tier 3 Chassis concepts, the Tier 3/Tier 4 visual boundary, and an approved working direction for four Splicer lines."
 ---
 
 # Character Art Direction
@@ -57,6 +57,17 @@ Splicer visuals should feel engineered, medical, adaptive, and socially loaded r
 - environmental specialization.
 
 Avoid making Splicers look like standard fantasy animal-folk unless a specific source later permits a stylized factional treatment.
+
+![Approved working Splicer line comparison](<../Reference Inputs/concepts/2026-07-16/nexus-splicer-line-comparison-concept-2026-07-16.png>)
+
+The approved working visual direction distinguishes the current lines as follows:
+
+- **Ape uplift:** preserve a genuine great-ape body plan and face. Human personhood, culture, and work are communicated through behavior, tools, clothing, credentials, and custom infrastructure rather than humanized anatomy.
+- **Lizard long-flight line:** use a recognizably human-derived upright body and expressive face with clear reptilian divergence: extensive scales, altered eyes and facial structure, thermal biology, tail, and dormancy/long-flight support. Avoid both a nearly baseline human with colored skin and a full animal head pasted onto a human body.
+- **Mycelial line:** keep the person recognizably human while fungal biology grows through and around the body as skin pattern, hyphae, local fruiting structures, regenerative tissue, and environmental-support dependence. Avoid a walking mushroom or undifferentiated fungal mass.
+- **Cephalopod line:** keep a human-derived head, torso, primary arms, and load-bearing legs while adding cephalopod skin, eyes, flexible joints, and secondary manipulation limbs. Hydration and pressure support should remain visible. Avoid both a pure octopus body and a generic human with decorative tentacles.
+
+The Ape and Lizard lines have firmer lore anchors. Mycelial and Cephalopod biology remains less settled; this sheet approves their current degree of human derivation and silhouette direction without locking every biological mechanism.
 
 ## Cyborg and cyberware visuals
 
@@ -121,5 +132,4 @@ These are visual anchors, not fixed classes.
 ## Character sheet art boundary
 
 Character sheet and crew card visuals should be manually readable before decorative. Portraits may support identity, but loadout, skills, wounds, recovery, relationships, and current state must remain clear.
-
 

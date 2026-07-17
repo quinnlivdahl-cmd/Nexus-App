@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-16"
 last_reviewed: "2026-07-16"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concept references."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concept references and the approved working Splicer line comparison."
 ---
 
 # Concept Art Library Index
@@ -200,3 +200,9 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Status: favored visual and lore concept.
 - Direction carried forward: lean, intensely focused Vatborn; engineered skin-color patterns used as creator/property marks; proprietary cyberware designed to interface with the creator's engineered biology.
 
+### Splicer line comparison
+
+- Asset: [`concepts/2026-07-16/nexus-splicer-line-comparison-concept-2026-07-16.png`](<concepts/2026-07-16/nexus-splicer-line-comparison-concept-2026-07-16.png>)
+- Status: approved working visual direction; not a finished character asset.
+- Mapping: A Ape uplift; B Lizard long-flight line; C Mycelial line; D Cephalopod line.
+- Direction carried forward: genuine ape uplift anatomy for A; human-derived reptilian anatomy for B; recognizably human bodies integrated with fungal and cephalopod biology for C and D; dense pixel detail with strong tabletop-readable silhouettes.
