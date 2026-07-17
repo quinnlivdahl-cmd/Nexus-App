@@ -2,14 +2,14 @@
 project: Nexus
 title: "Nexus_Global_Project_Roadmap"
 doc_id: "ROADMAP-2026-06-07-GLOBAL-CANDIDATE"
-doc_status: "candidate_review"
-working_state: "codex_review_ready"
+doc_status: "historical_evidence"
+working_state: "superseded_by_spatial_vertical_slice"
 mode_owner: "Steward"
 source_role: "project_roadmap_candidate"
-canon_status: "candidate_not_yet_promoted"
+canon_status: "non_controlling_historical"
 rev: "0.1"
 created: "2026-06-07"
-last_updated: "2026-06-07"
+last_updated: "2026-07-16"
 review_lane: "90 Codex Review/01 Review Ready"
 intended_use: "global_project_roadmap_for_ai_and_human_guidance"
 related_docs:
@@ -19,11 +19,14 @@ related_docs:
   - "MODE-008 - Nexus_Command_Key.md"
   - "MODE-FUNC-001_Function_Bindings.md"
 notes:
-  - "Candidate roadmap only. Do not treat as canonical source authority until reviewed and promoted."
+  - "Historical roadmap only. Do not treat as canonical source authority or promote it as current product direction."
   - "This roadmap is organized by durable lanes. Each lane contains its own phases and milestones."
+  - "Superseded for current product direction by the canonical spatial vertical-slice target and Spatial Vertical Slice Map #57; retained as historical planning evidence."
 ---
 
 # Nexus Global Project Roadmap - Candidate
+
+> **Historical planning evidence:** This June text-RPG roadmap no longer controls product direction, task order, or the Nexus finish line. Use canonical `CORE-PILLARS-001` section 8 for the spatial vertical-slice target, Spatial Vertical Slice Map #57 for readiness decisions, and live GitHub Issues for execution. The content below remains unchanged as evidence of the earlier planning model.
 
 ## Purpose
 

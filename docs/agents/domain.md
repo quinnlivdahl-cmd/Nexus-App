@@ -35,7 +35,7 @@ The context map and context files are created only when the first domain-modelin
 
 Current north star:
 
-> Nexus is a polished 2D/slight-isometric indie RPG/roguelike. Exploration and non-combat play are spatial. Text supports the game rather than constituting it. AI capability supports development and game systems without making the result feel like an AI experiment.
+> Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down presentation. Exploration and noncombat play happen in persistent Locations, and Turn-Based Mode uses the same spatial runtime. Text supports the game rather than constituting it.
 
 This context includes product identity, gameplay, spatial exploration, combat, presentation, rules, lore, canonical game source, UI, runtime, API, state, persistence, and AI integration.
 
@@ -51,7 +51,7 @@ Current node movement, text-first non-combat play, roadmap assumptions, and issu
 
 `Nexus Project Operations` is the project-control context. It includes GitHub workflow, planning, agent behavior, source maintenance, validation, handoffs, roadmap maintenance, and project memory.
 
-GitHub Issues remain execution packets. The issue index, transition document, Local Playable Alpha plan, roadmap, Obsidian project hub, and Drive payload home retain the supporting roles defined in root instructions and `docs/agents/issue-tracker.md`.
+GitHub Issues remain execution packets. The issue index, transition router, Obsidian project hub, and Drive payload home retain the supporting roles defined in root instructions and `docs/agents/issue-tracker.md`. The Local Playable Alpha plan and June roadmap remain retrievable only as historical planning evidence.
 
 ## Vocabulary and decisions
 

@@ -1,12 +1,16 @@
 # Nexus Local Playable App
 
-Nexus is a local-first 2D/slight-isometric RPG/roguelike application. The existing React/Vite implementation is evolving into the spatial game and primary playtest surface for exploration, narrative play, integrated encounters, play aids, scene imagery, and source-backed rules/lore.
+Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down presentation. The existing React/Vite implementation is evolving into the spatial game and primary playtest surface for persistent Locations, in-world interaction, Tactical Pressure, play aids, and source-backed rules and lore.
 
-Read first:
+Status: optional local operator reference. This file is not required reading, product authority, or the current finish line.
 
-- `NEXUS_ISSUE_TRANSITION.md`
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
+Current authority and task routing:
+
 - `AGENTS.md`
+- `CONTEXT-MAP.md`
+- `CORE-PILLARS-001` section 8 in canonical source for the spatial vertical-slice target
+- Spatial Vertical Slice Map #57 for implementation-readiness decisions
+- Live GitHub Issues for executable work
 
 ## Run And Operate
 
@@ -64,13 +68,14 @@ Current local blocker noted by Codex on 2026-06-08:
 - Nexus game app: React + Vite (`artifacts/nexus-companion` is the legacy package path)
 - API scaffold: Express
 - Validation: Zod and generated API types
-- Database scaffold: Drizzle/PostgreSQL, but Local Playable Alpha should not become Replit/Postgres-only
+- Database scaffold: Drizzle/PostgreSQL, but the local runtime must not become Replit/Postgres-only
 
 ## Where Things Live
 
 - `NEXUS_ISSUE_TRANSITION.md` - GitHub-first queue control surface during migration
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` - active app roadmap, Replit tasks, Codex work-session queue
+- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` - historical DM-chat alpha plan and task evidence
 - `AGENTS.md` - app-local instructions for Codex/Replit/agents
+- `docs/nexus-game-source/source/Core/Canon Homes/CORE-PILLARS-001 - SRC-CORE-002-Nexus-Core-Game-Pillars.md` - canonical spatial vertical-slice target
 - `artifacts/nexus-companion` - React/Vite Nexus game app under its legacy package path
 - `artifacts/nexus-companion/src/store/GameStateContext.tsx` - current browser localStorage persistence
 - `artifacts/nexus-companion/src/lib/useDMChat.ts` - current DM chat runtime
@@ -87,21 +92,17 @@ Current local blocker noted by Codex on 2026-06-08:
 - Local-first is the product target.
 - GitHub Issues are the active execution queue; local docs provide scope and transition context.
 - Replit may implement tasks, but the app must remain runnable from the user's machine.
-- DM chat and encounters are one gameplay flow.
+- Free Movement, in-world interaction, Tactical Pressure, Turn-Based Mode, and Local Aftermath operate inside persistent Locations.
+- The existing DM-chat shell is legacy implementation evidence and may contribute diagnostics to Developer Mode; it is not the target player interface.
 - Browser-side OpenAI key handling is prototype-only and should be replaced by a backend/local-service path.
 - Source Markdown remains design authority. This repo is implementation authority for app behavior.
 - Public release is out of scope until the user explicitly says otherwise.
 
 ## Product Direction
 
-Local Playable Alpha is complete when the user can:
+The current finish line is the canonical spatial vertical-slice target in `CORE-PILLARS-001` section 8. It proves a coherent short campaign through persistent explorable Locations, in-world noncombat interaction, Tactical Pressure in the same spatial runtime, deterministic rules and state, progression or recruitment, recoverable local saves, and generated-performance fallback.
 
-1. Launch the app locally.
-2. Start a new app-native Nexus campaign.
-3. Play through DM chat.
-4. Trigger and resolve an encounter from narrative play.
-5. Use TacMap/play aids during the encounter.
-6. Save/export, close/reopen, and continue.
+Spatial Vertical Slice Map #57 coordinates the required decisions and prototype evidence. Integration Contract #30 will define the exact production implementation boundary; this operator guide must not invent that contract.
 
 ## User Preferences
 
@@ -117,11 +118,11 @@ Local Playable Alpha is complete when the user can:
 - Replit-style environment assumptions can break local Windows launch if defaults are missing.
 - Current persistence is browser localStorage only.
 - Current AI calls are browser-side and should be moved behind the API.
-- The current source docs still contain older language treating Replit/VG implementation as downstream; the user's June 2026 instruction explicitly reopens app implementation as active work.
+- Historical planning documents still contain Replit-first, DM-chat, and top-level Encounter language. Treat those documents as dated evidence rather than current product direction.
 
 ## Replit Task Format
 
-Use the task blocks in `NEXUS_LOCAL_PLAYABLE_ALPHA.md`.
+Use the current GitHub Issue and `NEXUS_TASK_PACKET_TEMPLATE.md`. Historical task blocks in `NEXUS_LOCAL_PLAYABLE_ALPHA.md` may be mined for implementation evidence but must not control scope.
 
 Each task should include:
 

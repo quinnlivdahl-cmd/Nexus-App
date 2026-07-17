@@ -16,10 +16,12 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 
 - GitHub Issue 42: `Plan Codex Agent and Skill Automation Upgrade for Nexus`
 - Latest Issue 42 planning handoff comments for agent/skill/task-intake workflow design
-- Repo-accessible roadmap mirror: `docs/nexus-roadmap/ROADMAP.md`
-- Roadmap lane/issue index: `docs/nexus-roadmap/ROADMAP-INDEX.md`
+- Historical June roadmap mirror: `docs/nexus-roadmap/ROADMAP.md`
+- Historical roadmap lane/issue index: `docs/nexus-roadmap/ROADMAP-INDEX.md`
 - App transition control: `NEXUS_ISSUE_TRANSITION.md`
-- App scope roadmap: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
+- Current spatial vertical-slice target: `CORE-PILLARS-001` section 8 in `docs/nexus-game-source/source/Core/Canon Homes`
+- Spatial implementation-readiness map: Spatial Vertical Slice Map #57
+- Historical DM-chat alpha plan: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Nexus-App canonical source: `docs/nexus-game-source/source`
 - Obsidian Nexus note/index layer: maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md`
 - Obsidian source pointer-card layer: `00 Source` within that registered Nexus hub
@@ -57,6 +59,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #78 | Supersede the text-RPG finish line and required-reading chain | in-progress | Instruction and Authority Consolidation #74 | #75 complete | Review and merge PR #93, then record final evidence and close #78 |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues

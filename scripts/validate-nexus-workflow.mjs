@@ -130,8 +130,10 @@ const sectionChecks = [
   {
     file: "docs/nexus-roadmap/README.md",
     includes: [
-      "repo-accessible planning surface",
-      "NEXUS_ISSUE_INDEX.md` remains the issue queue/control surface",
+      "historical repo-accessible planning evidence",
+      "non-controlling historical planning context",
+      "CORE-PILLARS-001",
+      "Spatial Vertical Slice Map #57",
       "corepack pnpm run roadmap:index",
       "ChatGPT / Stewy Use",
     ],
