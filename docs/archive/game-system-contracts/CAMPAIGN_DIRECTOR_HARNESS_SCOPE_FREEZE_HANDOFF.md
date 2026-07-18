@@ -1,5 +1,7 @@
 # Campaign Director Harness Scope Freeze and Compaction Handoff
 
+Status: completed historical checkpoint; deliberately retrievable and non-controlling
+
 - Date: 2026-07-12
 - Status: scope corrected; AI-contract formalization complete locally and independently reviewed
 - Controlling ticket: [Define Game Truth, Director, and Context Broker contracts for the slice #4](https://github.com/quinnlivdahl-cmd/Nexus-App/issues/4)

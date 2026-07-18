@@ -5,6 +5,7 @@ import { dirname, resolve } from "node:path";
 import test from "node:test";
 import {
   validateAdrState,
+  validateArchiveBoundary,
   validateAuthorityRouter,
   validateBridgeArchitecture,
   validateObsidianPointerSurface,
@@ -327,6 +328,77 @@ test("planning ownership rejects restored repo planning state", () => {
     const failures = validatePlanningOwnership(f.root);
     assert.ok(
       failures.some((failure) => failure.includes("contains planning state")),
+    );
+  } finally {
+    f.cleanup();
+  }
+});
+
+test("archive boundary keeps superseded files out of active routes", () => {
+  const f = fixture();
+  try {
+    f.write("docs/archive/project-controls/old.md", "# Historical\n");
+    f.write("docs/current.md", "# Current\n");
+    f.write(
+      "docs/archive/ARCHIVE-INDEX.json",
+      JSON.stringify({
+        schema_version: 1,
+        classification: "historical_reference",
+        default_current_state_retrieval: false,
+        entries: [
+          {
+            path: "docs/archive/project-controls/old.md",
+            former_path: "OLD.md",
+            superseded_by: ["docs/current.md"],
+          },
+        ],
+      }),
+    );
+    f.write("AGENTS.md", "Use `OLD.md`.\n");
+    const failures = validateArchiveBoundary(f.root);
+    assert.ok(
+      failures.some((failure) => failure.includes("active route AGENTS.md")),
+    );
+  } finally {
+    f.cleanup();
+  }
+});
+
+test("archive boundary rejects missing replacements and restored former paths", () => {
+  const f = fixture();
+  try {
+    f.write("docs/archive/project-controls/old.md", "# Historical\n");
+    f.write("OLD.md", "# Restored\n");
+    f.write(
+      "docs/archive/ARCHIVE-INDEX.json",
+      JSON.stringify({
+        schema_version: 1,
+        classification: "current",
+        default_current_state_retrieval: false,
+        entries: [
+          {
+            path: "docs/archive/project-controls/old.md",
+            former_path: "OLD.md",
+            superseded_by: ["docs/missing.md", "../outside.md", 7],
+          },
+        ],
+      }),
+    );
+    const failures = validateArchiveBoundary(f.root);
+    assert.ok(
+      failures.some((failure) => failure.includes("active path still exists")),
+    );
+    assert.ok(
+      failures.some((failure) => failure.includes("replacement path is missing")),
+    );
+    assert.ok(
+      failures.some((failure) => failure.includes("classification must be historical_reference")),
+    );
+    assert.ok(
+      failures.some((failure) => failure.includes("replacement path escapes repo root")),
+    );
+    assert.ok(
+      failures.some((failure) => failure.includes("replacement path must be a string")),
     );
   } finally {
     f.cleanup();

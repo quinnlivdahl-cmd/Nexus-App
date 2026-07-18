@@ -32,6 +32,7 @@ The complete permanent upload set is:
 | Repo-accessible roadmap context | `docs/nexus-roadmap/ROADMAP-INDEX.md`, then the exact roadmap file; task state still comes from GitHub Issues |
 | Prior ChatGPT planning or discussion | `docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md`, then the named packet |
 | Non-issue transfer context | `docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md`, then the named handoff |
+| Superseded project controls or bridge provenance, only when explicitly needed | `docs/archive/README.md`, then the exact archive-index entry |
 
 ## Packet Routes
 

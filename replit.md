@@ -72,8 +72,8 @@ Current local blocker noted by Codex on 2026-06-08:
 
 ## Where Things Live
 
-- `NEXUS_ISSUE_TRANSITION.md` - GitHub-first queue control surface during migration
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` - historical DM-chat alpha plan and task evidence
+- `NEXUS_ISSUE_INDEX.md` - repo-readable task map; live GitHub Issues own current task state
+- `docs/archive/README.md` - deliberate retrieval route for historical transition and DM-chat alpha evidence
 - `AGENTS.md` - app-local instructions for Codex/Replit/agents
 - `docs/nexus-game-source/source/Core/Canon Homes/CORE-PILLARS-001 - SRC-CORE-002-Nexus-Core-Game-Pillars.md` - canonical spatial vertical-slice target
 - `artifacts/nexus-companion` - React/Vite Nexus game app under its legacy package path
@@ -122,7 +122,7 @@ Spatial Vertical Slice Map #57 coordinates the required decisions and prototype 
 
 ## Replit Task Format
 
-Use the current GitHub Issue and `NEXUS_TASK_PACKET_TEMPLATE.md`. Historical task blocks in `NEXUS_LOCAL_PLAYABLE_ALPHA.md` may be mined for implementation evidence but must not control scope.
+Use the current GitHub Issue and `NEXUS_TASK_PACKET_TEMPLATE.md`. Historical task blocks in the archive may be mined deliberately for implementation evidence but must not control scope.
 
 Each task should include:
 

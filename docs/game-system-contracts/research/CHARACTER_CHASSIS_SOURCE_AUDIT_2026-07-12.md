@@ -2,6 +2,8 @@
 
 - Date: 2026-07-12
 - Status: read-only research complete; reconciliation in progress
+- Authority: non-authoritative research; excluded from default current-state retrieval
+- Applicability: deliberate source-audit and historical-provenance lookup only
 - Controlling work: [Define Game Truth, Director, and Context Broker contracts for the slice #4](https://github.com/quinnlivdahl-cmd/Nexus-App/issues/4)
 - Frozen contract: `docs/game-system-contracts/drafts/CAMPAIGN_DIRECTOR_HARNESS_CONTRACT_WORKING_DRAFT.md`
 - Research boundary: character chassis, progression, traits, Abilities, Starting Crew, Crew Archive, loadout, and former-Player-Character conversion

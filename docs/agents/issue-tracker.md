@@ -6,9 +6,8 @@ Issues and PRDs for this repo live as GitHub Issues in `quinnlivdahl-cmd/Nexus-A
 
 - GitHub Issues are the live execution packets.
 - `NEXUS_ISSUE_INDEX.md` is the AI-readable queue mirror and control surface. Verify it against GitHub before relying on status or count.
-- `NEXUS_ISSUE_TRANSITION.md` routes current work and preserves the prior Gate A-F sequence as historical migration context.
 - `CORE-PILLARS-001` section 8 in canonical source owns the current spatial vertical-slice target; Spatial Vertical Slice Map #57 coordinates readiness decisions, and Integration Contract #30 will define the exact production boundary.
-- `NEXUS_LOCAL_PLAYABLE_ALPHA.md` and `docs/nexus-roadmap/ROADMAP.md` preserve historical DM-chat planning evidence. Neither is a current finish line, task tracker, or game-source authority.
+- `docs/archive/README.md` intentionally routes superseded transition, Local Playable Alpha, and decision-synthesis evidence. The historical roadmap remains separately classified under `docs/nexus-roadmap`.
 - `docs/nexus-game-source/source` is canonical game source. GitHub Issues describe work; they do not create game canon.
 
 Existing roadmap items and issues remain inputs to the revised Nexus Game vision until they are explicitly retained, revised, split, superseded, or closed. Local commits do not make an issue complete. Reconcile local implementation, validation, pushed state, and live GitHub state before changing issue status.

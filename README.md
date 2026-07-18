@@ -7,7 +7,6 @@ Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down 
 - [AGENTS.md](AGENTS.md) — repository instructions and working boundaries.
 - [Distributed surfaces](docs/admin/nexus-distributed-surfaces.md) — locator for the single maintained Nexus path registry.
 - [CONTEXT-MAP.md](CONTEXT-MAP.md) — authority and context router.
-- [Nexus Game context](docs/contexts/nexus-game/CONTEXT.md) — current product vocabulary and domain orientation.
 - [ADR index](docs/adr/README.md) — accepted decisions and rationale.
 - [Canonical game source](docs/nexus-game-source/source) — current textual definition of the game.
 - [Spatial Vertical Slice Map #57](https://github.com/quinnlivdahl-cmd/Nexus-App/issues/57) — implementation-readiness decisions and prototype evidence for the first spatial slice.
@@ -29,3 +28,5 @@ GitHub Issues are the authoritative executable task packets. Pull requests are o
 - [AI-readable issue index](NEXUS_ISSUE_INDEX.md)
 
 Obsidian is the human-facing project memory and navigation layer. Canonical source and application implementation remain in this repository.
+
+Superseded project controls and syntheses remain deliberately searchable through the [historical archive](docs/archive/README.md), but are excluded from normal startup and current-state retrieval.

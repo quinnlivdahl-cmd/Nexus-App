@@ -48,21 +48,9 @@ Existing packets, handoffs, and preserved chats remain in their dedicated folder
 
 Use the exact routes and packet-request behavior in the two baseline files. Do not treat the bridge as a second source corpus.
 
-## Superseded Baseline
+## Historical Bridge Material
 
-The following files are retained temporarily as explicitly non-controlling provenance. Do not upload them as current Project context:
-
-- `00-BOOTSTRAP.md`
-- `01-SLOT-MAP.md`
-- `02-GLOBAL-PROJECT-INSTRUCTIONS.md`
-- `03-OPERATING-MODEL.md`
-- `04-REFRESH-AND-READINESS-RULES.md`
-- `20-SOURCE-AUTHORITY-SUMMARY.md`
-- `90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md`
-
-Archival #85 owns their eventual searchable archival placement after the replacement hierarchy is fully integrated.
-
-`DRAFT_AGENT_MODE_WORKFLOW_RULES.json` remains a non-baseline candidate artifact. Skill Consolidation #82 and Archival #85 own its later disposition.
+The superseded seven-file baseline and unpromoted mode-workflow candidate are searchable through `../archive/README.md`. They are deliberate-retrieval provenance, not current Project context, and must not be uploaded as part of the baseline.
 
 ## Updating The Bridge
 

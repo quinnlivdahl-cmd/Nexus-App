@@ -4,7 +4,7 @@
 - Date: 2026-07-12
 - Controlling ticket: [Define Game Truth, Director, and Context Broker contracts for the slice #4](https://github.com/quinnlivdahl-cmd/Nexus-App/issues/4)
 - Decision record: `CAMPAIGN_DIRECTOR_HARNESS_CONTRACT_WORKING_DRAFT.md`
-- Scope handoff: `CAMPAIGN_DIRECTOR_HARNESS_SCOPE_FREEZE_HANDOFF.md`
+- Historical scope handoff: `docs/archive/game-system-contracts/CAMPAIGN_DIRECTOR_HARNESS_SCOPE_FREEZE_HANDOFF.md`
 
 ## 1. Purpose and scope
 

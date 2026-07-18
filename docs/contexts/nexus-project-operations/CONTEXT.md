@@ -1,6 +1,6 @@
 # Nexus Project Operations
 
-The operational context for coordinating Nexus planning, execution, project state, and movement between human and agent work surfaces. It defines development and workflow language only; Nexus Game terms, player-facing rules, lore, and product decisions belong in the Nexus Game context and accepted ADR index.
+The operational context for coordinating Nexus planning, execution, project state, and movement between human and agent work surfaces. It defines development and workflow language only; Nexus Game terms, player-facing rules, lore, and product decisions belong in canonical domain source and the accepted ADR index.
 
 Accepted operations decisions are recorded under [`docs/contexts/nexus-project-operations/docs/adr`](docs/adr), beginning with [Project Control Hub derives state from authoritative systems](docs/adr/0001-project-control-hub-derives-state.md).
 

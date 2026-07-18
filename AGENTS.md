@@ -13,7 +13,7 @@ These instructions apply throughout `quinnlivdahl-cmd/Nexus-App` unless a nearer
 
 Before substantive work, read only the context needed for the task:
 
-1. `CONTEXT-MAP.md`, the relevant context, and applicable accepted ADRs.
+1. `CONTEXT-MAP.md`, relevant canonical source, and applicable accepted ADRs.
 2. The controlling user request or live GitHub Issue; use `NEXUS_ISSUE_INDEX.md` as a repo-readable map, not live status authority.
 3. Relevant canonical source, implementation, or workflow files named by the task.
 4. The nearest scoped `AGENTS.md` for any folder being changed.
@@ -51,7 +51,7 @@ Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down 
 
 | Need | Owning surface |
 |---|---|
-| Product language and authority | `CONTEXT-MAP.md`, relevant contexts, `docs/adr/README.md`, and `docs/nexus-game-source/README.md` |
+| Product language and authority | `CONTEXT-MAP.md`, `docs/nexus-game-source/README.md`, relevant canonical source, and `docs/adr/README.md` |
 | Issues, task intake, naming, and closeout | `.agents/skills/nexus-issue-workflow/SKILL.md`, `docs/agents/issue-tracker.md`, `NEXUS_ISSUE_INDEX.md`, and the task/handoff templates |
 | Session focus, side items, temporary planning, and independent review | `docs/admin/task-planning/codex-session-discipline-workflow.md`, the active chat/tool planner under Planning Ownership #81, the installed global `code-review` skill, and `docs/admin/task-planning/nexus-review-rubric.md` |
 | Source routing and generated indexes | `.agents/skills/nexus-source-maintenance/SKILL.md` and `docs/nexus-game-source/README.md` |

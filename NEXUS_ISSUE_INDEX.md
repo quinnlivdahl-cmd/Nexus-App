@@ -18,11 +18,11 @@ GitHub Projects may be useful later as a visual board. This file is the first sh
 - Latest Issue 42 planning handoff comments for agent/skill/task-intake workflow design
 - Historical June roadmap mirror: `docs/nexus-roadmap/ROADMAP.md`
 - Historical roadmap lane/issue index: `docs/nexus-roadmap/ROADMAP-INDEX.md`
-- App transition control: `NEXUS_ISSUE_TRANSITION.md`
 - Current spatial vertical-slice target: `CORE-PILLARS-001` section 8 in `docs/nexus-game-source/source/Core/Canon Homes`
 - Spatial implementation-readiness map: Spatial Vertical Slice Map #57
-- Historical DM-chat alpha plan: `NEXUS_LOCAL_PLAYABLE_ALPHA.md`
 - Nexus-App canonical source: `docs/nexus-game-source/source`
+- Accepted source-direction changes: `docs/adr/README.md`
+- Deliberate historical retrieval: `docs/archive/README.md`
 - Obsidian Nexus note/index layer: maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md`
 - Obsidian source pointer-card layer: `00 Source` within that registered Nexus hub
 - Drive payload/workbench lane: maintained path registry reached through `docs/admin/nexus-distributed-surfaces.md`
@@ -59,11 +59,12 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #85 | Archive superseded checkpoints, syntheses, and transition controls | in-progress | Instruction and Authority Consolidation #74 | #79-#84 complete | Validate archive boundary and complete independent review |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-17 by Codex during the issue #83 closeout. For exact current state, verify against GitHub.
+Last synced: 2026-07-17 by Codex at the start of issue #85. For exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -131,7 +132,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 | #81 | Select one planning owner and retire the competing overlay | Four distinct planning owners, a pointer-only repo `planning/` surface, preserved Obsidian planning history, removal of automatic tool-count planning requirements, and workflow validation guards merged through Planning Ownership PR #98 in merge commit `fcf45b4`; workflow validation and independent review passed | #82 and #83 remain the consolidation frontier; #85 owns later archival of superseded workflow material |
 | #82 | Consolidate repo-local Nexus skills | Nine overlapping repo-local skills were reduced to four uniquely owned, discoverable workflows for source maintenance, issue lifecycle, ChatGPT bridge work, and roadmap maintenance; duplicate review, planning, and visual wrappers were retired and regression guards added through Skill Consolidation PR #99 in merge commit `75f68e3`; workflow, index, skill-package, TypeScript, and independent review checks passed | #83 remains the consolidation frontier; #85 owns later archival of superseded workflow material |
 | #83 | Reclassify canonical Admin and Modes documents for retrieval | All 21 Admin and 23 Modes documents are explicitly classified; 381 related slices are excluded from default game retrieval; retrieval policy, bridge guidance, and the live ChatGPT Project were updated through Retrieval Authority PR #100 in merge commit `0fa5cff`; source, slice, context-pack, workflow, TypeScript, live retrieval, and independent review checks passed | #84 is now the final-integration frontier; #85 remains blocked by #84 |
-| #84 | Replace prose-preserving validation with invariant validation | Exact prose and legacy-layout checks were replaced by named authority, routing, retrieval, path, ADR, planning, bridge, and pointer-surface invariants through Invariant Validation PR #101; 17 representative fixtures, generated-index checks, affected TypeScript validation, and independent standards/spec reviews pass | #85 becomes the remaining final-integration issue after PR #101 merges |
+| #84 | Replace prose-preserving validation with invariant validation | Exact prose and legacy-layout checks were replaced by named authority, routing, retrieval, path, ADR, planning, bridge, and pointer-surface invariants through Invariant Validation PR #101 in merge commit `761f1ff`; 17 representative fixtures, generated-index checks, affected TypeScript validation, and independent standards/spec reviews passed | #85 is the remaining final-integration issue |
 | #14 | Define Tactical Pressure activation and participation | Live Grill with Docs accepted explicit triggers, projected participation, three-member Field Team auto-inclusion, Lattice Initiative with Shared Initiative Blocks and late entry, Timing Entries, inactive-Area pause, Surprise Evaluation, all-trigger exit, Location-owned Tactical State, and Passive Bystanders; contract and ADRs published in commit `78fcee6`; workflow validation and independent review passed | Derived Attribute-modifier math remains owned by Skill Focus and Ability Tree #31; future manual entry and fuller split-crew policy must reuse the versioned Tactical Rules Policy |
 | local | Add approved domain-first source corpus to app repo | `docs/nexus-game-source/source` | The repo path is now the canonical source home; historical app-copy references are archive context |
 | local | Historical domain-source live migration | The retired 2026 migration copied domain-first source into Obsidian and archived the old slot source at `99 Archive\01 Superseded Source\00 Source Slots 2026-06-10` | Preserved as migration provenance; current `00 Source` is pointer-only |

@@ -13,7 +13,7 @@ const repoRoot = path.resolve(siteRoot, "..", "..");
 const sourceDefinitions = [
   {
     id: "vision",
-    inputs: ["docs/adr/README.md", "docs/contexts/nexus-game/CONTEXT.md"],
+    inputs: ["docs/adr/README.md", "docs/nexus-game-source/source/SOURCE-INDEX.json"],
     freshnessBasis: "source-mtime",
   },
   {

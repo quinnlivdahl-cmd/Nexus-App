@@ -23,7 +23,7 @@ The following remain controlling and are not reopened here:
 - `Turn_Transaction_Contract_rev0.1.md`
 - `Effect_StateDelta_Grammar_Contract_rev0.1.md`
 - `Rules_Object_Model_rev0.1.md`
-- `docs/contexts/nexus-game/CONTEXT.md`
+- relevant canonical source indexed by `docs/nexus-game-source/source/SOURCE-INDEX.md`
 - accepted ADRs indexed by `docs/adr/README.md`
 
 Binding consequences include:
