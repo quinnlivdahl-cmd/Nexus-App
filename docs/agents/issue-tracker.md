@@ -6,7 +6,7 @@ Issues and PRDs for this repo live as GitHub Issues in `quinnlivdahl-cmd/Nexus-A
 
 - GitHub Issues are the live execution packets.
 - `NEXUS_ISSUE_INDEX.md` is the AI-readable queue mirror and control surface. Verify it against GitHub before relying on status or count.
-- `CORE-PILLARS-001` section 8 in canonical source owns the current spatial vertical-slice target; Spatial Vertical Slice Map #57 coordinates readiness decisions, and Integration Contract #30 will define the exact production boundary.
+- `CORE-PILLARS-001` section 8 in canonical source owns the current spatial vertical-slice target; Spatial Vertical Slice Map #57 coordinates readiness decisions, and the resolved Integration Contract #30 defines the exact production boundary.
 - `docs/archive/README.md` intentionally routes superseded transition, Local Playable Alpha, and decision-synthesis evidence. The historical roadmap remains separately classified under `docs/nexus-roadmap`.
 - `docs/nexus-game-source/source` is canonical game source. GitHub Issues describe work; they do not create game canon.
 
