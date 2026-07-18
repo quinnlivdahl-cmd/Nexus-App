@@ -3,8 +3,8 @@
 Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-game-source/source`
 Indexed source documents: 191
-Indexed source slices: 1690
-Level-two section coverage: 1638/1638
+Indexed source slices: 1695
+Level-two section coverage: 1643/1643
 
 ## Authority Note
 
@@ -36,7 +36,7 @@ Marker format:
 | Domain | Documents | Slices |
 |---|---:|---:|
 | Admin | 21 | 177 |
-| Art | 16 | 147 |
+| Art | 16 | 148 |
 | Automation | 8 | 57 |
 | Characters | 10 | 87 |
 | Combat | 10 | 115 |
@@ -49,7 +49,7 @@ Marker format:
 | Modes | 23 | 204 |
 | Play Aids | 10 | 77 |
 | Reference | 22 | 186 |
-| Skills | 11 | 133 |
+| Skills | 11 | 137 |
 
 ## Slice Origins
 
@@ -57,7 +57,7 @@ Marker format:
 |---|---:|
 | explicit_marker | 128 |
 | generated_document_context | 36 |
-| generated_heading | 1526 |
+| generated_heading | 1531 |
 
 ## Source Slices
 
@@ -374,12 +374,13 @@ Marker format:
 | `auto.art-trial-index-000.purpose` | generated_heading | ART-TRIAL-INDEX-000 | Purpose | `docs/nexus-game-source/source/Art/Style Trials/README.md` | 21-26 | `3b3c09638325...` |
 | `auto.art-trial-index-000.required-maintenance` | generated_heading | ART-TRIAL-INDEX-000 | Required maintenance | `docs/nexus-game-source/source/Art/Style Trials/README.md` | 73-81 | `deedc6d7e010...` |
 | `auto.art-trial-index-000.routing-rules` | generated_heading | ART-TRIAL-INDEX-000 | Routing rules | `docs/nexus-game-source/source/Art/Style Trials/README.md` | 33-53 | `297b8196b115...` |
-| `auto.art-ui-001.accessibility-and-phone-usability` | generated_heading | ART-UI-001 | Accessibility and phone usability | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 104-112 | `150d8b1ca112...` |
+| `auto.art-ui-001.accessibility-and-phone-usability` | generated_heading | ART-UI-001 | Accessibility and phone usability | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 104-113 | `150d8b1ca112...` |
 | `auto.art-ui-001.character-sheets-and-dashboards` | generated_heading | ART-UI-001 | Character sheets and dashboards | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 89-103 | `1821a155a047...` |
 | `auto.art-ui-001.default-diagram-style` | generated_heading | ART-UI-001 | Default diagram style | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 33-47 | `38d814dd9321...` |
 | `auto.art-ui-001.existing-icon-concept-package` | generated_heading | ART-UI-001 | Existing icon concept package | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 77-88 | `eb110cd7920c...` |
 | `auto.art-ui-001.route-node-map-visual-grammar` | generated_heading | ART-UI-001 | Route-node map visual grammar | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 65-76 | `0eb384c080ee...` |
-| `auto.art-ui-001.tacmap-iconography-and-svg-system-update-2026-05-15` | generated_heading | ART-UI-001 | TacMap iconography and SVG system update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 113-169 | `aaf3d5ab4fb6...` |
+| `auto.art-ui-001.spatial-interaction-affordance-boundary` | generated_heading | ART-UI-001 | Spatial interaction affordance boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 114-121 | `ae20ea8693dc...` |
+| `auto.art-ui-001.tacmap-iconography-and-svg-system-update-2026-05-15` | generated_heading | ART-UI-001 | TacMap iconography and SVG system update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 122-177 | `aaf3d5ab4fb6...` |
 | `auto.art-ui-001.tacmap-visual-grammar` | generated_heading | ART-UI-001 | TacMap visual grammar | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 48-64 | `9af824788409...` |
 | `auto.art-ui-001.ui-and-diagram-principle` | generated_heading | ART-UI-001 | UI and diagram principle | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 29-32 | `77abe4662477...` |
 | `auto.auto-data-003.candidate-data-surfaces` | generated_heading | AUTO-DATA-003 | 5. Candidate data surfaces | `docs/nexus-game-source/source/Automation/Canon Homes/AUTO-DATA-003 - SRC-AUTO-003-Data-Model-and-Runtime-Source-Strategy.md` | 129-147 | `5beee86133e0...` |
@@ -1521,12 +1522,14 @@ Marker format:
 | `auto.skill-difficulty-001.exceptional-margin-principle` | generated_heading | SKILL-DIFFICULTY-001 | 14. Exceptional-margin principle | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 223-232 | `28cd63deffcb...` |
 | `auto.skill-difficulty-001.modifier-lanes` | generated_heading | SKILL-DIFFICULTY-001 | 6. Modifier lanes | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 106-121 | `fb4ea5d632cb...` |
 | `auto.skill-difficulty-001.modifier-provenance-rule` | generated_heading | SKILL-DIFFICULTY-001 | 5. Modifier provenance rule | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 89-105 | `6700f1567e5f...` |
+| `auto.skill-difficulty-001.nonmodal-lattice-ticker` | generated_heading | SKILL-DIFFICULTY-001 | 18. Nonmodal Lattice Ticker | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 251-265 | `26be9af1a1e5...` |
 | `auto.skill-difficulty-001.numeric-bonus-constraint` | generated_heading | SKILL-DIFFICULTY-001 | 10. Numeric bonus constraint | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 172-181 | `4d950ce21a26...` |
 | `auto.skill-difficulty-001.purpose` | generated_heading | SKILL-DIFFICULTY-001 | 1. Purpose | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 29-34 | `6414ec43c50a...` |
 | `auto.skill-difficulty-001.required-compact-check-call` | generated_heading | SKILL-DIFFICULTY-001 | 2. Required compact check call | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 35-64 | `d93a4e33972d...` |
 | `auto.skill-difficulty-001.roll-display-syntax` | generated_heading | SKILL-DIFFICULTY-001 | 3. Roll display syntax | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 65-76 | `ae4a22bca1d5...` |
 | `auto.skill-difficulty-001.same-lane-consolidation` | generated_heading | SKILL-DIFFICULTY-001 | 7. Same-lane consolidation | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 122-133 | `c8e93aa64ffb...` |
-| `auto.skill-difficulty-001.when-to-ask-for-clarification` | generated_heading | SKILL-DIFFICULTY-001 | 16. When to ask for clarification | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 241-245 | `8e360e878777...` |
+| `auto.skill-difficulty-001.spatial-check-preview` | generated_heading | SKILL-DIFFICULTY-001 | 17. Spatial Check preview | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 245-250 | `8e384afecd35...` |
+| `auto.skill-difficulty-001.when-to-ask-for-clarification` | generated_heading | SKILL-DIFFICULTY-001 | 16. When to ask for clarification | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DIFFICULTY-001 - SRC-SKILL-004-Difficulty-Modifiers-and-Check-Display.md` | 241-244 | `8e360e878777...` |
 | `auto.skill-discipline-001.advancement-cautions` | generated_heading | SKILL-DISCIPLINE-001 | 13. Advancement cautions | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DISCIPLINE-001 - SRC-SKILL-006-Disciplines-Skills-and-Advancement-Links.md` | 179-193 | `3e55280651c4...` |
 | `auto.skill-discipline-001.auxiliary-access-channels` | generated_heading | SKILL-DISCIPLINE-001 | 11. Auxiliary access channels | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DISCIPLINE-001 - SRC-SKILL-006-Disciplines-Skills-and-Advancement-Links.md` | 159-172 | `0b2e981986dd...` |
 | `auto.skill-discipline-001.corrected-skill-tree-structure` | generated_heading | SKILL-DISCIPLINE-001 | 3. Corrected skill-tree structure | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-DISCIPLINE-001 - SRC-SKILL-006-Disciplines-Skills-and-Advancement-Links.md` | 47-59 | `11a38b951cdb...` |
@@ -1577,22 +1580,24 @@ Marker format:
 | `auto.skill-open-008.special-channel-open-decisions` | generated_heading | SKILL-OPEN-008 | 6. Special-channel open decisions | `docs/nexus-game-source/source/Skills/Open Questions/SKILL-OPEN-008 - SRC-SKILL-008-Resolution-Open-Questions.md` | 107-122 | `756fdb82a2ff...` |
 | `auto.skill-resolution-001.current-operating-decision` | generated_heading | SKILL-RESOLUTION-001 | 2. Current operating decision | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 49-61 | `14096b174f22...` |
 | `auto.skill-resolution-001.document-context` | generated_document_context | SKILL-RESOLUTION-001 | Document Context | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 29-30 | `71b68a58cef9...` |
-| `auto.skill-resolution-001.freeform-actions-remain-valid` | generated_heading | SKILL-RESOLUTION-001 | 13. Freeform actions remain valid | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 276-282 | `15eb604d2efb...` |
-| `auto.skill-resolution-001.revealed-options-are-not-successes` | generated_heading | SKILL-RESOLUTION-001 | 8. Revealed options are not successes | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 199-205 | `6e3bcd4feafa...` |
-| `auto.skill-resolution-001.scene-beat-routing-note` | generated_heading | SKILL-RESOLUTION-001 | 15. Scene-beat routing note | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 295-298 | `8550a4b27d97...` |
-| `auto.skill-resolution-001.simple-difficulty-vs-named-defense` | generated_heading | SKILL-RESOLUTION-001 | 10. Simple difficulty vs named defense | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 218-236 | `1163dda3fc0b...` |
-| `auto.skill-resolution-001.stabilization-and-recovery-checks` | generated_heading | SKILL-RESOLUTION-001 | 11. Stabilization and recovery checks | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 237-258 | `ab945e1cd6d1...` |
-| `auto.skill-resolution-001.status-resistance-and-clear-checks` | generated_heading | SKILL-RESOLUTION-001 | 12. Status resistance and clear checks | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 259-275 | `15a156ee6c97...` |
+| `auto.skill-resolution-001.freeform-actions-remain-valid` | generated_heading | SKILL-RESOLUTION-001 | 13. Freeform actions remain valid | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 303-309 | `15eb604d2efb...` |
+| `auto.skill-resolution-001.revealed-options-are-not-successes` | generated_heading | SKILL-RESOLUTION-001 | 8. Revealed options are not successes | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 226-232 | `6e3bcd4feafa...` |
+| `auto.skill-resolution-001.scene-beat-routing-note` | generated_heading | SKILL-RESOLUTION-001 | 15. Scene-beat routing note | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 322-325 | `8550a4b27d97...` |
+| `auto.skill-resolution-001.simple-difficulty-vs-named-defense` | generated_heading | SKILL-RESOLUTION-001 | 10. Simple difficulty vs named defense | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 245-263 | `1163dda3fc0b...` |
+| `auto.skill-resolution-001.stabilization-and-recovery-checks` | generated_heading | SKILL-RESOLUTION-001 | 11. Stabilization and recovery checks | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 264-285 | `ab945e1cd6d1...` |
+| `auto.skill-resolution-001.status-resistance-and-clear-checks` | generated_heading | SKILL-RESOLUTION-001 | 12. Status resistance and clear checks | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 286-302 | `15a156ee6c97...` |
 | `auto.skill-reveal-001.document-context` | generated_document_context | SKILL-REVEAL-001 | Document Context | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 29-30 | `869348b7d67a...` |
+| `auto.skill-reveal-001.hidden-passive-checks` | generated_heading | SKILL-REVEAL-001 | 9. Hidden Passive Checks | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 133-145 | `90a2c7c285dd...` |
 | `auto.skill-reveal-001.key-rule` | generated_heading | SKILL-REVEAL-001 | 1. Key rule | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 32-37 | `136036ea384c...` |
 | `auto.skill-reveal-001.ownership-correction` | generated_heading | SKILL-REVEAL-001 | 2. Ownership correction | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 38-45 | `a214f78eefb7...` |
 | `auto.skill-reveal-001.revealed-option-outcomes` | generated_heading | SKILL-REVEAL-001 | 5. Revealed option outcomes | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 79-92 | `034b5f23de6a...` |
 | `auto.skill-reveal-001.skill-interaction-with-tacmap-movement` | generated_heading | SKILL-REVEAL-001 | 6. Skill interaction with TacMap movement | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 93-115 | `3a4ff5d177bd...` |
-| `auto.skill-reveal-001.strong-plans-routing-note` | generated_heading | SKILL-REVEAL-001 | 7. Strong plans routing note | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 116-121 | `aeb1dae2320e...` |
+| `auto.skill-reveal-001.spatial-check-opportunities` | generated_heading | SKILL-REVEAL-001 | 8. Spatial Check Opportunities | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 120-132 | `afc03e631b34...` |
+| `auto.skill-reveal-001.strong-plans-routing-note` | generated_heading | SKILL-REVEAL-001 | 7. Strong plans routing note | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 116-119 | `aeb1dae2320e...` |
 | `auto.skill-reveal-001.tabletop-presentation-rule` | generated_heading | SKILL-REVEAL-001 | 3. Tabletop presentation rule | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 46-59 | `4a9a63634519...` |
 | `auto.skill-reveal-001.what-skills-focuses-and-powers-can-reveal` | generated_heading | SKILL-REVEAL-001 | 4. What skills, focuses, and powers can reveal | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-REVEAL-001 - SRC-SKILL-005-Skill-Revealed-Options-and-Noncombat-Scenes.md` | 60-78 | `6fe6281a4637...` |
-| `auto.skill-scene-001.after-effects-and-outcomes` | generated_heading | SKILL-SCENE-001 | 12. After Effects and outcomes | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 227-256 | `9760772b648d...` |
-| `auto.skill-scene-001.bite-families` | generated_heading | SKILL-SCENE-001 | 13. Bite families | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 257-268 | `b27848cf160a...` |
+| `auto.skill-scene-001.after-effects-and-outcomes` | generated_heading | SKILL-SCENE-001 | 12. After Effects and outcomes | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 227-256 | `bcacde858cf7...` |
+| `auto.skill-scene-001.bite-families` | generated_heading | SKILL-SCENE-001 | 13. Bite families | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 257-278 | `1af2408ebee8...` |
 | `auto.skill-scene-001.check-type-separation` | generated_heading | SKILL-SCENE-001 | 4. Check type separation | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 66-77 | `1e27fdeedb14...` |
 | `auto.skill-scene-001.core-rule-counters-are-ambient` | generated_heading | SKILL-SCENE-001 | 3. Core rule: counters are ambient | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 58-65 | `eeacc6973664...` |
 | `auto.skill-scene-001.cost-slots` | generated_heading | SKILL-SCENE-001 | 10. Cost slots | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 168-180 | `3a14e48a4bbe...` |
@@ -1600,10 +1605,10 @@ Marker format:
 | `auto.skill-scene-001.exposure` | generated_heading | SKILL-SCENE-001 | 6. Exposure | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 98-117 | `0f456657e38f...` |
 | `auto.skill-scene-001.exposure-tags-risk-surfaces` | generated_heading | SKILL-SCENE-001 | 7. Exposure Tags / risk surfaces | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 118-135 | `fbb34ec0c8bc...` |
 | `auto.skill-scene-001.high-level-model` | generated_heading | SKILL-SCENE-001 | 2. High-level model | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 33-57 | `6b87db0603d7...` |
-| `auto.skill-scene-001.lattice-100-noncombat-resolution-patch` | generated_heading | SKILL-SCENE-001 | 18. Lattice-100 noncombat resolution patch | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 287-323 | `6bb7a2c99027...` |
+| `auto.skill-scene-001.lattice-100-noncombat-resolution-patch` | generated_heading | SKILL-SCENE-001 | 18. Lattice-100 noncombat resolution patch | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 297-332 | `c47e4421a7b5...` |
 | `auto.skill-scene-001.mission-scale-planning` | generated_heading | SKILL-SCENE-001 | 9. Mission-scale planning | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 158-167 | `ab528b68672f...` |
-| `auto.skill-scene-001.parked-items` | generated_heading | SKILL-SCENE-001 | 15. Parked items | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 280-286 | `6b09ca234a38...` |
-| `auto.skill-scene-001.playtest-guardrails` | generated_heading | SKILL-SCENE-001 | 14. Playtest guardrails | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 269-279 | `b5de22708bbe...` |
+| `auto.skill-scene-001.parked-items` | generated_heading | SKILL-SCENE-001 | 15. Parked items | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 290-296 | `6b09ca234a38...` |
+| `auto.skill-scene-001.playtest-guardrails` | generated_heading | SKILL-SCENE-001 | 14. Playtest guardrails | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 279-289 | `b5de22708bbe...` |
 | `auto.skill-scene-001.purpose` | generated_heading | SKILL-SCENE-001 | 1. Purpose | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 29-32 | `3e914437d941...` |
 | `auto.skill-scene-001.risk-discovery-and-op-knowledge` | generated_heading | SKILL-SCENE-001 | 8. Risk discovery and Op Knowledge | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 136-157 | `3311b994ad6b...` |
 | `auto.skill-scene-001.trace-residue-and-opening` | generated_heading | SKILL-SCENE-001 | 11. Trace, Residue, and Opening | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-SCENE-001 - SRC-SKILL-009-Noncombat-Scene-Systems-Working-Model.md` | 181-226 | `c3e357778c2d...` |
@@ -1744,12 +1749,12 @@ Marker format:
 | `playaid.overview.non-authority-rule` | explicit_marker | PLAYAID-OVERVIEW-001 | 2. Non-authority rule | `docs/nexus-game-source/source/Play Aids/Canon Homes/PLAYAID-OVERVIEW-001 - SRC-AUX-002-Auxiliary-Play-Aids-Overview.md` | 37-49 | `e07b577e37d6...` |
 | `playaid.overview.required-source-pointers` | explicit_marker | PLAYAID-OVERVIEW-001 | 8. Required source pointers | `docs/nexus-game-source/source/Play Aids/Canon Homes/PLAYAID-OVERVIEW-001 - SRC-AUX-002-Auxiliary-Play-Aids-Overview.md` | 123-135 | `3f66310e7295...` |
 | `playaid.overview.trigger-rules` | explicit_marker | PLAYAID-OVERVIEW-001 | 5. Trigger rules | `docs/nexus-game-source/source/Play Aids/Canon Homes/PLAYAID-OVERVIEW-001 - SRC-AUX-002-Auxiliary-Play-Aids-Overview.md` | 77-93 | `444b9f57002e...` |
-| `skills.resolution.check-families-and-domain-tags` | explicit_marker | SKILL-RESOLUTION-001 | 5.1 Check families and domain tags | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 122-166 | `f03901d60f81...` |
+| `skills.resolution.check-families-and-domain-tags` | explicit_marker | SKILL-RESOLUTION-001 | 5.1 Check families and domain tags | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 122-179 | `1dae5ca92d75...` |
 | `skills.resolution.combat-outcome-bands` | explicit_marker | SKILL-RESOLUTION-001 | 4. Combat / attack outcome bands | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 91-104 | `3d469b79583f...` |
-| `skills.resolution.core-check-flow` | explicit_marker | SKILL-RESOLUTION-001 | 6. Core check flow | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 167-178 | `b4392f20936e...` |
-| `skills.resolution.dm-mode-required-use` | explicit_marker | SKILL-RESOLUTION-001 | 14. DM Mode required-use note | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 283-294 | `b4998bdaae38...` |
-| `skills.resolution.gate-pressure-setup-split` | explicit_marker | SKILL-RESOLUTION-001 | 9. Gate / Pressure / Setup check split | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 206-217 | `1b194a040e64...` |
+| `skills.resolution.core-check-flow` | explicit_marker | SKILL-RESOLUTION-001 | 6. Core check flow | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 180-205 | `7f677e66ff2b...` |
+| `skills.resolution.dm-mode-required-use` | explicit_marker | SKILL-RESOLUTION-001 | 14. DM Mode required-use note | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 310-321 | `b4998bdaae38...` |
+| `skills.resolution.gate-pressure-setup-split` | explicit_marker | SKILL-RESOLUTION-001 | 9. Gate / Pressure / Setup check split | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 233-244 | `1b194a040e64...` |
 | `skills.resolution.lattice-100-core-roll-call` | explicit_marker | SKILL-RESOLUTION-001 | 3. Lattice-100 core roll call | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 62-90 | `e9d5fdf0becb...` |
-| `skills.resolution.noncombat-outcome-bands` | explicit_marker | SKILL-RESOLUTION-001 | 5. Noncombat / general check outcome bands | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 105-121 | `19acec273e8f...` |
+| `skills.resolution.noncombat-outcome-bands` | explicit_marker | SKILL-RESOLUTION-001 | 5. Noncombat / general check outcome bands | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 105-121 | `1c12d0f24322...` |
 | `skills.resolution.purpose-and-scope` | explicit_marker | SKILL-RESOLUTION-001 | 1. Purpose | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 33-48 | `d5743507657e...` |
-| `skills.resolution.thresholds-for-competence` | explicit_marker | SKILL-RESOLUTION-001 | 7. Thresholds for competence, rolls for uncertainty | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 179-198 | `0be44d556484...` |
+| `skills.resolution.thresholds-for-competence` | explicit_marker | SKILL-RESOLUTION-001 | 7. Thresholds for competence, rolls for uncertainty | `docs/nexus-game-source/source/Skills/Canon Homes/SKILL-RESOLUTION-001 - SRC-SKILL-003-Resolution-Core-Rules.md` | 206-225 | `0be44d556484...` |
