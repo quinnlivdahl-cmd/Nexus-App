@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added approved C-POH/frontier, Treaty/corporate, Upload micro-polity, and Choir-affected institution range concepts plus faction-range and no-steampunk rules."
+metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched range concepts plus faction-range and no-steampunk rules."
 ---
 
 # NASApunk Cyber Noir Design Language
@@ -86,6 +86,10 @@ Avoid making the Choir look like a normal faction logo or a fantasy hive mind sy
 ![Approved Choir-affected institution concept](<../Reference Inputs/concepts/2026-07-17/nexus-choir-institutional-alignment-concept-2026-07-17.png>)
 
 Choir-affected institutions should communicate hidden alignment or impossible coherence through emergent outcomes rather than shared costumes or synchronized poses. Separately plausible research, resource decisions, operational handoffs, or proprietary systems may combine with impossible precision into a result nobody visibly planned. Keep affected people focused on their own distinct tasks and preserve their individual bodies, roles, departments, and company identities. Avoid using shared gaze, matching head turns, mirrored stances, marching formations, or one repeated display pattern as the primary shorthand for alignment.
+
+![Approved individual Signal-touched condition range](<../Reference Inputs/concepts/2026-07-17/nexus-signal-touched-condition-range-concept-2026-07-17.png>)
+
+Individual Signal-touched visuals should remain contextual overlays rather than a universal body type. Perception artifacts, dream-borne knowledge, interrupted compulsions, or black-box anomaly interaction can provide visible evidence while the affected person remains recognizably themselves. Favor an oddly focused, lucid, analytical, exhausted, or unsettled presence over glowing eyes, possession poses, madness shorthand, or a shared mutation. Different origins and cybernetic bodies should not acquire one standard Choir look.
 
 ## Faction and culture marks
 
