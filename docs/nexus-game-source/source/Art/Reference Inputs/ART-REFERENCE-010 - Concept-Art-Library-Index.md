@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, and Upload micro-polity concepts."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, and Choir-affected institution concepts."
 ---
 
 # Concept Art Library Index
@@ -243,3 +243,11 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Status: approved working visual and lore direction; not a finalized polity taxonomy, location, spacecraft class, or legal relationship.
 - Mapping: A sovereign embassy vault inside an allied station; B buried sanctuary inside an allied surface settlement; C compact polity core protected by an armed courier; D separate micro-polities sharing a hardened defense compact.
 - Direction carried forward: an Upload polity's primary substrate may be wardrobe-scale; physical size does not directly indicate population or importance; tiny polities still require credible power, cooling, communications, maintenance, redundancy, evacuation, and protection; a wardrobe-scale polity cannot survive as exposed standalone equipment and requires a larger security envelope or protective relationship.
+
+### Choir-affected institutional alignment
+
+- Asset: [`concepts/2026-07-17/nexus-choir-institutional-alignment-concept-2026-07-17.png`](<concepts/2026-07-17/nexus-choir-institutional-alignment-concept-2026-07-17.png>)
+- Status: approved working visual direction; not a finalized Choir identity, organization, logo, mechanism, or symptom catalog.
+- Mapping: A separately produced research components interlock; B independent institutional decisions converge; C distinct personnel perform a flawless unspoken operational relay; D rival proprietary systems fit together as if designed by one planner.
+- Direction carried forward: show Choir-shaped alignment through separately plausible actions producing an impossible shared outcome; preserve individual roles, bodies, employers, and attention; do not rely on shared gaze, matching poses, identical displays, faction uniforms, or overt supernatural effects.
+- Rendering direction: retain deliberate pixel detail while using larger groupings, quiet material fields, simplified backgrounds, and concentrated focal detail so the image remains comfortable to inspect.
