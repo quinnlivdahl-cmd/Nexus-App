@@ -18,10 +18,10 @@ owns_topics:
   - 'nexus_visual_style_bible'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-17"
-last_reviewed: "2026-07-17"
+last_updated: "2026-07-18"
+last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling, added Japanese-anime character models to the avoid list, and clarified dense-detail hierarchy."
+metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling, added Japanese-anime character models to the avoid list, and clarified dense-detail hierarchy. The 2026-07-18 review selected a chunky technical-mosaic base grammar with selective fine-detail focal treatment."
 ---
 
 # Nexus Visual Style Bible
@@ -66,6 +66,18 @@ Build detail in perceptual layers:
 - test concepts both enlarged and at likely gameplay or sourcebook display size.
 
 Not every detail needs to register individually. The overall object, material hierarchy, focal information, and usable affordances do.
+
+#### Pixel grammar and focal-detail rule
+
+Use a chunky technical-mosaic pixel grammar as the default environmental and object foundation:
+
+- construct forms from visibly grouped, comparatively large pixel clusters;
+- favor broad, calm material planes and stepped shading over uniform fine-grained texture;
+- preserve dense construction logic through strong silhouettes, layered assemblies, and selected mechanical clusters rather than equal micro-detail everywhere;
+- reserve finer micro-cluster rendering for focal characters, faces, hands, active interfaces, interaction points, important props, and material evidence that rewards closer inspection;
+- allow focal assets to carry more nuanced wear and material variation without spreading that visual intensity across the full frame.
+
+This is a hybrid rendering rule, not two unrelated styles: the chunky grammar establishes clarity and visual rest, while selective finer detail creates focus. Palette changes must not carry the main burden of style differentiation.
 
 ### 6. Contact mystery
 

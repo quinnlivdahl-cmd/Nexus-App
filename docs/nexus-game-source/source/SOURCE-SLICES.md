@@ -3,8 +3,8 @@
 Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-game-source/source`
 Indexed source documents: 191
-Indexed source slices: 1695
-Level-two section coverage: 1643/1643
+Indexed source slices: 1696
+Level-two section coverage: 1644/1644
 
 ## Authority Note
 
@@ -34,7 +34,7 @@ Marker format:
 | Domain | Documents | Slices |
 |---|---:|---:|
 | Admin | 21 | 177 |
-| Art | 16 | 152 |
+| Art | 16 | 153 |
 | Automation | 8 | 57 |
 | Characters | 10 | 87 |
 | Combat | 10 | 115 |
@@ -55,7 +55,7 @@ Marker format:
 |---|---:|
 | explicit_marker | 128 |
 | generated_document_context | 36 |
-| generated_heading | 1531 |
+| generated_heading | 1532 |
 
 ## Source Slices
 
@@ -329,6 +329,7 @@ Marker format:
 | `auto.art-reference-010.known-icon-concept-package` | generated_heading | ART-REFERENCE-010 | Known icon concept package | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 63-80 | `57abbef38a72...` |
 | `auto.art-reference-010.missing-asset-index-work` | generated_heading | ART-REFERENCE-010 | Missing asset-index work | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 128-137 | `db96a0420d4e...` |
 | `auto.art-reference-010.purpose` | generated_heading | ART-REFERENCE-010 | Purpose | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 29-32 | `f2d6b2675816...` |
+| `auto.art-reference-010.rendering-language-selection-2026-07-18` | generated_heading | ART-REFERENCE-010 | Rendering-language selection - 2026-07-18 | `docs/nexus-game-source/source/Art/Reference Inputs/ART-REFERENCE-010 - Concept-Art-Library-Index.md` | 265-274 | `491faf9b9118...` |
 | `auto.art-runbook-008.art-direction-art-production-routing-2026-05-15` | generated_heading | ART-RUNBOOK-008 | Art Direction / Art Production routing - 2026-05-15 | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-008 - Asset-Canon-Status-and-Routing.md` | 67-94 | `6bfb71c8fc87...` |
 | `auto.art-runbook-008.canon-status-categories` | generated_heading | ART-RUNBOOK-008 | Canon status categories | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-008 - Asset-Canon-Status-and-Routing.md` | 33-66 | `6e3442c49525...` |
 | `auto.art-runbook-008.deletion-rule` | generated_heading | ART-RUNBOOK-008 | Deletion rule | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-008 - Asset-Canon-Status-and-Routing.md` | 161-163 | `3469baa1bdd8...` |
@@ -350,13 +351,13 @@ Marker format:
 | `auto.art-runbook-012.prompt-discipline` | generated_heading | ART-RUNBOOK-012 | 9. Prompt discipline | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-012 - TacMap-Backdrop-and-Build-Plate-Art-Workflow.md` | 121-132 | `44e3f6b0125a...` |
 | `auto.art-runbook-012.purpose` | generated_heading | ART-RUNBOOK-012 | 1. Purpose | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-012 - TacMap-Backdrop-and-Build-Plate-Art-Workflow.md` | 32-35 | `3b2cb36965b2...` |
 | `auto.art-runbook-012.style-anchor` | generated_heading | ART-RUNBOOK-012 | 8. Style anchor | `docs/nexus-game-source/source/Art/Applied Rules/ART-RUNBOOK-012 - TacMap-Backdrop-and-Build-Plate-Art-Workflow.md` | 108-120 | `15d9b3226a23...` |
-| `auto.art-style-001.avoid-list` | generated_heading | ART-STYLE-001 | Avoid list | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 97-112 | `004fc93ee52c...` |
-| `auto.art-style-001.canon-boundary` | generated_heading | ART-STYLE-001 | Canon boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 113-115 | `64b86dd8ad96...` |
-| `auto.art-style-001.composition-cues` | generated_heading | ART-STYLE-001 | Composition cues | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 89-96 | `816118d31b0c...` |
+| `auto.art-style-001.avoid-list` | generated_heading | ART-STYLE-001 | Avoid list | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 109-124 | `004fc93ee52c...` |
+| `auto.art-style-001.canon-boundary` | generated_heading | ART-STYLE-001 | Canon boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 125-127 | `64b86dd8ad96...` |
+| `auto.art-style-001.composition-cues` | generated_heading | ART-STYLE-001 | Composition cues | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 101-108 | `816118d31b0c...` |
 | `auto.art-style-001.core-visual-thesis` | generated_heading | ART-STYLE-001 | Core visual thesis | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 29-34 | `5c300a6b8675...` |
-| `auto.art-style-001.palette-cues` | generated_heading | ART-STYLE-001 | Palette cues | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 74-88 | `640e0faa767b...` |
-| `auto.art-style-001.tacmap-and-tabletop-clarity-update-2026-05-15` | generated_heading | ART-STYLE-001 | TacMap and tabletop clarity update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 116-138 | `4943b3d3680d...` |
-| `auto.art-style-001.visual-pillars` | generated_heading | ART-STYLE-001 | Visual pillars | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 35-73 | `727e75d52112...` |
+| `auto.art-style-001.palette-cues` | generated_heading | ART-STYLE-001 | Palette cues | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 86-100 | `640e0faa767b...` |
+| `auto.art-style-001.tacmap-and-tabletop-clarity-update-2026-05-15` | generated_heading | ART-STYLE-001 | TacMap and tabletop clarity update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 128-150 | `4943b3d3680d...` |
+| `auto.art-style-001.visual-pillars` | generated_heading | ART-STYLE-001 | Visual pillars | `docs/nexus-game-source/source/Art/Canon Homes/ART-STYLE-001 - Nexus-Visual-Style-Bible.md` | 35-85 | `b5276470c244...` |
 | `auto.art-trial-020.default-negative-prompt` | generated_heading | ART-TRIAL-020 | Default negative prompt | `docs/nexus-game-source/source/Art/Style Trials/ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md` | 77-80 | `459933da4211...` |
 | `auto.art-trial-020.global-nexus-visual-lock` | generated_heading | ART-TRIAL-020 | Global Nexus visual lock | `docs/nexus-game-source/source/Art/Style Trials/ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md` | 67-76 | `78d3663fcbf3...` |
 | `auto.art-trial-020.intended-placement` | generated_heading | ART-TRIAL-020 | Intended placement | `docs/nexus-game-source/source/Art/Style Trials/ART-TRIAL-020 - Nexus-Art-Style-Trial-Prompt-Series.md` | 27-32 | `da444c80ba3c...` |

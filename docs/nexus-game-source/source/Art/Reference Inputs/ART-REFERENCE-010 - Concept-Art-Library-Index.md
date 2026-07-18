@@ -18,10 +18,10 @@ owns_topics:
   - 'concept_art_library_index'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-17"
-last_reviewed: "2026-07-17"
+last_updated: "2026-07-18"
+last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched concepts."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched concepts. The 2026-07-18 review added the approved hybrid pixel-grammar comparison."
 ---
 
 # Concept Art Library Index
@@ -261,3 +261,13 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Mapping: A perception and sensor ghosts; B dream-borne inaccessible knowledge; C interrupted compulsion; D black-box anomaly interaction.
 - Direction carried forward: Signal-touched is a contextual overlay rather than a species or shared costume; preserve the person's existing origin and body language; favor an oddly focused, lucid, analytical, exhausted, or unsettled presence over possession, madness, monsters, or overt supernatural effects.
 - Rendering direction: broad quiet backgrounds and restrained focal evidence keep the mystery readable without adding a universal Choir marking or visually exhausting noise.
+
+## Rendering-language selection - 2026-07-18
+
+### Chunky-base and selective-microdetail comparison
+
+- Asset: [`concepts/2026-07-18/nexus-hybrid-pixel-grammar-comparison-2026-07-18.png`](<concepts/2026-07-18/nexus-hybrid-pixel-grammar-comparison-2026-07-18.png>)
+- Status: approved rendering-language reference; not a finished location, prop kit, palette, or gameplay scene.
+- Mapping: A tests refined micro-cluster realism across the full environment; C tests a chunky technical-mosaic treatment on the same machinery, floor, cases, tool cart, and interaction point.
+- Direction carried forward: use C's larger, calmer grouped pixel construction as the base grammar; apply A-level fine material and wear detail selectively to focal characters, active interfaces, important props, and other intended points of inspection.
+- Readability rule: environmental richness should come from construction, silhouette, and layered assemblies before surface noise. Palette changes must not carry the main burden of rendering-style differentiation.
