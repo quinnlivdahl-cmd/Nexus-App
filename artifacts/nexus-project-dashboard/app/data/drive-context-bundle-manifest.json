@@ -23,19 +23,19 @@
   ],
   "destinationPlan": "Create or refresh one curated Drive folder only after owner approval; preserve stable entry IDs and record returned Drive IDs in a separately reviewed publication result.",
   "approvalRequired": true,
-  "generatedAt": "2026-07-18T01:00:22.236Z",
+  "generatedAt": "2026-07-18T01:09:11.695Z",
   "lastVerified": "Not yet verified",
   "entries": [
     {
-      "id": "current-product-direction",
+      "id": "accepted-decisions",
       "driveId": null,
-      "ownerPath": "Drive:Nexus Game/Project Control Context/Current Product Direction",
-      "sourcePath": "docs/nexus-game-source/source/SOURCE-INDEX.json",
+      "ownerPath": "Drive:Nexus Game/Project Control Context/Accepted Decisions",
+      "sourcePath": "docs/adr/README.md",
       "sourceId": "vision",
       "freshness": "fresh",
-      "hash": "52022564c5ed",
-      "authorityRole": "Product direction and accepted terminology",
-      "retrievalIntent": "Route product-direction retrieval through current canonical source and accepted ADRs.",
+      "hash": "86fdc75c2857",
+      "authorityRole": "Accepted changes to canonical product direction",
+      "retrievalIntent": "Retrieve accepted ADRs alongside canonical source when a decision may affect current game direction.",
       "publicationStatus": "pending"
     },
     {

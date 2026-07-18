@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { dirname, relative, resolve, sep } from "node:path";
+import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { parseFrontmatter } from "./markdown-frontmatter.mjs";
 import {
@@ -102,7 +102,9 @@ function isInside(root, path) {
   const candidate = relative(resolve(root), resolve(path));
   return (
     candidate === "" ||
-    (!candidate.startsWith("..") && !resolve(path).startsWith(".."))
+    (!isAbsolute(candidate) &&
+      !candidate.startsWith("..") &&
+      !resolve(path).startsWith(".."))
   );
 }
 

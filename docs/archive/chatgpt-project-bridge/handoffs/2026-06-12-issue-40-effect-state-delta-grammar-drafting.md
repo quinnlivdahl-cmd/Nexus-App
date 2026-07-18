@@ -1,5 +1,8 @@
 # ChatGPT Handoff: Issue #40 effect/state-delta grammar drafting
 
+Status: historical packet; deliberately retrievable and non-controlling
+Current routing: use live GitHub Issues, current bridge indexes, canonical source, and accepted ADRs
+
 Date: 2026-06-12  
 Prepared by: ChatGPT Draft Mode  
 Related issue or roadmap lane: #40 — Define effect and state-delta grammar; parent epic #33  

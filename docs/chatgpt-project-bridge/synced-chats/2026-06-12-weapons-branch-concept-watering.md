@@ -158,12 +158,10 @@ Interpretation: future pure Seed brainstorming should usually route to a Seed da
 
 Bridge / workflow context:
 
-- `00-BOOTSTRAP.md`
-- `01-SLOT-MAP.md`
-- `03-OPERATING-MODEL.md`
-- `20-SOURCE-AUTHORITY-SUMMARY.md`
+- `docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md`
+- `docs/chatgpt-project-bridge/BRIDGE-INDEX.md`
 
-Repo-side Golden Truth source context:
+Repo-side canonical source context (retrieve deliberately; Modes documents are project-operation or historical context, not default game rules):
 
 - `docs/nexus-game-source/source/Modes/Canon Homes/MODES-MODE-003 - Seed-Mode-Rules-AI.md`
 - `docs/nexus-game-source/source/Dashboards/Current State/DASH-SEED-001 - Seed_Mode_Live_Dashboard.md`

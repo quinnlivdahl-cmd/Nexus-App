@@ -405,6 +405,40 @@ test("archive boundary rejects missing replacements and restored former paths", 
   }
 });
 
+test(
+  "archive boundary rejects Windows cross-drive replacement paths",
+  { skip: process.platform !== "win32" },
+  () => {
+    const f = fixture();
+    try {
+      f.write("docs/archive/project-controls/old.md", "# Historical\n");
+      f.write(
+        "docs/archive/ARCHIVE-INDEX.json",
+        JSON.stringify({
+          schema_version: 1,
+          classification: "historical_reference",
+          default_current_state_retrieval: false,
+          entries: [
+            {
+              path: "docs/archive/project-controls/old.md",
+              former_path: "OLD.md",
+              superseded_by: ["D:/outside.md"],
+            },
+          ],
+        }),
+      );
+      const failures = validateArchiveBoundary(f.root);
+      assert.ok(
+        failures.some((failure) =>
+          failure.includes("replacement path escapes repo root D:/outside.md"),
+        ),
+      );
+    } finally {
+      f.cleanup();
+    }
+  },
+);
+
 test("active policy rejects retired source-promotion commands", () => {
   const f = fixture();
   try {

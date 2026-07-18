@@ -1,5 +1,8 @@
 # ChatGPT Handoff: Nexus Self-Learning Automation Research Prompt
 
+Status: historical packet; deliberately retrievable and non-controlling
+Current routing: use live GitHub Issues, current bridge indexes, canonical source, and accepted ADRs
+
 Date: 2026-06-10
 Prepared by: ChatGPT Project
 Related issue or roadmap lane: none yet; non-issue Codex research handoff

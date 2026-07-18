@@ -1,5 +1,8 @@
 # Codex Handoff: Source Migration Closeout Review
 
+Status: historical packet; deliberately retrievable and non-controlling
+Current routing: use live GitHub Issues, current bridge indexes, canonical source, and accepted ADRs
+
 Date: 2026-06-14
 Prepared by: Codex
 Workspace/repo path: `C:\Users\Quintin Livdahl\Repos\Nexus-App`

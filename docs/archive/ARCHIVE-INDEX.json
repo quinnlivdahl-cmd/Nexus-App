@@ -77,6 +77,36 @@
       "path": "docs/archive/workflows/repo-first-task-planning-workflow.md",
       "former_path": "docs/admin/task-planning/repo-first-task-planning-workflow.md",
       "superseded_by": ["docs/admin/task-planning/codex-session-discipline-workflow.md", "docs/agents/issue-tracker.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-10-nexus-self-learning-automation-research-prompt.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-10-nexus-self-learning-automation-research-prompt.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md", "docs/agents/issue-tracker.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-12-issue-40-effect-state-delta-grammar-drafting.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-12-issue-40-effect-state-delta-grammar-drafting.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md", "NEXUS_ISSUE_INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-14-source-drafting-consolidation-codex-handoff.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-14-source-drafting-consolidation-codex-handoff.md",
+      "superseded_by": ["docs/nexus-game-source/source/SOURCE-INDEX.md", "docs/adr/README.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-14-source-migration-closeout-review.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-14-source-migration-closeout-review.md",
+      "superseded_by": ["docs/nexus-game-source/README.md", "docs/nexus-game-source/source/SOURCE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-21-bridge-verification-next-work.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-21-bridge-verification-next-work.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/synced-chats/2026-06-12-platform-executable-repo-actions.md",
+      "former_path": "docs/chatgpt-project-bridge/synced-chats/2026-06-12-platform-executable-repo-actions.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/agents/issue-tracker.md"]
     }
   ]
 }
