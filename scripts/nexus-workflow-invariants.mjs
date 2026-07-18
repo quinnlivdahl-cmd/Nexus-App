@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
+import { parseFrontmatter } from "./markdown-frontmatter.mjs";
 import {
   applicabilityValues,
   authorityValues,
@@ -9,6 +10,35 @@ import {
 } from "./source-retrieval-policy.mjs";
 
 const sourceRootPath = "docs/nexus-game-source/source";
+const workflowPaths = {
+  repoAgents: "AGENTS.md",
+  contextMap: "CONTEXT-MAP.md",
+  adrRoot: "docs/adr",
+  adrIndex: "docs/adr/README.md",
+  planningRoot: "planning",
+  planningPointer: "planning/README.md",
+  bridgeRoot: "docs/chatgpt-project-bridge",
+  bridgeManifest: "docs/chatgpt-project-bridge/BASELINE.json",
+  distributedSurfaces: "docs/admin/nexus-distributed-surfaces.md",
+  sourceReadme: "docs/nexus-game-source/README.md",
+  packageJson: "package.json",
+};
+const requiredBridgeRoles = [
+  "authority_currentness",
+  "context_packet_requirement",
+  "retrieval_routes",
+];
+const pathRegistryFacts = {
+  canonicalSource: "Canonical game source",
+  obsidianSource: "Obsidian source navigation",
+};
+const ignoredDiscoveryDirectories = new Set([
+  ".git",
+  ".pnpm",
+  "node_modules",
+  "dist",
+  "build",
+]);
 const acceptedAdrStatuses = new Set([
   "proposed",
   "accepted",
@@ -60,62 +90,12 @@ function isInside(root, path) {
   );
 }
 
-function stripQuotes(value) {
-  const trimmed = value.trim();
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
-    return trimmed.slice(1, -1);
-  }
-  if (trimmed === "true") return true;
-  if (trimmed === "false") return false;
-  if (trimmed === "[]") return [];
-  return trimmed;
-}
-
-export function parseFrontmatter(text) {
-  if (!text.startsWith("---")) return {};
-  const endMatch = text.slice(3).match(/\r?\n---\r?\n/);
-  if (!endMatch?.index) return {};
-
-  const frontmatter = {};
-  let activeArrayKey = null;
-  const block = text.slice(3, endMatch.index + 3);
-  for (const rawLine of block.split(/\r?\n/)) {
-    const line = rawLine.replace(/\s+$/, "");
-    if (!line.trim()) continue;
-    const listMatch = line.match(/^\s+-\s*(.*)$/);
-    if (listMatch && activeArrayKey) {
-      frontmatter[activeArrayKey].push(stripQuotes(listMatch[1]));
-      continue;
-    }
-    const keyMatch = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (!keyMatch) continue;
-    const [, key, rawValue] = keyMatch;
-    if (!rawValue.trim()) {
-      frontmatter[key] = [];
-      activeArrayKey = key;
-      continue;
-    }
-    const value = stripQuotes(rawValue);
-    frontmatter[key] = value;
-    activeArrayKey = Array.isArray(value) ? key : null;
-  }
-  return frontmatter;
-}
-
 function discoverFiles(dir, predicate = () => true) {
   if (!existsSync(dir)) return [];
   const files = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = resolve(dir, entry.name);
-    if (
-      entry.isDirectory() &&
-      !new Set([".git", ".pnpm", "node_modules", "dist", "build"]).has(
-        entry.name,
-      )
-    ) {
+    if (entry.isDirectory() && !ignoredDiscoveryDirectories.has(entry.name)) {
       files.push(...discoverFiles(path, predicate));
     } else if (entry.isFile() && predicate(path)) files.push(path);
   }
@@ -298,8 +278,8 @@ export function validateSliceCatalogData(catalog, sourceIndex, root) {
 
 export function validateAdrState(root) {
   const failures = [];
-  const adrRoot = resolve(root, "docs/adr");
-  if (!existsSync(adrRoot)) return ["adr: missing docs/adr"];
+  const adrRoot = resolve(root, workflowPaths.adrRoot);
+  if (!existsSync(adrRoot)) return [`adr: missing ${workflowPaths.adrRoot}`];
   const files = discoverFiles(
     adrRoot,
     (path) => path.endsWith(".md") && path !== resolve(adrRoot, "README.md"),
@@ -344,15 +324,28 @@ export function validateAdrState(root) {
     }
   }
 
-  const readmePath = resolve(adrRoot, "README.md");
+  const readmePath = resolve(root, workflowPaths.adrIndex);
   if (!existsSync(readmePath))
-    failures.push("adr: missing decision index docs/adr/README.md");
+    failures.push(`adr: missing decision index ${workflowPaths.adrIndex}`);
   else {
-    const indexed = new Set(
-      [...readText(readmePath).matchAll(/\((\d{4})-[^)]+\.md\)/g)].map(
-        (match) => match[1],
-      ),
-    );
+    const indexed = new Set();
+    for (const match of readText(readmePath).matchAll(
+      /\((\d{4}-[^)]+\.md)\)/g,
+    )) {
+      const targetName = match[1];
+      const id = targetName.slice(0, 4);
+      indexed.add(id);
+      const target = resolve(adrRoot, targetName);
+      if (!existsSync(target)) {
+        failures.push(
+          `adr: decision index points to missing file ${targetName}`,
+        );
+      } else if (byId.get(id)?.path !== target) {
+        failures.push(
+          `adr: decision index target ${targetName} does not match ADR-${id}`,
+        );
+      }
+    }
     for (const [id, { metadata }] of byId) {
       if (
         ["accepted", "superseded"].includes(metadata.status) &&
@@ -369,11 +362,26 @@ export function validateAdrState(root) {
 
 export function validateSourceReconciliation(root) {
   const failures = [];
-  const adrIds = new Set(
-    discoverFiles(resolve(root, "docs/adr"), (path) =>
+  const adrRecords = new Map(
+    discoverFiles(resolve(root, workflowPaths.adrRoot), (path) =>
       /[\\/]\d{4}-[^\\/]+\.md$/.test(path),
-    ).map((path) => path.split(/[\\/]/).at(-1).slice(0, 4)),
+    ).map((path) => [
+      path.split(/[\\/]/).at(-1).slice(0, 4),
+      { path, metadata: parseFrontmatter(readText(path)) },
+    ]),
   );
+  const resolvesToAccepted = (id, seen = new Set()) => {
+    if (seen.has(id)) return false;
+    seen.add(id);
+    const record = adrRecords.get(id);
+    if (!record) return false;
+    if (record.metadata.status === "accepted") return true;
+    if (record.metadata.status !== "superseded") return false;
+    const replacementId = String(record.metadata.superseded_by || "").match(
+      /(\d{4})/,
+    )?.[1];
+    return replacementId ? resolvesToAccepted(replacementId, seen) : false;
+  };
   const files = discoverFiles(resolve(root, sourceRootPath), (path) =>
     path.endsWith(".md"),
   );
@@ -381,7 +389,8 @@ export function validateSourceReconciliation(root) {
     const text = readText(path);
     const metadata = parseFrontmatter(text);
     const repoPath = toRepoPath(root, path);
-    if (metadata.working_state === "revised_vision_reconciled") {
+    const isReconciled = metadata.working_state === "revised_vision_reconciled";
+    if (isReconciled) {
       if (metadata.metadata_verified !== true)
         failures.push(`reconciliation: ${repoPath} is not metadata_verified`);
       if (!metadata.last_reviewed)
@@ -389,11 +398,19 @@ export function validateSourceReconciliation(root) {
       if (!metadata.metadata_notes)
         failures.push(`reconciliation: ${repoPath} is missing metadata_notes`);
     }
-    for (const match of text.matchAll(/ADR-(\d{4})/g)) {
-      if (!adrIds.has(match[1]))
+    const referencedAdrIds = new Set(
+      [...text.matchAll(/ADR-(\d{4})/g)].map((match) => match[1]),
+    );
+    for (const id of referencedAdrIds) {
+      if (!adrRecords.has(id)) {
         failures.push(
-          `reconciliation: ${repoPath} references missing ADR-${match[1]}`,
+          `reconciliation: ${repoPath} references missing ADR-${id}`,
         );
+      } else if (isReconciled && !resolvesToAccepted(id)) {
+        failures.push(
+          `reconciliation: ${repoPath} cites non-controlling ADR-${id}`,
+        );
+      }
     }
     for (const match of text.matchAll(
       /\[[^\]]*\]\(([^)]+\/adr\/(\d{4})-[^)]+\.md)\)/g,
@@ -416,7 +433,7 @@ function repoSkillRefs(text) {
 
 export function validateSkillRouting(root) {
   const failures = [];
-  const agentsPath = resolve(root, "AGENTS.md");
+  const agentsPath = resolve(root, workflowPaths.repoAgents);
   if (!existsSync(agentsPath)) return ["routing: missing repo-root AGENTS.md"];
   const routedSkills = new Set(repoSkillRefs(readText(agentsPath)));
   const skillRoot = resolve(root, ".agents/skills");
@@ -463,37 +480,71 @@ export function validateSkillRouting(root) {
 }
 
 function activeBridgeFiles(root) {
-  const bridgeRoot = resolve(root, "docs/chatgpt-project-bridge");
-  if (!existsSync(bridgeRoot)) return [];
-  return readdirSync(bridgeRoot)
-    .filter((name) => name.endsWith(".md"))
-    .map((name) => resolve(bridgeRoot, name))
-    .filter((path) =>
-      readText(path).includes("Status: active ChatGPT Project baseline file"),
+  const manifestPath = resolve(root, workflowPaths.bridgeManifest);
+  if (!existsSync(manifestPath)) return [];
+  try {
+    return normalizedArray(readJson(manifestPath).files).map((entry) =>
+      resolve(root, workflowPaths.bridgeRoot, entry.path),
     );
+  } catch {
+    return [];
+  }
 }
 
 export function validateBridgeArchitecture(root) {
   const failures = [];
-  const files = activeBridgeFiles(root);
-  if (files.length !== 2)
+  const manifestPath = resolve(root, workflowPaths.bridgeManifest);
+  if (!existsSync(manifestPath)) {
+    return [
+      `bridge: missing ownership manifest ${workflowPaths.bridgeManifest}`,
+    ];
+  }
+  let manifest;
+  try {
+    manifest = readJson(manifestPath);
+  } catch (error) {
+    return [`bridge: ownership manifest is invalid JSON: ${error.message}`];
+  }
+  if (manifest.schema_version !== 1) {
     failures.push(
-      `bridge: expected two active baseline files; found ${files.length}`,
+      `bridge: unsupported ownership schema ${manifest.schema_version}`,
     );
-  const headingOwners = (heading) =>
-    files.filter((path) =>
-      new RegExp(`^##\\s+${heading}\\s*$`, "im").test(readText(path)),
+  }
+  const entries = normalizedArray(manifest.files);
+  if (entries.length !== 2) {
+    failures.push(
+      `bridge: expected two active baseline files; found ${entries.length}`,
     );
-  for (const heading of [
-    "Authority And Currentness",
-    "Context Packet Requirement",
-    "Retrieval Routes",
-  ]) {
-    const owners = headingOwners(heading);
-    if (owners.length !== 1)
+  }
+  const seenPaths = new Set();
+  const roleOwners = new Map(requiredBridgeRoles.map((role) => [role, []]));
+  const bridgeRoot = resolve(root, workflowPaths.bridgeRoot);
+  for (const entry of entries) {
+    if (!entry.path || seenPaths.has(entry.path)) {
+      failures.push(`bridge: duplicate or missing baseline path ${entry.path}`);
+      continue;
+    }
+    seenPaths.add(entry.path);
+    const path = resolve(bridgeRoot, entry.path);
+    if (!isInside(bridgeRoot, path) || !entry.path.endsWith(".md")) {
+      failures.push(`bridge: invalid baseline path ${entry.path}`);
+    } else if (!existsSync(path)) {
+      failures.push(`bridge: baseline path does not exist ${entry.path}`);
+    }
+    for (const role of normalizedArray(entry.roles)) {
+      if (!roleOwners.has(role)) {
+        failures.push(`bridge: unapproved ownership role ${role}`);
+      } else {
+        roleOwners.get(role).push(entry.path);
+      }
+    }
+  }
+  for (const [role, owners] of roleOwners) {
+    if (owners.length !== 1) {
       failures.push(
-        `bridge: ${heading} must have exactly one active baseline owner; found ${owners.length}`,
+        `bridge: ${role} must have exactly one active baseline owner; found ${owners.length}`,
       );
+    }
   }
   return failures;
 }
@@ -504,7 +555,7 @@ function commandScript(command) {
 
 export function validateExecutableRoutes(root) {
   const failures = [];
-  const packagePath = resolve(root, "package.json");
+  const packagePath = resolve(root, workflowPaths.packageJson);
   if (!existsSync(packagePath)) return ["execution: missing package.json"];
   const scripts = readJson(packagePath).scripts || {};
   for (const name of requiredWorkflowCommands) {
@@ -528,7 +579,7 @@ export function validateExecutableRoutes(root) {
 
 export function validateReferencedArtifacts(root) {
   const failures = [];
-  const routingFiles = [resolve(root, "AGENTS.md")];
+  const routingFiles = [resolve(root, workflowPaths.repoAgents)];
   for (const skill of repoSkillRefs(
     existsSync(routingFiles[0]) ? readText(routingFiles[0]) : "",
   )) {
@@ -565,10 +616,10 @@ export function validateReferencedArtifacts(root) {
 
 export function validateAuthorityRouter(root) {
   const failures = [];
-  const agentsPath = resolve(root, "AGENTS.md");
-  const contextMapPath = resolve(root, "CONTEXT-MAP.md");
+  const agentsPath = resolve(root, workflowPaths.repoAgents);
+  const contextMapPath = resolve(root, workflowPaths.contextMap);
   if (!existsSync(agentsPath)) return ["authority-router: missing AGENTS.md"];
-  if (!readText(agentsPath).includes("CONTEXT-MAP.md")) {
+  if (!readText(agentsPath).includes(workflowPaths.contextMap)) {
     failures.push(
       "authority-router: AGENTS.md does not route through CONTEXT-MAP.md",
     );
@@ -604,16 +655,22 @@ export function validateAuthorityRouter(root) {
 
 export function validatePlanningOwnership(root) {
   const failures = [];
-  const planningRoot = resolve(root, "planning");
+  const planningRoot = resolve(root, workflowPaths.planningRoot);
   if (!existsSync(planningRoot)) return ["planning: missing pointer surface"];
+  const pointerRelativePath = relative(
+    planningRoot,
+    resolve(root, workflowPaths.planningPointer),
+  )
+    .split(sep)
+    .join("/");
   for (const path of discoverFiles(planningRoot, () => true)) {
-    if (toRepoPath(planningRoot, path) !== "README.md") {
+    if (toRepoPath(planningRoot, path) !== pointerRelativePath) {
       failures.push(
         `planning: repo pointer surface contains planning state ${toRepoPath(root, path)}`,
       );
     }
   }
-  const readmePath = resolve(planningRoot, "README.md");
+  const readmePath = resolve(root, workflowPaths.planningPointer);
   if (!existsSync(readmePath)) {
     failures.push("planning: pointer surface is missing README.md");
   } else if (!/^Status:\s*.*pointer only/im.test(readText(readmePath))) {
@@ -625,17 +682,18 @@ export function validatePlanningOwnership(root) {
 function activePolicyFiles(root) {
   const files = new Set();
   for (const path of [
-    resolve(root, "AGENTS.md"),
-    resolve(root, "package.json"),
-    resolve(root, "docs/nexus-game-source/README.md"),
-    resolve(root, "docs/admin/nexus-distributed-surfaces.md"),
-    resolve(root, "planning/README.md"),
+    resolve(root, workflowPaths.repoAgents),
+    resolve(root, workflowPaths.packageJson),
+    resolve(root, workflowPaths.sourceReadme),
+    resolve(root, workflowPaths.distributedSurfaces),
+    resolve(root, workflowPaths.planningPointer),
+    resolve(root, workflowPaths.bridgeManifest),
   ]) {
     if (existsSync(path)) files.add(path);
   }
   const canonicalSourceRoot = resolve(root, sourceRootPath);
   for (const path of discoverFiles(root, (path) =>
-    path.endsWith("AGENTS.md"),
+    path.endsWith(workflowPaths.repoAgents),
   )) {
     if (!isInside(canonicalSourceRoot, path)) files.add(path);
   }
@@ -680,7 +738,7 @@ function extractRegistryOwnerPath(stubText) {
 
 export function validateActivePathReferences(root) {
   const failures = [];
-  const stubPath = resolve(root, "docs/admin/nexus-distributed-surfaces.md");
+  const stubPath = resolve(root, workflowPaths.distributedSurfaces);
   if (!existsSync(stubPath))
     return ["paths: missing distributed-surface owner pointer"];
   const allowedOwnerPath = extractRegistryOwnerPath(readText(stubPath));
@@ -714,29 +772,74 @@ function sha256(path) {
   return createHash("sha256").update(readFileSync(path)).digest("hex");
 }
 
+function contentWords(text) {
+  const withoutFrontmatter = text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "");
+  return withoutFrontmatter.toLowerCase().match(/[a-z0-9]+/g) || [];
+}
+
+function shingleSet(words, size = 5) {
+  const shingles = new Set();
+  for (let index = 0; index <= words.length - size; index += 1) {
+    shingles.add(words.slice(index, index + size).join(" "));
+  }
+  return shingles;
+}
+
+function isNearCopy(leftText, rightText) {
+  const leftWords = contentWords(leftText);
+  const rightWords = contentWords(rightText);
+  if (Math.min(leftWords.length, rightWords.length) < 30) return false;
+  const lengthRatio = leftWords.length / rightWords.length;
+  if (lengthRatio < 0.75 || lengthRatio > 1.25) return false;
+  const leftShingles = shingleSet(leftWords);
+  const rightShingles = shingleSet(rightWords);
+  let shared = 0;
+  for (const shingle of leftShingles) {
+    if (rightShingles.has(shingle)) shared += 1;
+  }
+  return shared / Math.min(leftShingles.size, rightShingles.size) >= 0.85;
+}
+
 export function validateObsidianPointerSurface(root, ownerPath = null) {
   const failures = [];
+  const explicitOwnerPath = ownerPath !== null;
   if (!ownerPath) {
-    const stubPath = resolve(root, "docs/admin/nexus-distributed-surfaces.md");
-    if (!existsSync(stubPath)) return failures;
+    const stubPath = resolve(root, workflowPaths.distributedSurfaces);
+    if (!existsSync(stubPath)) {
+      return [
+        `obsidian-pointer: missing owner pointer ${workflowPaths.distributedSurfaces}`,
+      ];
+    }
     ownerPath = extractRegistryOwnerPath(readText(stubPath));
   }
-  if (!ownerPath || !existsSync(ownerPath)) return failures;
+  if (!ownerPath || !existsSync(ownerPath)) {
+    if (
+      explicitOwnerPath ||
+      (process.platform === "win32" && !process.env.CI)
+    ) {
+      return [
+        `obsidian-pointer: configured owner registry is unavailable: ${ownerPath || "missing path"}`,
+      ];
+    }
+    // Non-Windows CI cannot mount the user's Obsidian vault. Repo-side owner,
+    // routing, and canonical-source invariants still run there.
+    return failures;
+  }
   const ownerText = readText(ownerPath);
-  const canonicalPath = tablePath(ownerText, "Canonical game source");
+  const canonicalPath = tablePath(ownerText, pathRegistryFacts.canonicalSource);
   if (canonicalPath !== sourceRootPath) {
     failures.push(
       `paths: owner registry canonical source is ${canonicalPath || "missing"}; expected ${sourceRootPath}`,
     );
   }
-  const pointerRoot = tablePath(ownerText, "Obsidian source navigation");
+  const pointerRoot = tablePath(ownerText, pathRegistryFacts.obsidianSource);
   if (!pointerRoot || !existsSync(pointerRoot)) {
     failures.push(
       "obsidian-pointer: maintained source-navigation path is missing",
     );
     return failures;
   }
-  const pointerAgentsPath = resolve(pointerRoot, "AGENTS.md");
+  const pointerAgentsPath = resolve(pointerRoot, workflowPaths.repoAgents);
   if (!existsSync(pointerAgentsPath)) {
     failures.push(
       "obsidian-pointer: 00 Source is missing its scoped AGENTS.md boundary",
@@ -758,23 +861,54 @@ export function validateObsidianPointerSurface(root, ownerPath = null) {
     (path) =>
       path.endsWith(".md") && !/[\\/]SOURCE-(?:INDEX|SLICES)\.md$/.test(path),
   );
-  const hashes = new Map(
-    canonicalFiles.map((path) => [sha256(path), toRepoPath(root, path)]),
+  const canonicalDocuments = canonicalFiles.map((path) => ({
+    hash: sha256(path),
+    path: toRepoPath(root, path),
+    text: readText(path),
+  }));
+  const canonicalByHash = new Map(
+    canonicalDocuments.map((document) => [document.hash, document.path]),
   );
   for (const path of discoverFiles(pointerRoot, (candidate) =>
     candidate.endsWith(".md"),
   )) {
-    const copiedFrom = hashes.get(sha256(path));
+    if (path === pointerAgentsPath) continue;
+    const pointerText = readText(path);
+    const pointerMetadata = parseFrontmatter(pointerText);
+    const canonicalKeys = [
+      "doc_id",
+      "source_role",
+      "canon_status",
+      "working_state",
+      "owns_topics",
+    ].filter((key) => Object.hasOwn(pointerMetadata, key));
+    if (canonicalKeys.length > 0) {
+      failures.push(
+        `obsidian-pointer: ${path} carries canonical-source metadata: ${canonicalKeys.join(", ")}`,
+      );
+    }
+    const copiedFrom = canonicalByHash.get(sha256(path));
     if (copiedFrom)
       failures.push(
         `obsidian-pointer: ${path} duplicates canonical source ${copiedFrom}`,
       );
+    else {
+      const nearCopy = canonicalDocuments.find((document) =>
+        isNearCopy(document.text, pointerText),
+      );
+      if (nearCopy) {
+        failures.push(
+          `obsidian-pointer: ${path} substantially copies canonical source ${nearCopy.path}`,
+        );
+      }
+    }
   }
   return failures;
 }
 
 function runNodeCheck(root, scriptName, args = []) {
-  const packageScripts = readJson(resolve(root, "package.json")).scripts || {};
+  const packageScripts =
+    readJson(resolve(root, workflowPaths.packageJson)).scripts || {};
   const scriptPath = commandScript(packageScripts[scriptName]);
   if (!scriptPath)
     return [`execution: ${scriptName} is not a direct Node validation command`];
@@ -792,10 +926,7 @@ function runNodeCheck(root, scriptName, args = []) {
   ];
 }
 
-export function validateWorkflowInvariants(
-  root,
-  { runGeneratedChecks = true, ownerPath = null } = {},
-) {
+export function validateWorkflowInvariants(root) {
   const failures = [
     ...validateExecutableRoutes(root),
     ...validateReferencedArtifacts(root),
@@ -807,7 +938,7 @@ export function validateWorkflowInvariants(
     ...validateActivePathReferences(root),
     ...validateAdrState(root),
     ...validateSourceReconciliation(root),
-    ...validateObsidianPointerSurface(root, ownerPath),
+    ...validateObsidianPointerSurface(root),
   ];
 
   const sourceIndexPath = resolve(root, sourceRootPath, "SOURCE-INDEX.json");
@@ -843,12 +974,10 @@ export function validateWorkflowInvariants(
     }
   }
 
-  if (runGeneratedChecks) {
-    failures.push(...runNodeCheck(root, "source:index:check", ["--check"]));
-    failures.push(...runNodeCheck(root, "source:slices:check", ["--check"]));
-    failures.push(...runNodeCheck(root, "context:pack:check"));
-    failures.push(...runNodeCheck(root, "context:runtime:check"));
-    failures.push(...runNodeCheck(root, "roadmap:index:check", ["--check"]));
-  }
+  failures.push(...runNodeCheck(root, "source:index:check", ["--check"]));
+  failures.push(...runNodeCheck(root, "source:slices:check", ["--check"]));
+  failures.push(...runNodeCheck(root, "context:pack:check"));
+  failures.push(...runNodeCheck(root, "context:runtime:check"));
+  failures.push(...runNodeCheck(root, "roadmap:index:check", ["--check"]));
   return [...new Set(failures)];
 }

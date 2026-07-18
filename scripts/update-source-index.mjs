@@ -11,6 +11,7 @@ import {
   authorityValues,
   retrievalMetadata,
 } from "./source-retrieval-policy.mjs";
+import { parseFrontmatter } from "./markdown-frontmatter.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const repository = "quinnlivdahl-cmd/Nexus-App";
@@ -27,58 +28,6 @@ const checkOnly = args.has("--check");
 
 function toRepoPath(path) {
   return relative(root, path).split(sep).join("/");
-}
-
-function stripQuotes(value) {
-  const trimmed = value.trim();
-  if (
-    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
-    (trimmed.startsWith("'") && trimmed.endsWith("'"))
-  ) {
-    return trimmed.slice(1, -1);
-  }
-  if (trimmed === "[]") return [];
-  if (trimmed === "true") return true;
-  if (trimmed === "false") return false;
-  return trimmed;
-}
-
-function parseFrontmatter(text) {
-  if (!text.startsWith("---")) return {};
-
-  const endMatch = text.slice(3).match(/\r?\n---\r?\n/);
-  if (!endMatch?.index) return {};
-
-  const block = text.slice(3, endMatch.index + 3);
-  const frontmatter = {};
-  let activeArrayKey = null;
-
-  for (const rawLine of block.split(/\r?\n/)) {
-    const line = rawLine.replace(/\s+$/, "");
-    if (!line.trim()) continue;
-
-    const listMatch = line.match(/^\s+-\s*(.*)$/);
-    if (listMatch && activeArrayKey) {
-      frontmatter[activeArrayKey].push(stripQuotes(listMatch[1]));
-      continue;
-    }
-
-    const keyMatch = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (!keyMatch) continue;
-
-    const [, key, rawValue] = keyMatch;
-    if (!rawValue.trim()) {
-      frontmatter[key] = [];
-      activeArrayKey = key;
-      continue;
-    }
-
-    const value = stripQuotes(rawValue);
-    frontmatter[key] = value;
-    activeArrayKey = Array.isArray(value) ? key : null;
-  }
-
-  return frontmatter;
 }
 
 function firstHeading(text) {

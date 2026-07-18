@@ -22,6 +22,8 @@ Upload or paste only these permanent baseline files:
 
 Changing a rule should update its single owner rather than synchronized copies.
 
+`BASELINE.json` is the repo-only machine-readable ownership manifest used by validation. It is not a third Project Source and should not be uploaded to ChatGPT.
+
 ## Repo-Side Context
 
 Do not upload changing packet indexes or packet folders as permanent Project Sources. Keep them in GitHub and retrieve them when current contents matter:

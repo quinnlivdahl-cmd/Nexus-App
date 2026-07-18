@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "PROJECT-INSTRUCTIONS.md",
+      "roles": ["authority_currentness", "context_packet_requirement"]
+    },
+    {
+      "path": "BRIDGE-INDEX.md",
+      "roles": ["retrieval_routes"]
+    }
+  ]
+}
