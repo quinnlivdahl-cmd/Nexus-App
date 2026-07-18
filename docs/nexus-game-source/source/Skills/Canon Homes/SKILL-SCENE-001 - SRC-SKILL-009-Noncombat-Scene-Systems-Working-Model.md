@@ -18,10 +18,10 @@ owns_topics:
   - 'noncombat_scene_systems_working_model'
 borrows_topics: []
 created: "2026-05-21"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
+metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths. 2026-07-17 issue #19 reconciliation clarified validated After Effects, default selection, and unsupported-band collapse."
 ---
 
 # Noncombat Scene Systems Working Model
@@ -250,7 +250,7 @@ Meanings:
 
 - **Strong Success:** objective achieved plus positive After Effect.
 - **Success:** objective achieved; no meaningful tracked downside.
-- **Partial Success:** objective achieved plus one adverse After Effect.
+- **Partial Success:** objective achieved plus one prevalidated adverse After Effect.
 - **Failure:** objective not achieved; scene remains playable and may have a light After Effect.
 - **Hard Failure:** objective not achieved plus serious adverse After Effect or state change.
 
@@ -265,6 +265,16 @@ A Bite is the adverse After Effect source that makes an outcome messy.
 - **Op / Adverse Operating Bite:** an adverse entity now holds or embodies actionable operating information that makes later action harder if player action intersects it.
 
 Use **Op** as Operating / Operational, not Opposition.
+
+### 13.1 Valid After Effect procedure
+
+A special noncombat result exists only when the current action and scene support its After Effect before the roll. Strong Success requires a meaningful positive After Effect. Partial Success requires exactly one grounded adverse After Effect. Hard Failure requires a grounded serious adverse After Effect or state change.
+
+By default, Rules Core applies the valid adverse After Effect most directly caused by the player's approach and current scene. It does not choose the harshest option, select randomly, or force the player to choose a negative effect after the roll. An explicit ability or equipment rule may let the player reduce, replace, redirect, or choose among validated After Effects.
+
+If no valid effect exists, Strong Success and Partial Success collapse to ordinary Success, while Hard Failure collapses to ordinary Failure. If a prepared Partial After Effect fails final validation and no replacement was already validated, the Check resolves as Success and the runtime records the validation failure for Developer Mode. No replacement is invented after seeing the roll.
+
+This procedure implements [ADR-0092](../../../../adr/0092-special-result-bands-require-prevalidated-effects.md).
 
 ## 14. Playtest guardrails
 
@@ -294,7 +304,7 @@ Use the same Gate / Pressure / Setup split already defined in this document, the
 |---|---|---|
 | `failure margin 15+` | **Hard Fail** | The action fails and creates serious cost, exposure, complication, lost opportunity, worse state, or stronger opposition. |
 | `failure margin 1-14` | **Fail** | The action fails, but consequences are limited, recoverable, or mostly informational. |
-| `margin 0-14` | **Partial / Compromised Success** | The action succeeds with cost, trace, time loss, reduced effect, counter movement, narrower information, or a forced choice. |
+| `margin 0-14` | **Partial / Compromised Success** | The action succeeds with one grounded adverse After Effect such as cost, trace, time loss, counter movement, route change, or narrower information. |
 | `margin 15-39` | **Success** | The action succeeds cleanly under expected conditions. |
 | `margin 40+` | **Critical Success / Direct** | The action succeeds with superior effect, extra information, lower cost, cleaner trace, bypass, stronger leverage, or added opening. |
 
@@ -316,7 +326,6 @@ They may instead change:
 ### 18.2 DM Mode note
 
 DM Mode must use this Lattice-facing interpretation during noncombat playtest. If the band language feels wrong in play, DM Mode should log the issue for Draft/Steward instead of silently reverting to another RNG.
-
 
 
 

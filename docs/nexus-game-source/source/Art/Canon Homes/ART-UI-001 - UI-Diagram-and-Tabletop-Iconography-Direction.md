@@ -18,10 +18,10 @@ owns_topics:
   - 'ui_diagram_and_tabletop_iconography_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership."
+metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership. 2026-07-17 issue #19 reconciliation added the recognizable-interactable and optional-marker visual boundary."
 ---
 
 # UI Diagram and Tabletop Iconography Direction
@@ -110,6 +110,15 @@ Any visual aid likely to be used on phone should:
 - avoid tiny icon-only meanings without a legend;
 - use simple shapes;
 - make interactive/clickable or decision-relevant elements obvious.
+
+## Spatial interaction affordance boundary
+
+Objects with known actions should remain consistently recognizable as inspectable or usable even when optional interaction markers are disabled. A general marker may make that affordance more explicit, while hover reveals indicators for the actions the crew currently knows and selection opens the detailed action surface.
+
+The visual system must distinguish a general “something known can be done here” affordance from specific known actions without implying that every action requires a Check. Secret actions remain visually absent. Useful disabled actions may be shown only when their correctable restriction is safe to reveal.
+
+Exact marker shapes, icon families, counts, tiny ticks, animation, and screen placement remain future UI decisions. Skills owns what is known and available; Art owns the eventual recognizable visual language. This applies [ADR-0090](../../../../adr/0090-check-opportunities-are-team-aware-and-knowledge-safe.md).
+
 ## TacMap iconography and SVG system update - 2026-05-15
 
 ### Sprite sheet / collage-system direction
@@ -165,4 +174,3 @@ Path lines may carry route/path status, including electrical, smoke, breach, loc
 - entry / exit.
 - unknown contact.
 - ally / enemy / elite / reinforcement.
-

@@ -63,7 +63,7 @@ Use this section for ready or in-progress issue packets.
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-17 by Codex during issue #85 and epic #74 closeout. For exact current state, verify against GitHub.
+Last synced: 2026-07-17 by Codex during issue #19 closeout. For exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -79,7 +79,6 @@ Last synced: 2026-07-17 by Codex during issue #85 and epic #74 closeout. For exa
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | map | child decisions | Canonical map for the implementation-ready first vertical slice |
-| #19 | Define Lattice opportunities, ticker, and partial consequences | grilling | #5 satisfied | Open, unassigned frontier decision |
 | #28 | Define Local Aftermath, return-to-Ship, and save contracts | grilling | #4 and #12 satisfied | Open, unassigned frontier decision |
 | #30 | Integrate an implementation-ready vertical slice contract | grilling | remaining map decisions | Blocked integration ticket |
 | #68 | Complete Crew Archive pool and former-PC conversion design | related grilling | #11 satisfied; #32 related | Must reconcile accepted Crew Library, independent-instance, organic-recruitment, and promotion decisions from #11 |
@@ -118,6 +117,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
+| #19 | Define Lattice opportunities, ticker, and partial consequences | Accepted decision contract, ADR-0089 through ADR-0092, and canonical Skills/Art reconciliation define knowledge-safe opportunities, adaptive rules-bound Checks, the nonmodal ticker, hidden Passive Check reporting, and prevalidated special-band consequences; source index, slice catalog, workflow validation, and independent standards/spec reviews pass | Open #28 as its own next task, then #30 after the remaining map decisions; neither follow-up was claimed or started here |
 | #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | Actor rows now provide inline HP/SI number editing with Enter/blur commit and Escape cancel; rules-core clamping, down/revive transitions, normalized event logging, local persistence, encounter smoke tests, typecheck/build, and a live browser playtest all pass | The `nexus-companion` package path remains a legacy implementation identifier for the single Nexus Game product |
 | #22 | Add a minimal Nexus repository README entrypoint | Root `README.md` now links the single-product direction, authority router, canonical source, accepted decisions, spatial implementation-readiness map, local application paths, agent instructions, and GitHub task tracker without duplicating their contents | Keep the README concise and update links only when their authoritative destinations change |
 | #67 | Align Nexus Game product identity with the preserved companion regression surface | Repo instructions, domain guidance, operator documentation, and Spatial Vertical Slice Map #57 now describe one Nexus Game product evolving from the existing React/Vite implementation; the former side-by-side companion premise is superseded | Legacy `companion` package and environment-variable names may remain as implementation identifiers until a separately scoped rename is worthwhile |

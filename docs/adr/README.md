@@ -112,6 +112,10 @@ ADRs 0001–0034 were accepted on 2026-07-10 from the Grill with Docs revised-vi
 | [0086](0086-tactical-pressure-ends-when-every-trigger-clears.md) | Tactical Pressure ends when every trigger clears |
 | [0087](0087-overlapping-triggers-compose-one-tactical-pressure-period.md) | Overlapping triggers compose one Tactical Pressure period |
 | [0088](0088-campaign-saves-serialize-location-owned-tactical-state.md) | Campaign Saves serialize Location-owned Tactical State |
+| [0089](0089-lattice-ticker-placement-is-deferred.md) | Lattice Ticker placement is deferred |
+| [0090](0090-check-opportunities-are-team-aware-and-knowledge-safe.md) | Check Opportunities are team-aware and knowledge-safe |
+| [0091](0091-adaptive-checks-compose-existing-mechanics.md) | Adaptive Checks compose existing mechanics |
+| [0092](0092-special-result-bands-require-prevalidated-effects.md) | Special result bands require prevalidated effects |
 
 ## Superseded decisions
 

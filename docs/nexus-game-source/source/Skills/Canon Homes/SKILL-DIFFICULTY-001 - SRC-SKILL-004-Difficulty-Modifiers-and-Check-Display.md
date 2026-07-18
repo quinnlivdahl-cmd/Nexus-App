@@ -18,10 +18,10 @@ owns_topics:
   - 'difficulty_modifiers_and_check_display'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
+metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths. 2026-07-17 issue #19 reconciliation added knowledge-safe Check previews and the nonmodal Lattice Ticker information contract."
 ---
 
 # Difficulty Modifiers and Check Display
@@ -242,3 +242,23 @@ Template pass needed: Modes should receive or cross-reference the Lattice-100 ch
 
 DM Mode should not stop for clarification every time a player gives a short command. If target, method, resource, and stakes are reasonably clear, resolve the action. Ask clarification only when ambiguity would materially change risk, cost, target, or consequence.
 
+## 17. Spatial Check preview
+
+Before a visible deliberate Check, the spatial surface shows the selected lead, Skill or approach, final Target Score or equivalent success chance, obvious or known modifiers, and broad known stakes. The shown success chance includes both clean and Partial Success because both achieve the main objective. The clean-versus-partial split remains hidden unless a validated ability, equipment rule, or information effect reveals it.
+
+Known assistance options may show their benefit and risk without applying automatically. Information effects may reveal progressively more detail, such as a hidden modifier, specific defense, broad After Effect family, exact consequence, or safer route. The preview never exposes information the acting crew does not know. This applies [ADR-0090](../../../../adr/0090-check-opportunities-are-team-aware-and-knowledge-safe.md).
+
+## 18. Nonmodal Lattice Ticker
+
+The spatial Lattice Ticker communicates a visible result at a glance:
+
+```text
+Mara — Engineering
+42 vs 61 — Success
+```
+
+An expanded entry or readable history may show known bonuses, penalties, stakes, and committed changes. Developer Mode may show the complete technical record, including hidden inputs and validation diagnostics. Hidden results disclose only what the character can observe until later discovery.
+
+The visible d100 may cycle random numbers in place for less than one second before settling on the already-resolved value. Rules Core determines the result before the animation begins; presentation cannot influence, delay, reroll, or gate the commit.
+
+The ticker remains compact and nonmodal. Exact screen placement and HUD composition are deferred under [ADR-0089](../../../../adr/0089-lattice-ticker-placement-is-deferred.md).

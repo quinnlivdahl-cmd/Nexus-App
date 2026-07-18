@@ -18,10 +18,10 @@ owns_topics:
   - 'resolution_core_rules'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths. 2026-06-14 source reconciliation added check-family boundaries from the app-facing rules-core draft sequence."
+metadata_notes: "Phase 10 Skills consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths. 2026-06-14 source reconciliation added check-family boundaries from the app-facing rules-core draft sequence. 2026-07-17 issue #19 reconciliation added prevalidated special bands, adaptive Check proposals, lead selection, and retry boundaries."
 ---
 
 # Resolution Core Rules
@@ -112,7 +112,7 @@ Use these bands for social, infiltration, technical, medical, survival, recovery
 |---|---|---|
 | `failure margin 15+` | **Hard Fail** | The action fails and creates serious cost, exposure, complication, lost opportunity, worse state, or stronger opposition. |
 | `failure margin 1-14` | **Fail** | The action fails, but consequences are limited, recoverable, or mostly informational. |
-| `margin 0-14` | **Partial / Compromised Success** | The action succeeds with cost, trace, reduced effect, time loss, counter movement, narrower information, or a forced choice. |
+| `margin 0-14` | **Partial / Compromised Success** | The action succeeds with one grounded adverse After Effect such as cost, trace, time loss, counter movement, route change, or narrower information. |
 | `margin 15-39` | **Success** | The action succeeds cleanly under expected conditions. |
 | `margin 40+` | **Critical Success / Direct** | The action succeeds with superior effect, extra information, lower cost, cleaner trace, bypass, stronger leverage, or added opening. |
 
@@ -163,6 +163,19 @@ Trade fire with a drone
 -> attack check against Defense, Firewall, or another defined defensive surface
 ```
 
+### 5.2 Prevalidated special bands
+
+The five-band noncombat ladder is the default result-band set, not a demand to invent five distinct effects for every Check. Before rolling, Rules Core validates the effect attached to each special band.
+
+- Strong Success without a meaningful added benefit resolves as ordinary Success.
+- Partial Success without one grounded adverse After Effect resolves as ordinary Success.
+- Hard Failure without a grounded serious adverse After Effect resolves as ordinary Failure.
+- Ordinary Success achieves the objective; ordinary Failure does not. Neither requires an added After Effect.
+
+This collapse happens when the Check is prepared, so every displayed band has a valid rules-native meaning. If a prepared Partial After Effect fails final validation and no replacement was already validated, the Check resolves as Success and records the validation failure for Developer Mode. Rules Core never invents a replacement after seeing the roll.
+
+This rule does not alter combat Graze or other attack result bands. It implements [ADR-0092](../../../../adr/0092-special-result-bands-require-prevalidated-effects.md).
+
 <!-- source-slice: skills.resolution.core-check-flow -->
 ## 6. Core check flow
 
@@ -174,6 +187,20 @@ Trade fire with a drone
 6. Roll d100 against the final Target Score.
 7. Read the outcome band and apply the effect, cost, counter movement, damage, state change, or future option.
 8. DM presents the changed situation and next meaningful choice.
+
+### 6.1 Deliberate lead, assistance, and retry
+
+A deliberate Check uses one selected eligible lead. The currently controlled eligible character is the default, but the player may select another eligible lead. The system never silently substitutes the character with the best odds. Qualified assistance is an optional player choice under the applicable assistance rule, not an automatic party bonus.
+
+A failed deliberate Check cannot be repeated merely by switching characters. Another attempt requires a materially different method, tool, information state, time commitment, or world state.
+
+An Extended Check is staged progress, not an exception to this boundary. Each authorized roll resolves a new meaningful beat with changed progress, pressure, risk, or state. If nothing relevant changed, there is no new roll.
+
+### 6.2 Adaptive Check proposals
+
+The Campaign Director may propose a situation-specific Check for a grounded player action that authored options did not anticipate. The proposal may name an approach or Skill and propose stakes and outcome meanings, but Rules Core must map it to existing Check families, Target Score rules, result bands, Effects, and StateDeltas and validate it against current Game Truth before rolling.
+
+The proposal cannot create a new mechanic, state type, object, item, ability, permission, or effect. Generated Performance may describe only the validated committed result. This applies [ADR-0076](../../../../adr/0076-freeform-actions-use-existing-rules-beyond-authored-actions.md) and [ADR-0091](../../../../adr/0091-adaptive-checks-compose-existing-mechanics.md).
 
 <!-- source-slice: skills.resolution.thresholds-for-competence -->
 ## 7. Thresholds for competence, rolls for uncertainty
