@@ -18,10 +18,10 @@ owns_topics:
   - 'equipment_and_interface_art_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-05-15"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Equipment and interface visual-direction language now follows domain-first boundaries without slot-era ownership phrasing."
+metadata_notes: "Phase 10 complete for the Art domain. Equipment and interface visual-direction language now follows domain-first boundaries without slot-era ownership phrasing. The 2026-07-17 review added an approved equipment-family concept reference."
 ---
 
 # Equipment and Interface Art Direction
@@ -29,6 +29,14 @@ metadata_notes: "Phase 10 complete for the Art domain. Equipment and interface v
 ## Equipment design principle
 
 Equipment should look like it was built for fragile habitats, legal constraints, maintenance access, and field repair. Visual design should imply consequences: recoil, seal damage, heat, noise, legality, hack surface, oxygen risk, or repair burden.
+
+### Approved equipment-family reference
+
+![Approved equipment-family concept](<../Reference Inputs/concepts/2026-07-17/nexus-equipment-family-concept-2026-07-17.png>)
+
+The approved concept sheet establishes a compatible visual range for habitat-safe force and breach equipment, medical support, access and credential intrusion, and engineering/fabrication. These are construction and affordance families, not a fixed item list, class system, or assignment of true character roles.
+
+Differentiate equipment through silhouette, connector logic, service access, material system, wear, handling, and implied consequences rather than relying on palette alone. Kits may overlap, combine, or be repurposed. Preserve gloved-hand usability, visible maintenance seams, inspection or ownership marks where relevant, and enough quiet surface area for dense detail to remain readable.
 
 ## Weapons
 
@@ -138,6 +146,5 @@ Interface and sheet art should be able to display or support the current defensi
 `Defense | Shield | Armor | HP | Firewall`
 
 Icons should work across character sheets, TacMap overlays, and quick reference aids when possible. Equipment owns gear rules and Art owns visual language and asset guidance.
-
 
 
