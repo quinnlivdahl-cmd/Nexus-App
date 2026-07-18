@@ -20,8 +20,8 @@ owns_topics:
 borrows_topics:
   - 'character_roles'
 created: "2026-05-13"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
 metadata_notes: "Pilot migration into the domain-first rebuild repo. Phase 10 consolidated body routing into domain-first language and preserved the reusable crew-state model without relying on legacy slot wording."
 ---
@@ -70,6 +70,12 @@ Crew members can matter through:
 Recruitment should feel closer to FTL/XCOM/Pokemon inspiration: new crew members are exciting because they bring bodies, roles, vulnerabilities, stories, and ship functions.
 
 The roster should support unusual recruits without letting every recruit collapse into pure combat math.
+
+An accepted Recruitment Result commits immediately. During the same Location, the new Crewmate may replace either non-Player-Character Field Team member without increasing the three-character Field Team. The displaced Crewmate remains at their actual committed position under a **Location Support Assignment** and provides only a grounded contextual benefit rather than following as an autonomous fourth party member. The swap itself never relocates an actor. The assignment preserves the Crewmate's ordinary actor state and exposure to Location consequences; danger reaching that position may make the Crewmate a Tactical Participant under the existing participation rules. The player may reverse or change the swap only by physically returning to the support position during Free Movement. Remote roster swaps and default composition changes during Tactical Pressure are not permitted.
+
+At departure, every extracting Crewmate and accepted recruit must be at the extraction point or safely reachable through **Rally to Extraction**. Rally may use automatic pathing over a validated safe route but cannot teleport an actor. If no safe route exists, the player must resolve the danger or explicitly leave without that actor and commit the grounded consequence. This reconciles [ADR-0094](../../../../adr/0094-in-location-recruitment-preserves-a-three-character-field-team.md).
+
+A living Crewmate deliberately left behind becomes a **Stranded Crewmate**, not automatically dead or Permanently Lost. The character leaves the active Crew Roster while their Character Profile, Crew Archive Entry, Campaign Build, exact Actor State, last known Location, and known circumstances remain referenced by the campaign. Rescue, capture, escape, Permanent Loss, or another later outcome requires separate committed evidence.
 
 ## 5. Relationship pressure
 

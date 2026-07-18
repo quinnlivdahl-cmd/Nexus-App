@@ -18,8 +18,8 @@ owns_topics:
   - 'campaign_loop_and_route_structure'
 borrows_topics: []
 created: "2026-05-13"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
 metadata_notes: "Phase 10 Core consolidation. Body routing now uses domain-first language; legacy package/slot wording is retained only in legacy_ids and legacy_paths."
 ---
@@ -164,6 +164,14 @@ Recommended report contents:
 - Save/dashboard export reminder when persistent state changed.
 
 Persistent aftermath must state a concrete gameplay effect or route to a concrete future effect. Avoid vague consequences that do not say what changes in play.
+
+The day-one game maintains one rolling **Campaign Autosave**. Consequence-bearing commits, including actions, Checks, Dialogue Outcomes, recruitment, Route Choice, Permanent Loss, and Route Node Resolution, checkpoint durably before their committed performance is released. Active Location state also flushes at stable boundaries and bounded intervals, including Area changes, pause, Save & Quit, and Location transition; it does not write a new save for every rendered movement frame.
+
+The player may Continue from the latest valid autosave, use Save & Quit to force a final flush, and export or import a save for portability and disaster recovery. The default campaign exposes no ordinary manual save slots or quickload. A prior validated checkpoint may be retained internally for corruption or crash recovery but is not a player-facing consequence-reversal timeline.
+
+When the campaign has a Ship, the Campaign Autosave preserves its persistent Location state, Ship Frame, installed Modules, Systems, Conditions, armory and inventory, resources, crew positions and assignments, and current Downtime state. Returning from a Route Node loads that committed Ship state and applies only validated resolution changes rather than rebuilding or resetting the home Location.
+
+Route Node Resolution must commit its complete durable checkpoint before the read-only Route Node End Report appears. If that save fails, Nexus remains in the Location at a stable pre-transition state and offers recovery or retry without presenting the recap or loading the Ship. Crew Archive persistence remains separate from the campaign save so campaign restore cannot duplicate or roll back cross-run collection history. This reconciles [ADR-0020](../../../../adr/0020-default-campaign-saves-preserve-consequences.md) and [ADR-0095](../../../../adr/0095-day-one-campaigns-use-one-rolling-autosave.md).
 
 In DM Mode, `Save` means producing or updating a durable dashboard/state export, not silently relying on chat memory. Persistent aftermath belongs in `Dashboards`.
 
