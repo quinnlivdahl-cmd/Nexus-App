@@ -103,7 +103,9 @@ Art supports this; it should not overpower it.
 
 ## Interactable computer screens
 
-World-space terminals remain small top-down props in the Location view. When the player uses one, open a readable computer-style interface instead of showing a close-up illustration of the terminal's physical panel. The interface may retain the device's institutional visual language, damage, access restrictions, or System Status, but its information architecture should follow the terminal's actual purpose and available actions.
+World-space terminals remain small top-down props in the Location view. When the player uses one, open a readable computer-style popup over the live Location instead of showing a close-up illustration of the terminal's physical panel or replacing the entire game screen. Preserve enough uncovered Location view for sprite animation and movement to remain visible wherever it occurs within that visible portion. The interface may retain the device's institutional visual language, damage, access restrictions, or System Status, but its information architecture should follow the terminal's actual purpose and available actions. Keep popup information density materially lower than a full-screen desktop application.
+
+This presentation guidance does not decide whether terminal interaction pauses player input, simulation, or action resolution.
 
 ## Accessibility and phone usability
 

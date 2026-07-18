@@ -131,9 +131,11 @@ Interface visuals should support DM/player understanding and should not bury key
 Treat a terminal as two connected visual surfaces:
 
 - **World view:** at the accepted near-overhead gameplay camera, the terminal is a small top-down interactable prop. Its silhouette, placement, status light, and interaction highlight communicate that it can be used; its physical screen content is not expected to be legible from that angle.
-- **Use view:** activating the terminal opens a readable computer-style interface at an appropriate screen scale. Present the terminal's software, information, permissions, available actions, and current system condition as an actual interface rather than magnifying the physical console face.
+- **Use view:** activating the terminal opens a readable computer-style popup over the live Location view. Present the terminal's software, information, permissions, available actions, and current system condition as an actual interface rather than magnifying the physical console face. Do not replace the entire game screen; preserve a meaningful visible portion of the Location around the popup.
 
 The opened interface should be designed around the terminal's purpose. A medical station, access-control terminal, ship diagnostic console, evidence system, and industrial controller should not all collapse into the same generic panel with different colors.
+
+Terminal popups should use less information density than a full-screen desktop application. The uncovered Location remains visibly live, including sprite animation or movement occurring within the visible portion. This visual rule does not by itself decide whether player input or world simulation pauses.
 ## Equipment, interface, and system-surface update - 2026-05-15
 
 ### System Status visual support
