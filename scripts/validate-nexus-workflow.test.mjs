@@ -355,9 +355,31 @@ test("archive boundary keeps superseded files out of active routes", () => {
       }),
     );
     f.write("AGENTS.md", "Use `OLD.md`.\n");
+    f.write(
+      "docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
+      "Retrieve `OLD.md`.\n",
+    );
+    f.write(
+      "artifacts/nexus-project-dashboard/app/data/drive-context-bundle-manifest.json",
+      JSON.stringify({ route: "OLD.md" }),
+    );
     const failures = validateArchiveBoundary(f.root);
     assert.ok(
       failures.some((failure) => failure.includes("active route AGENTS.md")),
+    );
+    assert.ok(
+      failures.some((failure) =>
+        failure.includes(
+          "active route docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
+        ),
+      ),
+    );
+    assert.ok(
+      failures.some((failure) =>
+        failure.includes(
+          "active route artifacts/nexus-project-dashboard/app/data/drive-context-bundle-manifest.json",
+        ),
+      ),
     );
   } finally {
     f.cleanup();

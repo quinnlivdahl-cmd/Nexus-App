@@ -95,14 +95,18 @@ export function validateSnapshot(snapshot, manifest = null) {
   assert.equal(snapshot.freshness.status, worstFreshness([...snapshot.sources.map((source) => source.freshness), ...snapshot.worktrees.map((worktree) => worktree.freshness)]), "Snapshot freshness must reflect the worst generated input.");
   if (manifest) {
     assert.equal(manifest.projectId, "nexus-game-project-control", "Manifest project ID is invalid.");
-    assert.ok(["designed-not-published", "published", "stale"].includes(manifest.status), "Manifest status is invalid.");
+    assert.ok(["designed-not-published", "published", "stale", "retired"].includes(manifest.status), "Manifest status is invalid.");
     assert.ok(manifest.purpose && manifest.target && manifest.destinationPlan, "Manifest is missing destination context.");
     assert.ok(manifest.audience && manifest.version && manifest.sourceWorkflow && manifest.runtimeLane, "Manifest is missing routing metadata.");
     assert.equal(manifest.approvalRequired, true, "Drive publication must remain approval-gated.");
     assert.ok(Array.isArray(manifest.boundaries) && manifest.boundaries.length > 0, "Manifest must declare boundaries.");
     assert.ok(Array.isArray(manifest.checks) && manifest.checks.length > 0, "Manifest must declare checks.");
     assertUnique(manifest.entries.map((entry) => entry.id), "Context manifest entry IDs");
-    assert.equal(manifest.status, manifestStatusFor(manifest.entries), "Manifest status must reflect its entry lifecycle states.");
+    if (manifest.status === "retired") {
+      assert.equal(manifest.entries.length, 0, "Retired context bundle must not publish repo-document entries.");
+    } else {
+      assert.equal(manifest.status, manifestStatusFor(manifest.entries), "Manifest status must reflect its entry lifecycle states.");
+    }
     for (const entry of manifest.entries) {
       assert.ok(sourceIds.has(entry.sourceId), `Manifest entry ${entry.id} references missing source ${entry.sourceId}.`);
       assertRelativeProjectPath(entry.sourcePath, `Manifest entry ${entry.id} source path`);

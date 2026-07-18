@@ -168,7 +168,8 @@ async function refreshContextBundle(manifest, sourceById, now) {
       }),
     };
   }));
-  return { ...manifest, generatedAt: now, status: manifestStatusFor(entries), entries };
+  const status = manifest.status === "retired" ? "retired" : manifestStatusFor(entries);
+  return { ...manifest, generatedAt: now, status, entries };
 }
 
 const snapshot = JSON.parse(await readFile(output, "utf8"));

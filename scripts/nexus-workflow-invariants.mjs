@@ -23,8 +23,14 @@ const workflowPaths = {
   planningPointer: "planning/README.md",
   bridgeRoot: "docs/chatgpt-project-bridge",
   bridgeManifest: "docs/chatgpt-project-bridge/BASELINE.json",
+  bridgeHandoffIndex: "docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
+  bridgeSyncIndex: "docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md",
   archiveRoot: "docs/archive",
   archiveManifest: "docs/archive/ARCHIVE-INDEX.json",
+  dashboardSnapshot:
+    "artifacts/nexus-project-dashboard/app/data/project-snapshot.json",
+  dashboardDriveManifest:
+    "artifacts/nexus-project-dashboard/app/data/drive-context-bundle-manifest.json",
   distributedSurfaces: "docs/admin/nexus-distributed-surfaces.md",
   sourceReadme: "docs/nexus-game-source/README.md",
   packageJson: "package.json",
@@ -744,6 +750,10 @@ function archiveRoutingFiles(root) {
       workflowPaths.adrIndex,
       workflowPaths.sourceReadme,
       workflowPaths.planningPointer,
+      workflowPaths.bridgeHandoffIndex,
+      workflowPaths.bridgeSyncIndex,
+      workflowPaths.dashboardSnapshot,
+      workflowPaths.dashboardDriveManifest,
     ]
       .map((path) => resolve(root, path))
       .filter((path) => existsSync(path)),

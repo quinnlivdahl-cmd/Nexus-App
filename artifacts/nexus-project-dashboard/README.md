@@ -20,7 +20,7 @@ Regenerate source provenance, worktree evidence, freshness, attention items, and
 npm run snapshot:generate
 ```
 
-The Drive Context Bundle contract is [documented](docs/drive-context-bundle-contract.md) and represented by `app/data/drive-context-bundle-manifest.json`. It remains designed—not published. Generation never contacts Drive, and publication remains a separate authenticated, approval-gated action.
+The former Drive mirror of current repo context is [documented as retired](docs/drive-context-bundle-contract.md) and represented by an empty compatibility manifest at `app/data/drive-context-bundle-manifest.json`. Current GPT context comes from GitHub; Drive remains the bulky-material lane.
 
 ## Local use
 

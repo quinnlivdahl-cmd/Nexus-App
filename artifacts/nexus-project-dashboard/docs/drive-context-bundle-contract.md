@@ -1,15 +1,14 @@
-# Drive Context Bundle contract
+# Retired Drive Context Bundle contract
 
-The Drive Context Bundle is **designed, not published**. Its machine-readable contract lives at `app/data/drive-context-bundle-manifest.json`. Snapshot generation refreshes local hashes and freshness only; it never contacts or mutates Drive.
+The planned Drive mirror of current Nexus repo documentation is **retired**. GPT retrieves current context directly from GitHub through the repo bridge. The machine-readable compatibility record lives at `app/data/drive-context-bundle-manifest.json` and intentionally has no publication entries.
 
-The manifest is destination-aware: it declares the project, audience, lifecycle status, version, source workflow, runtime lane, purpose, target, boundaries, checks, risks, destination plan, and approval requirement. Every entry has a stable local ID, nullable Drive ID, logical owner path, repo-relative source path, freshness, content hash, authority role, retrieval intent, and publication status.
+Drive remains the owner for bulky payloads, exports, workbench outputs, and handoff bundles named by the maintained distributed-surfaces registry. It is not a mirror for canonical source, ADRs, issue state, or repo instructions.
 
 ## Publication rules
 
-1. A separate authenticated Codex action must verify every declared source and show the owner a reviewable publication plan.
-2. Create, replace, withdraw, and Drive-ID recording operations require explicit owner approval.
-3. Returned Drive IDs may be recorded only after the corresponding destination file is verified.
-4. The publisher must preserve source authority and must not expand the bundle through unscoped repo or Drive search.
-5. A changed source hash makes the published entry stale until an approved refresh succeeds.
+1. Do not publish current repo documentation into a Drive context bundle.
+2. Retrieve canonical source, ADRs, instructions, and issue state from GitHub.
+3. Use Drive only when a task explicitly needs an off-repo bulky payload.
+4. Any Drive mutation still requires explicit owner approval and exact target verification.
 
-Until that action exists and succeeds, `driveId` remains `null`, `publicationStatus` remains `pending`, and the dashboard must describe the bundle as not published.
+The legacy manifest remains only so the timestamped dashboard schema can report the lane as retired without silently dropping provenance.
