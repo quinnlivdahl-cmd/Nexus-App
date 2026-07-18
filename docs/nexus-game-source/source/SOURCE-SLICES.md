@@ -3,8 +3,8 @@
 Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-game-source/source`
 Indexed source documents: 191
-Indexed source slices: 1693
-Level-two section coverage: 1641/1641
+Indexed source slices: 1694
+Level-two section coverage: 1642/1642
 
 ## Authority Note
 
@@ -34,7 +34,7 @@ Marker format:
 | Domain | Documents | Slices |
 |---|---:|---:|
 | Admin | 21 | 177 |
-| Art | 16 | 150 |
+| Art | 16 | 151 |
 | Automation | 8 | 57 |
 | Characters | 10 | 87 |
 | Combat | 10 | 115 |
@@ -55,7 +55,7 @@ Marker format:
 |---|---:|
 | explicit_marker | 128 |
 | generated_document_context | 36 |
-| generated_heading | 1529 |
+| generated_heading | 1530 |
 
 ## Source Slices
 
@@ -69,7 +69,7 @@ Marker format:
 | `art.prompt.metadata-block` | explicit_marker | ART-PROMPT-001 | Prompt metadata block | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 39-56 | `151b05bbcba3...` |
 | `art.prompt.purpose` | explicit_marker | ART-PROMPT-001 | Purpose | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 33-38 | `c89e64e2aa98...` |
 | `art.prompt.tacmap-diagram-skeleton` | explicit_marker | ART-PROMPT-001 | TacMap diagram prompt skeleton | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 95-102 | `b3786a18ac6c...` |
-| `art.prompt.tacmap-prompt-additions` | explicit_marker | ART-PROMPT-001 | TacMap prompt additions - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 174-200 | `46d387df4afe...` |
+| `art.prompt.tacmap-prompt-additions` | explicit_marker | ART-PROMPT-001 | TacMap prompt additions - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 174-200 | `a7963556ccbf...` |
 | `art.prompt.variant-rules` | explicit_marker | ART-PROMPT-001 | Variant rules | `docs/nexus-game-source/source/Art/Canon Homes/ART-PROMPT-001 - Prompt-Library-and-Variant-Rules.md` | 103-118 | `067c57cc2b71...` |
 | `auto.admin-index-000.domain-structure` | generated_heading | ADMIN-INDEX-000 | Domain structure | `docs/nexus-game-source/source/Admin/Reference Inputs/ADMIN-INDEX-000 - README-Admin-Runbooks-Source-Management.md` | 34-47 | `e464649df02c...` |
 | `auto.admin-index-000.migration-status` | generated_heading | ADMIN-INDEX-000 | Migration status | `docs/nexus-game-source/source/Admin/Reference Inputs/ADMIN-INDEX-000 - README-Admin-Runbooks-Source-Management.md` | 83-101 | `07f0535f875e...` |
@@ -259,16 +259,17 @@ Marker format:
 | `auto.art-character-001.splicers-and-biological-modification` | generated_heading | ART-CHARACTER-001 | Splicers and biological modification | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 55-77 | `9133b61cfd8c...` |
 | `auto.art-character-001.uploads-and-sleeves` | generated_heading | ART-CHARACTER-001 | Uploads and sleeves | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 98-126 | `923e5483a5cb...` |
 | `auto.art-character-001.vatborn` | generated_heading | ART-CHARACTER-001 | Vatborn | `docs/nexus-game-source/source/Art/Canon Homes/ART-CHARACTER-001 - Character-Art-Direction.md` | 43-54 | `787753bbfbd9...` |
-| `auto.art-environment-001.asteroid-mines-and-industrial-sites` | generated_heading | ART-ENVIRONMENT-001 | Asteroid mines and industrial sites | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 63-74 | `63174a74bd6f...` |
-| `auto.art-environment-001.contact-and-alien-signal-scenes` | generated_heading | ART-ENVIRONMENT-001 | Contact and alien-signal scenes | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 97-100 | `4c20245b29db...` |
-| `auto.art-environment-001.corporate-state-station-life` | generated_heading | ART-ENVIRONMENT-001 | Corporate/state/station life | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 84-96 | `a6186fa5bc54...` |
+| `auto.art-environment-001.asteroid-mines-and-industrial-sites` | generated_heading | ART-ENVIRONMENT-001 | Asteroid mines and industrial sites | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 78-89 | `63174a74bd6f...` |
+| `auto.art-environment-001.contact-and-alien-signal-scenes` | generated_heading | ART-ENVIRONMENT-001 | Contact and alien-signal scenes | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 112-115 | `4c20245b29db...` |
+| `auto.art-environment-001.corporate-state-station-life` | generated_heading | ART-ENVIRONMENT-001 | Corporate/state/station life | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 99-111 | `a6186fa5bc54...` |
 | `auto.art-environment-001.document-context` | generated_document_context | ART-ENVIRONMENT-001 | Document Context | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 29-30 | `0bf4ea7b1537...` |
 | `auto.art-environment-001.environment-principles` | generated_heading | ART-ENVIRONMENT-001 | Environment principles | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 32-35 | `8944f13b72c5...` |
-| `auto.art-environment-001.environment-reference-update-2026-05-15` | generated_heading | ART-ENVIRONMENT-001 | Environment reference update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 104-121 | `5506dded6be6...` |
-| `auto.art-environment-001.map-and-location-art-boundary` | generated_heading | ART-ENVIRONMENT-001 | Map and location art boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 101-103 | `e398b569deb9...` |
-| `auto.art-environment-001.mars-europa-earth-orbit-and-major-centers` | generated_heading | ART-ENVIRONMENT-001 | Mars, Europa, Earth orbit, and major centers | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 75-83 | `092a41ee4117...` |
-| `auto.art-environment-001.orbital-stations-and-habitats` | generated_heading | ART-ENVIRONMENT-001 | Orbital stations and habitats | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 51-62 | `b19be2bb4227...` |
-| `auto.art-environment-001.ships` | generated_heading | ART-ENVIRONMENT-001 | Ships | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 36-50 | `fc61163acdc8...` |
+| `auto.art-environment-001.environment-reference-update-2026-05-15` | generated_heading | ART-ENVIRONMENT-001 | Environment reference update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 119-136 | `6b25ff3c559b...` |
+| `auto.art-environment-001.map-and-location-art-boundary` | generated_heading | ART-ENVIRONMENT-001 | Map and location art boundary | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 116-118 | `e398b569deb9...` |
+| `auto.art-environment-001.mars-europa-earth-orbit-and-major-centers` | generated_heading | ART-ENVIRONMENT-001 | Mars, Europa, Earth orbit, and major centers | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 90-98 | `092a41ee4117...` |
+| `auto.art-environment-001.orbital-stations-and-habitats` | generated_heading | ART-ENVIRONMENT-001 | Orbital stations and habitats | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 66-77 | `b19be2bb4227...` |
+| `auto.art-environment-001.playable-environment-camera` | generated_heading | ART-ENVIRONMENT-001 | Playable environment camera | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 36-50 | `ca1d69cfdeac...` |
+| `auto.art-environment-001.ships` | generated_heading | ART-ENVIRONMENT-001 | Ships | `docs/nexus-game-source/source/Art/Canon Homes/ART-ENVIRONMENT-001 - Environment-and-Location-Art-Direction.md` | 51-65 | `fc61163acdc8...` |
 | `auto.art-equipment-001.accessories-and-kits` | generated_heading | ART-EQUIPMENT-001 | Accessories and kits | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 75-87 | `62bc6091a15d...` |
 | `auto.art-equipment-001.credentials` | generated_heading | ART-EQUIPMENT-001 | Credentials | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 88-91 | `4fc6ab03fde6...` |
 | `auto.art-equipment-001.cyberware-and-bioware` | generated_heading | ART-EQUIPMENT-001 | Cyberware and bioware | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 92-106 | `73a9e3d6d137...` |

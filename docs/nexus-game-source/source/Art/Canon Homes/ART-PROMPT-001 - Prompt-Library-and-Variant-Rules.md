@@ -18,10 +18,10 @@ owns_topics:
   - 'prompt_library_and_variant_rules'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language now follows the domain-first model while preserving direction-vs-production workflow guidance."
+metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language now follows the domain-first model while preserving direction-vs-production workflow guidance. The 2026-07-17 review grounded playable Location prompts in the accepted Movement + Camera Prototype #13 projection."
 ---
 
 # Prompt Library and Variant Rules
@@ -192,7 +192,7 @@ Create a cohesive SVG-compatible sprite sheet of tabletop TacMap icons for Nexus
 
 ### TacMap collage prototype prompt skeleton
 
-Create a top-down/slight-isometric NASApunk Location-view prototype for `[LOCATION]`. Show supplied walkable geometry, Areas, passages, objectives, hazards, exits, Interaction Positions, Cover Positions, actors, and state markers over an engulfing environmental backdrop. Tactical readability is more important than illustration polish. Do not crop for phone display. Preserve supplied authoritative geometry and structured state; do not invent either.
+Create a NASApunk Location-view prototype for `[LOCATION]` using the accepted gameplay projection: orthographic, fixed at 10 degrees from true overhead, with world east/west mapped directly to screen left/right and world north/south mapped directly to screen up/down. Do not rotate the floor plane into a diamond, isometric, or three-quarter view. World-axis-aligned geometry must stay screen-axis-aligned; preserve any supplied diagonal or curved authored geometry as authored. Show primarily top surfaces with only shallow vertical extrusion. Show supplied walkable geometry, Areas, passages, objectives, hazards, exits, Interaction Positions, Cover Positions, actors, and state markers over an engulfing environmental backdrop. Tactical readability is more important than illustration polish. Do not crop for phone display. Preserve supplied authoritative geometry and structured state; do not invent either.
 
 ### Repair prompt rule
 

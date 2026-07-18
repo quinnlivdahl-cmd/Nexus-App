@@ -18,8 +18,8 @@ owns_topics:
   - 'environment_and_location_art_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Environment and location visual-direction language now follows domain-first boundaries and preserved-reference handling."
 ---
@@ -32,6 +32,21 @@ metadata_notes: "Phase 10 complete for the Art domain. Environment and location 
 ## Environment principles
 
 Nexus locations should look like places where people live, work, hide, trade, breathe, and fail. Use the built environment to show economics, faction pressure, maintenance burden, and survival risk.
+
+## Playable environment camera
+
+The accepted Movement + Camera Prototype #13 projection is the authoritative visual reference for playable environment art:
+
+- fixed orthographic view at 10 degrees from true overhead;
+- world east/west remains screen left/right and world north/south remains screen up/down;
+- no rotated diamond floor plane and no conventional isometric or three-quarter room view;
+- the floor plane is not rotated: world-axis-aligned geometry stays screen-axis-aligned, while diagonal or curved authored geometry remains as authored;
+- show primarily the tops of actors, furniture, machinery, and architecture, with only shallow vertical extrusion for height and material readability;
+- Free Movement and turn-based encounters use the same viewing angle; Tactical Pressure may pull the camera back without changing the projection.
+
+Concept sheets intended to represent playable spaces must use this camera. Cinematic Live Illustrations may use other perspectives when they are not being presented as the player's spatial view.
+
+Approved reference sheet: [gameplay environment perspective concept — 2026-07-17](../Reference%20Inputs/concepts/2026-07-17/nexus-gameplay-environment-perspective-concept-2026-07-17.png).
 
 ## Ships
 
@@ -111,7 +126,7 @@ The uploaded 64-node asteroid mine TacMap prototype is useful as visual evidence
 - pressure-boundary contrast between exterior vacuum and interior atmosphere.
 - mining machinery, gantries, exposed conduits, dust, regolith, and hazard signage.
 - bypass routes, service crawls, maintenance ducts, and alternate pressure routes.
-- slight-isometric or engulfing backdrop treatment around a clear top-down authored Location view.
+- an engulfing environmental treatment around the clear, fixed 10-degree-from-overhead authored Location view.
 
 This image is not canonical playable Location data until useful topology and content are rebuilt as authored geometry, objects, objectives, Interaction Positions, Cover Positions, and validated state.
 
