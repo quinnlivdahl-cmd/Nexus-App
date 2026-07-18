@@ -3,8 +3,8 @@
 Repository: `quinnlivdahl-cmd/Nexus-App`
 Base path: `docs/nexus-game-source/source`
 Indexed source documents: 191
-Indexed source slices: 1694
-Level-two section coverage: 1642/1642
+Indexed source slices: 1695
+Level-two section coverage: 1643/1643
 
 ## Authority Note
 
@@ -34,7 +34,7 @@ Marker format:
 | Domain | Documents | Slices |
 |---|---:|---:|
 | Admin | 21 | 177 |
-| Art | 16 | 151 |
+| Art | 16 | 152 |
 | Automation | 8 | 57 |
 | Characters | 10 | 87 |
 | Combat | 10 | 115 |
@@ -55,7 +55,7 @@ Marker format:
 |---|---:|
 | explicit_marker | 128 |
 | generated_document_context | 36 |
-| generated_heading | 1530 |
+| generated_heading | 1531 |
 
 ## Source Slices
 
@@ -274,8 +274,8 @@ Marker format:
 | `auto.art-equipment-001.credentials` | generated_heading | ART-EQUIPMENT-001 | Credentials | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 96-99 | `4fc6ab03fde6...` |
 | `auto.art-equipment-001.cyberware-and-bioware` | generated_heading | ART-EQUIPMENT-001 | Cyberware and bioware | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 100-114 | `73a9e3d6d137...` |
 | `auto.art-equipment-001.equipment-design-principle` | generated_heading | ART-EQUIPMENT-001 | Equipment design principle | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 29-40 | `bab3cb761dc4...` |
-| `auto.art-equipment-001.equipment-interface-and-system-surface-update-2026-05-15` | generated_heading | ART-EQUIPMENT-001 | Equipment, interface, and system-surface update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 128-151 | `c39f0c58e314...` |
-| `auto.art-equipment-001.interface-art` | generated_heading | ART-EQUIPMENT-001 | Interface art | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 115-127 | `969962ff6e82...` |
+| `auto.art-equipment-001.equipment-interface-and-system-surface-update-2026-05-15` | generated_heading | ART-EQUIPMENT-001 | Equipment, interface, and system-surface update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 137-158 | `c39f0c58e314...` |
+| `auto.art-equipment-001.interface-art` | generated_heading | ART-EQUIPMENT-001 | Interface art | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 115-136 | `22b9ac411c92...` |
 | `auto.art-equipment-001.protective-gear` | generated_heading | ART-EQUIPMENT-001 | Protective gear | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 54-67 | `3d6cdb483bd5...` |
 | `auto.art-equipment-001.tools` | generated_heading | ART-EQUIPMENT-001 | Tools | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 68-82 | `161c807da68c...` |
 | `auto.art-equipment-001.weapons` | generated_heading | ART-EQUIPMENT-001 | Weapons | `docs/nexus-game-source/source/Art/Canon Homes/ART-EQUIPMENT-001 - Equipment-and-Interface-Art-Direction.md` | 41-53 | `53dae1eb6fe3...` |
@@ -376,12 +376,13 @@ Marker format:
 | `auto.art-trial-index-000.purpose` | generated_heading | ART-TRIAL-INDEX-000 | Purpose | `docs/nexus-game-source/source/Art/Style Trials/README.md` | 21-26 | `3b3c09638325...` |
 | `auto.art-trial-index-000.required-maintenance` | generated_heading | ART-TRIAL-INDEX-000 | Required maintenance | `docs/nexus-game-source/source/Art/Style Trials/README.md` | 73-81 | `deedc6d7e010...` |
 | `auto.art-trial-index-000.routing-rules` | generated_heading | ART-TRIAL-INDEX-000 | Routing rules | `docs/nexus-game-source/source/Art/Style Trials/README.md` | 33-53 | `297b8196b115...` |
-| `auto.art-ui-001.accessibility-and-phone-usability` | generated_heading | ART-UI-001 | Accessibility and phone usability | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 104-112 | `150d8b1ca112...` |
+| `auto.art-ui-001.accessibility-and-phone-usability` | generated_heading | ART-UI-001 | Accessibility and phone usability | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 108-116 | `150d8b1ca112...` |
 | `auto.art-ui-001.character-sheets-and-dashboards` | generated_heading | ART-UI-001 | Character sheets and dashboards | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 89-103 | `1821a155a047...` |
 | `auto.art-ui-001.default-diagram-style` | generated_heading | ART-UI-001 | Default diagram style | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 33-47 | `38d814dd9321...` |
 | `auto.art-ui-001.existing-icon-concept-package` | generated_heading | ART-UI-001 | Existing icon concept package | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 77-88 | `eb110cd7920c...` |
+| `auto.art-ui-001.interactable-computer-screens` | generated_heading | ART-UI-001 | Interactable computer screens | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 104-107 | `893df0b34d27...` |
 | `auto.art-ui-001.route-node-map-visual-grammar` | generated_heading | ART-UI-001 | Route-node map visual grammar | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 65-76 | `0eb384c080ee...` |
-| `auto.art-ui-001.tacmap-iconography-and-svg-system-update-2026-05-15` | generated_heading | ART-UI-001 | TacMap iconography and SVG system update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 113-169 | `aaf3d5ab4fb6...` |
+| `auto.art-ui-001.tacmap-iconography-and-svg-system-update-2026-05-15` | generated_heading | ART-UI-001 | TacMap iconography and SVG system update - 2026-05-15 | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 117-172 | `aaf3d5ab4fb6...` |
 | `auto.art-ui-001.tacmap-visual-grammar` | generated_heading | ART-UI-001 | TacMap visual grammar | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 48-64 | `9af824788409...` |
 | `auto.art-ui-001.ui-and-diagram-principle` | generated_heading | ART-UI-001 | UI and diagram principle | `docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md` | 29-32 | `77abe4662477...` |
 | `auto.auto-data-003.candidate-data-surfaces` | generated_heading | AUTO-DATA-003 | 5. Candidate data surfaces | `docs/nexus-game-source/source/Automation/Canon Homes/AUTO-DATA-003 - SRC-AUTO-003-Data-Model-and-Runtime-Source-Strategy.md` | 129-147 | `5beee86133e0...` |

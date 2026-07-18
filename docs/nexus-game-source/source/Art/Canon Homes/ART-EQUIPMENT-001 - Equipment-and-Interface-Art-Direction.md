@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Equipment and interface visual-direction language now follows domain-first boundaries without slot-era ownership phrasing. The 2026-07-17 review added an approved equipment-family concept reference."
+metadata_notes: "Phase 10 complete for the Art domain. Equipment and interface visual-direction language now follows domain-first boundaries without slot-era ownership phrasing. The 2026-07-17 review added an approved equipment-family concept reference and separated terminal world props from readable use-view software."
 ---
 
 # Equipment and Interface Art Direction
@@ -125,6 +125,15 @@ Interfaces should be readable and functional:
 - status colors used sparingly.
 
 Interface visuals should support DM/player understanding and should not bury key information in decorative noise.
+
+### Playable terminal presentation
+
+Treat a terminal as two connected visual surfaces:
+
+- **World view:** at the accepted near-overhead gameplay camera, the terminal is a small top-down interactable prop. Its silhouette, placement, status light, and interaction highlight communicate that it can be used; its physical screen content is not expected to be legible from that angle.
+- **Use view:** activating the terminal opens a readable computer-style interface at an appropriate screen scale. Present the terminal's software, information, permissions, available actions, and current system condition as an actual interface rather than magnifying the physical console face.
+
+The opened interface should be designed around the terminal's purpose. A medical station, access-control terminal, ship diagnostic console, evidence system, and industrial controller should not all collapse into the same generic panel with different colors.
 ## Equipment, interface, and system-surface update - 2026-05-15
 
 ### System Status visual support
@@ -146,5 +155,3 @@ Interface and sheet art should be able to display or support the current defensi
 `Defense | Shield | Armor | HP | Firewall`
 
 Icons should work across character sheets, TacMap overlays, and quick reference aids when possible. Equipment owns gear rules and Art owns visual language and asset guidance.
-
-

@@ -9,9 +9,9 @@
   "update_command": "corepack pnpm run source:slices",
   "check_command": "corepack pnpm run source:slices:check",
   "document_count": 191,
-  "slice_count": 1694,
-  "h2_section_count": 1642,
-  "h2_covered_count": 1642,
+  "slice_count": 1695,
+  "h2_section_count": 1643,
+  "h2_covered_count": 1643,
   "coverage_complete": true,
   "domain_counts": [
     {
@@ -22,7 +22,7 @@
     {
       "domain": "Art",
       "documents": 16,
-      "slices": 151
+      "slices": 152
     },
     {
       "domain": "Automation",
@@ -101,7 +101,7 @@
     },
     {
       "origin": "generated_heading",
-      "slices": 1530
+      "slices": 1531
     }
   ],
   "slices": [
@@ -4376,8 +4376,8 @@
       "heading": "Equipment, interface, and system-surface update - 2026-05-15",
       "heading_level": 2,
       "heading_anchor": "equipment-interface-and-system-surface-update-2026-05-15",
-      "start_line": 128,
-      "end_line": 151,
+      "start_line": 137,
+      "end_line": 158,
       "content_sha256": "c39f0c58e31426be8bd37a0bab9d4d6d1fb1fc01feb0ecc94035162b3fab345f",
       "source_role": "canon_home",
       "canon_status": "visual-direction",
@@ -4397,8 +4397,8 @@
       "heading_level": 2,
       "heading_anchor": "interface-art",
       "start_line": 115,
-      "end_line": 127,
-      "content_sha256": "969962ff6e82db7634dc5c2d32230ccdbd5bf38397f78a0f9e3e842e1b46ba53",
+      "end_line": 136,
+      "content_sha256": "22b9ac411c9204b208504045fd4858ba0f335b3ce5cc5483e51f26b21ab0b195",
       "source_role": "canon_home",
       "canon_status": "visual-direction",
       "doc_status": "working_draft",
@@ -6416,8 +6416,8 @@
       "heading": "Accessibility and phone usability",
       "heading_level": 2,
       "heading_anchor": "accessibility-and-phone-usability",
-      "start_line": 104,
-      "end_line": 112,
+      "start_line": 108,
+      "end_line": 116,
       "content_sha256": "150d8b1ca1122c433687ad2e272cc3ad85917d77169b4c744250d57141c181d2",
       "source_role": "canon_home",
       "canon_status": "visual-direction",
@@ -6486,6 +6486,26 @@
       "topic_family": "ui_diagram_and_tabletop_iconography_direction"
     },
     {
+      "slice_id": "auto.art-ui-001.interactable-computer-screens",
+      "slice_origin": "generated_heading",
+      "doc_id": "ART-UI-001",
+      "doc_title": "UI_Diagram_and_Tabletop_Iconography_Direction",
+      "domain": "Art",
+      "section": "Canon Homes",
+      "exact_repo_path": "docs/nexus-game-source/source/Art/Canon Homes/ART-UI-001 - UI-Diagram-and-Tabletop-Iconography-Direction.md",
+      "heading": "Interactable computer screens",
+      "heading_level": 2,
+      "heading_anchor": "interactable-computer-screens",
+      "start_line": 104,
+      "end_line": 107,
+      "content_sha256": "893df0b34d277f2be67afd30f897ec4a8b9964054341e461ed51457079e1b92e",
+      "source_role": "canon_home",
+      "canon_status": "visual-direction",
+      "doc_status": "working_draft",
+      "working_state": "domain_rebuild_full_migration",
+      "topic_family": "ui_diagram_and_tabletop_iconography_direction"
+    },
+    {
       "slice_id": "auto.art-ui-001.route-node-map-visual-grammar",
       "slice_origin": "generated_heading",
       "doc_id": "ART-UI-001",
@@ -6516,8 +6536,8 @@
       "heading": "TacMap iconography and SVG system update - 2026-05-15",
       "heading_level": 2,
       "heading_anchor": "tacmap-iconography-and-svg-system-update-2026-05-15",
-      "start_line": 113,
-      "end_line": 169,
+      "start_line": 117,
+      "end_line": 172,
       "content_sha256": "aaf3d5ab4fb6af56d4fb3a82f40d8be03e7b2f2fc0353cb674347cfa03a112f8",
       "source_role": "canon_home",
       "canon_status": "visual-direction",

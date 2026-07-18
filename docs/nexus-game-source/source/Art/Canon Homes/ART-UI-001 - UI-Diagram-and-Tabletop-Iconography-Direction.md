@@ -18,10 +18,10 @@ owns_topics:
   - 'ui_diagram_and_tabletop_iconography_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership."
+metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership. The 2026-07-17 review separated world-space terminal props from readable computer-style use interfaces."
 ---
 
 # UI Diagram and Tabletop Iconography Direction
@@ -101,6 +101,10 @@ Character sheets, crew cards, dashboards, and handouts should be built around re
 
 Art supports this; it should not overpower it.
 
+## Interactable computer screens
+
+World-space terminals remain small top-down props in the Location view. When the player uses one, open a readable computer-style interface instead of showing a close-up illustration of the terminal's physical panel. The interface may retain the device's institutional visual language, damage, access restrictions, or System Status, but its information architecture should follow the terminal's actual purpose and available actions.
+
 ## Accessibility and phone usability
 
 Any visual aid likely to be used on phone should:
@@ -165,4 +169,3 @@ Path lines may carry route/path status, including electrical, smoke, breach, loc
 - entry / exit.
 - unknown contact.
 - ally / enemy / elite / reinforcement.
-
