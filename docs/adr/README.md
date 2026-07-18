@@ -116,6 +116,9 @@ ADRs 0001–0034 were accepted on 2026-07-10 from the Grill with Docs revised-vi
 | [0090](0090-check-opportunities-are-team-aware-and-knowledge-safe.md) | Check Opportunities are team-aware and knowledge-safe |
 | [0091](0091-adaptive-checks-compose-existing-mechanics.md) | Adaptive Checks compose existing mechanics |
 | [0092](0092-special-result-bands-require-prevalidated-effects.md) | Special result bands require prevalidated effects |
+| [0093](0093-day-one-departed-locations-restore-committed-snapshots.md) | Day-one departed Locations restore committed snapshots |
+| [0094](0094-in-location-recruitment-preserves-a-three-character-field-team.md) | In-Location recruitment preserves a three-character Field Team |
+| [0095](0095-day-one-campaigns-use-one-rolling-autosave.md) | Day-one campaigns use one rolling autosave |
 
 ## Superseded decisions
 

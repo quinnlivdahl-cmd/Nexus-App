@@ -23,8 +23,8 @@ borrows_topics:
   - "character_recovery"
   - "character_build_structure"
 created: "2026-07-11"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
 metadata_notes: "Golden Truth Spatial Reconciliation #59. Reconciles the July 2026 accepted spatial-game decisions without inventing unresolved mechanics."
 ---
@@ -53,6 +53,8 @@ When an older source document conflicts with this model, this document controls 
 - Route Node Resolution occurs when the Field Team departs the Location or returns to the Ship, not when a combat container reports results.
 
 The authoritative Location persists through every transition. Actor positions, object state, hazards, objectives, discoveries, relationships, and committed consequences do not reset when the movement mode changes.
+
+Departure preserves the same spatial truth. Every extracting Crewmate and accepted recruit must be present at the departure point or have a validated safe route for Rally to Extraction; automatic pathing may traverse that route, but no departure rule teleports an actor. Leaving without a living Crewmate requires an explicit player decision and commits them as Stranded with their exact Actor State and last known Location rather than inferring death or Permanent Loss.
 
 <!-- source-slice: core.spatial.movement-and-position -->
 ## 3. Movement, interaction, and cover
@@ -88,10 +90,14 @@ The Campaign Director is a hidden adaptive system inside the Campaign Director H
 
 The Context Broker selects compact, traceable context for model calls. The Model Runtime may propose dialogue, description, interpretation, or future content. Deterministic rules and state services validate proposals and own commits. The Campaign Director cannot bypass mechanics, retcon committed truth, improvise authoritative Location geometry, force a predetermined result, or treat model memory as state.
 
+Campaign Save preserves each departed Location's committed snapshot. The day-one game prioritizes new Route Node Locations and does not present a backtracking loop; recovery or development tooling that reloads a departed Location restores that snapshot unchanged. Production backtracking, elapsed-time evolution, and Campaign Director adaptation remain unresolved. This reconciles [ADR-0093](../../../../adr/0093-day-one-departed-locations-restore-committed-snapshots.md).
+
 <!-- source-slice: core.spatial.ship-time -->
 ## 7. Downtime and the Ship
 
 **Downtime** is the location-neutral interval between Route Nodes. It supports recovery, loadouts, Field Team selection, relationships, recruitment, preparation, and Route Choice through in-world spaces and interactions rather than a mandatory menu or return-to-ship phase. Downtime may occur aboard the Ship or at another suitable Location. This reconciles [ADR-0043](../../../../adr/0043-downtime-is-location-neutral-between-route-nodes.md).
+
+The day-one vertical slice implements the Ship as its post-node Downtime Location. Continuing from the read-only Route Node End Report loads the persistent explorable Ship; this slice boundary does not make Ship return mandatory for later production content.
 
 When the campaign has a Ship, it is a persistent explorable home Location rather than a required identity or universal starting assumption. Player Character identity, the optional Captain role, Ship ownership, and command authority are separate concepts. This reconciles [ADR-0042](../../../../adr/0042-player-character-and-ship-ownership-are-separate.md).
 

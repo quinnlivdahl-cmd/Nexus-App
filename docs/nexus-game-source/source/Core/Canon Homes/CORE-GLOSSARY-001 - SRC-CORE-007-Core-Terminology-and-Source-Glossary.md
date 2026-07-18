@@ -54,6 +54,22 @@ The single player-owned primary character for a campaign. Player Character is an
 
 The current campaign party and support roster around the Player Character. Crewmates may be active Field Team members, support, recruits, contacts, retired characters, or other stateful characters depending on rules and campaign state. A Crew does not require a Ship.
 
+### Field Team
+
+The deployed party under direct player control, normally the Player Character and two selected Crewmates. An accepted in-Location recruit may replace one non-Player-Character member without expanding the Field Team; the displaced Crewmate remains present in the Location under separate support rules.
+
+### Location Support Assignment
+
+A committed in-Location duty held by a deployed Crewmate outside the active Field Team at their actual position when the assignment begins. The assignment never relocates the Crewmate; they provide only a grounded contextual benefit, retain ordinary actor state, and may become a Tactical Participant if danger reaches them. Changing the Field Team requires physically returning to their position during Free Movement.
+
+### Rally to Extraction
+
+A player-issued Local Aftermath order that sends non-Field-Team deployed actors along a validated safe route to the departure point. It may use automatic pathing but never teleports an actor; an actor without a safe route must be recovered or explicitly left behind with the resulting consequence committed.
+
+### Stranded Crewmate
+
+A living Crewmate deliberately left behind when the Field Team departs a Location. The character leaves the active Crew Roster but retains their identity, exact Actor State, last known Location, and known circumstances until committed evidence establishes rescue, capture, escape, Permanent Loss, or another outcome.
+
 <!-- source-slice: core.glossary.ship-phase -->
 ### Downtime
 
@@ -68,6 +84,14 @@ The campaign-scale travel structure through the solar system. Routes carry resou
 ### Route Node
 
 A campaign-scale playable stop realized as one persistent explorable Location. A Route Node can be a station, colony, derelict, orbital platform, moon settlement, asteroid site, ship contact, faction checkpoint, distress signal, research site, black-market dock, or anomaly.
+
+### Local Aftermath
+
+The in-Location phase after Tactical Pressure ends and before the Field Team departs. Free Movement resumes against the committed changed Location state; Route Node Resolution waits for deliberate departure or a committed forced-departure outcome.
+
+### Route Node Resolution
+
+The campaign-facing consolidation that occurs when the Field Team departs a Route Node Location. Departure does not require objective success; failed, abandoned, and unresolved objectives persist as committed outcomes alongside every other material consequence.
 
 <!-- source-slice: core.glossary.pre-node-procedure -->
 ### Deployment Preparation
@@ -106,7 +130,11 @@ A source doc or review packet that has been consolidated and is intended for dur
 
 ### Route Node End Report
 
-A compact report shown after a Route Node resolves and before Downtime or the next Route Choice. It confirms results, persistent aftermath, counters/clocks, crew/Ship/resource changes, open leads, save routing, and next-state options.
+A compact recap shown after a Route Node resolves and before Downtime or the next Route Choice. It presents already-committed results, persistent aftermath, counters/clocks, crew/Ship/resource changes, open leads, save routing, and next-state options; it cannot approve, revise, or defer those outcomes.
+
+### Campaign Autosave
+
+The campaign's single rolling durable checkpoint of committed Game Truth. It updates at consequence-bearing commits and stable active-Location checkpoints; players use Continue, Save & Quit, or export/import rather than selecting ordinary manual save slots or quickloads.
 
 ### Persistent Aftermath
 
