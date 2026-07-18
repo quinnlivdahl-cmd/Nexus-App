@@ -59,12 +59,13 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #107 | Launch one spatial-runtime tracer | ready | Integration Contract #30 implementation | none | Claim by assigning; implement the authoritative runtime tracer and shared codec seam |
+| #108 | Render and approve the production-intent seed | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; establish the reviewed presentation seed and semantic asset manifest |
+| #112 | Create a legal Level-0 Player Character draft | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; implement the pinned provisional Skill Tree draft tracer |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-18 by Codex during publication of Integration Contract #30 implementation children #107–#125. For exact current state, verify against GitHub.
+Last synced: 2026-07-18 by Codex during closeout of Launch one spatial-runtime tracer #107. For exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -88,12 +89,12 @@ All nineteen issues are native sub-issues of Integration Contract #30. GitHub's 
 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
-| #107 | Launch one spatial-runtime tracer | ready-for-agent | none | Initial frontier; establishes the shared runtime seam, codec, migration inventory, and root spatial commands |
-| #108 | Render and approve the production-intent seed | blocked task | #107 | First human product/art gate; production-intent seed and semantic asset manifest |
+| #107 | Launch one spatial-runtime tracer | done | none | Shared runtime seam, codec, migration inventory, root spatial commands, focused scenario, and manual browser tracer completed |
+| #108 | Render and approve the production-intent seed | ready-for-agent | #107 satisfied | First human product/art gate; production-intent seed and semantic asset manifest |
 | #109 | Traverse the authored three-area derelict | blocked task | #108 | Movement, facing, followers, authored navigation, and exploration camera |
 | #110 | Resolve and persist one authored Context Action | blocked task | #109 | First complete authoritative action transaction, checkpoint, failure-lite path, and Continue |
 | #111 | Resolve Intent Bar and Lattice behavior through the proven transaction | blocked task | #110 | Typed non-authoritative interpretation proposals and Lattice behavior |
-| #112 | Create a legal Level-0 Player Character draft | blocked task | #107 | Pinned provisional Skill Tree selection and validated draft only |
+| #112 | Create a legal Level-0 Player Character draft | ready-for-agent | #107 satisfied | Pinned provisional Skill Tree selection and validated draft only |
 | #113 | Select starting crew and atomically activate the campaign | blocked task | #110, #112 | One atomic PC, crew, preparation, source-version, and durable campaign activation |
 | #114 | Complete the richest-derelict exploration presentation | blocked task | #111, #113 | Second human product/art gate before Tactical and campaign expansion |
 | #115 | Prove the core Tactical Pressure tracer | blocked task | #114 | Core actor turn, Timing Entry, AP action, trigger clear, and Location return |
@@ -123,7 +124,7 @@ Use this section for tasks that should not be executed until a prerequisite is s
 
 | Issue | Title | Missing prerequisite | Blocking issue | Recommended action |
 |---|---|---|---|---|
-| #108–#125 | Integration Contract implementation sequence | Native predecessor issues remain open | GitHub native dependency graph beginning at #107 | Leave blocked children unassigned and without `status:ready-for-agent`; promote only the cleared frontier |
+| #109–#125 except #112 | Remaining Integration Contract implementation sequence | Native predecessor issues remain open | GitHub native dependency graph after #107 | Leave blocked children unassigned and without `status:ready-for-agent`; promote only the cleared frontier |
 
 ## Parked Work
 
@@ -142,7 +143,8 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
-| #30 | Integrate an implementation-ready vertical slice contract | Final contract published to the live issue body after direct user approval; it consolidates the new spatial-app boundary, runtime authority, validated fixtures, three-node campaign proof, provisional Skill Tree, bounded production-intent presentation, persistence and failure semantics, and headless plus manual acceptance seams; five-reviewer specification review found targeted issues that were fixed before publication | Implementation children #107–#125 are live as native sub-issues with 23 dependency edges; #107 is the only current ready frontier |
+| #107 | Launch one spatial-runtime tracer | New independently runnable React/Pixi spatial app; engine-owned command, event, snapshot, frame, revision, camera, selection, and semantic-animation runtime; versioned Campaign/Location codec; validated fixture; immutable projections; migration inventory; focused scenario; independent review; spatial and companion builds; workflow validation; and manual browser reproduction pass | #108 and #112 are the next parallel ready frontier |
+| #30 | Integrate an implementation-ready vertical slice contract | Final contract published to the live issue body after direct user approval; it consolidates the new spatial-app boundary, runtime authority, validated fixtures, three-node campaign proof, provisional Skill Tree, bounded production-intent presentation, persistence and failure semantics, and headless plus manual acceptance seams; five-reviewer specification review found targeted issues that were fixed before publication | Implementation children #107–#125 are live as native sub-issues with 23 dependency edges; #107 is complete and #108 plus #112 are the current ready frontier |
 | #28 | Define Local Aftermath, return-to-Ship, and save contracts | Accepted Local Aftermath, Route Node Resolution, recap, persistent Ship return, recruitment/support/Stranded, departed-Location snapshot, and rolling Campaign Autosave contract; ADR-0093 through ADR-0095 and canonical source reconciliation are current; source index, slice catalog, workflow validation, and independent standards/spec reviews pass | Consumed by Integration Contract #30; production backtracking, rescue generation, and departed-Location evolution remain explicitly unresolved |
 | #19 | Define Lattice opportunities, ticker, and partial consequences | Accepted decision contract, ADR-0089 through ADR-0092, and canonical Skills/Art reconciliation define knowledge-safe opportunities, adaptive rules-bound Checks, the nonmodal ticker, hidden Passive Check reporting, and prevalidated special-band consequences; source index, slice catalog, workflow validation, and independent standards/spec reviews pass | Consumed by Integration Contract #30; final ticker placement remains deferred |
 | #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | Actor rows now provide inline HP/SI number editing with Enter/blur commit and Escape cancel; rules-core clamping, down/revive transitions, normalized event logging, local persistence, encounter smoke tests, typecheck/build, and a live browser playtest all pass | The `nexus-companion` package path remains a legacy implementation identifier for the single Nexus Game product |

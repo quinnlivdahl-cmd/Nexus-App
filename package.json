@@ -16,6 +16,10 @@
     "source:skill-tree:check": "corepack pnpm --dir artifacts/nexus-companion exec tsx scripts/update-skill-tree-source.ts --check",
     "source:slices": "node scripts/update-source-slice-catalog.mjs",
     "source:slices:check": "node scripts/update-source-slice-catalog.mjs --check",
+    "spatial:dev": "vite --config artifacts/nexus-spatial/vite.config.ts --host 0.0.0.0",
+    "spatial:typecheck": "tsc --build lib/spatial-runtime --pretty false && tsc -p artifacts/nexus-spatial/tsconfig.json --noEmit --pretty false",
+    "spatial:build": "tsc --build lib/spatial-runtime && vite build --config artifacts/nexus-spatial/vite.config.ts",
+    "spatial:test": "tsx artifacts/nexus-spatial/scripts/run-scenario.ts",
     "context:pack:check": "node scripts/validate-context-pack.mjs",
     "context:runtime:check": "node scripts/validate-runtime-context-budget.mjs",
     "validate:workflow:tests": "node --test scripts/validate-nexus-workflow.test.mjs",
@@ -27,6 +31,8 @@
   "private": true,
   "devDependencies": {
     "prettier": "^3.8.3",
-    "typescript": "~5.9.3"
+    "tsx": "catalog:",
+    "typescript": "~5.9.3",
+    "vite": "catalog:"
   }
 }
