@@ -99,7 +99,7 @@ export type ContextBundleManifestEntry = {
 export type ContextBundleManifest = {
   projectId: string;
   audience: string;
-  status: "designed-not-published" | "published" | "stale";
+  status: "designed-not-published" | "published" | "stale" | "retired";
   version: string;
   sourceWorkflow: string;
   runtimeLane: string;

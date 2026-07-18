@@ -20,7 +20,7 @@ The following remain controlling:
 - Spatial actions use validated staged commits and observe mode changes only through deterministic system transactions.
 - Every participating actor with a standard activation rolls individual Initiative.
 - Enemy Tactical Directives may be proposed once at Tactical Pressure start, while deterministic local logic executes legal actions.
-- `docs/contexts/nexus-game/CONTEXT.md` and accepted ADRs indexed by `docs/adr/README.md` provide current product terminology and decision authority.
+- Relevant canonical source indexed by `docs/nexus-game-source/source/SOURCE-INDEX.md` provides current product terminology, while accepted ADRs indexed by `docs/adr/README.md` preserve controlling decisions and rationale.
 
 This contract does not rewrite `docs/nexus-game-source/source`. Conflicting source wording requires a separately authorized source-alignment task.
 

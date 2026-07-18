@@ -34,7 +34,7 @@
 
 ## Open questions
 
-- The curated Drive Context Bundle is represented as designed but not yet published; this correctly remains an explicit next action rather than an implied integration.
+- The former Drive mirror of current repo context is represented as retired; GitHub owns current GPT-readable documentation and Drive remains limited to bulky material.
 
 ## Implementation checklist
 

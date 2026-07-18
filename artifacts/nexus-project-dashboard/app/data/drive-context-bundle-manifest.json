@@ -1,78 +1,29 @@
 {
   "projectId": "nexus-game-project-control",
-  "audience": "Nexus owner and explicitly approved GPT planning sessions",
-  "status": "designed-not-published",
-  "version": "1.0.0",
+  "audience": "Historical dashboard compatibility and future bulky-material routing only",
+  "status": "retired",
+  "version": "1.1.0",
   "sourceWorkflow": "Project Control Snapshot Generator",
-  "runtimeLane": "Codex-prepared, owner-approved Drive publication",
-  "purpose": "Provide a small, traceable retrieval bundle for Nexus planning without requiring manual file attachment.",
-  "target": "Drive:Nexus Game/Project Control Context",
+  "runtimeLane": "Retired; GPT retrieves current documentation directly from GitHub",
+  "purpose": "Record that the planned Drive mirror of current repo documentation is retired.",
+  "target": "No current-doc publication target; Drive remains the bulky-material lane",
   "boundaries": [
-    "Curated declared inputs only; never dump or broadly search the repo.",
-    "Drive publication is a separate authenticated action and is not performed by snapshot generation.",
+    "Current documentation stays in GitHub and is retrieved from the repo.",
+    "Drive is limited to bulky payloads, exports, workbench outputs, and handoff bundles.",
     "GitHub Issues remain execution authority and canonical source remains game truth."
   ],
   "checks": [
-    "Recompute every entry hash and freshness before publication.",
-    "Require an explicit owner approval for create, replace, or withdraw operations.",
-    "Record returned Drive IDs only after verified publication."
+    "Keep the manifest entry list empty while the mirror remains retired.",
+    "Require explicit owner approval for any future Drive mutation.",
+    "Route current GPT context through the repo bridge and exact GitHub paths."
   ],
   "risks": [
-    "A published bundle can become stale after source changes.",
-    "Uncurated retrieval can mix planning evidence with canonical game truth."
+    "Restoring the mirror would create a stale competing copy of GitHub documentation.",
+    "Uncurated Drive retrieval can mix bulky historical payloads with current game truth."
   ],
-  "destinationPlan": "Create or refresh one curated Drive folder only after owner approval; preserve stable entry IDs and record returned Drive IDs in a separately reviewed publication result.",
+  "destinationPlan": "Do not publish current repo documentation to Drive. Use the maintained distributed-surfaces registry only when a task explicitly needs a bulky off-repo payload.",
   "approvalRequired": true,
-  "generatedAt": "2026-07-13T13:17:11.007Z",
+  "generatedAt": "2026-07-18T01:16:19.716Z",
   "lastVerified": "Not yet verified",
-  "entries": [
-    {
-      "id": "revised-vision",
-      "driveId": null,
-      "ownerPath": "Drive:Nexus Game/Project Control Context/Revised Vision",
-      "sourcePath": "docs/contexts/nexus-game/CONTEXT.md",
-      "sourceId": "vision",
-      "freshness": "fresh",
-      "hash": "a3f81b9c7471",
-      "authorityRole": "Product direction and accepted terminology",
-      "retrievalIntent": "Ground GPT planning in the current spatial-game vision and vocabulary.",
-      "publicationStatus": "pending"
-    },
-    {
-      "id": "canonical-source-index",
-      "driveId": null,
-      "ownerPath": "Drive:Nexus Game/Project Control Context/Canonical Source Index",
-      "sourcePath": "docs/nexus-game-source/source/SOURCE-INDEX.json",
-      "sourceId": "source",
-      "freshness": "fresh",
-      "hash": "09207526b43e",
-      "authorityRole": "Index into canonical game truth",
-      "retrievalIntent": "Route retrieval to a declared canonical source document rather than broad Drive search.",
-      "publicationStatus": "pending"
-    },
-    {
-      "id": "issue-index-mirror",
-      "driveId": null,
-      "ownerPath": "Drive:Nexus Game/Project Control Context/Issue Index Mirror",
-      "sourcePath": "NEXUS_ISSUE_INDEX.md",
-      "sourceId": "issues",
-      "freshness": "stale",
-      "hash": "faf9cb555bb0",
-      "authorityRole": "Stale local mirror of execution packets; verify against GitHub",
-      "retrievalIntent": "Supply queue context while forcing live GitHub verification before execution.",
-      "publicationStatus": "pending"
-    },
-    {
-      "id": "operations-contract",
-      "driveId": null,
-      "ownerPath": "Drive:Nexus Game/Project Control Context/Operations Contract",
-      "sourcePath": "docs/contexts/nexus-project-operations/CONTEXT.md",
-      "sourceId": "operations",
-      "freshness": "aging",
-      "hash": "cd44253d35d2",
-      "authorityRole": "Project Control authority and handoff boundaries",
-      "retrievalIntent": "Keep GPT recommendations inside the approved authority and approval model.",
-      "publicationStatus": "pending"
-    }
-  ]
+  "entries": []
 }

@@ -1,5 +1,9 @@
 # Nexus Game
 
+Status: historical revised-vision synthesis; deliberately retrievable and non-controlling
+
+This synthesis helped redirect Nexus toward the spatial RPG. Accepted decisions now live in canonical source and ADRs; this file preserves context and provenance only.
+
 The product context for the Nexus player experience, including its campaign structure, spatial play, crew progression, encounters, rules, presentation, and game state.
 
 Accepted system-wide decisions for this context are indexed in [`docs/adr/README.md`](../../adr/README.md). The index records status, date, provenance, and the boundary with canonical game source.

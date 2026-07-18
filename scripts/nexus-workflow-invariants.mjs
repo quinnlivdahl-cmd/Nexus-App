@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { dirname, relative, resolve, sep } from "node:path";
+import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { parseFrontmatter } from "./markdown-frontmatter.mjs";
 import {
@@ -13,12 +13,24 @@ const sourceRootPath = "docs/nexus-game-source/source";
 const workflowPaths = {
   repoAgents: "AGENTS.md",
   contextMap: "CONTEXT-MAP.md",
+  issueIndex: "NEXUS_ISSUE_INDEX.md",
+  issueTracker: "docs/agents/issue-tracker.md",
+  rootReadme: "README.md",
+  operatorGuide: "replit.md",
   adrRoot: "docs/adr",
   adrIndex: "docs/adr/README.md",
   planningRoot: "planning",
   planningPointer: "planning/README.md",
   bridgeRoot: "docs/chatgpt-project-bridge",
   bridgeManifest: "docs/chatgpt-project-bridge/BASELINE.json",
+  bridgeHandoffIndex: "docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md",
+  bridgeSyncIndex: "docs/chatgpt-project-bridge/synced-chats/SYNC-INDEX.md",
+  archiveRoot: "docs/archive",
+  archiveManifest: "docs/archive/ARCHIVE-INDEX.json",
+  dashboardSnapshot:
+    "artifacts/nexus-project-dashboard/app/data/project-snapshot.json",
+  dashboardDriveManifest:
+    "artifacts/nexus-project-dashboard/app/data/drive-context-bundle-manifest.json",
   distributedSurfaces: "docs/admin/nexus-distributed-surfaces.md",
   sourceReadme: "docs/nexus-game-source/README.md",
   packageJson: "package.json",
@@ -96,7 +108,9 @@ function isInside(root, path) {
   const candidate = relative(resolve(root), resolve(path));
   return (
     candidate === "" ||
-    (!candidate.startsWith("..") && !resolve(path).startsWith(".."))
+    (!isAbsolute(candidate) &&
+      !candidate.startsWith("..") &&
+      !resolve(path).startsWith(".."))
   );
 }
 
@@ -724,6 +738,124 @@ export function validatePlanningOwnership(root) {
   return failures;
 }
 
+function archiveRoutingFiles(root) {
+  const files = new Set(
+    [
+      workflowPaths.repoAgents,
+      workflowPaths.contextMap,
+      workflowPaths.issueIndex,
+      workflowPaths.issueTracker,
+      workflowPaths.rootReadme,
+      workflowPaths.operatorGuide,
+      workflowPaths.adrIndex,
+      workflowPaths.sourceReadme,
+      workflowPaths.planningPointer,
+      workflowPaths.bridgeHandoffIndex,
+      workflowPaths.bridgeSyncIndex,
+      workflowPaths.dashboardSnapshot,
+      workflowPaths.dashboardDriveManifest,
+    ]
+      .map((path) => resolve(root, path))
+      .filter((path) => existsSync(path)),
+  );
+  for (const path of activeBridgeFiles(root)) files.add(path);
+  for (const path of discoverFiles(
+    resolve(root, "docs/contexts"),
+    (path) => path.endsWith(".md"),
+  ))
+    files.add(path);
+  for (const path of discoverFiles(
+    resolve(root, "docs/agents"),
+    (path) => path.endsWith(".md"),
+  ))
+    files.add(path);
+  for (const path of discoverFiles(
+    resolve(root, workflowPaths.repoSkillRoot),
+    (path) => /\.(?:md|ya?ml)$/.test(path),
+  ))
+    files.add(path);
+  return [...files];
+}
+
+export function validateArchiveBoundary(root) {
+  const failures = [];
+  const manifestPath = resolve(root, workflowPaths.archiveManifest);
+  const archiveRoot = resolve(root, workflowPaths.archiveRoot);
+  if (!existsSync(manifestPath)) {
+    return [`archive: missing ${workflowPaths.archiveManifest}`];
+  }
+
+  let manifest;
+  try {
+    manifest = readJson(manifestPath);
+  } catch (error) {
+    return [`archive: invalid manifest JSON: ${error.message}`];
+  }
+  if (manifest.schema_version !== 1 || !Array.isArray(manifest.entries)) {
+    return ["archive: manifest requires schema_version 1 and entries array"];
+  }
+  if (manifest.classification !== "historical_reference") {
+    failures.push("archive: manifest classification must be historical_reference");
+  }
+  if (manifest.default_current_state_retrieval !== false) {
+    failures.push("archive: default current-state retrieval must be false");
+  }
+
+  const routingFiles = archiveRoutingFiles(root);
+  const seen = new Set();
+  for (const entry of manifest.entries) {
+    if (
+      !entry ||
+      typeof entry.path !== "string" ||
+      typeof entry.former_path !== "string" ||
+      !Array.isArray(entry.superseded_by) ||
+      entry.superseded_by.length === 0
+    ) {
+      failures.push("archive: every entry requires path, former_path, and superseded_by");
+      continue;
+    }
+    if (seen.has(entry.path)) {
+      failures.push(`archive: duplicate path ${entry.path}`);
+      continue;
+    }
+    seen.add(entry.path);
+
+    const archivedPath = resolve(root, entry.path);
+    if (!isInside(archiveRoot, archivedPath)) {
+      failures.push(`archive: path escapes archive root ${entry.path}`);
+    } else if (!existsSync(archivedPath)) {
+      failures.push(`archive: indexed file is missing ${entry.path}`);
+    }
+    const formerPath = resolve(root, entry.former_path);
+    if (!isInside(root, formerPath)) {
+      failures.push(`archive: former path escapes repo root ${entry.former_path}`);
+    } else if (existsSync(formerPath)) {
+      failures.push(`archive: superseded active path still exists ${entry.former_path}`);
+    }
+    for (const replacement of entry.superseded_by) {
+      if (typeof replacement !== "string") {
+        failures.push(`archive: replacement path must be a string for ${entry.path}`);
+        continue;
+      }
+      const replacementPath = resolve(root, replacement);
+      if (!isInside(root, replacementPath)) {
+        failures.push(`archive: replacement path escapes repo root ${replacement}`);
+      } else if (!existsSync(replacementPath)) {
+        failures.push(`archive: replacement path is missing ${replacement}`);
+      }
+    }
+    for (const path of routingFiles) {
+      const text = readText(path);
+      if (text.includes(entry.former_path) || text.includes(entry.path)) {
+        failures.push(
+          `archive: active route ${toRepoPath(root, path)} points to superseded material ${entry.former_path}`,
+        );
+      }
+    }
+  }
+  return failures;
+}
+
 function activePolicyFiles(root) {
   const files = new Set();
   for (const path of [
@@ -979,6 +1111,7 @@ export function validateWorkflowInvariants(root) {
     ...validateReferencedArtifacts(root),
     ...validateAuthorityRouter(root),
     ...validatePlanningOwnership(root),
+    ...validateArchiveBoundary(root),
     ...validateSkillRouting(root),
     ...validateBridgeArchitecture(root),
     ...validateRetiredPromotionReferences(root),

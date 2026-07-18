@@ -1,5 +1,8 @@
 # ChatGPT Handoff: Bridge Verification Next Work
 
+Status: historical packet; deliberately retrievable and non-controlling
+Current routing: use live GitHub Issues, current bridge indexes, canonical source, and accepted ADRs
+
 Date: 2026-06-21
 Prepared by: Steward / Google Docs handoff, received and verified by Codex
 Related issue or roadmap lane: ChatGPT Project bridge readiness / non-issue handoff

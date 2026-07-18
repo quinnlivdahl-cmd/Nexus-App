@@ -8,7 +8,7 @@ Provenance: accepted July 2026 Grill with Docs revised-vision decision session; 
 
 `docs/nexus-game-source/source` is the canonical current textual definition of Nexus. Accepted records in this directory are controlling decisions: when an ADR changes a domain-source claim, the ADR controls that affected claim until the owning source document is reconciled, while unrelated source material remains current.
 
-Reconciliation updates the owning domain document to express the accepted decision and cite the relevant ADR. After reconciliation, the domain document is the primary current-game reference and the ADR remains the durable explanation and provenance for the change. The [Nexus Game context](../contexts/nexus-game/CONTEXT.md) supplies shared product language; it does not replace domain source. Application code remains implementation authority, and source/code mismatches must be reported rather than resolved by implication.
+Reconciliation updates the owning domain document to express the accepted decision and cite the relevant ADR. After reconciliation, the domain document is the primary current-game reference and the ADR remains the durable explanation and provenance for the change. Canonical domain source supplies shared product language; the archived July 2026 synthesis remains decision provenance rather than a parallel glossary. Application code remains implementation authority, and source/code mismatches must be reported rather than resolved by implication.
 
 ## Conventions
 

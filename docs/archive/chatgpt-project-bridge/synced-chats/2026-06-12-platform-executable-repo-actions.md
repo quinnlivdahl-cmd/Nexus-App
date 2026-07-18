@@ -1,5 +1,8 @@
 # Synced Chat Packet: Platform-Executable Repo Actions
 
+Status: historical packet; deliberately retrievable and non-controlling
+Current routing: use live GitHub Issues, current bridge indexes, canonical source, and accepted ADRs
+
 Date: 2026-06-12
 Chat/topic title: Next action executable from ChatGPT platform and pushed to repo
 Prepared by: ChatGPT Project Steward mode

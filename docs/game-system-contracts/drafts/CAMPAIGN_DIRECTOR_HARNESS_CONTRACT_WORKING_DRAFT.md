@@ -8,7 +8,7 @@
 
 ## Purpose and authority
 
-This working draft preserves decisions approved during the issue #4 Grill with Docs session. It extends the accepted Nexus Game context and ADR baseline without treating unfinished interface details as decided. Canonical source, accepted ADRs, and the Nexus Game glossary remain the authority hierarchy described by `CONTEXT-MAP.md`.
+This working draft preserves decisions approved during the issue #4 Grill with Docs session. It extends canonical Nexus source and the accepted ADR baseline without treating unfinished interface details as decided. Canonical source and accepted ADRs remain the authority hierarchy described by `CONTEXT-MAP.md`.
 
 ## Scope freeze
 

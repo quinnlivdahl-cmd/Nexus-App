@@ -4,7 +4,7 @@ How Matt Pocock engineering skills should consume Nexus domain documentation bef
 
 ## Before exploring
 
-- Read root `CONTEXT-MAP.md` when it exists, then read each relevant context file.
+- Read root `CONTEXT-MAP.md`, then the relevant canonical source or project-operations context.
 - Read the decision conventions and accepted set in `docs/adr/README.md`, then the relevant system-wide decisions under `docs/adr/`.
 - Read context-specific ADRs linked by the relevant context file.
 - Read the current `AGENTS.md` instructions that apply to the target path.
@@ -13,7 +13,7 @@ If these files do not exist yet, proceed without complaint. `$grill-with-docs`, 
 
 ## Multi-context layout
 
-Nexus uses two top-level contexts:
+Nexus uses canonical game source plus one project-operations context:
 
 ```text
 /
@@ -21,8 +21,6 @@ Nexus uses two top-level contexts:
 ├── docs/
 │   ├── adr/                              # system-wide decisions
 │   └── contexts/
-│       ├── nexus-game/
-│       │   └── CONTEXT.md
 │       └── nexus-project-operations/
 │           └── CONTEXT.md
 ```
@@ -37,7 +35,7 @@ Current north star:
 
 > Nexus is a local-first 2D spatial sci-fi party RPG with a fixed Tilted Top-Down presentation. Exploration and noncombat play happen in persistent Locations, and Turn-Based Mode uses the same spatial runtime. Text supports the game rather than constituting it.
 
-This context includes product identity, gameplay, spatial exploration, combat, presentation, rules, lore, canonical game source, UI, runtime, API, state, persistence, and AI integration.
+Canonical domain source includes product identity, gameplay, spatial exploration, combat, presentation, rules, lore, state, persistence, and AI integration. The July 2026 context synthesis is archived after source reconciliation and remains available only as provenance.
 
 Preserve the authority distinction inside the context:
 
@@ -51,11 +49,11 @@ Current node movement, text-first non-combat play, roadmap assumptions, and issu
 
 `Nexus Project Operations` is the project-control context. It includes GitHub workflow, planning, agent behavior, source maintenance, validation, handoffs, roadmap maintenance, and project memory.
 
-GitHub Issues remain execution packets. The issue index, transition router, Obsidian project hub, and Drive payload home retain the supporting roles defined in root instructions and `docs/agents/issue-tracker.md`. The Local Playable Alpha plan and June roadmap remain retrievable only as historical planning evidence.
+GitHub Issues remain execution packets. The issue index, Obsidian project hub, and Drive payload home retain the supporting roles defined in root instructions and `docs/agents/issue-tracker.md`. Superseded transition and Local Playable Alpha material remains deliberately retrievable through `docs/archive`; the June roadmap remains separately classified historical context.
 
 ## Vocabulary and decisions
 
-- Use the vocabulary defined by the relevant context file. Do not drift to legacy names such as "companion app" when referring to the product.
+- Use the vocabulary defined by canonical source or the project-operations context. Do not drift to legacy names such as "companion app" when referring to the product.
 - If a needed concept is absent, reconsider whether it is project language or record a domain-modeling gap.
 - Put system-wide architectural decision records in `docs/adr/`. Link context-specific decisions from the owning context.
 - `docs/adr/` is the approved decision-record destination for the Matt workflow. Initial ADRs #24 is closed and superseded as historical setup context; do not create its proposed parallel `docs/admin/decision-records/` system.

@@ -36,9 +36,10 @@ When Codex creates a synced-chat packet for ChatGPT Project or Stewy to pull, Co
 | 2026-06-28 | `2026-06-28-issue-31-skill-ability-planning-exchange.md` | Skill/Ability Structure #31 planning exchange plus 2026-06-29 playable-first continuation | planning-only | Skill/Ability Structure #31 / Source and Play Document Tasks | Use as context for the narrow task packet at `docs/chatgpt-project-bridge/task-packets/2026-06-30-issue-31-skill-focus-tile-progression-math.md`; wait for Quintin approval before source/app/GitHub changes. |
 | 2026-06-27 | `2026-06-27-issue-31-skill-ability-structure.md` | Skill/Ability Structure #31 collaborative planning packet | planning-only | Skill/Ability Structure #31 / Source and Play Document Tasks | ChatGPT should summarize readiness, ask Quintin one focused design question, and wait. |
 | 2026-06-12 | `2026-06-12-weapons-branch-concept-watering.md` | Weapons branch concept watering; one-time synced-chat test for Seed brainstorming | planning-only | Sw — Weapons Branch / Seed routing enforcement evidence | Codex may inspect this as context only; future pure Seed brainstorming should usually route to a Seed daily log or Seed preservation surface unless there is cross-platform planning/evaluation need. |
-| 2026-06-12 | `2026-06-12-platform-executable-repo-actions.md` | Platform-executable ChatGPT-to-repo write loop | ready-for-Codex | ChatGPT Project bridge / synced-chat workflow | Codex may inspect this packet and decide whether to formalize a tiny platform repo-write recipe; no automation or source edits without fresh user approval. |
 | 2026-06-11 | `2026-06-11-handoff-automation-planning.md` | Handoff/synced-chat packet generator automation planning | planning-only | Workflow automation follow-up to Issue #43 | Planning chat should summarize readiness and shape a narrow implementation issue or task packet before Codex edits files. |
 | 2026-06-10 | `2026-06-10-issue-43-session-discipline-planning.md` | Issue #43 ChatGPT-Codex session discipline planning | planning-only | GitHub Issue #43 | Codex read-only discovery, then scoped implementation only after current user approval. |
+
+Superseded synced-chat workflow packets remain deliberately retrievable through `docs/archive/README.md`; they are excluded from this current packet index.
 
 ## Packet Template
 

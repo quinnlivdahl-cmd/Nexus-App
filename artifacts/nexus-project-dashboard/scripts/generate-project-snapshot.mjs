@@ -13,7 +13,7 @@ const repoRoot = path.resolve(siteRoot, "..", "..");
 const sourceDefinitions = [
   {
     id: "vision",
-    inputs: ["docs/adr/README.md", "docs/contexts/nexus-game/CONTEXT.md"],
+    inputs: ["docs/adr/README.md", "docs/nexus-game-source/source/SOURCE-INDEX.json"],
     freshnessBasis: "source-mtime",
   },
   {
@@ -168,7 +168,8 @@ async function refreshContextBundle(manifest, sourceById, now) {
       }),
     };
   }));
-  return { ...manifest, generatedAt: now, status: manifestStatusFor(entries), entries };
+  const status = manifest.status === "retired" ? "retired" : manifestStatusFor(entries);
+  return { ...manifest, generatedAt: now, status, entries };
 }
 
 const snapshot = JSON.parse(await readFile(output, "utf8"));

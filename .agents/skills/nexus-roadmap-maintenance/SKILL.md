@@ -15,7 +15,7 @@ This is the sole repo-local skill for `docs/nexus-roadmap`. The roadmap is histo
 
 ## Workflow
 
-1. Read `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, `NEXUS_ISSUE_TRANSITION.md`, and `docs/nexus-roadmap/README.md`.
+1. Read `AGENTS.md`, `NEXUS_ISSUE_INDEX.md`, live GitHub issue state, and `docs/nexus-roadmap/README.md`.
 2. Inspect canonical source before making current-game claims; do not infer canon from the roadmap.
 3. Update `docs/nexus-roadmap/ROADMAP.md` or roadmap linkage only within the requested scope.
 4. When lane-to-issue relationships change, update `scripts/update-roadmap-index.mjs`.

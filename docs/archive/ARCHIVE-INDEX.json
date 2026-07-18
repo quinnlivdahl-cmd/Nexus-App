@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "classification": "historical_reference",
+  "default_current_state_retrieval": false,
+  "entries": [
+    {
+      "path": "docs/archive/project-controls/NEXUS_ISSUE_TRANSITION.md",
+      "former_path": "NEXUS_ISSUE_TRANSITION.md",
+      "superseded_by": ["NEXUS_ISSUE_INDEX.md", "docs/agents/issue-tracker.md"]
+    },
+    {
+      "path": "docs/archive/project-controls/NEXUS_LOCAL_PLAYABLE_ALPHA.md",
+      "former_path": "NEXUS_LOCAL_PLAYABLE_ALPHA.md",
+      "superseded_by": ["docs/nexus-game-source/source/SOURCE-INDEX.md", "docs/adr/README.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/00-BOOTSTRAP.md",
+      "former_path": "docs/chatgpt-project-bridge/00-BOOTSTRAP.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/01-SLOT-MAP.md",
+      "former_path": "docs/chatgpt-project-bridge/01-SLOT-MAP.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+      "former_path": "docs/chatgpt-project-bridge/02-GLOBAL-PROJECT-INSTRUCTIONS.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/03-OPERATING-MODEL.md",
+      "former_path": "docs/chatgpt-project-bridge/03-OPERATING-MODEL.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+      "former_path": "docs/chatgpt-project-bridge/04-REFRESH-AND-READINESS-RULES.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+      "former_path": "docs/chatgpt-project-bridge/20-SOURCE-AUTHORITY-SUMMARY.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+      "former_path": "docs/chatgpt-project-bridge/90-OPEN-QUESTIONS-AND-CONTENT-PLAN.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/DRAFT_AGENT_MODE_WORKFLOW_RULES.json",
+      "former_path": "docs/chatgpt-project-bridge/DRAFT_AGENT_MODE_WORKFLOW_RULES.json",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", ".agents/skills/nexus-chatgpt-bridge/SKILL.md"]
+    },
+    {
+      "path": "docs/archive/revised-vision/CONTEXT.md",
+      "former_path": "docs/contexts/nexus-game/CONTEXT.md",
+      "superseded_by": ["docs/nexus-game-source/source/SOURCE-INDEX.md", "docs/adr/README.md"]
+    },
+    {
+      "path": "docs/archive/source-migration/phase-11-review/Domain Source Staging Result.md",
+      "former_path": "docs/nexus-game-source/phase-11-review/Domain Source Staging Result.md",
+      "superseded_by": ["docs/nexus-game-source/README.md", "docs/nexus-game-source/source/SOURCE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/source-migration/phase-11-review/Phase 11 Migration Readiness Review.md",
+      "former_path": "docs/nexus-game-source/phase-11-review/Phase 11 Migration Readiness Review.md",
+      "superseded_by": ["docs/nexus-game-source/README.md", "docs/nexus-game-source/source/SOURCE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/game-system-contracts/CAMPAIGN_DIRECTOR_HARNESS_SCOPE_FREEZE_HANDOFF.md",
+      "former_path": "docs/game-system-contracts/drafts/CAMPAIGN_DIRECTOR_HARNESS_SCOPE_FREEZE_HANDOFF.md",
+      "superseded_by": ["docs/game-system-contracts/drafts/CAMPAIGN_DIRECTOR_HARNESS_CONTRACT_WORKING_DRAFT.md", "docs/game-system-contracts/drafts/CAMPAIGN_DIRECTOR_HARNESS_AI_CONTRACT_rev0.1.md"]
+    },
+    {
+      "path": "docs/archive/workflows/repo-first-task-planning-workflow.md",
+      "former_path": "docs/admin/task-planning/repo-first-task-planning-workflow.md",
+      "superseded_by": ["docs/admin/task-planning/codex-session-discipline-workflow.md", "docs/agents/issue-tracker.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-10-nexus-self-learning-automation-research-prompt.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-10-nexus-self-learning-automation-research-prompt.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md", "docs/agents/issue-tracker.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-12-issue-40-effect-state-delta-grammar-drafting.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-12-issue-40-effect-state-delta-grammar-drafting.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/handoffs/HANDOFF-INDEX.md", "NEXUS_ISSUE_INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-14-source-drafting-consolidation-codex-handoff.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-14-source-drafting-consolidation-codex-handoff.md",
+      "superseded_by": ["docs/nexus-game-source/source/SOURCE-INDEX.md", "docs/adr/README.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-14-source-migration-closeout-review.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-14-source-migration-closeout-review.md",
+      "superseded_by": ["docs/nexus-game-source/README.md", "docs/nexus-game-source/source/SOURCE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/handoffs/2026-06-21-bridge-verification-next-work.md",
+      "former_path": "docs/chatgpt-project-bridge/handoffs/2026-06-21-bridge-verification-next-work.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/chatgpt-project-bridge/BRIDGE-INDEX.md"]
+    },
+    {
+      "path": "docs/archive/chatgpt-project-bridge/synced-chats/2026-06-12-platform-executable-repo-actions.md",
+      "former_path": "docs/chatgpt-project-bridge/synced-chats/2026-06-12-platform-executable-repo-actions.md",
+      "superseded_by": ["docs/chatgpt-project-bridge/PROJECT-INSTRUCTIONS.md", "docs/agents/issue-tracker.md"]
+    }
+  ]
+}

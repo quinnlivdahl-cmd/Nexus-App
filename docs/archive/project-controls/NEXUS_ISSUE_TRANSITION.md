@@ -1,10 +1,13 @@
 # Nexus Issue Transition
 
-Status: active transition router with a preserved historical queue snapshot
-Scope: Nexus App repo task routing
-Primary queue: GitHub Issues for `quinnlivdahl-cmd/Nexus-App`
+Status: historical transition snapshot; deliberately retrievable and non-controlling
+Current replacements: live GitHub Issues, `NEXUS_ISSUE_INDEX.md`, canonical source, and accepted ADRs
+
+The instructions below are preserved verbatim as provenance from the completed transition. Do not follow their read order or treat their paths as current routing.
 
 ## Purpose
+
+Historical note: this section describes the former transition workflow, not current operations.
 
 This document bridges the current local planning surfaces and the GitHub issue queue after the live domain-first source migration.
 
