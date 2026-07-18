@@ -59,11 +59,12 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
+| #107 | Launch one spatial-runtime tracer | ready | Integration Contract #30 implementation | none | Claim by assigning; implement the authoritative runtime tracer and shared codec seam |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-18 by Codex during Integration Contract #30 closeout. For exact current state, verify against GitHub.
+Last synced: 2026-07-18 by Codex during publication of Integration Contract #30 implementation children #107–#125. For exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -81,6 +82,32 @@ Last synced: 2026-07-18 by Codex during Integration Contract #30 closeout. For e
 | #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | map | child decisions | Final Integration Contract #30 is resolved; the map remains open pending explicit map closeout |
 | #68 | Complete Crew Archive pool and former-PC conversion design | related grilling | #11 satisfied; #32 related | Must reconcile accepted Crew Library, independent-instance, organic-recruitment, and promotion decisions from #11 |
 
+### Spatial Vertical Slice Implementation
+
+All nineteen issues are native sub-issues of Integration Contract #30. GitHub's native dependency graph is authoritative; only an unassigned issue whose blockers are closed may carry `status:ready-for-agent`.
+
+| Issue | Title | Queue role | Depends on | Notes |
+|---|---|---|---|---|
+| #107 | Launch one spatial-runtime tracer | ready-for-agent | none | Initial frontier; establishes the shared runtime seam, codec, migration inventory, and root spatial commands |
+| #108 | Render and approve the production-intent seed | blocked task | #107 | First human product/art gate; production-intent seed and semantic asset manifest |
+| #109 | Traverse the authored three-area derelict | blocked task | #108 | Movement, facing, followers, authored navigation, and exploration camera |
+| #110 | Resolve and persist one authored Context Action | blocked task | #109 | First complete authoritative action transaction, checkpoint, failure-lite path, and Continue |
+| #111 | Resolve Intent Bar and Lattice behavior through the proven transaction | blocked task | #110 | Typed non-authoritative interpretation proposals and Lattice behavior |
+| #112 | Create a legal Level-0 Player Character draft | blocked task | #107 | Pinned provisional Skill Tree selection and validated draft only |
+| #113 | Select starting crew and atomically activate the campaign | blocked task | #110, #112 | One atomic PC, crew, preparation, source-version, and durable campaign activation |
+| #114 | Complete the richest-derelict exploration presentation | blocked task | #111, #113 | Second human product/art gate before Tactical and campaign expansion |
+| #115 | Prove the core Tactical Pressure tracer | blocked task | #114 | Core actor turn, Timing Entry, AP action, trigger clear, and Location return |
+| #116 | Add advanced Tactical Pressure participation and continuity | blocked task | #115 | Full Field Team, initiative blocks, pausing, late entry, overlap, and exit invariants |
+| #117 | Resolve Route Node 0 through the persistent Ship | blocked task | #114 | First node, selected Ability, report, autosave, and persistent Ship return |
+| #118 | Advance to Level 1 and become Node-1 ready | blocked task | #117 | Validated advancement and durable Node-1 readiness |
+| #119 | Complete Route Node 1 with Tactical Pressure and recruitment | blocked task | #116, #118 | Advanced Tactical continuity plus campaign-local recruitment |
+| #120 | Complete Route Node 2 and the three-node campaign proof | blocked task | #119 | Third acceptance node, deliberate departure, report, Ship, and complete log |
+| #121 | Save, quit, and continue from every supported mode | blocked task | #120 | Exact restoration from all five supported modes |
+| #122 | Export and import one valid campaign atomically | blocked task | #121 | Portable package validation, migration fixture, and atomic replacement |
+| #123 | Recover honestly from persistence failures | blocked task | #121, #122 | Degraded durability plus recovery export/import round trip |
+| #124 | Keep generated performance non-authoritative under failure | blocked task | #120 | Shared proposal adapter, Director failure coverage, and deterministic fallbacks |
+| #125 | Prove the final tactical, aftermath, recovery, report, and Ship presentation | blocked task | #123, #124 | Final human product/art and full manual campaign-smoke gate |
+
 ### Support / Source / Play Documents
 
 | Issue | Title | Queue role | Depends on | Notes |
@@ -96,7 +123,7 @@ Use this section for tasks that should not be executed until a prerequisite is s
 
 | Issue | Title | Missing prerequisite | Blocking issue | Recommended action |
 |---|---|---|---|---|
-| TBD | TBD | TBD | TBD | Start or update a prerequisite task packet |
+| #108–#125 | Integration Contract implementation sequence | Native predecessor issues remain open | GitHub native dependency graph beginning at #107 | Leave blocked children unassigned and without `status:ready-for-agent`; promote only the cleared frontier |
 
 ## Parked Work
 
@@ -115,7 +142,7 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
-| #30 | Integrate an implementation-ready vertical slice contract | Final contract published to the live issue body after direct user approval; it consolidates the new spatial-app boundary, runtime authority, validated fixtures, three-node campaign proof, provisional Skill Tree, bounded production-intent presentation, persistence and failure semantics, and headless plus manual acceptance seams; five-reviewer specification review found targeted issues that were fixed before publication | Dependency-aware implementation-ticket planning follows separately; production implementation remains out of scope for this closed decision ticket |
+| #30 | Integrate an implementation-ready vertical slice contract | Final contract published to the live issue body after direct user approval; it consolidates the new spatial-app boundary, runtime authority, validated fixtures, three-node campaign proof, provisional Skill Tree, bounded production-intent presentation, persistence and failure semantics, and headless plus manual acceptance seams; five-reviewer specification review found targeted issues that were fixed before publication | Implementation children #107–#125 are live as native sub-issues with 23 dependency edges; #107 is the only current ready frontier |
 | #28 | Define Local Aftermath, return-to-Ship, and save contracts | Accepted Local Aftermath, Route Node Resolution, recap, persistent Ship return, recruitment/support/Stranded, departed-Location snapshot, and rolling Campaign Autosave contract; ADR-0093 through ADR-0095 and canonical source reconciliation are current; source index, slice catalog, workflow validation, and independent standards/spec reviews pass | Consumed by Integration Contract #30; production backtracking, rescue generation, and departed-Location evolution remain explicitly unresolved |
 | #19 | Define Lattice opportunities, ticker, and partial consequences | Accepted decision contract, ADR-0089 through ADR-0092, and canonical Skills/Art reconciliation define knowledge-safe opportunities, adaptive rules-bound Checks, the nonmodal ticker, hidden Passive Check reporting, and prevalidated special-band consequences; source index, slice catalog, workflow validation, and independent standards/spec reviews pass | Consumed by Integration Contract #30; final ticker placement remains deferred |
 | #15 | Add HP / SI editing to actor rows so the GM can track damage during a session | Actor rows now provide inline HP/SI number editing with Enter/blur commit and Escape cancel; rules-core clamping, down/revive transitions, normalized event logging, local persistence, encounter smoke tests, typecheck/build, and a live browser playtest all pass | The `nexus-companion` package path remains a legacy implementation identifier for the single Nexus Game product |
