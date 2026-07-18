@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-18"
 last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched concepts. The 2026-07-18 review added the approved hybrid pixel-grammar comparison and prototype-grounded FREE/TBE interaction view."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched concepts. The 2026-07-18 review added the approved hybrid pixel-grammar comparison and a provisional prototype-informed FREE/TBE interaction concept."
 ---
 
 # Concept Art Library Index
@@ -272,10 +272,10 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Direction carried forward: use C's larger, calmer grouped pixel construction as the base grammar; apply A-level fine material and wear detail selectively to focal characters, active interfaces, important props, and other intended points of inspection.
 - Readability rule: environmental richness should come from construction, silhouette, and layered assemblies before surface noise. Palette changes must not carry the main burden of rendering-style differentiation.
 
-### Prototype-grounded FREE/TBE interaction view
+### Prototype-informed FREE/TBE interaction view
 
 - Asset: [`concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png`](<concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png>)
-- Status: approved gameplay-camera and interaction-highlight reference; not a finished Location, actor set, prop kit, or interface skin.
-- Direction carried forward: match Movement + Camera Prototype #13's implemented near-plan projection, with floor depth near `0.985` of width and vertical extrusion near `0.328` of its conventional shallow-isometric baseline; show actors primarily from above rather than through frontal portrait anatomy.
-- State mapping: FREE shows the ordinary spatial view; TBE preserves the same projection and scene while making interactable target objects with currently available actions immediately legible. The cyan treatment does not mark canonical actor approach `Interaction Positions`.
+- Status: illustrative and provisional camera depiction; approved only for the TBE target-highlight treatment described below. It is not gameplay-camera authority, proof of a true `10-degree` projection, a finished Location, actor set, prop kit, or interface skin.
+- Camera boundary: the Movement + Camera Prototype #13 implementation and projection checks remain authoritative. This generated image only approximates the intended near-plan reading and must not be used to measure or validate the angle.
+- State mapping: FREE and TBE retain the same illustrative view and scene relative to each other while TBE makes interactable target objects with currently available actions immediately legible. This panel-to-panel consistency does not validate the exact prototype projection. The cyan treatment does not mark canonical actor approach `Interaction Positions`.
 - Highlight rule: align cyan brackets or perimeters to each target's projected footprint and rotation, keep the line outside the silhouette, and enlarge it when needed to prevent overlap; do not introduce node paths or movement grids.

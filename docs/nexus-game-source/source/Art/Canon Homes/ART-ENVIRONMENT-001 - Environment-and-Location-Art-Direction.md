@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-18"
 last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Environment and location visual-direction language now follows domain-first boundaries and preserved-reference handling. The 2026-07-18 review clarified the prototype's implemented projection math and approved TBE interaction-highlight geometry."
+metadata_notes: "Phase 10 complete for the Art domain. Environment and location visual-direction language now follows domain-first boundaries and preserved-reference handling. The 2026-07-18 review clarified the prototype's implemented projection math and TBE interaction-highlight geometry, while keeping generated camera concepts non-authoritative."
 ---
 
 # Environment and Location Art Direction
@@ -53,7 +53,9 @@ For art and prompt translation, preserve the prototype's implemented projection 
 
 Concept sheets intended to represent playable spaces must use this camera. Cinematic Live Illustrations may use other perspectives when they are not being presented as the player's spatial view.
 
-Approved reference sheet: [gameplay environment perspective concept — 2026-07-17](../Reference%20Inputs/concepts/2026-07-17/nexus-gameplay-environment-perspective-concept-2026-07-17.png).
+The playable prototype implementation and its projection checks are the sole authority for the exact angle and projection. Generated images cannot prove that they are mechanically true to `10 degrees`; they may illustrate the intended near-plan reading but must not be used to measure, validate, or override the prototype projection.
+
+Illustrative perspective concept, not projection proof: [gameplay environment perspective concept — 2026-07-17](../Reference%20Inputs/concepts/2026-07-17/nexus-gameplay-environment-perspective-concept-2026-07-17.png).
 
 ### Turn-based interaction highlighting
 
@@ -65,7 +67,7 @@ During Turn-Based Mode, interactable targets with currently available actions sh
 - use slightly enlarged, higher-contrast treatment so availability registers immediately at gameplay scale;
 - do not use node paths, movement grids, or unrelated route overlays to communicate availability.
 
-Approved applied reference: [prototype-grounded FREE/TBE interaction view — 2026-07-18](../Reference%20Inputs/concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png).
+Illustrative interaction-treatment concept, not camera validation: [prototype-informed FREE/TBE interaction view — 2026-07-18](../Reference%20Inputs/concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png).
 
 ## Ships
 
