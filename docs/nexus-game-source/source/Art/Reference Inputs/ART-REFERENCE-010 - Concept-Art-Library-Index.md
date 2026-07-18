@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-18"
 last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched concepts. The 2026-07-18 review added the approved hybrid pixel-grammar comparison."
+metadata_notes: "Phase 10 complete for the Art domain. The concept-art index now serves as a domain-first reference locator rather than a package-era carryover. The 2026-07-16 review preserved favored Vatborn and Tier 3 Chassis concepts plus approved Splicer and Upload embodiment comparisons. The 2026-07-17 review added the selected quadrupedal utility-sleeve screen-face concept and approved C-POH/frontier, Treaty/corporate, Upload micro-polity, Choir-affected institution, and individual Signal-touched concepts. The 2026-07-18 review added the approved hybrid pixel-grammar comparison and prototype-grounded FREE/TBE interaction view."
 ---
 
 # Concept Art Library Index
@@ -271,3 +271,11 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Mapping: A tests refined micro-cluster realism across the full environment; C tests a chunky technical-mosaic treatment on the same machinery, floor, cases, tool cart, and interaction point.
 - Direction carried forward: use C's larger, calmer grouped pixel construction as the base grammar; apply A-level fine material and wear detail selectively to focal characters, active interfaces, important props, and other intended points of inspection.
 - Readability rule: environmental richness should come from construction, silhouette, and layered assemblies before surface noise. Palette changes must not carry the main burden of rendering-style differentiation.
+
+### Prototype-grounded FREE/TBE interaction view
+
+- Asset: [`concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png`](<concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png>)
+- Status: approved gameplay-camera and interaction-highlight reference; not a finished Location, actor set, prop kit, or interface skin.
+- Direction carried forward: match Movement + Camera Prototype #13's implemented near-plan projection, with floor depth near `0.985` of width and vertical extrusion near `0.328` of its conventional shallow-isometric baseline; show actors primarily from above rather than through frontal portrait anatomy.
+- State mapping: FREE shows the ordinary spatial view; TBE preserves the same projection and scene while making interactable target objects with currently available actions immediately legible. The cyan treatment does not mark canonical actor approach `Interaction Positions`.
+- Highlight rule: align cyan brackets or perimeters to each target's projected footprint and rotation, keep the line outside the silhouette, and enlarge it when needed to prevent overlap; do not introduce node paths or movement grids.

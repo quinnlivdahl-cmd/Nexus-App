@@ -18,10 +18,10 @@ owns_topics:
   - 'prompt_library_and_variant_rules'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-17"
-last_reviewed: "2026-07-17"
+last_updated: "2026-07-18"
+last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language now follows the domain-first model while preserving direction-vs-production workflow guidance. The 2026-07-17 review grounded playable Location prompts in the accepted Movement + Camera Prototype #13 projection."
+metadata_notes: "Phase 10 complete for the Art domain. Prompt-library language now follows the domain-first model while preserving direction-vs-production workflow guidance. The 2026-07-17 review grounded playable Location prompts in the accepted Movement + Camera Prototype #13 projection. The 2026-07-18 review added the implemented projection ratios and object-aligned TBE highlight rule."
 ---
 
 # Prompt Library and Variant Rules
@@ -192,7 +192,7 @@ Create a cohesive SVG-compatible sprite sheet of tabletop TacMap icons for Nexus
 
 ### TacMap collage prototype prompt skeleton
 
-Create a NASApunk Location-view prototype for `[LOCATION]` using the accepted gameplay projection: orthographic, fixed at 10 degrees from true overhead, with world east/west mapped directly to screen left/right and world north/south mapped directly to screen up/down. Do not rotate the floor plane into a diamond, isometric, or three-quarter view. World-axis-aligned geometry must stay screen-axis-aligned; preserve any supplied diagonal or curved authored geometry as authored. Show primarily top surfaces with only shallow vertical extrusion. Show supplied walkable geometry, Areas, passages, objectives, hazards, exits, Interaction Positions, Cover Positions, actors, and state markers over an engulfing environmental backdrop. Tactical readability is more important than illustration polish. Do not crop for phone display. Preserve supplied authoritative geometry and structured state; do not invent either.
+Create a NASApunk Location-view prototype for `[LOCATION]` using the accepted gameplay projection: orthographic, fixed at 10 degrees from true overhead, with world east/west mapped directly to screen left/right and world north/south mapped directly to screen up/down. Match the prototype's implemented projection: world depth uses `cos(10 degrees)`, approximately `0.985`, so floor squares remain almost square; vertical extrusion uses `sin(10 degrees) / sin(32 degrees)`, approximately `0.328`, relative to the prototype's conventional shallow-isometric baseline. Do not rotate the floor plane into a diamond, isometric, or three-quarter view. World-axis-aligned geometry must stay screen-axis-aligned; preserve any supplied diagonal or curved authored geometry as authored. Show overwhelmingly top surfaces with only thin side faces. Actors should read primarily from crown, shoulders, upper back, and top silhouette rather than portrait-readable frontal torsos. Show supplied walkable geometry, Areas, passages, objectives, hazards, exits, Interaction Positions, Cover Positions, actors, and state markers over an engulfing environmental backdrop. During Turn-Based Mode, highlight interactable targets with currently available actions using high-contrast brackets or perimeters aligned to each target object's projected footprint and rotation; do not highlight the adjacent actor approach destination or canonical `Interaction Position`; keep the treatment outside the target silhouette, enlarging it when needed to avoid overlap; do not add node paths or movement grids. Tactical readability is more important than illustration polish. Do not crop for phone display. Preserve supplied authoritative geometry and structured state; do not invent either.
 
 ### Repair prompt rule
 

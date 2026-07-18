@@ -18,10 +18,10 @@ owns_topics:
   - 'environment_and_location_art_direction'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-17"
-last_reviewed: "2026-07-17"
+last_updated: "2026-07-18"
+last_reviewed: "2026-07-18"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Environment and location visual-direction language now follows domain-first boundaries and preserved-reference handling."
+metadata_notes: "Phase 10 complete for the Art domain. Environment and location visual-direction language now follows domain-first boundaries and preserved-reference handling. The 2026-07-18 review clarified the prototype's implemented projection math and approved TBE interaction-highlight geometry."
 ---
 
 # Environment and Location Art Direction
@@ -44,9 +44,28 @@ The accepted Movement + Camera Prototype #13 projection is the authoritative vis
 - show primarily the tops of actors, furniture, machinery, and architecture, with only shallow vertical extrusion for height and material readability;
 - Free Movement and turn-based encounters use the same viewing angle; Tactical Pressure may pull the camera back without changing the projection.
 
+For art and prompt translation, preserve the prototype's implemented projection behavior rather than treating `10 degrees` as generic slight-isometric language:
+
+- world-depth projection is `cos(10 degrees)`, approximately `0.985`, so floor squares remain almost square and there is almost no depth compression;
+- vertical extrusion is scaled by `sin(10 degrees) / sin(32 degrees)`, approximately `0.328`, relative to the prototype's conventional shallow-isometric baseline;
+- actors read primarily from crown, shoulders, upper back, and top silhouette rather than through portrait-readable frontal torsos;
+- furniture, machinery, and walls show overwhelmingly top surfaces with only thin side faces.
+
 Concept sheets intended to represent playable spaces must use this camera. Cinematic Live Illustrations may use other perspectives when they are not being presented as the player's spatial view.
 
 Approved reference sheet: [gameplay environment perspective concept — 2026-07-17](../Reference%20Inputs/concepts/2026-07-17/nexus-gameplay-environment-perspective-concept-2026-07-17.png).
+
+### Turn-based interaction highlighting
+
+During Turn-Based Mode, interactable targets with currently available actions should receive a clear, high-contrast highlight. The highlight marks the usable target object, not its adjacent actor approach destination or canonical `Interaction Position`, and is a gameplay affordance rather than a permanent part of the environment art.
+
+- align brackets or perimeter treatments to the target's projected floor-plane footprint and orientation;
+- rotate or skew the treatment with angled equipment instead of placing a screen-aligned rectangle across it;
+- keep the perimeter outside the target silhouette with consistent breathing room; if exact footprint alignment is impractical, enlarge the treatment enough that it does not overlap the equipment;
+- use slightly enlarged, higher-contrast treatment so availability registers immediately at gameplay scale;
+- do not use node paths, movement grids, or unrelated route overlays to communicate availability.
+
+Approved applied reference: [prototype-grounded FREE/TBE interaction view — 2026-07-18](../Reference%20Inputs/concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png).
 
 ## Ships
 
