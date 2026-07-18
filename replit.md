@@ -102,7 +102,7 @@ Current local blocker noted by Codex on 2026-06-08:
 
 The current finish line is the canonical spatial vertical-slice target in `CORE-PILLARS-001` section 8. It proves a coherent short campaign through persistent explorable Locations, in-world noncombat interaction, Tactical Pressure in the same spatial runtime, deterministic rules and state, progression or recruitment, recoverable local saves, and generated-performance fallback.
 
-Spatial Vertical Slice Map #57 coordinates the required decisions and prototype evidence. Integration Contract #30 will define the exact production implementation boundary; this operator guide must not invent that contract.
+Spatial Vertical Slice Map #57 coordinates the required decisions and prototype evidence. The resolved Integration Contract #30 defines the exact production implementation boundary; this operator guide must not invent or silently expand that contract.
 
 ## User Preferences
 
