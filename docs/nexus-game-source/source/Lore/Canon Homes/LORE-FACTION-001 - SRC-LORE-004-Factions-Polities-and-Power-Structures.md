@@ -18,10 +18,10 @@ owns_topics:
   - 'factions_polities_and_power_structures'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-06-08"
-last_reviewed: "2026-06-08"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-004 to LORE-FACTION-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active faction frame without relying on slot-era wording."
+metadata_notes: "Phase 9 normalized doc_id and placement metadata from LORE-CORE-004 to LORE-FACTION-001. Phase 10 consolidated body routing into domain-first language, repaired inherited display corruption, and preserved the active faction frame without relying on slot-era wording. The 2026-07-17 review added compact Upload-polity substrate and protection-dependence range."
 ---
 
 # Factions, Polities, and Power Structures
@@ -124,6 +124,10 @@ Upload persons concern identity, continuity, copies, forks, rights, death, conse
 
 Upload polities concern server-habitats, compute, energy dependence, cooling, defense, diplomacy, raids, deletion risks, blockades, substrate law, and strategic bargaining.
 
+Physical substrate size does not map cleanly to polity population or importance. Nexus-era compute may allow the primary substrate of some Upload polities to fit into a room, equipment bay, or even a wardrobe-scale armored core, while others occupy immense legacy or strategic server habitats.
+
+Extreme compactness does not erase infrastructure or security dependence. A tiny polity still needs power, heat management, communications, maintenance, backups, physical agency, and protection against seizure or deletion. A wardrobe-scale polity cannot remain secure as a casually exposed standalone core; it requires a larger security envelope or protective relationship through a sovereign enclave, hosting treaty, allied sanctuary, armed carrier, federated defense, or another credible arrangement. Those relationships can preserve sovereignty while also creating leverage, dependency, and conflict.
+
 <!-- source-slice: lore.faction.frontier-independent-habitats -->
 ## Frontier and independent habitats
 
@@ -135,5 +139,3 @@ They are an ideal mission scale because small crews can still matter there.
 ## Campaign-derived lore caution
 
 Heliomed, E43, Nereid-3, Voss, Rill, C-WARDEN, Ternary Lock, Special Review Detachment, and other campaign materials are source candidates and campaign state evidence. They should not be promoted wholesale into general lore without later review.
-
-

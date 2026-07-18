@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added approved C-POH/frontier and Treaty/corporate faction-range concepts plus faction-range and no-steampunk rules."
+metadata_notes: "Phase 10 complete for the Art domain. NASApunk visual-direction language now follows domain-first boundaries and avoids slot-era ownership phrasing. The 2026-07-17 review added approved C-POH/frontier, Treaty/corporate, and Upload micro-polity range concepts plus faction-range and no-steampunk rules."
 ---
 
 # NASApunk Cyber Noir Design Language
@@ -111,6 +111,10 @@ Treaty/System Authority concepts should show interoperability across bodies, dep
 
 Corporate-sovereignty concepts should vary by company, sector, body, and service ecosystem. Habitat construction, biotechnology, identity/logistics, compute, implant, and Upload-service institutions may have radically different silhouettes and palettes. Their shared visual logic is proprietary integration: matched components, service lockouts, credential dependence, ecosystem-specific connectors, ownership/service marks, excellent fit, and difficulty surviving outside authorized support. Corporate art should not collapse into one megacorp uniform, luxury fashion, or generic villain styling.
 
+![Approved Upload micro-polity protection concept](<../Reference Inputs/concepts/2026-07-17/nexus-upload-micro-polity-protection-concept-2026-07-17.png>)
+
+Upload-polity visuals may range from immense server habitats to wardrobe-scale sovereign cores. Physical size should not be used as a direct shorthand for population, intelligence, legitimacy, or strategic importance. Compact cores still need visible relationships to power, cooling, communications, maintenance, redundancy, evacuation, and defense. A wardrobe-scale polity cannot credibly read as an exposed standalone core; it requires a larger security envelope or protective relationship such as a sovereign enclave, allied sanctuary, armed carrier, or collective defense structure. These arrangements are visual range examples, not finalized legal categories.
+
 ## TacMap/collage extension - 2026-05-15
 
 TacMap and diagram assets should translate NASApunk cyber-noir into a schematic language:
@@ -125,4 +129,3 @@ TacMap and diagram assets should translate NASApunk cyber-noir into a schematic 
 ### Icon and marker tone
 
 Use compact practical shapes that feel like signage, maintenance glyphs, hard-suit labels, industrial warning tags, or pressure-system schematics. The icon language should feel like it could exist inside the Nexus setting, but it must still function as a tabletop play aid.
-

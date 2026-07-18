@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling and added Japanese-anime character models to the avoid list."
+metadata_notes: "Phase 10 complete for the Art domain. Visual-style language now follows domain-first boundaries and preserves tabletop-readability guidance. The 2026-07-17 review separated modern diesel-industrial wear from prohibited steampunk and retro-futurist styling, added Japanese-anime character models to the avoid list, and clarified dense-detail hierarchy."
 ---
 
 # Nexus Visual Style Bible
@@ -52,7 +52,22 @@ Diesel-industrial grit means weight, wear, repair burden, and mixed generations 
 
 When visuals support play, clarity beats cinematic beauty. Tactical nodes, icons, routes, labels, hazards, objectives, extraction points, and actor positions must be readable before they are beautiful.
 
-### 5. Contact mystery
+### 5. Dense detail with hierarchy
+
+Nexus should remain densely pixelated and heavily detailed, but detail must reward inspection rather than demand constant decoding. Avoid distributing the same micro-contrast across every seam, cable, fastener, stain, and panel until the image reads like static or becomes tiring to look at.
+
+Build detail in perceptual layers:
+
+- establish the silhouette and largest material masses first;
+- group secondary machinery, wear, cables, and construction systems into readable clusters;
+- preserve quieter material fields and lower-contrast areas where the eye can rest;
+- concentrate the sharpest contrast and smallest detail around faces, hands, interfaces, hazards, interaction points, and other intended focal areas;
+- let some texture merge at normal viewing size while keeping the important form legible;
+- test concepts both enlarged and at likely gameplay or sourcebook display size.
+
+Not every detail needs to register individually. The overall object, material hierarchy, focal information, and usable affordances do.
+
+### 6. Contact mystery
 
 Alien-signal or Choir-related visuals should feel like black-box anomalies rather than standard glowing alien magic. Use interference, impossible signal geometry, corrupted medical/industrial displays, and subtle synchronization rather than fantasy runes.
 
