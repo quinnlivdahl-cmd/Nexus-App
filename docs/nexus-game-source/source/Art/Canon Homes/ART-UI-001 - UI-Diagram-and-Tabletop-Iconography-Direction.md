@@ -107,6 +107,10 @@ World-space terminals remain small top-down props in the Location view. When the
 
 This presentation guidance does not decide whether terminal interaction pauses player input, simulation, or action resolution.
 
+![Approved terminal popup over live Location concept](<../Reference Inputs/concepts/2026-07-17/nexus-terminal-popup-over-live-location-concept-2026-07-17.png>)
+
+The approved concept establishes the layered presentation, purpose-specific computer interface, continued visibility of the live Location, and unobscured sprite movement in the visible portion. It does not approve the exact popup size, position, layout, map, controls, or fictional facility details. The popup may be larger than the example while preserving a meaningful visible portion of the game screen and materially lower information density than a full-screen desktop application.
+
 ## Accessibility and phone usability
 
 Any visual aid likely to be used on phone should:
