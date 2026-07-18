@@ -22,7 +22,17 @@ const workflowPaths = {
   distributedSurfaces: "docs/admin/nexus-distributed-surfaces.md",
   sourceReadme: "docs/nexus-game-source/README.md",
   packageJson: "package.json",
+  repoSkillRoot: ".agents/skills",
+  repoSkillDefinition: "SKILL.md",
+  repoSkillMetadata: "agents/openai.yaml",
+  issueTemplateRoot: ".github/ISSUE_TEMPLATE",
+  scriptsRoot: "scripts",
+  invariantModule: "nexus-workflow-invariants.mjs",
+  invariantTests: "validate-nexus-workflow.test.mjs",
+  sourceIndex: `${sourceRootPath}/SOURCE-INDEX.json`,
+  sliceCatalog: `${sourceRootPath}/SOURCE-SLICES.json`,
 };
+const repoSkillReferencePattern = /\.agents\/skills\/([a-z0-9-]+)\/SKILL\.md/g;
 const requiredBridgeRoles = [
   "authority_currentness",
   "context_packet_requirement",
@@ -241,7 +251,7 @@ export function validateSliceCatalogData(catalog, sourceIndex, root) {
     const source = sourceByPath.get(slice.exact_repo_path);
     if (!source) {
       failures.push(
-        `source-slices: ${label} points outside SOURCE-INDEX.json: ${slice.exact_repo_path}`,
+        `source-slices: ${label} points outside ${workflowPaths.sourceIndex}: ${slice.exact_repo_path}`,
       );
       continue;
     }
@@ -426,9 +436,7 @@ export function validateSourceReconciliation(root) {
 }
 
 function repoSkillRefs(text) {
-  return [...text.matchAll(/\.agents\/skills\/([a-z0-9-]+)\/SKILL\.md/g)].map(
-    (match) => match[1],
-  );
+  return [...text.matchAll(repoSkillReferencePattern)].map((match) => match[1]);
 }
 
 export function validateSkillRouting(root) {
@@ -436,7 +444,7 @@ export function validateSkillRouting(root) {
   const agentsPath = resolve(root, workflowPaths.repoAgents);
   if (!existsSync(agentsPath)) return ["routing: missing repo-root AGENTS.md"];
   const routedSkills = new Set(repoSkillRefs(readText(agentsPath)));
-  const skillRoot = resolve(root, ".agents/skills");
+  const skillRoot = resolve(root, workflowPaths.repoSkillRoot);
   const actualSkills = existsSync(skillRoot)
     ? readdirSync(skillRoot, { withFileTypes: true })
         .filter((entry) => entry.isDirectory())
@@ -451,16 +459,26 @@ export function validateSkillRouting(root) {
       );
   }
   for (const skill of routedSkills) {
-    const skillPath = resolve(skillRoot, skill, "SKILL.md");
-    const metadataPath = resolve(skillRoot, skill, "agents/openai.yaml");
+    const skillPath = resolve(
+      skillRoot,
+      skill,
+      workflowPaths.repoSkillDefinition,
+    );
+    const metadataPath = resolve(
+      skillRoot,
+      skill,
+      workflowPaths.repoSkillMetadata,
+    );
     if (!existsSync(skillPath)) {
       failures.push(
-        `routing: dispatched skill is missing .agents/skills/${skill}/SKILL.md`,
+        `routing: dispatched skill is missing ${workflowPaths.repoSkillRoot}/${skill}/${workflowPaths.repoSkillDefinition}`,
       );
       continue;
     }
     if (!existsSync(metadataPath))
-      failures.push(`routing: ${skill} is missing agents/openai.yaml`);
+      failures.push(
+        `routing: ${skill} is missing ${workflowPaths.repoSkillMetadata}`,
+      );
     const metadata = parseFrontmatter(readText(skillPath));
     if (metadata.name !== skill)
       failures.push(
@@ -483,9 +501,19 @@ function activeBridgeFiles(root) {
   const manifestPath = resolve(root, workflowPaths.bridgeManifest);
   if (!existsSync(manifestPath)) return [];
   try {
-    return normalizedArray(readJson(manifestPath).files).map((entry) =>
-      resolve(root, workflowPaths.bridgeRoot, entry.path),
-    );
+    const bridgeRoot = resolve(root, workflowPaths.bridgeRoot);
+    return normalizedArray(readJson(manifestPath).files)
+      .filter(
+        (entry) =>
+          entry && typeof entry === "object" && typeof entry.path === "string",
+      )
+      .map((entry) => resolve(bridgeRoot, entry.path))
+      .filter(
+        (path) =>
+          isInside(bridgeRoot, path) &&
+          path.endsWith(".md") &&
+          existsSync(path),
+      );
   } catch {
     return [];
   }
@@ -520,6 +548,16 @@ export function validateBridgeArchitecture(root) {
   const roleOwners = new Map(requiredBridgeRoles.map((role) => [role, []]));
   const bridgeRoot = resolve(root, workflowPaths.bridgeRoot);
   for (const entry of entries) {
+    if (!entry || typeof entry !== "object") {
+      failures.push("bridge: baseline entry must be an object");
+      continue;
+    }
+    if (typeof entry.path !== "string" || !Array.isArray(entry.roles)) {
+      failures.push(
+        "bridge: baseline entry requires a string path and roles array",
+      );
+      continue;
+    }
     if (!entry.path || seenPaths.has(entry.path)) {
       failures.push(`bridge: duplicate or missing baseline path ${entry.path}`);
       continue;
@@ -583,7 +621,14 @@ export function validateReferencedArtifacts(root) {
   for (const skill of repoSkillRefs(
     existsSync(routingFiles[0]) ? readText(routingFiles[0]) : "",
   )) {
-    routingFiles.push(resolve(root, `.agents/skills/${skill}/SKILL.md`));
+    routingFiles.push(
+      resolve(
+        root,
+        workflowPaths.repoSkillRoot,
+        skill,
+        workflowPaths.repoSkillDefinition,
+      ),
+    );
   }
   for (const path of routingFiles) {
     if (!existsSync(path)) continue;
@@ -605,7 +650,7 @@ export function validateReferencedArtifacts(root) {
     }
   }
 
-  const issueTemplateRoot = resolve(root, ".github/ISSUE_TEMPLATE");
+  const issueTemplateRoot = resolve(root, workflowPaths.issueTemplateRoot);
   const issueTemplates = discoverFiles(issueTemplateRoot, (path) =>
     /\.ya?ml$/.test(path),
   );
@@ -697,16 +742,18 @@ function activePolicyFiles(root) {
   )) {
     if (!isInside(canonicalSourceRoot, path)) files.add(path);
   }
-  for (const path of discoverFiles(resolve(root, ".agents/skills"), (path) =>
-    /\.(?:md|ya?ml)$/.test(path),
+  for (const path of discoverFiles(
+    resolve(root, workflowPaths.repoSkillRoot),
+    (path) => /\.(?:md|ya?ml)$/.test(path),
   ))
     files.add(path);
-  for (const path of discoverFiles(resolve(root, "scripts"), (path) =>
-    path.endsWith(".mjs"),
+  for (const path of discoverFiles(
+    resolve(root, workflowPaths.scriptsRoot),
+    (path) => path.endsWith(".mjs"),
   )) {
     if (
-      !path.endsWith("nexus-workflow-invariants.mjs") &&
-      !path.endsWith("validate-nexus-workflow.test.mjs")
+      !path.endsWith(workflowPaths.invariantModule) &&
+      !path.endsWith(workflowPaths.invariantTests)
     )
       files.add(path);
   }
@@ -941,23 +988,23 @@ export function validateWorkflowInvariants(root) {
     ...validateObsidianPointerSurface(root),
   ];
 
-  const sourceIndexPath = resolve(root, sourceRootPath, "SOURCE-INDEX.json");
-  const sliceCatalogPath = resolve(root, sourceRootPath, "SOURCE-SLICES.json");
+  const sourceIndexPath = resolve(root, workflowPaths.sourceIndex);
+  const sliceCatalogPath = resolve(root, workflowPaths.sliceCatalog);
   let sourceIndex = { files: [] };
   if (!existsSync(sourceIndexPath))
-    failures.push("source-index: missing SOURCE-INDEX.json");
+    failures.push(`source-index: missing ${workflowPaths.sourceIndex}`);
   else {
     try {
       sourceIndex = readJson(sourceIndexPath);
       failures.push(...validateSourceIndexData(sourceIndex, root));
     } catch (error) {
       failures.push(
-        `source-index: could not parse SOURCE-INDEX.json: ${error.message}`,
+        `source-index: could not parse ${workflowPaths.sourceIndex}: ${error.message}`,
       );
     }
   }
   if (!existsSync(sliceCatalogPath))
-    failures.push("source-slices: missing SOURCE-SLICES.json");
+    failures.push(`source-slices: missing ${workflowPaths.sliceCatalog}`);
   else {
     try {
       failures.push(
@@ -969,7 +1016,7 @@ export function validateWorkflowInvariants(root) {
       );
     } catch (error) {
       failures.push(
-        `source-slices: could not parse SOURCE-SLICES.json: ${error.message}`,
+        `source-slices: could not parse ${workflowPaths.sliceCatalog}: ${error.message}`,
       );
     }
   }

@@ -15,6 +15,7 @@ import {
   validateSliceCatalogData,
   validateSourceIndexData,
   validateSourceReconciliation,
+  validateWorkflowInvariants,
 } from "./nexus-workflow-invariants.mjs";
 import {
   applicabilityValues,
@@ -96,7 +97,7 @@ test("source and slice indexes reject missing and inconsistent routes", () => {
     };
     const failures = validateSliceCatalogData(catalog, index, f.root);
     assert.ok(
-      failures.some((failure) => failure.includes("outside SOURCE-INDEX.json")),
+      failures.some((failure) => failure.includes("points outside")),
     );
   } finally {
     f.cleanup();
@@ -218,6 +219,63 @@ test("bridge invariants allow baseline files to be renamed and reorganized", () 
       }),
     );
     assert.deepEqual(validateBridgeArchitecture(f.root), []);
+  } finally {
+    f.cleanup();
+  }
+});
+
+test("whole workflow reports malformed and missing bridge entries without throwing", () => {
+  const f = fixture();
+  try {
+    f.write(
+      "package.json",
+      JSON.stringify({
+        scripts: Object.fromEntries(
+          [
+            "source:index:check",
+            "source:slices:check",
+            "context:pack:check",
+            "context:runtime:check",
+            "roadmap:index:check",
+            "validate:workflow",
+          ].map((name) => [name, "node scripts/noop.mjs"]),
+        ),
+      }),
+    );
+    f.write("scripts/noop.mjs", "process.exit(0);\n");
+    f.write("AGENTS.md", "Start with `CONTEXT-MAP.md`.\n");
+    f.write(
+      "CONTEXT-MAP.md",
+      "Canonical source: `docs/nexus-game-source/source`.\n\n[ADRs](docs/adr/README.md)\n",
+    );
+    f.write("docs/adr/README.md", "# Decisions\n");
+    f.write("planning/README.md", "Status: pointer only\n");
+    f.write(".github/ISSUE_TEMPLATE/task.yml", "name: Task\n");
+    f.write("docs/admin/nexus-distributed-surfaces.md", "# Owner pointer\n");
+    f.write(
+      "docs/chatgpt-project-bridge/BASELINE.json",
+      JSON.stringify({
+        schema_version: 1,
+        files: [
+          {
+            path: "missing.md",
+            roles: ["authority_currentness", "context_packet_requirement"],
+          },
+          null,
+        ],
+      }),
+    );
+    const failures = validateWorkflowInvariants(f.root);
+    assert.ok(
+      failures.some((failure) =>
+        failure.includes("baseline path does not exist missing.md"),
+      ),
+    );
+    assert.ok(
+      failures.some((failure) =>
+        failure.includes("baseline entry must be an object"),
+      ),
+    );
   } finally {
     f.cleanup();
   }
