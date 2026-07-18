@@ -74,7 +74,7 @@ Known files:
 - `dm_mode_encounter_play_icon_concept_sheet_rev1.jpg`
 - `nexus_dm_mode_icon_key.txt`
 
-Status: concept / pending Art-UI integration / not canon.
+Status: preserved concept / rejected as final visual direction / not canon. The 2026-07-17 review routed final icons to a dedicated SVG pass and selected industrial stencil only as the starting direction.
 
 Preserved note: the key belongs with the image and should not be treated as a standalone rules source.
 
@@ -139,9 +139,11 @@ Future work should produce or update:
 
 ### `Nexus_TacMap_Icon_Starter_Kit_2026-05-14_rev0.1/`
 
-Status: asset kit / canon candidate / evidence.
+Status: preserved asset kit / rejected as final visual direction / workflow evidence.
 
 Contains individual SVG icons, a sprite sheet, preview PNGs, and a test composition. The kit is useful for repeatable TacMap icon language and should be preserved in an Obsidian asset folder. It should not be treated as final mechanical doctrine.
+
+The 2026-07-17 visual review found the generic thin-line symbols too placeholder-like for Nexus. Preserve the kit's SVG-first, reusable-asset, CSS-variable, and composition approach; do not carry its icon drawings forward as the final visual family. A later dedicated SVG production pass should begin from heavy industrial-stencil silhouettes and validate icons at actual use sizes.
 
 Included icon families observed in the intake package:
 

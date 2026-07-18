@@ -21,7 +21,7 @@ created: "2026-05-14"
 last_updated: "2026-07-17"
 last_reviewed: "2026-07-17"
 metadata_verified: true
-metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership. The 2026-07-17 review separated world-space terminal props from readable computer-style use interfaces."
+metadata_notes: "Phase 10 complete for the Art domain. UI, diagram, and iconography language now follows domain-first boundaries and keeps visual guidance distinct from mechanics and play-aid ownership. The 2026-07-17 review separated world-space terminal props from readable computer-style use interfaces and routed final icon work to a dedicated SVG pass."
 ---
 
 # UI Diagram and Tabletop Iconography Direction
@@ -85,6 +85,12 @@ A preserved DM Mode Encounter-Play Icon Concept Package exists in the old asset 
 Preserved icon concepts include TacMap, Node, Connected Route, Cover, Half Cover, High Ground, Hazard, Interactable, Objective, Extraction, Initiative, Turn Order, Move, Attack, Ability, Reaction, Overwatch, Suppress, Aim, Assist, Skill Check, Opposed Check, Hidden Option Revealed, and Consequence.
 
 This icon concept package is not final. It should be used as preservation/reference material for future Art Mode, DM Mode, TacMap, and interface drafting.
+
+### Icon-kit review — 2026-07-17
+
+The preserved TacMap Icon Starter Kit rev0.1 is not the basis for final icon visuals. Its generic thin-line symbols read as placeholder or basic paint-tool output rather than authored Nexus iconography. Preserve it as workflow evidence for SVG reuse and compositing, not as the visual target.
+
+The **industrial stencil** lane is the preferred starting direction for a later dedicated icon pass: heavy silhouettes, cut-corner housings, hazard-strip segmentation, and hard institutional signage. This preference does not approve a concept sheet or individual icon. Final icons require an SVG-first production and legibility pass at their actual game, tabletop, and phone sizes rather than further concept-art generation.
 
 ## Character sheets and dashboards
 

@@ -18,8 +18,8 @@ owns_topics:
   - 'art_open_questions'
 borrows_topics: []
 created: "2026-05-14"
-last_updated: "2026-07-16"
-last_reviewed: "2026-07-16"
+last_updated: "2026-07-17"
+last_reviewed: "2026-07-17"
 metadata_verified: true
 metadata_notes: "Phase 10 complete for the Art domain. Open-question routing now follows domain-first boundaries while preserving unresolved asset and workflow questions."
 ---
@@ -42,7 +42,7 @@ metadata_notes: "Phase 10 complete for the Art domain. Open-question routing now
 
 ## Icon and UI questions
 
-1. Should the DM Mode Encounter-Play Icon Concept Package become the basis for the final icon system?
+1. RESOLVED 2026-07-17: no preserved concept package or starter-kit visual becomes the final icon basis. Begin a dedicated SVG pass from the industrial-stencil direction and test at actual display sizes.
 2. Which icons are needed for DM live play versus player-facing handouts?
 3. Should TacMap icons be monochrome, limited-palette, or full-color?
 4. Should Route Node maps and TacMaps share one icon family?
