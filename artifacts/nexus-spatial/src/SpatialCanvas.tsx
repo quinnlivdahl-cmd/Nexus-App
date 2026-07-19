@@ -1,5 +1,5 @@
 import type { SpatialRuntime } from "@workspace/spatial-runtime";
-import { Application, Container, Graphics, Sprite, Text, TilingSprite, type Texture } from "pixi.js";
+import { Application, Container, Graphics, NineSliceSprite, Sprite, Text, TilingSprite, type Texture } from "pixi.js";
 import { useEffect, useRef } from "react";
 import {
   MISSING_ASSET_FALLBACK_ID,
@@ -14,6 +14,10 @@ import {
 import { loadProductionSeedTextures, textureFor } from "./productionSeedTextures.js";
 
 const REFERENCE_ACTOR_ASSET = "nexus.seed.actor.field-silhouette.v1";
+// The frame's visible metal border is roughly 95 native pixels. At this scale it
+// reads as about 1.2 gameplay units at the default 24px/unit reference density.
+const ROOM_SHELL_PRESENTATION_SCALE = 0.32;
+const ROOM_SHELL_SLICE = { left: 210, top: 145, right: 210, bottom: 145 } as const;
 
 interface SceneLayout {
   readonly unit: number;
@@ -26,7 +30,7 @@ function pixel(value: number): number {
 }
 
 function sceneLayout(width: number, height: number): SceneLayout {
-  const unit = pixel(Math.max(16, Math.min(28, (width - 64) / 36, (height - 92) / 10)));
+  const unit = pixel(Math.max(16, Math.min(36, (width - 64) / 36, (height - 92) / 10)));
   return {
     unit,
     left: pixel((width - unit * 36) / 2),
@@ -94,33 +98,30 @@ function addTiledRaster(
   return raster;
 }
 
-function addWallRaster(
+function addRoomShell(
   scene: Container,
   texture: Texture,
   x: number,
   y: number,
-  length: number,
-  thickness: number,
-  unit: number,
-  vertical: boolean,
+  width: number,
+  height: number,
+  label: string,
 ) {
-  const raster = new TilingSprite({
+  const shell = new NineSliceSprite({
     texture,
-    width: pixel(length),
-    height: pixel(thickness),
-    tileScale: {
-      x: pixel(unit * 12) / texture.width,
-      y: pixel(thickness) / texture.height,
-    },
+    leftWidth: ROOM_SHELL_SLICE.left,
+    topHeight: ROOM_SHELL_SLICE.top,
+    rightWidth: ROOM_SHELL_SLICE.right,
+    bottomHeight: ROOM_SHELL_SLICE.bottom,
+    width: pixel(width / ROOM_SHELL_PRESENTATION_SCALE),
+    height: pixel(height / ROOM_SHELL_PRESENTATION_SCALE),
+    x: pixel(x),
+    y: pixel(y),
     roundPixels: true,
   });
-  if (vertical) {
-    raster.position.set(pixel(x + thickness), pixel(y));
-    raster.rotation = Math.PI / 2;
-  } else {
-    raster.position.set(pixel(x), pixel(y));
-  }
-  scene.addChild(raster);
+  shell.scale.set(ROOM_SHELL_PRESENTATION_SCALE);
+  shell.label = label;
+  scene.addChild(shell);
 }
 
 function drawArea(
@@ -134,7 +135,7 @@ function drawArea(
   const width = pixel(area.width * layout.unit);
   const height = pixel(area.height * layout.unit);
   const floor = rasterTexture(textures, area.floorAssetId, index === 1 ? "worn-panel" : "default");
-  const wall = rasterTexture(textures, area.wallAssetId, index === 1 ? "service-run" : "default");
+  const wall = rasterTexture(textures, area.wallAssetId, "default");
   const tilePixels = layout.unit * 12;
 
   if (floor) {
@@ -144,32 +145,13 @@ function drawArea(
   }
 
   if (wall) {
-    const thickness = Math.max(12, pixel(layout.unit * 0.92));
-    addWallRaster(scene, wall, x, y, width, thickness, layout.unit, false);
-    addWallRaster(scene, wall, x, y + height - thickness, width, thickness, layout.unit, false);
-    addWallRaster(scene, wall, x, y, height, thickness, layout.unit, true);
-    addWallRaster(scene, wall, x + width - thickness, y, height, thickness, layout.unit, true);
+    addRoomShell(scene, wall, x, y, width, height, `${area.label} room shell`);
   } else {
     const border = new Graphics().rect(x, y, width, height).stroke({ color: 0xe552d5, width: 3 });
     border.label = `Missing asset fallback for ${area.label} wall`;
     scene.addChild(border);
   }
 
-  const label = area.label.toUpperCase();
-  const labelFontSize = Math.max(10, pixel(layout.unit * 0.42));
-  const labelX = pixel(x + layout.unit * 1.15);
-  const labelY = pixel(index === 1 ? y + height - layout.unit * 2.1 : y + layout.unit * 1.08);
-  const labelWidth = pixel(label.length * labelFontSize * 0.68 + 16);
-  scene.addChild(new Graphics()
-    .roundRect(labelX - 7, labelY - 5, labelWidth, labelFontSize + 11, 2)
-    .fill({ color: 0x05090b, alpha: 0.76 })
-    .stroke({ color: 0x354247, width: 1 }));
-  scene.addChild(new Text({
-    text: label,
-    style: { fill: 0xaeb9ba, fontFamily: "ui-monospace, monospace", fontSize: labelFontSize, fontWeight: "700", letterSpacing: 1.4 },
-    x: labelX,
-    y: labelY,
-  }));
 }
 
 function drawHazardSubstrate(

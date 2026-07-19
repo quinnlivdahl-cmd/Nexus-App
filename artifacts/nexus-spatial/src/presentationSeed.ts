@@ -5,6 +5,7 @@ export const MISSING_ASSET_FALLBACK_ID = "nexus.seed.fallback.missing-asset.v1" 
 export type ProductionSeedAssetId =
   | "nexus.seed.floor.industrial-mosaic.v1"
   | "nexus.seed.wall.pressure-bulkhead.v1"
+  | "nexus.seed.wall.pressure-room-shell.v2"
   | "nexus.seed.door.pressure-slab.v1"
   | "nexus.seed.actor.field-silhouette.v1"
   | "nexus.seed.prop.relay-console.v1"
@@ -32,7 +33,7 @@ export interface ProductionSeedAsset {
     | "marker"
     | "fallback";
   readonly outputStatus: AssetCanonStatus;
-  readonly version: "1.1.0";
+  readonly version: "1.1.0" | "2.0.0";
   readonly provenance: {
     readonly baselineCommit: "2ca033bb81f9b77497a5d420b2584434fa185238";
     readonly createdForIssue: 108;
@@ -70,21 +71,35 @@ const baselineReferenceAssets = [
   "nexus-terminal-popup-over-live-location-concept-2026-07-17.png",
 ] as const;
 
-const sharedProvenance = {
+const selectedRoomShellReference = "production-intent-user-selected-target-2026-07-19.png" as const;
+
+const v1Provenance = {
   baselineCommit: "2ca033bb81f9b77497a5d420b2584434fa185238",
   createdForIssue: 108,
   sourceDocs: baselineSourceDocs,
   referenceAssets: baselineReferenceAssets,
 } as const;
 
+const roomShellProvenance = {
+  ...v1Provenance,
+  referenceAssets: [selectedRoomShellReference] as const,
+} as const;
+
+const manifestProvenance = {
+  ...v1Provenance,
+  referenceAssets: [...baselineReferenceAssets, selectedRoomShellReference] as const,
+} as const;
+
 function asset(
   value: Omit<ProductionSeedAsset, "outputStatus" | "version" | "provenance" | "fallbackAssetId">,
+  version: ProductionSeedAsset["version"] = "1.1.0",
+  provenance: ProductionSeedAsset["provenance"] = v1Provenance,
 ): ProductionSeedAsset {
   return {
     ...value,
     outputStatus: "canon candidate",
-    version: "1.1.0",
-    provenance: sharedProvenance,
+    version,
+    provenance,
     fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
   };
 }
@@ -115,10 +130,10 @@ const cyanPalette = {
 
 export const PRODUCTION_SEED_MANIFEST = deepFreeze({
   manifestId: "nexus.production-intent-seed",
-  version: "1.1.0",
+  version: "2.0.0",
   outputStatus: "canon candidate" as AssetCanonStatus,
   immutableAfterApproval: ["assetId", "fallbackAssetId", "anchor", "saveFacingMeaning"],
-  provenance: sharedProvenance,
+  provenance: manifestProvenance,
   scale: {
     worldUnitPixelsAtReference: 24,
     referenceViewport: { width: 1440, height: 900 },
@@ -141,6 +156,14 @@ export const PRODUCTION_SEED_MANIFEST = deepFreeze({
       states: ["default", "warning-band", "service-run"],
       palette: industrialPalette,
     }),
+    "nexus.seed.wall.pressure-room-shell.v2": asset({
+      assetId: "nexus.seed.wall.pressure-room-shell.v2",
+      role: "wall",
+      scale: { worldUnits: 12, mosaicPixelStep: 4 },
+      anchor: { horizontal: "left", vertical: "top", offsetWorldUnits: { x: 0, y: 0 } },
+      states: ["default"],
+      palette: industrialPalette,
+    }, "2.0.0", roomShellProvenance),
     "nexus.seed.door.pressure-slab.v1": asset({
       assetId: "nexus.seed.door.pressure-slab.v1",
       role: "door",
@@ -264,7 +287,7 @@ export function buildProductionSeedScene(
       width: area.bounds.width,
       height: area.bounds.height,
       floorAssetId: resolve("nexus.seed.floor.industrial-mosaic.v1"),
-      wallAssetId: resolve("nexus.seed.wall.pressure-bulkhead.v1"),
+      wallAssetId: resolve("nexus.seed.wall.pressure-room-shell.v2"),
     })),
     doors: projection.doors.map((door) => ({
       id: door.id,

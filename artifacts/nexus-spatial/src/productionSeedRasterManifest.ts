@@ -53,6 +53,7 @@ function raster(
 
 const floorPath = "assets/production-seed/v1/environment/industrial-floor-tile.png";
 const wallPath = "assets/production-seed/v1/environment/pressure-bulkhead-wall.png";
+const roomShellPath = "assets/production-seed/v2/environment/pressure-room-shell-frame.png";
 const doorPath = "assets/production-seed/v1/environment/pressure-door-slab.png";
 const serviceChannelPath = "assets/production-seed/v1/environment/service-channel-live-conduit.png";
 const actorPath = "assets/production-seed/v1/focal/field-lead-east-idle.png";
@@ -71,6 +72,9 @@ export const PRODUCTION_SEED_RASTER_MANIFEST = deepFreeze({
     raster("nexus.seed.wall.pressure-bulkhead.v1", "default", "wall", [1717, 158], true, { horizontal: "left", vertical: "top" }, wallPath, "62cbaf9b515f6f9c9b9037db1b682b14303618d5352a80b89545a7f2a82f9a5b"),
     raster("nexus.seed.wall.pressure-bulkhead.v1", "warning-band", "wall", [1717, 158], true, { horizontal: "left", vertical: "top" }, wallPath, "62cbaf9b515f6f9c9b9037db1b682b14303618d5352a80b89545a7f2a82f9a5b"),
     raster("nexus.seed.wall.pressure-bulkhead.v1", "service-run", "wall", [1717, 158], true, { horizontal: "left", vertical: "top" }, wallPath, "62cbaf9b515f6f9c9b9037db1b682b14303618d5352a80b89545a7f2a82f9a5b"),
+  ],
+  "nexus.seed.wall.pressure-room-shell.v2": [
+    raster("nexus.seed.wall.pressure-room-shell.v2", "default", "wall", [1102, 888], true, { horizontal: "left", vertical: "top" }, roomShellPath, "2b0e5656ab382921eab12f57dc3b42df8d3bf398db8dac06a11aee2c2550f971"),
   ],
   "nexus.seed.door.pressure-slab.v1": [
     raster("nexus.seed.door.pressure-slab.v1", "open", "door", [377, 1453], true, { horizontal: "center", vertical: "center" }, doorPath, "aabb78b8fd419cbbbc23c04afe41b8dd1ad2be8e8b92b5142629bb87d69ce3a4"),

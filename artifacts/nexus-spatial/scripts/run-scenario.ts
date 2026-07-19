@@ -22,6 +22,8 @@ import {
 
 const TRACER_SCENARIO = "launch-one-spatial-runtime-tracer";
 const PRODUCTION_SEED_SCENARIO = "render-and-approve-the-production-intent-seed";
+const ROOM_SHELL_ASSET = "nexus.seed.wall.pressure-room-shell.v2";
+const ROOM_SHELL_HASH = "2b0e5656ab382921eab12f57dc3b42df8d3bf398db8dac06a11aee2c2550f971";
 
 function requestedScenario(): string {
   const scenarioIndex = process.argv.indexOf("--scenario");
@@ -145,8 +147,35 @@ function runProductionSeedScenario() {
 
   const scene = buildProductionSeedScene(runtime.getRenderProjection());
   assert.equal(PRODUCTION_SEED_MANIFEST.outputStatus, "canon candidate");
-  assert.equal(PRODUCTION_SEED_MANIFEST.version, "1.1.0");
+  assert.equal(PRODUCTION_SEED_MANIFEST.version, "2.0.0");
   assert.deepEqual(Object.keys(PRODUCTION_SEED_RASTER_MANIFEST).sort(), semanticAssetIds);
+  assert.ok("nexus.seed.wall.pressure-bulkhead.v1" in PRODUCTION_SEED_MANIFEST.assets);
+  assert.ok("nexus.seed.wall.pressure-bulkhead.v1" in PRODUCTION_SEED_RASTER_MANIFEST);
+  assert.ok(ROOM_SHELL_ASSET in PRODUCTION_SEED_MANIFEST.assets);
+  assert.ok(ROOM_SHELL_ASSET in PRODUCTION_SEED_RASTER_MANIFEST);
+  assert.equal(PRODUCTION_SEED_MANIFEST.assets[ROOM_SHELL_ASSET].version, "2.0.0");
+  assert.deepEqual(PRODUCTION_SEED_MANIFEST.assets[ROOM_SHELL_ASSET].provenance.referenceAssets, [
+    "production-intent-user-selected-target-2026-07-19.png",
+  ]);
+  assert.ok(PRODUCTION_SEED_MANIFEST.provenance.referenceAssets.includes(
+    "production-intent-user-selected-target-2026-07-19.png",
+  ));
+  const roomShellRaster = PRODUCTION_SEED_RASTER_MANIFEST[ROOM_SHELL_ASSET];
+  assert.deepEqual(roomShellRaster.map((entry) => ({
+    state: entry.state,
+    layer: entry.layer,
+    nativePixels: entry.nativePixels,
+    hasAlpha: entry.hasAlpha,
+    path: entry.source.path,
+    sha256: entry.source.sha256,
+  })), [{
+    state: "default",
+    layer: "wall",
+    nativePixels: [1102, 888],
+    hasAlpha: true,
+    path: "assets/production-seed/v2/environment/pressure-room-shell-frame.png",
+    sha256: ROOM_SHELL_HASH,
+  }]);
   for (const assetId of semanticAssetIds) {
     const semantic = PRODUCTION_SEED_MANIFEST.assets[assetId as keyof typeof PRODUCTION_SEED_MANIFEST.assets];
     const raster = PRODUCTION_SEED_RASTER_MANIFEST[assetId as keyof typeof PRODUCTION_SEED_RASTER_MANIFEST];
@@ -168,6 +197,11 @@ function runProductionSeedScenario() {
     }
   }
   assert.equal(scene.areas.length, 3);
+  assert.deepEqual(
+    scene.areas.map(({ id, x, y, width, height }) => ({ id, x, y, width, height })),
+    runtime.getRenderProjection().areas.map((area) => ({ id: area.id, ...area.bounds })),
+  );
+  assert.ok(scene.areas.every((area) => area.wallAssetId === ROOM_SHELL_ASSET));
   assert.equal(scene.doors.length, 2);
   assert.equal(scene.actors[0]?.assetId, "nexus.seed.actor.field-silhouette.v1");
   assert.equal(scene.interactables[0]?.assetId, "nexus.seed.prop.relay-console.v1");
@@ -184,6 +218,14 @@ function runProductionSeedScenario() {
     ],
   );
   assert.equal(scene.fallbackActivations.length, 0);
+  const boundAssetIds = new Set([
+    ...scene.areas.flatMap((area) => [area.floorAssetId, area.wallAssetId]),
+    ...scene.doors.map((door) => door.assetId),
+    ...scene.actors.map((actor) => actor.assetId),
+    ...scene.interactables.map((item) => item.assetId),
+    ...scene.hazardSubstrates.map((substrate) => substrate.assetId),
+    ...scene.markers.map((marker) => marker.assetId),
+  ]);
 
   const forcedFallback = buildProductionSeedScene(
     runtime.getRenderProjection(),
@@ -196,12 +238,28 @@ function runProductionSeedScenario() {
       fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
     },
   ]);
+  const forcedRoomShellFallback = buildProductionSeedScene(
+    runtime.getRenderProjection(),
+    new Set([ROOM_SHELL_ASSET]),
+  );
+  assert.ok(forcedRoomShellFallback.areas.every((area) => area.wallAssetId === MISSING_ASSET_FALLBACK_ID));
+  assert.deepEqual(
+    forcedRoomShellFallback.areas.map(({ id, floorAssetId }) => ({ id, floorAssetId })),
+    scene.areas.map(({ id, floorAssetId }) => ({ id, floorAssetId })),
+  );
+  assert.deepEqual(forcedRoomShellFallback.fallbackActivations, scene.areas.map(() => ({
+    requestedAssetId: ROOM_SHELL_ASSET,
+    fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
+  })));
   assert.deepEqual(runtime.getSnapshot(), truthBeforePresentation);
   assert.equal(runtime.getDeveloperProjection().committedRevision, 0);
 
   for (const requestedAssetId of semanticAssetIds) {
     const fallbackScene = buildProductionSeedScene(runtime.getRenderProjection(), new Set([requestedAssetId]));
-    assert.ok(fallbackScene.fallbackActivations.some((activation) => activation.requestedAssetId === requestedAssetId));
+    assert.equal(
+      fallbackScene.fallbackActivations.some((activation) => activation.requestedAssetId === requestedAssetId),
+      boundAssetIds.has(requestedAssetId as keyof typeof PRODUCTION_SEED_MANIFEST.assets),
+    );
     assert.deepEqual(runtime.getSnapshot(), truthBeforePresentation);
   }
 

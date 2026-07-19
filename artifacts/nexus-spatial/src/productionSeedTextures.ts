@@ -1,6 +1,7 @@
 import { Assets, type Texture } from "pixi.js";
 import floorUrl from "./assets/production-seed/v1/environment/industrial-floor-tile.png";
 import wallUrl from "./assets/production-seed/v1/environment/pressure-bulkhead-wall.png";
+import roomShellUrl from "./assets/production-seed/v2/environment/pressure-room-shell-frame.png";
 import doorUrl from "./assets/production-seed/v1/environment/pressure-door-slab.png";
 import serviceChannelUrl from "./assets/production-seed/v1/environment/service-channel-live-conduit.png";
 import actorUrl from "./assets/production-seed/v1/focal/field-lead-east-idle.png";
@@ -18,6 +19,7 @@ import {
 const urlsByPath: Readonly<Record<string, string>> = {
   "assets/production-seed/v1/environment/industrial-floor-tile.png": floorUrl,
   "assets/production-seed/v1/environment/pressure-bulkhead-wall.png": wallUrl,
+  "assets/production-seed/v2/environment/pressure-room-shell-frame.png": roomShellUrl,
   "assets/production-seed/v1/environment/pressure-door-slab.png": doorUrl,
   "assets/production-seed/v1/environment/service-channel-live-conduit.png": serviceChannelUrl,
   "assets/production-seed/v1/focal/field-lead-east-idle.png": actorUrl,

@@ -8,10 +8,12 @@ These assets form a reusable gameplay-scale sample set for the production-intent
 
 Art review baseline: 2ca033bb81f9b77497a5d420b2584434fa185238
 
-The generation pass used two committed style/readability references:
+The original raster pass used two committed style/readability references:
 
 - [Material reference C](art-direction/production-intent-style-material-c.png): primary material and focal-detail reference.
 - [Readability reference B](art-direction/production-intent-style-readability-b.png): secondary floor-plane readability reference.
+
+On 2026-07-19, Quintin supplied and selected [the stronger full-scene target](art-direction/production-intent-user-selected-target-2026-07-19.png) as the direction for the next revision. The file is an unmodified 1536 × 1024 RGB PNG with SHA-256 `b6ebba1ffc98638702da8b047cb33cb8199b6e3eb8111c5d30e56a51fb10f556`. It is classified here as a **non-canon visual target**, not a human `PASS`, canonical Location, or runtime background.
 
 The references constrain camera, palette, material hierarchy, and gameplay readability only. Decorative details in them do not establish topology, cover, routes, interactables, or Game Truth.
 
@@ -26,7 +28,15 @@ The references constrain camera, palette, material hierarchy, and gameplay reada
 
 The raw image-generation outputs and correction variants are retained outside the repository's shipping asset tree. Only the selected, trimmed files and deterministic markers are committed.
 
+### Version 2 room-shell revision
+
+The selected full-scene target exposed a specific gap in version 1: the repeated straight wall strip did not create the weight, corners, or architectural continuity of a convincing pressure shell. The version 2 pass therefore generated one isolated rectangular room-frame module rather than another whole-scene image.
+
+The built-in image generator used only the selected full-scene target as a visual/material reference. The output was generated on `#00FF00`, processed with the image-generation chroma helper using an explicit `#00FF00` key, soft-matte thresholds 22 and 88, one-pixel edge contraction, and spill cleanup, then trimmed to the non-transparent bounds with ImageMagick. The committed frame remains a canon candidate and is composed as a Pixi nine-slice around runtime-projected Area bounds. It never supplies room geometry, doors, actors, props, markers, collision, navigation, or Game Truth.
+
 ## Shipping inventory
+
+Unprefixed inventory paths are relative to `assets/production-seed/v1`; the version 2 entry carries its explicit prefix.
 
 | File | Native pixels | SHA-256 |
 |---|---:|---|
@@ -39,6 +49,7 @@ The raw image-generation outputs and correction variants are retained outside th
 | markers/marker-interactable.svg | 96 × 96 | 2e548270d7b21e0d01e71bbba6609740b20b8899dc10143493db2ceeaa999f94 |
 | markers/marker-hazard.svg | 96 × 96 | 28f471899eee5ec37cfcbca866da26f1c344618e5fc4523e5a98d834c5b52e5c |
 | markers/marker-objective.svg | 96 × 96 | bebb2e5d0551958ee8d02fdff5a1de2c6c60c9e40a705d5f53c9b2d02af2264e |
+| v2/environment/pressure-room-shell-frame.png | 1102 × 888 | 2b0e5656ab382921eab12f57dc3b42df8d3bf398db8dac06a11aee2c2550f971 |
 
 ## Exact generation prompts
 
@@ -94,6 +105,32 @@ Constraints: no UI overlay, popup, hologram, text, letters, numbers, logo, icon,
 Avoid: diagonal perspective, isometric diamond, 3/4 product render, poster composition, labels, watermark.
 ~~~
 
+### Version 2 pressure room-shell frame
+
+~~~text
+Create one isolated reusable RECTANGULAR ROOM-SHELL FRAME asset for a 2D browser game, using the attached user-selected image only as the visual/material reference.
+
+Asset purpose: a scalable modular pressure-bulkhead room perimeter for Nexus gameplay, composited by PixiJS around authoritative runtime room bounds. This is not a whole map and must not imply gameplay state.
+
+Preserve from the reference:
+- fixed near-overhead orthographic presentation, axis aligned, no diamond/isometric rotation
+- heavy dark charcoal pressure-bulkhead architecture with diesel-grit wear
+- chunky 90-degree corners, recessed piping/service runs, occasional compact teal diagnostic boxes, very restrained worn orange hazard marks
+- coherent industrial material hierarchy and crisp, pixel-art-adjacent raster detail
+
+Exact output requirements:
+- show a single complete rectangular frame centered in the image, straight horizontal and vertical sides with four substantial corners
+- the frame interior must be completely empty solid #00FF00
+- everything outside the frame must also be completely empty solid #00FF00
+- use #00FF00 only as chroma-key background; no green may appear in the asset
+- no floor, no doors or door openings, no characters, no consoles, no objects, no markers, no icons, no text, no labels, no HUD, no scenery
+- no cast shadow, ambient glow, fog, vignette, gradients, perspective background, or floor beneath it
+- keep generous green clearance around all four outer edges
+- consistent wall thickness suitable for nine-slice scaling; corners must be distinct and edges must connect cleanly
+- lighting should remain neutral and consistent so the frame can be reused at different sizes
+- one asset only, not a sheet or variants
+~~~
+
 ## Human gate
 
-The runtime review decides whether this set is good enough to establish the production-intent sample and pipeline direction. A pass does not silently expand these six generated assets into final textures for the rest of Nexus.
+The runtime review decides whether this set is good enough to establish the production-intent sample and pipeline direction. A pass does not silently expand these seven generated assets into final textures for the rest of Nexus.

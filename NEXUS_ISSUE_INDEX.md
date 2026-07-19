@@ -59,13 +59,13 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #108 | Render and approve the production-intent seed | in-progress | Integration Contract #30 implementation | #107 satisfied | Review the revised raster sample and record the required human product/art `PASS` or `NEEDS_FIXES`; dependent #109 remains blocked |
+| #108 | Render and approve the production-intent seed | ready-for-human | Integration Contract #30 implementation | #107 satisfied | Review the v2 modular room-shell candidate and record the required human product/art `PASS` or `NEEDS_FIXES`; dependent #109 remains blocked |
 | #112 | Create a legal Level-0 Player Character draft | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; implement the pinned provisional Skill Tree draft tracer |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-19 by Codex while routing the revised Render and approve the production-intent seed #108 candidate to its human art gate. For exact current state, verify against GitHub.
+Last synced: 2026-07-19 by Codex while routing the validated v2 modular room-shell candidate for Render and approve the production-intent seed #108 back to its human art gate. For exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -90,7 +90,7 @@ All nineteen issues are native sub-issues of Integration Contract #30. GitHub's 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #107 | Launch one spatial-runtime tracer | done | none | Shared runtime seam, codec, migration inventory, root spatial commands, focused scenario, and manual browser tracer completed |
-| #108 | Render and approve the production-intent seed | ready-for-human | #107 satisfied | Revised raster sample, exact runtime evidence, and independent Standards/Spec reviews pass; awaiting Quintin's product/art decision on draft PR #128 |
+| #108 | Render and approve the production-intent seed | ready-for-human | #107 satisfied | User-selected target preserved; v2 modular room-shell integration, exact runtime evidence, and independent Standards/Spec reviews pass on draft PR #128; awaiting Quintin's product/art decision |
 | #109 | Traverse the authored three-area derelict | blocked task | #108 | Movement, facing, followers, authored navigation, and exploration camera |
 | #110 | Resolve and persist one authored Context Action | blocked task | #109 | First complete authoritative action transaction, checkpoint, failure-lite path, and Continue |
 | #111 | Resolve Intent Bar and Lattice behavior through the proven transaction | blocked task | #110 | Typed non-authoritative interpretation proposals and Lattice behavior |
