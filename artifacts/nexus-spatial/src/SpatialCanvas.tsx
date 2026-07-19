@@ -1,11 +1,17 @@
 import type { SpatialRuntime } from "@workspace/spatial-runtime";
-import { Application, Container, Graphics, Text } from "pixi.js";
+import { Application, Container, Graphics, Sprite, Text, TilingSprite, type Texture } from "pixi.js";
 import { useEffect, useRef } from "react";
 import {
   MISSING_ASSET_FALLBACK_ID,
   buildProductionSeedScene,
+  type ProductionSeedAssetId,
   type ProductionSeedScene,
 } from "./presentationSeed.js";
+import {
+  PRODUCTION_SEED_RASTER_MANIFEST,
+  type ProductionSeedRasterAssetId,
+} from "./productionSeedRasterManifest.js";
+import { loadProductionSeedTextures, textureFor } from "./productionSeedTextures.js";
 
 const REFERENCE_ACTOR_ASSET = "nexus.seed.actor.field-silhouette.v1";
 
@@ -15,191 +21,270 @@ interface SceneLayout {
   readonly top: number;
 }
 
+function pixel(value: number): number {
+  return Math.round(value);
+}
+
 function sceneLayout(width: number, height: number): SceneLayout {
-  const unit = Math.max(16, Math.min(28, (width - 64) / 36, (height - 92) / 10));
+  const unit = pixel(Math.max(16, Math.min(28, (width - 64) / 36, (height - 92) / 10)));
   return {
     unit,
-    left: Math.round((width - unit * 36) / 2),
-    top: Math.round((height - unit * 10) / 2) + 10,
+    left: pixel((width - unit * 36) / 2),
+    top: pixel((height - unit * 10) / 2) + 10,
   };
 }
 
 function point(layout: SceneLayout, x: number, y: number) {
-  return { x: layout.left + x * layout.unit, y: layout.top + y * layout.unit };
+  return { x: pixel(layout.left + x * layout.unit), y: pixel(layout.top + y * layout.unit) };
 }
 
 function drawFallback(scene: Container, x: number, y: number, size: number, label: string) {
   const block = new Graphics()
-    .rect(x - size / 2, y - size / 2, size, size)
+    .rect(pixel(x - size / 2), pixel(y - size / 2), pixel(size), pixel(size))
     .fill({ color: 0x321637 })
     .stroke({ color: 0xe552d5, width: 3 });
   for (let offset = -size / 2 + 4; offset < size / 2; offset += 8) {
-    block.moveTo(x + offset, y - size / 2).lineTo(x + Math.min(size / 2, offset + size), y + size / 2)
+    block.moveTo(pixel(x + offset), pixel(y - size / 2)).lineTo(pixel(x + Math.min(size / 2, offset + size)), pixel(y + size / 2))
       .stroke({ color: 0x8d3c87, width: 2 });
   }
   scene.addChild(block);
   scene.addChild(new Text({
     text: "?",
-    style: { fill: 0xffd7f8, fontFamily: "ui-monospace, monospace", fontSize: Math.max(15, size * 0.52), fontWeight: "800" },
+    style: { fill: 0xffd7f8, fontFamily: "ui-monospace, monospace", fontSize: Math.max(15, pixel(size * 0.52)), fontWeight: "800" },
     anchor: 0.5,
-    x,
-    y,
+    x: pixel(x),
+    y: pixel(y),
   }));
   block.label = `Missing asset fallback for ${label}`;
 }
 
-function drawArea(scene: Container, area: ProductionSeedScene["areas"][number], layout: SceneLayout, index: number) {
+function rasterTexture(
+  textures: ReadonlyMap<string, Texture>,
+  assetId: ProductionSeedAssetId,
+  state: string,
+): Texture | undefined {
+  if (assetId === MISSING_ASSET_FALLBACK_ID) return undefined;
+  const entries = PRODUCTION_SEED_RASTER_MANIFEST[assetId as ProductionSeedRasterAssetId];
+  const entry = entries.find((candidate) => candidate.state === state) ?? entries[0];
+  return entry ? textureFor(textures, entry) : undefined;
+}
+
+function addTiledRaster(
+  scene: Container,
+  texture: Texture,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  tileWidthPixels: number,
+  tileHeightPixels: number,
+  tint?: number,
+) {
+  const raster = new TilingSprite({
+    texture,
+    x: pixel(x),
+    y: pixel(y),
+    width: pixel(width),
+    height: pixel(height),
+    tileScale: { x: tileWidthPixels / texture.width, y: tileHeightPixels / texture.height },
+    roundPixels: true,
+    tint,
+  });
+  scene.addChild(raster);
+  return raster;
+}
+
+function addWallRaster(
+  scene: Container,
+  texture: Texture,
+  x: number,
+  y: number,
+  length: number,
+  thickness: number,
+  unit: number,
+  vertical: boolean,
+) {
+  const raster = new TilingSprite({
+    texture,
+    width: pixel(length),
+    height: pixel(thickness),
+    tileScale: {
+      x: pixel(unit * 12) / texture.width,
+      y: pixel(thickness) / texture.height,
+    },
+    roundPixels: true,
+  });
+  if (vertical) {
+    raster.position.set(pixel(x + thickness), pixel(y));
+    raster.rotation = Math.PI / 2;
+  } else {
+    raster.position.set(pixel(x), pixel(y));
+  }
+  scene.addChild(raster);
+}
+
+function drawArea(
+  scene: Container,
+  area: ProductionSeedScene["areas"][number],
+  layout: SceneLayout,
+  index: number,
+  textures: ReadonlyMap<string, Texture>,
+) {
   const { x, y } = point(layout, area.x, area.y);
-  const width = area.width * layout.unit;
-  const height = area.height * layout.unit;
-  const floor = new Graphics()
-    .rect(x, y, width, height)
-    .fill({ color: index % 2 === 0 ? 0x151d20 : 0x192226 });
+  const width = pixel(area.width * layout.unit);
+  const height = pixel(area.height * layout.unit);
+  const floor = rasterTexture(textures, area.floorAssetId, index === 1 ? "worn-panel" : "default");
+  const wall = rasterTexture(textures, area.wallAssetId, index === 1 ? "service-run" : "default");
+  const tilePixels = layout.unit * 12;
 
-  const panel = layout.unit * 2;
-  for (let px = x + 4; px < x + width - 4; px += panel) {
-    for (let py = y + 4; py < y + height - 4; py += panel) {
-      floor.rect(px, py, Math.min(panel - 6, x + width - px - 4), Math.min(panel - 6, y + height - py - 4))
-        .fill({ color: ((px + py) / panel) % 2 < 1 ? 0x1f292d : 0x222c30 })
-        .stroke({ color: 0x303b3f, width: 1 });
-    }
+  if (floor) {
+    addTiledRaster(scene, floor, x, y, width, height, tilePixels, tilePixels);
+  } else {
+    drawFallback(scene, x + width / 2, y + height / 2, Math.min(width, height) * 0.35, `${area.label} floor`);
   }
 
-  floor.rect(x, y, width, height)
-    .stroke({ color: 0x05090b, width: 12 })
-    .rect(x + 5, y + 5, width - 10, height - 10)
-    .stroke({ color: 0x697174, width: 2 });
-
-  const trenchY = y + height * (index === 1 ? 0.72 : 0.84);
-  floor.rect(x + 14, trenchY, Math.max(28, width - 28), Math.max(6, layout.unit * 0.28))
-    .fill({ color: 0x070d10 })
-    .stroke({ color: 0x3c4649, width: 1 });
-  for (let stripeX = x + 20; stripeX < x + width - 18; stripeX += 16) {
-    floor.rect(stripeX, trenchY + 2, 8, Math.max(2, layout.unit * 0.12)).fill({ color: 0x9d501f });
+  if (wall) {
+    const thickness = Math.max(12, pixel(layout.unit * 0.92));
+    addWallRaster(scene, wall, x, y, width, thickness, layout.unit, false);
+    addWallRaster(scene, wall, x, y + height - thickness, width, thickness, layout.unit, false);
+    addWallRaster(scene, wall, x, y, height, thickness, layout.unit, true);
+    addWallRaster(scene, wall, x + width - thickness, y, height, thickness, layout.unit, true);
+  } else {
+    const border = new Graphics().rect(x, y, width, height).stroke({ color: 0xe552d5, width: 3 });
+    border.label = `Missing asset fallback for ${area.label} wall`;
+    scene.addChild(border);
   }
-  floor.label = `${area.label} technical mosaic floor and pressure wall`;
-  scene.addChild(floor);
+
+  const label = area.label.toUpperCase();
+  const labelFontSize = Math.max(10, pixel(layout.unit * 0.42));
+  const labelX = pixel(x + layout.unit * 1.15);
+  const labelY = pixel(index === 1 ? y + height - layout.unit * 2.1 : y + layout.unit * 1.08);
+  const labelWidth = pixel(label.length * labelFontSize * 0.68 + 16);
+  scene.addChild(new Graphics()
+    .roundRect(labelX - 7, labelY - 5, labelWidth, labelFontSize + 11, 2)
+    .fill({ color: 0x05090b, alpha: 0.76 })
+    .stroke({ color: 0x354247, width: 1 }));
   scene.addChild(new Text({
-    text: area.label.toUpperCase(),
-    style: { fill: 0x788387, fontFamily: "ui-monospace, monospace", fontSize: Math.max(10, layout.unit * 0.46), fontWeight: "700", letterSpacing: 1.5 },
-    x: x + 15,
-    y: y + 14,
+    text: label,
+    style: { fill: 0xaeb9ba, fontFamily: "ui-monospace, monospace", fontSize: labelFontSize, fontWeight: "700", letterSpacing: 1.4 },
+    x: labelX,
+    y: labelY,
   }));
 }
 
-function drawDoor(scene: Container, door: ProductionSeedScene["doors"][number], layout: SceneLayout) {
-  const { x, y } = point(layout, door.x, door.y);
-  if (door.assetId === MISSING_ASSET_FALLBACK_ID) return drawFallback(scene, x, y, layout.unit * 1.4, door.label);
-  const width = Math.max(12, layout.unit * 0.55);
-  const height = layout.unit * 2.2;
-  const slab = new Graphics()
-    .roundRect(x - width / 2, y - height / 2, width, height, 2)
-    .fill({ color: 0x293338 })
-    .stroke({ color: 0x05090b, width: 5 })
-    .rect(x - width / 2 + 3, y - height / 2 + 7, width - 6, 6)
-    .fill({ color: 0xd46a24 })
-    .rect(x - width / 2 + 3, y + height / 2 - 13, width - 6, 6)
-    .fill({ color: 0xd46a24 });
-  slab.label = door.label;
-  scene.addChild(slab);
-}
-
-function drawActor(scene: Container, actor: ProductionSeedScene["actors"][number], layout: SceneLayout) {
-  const { x, y } = point(layout, actor.x, actor.y);
-  if (actor.assetId === MISSING_ASSET_FALLBACK_ID) return drawFallback(scene, x, y, layout.unit * 1.5, actor.label);
-  const unit = layout.unit;
-  const silhouette = new Graphics()
-    .ellipse(x + unit * 0.08, y + unit * 0.28, unit * 0.55, unit * 0.28)
-    .fill({ color: 0x05090b, alpha: 0.72 })
-    .poly([
-      x, y - unit * 0.62,
-      x + unit * 0.32, y - unit * 0.28,
-      x + unit * 0.26, y + unit * 0.38,
-      x, y + unit * 0.62,
-      x - unit * 0.26, y + unit * 0.38,
-      x - unit * 0.32, y - unit * 0.28,
-    ])
-    .fill({ color: 0x173039 })
-    .stroke({ color: 0xb7eef0, width: 2 })
-    .rect(x - unit * 0.18, y - unit * 0.38, unit * 0.36, unit * 0.27)
-    .fill({ color: 0x47d7db })
-    .rect(x - unit * 0.11, y - unit * 0.31, unit * 0.22, unit * 0.06)
-    .fill({ color: 0x061015 });
-  silhouette.label = `${actor.label} ${actor.state} silhouette`;
-  scene.addChild(silhouette);
-}
-
-function drawInteractable(scene: Container, item: ProductionSeedScene["interactables"][number], layout: SceneLayout) {
-  const { x, y } = point(layout, item.x, item.y);
-  if (item.assetId === MISSING_ASSET_FALLBACK_ID) return drawFallback(scene, x, y, layout.unit * 1.7, item.label);
-  const unit = layout.unit;
-  const console = new Graphics()
-    .roundRect(x - unit * 0.62, y - unit * 0.58, unit * 1.24, unit * 1.16, 3)
-    .fill({ color: 0x222c30 })
-    .stroke({ color: 0x05090b, width: 4 })
-    .rect(x - unit * 0.42, y - unit * 0.38, unit * 0.56, unit * 0.34)
-    .fill({ color: 0x0b242a })
-    .stroke({ color: 0x47d7db, width: 2 })
-    .rect(x - unit * 0.34, y - unit * 0.28, unit * 0.35, 3)
-    .fill({ color: 0xb7eef0 })
-    .rect(x - unit * 0.34, y - unit * 0.18, unit * 0.25, 3)
-    .fill({ color: 0x47d7db })
-    .rect(x + unit * 0.26, y - unit * 0.32, unit * 0.13, unit * 0.13)
-    .fill({ color: 0xd46a24 })
-    .rect(x + unit * 0.26, y - unit * 0.1, unit * 0.13, unit * 0.13)
-    .fill({ color: 0x697174 });
-  console.label = item.label;
-  scene.addChild(console);
-}
-
-function drawMarker(scene: Container, marker: ProductionSeedScene["markers"][number], layout: SceneLayout) {
-  const { x, y } = point(layout, marker.x, marker.y);
-  const size = layout.unit * (marker.kind === "interactable" ? 1.8 : 0.95);
-  if (marker.assetId === MISSING_ASSET_FALLBACK_ID) return drawFallback(scene, x, y, size, marker.label);
-  const graphic = new Graphics();
-  let overlay: Text | null = null;
-  if (marker.kind === "interactable") {
-    const half = size / 2;
-    const corner = size * 0.25;
-    graphic.moveTo(x - half, y - half + corner).lineTo(x - half, y - half).lineTo(x - half + corner, y - half)
-      .moveTo(x + half - corner, y - half).lineTo(x + half, y - half).lineTo(x + half, y - half + corner)
-      .moveTo(x + half, y + half - corner).lineTo(x + half, y + half).lineTo(x + half - corner, y + half)
-      .moveTo(x - half + corner, y + half).lineTo(x - half, y + half).lineTo(x - half, y + half - corner)
-      .stroke({ color: 0x47d7db, width: 4 });
-  } else if (marker.kind === "hazard") {
-    graphic.poly([x, y - size * 0.55, x + size * 0.55, y + size * 0.45, x - size * 0.55, y + size * 0.45])
-      .fill({ color: 0x26180c })
-      .stroke({ color: 0xf0a233, width: 3 });
-    overlay = new Text({ text: "!", style: { fill: 0xffd38a, fontFamily: "ui-monospace, monospace", fontSize: size * 0.62, fontWeight: "900" }, anchor: 0.5, x, y: y + 2 });
+function drawHazardSubstrate(
+  scene: Container,
+  substrate: ProductionSeedScene["hazardSubstrates"][number],
+  layout: SceneLayout,
+  textures: ReadonlyMap<string, Texture>,
+) {
+  const { x, y } = point(layout, substrate.x, substrate.y);
+  const width = layout.unit * 4;
+  const height = layout.unit * 1.15;
+  const texture = rasterTexture(textures, substrate.assetId, substrate.state);
+  if (texture) {
+    addTiledRaster(scene, texture, x - width / 2, y - height / 2, width, height, width, height);
   } else {
-    graphic.poly([x, y - size * 0.6, x + size * 0.6, y, x, y + size * 0.6, x - size * 0.6, y])
-      .fill({ color: 0x13282d, alpha: 0.88 })
-      .stroke({ color: 0xe8e2bd, width: 3 })
-      .circle(x, y, size * 0.15)
-      .fill({ color: 0x47d7db });
+    drawFallback(scene, x, y, layout.unit * 0.9, substrate.label);
   }
-  graphic.label = `${marker.kind}: ${marker.label}`;
-  scene.addChild(graphic);
-  if (overlay) scene.addChild(overlay);
 }
 
-function drawScene(container: Container, seed: ProductionSeedScene, width: number, height: number) {
+function drawSprite(
+  scene: Container,
+  texture: Texture | undefined,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  anchor: { readonly x: number; readonly y: number },
+  label: string,
+) {
+  if (!texture) return drawFallback(scene, x, y, Math.max(width, height) * 0.8, label);
+  const sprite = new Sprite({ texture, anchor, x: pixel(x), y: pixel(y), roundPixels: true });
+  const scale = Math.min(width / texture.width, height / texture.height);
+  sprite.scale.set(scale);
+  sprite.label = label;
+  scene.addChild(sprite);
+}
+
+function drawDoor(scene: Container, door: ProductionSeedScene["doors"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
+  const { x, y } = point(layout, door.x, door.y);
+  drawSprite(scene, rasterTexture(textures, door.assetId, "closed"), x, y, layout.unit * 1.55, layout.unit * 4.35, { x: 0.5, y: 0.5 }, door.label);
+}
+
+function drawActor(scene: Container, actor: ProductionSeedScene["actors"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
+  const { x, y } = point(layout, actor.x, actor.y);
+  const selection = new Graphics()
+    .ellipse(x, y + layout.unit * 0.68, layout.unit * 0.82, layout.unit * 0.35)
+    .fill({ color: 0x061015, alpha: 0.55 })
+    .stroke({ color: 0x47d7db, width: 2 })
+    .poly([
+      x + layout.unit * 0.78, y + layout.unit * 0.48,
+      x + layout.unit * 1.08, y + layout.unit * 0.68,
+      x + layout.unit * 0.78, y + layout.unit * 0.88,
+    ])
+    .fill({ color: 0xb7eef0 });
+  selection.label = `${actor.label} selected, facing east`;
+  scene.addChild(selection);
+  drawSprite(
+    scene,
+    rasterTexture(textures, actor.assetId, actor.state),
+    x,
+    y + layout.unit * 1.18,
+    layout.unit * 1.7,
+    layout.unit * 2.75,
+    { x: 0.5, y: 1 },
+    `${actor.label} ${actor.state}`,
+  );
+}
+
+function drawInteractable(scene: Container, item: ProductionSeedScene["interactables"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
+  const { x, y } = point(layout, item.x, item.y);
+  drawSprite(
+    scene,
+    rasterTexture(textures, item.assetId, "available"),
+    x,
+    y + layout.unit * 1.02,
+    layout.unit * 2.65,
+    layout.unit * 2.15,
+    { x: 0.5, y: 1 },
+    item.label,
+  );
+}
+
+function drawMarker(scene: Container, marker: ProductionSeedScene["markers"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
+  const { x, y } = point(layout, marker.x, marker.y);
+  const size = layout.unit * (marker.kind === "interactable" ? 2.65 : 1.35);
+  const state = marker.kind === "interactable" ? "available" : marker.active ? "active" : marker.kind === "hazard" ? "inactive" : "complete";
+  drawSprite(scene, rasterTexture(textures, marker.assetId, state), x, y, size, size, { x: 0.5, y: 0.5 }, `${marker.kind}: ${marker.label}`);
+}
+
+function drawScene(
+  container: Container,
+  seed: ProductionSeedScene,
+  width: number,
+  height: number,
+  textures: ReadonlyMap<string, Texture>,
+) {
   for (const child of container.removeChildren()) child.destroy();
   const layout = sceneLayout(width, height);
   container.addChild(new Graphics().rect(0, 0, width, height).fill({ color: 0x05090b }));
-  seed.areas.forEach((area, index) => drawArea(container, area, layout, index));
-  seed.doors.forEach((door) => drawDoor(container, door, layout));
-  seed.interactables.forEach((item) => drawInteractable(container, item, layout));
-  seed.actors.forEach((actor) => drawActor(container, actor, layout));
-  seed.markers.forEach((marker) => drawMarker(container, marker, layout));
+  seed.areas.forEach((area, index) => drawArea(container, area, layout, index, textures));
+  seed.hazardSubstrates.forEach((substrate) => drawHazardSubstrate(container, substrate, layout, textures));
+  seed.doors.forEach((door) => drawDoor(container, door, layout, textures));
+  seed.interactables.forEach((item) => drawInteractable(container, item, layout, textures));
+  seed.actors.forEach((actor) => drawActor(container, actor, layout, textures));
+  seed.markers.forEach((marker) => drawMarker(container, marker, layout, textures));
 }
 
 export function SpatialCanvas({
   runtime,
   fallbackPreview,
+  onRasterLoadFailure,
 }: {
   runtime: SpatialRuntime;
   fallbackPreview: boolean;
+  onRasterLoadFailure: (failedAssetIds: readonly string[]) => void;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
 
@@ -208,39 +293,59 @@ export function SpatialCanvas({
     if (!host) return;
 
     let disposed = false;
+    let initialized = false;
+    let appDestroyed = false;
     let unsubscribe = () => {};
     let resizeObserver: ResizeObserver | null = null;
     let canvas: HTMLCanvasElement | null = null;
     const app = new Application();
 
-    void app.init({
-      resizeTo: host,
-      background: "#05090b",
-      antialias: false,
-      resolution: window.devicePixelRatio || 1,
-      autoDensity: true,
-    }).then(() => {
-      if (disposed) {
+    const destroyApp = () => {
+      if (initialized && !appDestroyed) {
+        appDestroyed = true;
         app.destroy();
-        return;
       }
+    };
+
+    const initialize = async () => {
+      await app.init({
+        resizeTo: host,
+        background: "#05090b",
+        antialias: false,
+        resolution: window.devicePixelRatio || 1,
+        autoDensity: true,
+      });
+      initialized = true;
+      if (disposed) return destroyApp();
 
       canvas = app.canvas;
       host.appendChild(canvas);
+      const loaded = await loadProductionSeedTextures();
+      if (disposed) return destroyApp();
+
+      onRasterLoadFailure(loaded.failedAssetIds);
+      const unavailable = new Set<string>(loaded.failedAssetIds);
+      if (fallbackPreview) unavailable.add(REFERENCE_ACTOR_ASSET);
       const scene = new Container();
       app.stage.addChild(scene);
-      const unavailable = fallbackPreview ? new Set([REFERENCE_ACTOR_ASSET]) : new Set<string>();
       const draw = () => drawScene(
         scene,
         buildProductionSeedScene(runtime.getRenderProjection(), unavailable),
         app.screen.width,
         app.screen.height,
+        loaded.textures,
       );
 
       draw();
       unsubscribe = runtime.subscribe(draw);
       resizeObserver = new ResizeObserver(draw);
       resizeObserver.observe(host);
+    };
+
+    void initialize().catch(() => {
+      if (!disposed) onRasterLoadFailure(Object.keys(PRODUCTION_SEED_RASTER_MANIFEST));
+      if (canvas?.parentElement === host) host.removeChild(canvas);
+      destroyApp();
     });
 
     return () => {
@@ -248,9 +353,9 @@ export function SpatialCanvas({
       unsubscribe();
       resizeObserver?.disconnect();
       if (canvas?.parentElement === host) host.removeChild(canvas);
-      if (canvas) app.destroy();
+      destroyApp();
     };
-  }, [fallbackPreview, runtime]);
+  }, [fallbackPreview, onRasterLoadFailure, runtime]);
 
   return <div className="spatial-canvas" ref={hostRef} aria-hidden="true" />;
 }

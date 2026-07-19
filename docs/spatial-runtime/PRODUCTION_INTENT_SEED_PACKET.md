@@ -1,94 +1,103 @@
-# Production-Intent Seed Review Packet
+# Production-Intent Raster Seed Review Packet
 
 Controlling task: Render and approve the production-intent seed #108
 
-Runtime baseline: `db51cec8b5062ea2e1341c4b109fe2e1ec3ac144` from current `origin/main`
+Runtime baseline: db51cec8b5062ea2e1341c4b109fe2e1ec3ac144 from origin/main
 
-Art review baseline: `2ca033bb81f9b77497a5d420b2584434fa185238`
+Art review baseline: 2ca033bb81f9b77497a5d420b2584434fa185238
 
-Candidate manifest: `nexus.production-intent-seed` version `1.0.0`, output status `canon candidate`
+Candidate manifest: nexus.production-intent-seed version 1.1.0
 
-## Runtime screenshots
+Output status: canon candidate
+
+Human gate: revised candidate awaiting PASS or NEEDS_FIXES. It must not merge before PASS.
+
+## Decision being requested
+
+Judge whether this is a convincing, reusable, production-caliber gameplay-scale sample set and pipeline direction for Nexus:
+
+- industrial floor and pressure-bulkhead wall;
+- closed pressure-door slab;
+- Field Lead actor sprite;
+- relay-console prop;
+- live-conduit substrate;
+- interactable, hazard, and objective markers that do not depend on color alone.
+
+This is not a claim that Nexus now has final game-wide textures. It is not a finished location kit, animation family, complete state family, palette lock, or canonical source change.
+
+## Prior candidate disposition
+
+The version 1.0 procedural presentation received NEEDS_FIXES on 2026-07-19 because it demonstrated technical composition but did not answer the intended art-quality question. Its screenshots are superseded. Version 1.1 replaces the procedural gameplay surfaces with isolated raster assets, integrates them through an explicit asset manifest, and retains the semantic fallback and accessibility contract.
+
+## Runtime evidence
 
 - [1440 × 900 normal presentation](evidence/issue-108/production-seed-1440x900.png)
 - [1024 × 768 responsive presentation](evidence/issue-108/production-seed-1024x768.png)
 - [1440 × 900 missing-actor fallback](evidence/issue-108/production-seed-missing-actor-fallback-1440x900.png)
+- [Asset provenance, prompts, dimensions, and hashes](evidence/issue-108/ASSET_PROVENANCE.md)
 
-The normal captures show the same deterministic fixture at committed revision `0`. The fallback capture forces only `nexus.seed.actor.field-silhouette.v1` unavailable through `?fallback=actor`; the magenta hatched `?` block replaces the actor presentation while the DOM reports that Game Truth remains at revision `0`.
+All three captures come from the running Pixi application. The normal captures show the same deterministic fixture at committed Game Truth revision 0. At 1024 × 768 the playfield, controls, selected-actor telemetry, marker key, and fallback status remain visible without overlap; the collapsed developer footer may continue below the critical interface.
 
-## Manifest excerpt
+The fallback capture forces only nexus.seed.actor.field-silhouette.v1 unavailable. A magenta hatched question-mark block replaces the actor presentation, the DOM reports the failed asset identity, and Game Truth remains at revision 0.
 
-```json
-{
-  "manifestId": "nexus.production-intent-seed",
-  "version": "1.0.0",
-  "outputStatus": "canon candidate",
-  "provenance": {
-    "baselineCommit": "2ca033bb81f9b77497a5d420b2584434fa185238",
-    "createdForIssue": 108,
-    "sourceDocs": ["ART-REFERENCE-010", "ART-ENVIRONMENT-001", "ART-RUNBOOK-008"],
-    "referenceAssets": [
-      "nexus-hybrid-pixel-grammar-comparison-2026-07-18.png",
-      "nexus-terminal-popup-over-live-location-concept-2026-07-17.png"
-    ]
-  },
-  "scale": {
-    "worldUnitPixelsAtReference": 24,
-    "referenceViewport": { "width": 1440, "height": 900 },
-    "camera": "fixed-orthographic-10-degrees-from-overhead"
-  },
-  "assetExample": {
-    "assetId": "nexus.seed.actor.field-silhouette.v1",
-    "version": "1.0.0",
-    "outputStatus": "canon candidate",
-    "scale": { "worldUnits": 1.4, "mosaicPixelStep": 3 },
-    "anchor": {
-      "horizontal": "center",
-      "vertical": "bottom",
-      "offsetWorldUnits": { "x": 0, "y": 0.25 }
-    },
-    "states": ["idle", "walk", "selected"],
-    "fallbackAssetId": "nexus.seed.fallback.missing-asset.v1"
-  }
-}
-```
+## Visual direction represented
 
-The immutable manifest contains nine semantic assets: floor, wall, pressure door, actor silhouette, relay-console interactable, three marker roles, and the code-drawn missing-asset fallback. Every record includes provenance, semantic version, scale, anchor, states, and fallback identity using ART-RUNBOOK-008-compatible `canon candidate` status vocabulary.
+- The primary material grammar comes from comparison C: dark modular pressure construction, broad technical-mosaic masses, restrained orange service detail, and selective cyan diagnostics.
+- Comparison B contributes only its clearer floor-plane value separation and gameplay-scale readability.
+- The camera remains screen-axis aligned and near overhead. Nothing uses a diamond-isometric floor plane.
+- Fine detail is concentrated on the actor, console, door hardware, conduit, and wall edge. The floor stays comparatively calm.
+- The sole live-conduit substrate is derived from the authoritative hazard projection and rendered beneath its warning marker; side rooms do not imply additional live hazards.
+- Decorative paneling and hardware are presentation only. They do not create collision, navigation, cover, routes, doors, interactables, or other Game Truth.
 
-## Baseline comparison notes
+The exact references, generation prompts, post-processing path, native dimensions, and SHA-256 values are recorded in the provenance evidence. The six generated rasters remain canon candidates. The three marker SVGs are deterministic presentation assets.
 
-- The base grammar follows comparison C: large calm pixel groupings, quiet material fields, readable construction, and axis-aligned technical assemblies carry the environment before surface noise.
-- Selective comparison-A density appears only at intended focal points: the actor faceplate, active relay display, console controls, pressure-door warning bands, and marker internals.
-- The scene keeps the accepted fixed orthographic view at 10 degrees from overhead. It does not use a rotated diamond floor plane or a conventional isometric room.
-- Floor panels, shallow pressure-wall borders, service channels, and pressure doors establish an industrial maintenance setting without adding authoritative collision, navigation, cover, or game state.
-- The candidate is an in-runtime presentation seed, not a finished location kit, sprite family, palette lock, canonical source change, or authorization to normalize sprites.
+## Runtime asset contract
 
-## Marker accessibility notes
+The immutable semantic manifest contains nine identities: floor, wall, pressure door, actor, relay console, three marker roles, and the code-drawn missing-asset fallback.
 
-- Interactable: cyan corner brackets plus the DOM label `Relay Console available`.
-- Hazard: amber warning triangle with an internal `!` plus the DOM label `Live Conduit`.
-- Objective: light diamond target with a cyan center plus the DOM label `Reach the relay`.
-- Shape, internal glyph, text, and placement distinguish all three roles; color is supplementary.
-- The Pixi canvas is intentionally `aria-hidden`. A `Player-known markers` DOM list exposes the corresponding entity label, role, and shape description.
-- Runtime and fallback controls are native keyboard-operable buttons with visible focus treatment. Fallback state is announced in an `aria-live` region.
-- The 1024 × 768 capture verifies that the playfield and all critical DOM status remain visible without overlap.
+The paired raster manifest adds:
 
-## Reproduction and focused evidence
+- one explicit authored path and SHA-256 identity per state binding;
+- native pixel dimensions, alpha behavior, layer, and anchor;
+- independent loading so one failed asset falls back without blanking the scene;
+- nearest-neighbor Pixi sampling;
+- exhaustive state coverage checked by the scenario runner.
 
-```powershell
+Version 1.1 intentionally reuses selected static art across several declared states. It proves asset identity, scale, placement, state binding, fallback, and review quality; it does not pretend to supply animation frames or visually distinct open, locked, active, and disabled variants.
+
+## Accessibility and marker evidence
+
+- Interactable: cyan corner brackets; DOM text says Relay Console available.
+- Hazard: amber warning triangle with internal exclamation mark; DOM text says Live Conduit.
+- Objective: light diamond target with cyan center; DOM text says Reach the relay.
+- Shape, internal glyph, text, and placement distinguish every role. Color is supplementary.
+- The Pixi canvas is aria-hidden. A Player-known markers DOM list exposes label, role, and shape.
+- Runtime and fallback controls are keyboard-operable native buttons with visible focus treatment.
+- Fallback changes are announced in an aria-live region.
+
+## Reproduction
+
+~~~powershell
 corepack pnpm run spatial:dev
-```
+~~~
 
-Open `http://127.0.0.1:5174/` for the normal candidate and `http://127.0.0.1:5174/?fallback=actor` for the forced missing-asset path. The fallback toggle in the control panel exercises the same presentation-only state without a command, frame, checkpoint, or codec write.
+Open the reported local URL for the normal candidate. Add ?fallback=actor or use Preview missing asset for the forced missing-actor path. The fallback toggle is presentation-only: it does not issue a command, advance a frame, write a checkpoint, or change a codec payload.
 
-```text
-scenario: render-and-approve-the-production-intent-seed
-manifestVersion: 1.0.0
-outputStatus: canon candidate
-semanticAssets: 9
-sceneCounts: areas 3, doors 2, actors 1, interactables 1, markers 3
-fallbackAssetId: nexus.seed.fallback.missing-asset.v1
-gameTruthRevisionAfterFallback: 0
-```
+## Required verification
 
-No legacy implementation input was touched. No canonical Nexus source document was changed.
+~~~powershell
+corepack pnpm run spatial:typecheck
+corepack pnpm run spatial:build
+corepack pnpm run spatial:test -- --scenario render-and-approve-the-production-intent-seed
+corepack pnpm run spatial:test -- --scenario launch-one-spatial-runtime-tracer
+corepack pnpm run validate:workflow
+git diff --check
+~~~
+
+All six commands passed at the final fixed review point on 2026-07-19. The Vite build emitted its existing advisory that the main JavaScript chunk exceeds 500 kB; it completed successfully.
+
+The production-seed scenario checks manifest version 1.1.0, canon-candidate status, all semantic and raster state bindings, deep immutability, per-asset fallback, fixture counts, codec continuity, and Game Truth revision 0 after fallback activation.
+
+## Authority boundary
+
+No legacy implementation input was changed. No canonical Nexus source document was changed. Human PASS authorizes this issue's production-intent sample and pipeline direction; it does not silently promote every raster to a canon visual source or approve final textures for the whole game.

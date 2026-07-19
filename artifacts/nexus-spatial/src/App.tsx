@@ -4,7 +4,7 @@ import {
   type ShellProjection,
   type SpatialRuntime,
 } from "@workspace/spatial-runtime";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { SpatialCanvas } from "./SpatialCanvas.js";
 import {
   PRODUCTION_SEED_MANIFEST,
@@ -33,6 +33,10 @@ export function App() {
   const [fallbackPreview, setFallbackPreview] = useState(
     () => new URLSearchParams(window.location.search).get("fallback") === "actor",
   );
+  const [failedRasterAssetIds, setFailedRasterAssetIds] = useState<readonly string[]>([]);
+  const reportRasterLoadFailure = useCallback((assetIds: readonly string[]) => {
+    setFailedRasterAssetIds(assetIds);
+  }, []);
   const seedScene = useMemo(
     () => buildProductionSeedScene(runtime.getRenderProjection()),
     [runtime, shell.revision],
@@ -68,7 +72,11 @@ export function App() {
             <span>LOC / DERELICT RELAY</span>
             <span>REV {shell.revision.toString().padStart(3, "0")}</span>
           </div>
-          <SpatialCanvas runtime={runtime} fallbackPreview={fallbackPreview} />
+          <SpatialCanvas
+            runtime={runtime}
+            fallbackPreview={fallbackPreview}
+            onRasterLoadFailure={reportRasterLoadFailure}
+          />
           <div className="camera-chip" aria-hidden="true">10° FIXED ORTHO · 0.82× FRAME</div>
         </div>
 
@@ -120,7 +128,8 @@ export function App() {
           </section>
 
           <p className="fallback-status" aria-live="polite">
-            Presentation fallback: <strong>{fallbackPreview ? "active for actor silhouette" : "standby"}</strong>.
+            Presentation fallback: <strong>{fallbackPreview ? "preview active for nexus.seed.actor.field-silhouette.v1" : "preview standby"}</strong>.{" "}
+            {failedRasterAssetIds.length > 0 && <>Raster load fallback active for failed asset ID{failedRasterAssetIds.length === 1 ? "" : "s"}: <strong>{failedRasterAssetIds.join(", ")}</strong>.{" "}</>}
             Game Truth revision remains {shell.revision}.
           </p>
         </aside>
@@ -136,6 +145,7 @@ export function App() {
             outputStatus: PRODUCTION_SEED_MANIFEST.outputStatus,
             semanticAssetCount: Object.keys(PRODUCTION_SEED_MANIFEST.assets).length,
             fallbackPreview,
+            failedRasterAssetIds,
           }, null, 2)}</pre>
         </div>
       </details>

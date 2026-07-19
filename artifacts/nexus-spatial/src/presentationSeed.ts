@@ -32,7 +32,7 @@ export interface ProductionSeedAsset {
     | "marker"
     | "fallback";
   readonly outputStatus: AssetCanonStatus;
-  readonly version: "1.0.0";
+  readonly version: "1.1.0";
   readonly provenance: {
     readonly baselineCommit: "2ca033bb81f9b77497a5d420b2584434fa185238";
     readonly createdForIssue: 108;
@@ -83,7 +83,7 @@ function asset(
   return {
     ...value,
     outputStatus: "canon candidate",
-    version: "1.0.0",
+    version: "1.1.0",
     provenance: sharedProvenance,
     fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
   };
@@ -115,7 +115,7 @@ const cyanPalette = {
 
 export const PRODUCTION_SEED_MANIFEST = deepFreeze({
   manifestId: "nexus.production-intent-seed",
-  version: "1.0.0",
+  version: "1.1.0",
   outputStatus: "canon candidate" as AssetCanonStatus,
   immutableAfterApproval: ["assetId", "fallbackAssetId", "anchor", "saveFacingMeaning"],
   provenance: sharedProvenance,
@@ -128,7 +128,7 @@ export const PRODUCTION_SEED_MANIFEST = deepFreeze({
     "nexus.seed.floor.industrial-mosaic.v1": asset({
       assetId: "nexus.seed.floor.industrial-mosaic.v1",
       role: "floor",
-      scale: { worldUnits: 4, mosaicPixelStep: 4 },
+      scale: { worldUnits: 12, mosaicPixelStep: 4 },
       anchor: { horizontal: "left", vertical: "top", offsetWorldUnits: { x: 0, y: 0 } },
       states: ["default", "worn-panel", "service-channel"],
       palette: industrialPalette,
@@ -224,6 +224,7 @@ export interface ProductionSeedScene {
   readonly doors: readonly SceneAssetBinding[];
   readonly actors: readonly (SceneAssetBinding & { readonly state: string })[];
   readonly interactables: readonly SceneAssetBinding[];
+  readonly hazardSubstrates: readonly (SceneAssetBinding & { readonly state: "service-channel" })[];
   readonly markers: readonly (SceneAssetBinding & {
     readonly kind: "interactable" | "hazard" | "objective";
     readonly glyph: "brackets" | "warning-triangle" | "diamond-target";
@@ -286,6 +287,14 @@ export function buildProductionSeedScene(
       x: interactable.x,
       y: interactable.y,
       assetId: resolve("nexus.seed.prop.relay-console.v1"),
+    })),
+    hazardSubstrates: projection.hazards.map((hazard) => ({
+      id: hazard.id + "-substrate",
+      label: hazard.label + " substrate",
+      x: hazard.x,
+      y: hazard.y,
+      state: "service-channel" as const,
+      assetId: resolve("nexus.seed.floor.industrial-mosaic.v1"),
     })),
     markers: [
       ...projection.interactables.map((interactable) => ({
