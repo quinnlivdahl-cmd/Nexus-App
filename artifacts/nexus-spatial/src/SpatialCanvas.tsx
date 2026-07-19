@@ -12,6 +12,7 @@ import {
   type ProductionSeedRasterAssetId,
 } from "./productionSeedRasterManifest.js";
 import { loadProductionSeedTextures, textureFor } from "./productionSeedTextures.js";
+import { deriveProductionSeedLayout } from "./productionSeedLayout.js";
 
 const REFERENCE_ACTOR_ASSET = "nexus.seed.actor.field-silhouette.v1";
 // The frame's visible metal border is roughly 95 native pixels. At this scale it
@@ -27,15 +28,6 @@ interface SceneLayout {
 
 function pixel(value: number): number {
   return Math.round(value);
-}
-
-function sceneLayout(width: number, height: number): SceneLayout {
-  const unit = pixel(Math.max(16, Math.min(36, (width - 64) / 36, (height - 92) / 10)));
-  return {
-    unit,
-    left: pixel((width - unit * 36) / 2),
-    top: pixel((height - unit * 10) / 2) + 10,
-  };
 }
 
 function point(layout: SceneLayout, x: number, y: number) {
@@ -247,9 +239,10 @@ function drawScene(
   width: number,
   height: number,
   textures: ReadonlyMap<string, Texture>,
+  desktopOverview: boolean,
 ) {
   for (const child of container.removeChildren()) child.destroy();
-  const layout = sceneLayout(width, height);
+  const layout: SceneLayout = deriveProductionSeedLayout(width, height, seed.areas, desktopOverview);
   container.addChild(new Graphics().rect(0, 0, width, height).fill({ color: 0x05090b }));
   seed.areas.forEach((area, index) => drawArea(container, area, layout, index, textures));
   seed.hazardSubstrates.forEach((substrate) => drawHazardSubstrate(container, substrate, layout, textures));
@@ -310,13 +303,16 @@ export function SpatialCanvas({
       if (fallbackPreview) unavailable.add(REFERENCE_ACTOR_ASSET);
       const scene = new Container();
       app.stage.addChild(scene);
-      const draw = () => drawScene(
-        scene,
-        buildProductionSeedScene(runtime.getRenderProjection(), unavailable),
-        app.screen.width,
-        app.screen.height,
-        loaded.textures,
-      );
+      const draw = () => {
+        drawScene(
+          scene,
+          buildProductionSeedScene(runtime.getRenderProjection(), unavailable),
+          app.screen.width,
+          app.screen.height,
+          loaded.textures,
+          window.getComputedStyle(host).getPropertyValue("--desktop-overview").trim() === "1",
+        );
+      };
 
       draw();
       unsubscribe = runtime.subscribe(draw);

@@ -77,7 +77,7 @@ export function App() {
             fallbackPreview={fallbackPreview}
             onRasterLoadFailure={reportRasterLoadFailure}
           />
-          <div className="camera-chip" aria-hidden="true">10° FIXED ORTHO · 0.82× FRAME</div>
+          <div className="camera-chip" aria-hidden="true">10° FIXED ORTHO · OVERVIEW FRAME</div>
         </div>
 
         <aside className="controls" aria-label="Spatial runtime controls">

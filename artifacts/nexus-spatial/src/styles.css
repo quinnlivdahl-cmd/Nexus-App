@@ -29,7 +29,7 @@ h1 { margin: 2px 0 0; font-size: clamp(1.55rem, 3vw, 2.75rem); font-weight: 720;
 
 .play-surface { display: grid; grid-template-columns: minmax(0, 1fr) 286px; min-height: min(690px, calc(100vh - 155px)); border: 1px solid var(--line); background: var(--ink); box-shadow: 0 20px 70px #0009; }
 .viewport-shell { position: relative; min-width: 0; overflow: hidden; background: #05090b; }
-.spatial-canvas { position: absolute; inset: 0; min-height: 520px; overflow: hidden; }
+.spatial-canvas { --desktop-overview: 0; position: absolute; inset: 0; min-height: 520px; overflow: hidden; }
 .spatial-canvas canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
 .viewport-label { position: absolute; z-index: 2; top: 14px; left: 16px; right: 16px; display: flex; justify-content: space-between; color: #849093; font: 700 0.66rem ui-monospace, monospace; letter-spacing: 0.11em; pointer-events: none; }
 .camera-chip { position: absolute; z-index: 2; left: 16px; bottom: 14px; padding: 6px 9px; border-left: 3px solid var(--orange); color: #8d9a9d; background: #05090bd9; font: 700 0.62rem ui-monospace, monospace; letter-spacing: 0.08em; pointer-events: none; }
@@ -73,6 +73,7 @@ dd { margin: 0; text-align: right; color: #dce8e7; font-family: ui-monospace, mo
     min-height: min(720px, calc(100vh - 155px));
   }
   .viewport-shell, .spatial-canvas { min-height: 500px; }
+  .spatial-canvas { --desktop-overview: 1; }
   .controls {
     display: grid;
     grid-template-columns: minmax(130px, .55fr) minmax(240px, 1fr) minmax(280px, 1fr) minmax(310px, 1.2fr);

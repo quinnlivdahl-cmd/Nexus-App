@@ -19,6 +19,7 @@ import {
   PRODUCTION_SEED_RASTER_ENTRIES,
   PRODUCTION_SEED_RASTER_MANIFEST,
 } from "../src/productionSeedRasterManifest.js";
+import { deriveProductionSeedLayout } from "../src/productionSeedLayout.js";
 
 const TRACER_SCENARIO = "launch-one-spatial-runtime-tracer";
 const PRODUCTION_SEED_SCENARIO = "render-and-approve-the-production-intent-seed";
@@ -146,6 +147,12 @@ function runProductionSeedScenario() {
     .sort();
 
   const scene = buildProductionSeedScene(runtime.getRenderProjection());
+  const desktopOverview = deriveProductionSeedLayout(1374, 522, scene.areas, true);
+  const responsiveOverview = deriveProductionSeedLayout(678, 616, scene.areas, false);
+  assert.deepEqual(desktopOverview, { unit: 40, left: -33, top: 71 });
+  assert.deepEqual(responsiveOverview, { unit: 17, left: 33, top: 233 });
+  assert.ok(scene.areas[0] && scene.areas[0].height * desktopOverview.unit >= 0.76 * 522);
+  assert.deepEqual(runtime.getSnapshot(), truthBeforePresentation);
   assert.equal(PRODUCTION_SEED_MANIFEST.outputStatus, "canon candidate");
   assert.equal(PRODUCTION_SEED_MANIFEST.version, "2.0.0");
   assert.deepEqual(Object.keys(PRODUCTION_SEED_RASTER_MANIFEST).sort(), semanticAssetIds);
@@ -290,6 +297,10 @@ function runProductionSeedScenario() {
       markers: scene.markers.length,
     },
     fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
+    overviewFrame: {
+      desktopUnit: desktopOverview.unit,
+      responsiveUnit: responsiveOverview.unit,
+    },
     gameTruthRevisionAfterFallback: runtime.getSnapshot().committedRevision,
   };
 }
