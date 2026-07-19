@@ -10,11 +10,11 @@ Candidate manifest: nexus.production-intent-seed version 2.0.0
 
 Output status: canon candidate
 
-Human gate: the version 2 room-scale revision has fresh runtime evidence, completed local validation, independent Standards `PASS` after its only note was fixed and re-reviewed, and independent Spec/player-facing `PASS`. It must not merge before Quintin records `PASS`.
+Human gate: `PASS` recorded by Quintin on 2026-07-19 for the version 2 room-scale revision after fresh runtime evidence, completed local validation, independent Standards `PASS` after its only note was fixed and re-reviewed, and independent Spec/player-facing `PASS`.
 
-## Decision being requested
+## Accepted decision
 
-Judge whether this is a convincing, reusable, production-caliber gameplay-scale sample set and pipeline direction for Nexus:
+Quintin accepted this as a convincing, reusable, production-caliber gameplay-scale sample set and pipeline direction for Nexus:
 
 - industrial floor and reusable pressure-room shell;
 - closed pressure-door slab;
