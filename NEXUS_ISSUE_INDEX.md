@@ -59,7 +59,7 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #108 | Render and approve the production-intent seed | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; establish the reviewed presentation seed and semantic asset manifest |
+| #108 | Render and approve the production-intent seed | in-progress | Integration Contract #30 implementation | #107 satisfied | Candidate seed, immutable semantic manifest, deterministic fallback, and required viewport evidence are under technical review before the human art gate |
 | #112 | Create a legal Level-0 Player Character draft | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; implement the pinned provisional Skill Tree draft tracer |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
@@ -90,7 +90,7 @@ All nineteen issues are native sub-issues of Integration Contract #30. GitHub's 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #107 | Launch one spatial-runtime tracer | done | none | Shared runtime seam, codec, migration inventory, root spatial commands, focused scenario, and manual browser tracer completed |
-| #108 | Render and approve the production-intent seed | ready-for-agent | #107 satisfied | First human product/art gate; production-intent seed and semantic asset manifest |
+| #108 | Render and approve the production-intent seed | in-progress | #107 satisfied | Candidate seed and evidence packet are being validated and independently reviewed before `status:ready-for-human` |
 | #109 | Traverse the authored three-area derelict | blocked task | #108 | Movement, facing, followers, authored navigation, and exploration camera |
 | #110 | Resolve and persist one authored Context Action | blocked task | #109 | First complete authoritative action transaction, checkpoint, failure-lite path, and Continue |
 | #111 | Resolve Intent Bar and Lattice behavior through the proven transaction | blocked task | #110 | Typed non-authoritative interpretation proposals and Lattice behavior |

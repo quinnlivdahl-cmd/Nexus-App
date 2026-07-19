@@ -179,11 +179,43 @@ export interface RenderActorProjection {
   readonly semanticAnimation: SpatialActor["semanticAnimation"];
 }
 
+export interface RenderAreaProjection {
+  readonly id: EntityId;
+  readonly label: string;
+  readonly bounds: Bounds;
+}
+
+export interface RenderDoorProjection {
+  readonly id: EntityId;
+  readonly x: number;
+  readonly y: number;
+}
+
+export interface RenderInteractableProjection {
+  readonly id: EntityId;
+  readonly label: string;
+  readonly x: number;
+  readonly y: number;
+}
+
+export interface RenderMarkerProjection {
+  readonly id: EntityId;
+  readonly label: string;
+  readonly x: number;
+  readonly y: number;
+  readonly active: boolean;
+}
+
 export interface RenderProjection {
   readonly revision: Revision;
   readonly frame: number;
   readonly locationId: EntityId;
+  readonly areas: readonly RenderAreaProjection[];
+  readonly doors: readonly RenderDoorProjection[];
   readonly actors: readonly RenderActorProjection[];
+  readonly interactables: readonly RenderInteractableProjection[];
+  readonly hazards: readonly RenderMarkerProjection[];
+  readonly objectives: readonly RenderMarkerProjection[];
 }
 
 export interface ShellProjection {

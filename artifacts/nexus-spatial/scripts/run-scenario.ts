@@ -7,12 +7,18 @@ import {
   encodeCampaignLocation,
   validateCampaignLocationState,
 } from "@workspace/spatial-runtime";
+import {
+  MISSING_ASSET_FALLBACK_ID,
+  PRODUCTION_SEED_MANIFEST,
+  buildProductionSeedScene,
+} from "../src/presentationSeed.js";
 
-const SCENARIO = "launch-one-spatial-runtime-tracer";
+const TRACER_SCENARIO = "launch-one-spatial-runtime-tracer";
+const PRODUCTION_SEED_SCENARIO = "render-and-approve-the-production-intent-seed";
 
 function requestedScenario(): string {
   const scenarioIndex = process.argv.indexOf("--scenario");
-  return scenarioIndex >= 0 ? (process.argv[scenarioIndex + 1] ?? "") : SCENARIO;
+  return scenarioIndex >= 0 ? (process.argv[scenarioIndex + 1] ?? "") : TRACER_SCENARIO;
 }
 
 function runTracerScenario() {
@@ -114,7 +120,7 @@ function runTracerScenario() {
   if (!unsupportedResult.ok) assert.match(unsupportedResult.error, /Unsupported/);
 
   return {
-    scenario: SCENARIO,
+    scenario: TRACER_SCENARIO,
     committedRevision: restored.state.committedRevision,
     durableRevision: restored.state.lastDurableRevision,
     frame: restored.state.frame,
@@ -123,9 +129,69 @@ function runTracerScenario() {
   };
 }
 
-const scenario = requestedScenario();
-if (scenario !== SCENARIO) {
-  throw new Error(`Unknown scenario ${JSON.stringify(scenario)}. Expected ${SCENARIO}.`);
+function runProductionSeedScenario() {
+  const runtime = createSpatialRuntime(createTracerFixtureState());
+  const truthBeforePresentation = runtime.getSnapshot();
+
+  const scene = buildProductionSeedScene(runtime.getRenderProjection());
+  assert.equal(PRODUCTION_SEED_MANIFEST.outputStatus, "canon candidate");
+  assert.equal(PRODUCTION_SEED_MANIFEST.version, "1.0.0");
+  assert.equal(scene.areas.length, 3);
+  assert.equal(scene.doors.length, 2);
+  assert.equal(scene.actors[0]?.assetId, "nexus.seed.actor.field-silhouette.v1");
+  assert.equal(scene.interactables[0]?.assetId, "nexus.seed.prop.relay-console.v1");
+  assert.deepEqual(
+    scene.markers.map((marker) => [marker.kind, marker.glyph, marker.label]),
+    [
+      ["interactable", "brackets", "Relay Console available"],
+      ["hazard", "warning-triangle", "Live Conduit"],
+      ["objective", "diamond-target", "Reach the relay"],
+    ],
+  );
+  assert.equal(scene.fallbackActivations.length, 0);
+
+  const forcedFallback = buildProductionSeedScene(
+    runtime.getRenderProjection(),
+    new Set(["nexus.seed.actor.field-silhouette.v1"]),
+  );
+  assert.equal(forcedFallback.actors[0]?.assetId, MISSING_ASSET_FALLBACK_ID);
+  assert.deepEqual(forcedFallback.fallbackActivations, [
+    {
+      requestedAssetId: "nexus.seed.actor.field-silhouette.v1",
+      fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
+    },
+  ]);
+  assert.deepEqual(runtime.getSnapshot(), truthBeforePresentation);
+  assert.equal(runtime.getDeveloperProjection().committedRevision, 0);
+
+  assert.throws(() => {
+    (PRODUCTION_SEED_MANIFEST.assets["nexus.seed.actor.field-silhouette.v1"].states as string[]).push("invalid");
+  }, TypeError);
+
+  return {
+    scenario: PRODUCTION_SEED_SCENARIO,
+    manifestVersion: PRODUCTION_SEED_MANIFEST.version,
+    outputStatus: PRODUCTION_SEED_MANIFEST.outputStatus,
+    semanticAssets: Object.keys(PRODUCTION_SEED_MANIFEST.assets).length,
+    sceneCounts: {
+      areas: scene.areas.length,
+      doors: scene.doors.length,
+      actors: scene.actors.length,
+      interactables: scene.interactables.length,
+      markers: scene.markers.length,
+    },
+    fallbackAssetId: MISSING_ASSET_FALLBACK_ID,
+    gameTruthRevisionAfterFallback: runtime.getSnapshot().committedRevision,
+  };
 }
 
-console.log(JSON.stringify(runTracerScenario(), null, 2));
+const scenario = requestedScenario();
+if (scenario === TRACER_SCENARIO) {
+  console.log(JSON.stringify(runTracerScenario(), null, 2));
+} else if (scenario === PRODUCTION_SEED_SCENARIO) {
+  console.log(JSON.stringify(runProductionSeedScenario(), null, 2));
+} else {
+  throw new Error(
+    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO} or ${PRODUCTION_SEED_SCENARIO}.`,
+  );
+}
