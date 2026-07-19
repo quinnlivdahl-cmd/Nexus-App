@@ -210,7 +210,37 @@ export function createSpatialRuntime(initialState: CampaignLocationState): Spati
       revision: state.committedRevision,
       frame: state.frame,
       locationId: state.location.id,
+      areas: state.location.areas.map((area) => ({
+        id: area.id,
+        label: area.label,
+        bounds: cloneValue(area.bounds),
+      })),
+      doors: state.location.joins.map((join) => ({
+        id: join.id,
+        x: join.position.x,
+        y: join.position.y,
+      })),
       actors: state.location.actors.map(renderActor),
+      interactables: state.location.objects.map((object) => ({
+        id: object.id,
+        label: object.label,
+        x: object.position.x,
+        y: object.position.y,
+      })),
+      hazards: state.location.hazards.map((hazard) => ({
+        id: hazard.id,
+        label: hazard.label,
+        x: hazard.position.x,
+        y: hazard.position.y,
+        active: hazard.active,
+      })),
+      objectives: state.location.objectives.map((objective) => ({
+        id: objective.id,
+        label: objective.label,
+        x: objective.position.x,
+        y: objective.position.y,
+        active: objective.status === "active",
+      })),
     }) as RenderProjection;
   }
 

@@ -16,3 +16,7 @@ This inventory belongs to **Launch one spatial-runtime tracer #107**. It records
 - `artifacts/nexus-spatial/scripts/run-scenario.ts` exercises the same runtime command, event, snapshot, frame, projection, and codec interfaces as the application.
 
 No canonical Nexus source document was changed for this implementation tracer.
+
+## Render and approve the production-intent seed #108
+
+No legacy implementation input was touched or reused. The commit-pinned art packet at `2ca033bb81f9b77497a5d420b2584434fa185238` was consulted as review evidence only; its images, branch state, and source documents were not copied into the application or granted runtime authority. The presentation manifest and renderer consume the existing immutable spatial render projection, and missing-asset fallback remains presentation-only.
