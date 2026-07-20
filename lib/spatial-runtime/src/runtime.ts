@@ -1,10 +1,16 @@
 import { encodeCampaignLocation } from "./codec.js";
 import { validateCampaignLocationState } from "./fixture.js";
 import { cloneValue, immutableCopy } from "./immutable.js";
+import { pointInPolygon, segmentIntersectsPolygon } from "./geometry.js";
+import {
+  isAuthoredPolygonGraph,
+  planAuthoredPolygonGraphRoute,
+} from "./navigation.js";
 import type {
   CampaignLocationState,
   CommandResult,
   DeveloperProjection,
+  Direction,
   Facing,
   RenderActorProjection,
   RenderProjection,
@@ -17,7 +23,12 @@ import type {
 } from "./types.js";
 
 function contains(
-  bounds: { readonly x: number; readonly y: number; readonly width: number; readonly height: number },
+  bounds: {
+    readonly x: number;
+    readonly y: number;
+    readonly width: number;
+    readonly height: number;
+  },
   point: Vector2,
 ) {
   return (
@@ -30,8 +41,34 @@ function contains(
 
 function facingForDelta(dx: number, dy: number, fallback: Facing): Facing {
   if (dx === 0 && dy === 0) return fallback;
-  if (Math.abs(dx) >= Math.abs(dy)) return dx >= 0 ? "east" : "west";
-  return dy >= 0 ? "south" : "north";
+  const horizontal = dx > 0 ? "east" : "west";
+  const vertical = dy > 0 ? "south" : "north";
+  if (Math.abs(dx) < 0.000001) return vertical;
+  if (Math.abs(dy) < 0.000001) return horizontal;
+  return `${vertical}-${horizontal}` as Facing;
+}
+
+function directionVector(direction: Direction): Vector2 {
+  const vectors: Readonly<Record<Direction, Vector2>> = {
+    north: { x: 0, y: -1 },
+    "north-east": { x: 1, y: -1 },
+    east: { x: 1, y: 0 },
+    "south-east": { x: 1, y: 1 },
+    south: { x: 0, y: 1 },
+    "south-west": { x: -1, y: 1 },
+    west: { x: -1, y: 0 },
+    "north-west": { x: -1, y: -1 },
+  };
+  const value = vectors[direction];
+  const length = Math.hypot(value.x, value.y);
+  return { x: value.x / length, y: value.y / length };
+}
+
+function normalizedVector(from: Vector2, to: Vector2): Vector2 | null {
+  const dx = to.x - from.x;
+  const dy = to.y - from.y;
+  const length = Math.hypot(dx, dy);
+  return length === 0 ? null : { x: dx / length, y: dy / length };
 }
 
 function renderActor(actor: SpatialActor): RenderActorProjection {
@@ -45,168 +82,431 @@ function renderActor(actor: SpatialActor): RenderActorProjection {
   };
 }
 
-export function createSpatialRuntime(initialState: CampaignLocationState): SpatialRuntime {
+export function createSpatialRuntime(
+  initialState: CampaignLocationState,
+): SpatialRuntime {
   const validation = validateCampaignLocationState(initialState);
-  if (!validation.ok) {
-    throw new Error(`Cannot create spatial runtime from invalid state: ${validation.issues.join(" ")}`);
-  }
-
+  if (!validation.ok)
+    throw new Error(
+      `Cannot create spatial runtime from invalid state: ${validation.issues.join(" ")}`,
+    );
   let state = cloneValue(initialState);
   let sequence = 0;
   let lastEvent: RuntimeEvent | null = null;
   const listeners = new Set<(event: RuntimeEvent) => void>();
-
-  function publish(event: RuntimeEvent) {
-    lastEvent = immutableCopy(event) as RuntimeEvent;
+  const snapshot = () => immutableCopy(state) as CampaignLocationState;
+  const event = <T extends RuntimeEvent>(value: Omit<T, "sequence">): T =>
+    immutableCopy({ ...value, sequence: ++sequence }) as T;
+  const publish = (value: RuntimeEvent) => {
+    lastEvent = immutableCopy(value) as RuntimeEvent;
     for (const listener of listeners) listener(lastEvent);
-  }
-
-  function event<T extends RuntimeEvent>(value: Omit<T, "sequence">): T {
-    sequence += 1;
-    return immutableCopy({ ...value, sequence }) as T;
-  }
-
-  function snapshot(): CampaignLocationState {
-    return immutableCopy(state) as CampaignLocationState;
-  }
-
-  function reject(command: SpatialCommand, reason: string): CommandResult {
-    const rejected = event<Extract<RuntimeEvent, { type: "command.rejected" }>>({
-      type: "command.rejected",
-      revision: state.committedRevision,
-      commandId: command.commandId,
-      reason,
-    });
+  };
+  const reject = (command: SpatialCommand, reason: string): CommandResult => {
+    const rejected = event<Extract<RuntimeEvent, { type: "command.rejected" }>>(
+      {
+        type: "command.rejected",
+        revision: state.committedRevision,
+        commandId: command.commandId,
+        reason,
+      },
+    );
     publish(rejected);
-    return immutableCopy({ accepted: false, event: rejected, snapshot: snapshot() }) as CommandResult;
-  }
+    return immutableCopy({
+      accepted: false,
+      event: rejected,
+      snapshot: snapshot(),
+    }) as CommandResult;
+  };
+  const areaFor = (position: Vector2, fallback: string) =>
+    state.location.areas.find(
+      (area) => contains(area.bounds, position) && area.id !== fallback,
+    )?.id ??
+    state.location.areas.find((area) => contains(area.bounds, position))?.id ??
+    fallback;
+  const blockingSolidAt = (position: Vector2, areaId: string) =>
+    state.location.blueprint?.solids.find(
+      (solid) =>
+        solid.areaId === areaId && pointInPolygon(position, solid.vertices),
+    );
+  const pathIntersectsSolid = (path: readonly Vector2[]) => {
+    const solids = state.location.blueprint?.solids ?? [];
+    for (let index = 1; index < path.length; index += 1) {
+      if (
+        solids.some((solid) =>
+          segmentIntersectsPolygon(
+            path[index - 1]!,
+            path[index]!,
+            solid.vertices,
+          ),
+        )
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
+  const startMovement = (
+    actor: SpatialActor,
+    destination: Vector2,
+    destinationAreaId: string,
+    interactionTargetId: string | null,
+  ): SpatialActor | null => {
+    let path: readonly Vector2[];
+    if (isAuthoredPolygonGraph(state.location)) {
+      const directPath = [actor.position, destination] as const;
+      const sharesNavigablePolygon = state.location.navigation.polygons.some(
+        (polygon) =>
+          polygon.areaId === actor.areaId &&
+          polygon.areaId === destinationAreaId &&
+          pointInPolygon(actor.position, polygon.vertices) &&
+          pointInPolygon(destination, polygon.vertices),
+      );
+      path =
+        sharesNavigablePolygon && !pathIntersectsSolid(directPath)
+          ? directPath
+          : (planAuthoredPolygonGraphRoute(
+              state.location.navigation,
+              actor.position,
+              actor.areaId,
+              destination,
+              destinationAreaId,
+            ) ?? []);
+      if (path.length < 2) return null;
+    } else {
+      if (actor.areaId !== destinationAreaId) return null;
+      path = [actor.position, destination];
+    }
+    if (pathIntersectsSolid(path)) return null;
+    const remaining = path.slice(1);
+    return {
+      ...actor,
+      facing: facingForDelta(
+        remaining[0]!.x - actor.position.x,
+        remaining[0]!.y - actor.position.y,
+        actor.facing,
+      ),
+      semanticAnimation: "walk",
+      animationStartedAtFrame: state.frame,
+      moveTarget: cloneValue(remaining[0]!),
+      movement: { path: cloneValue(remaining), interactionTargetId },
+    };
+  };
+  const finalApproach = (
+    actor: SpatialActor,
+    movingActor: SpatialActor,
+    destination: Vector2,
+  ): Vector2 => {
+    const path = movingActor.movement?.path ?? [];
+    const previous = path.length > 1 ? path[path.length - 2]! : actor.position;
+    return (
+      normalizedVector(previous, destination) ??
+      normalizedVector(actor.position, destination) ?? { x: 1, y: 0 }
+    );
+  };
+  const followerDestination = (
+    leaderDestination: Vector2,
+    approach: Vector2,
+    index: number,
+  ): Vector2 => {
+    const perpendicular = { x: -approach.y, y: approach.x };
+    const side = index === 0 ? -1 : 1;
+    return {
+      x: leaderDestination.x - approach.x * 2 + perpendicular.x * side,
+      y: leaderDestination.y - approach.y * 2 + perpendicular.y * side,
+    };
+  };
 
   function dispatch(command: SpatialCommand): CommandResult {
-    if (command.expectedRevision !== state.committedRevision) {
+    if (command.expectedRevision !== state.committedRevision)
       return reject(
         command,
         `Stale command expected revision ${command.expectedRevision}; current revision is ${state.committedRevision}.`,
       );
-    }
-
-    const actor = state.location.actors.find((candidate) => candidate.id === command.actorId);
-    if (!actor) return reject(command, `Actor ${command.actorId} does not exist.`);
-
+    const actor = state.location.actors.find(
+      (candidate) => candidate.id === command.actorId,
+    );
+    if (!actor)
+      return reject(command, `Actor ${command.actorId} does not exist.`);
     let location = state.location;
     if (command.type === "actor.select") {
       location = {
         ...location,
         selectedActorId: actor.id,
-        camera: { mode: "follow-selected", targetActorId: actor.id },
+        camera: { ...location.camera, targetActorId: actor.id },
       };
     } else {
-      const destinationArea = location.areas.find((area) => contains(area.bounds, command.destination));
-      if (!destinationArea || !Number.isFinite(command.destination.x) || !Number.isFinite(command.destination.y)) {
-        return reject(command, "Move destination is outside authored Location geometry.");
+      let destination: Vector2;
+      let destinationAreaId: string;
+      let interactionTargetId: string | null = null;
+      if (command.type === "actor.move") {
+        destination = command.destination;
+        const area = location.areas.find((candidate) =>
+          contains(candidate.bounds, destination),
+        );
+        if (
+          !area ||
+          !Number.isFinite(destination.x) ||
+          !Number.isFinite(destination.y)
+        )
+          return reject(
+            command,
+            "Move destination is outside authored Location geometry.",
+          );
+        destinationAreaId = area.id;
+      } else if (command.type === "actor.move-direction") {
+        if (!Number.isFinite(command.distance) || command.distance <= 0)
+          return reject(
+            command,
+            "Movement distance must be a positive finite number.",
+          );
+        const vector = directionVector(command.direction);
+        destination = {
+          x: actor.position.x + vector.x * command.distance,
+          y: actor.position.y + vector.y * command.distance,
+        };
+        const area = location.areas.find((candidate) =>
+          contains(candidate.bounds, destination),
+        );
+        if (!area)
+          return reject(
+            command,
+            "Movement direction leaves authored Location geometry.",
+          );
+        destinationAreaId = area.id;
+      } else {
+        const object = location.objects.find(
+          (candidate) => candidate.id === command.objectId,
+        );
+        if (!object)
+          return reject(command, `Object ${command.objectId} does not exist.`);
+        const interaction = location.interactionPositions.find(
+          (candidate) => candidate.id === object.interactionPositionId,
+        );
+        if (!interaction)
+          return reject(
+            command,
+            `Object ${object.id} has no authored Interaction Position.`,
+          );
+        destination = interaction.position;
+        destinationAreaId = interaction.areaId;
+        interactionTargetId = object.id;
       }
-      if (destinationArea.id !== actor.areaId) {
-        return reject(command, "The tracer accepts movement only inside the actor's current authored Area.");
+      if (
+        isAuthoredPolygonGraph(location) &&
+        !location.navigation.polygons.some(
+          (polygon) =>
+            polygon.areaId === destinationAreaId &&
+            pointInPolygon(destination, polygon.vertices),
+        )
+      ) {
+        return reject(
+          command,
+          "Move destination is outside authored navigable polygon geometry.",
+        );
       }
-
+      const blockingSolid = blockingSolidAt(destination, destinationAreaId);
+      if (blockingSolid) {
+        return reject(
+          command,
+          `Move destination is inside authored solid geometry ${blockingSolid.id}.`,
+        );
+      }
+      if (
+        !isAuthoredPolygonGraph(location) &&
+        actor.areaId !== destinationAreaId
+      ) {
+        return reject(
+          command,
+          "The tracer accepts movement only inside the actor's current authored Area.",
+        );
+      }
+      const movingActor = startMovement(
+        actor,
+        destination,
+        destinationAreaId,
+        interactionTargetId,
+      );
+      if (!movingActor)
+        return reject(
+          command,
+          "No authored polygon-graph route reaches that destination from the actor's committed position.",
+        );
+      const actors = location.actors.map((candidate) =>
+        candidate.id === actor.id ? movingActor : candidate,
+      );
+      if (
+        actor.partyRole === "player-character" &&
+        isAuthoredPolygonGraph(location)
+      ) {
+        const approach = finalApproach(actor, movingActor, destination);
+        let followerIndex = 0;
+        for (const follower of location.actors.filter(
+          (candidate) => candidate.partyRole === "follower",
+        )) {
+          const target = followerDestination(
+            destination,
+            approach,
+            followerIndex++,
+          );
+          const followerArea = location.areas.find((candidate) =>
+            contains(candidate.bounds, target),
+          );
+          if (
+            !followerArea ||
+            blockingSolidAt(target, followerArea.id) ||
+            !location.navigation.polygons.some(
+              (polygon) =>
+                polygon.areaId === followerArea.id &&
+                pointInPolygon(target, polygon.vertices),
+            )
+          ) {
+            return reject(
+              command,
+              `Follower ${follower.id} cannot retain formation inside authored navigable geometry.`,
+            );
+          }
+          const started = startMovement(
+            follower,
+            target,
+            followerArea.id,
+            null,
+          );
+          if (!started)
+            return reject(
+              command,
+              `Follower ${follower.id} has no authored route.`,
+            );
+          const targetIndex = actors.findIndex(
+            (candidate) => candidate.id === follower.id,
+          );
+          actors[targetIndex] = started;
+        }
+      }
       location = {
         ...location,
         selectedActorId: actor.id,
-        camera: { mode: "follow-selected", targetActorId: actor.id },
-        actors: location.actors.map((candidate) =>
-          candidate.id === actor.id
-            ? {
-                ...candidate,
-                facing: facingForDelta(
-                  command.destination.x - candidate.position.x,
-                  command.destination.y - candidate.position.y,
-                  candidate.facing,
-                ),
-                semanticAnimation: "walk",
-                animationStartedAtFrame: state.frame,
-                moveTarget: cloneValue(command.destination),
-              }
-            : candidate,
-        ),
+        camera: { ...location.camera, targetActorId: actor.id },
+        actors,
       };
     }
-
     state = {
       ...state,
       committedRevision: state.committedRevision + 1,
       location,
     };
-
-    const committed = event<Extract<RuntimeEvent, { type: "command.committed" }>>({
+    const committed = event<
+      Extract<RuntimeEvent, { type: "command.committed" }>
+    >({
       type: "command.committed",
       revision: state.committedRevision,
       commandId: command.commandId,
       commandType: command.type,
     });
     publish(committed);
-    return immutableCopy({ accepted: true, event: committed, snapshot: snapshot() }) as CommandResult;
+    return immutableCopy({
+      accepted: true,
+      event: committed,
+      snapshot: snapshot(),
+    }) as CommandResult;
+  }
+
+  function advanceActor(
+    actor: SpatialActor,
+    deltaMs: number,
+    nextFrame: number,
+  ): SpatialActor {
+    if (!actor.moveTarget || !actor.movement) return actor;
+    let position = actor.position;
+    let remainingTravel = actor.moveSpeedUnitsPerSecond * (deltaMs / 1_000);
+    let path = [...actor.movement.path];
+    let facing = actor.facing;
+    while (path[0] && remainingTravel > 0) {
+      const target = path[0];
+      const dx = target.x - position.x;
+      const dy = target.y - position.y;
+      const distance = Math.hypot(dx, dy);
+      facing = facingForDelta(dx, dy, facing);
+      if (distance > remainingTravel) {
+        position = {
+          x: position.x + (dx * remainingTravel) / distance,
+          y: position.y + (dy * remainingTravel) / distance,
+        };
+        remainingTravel = 0;
+        break;
+      }
+      position = cloneValue(target);
+      remainingTravel -= distance;
+      path.shift();
+    }
+    const arrived = path.length === 0;
+    if (arrived && actor.movement.interactionTargetId) {
+      const target = state.location.objects.find(
+        (object) => object.id === actor.movement?.interactionTargetId,
+      );
+      if (target)
+        facing = facingForDelta(
+          target.position.x - position.x,
+          target.position.y - position.y,
+          facing,
+        );
+    }
+    return {
+      ...actor,
+      position,
+      areaId: areaFor(position, actor.areaId),
+      facing,
+      semanticAnimation: arrived ? "idle" : "walk",
+      animationStartedAtFrame:
+        arrived && actor.semanticAnimation !== "idle"
+          ? nextFrame
+          : actor.animationStartedAtFrame,
+      moveTarget: arrived ? null : cloneValue(path[0]!),
+      movement: arrived ? null : { ...actor.movement, path: cloneValue(path) },
+    };
   }
 
   function step(deltaMs: number): CampaignLocationState {
-    if (!Number.isFinite(deltaMs) || deltaMs <= 0 || deltaMs > 1_000) {
-      throw new Error("Frame deltaMs must be greater than zero and no more than 1000.");
-    }
-
+    if (!Number.isFinite(deltaMs) || deltaMs <= 0 || deltaMs > 1_000)
+      throw new Error(
+        "Frame deltaMs must be greater than zero and no more than 1000.",
+      );
     const nextFrame = state.frame + 1;
-    const actors = state.location.actors.map((actor): SpatialActor => {
-      if (!actor.moveTarget) return actor;
-
-      const dx = actor.moveTarget.x - actor.position.x;
-      const dy = actor.moveTarget.y - actor.position.y;
-      const distance = Math.hypot(dx, dy);
-      const travel = actor.moveSpeedUnitsPerSecond * (deltaMs / 1_000);
-      const arrived = distance <= travel;
-      const scale = distance === 0 ? 0 : Math.min(1, travel / distance);
-      const position = arrived
-        ? cloneValue(actor.moveTarget)
-        : { x: actor.position.x + dx * scale, y: actor.position.y + dy * scale };
-
-      return {
-        ...actor,
-        position,
-        facing: facingForDelta(dx, dy, actor.facing),
-        semanticAnimation: arrived ? "idle" : "walk",
-        animationStartedAtFrame:
-          arrived && actor.semanticAnimation !== "idle" ? nextFrame : actor.animationStartedAtFrame,
-        moveTarget: arrived ? null : actor.moveTarget,
-      };
-    });
-
+    const actors = state.location.actors.map((actor) =>
+      advanceActor(actor, deltaMs, nextFrame),
+    );
     state = {
       ...state,
       frame: nextFrame,
       committedRevision: state.committedRevision + 1,
       location: { ...state.location, actors },
     };
-
-    const committed = event<Extract<RuntimeEvent, { type: "frame.committed" }>>({
-      type: "frame.committed",
-      revision: state.committedRevision,
-      frame: state.frame,
-      deltaMs,
-    });
+    const committed = event<Extract<RuntimeEvent, { type: "frame.committed" }>>(
+      {
+        type: "frame.committed",
+        revision: state.committedRevision,
+        frame: state.frame,
+        deltaMs,
+      },
+    );
     publish(committed);
     return snapshot();
   }
 
-  function checkpoint(): string {
+  const checkpoint = () => {
     state = { ...state, lastDurableRevision: state.committedRevision };
     const encoded = encodeCampaignLocation(state);
-    const committed = event<Extract<RuntimeEvent, { type: "checkpoint.committed" }>>({
+    const committed = event<
+      Extract<RuntimeEvent, { type: "checkpoint.committed" }>
+    >({
       type: "checkpoint.committed",
       revision: state.committedRevision,
       durableRevision: state.lastDurableRevision,
     });
     publish(committed);
     return encoded;
-  }
-
-  function getRenderProjection(): RenderProjection {
-    return immutableCopy({
+  };
+  const getRenderProjection = (): RenderProjection =>
+    immutableCopy({
       revision: state.committedRevision,
       frame: state.frame,
       locationId: state.location.id,
@@ -241,24 +541,29 @@ export function createSpatialRuntime(initialState: CampaignLocationState): Spati
         y: objective.position.y,
         active: objective.status === "active",
       })),
+      camera: state.location.camera,
     }) as RenderProjection;
-  }
-
-  function getShellProjection(): ShellProjection {
-    const selected = state.location.actors.find((actor) => actor.id === state.location.selectedActorId);
-    if (!selected) throw new Error("Validated runtime state lost its selected actor.");
+  const getShellProjection = (): ShellProjection => {
+    const selected = state.location.actors.find(
+      (actor) => actor.id === state.location.selectedActorId,
+    );
+    if (!selected)
+      throw new Error("Validated runtime state lost its selected actor.");
     return immutableCopy({
       revision: state.committedRevision,
       durableRevision: state.lastDurableRevision,
       locationLabel: state.location.label,
       selectedActor: renderActor(selected),
+      actors: state.location.actors.map(renderActor),
+      camera: state.location.camera,
       saveStatus:
-        state.lastDurableRevision === state.committedRevision ? "durable" : "not-yet-durable",
+        state.lastDurableRevision === state.committedRevision
+          ? "durable"
+          : "not-yet-durable",
     }) as ShellProjection;
-  }
-
-  function getDeveloperProjection(): DeveloperProjection {
-    return immutableCopy({
+  };
+  const getDeveloperProjection = (): DeveloperProjection =>
+    immutableCopy({
       committedRevision: state.committedRevision,
       lastDurableRevision: state.lastDurableRevision,
       frame: state.frame,
@@ -266,12 +571,12 @@ export function createSpatialRuntime(initialState: CampaignLocationState): Spati
       camera: state.location.camera,
       lastEvent,
     }) as DeveloperProjection;
-  }
-
   return {
     dispatch,
     step,
     checkpoint,
+    hasActiveMovement: () =>
+      state.location.actors.some((actor) => actor.moveTarget !== null),
     getSnapshot: snapshot,
     getRenderProjection,
     getShellProjection,

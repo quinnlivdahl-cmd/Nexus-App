@@ -172,11 +172,13 @@ function drawSprite(
   height: number,
   anchor: { readonly x: number; readonly y: number },
   label: string,
+  tint?: number,
 ) {
   if (!texture) return drawFallback(scene, x, y, Math.max(width, height) * 0.8, label);
   const sprite = new Sprite({ texture, anchor, x: pixel(x), y: pixel(y), roundPixels: true });
   const scale = Math.min(width / texture.width, height / texture.height);
   sprite.scale.set(scale);
+  if (tint !== undefined) sprite.tint = tint;
   sprite.label = label;
   scene.addChild(sprite);
 }
@@ -188,18 +190,21 @@ function drawDoor(scene: Container, door: ProductionSeedScene["doors"][number], 
 
 function drawActor(scene: Container, actor: ProductionSeedScene["actors"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
   const { x, y } = point(layout, actor.x, actor.y);
-  const selection = new Graphics()
-    .ellipse(x, y + layout.unit * 0.68, layout.unit * 0.82, layout.unit * 0.35)
-    .fill({ color: 0x061015, alpha: 0.55 })
-    .stroke({ color: 0x47d7db, width: 2 })
-    .poly([
-      x + layout.unit * 0.78, y + layout.unit * 0.48,
-      x + layout.unit * 1.08, y + layout.unit * 0.68,
-      x + layout.unit * 0.78, y + layout.unit * 0.88,
-    ])
-    .fill({ color: 0xb7eef0 });
-  selection.label = `${actor.label} selected, facing east`;
-  scene.addChild(selection);
+  const accent = actor.presentationRole === "player-character" ? 0x47d7db : 0xf0a233;
+  if (actor.isSelected) {
+    const selection = new Graphics()
+      .ellipse(x, y + layout.unit * 0.68, layout.unit * 0.82, layout.unit * 0.35)
+      .fill({ color: 0x061015, alpha: 0.55 })
+      .stroke({ color: accent, width: 2 })
+      .poly([
+        x + layout.unit * 0.78, y + layout.unit * 0.48,
+        x + layout.unit * 1.08, y + layout.unit * 0.68,
+        x + layout.unit * 0.78, y + layout.unit * 0.88,
+      ])
+      .fill({ color: 0xb7eef0 });
+    selection.label = `${actor.label} selected, facing ${actor.facing}`;
+    scene.addChild(selection);
+  }
   drawSprite(
     scene,
     rasterTexture(textures, actor.assetId, actor.state),
@@ -208,11 +213,25 @@ function drawActor(scene: Container, actor: ProductionSeedScene["actors"][number
     layout.unit * 1.7,
     layout.unit * 2.75,
     { x: 0.5, y: 1 },
-    `${actor.label} ${actor.state}`,
+    `${actor.label}, ${actor.presentationRole}, ${actor.state}, facing ${actor.facing}`,
+    actor.presentationRole === "player-character" ? undefined : accent,
   );
+  scene.addChild(new Text({
+    text: actor.presentationRole === "player-character" ? "PC" : "FOLLOW",
+    style: { fill: accent, fontFamily: "ui-monospace, monospace", fontSize: Math.max(9, pixel(layout.unit * 0.26)), fontWeight: "800" },
+    anchor: { x: 0.5, y: 1 },
+    x,
+    y: y - layout.unit * 0.38,
+  }));
 }
 
-function drawInteractable(scene: Container, item: ProductionSeedScene["interactables"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
+function drawInteractable(
+  scene: Container,
+  item: ProductionSeedScene["interactables"][number],
+  layout: SceneLayout,
+  textures: ReadonlyMap<string, Texture>,
+  onPathToObject: (objectId: string) => void,
+) {
   const { x, y } = point(layout, item.x, item.y);
   drawSprite(
     scene,
@@ -224,6 +243,14 @@ function drawInteractable(scene: Container, item: ProductionSeedScene["interacta
     { x: 0.5, y: 1 },
     item.label,
   );
+  const hitTarget = new Graphics()
+    .rect(x - layout.unit * 1.4, y - layout.unit * 1.2, layout.unit * 2.8, layout.unit * 2.5)
+    .fill({ color: 0xffffff, alpha: 0 });
+  hitTarget.eventMode = "static";
+  hitTarget.cursor = "pointer";
+  hitTarget.label = `Path to ${item.label}`;
+  hitTarget.on("pointertap", () => onPathToObject(item.id));
+  scene.addChild(hitTarget);
 }
 
 function drawMarker(scene: Container, marker: ProductionSeedScene["markers"][number], layout: SceneLayout, textures: ReadonlyMap<string, Texture>) {
@@ -240,14 +267,15 @@ function drawScene(
   height: number,
   textures: ReadonlyMap<string, Texture>,
   desktopOverview: boolean,
+  onPathToObject: (objectId: string) => void,
 ) {
   for (const child of container.removeChildren()) child.destroy();
-  const layout: SceneLayout = deriveProductionSeedLayout(width, height, seed.areas, desktopOverview);
+  const layout: SceneLayout = deriveProductionSeedLayout(width, height, seed.areas, desktopOverview, seed.camera.framingScale);
   container.addChild(new Graphics().rect(0, 0, width, height).fill({ color: 0x05090b }));
   seed.areas.forEach((area, index) => drawArea(container, area, layout, index, textures));
   seed.hazardSubstrates.forEach((substrate) => drawHazardSubstrate(container, substrate, layout, textures));
   seed.doors.forEach((door) => drawDoor(container, door, layout, textures));
-  seed.interactables.forEach((item) => drawInteractable(container, item, layout, textures));
+  seed.interactables.forEach((item) => drawInteractable(container, item, layout, textures, onPathToObject));
   seed.actors.forEach((actor) => drawActor(container, actor, layout, textures));
   seed.markers.forEach((marker) => drawMarker(container, marker, layout, textures));
 }
@@ -256,10 +284,14 @@ export function SpatialCanvas({
   runtime,
   fallbackPreview,
   onRasterLoadFailure,
+  selectedActorId,
+  onPathToObject,
 }: {
   runtime: SpatialRuntime;
   fallbackPreview: boolean;
   onRasterLoadFailure: (failedAssetIds: readonly string[]) => void;
+  selectedActorId: string;
+  onPathToObject: (objectId: string) => void;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
 
@@ -306,11 +338,12 @@ export function SpatialCanvas({
       const draw = () => {
         drawScene(
           scene,
-          buildProductionSeedScene(runtime.getRenderProjection(), unavailable),
+          buildProductionSeedScene(runtime.getRenderProjection(), unavailable, selectedActorId),
           app.screen.width,
           app.screen.height,
           loaded.textures,
           window.getComputedStyle(host).getPropertyValue("--desktop-overview").trim() === "1",
+          onPathToObject,
         );
       };
 
@@ -333,7 +366,7 @@ export function SpatialCanvas({
       if (canvas?.parentElement === host) host.removeChild(canvas);
       destroyApp();
     };
-  }, [fallbackPreview, onRasterLoadFailure, runtime]);
+  }, [fallbackPreview, onPathToObject, onRasterLoadFailure, runtime, selectedActorId]);
 
   return <div className="spatial-canvas" ref={hostRef} aria-hidden="true" />;
 }

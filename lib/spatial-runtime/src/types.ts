@@ -35,6 +35,50 @@ export interface NavigationPolygon {
   readonly vertices: readonly Vector2[];
 }
 
+export interface NavigationGraphNode {
+  readonly id: EntityId;
+  readonly areaId: EntityId;
+  readonly position: Vector2;
+}
+
+export interface NavigationGraphEdge {
+  readonly id: EntityId;
+  readonly fromNodeId: EntityId;
+  readonly toNodeId: EntityId;
+}
+
+/** The only navigation authority accepted by fixture version 2. */
+export interface AuthoredPolygonGraph {
+  readonly authority: "authored-polygon-graph";
+  readonly polygons: readonly NavigationPolygon[];
+  readonly nodes: readonly NavigationGraphNode[];
+  readonly edges: readonly NavigationGraphEdge[];
+}
+
+export interface LocationModule {
+  readonly id: EntityId;
+  readonly areaId: EntityId;
+}
+
+export interface SolidGeometry {
+  readonly id: EntityId;
+  readonly areaId: EntityId;
+  readonly vertices: readonly Vector2[];
+}
+
+export interface AuthoredCoverSide {
+  readonly id: EntityId;
+  readonly coverPositionId: EntityId;
+  readonly direction: Direction;
+}
+
+export interface LocationBlueprint {
+  readonly id: EntityId;
+  readonly modules: readonly LocationModule[];
+  readonly solids: readonly SolidGeometry[];
+  readonly coverSides: readonly AuthoredCoverSide[];
+}
+
 export interface AuthoredPosition {
   readonly id: EntityId;
   readonly areaId: EntityId;
@@ -65,7 +109,22 @@ export interface LocationObjective {
   readonly status: "active" | "complete";
 }
 
-export type Facing = "north" | "east" | "south" | "west";
+export type Direction =
+  | "north"
+  | "north-east"
+  | "east"
+  | "south-east"
+  | "south"
+  | "south-west"
+  | "west"
+  | "north-west";
+
+export type Facing = Direction;
+
+export interface ActorMovement {
+  readonly path: readonly Vector2[];
+  readonly interactionTargetId: EntityId | null;
+}
 
 export interface SpatialActor {
   readonly id: EntityId;
@@ -77,11 +136,15 @@ export interface SpatialActor {
   readonly animationStartedAtFrame: number;
   readonly moveSpeedUnitsPerSecond: number;
   readonly moveTarget: Vector2 | null;
+  readonly movement?: ActorMovement | null;
+  readonly partyRole?: "player-character" | "follower";
 }
 
 export interface CameraIntent {
   readonly mode: "follow-selected";
   readonly targetActorId: EntityId;
+  readonly tiltDegrees: number;
+  readonly framingScale: number;
 }
 
 export interface LocationState {
@@ -90,7 +153,9 @@ export interface LocationState {
   readonly label: string;
   readonly areas: readonly LocationArea[];
   readonly joins: readonly LocationJoin[];
-  readonly navigation: readonly NavigationPolygon[];
+  /** Version 1 fixtures retain their polygon list; version 2 requires the graph form. */
+  readonly navigation: readonly NavigationPolygon[] | AuthoredPolygonGraph;
+  readonly blueprint?: LocationBlueprint;
   readonly interactionPositions: readonly AuthoredPosition[];
   readonly coverPositions: readonly AuthoredPosition[];
   readonly objects: readonly LocationObject[];
@@ -128,12 +193,29 @@ export interface MoveActorCommand extends CommandBase {
   readonly destination: Vector2;
 }
 
+export interface MoveActorDirectionCommand extends CommandBase {
+  readonly type: "actor.move-direction";
+  readonly actorId: EntityId;
+  readonly direction: Direction;
+  readonly distance: number;
+}
+
+export interface PathActorToObjectCommand extends CommandBase {
+  readonly type: "actor.path-to-object";
+  readonly actorId: EntityId;
+  readonly objectId: EntityId;
+}
+
 export interface SelectActorCommand extends CommandBase {
   readonly type: "actor.select";
   readonly actorId: EntityId;
 }
 
-export type SpatialCommand = MoveActorCommand | SelectActorCommand;
+export type SpatialCommand =
+  | MoveActorCommand
+  | MoveActorDirectionCommand
+  | PathActorToObjectCommand
+  | SelectActorCommand;
 
 export type RuntimeEvent =
   | {
@@ -216,6 +298,7 @@ export interface RenderProjection {
   readonly interactables: readonly RenderInteractableProjection[];
   readonly hazards: readonly RenderMarkerProjection[];
   readonly objectives: readonly RenderMarkerProjection[];
+  readonly camera: CameraIntent;
 }
 
 export interface ShellProjection {
@@ -223,6 +306,8 @@ export interface ShellProjection {
   readonly durableRevision: Revision;
   readonly locationLabel: string;
   readonly selectedActor: RenderActorProjection;
+  readonly actors: readonly RenderActorProjection[];
+  readonly camera: CameraIntent;
   readonly saveStatus: "durable" | "not-yet-durable";
 }
 
@@ -238,6 +323,7 @@ export interface DeveloperProjection {
 export interface SpatialRuntime {
   dispatch(command: SpatialCommand): CommandResult;
   step(deltaMs: number): CampaignLocationState;
+  hasActiveMovement(): boolean;
   checkpoint(): string;
   getSnapshot(): CampaignLocationState;
   getRenderProjection(): RenderProjection;

@@ -12,6 +12,9 @@ export interface ProductionSeedLayout {
 }
 
 export const DESKTOP_OVERVIEW_UNIT = 40;
+export const FIXED_CAMERA_TILT_DEGREES = 10;
+export const FIXED_CAMERA_FRAMING_SCALE = 0.82;
+const UNFRAMED_DESKTOP_OVERVIEW_UNIT = DESKTOP_OVERVIEW_UNIT / FIXED_CAMERA_FRAMING_SCALE;
 const RESPONSIVE_MIN_UNIT = 16;
 const RESPONSIVE_MAX_UNIT = 36;
 const HORIZONTAL_GUTTER = 64;
@@ -27,6 +30,7 @@ export function deriveProductionSeedLayout(
   viewportHeight: number,
   areas: readonly ProductionSeedLayoutArea[],
   desktopOverview: boolean,
+  framingScale = FIXED_CAMERA_FRAMING_SCALE,
 ): ProductionSeedLayout {
   if (areas.length === 0) return { unit: RESPONSIVE_MIN_UNIT, left: 0, top: 0 };
 
@@ -37,7 +41,7 @@ export function deriveProductionSeedLayout(
   const worldWidth = Math.max(1, maximumX - minimumX);
   const worldHeight = Math.max(1, maximumY - minimumY);
   const unit = desktopOverview
-    ? DESKTOP_OVERVIEW_UNIT
+    ? pixel(UNFRAMED_DESKTOP_OVERVIEW_UNIT * framingScale)
     : pixel(Math.max(
       RESPONSIVE_MIN_UNIT,
       Math.min(

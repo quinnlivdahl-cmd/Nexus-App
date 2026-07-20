@@ -59,13 +59,13 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #109 | Traverse the authored three-area derelict | ready | Integration Contract #30 implementation | #108 satisfied | Claim by assigning; implement the authored movement, facing, follower, navigation, and exploration-camera tracer |
+| #109 | Traverse the authored three-area derelict | in-progress | Integration Contract #30 implementation | #108 satisfied | Finish independent review and prepare the validated traversal tracer PR |
 | #112 | Create a legal Level-0 Player Character draft | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; implement the pinned provisional Skill Tree draft tracer |
 | #31 | Formalize skill focus and ability tree structure for playable drafts | ready | Source / Play Document Tasks | none strict | Open Draft chat for ability and Skill Focus schema contract |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-19 by Codex after Quintin accepted the enlarged production-intent seed and the closeout advanced Traverse the authored three-area derelict #109 to the ready frontier. For exact current state, verify against GitHub.
+Last synced: 2026-07-19 by Codex after Issue #109 was claimed and its authored traversal implementation entered validation and independent review. For exact current state, verify against GitHub.
 
 ### Workflow / Control Lane
 
@@ -91,7 +91,7 @@ All nineteen issues are native sub-issues of Integration Contract #30. GitHub's 
 |---|---|---|---|---|
 | #107 | Launch one spatial-runtime tracer | done | none | Shared runtime seam, codec, migration inventory, root spatial commands, focused scenario, and manual browser tracer completed |
 | #108 | Render and approve the production-intent seed | done | #107 satisfied | Quintin accepted the enlarged v2 desktop overview after exact runtime evidence and independent Standards/Spec PASS results; merged through PR #128 |
-| #109 | Traverse the authored three-area derelict | ready-for-agent | #108 satisfied | Movement, facing, followers, authored navigation, and exploration camera |
+| #109 | Traverse the authored three-area derelict | in-progress | #108 satisfied | Authored movement, facing, followers, navigation, and exploration-camera tracer is in validation and independent review |
 | #110 | Resolve and persist one authored Context Action | blocked task | #109 | First complete authoritative action transaction, checkpoint, failure-lite path, and Continue |
 | #111 | Resolve Intent Bar and Lattice behavior through the proven transaction | blocked task | #110 | Typed non-authoritative interpretation proposals and Lattice behavior |
 | #112 | Create a legal Level-0 Player Character draft | ready-for-agent | #107 satisfied | Pinned provisional Skill Tree selection and validated draft only |

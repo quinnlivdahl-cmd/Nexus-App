@@ -40,6 +40,7 @@ h1 { margin: 2px 0 0; font-size: clamp(1.55rem, 3vw, 2.75rem); font-weight: 720;
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 10px #f0a23388; }
 .status-dot.durable { background: var(--cyan); box-shadow: 0 0 10px #47d7db88; }
 .command-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.movement-hint { grid-column: 1 / -1; margin: 0; color: var(--muted); font: 700 0.64rem ui-monospace, monospace; letter-spacing: 0.06em; }
 .command-stack button { min-height: 38px; padding: 8px 10px; color: var(--cyan-pale); background: #1b292e; border: 1px solid #405158; font-size: 0.75rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.035em; cursor: pointer; }
 .command-stack button:hover { background: #23343a; border-color: var(--cyan); }
 .command-stack button:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
@@ -65,6 +66,13 @@ dd { margin: 0; text-align: right; color: #dce8e7; font-family: ui-monospace, mo
 .marker.diamond::first-letter { transform: rotate(-45deg); }
 .fallback-status { margin: 16px 0 0; padding: 9px 10px; color: var(--muted); background: #080d0f; border-left: 2px solid var(--line-bright); font-size: 0.68rem; line-height: 1.45; }
 .fallback-status strong { color: #d6dddc; }
+
+.actor-roster, .area-readout { margin-top: 18px; padding-top: 13px; border-top: 1px solid var(--line); }
+.actor-roster h2, .area-readout h2 { margin: 0 0 9px; color: var(--muted); font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.12em; }
+.actor-roster dl { margin: 0; }
+.area-readout ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.area-readout li span { color: var(--muted); font: 0.62rem ui-monospace, monospace; text-align: right; }
+.area-readout li { display: flex; justify-content: space-between; gap: 8px; padding: 4px 0; border-top: 1px solid #2b383d; font-size: 0.72rem; }
 
 @media (min-width: 1181px) {
   .play-surface {
@@ -97,6 +105,7 @@ dd { margin: 0; text-align: right; color: #dce8e7; font-family: ui-monospace, mo
     padding: 0;
     border-top: 0;
   }
+  .actor-roster, .area-readout { margin: 0; padding: 0; border-top: 0; }
   .fallback-status {
     grid-column: 1 / -1;
     margin: 0;
