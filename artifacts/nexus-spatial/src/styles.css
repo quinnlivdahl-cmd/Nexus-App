@@ -46,6 +46,8 @@ h1 { margin: 2px 0 0; font-size: clamp(1.55rem, 3vw, 2.75rem); font-weight: 720;
 .command-stack button:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
 .command-stack .warning { grid-column: 1 / -1; color: #f4c38d; border-color: #7f4b25; background: #251811; }
 .command-stack .warning.active { color: #ffd9f7; border-color: #e552d5; background: #311535; }
+.movement-notice { min-height: 2.9em; margin: 10px 0 0; padding: 8px 10px; color: #ffd38a; border-left: 3px solid var(--amber); background: #281a0d; font-size: 0.7rem; font-weight: 700; line-height: 1.35; }
+.movement-notice:empty { display: none; }
 
 dl { margin: 16px 0 0; }
 dl div { display: flex; justify-content: space-between; gap: 14px; padding: 7px 0; border-top: 1px solid #2b383d; font-size: 0.76rem; }
@@ -93,6 +95,7 @@ dd { margin: 0; text-align: right; color: #dce8e7; font-family: ui-monospace, mo
   }
   .panel-heading { margin: 0; }
   .command-stack { margin: 0; }
+  .movement-notice { grid-column: 2 / 3; margin: 0; align-self: start; }
   .controls dl {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

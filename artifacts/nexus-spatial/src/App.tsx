@@ -44,7 +44,20 @@ function directionFromHeldKeys(keys: ReadonlySet<string>): Direction | null {
   return y > 0 ? "south-west" : "north-west";
 }
 
-function useTraversalControls(runtime: SpatialRuntime) {
+function playerMovementRejection(reason: string): string {
+  if (/leaves authored Location geometry|outside authored Location geometry/i.test(reason))
+    return "Route ends at this location boundary.";
+  if (/inside authored solid geometry|outside authored navigable polygon geometry|no authored polygon-graph route/i.test(reason))
+    return "Route blocked by the surrounding structure.";
+  if (/^Follower .*cannot retain formation|^Follower .*has no authored route/i.test(reason))
+    return "Your team cannot hold formation on that route.";
+  return "That route is unavailable.";
+}
+
+function useTraversalControls(
+  runtime: SpatialRuntime,
+  onMovementFeedback: (message: string | null) => void,
+) {
   const commandSequence = useRef(0);
   const requestFrame = useRef<(() => void) | null>(null);
 
@@ -55,6 +68,13 @@ function useTraversalControls(runtime: SpatialRuntime) {
     let frame = (_now: number) => {};
 
     const nextCommandId = (prefix: string) => `${prefix}-${++commandSequence.current}`;
+    const reportMovementResult = (result: ReturnType<SpatialRuntime["dispatch"]>) => {
+      if (result.accepted) {
+        onMovementFeedback(null);
+      } else if (result.event.type === "command.rejected") {
+        onMovementFeedback(playerMovementRejection(result.event.reason));
+      }
+    };
     const queueFrame = () => {
       if (frameRequest === null) frameRequest = window.requestAnimationFrame(frame);
     };
@@ -66,7 +86,7 @@ function useTraversalControls(runtime: SpatialRuntime) {
 
       if (direction) {
         const shell = runtime.getShellProjection();
-        runtime.dispatch({
+        const result = runtime.dispatch({
           type: "actor.move-direction",
           commandId: nextCommandId("wasd"),
           expectedRevision: shell.revision,
@@ -74,6 +94,7 @@ function useTraversalControls(runtime: SpatialRuntime) {
           direction,
           distance: DIRECT_INPUT_DISTANCE,
         });
+        reportMovementResult(result);
       }
 
       // Presentation requests only an authoritative frame when a command has
@@ -96,28 +117,43 @@ function useTraversalControls(runtime: SpatialRuntime) {
       heldKeys.delete(event.code);
       if (runtime.hasActiveMovement()) queueFrame();
     };
+    const clearHeldMovementKeys = () => {
+      heldKeys.clear();
+    };
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") clearHeldMovementKeys();
+    };
 
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
+    window.addEventListener("blur", clearHeldMovementKeys);
+    window.addEventListener("pagehide", clearHeldMovementKeys);
+    document.addEventListener("visibilitychange", onVisibilityChange);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("blur", clearHeldMovementKeys);
+      window.removeEventListener("pagehide", clearHeldMovementKeys);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       if (frameRequest !== null) window.cancelAnimationFrame(frameRequest);
       requestFrame.current = null;
     };
-  }, [runtime]);
+  }, [onMovementFeedback, runtime]);
 
   const commandPathToObject = useCallback((objectId: string) => {
     const shell = runtime.getShellProjection();
-    runtime.dispatch({
+    const result = runtime.dispatch({
       type: "actor.path-to-object",
       commandId: `path-object-${++commandSequence.current}`,
       expectedRevision: shell.revision,
       actorId: shell.selectedActor.id,
       objectId,
     });
+    if (result.accepted) onMovementFeedback(null);
+    else if (result.event.type === "command.rejected")
+      onMovementFeedback(playerMovementRejection(result.event.reason));
     requestFrame.current?.();
-  }, [runtime]);
+  }, [onMovementFeedback, runtime]);
 
   return { commandPathToObject };
 }
@@ -126,7 +162,14 @@ export function App() {
   const runtime = useMemo(() => createSpatialRuntime(createTraversalFixtureState()), []);
   const shell = useShellProjection(runtime);
   const developer = runtime.getDeveloperProjection();
-  const { commandPathToObject } = useTraversalControls(runtime);
+  const movementFeedback = useRef<string | null>(null);
+  const [movementNotice, setMovementNotice] = useState<string | null>(null);
+  const reportMovementFeedback = useCallback((message: string | null) => {
+    if (movementFeedback.current === message) return;
+    movementFeedback.current = message;
+    setMovementNotice(message);
+  }, []);
+  const { commandPathToObject } = useTraversalControls(runtime, reportMovementFeedback);
   const [fallbackPreview, setFallbackPreview] = useState(
     () => new URLSearchParams(window.location.search).get("fallback") === "actor",
   );
@@ -192,6 +235,10 @@ export function App() {
               {fallbackPreview ? "Restore actor asset" : "Preview missing asset"}
             </button>
           </div>
+
+          <p className="movement-notice" aria-live="polite" role="status">
+            {movementNotice}
+          </p>
 
           <dl aria-live="polite" aria-label="Player-critical spatial status">
             <div><dt>Location</dt><dd>{shell.locationLabel}</dd></div>
