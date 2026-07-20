@@ -233,6 +233,72 @@ function runTraversalScenario() {
   );
   assert.deepEqual(blockedRuntime.getSnapshot(), truthBeforeBlockedMove);
 
+  const reverseFromWallFixture = JSON.parse(JSON.stringify(fixture));
+  const reverseFromWallPlayer = reverseFromWallFixture.location.actors.find(
+    (actor: { id: string }) => actor.id === "player-character",
+  );
+  assert.ok(reverseFromWallPlayer);
+  reverseFromWallPlayer.position = { x: 4, y: 0.12 };
+  const reverseFromWallRuntime = createSpatialRuntime(reverseFromWallFixture);
+  const followersBeforeReverse = reverseFromWallRuntime
+    .getSnapshot()
+    .location.actors.filter((actor) => actor.partyRole === "follower")
+    .map((actor) => ({ id: actor.id, position: actor.position }));
+  const reverseFromWall = reverseFromWallRuntime.dispatch({
+    type: "actor.move-direction",
+    commandId: "reverse-from-wall",
+    expectedRevision: 0,
+    actorId: "player-character",
+    direction: "south",
+    distance: 0.75,
+  });
+  assert.equal(reverseFromWall.accepted, true);
+  assert.deepEqual(validateCampaignLocationState(reverseFromWall.snapshot), {
+    ok: true,
+    issues: [],
+  });
+  assert.deepEqual(
+    reverseFromWall.snapshot.location.actors
+      .filter((actor) => actor.partyRole === "follower")
+      .map((actor) => ({
+        id: actor.id,
+        position: actor.position,
+        moveTarget: actor.moveTarget,
+      })),
+    followersBeforeReverse.map((actor) => ({ ...actor, moveTarget: null })),
+  );
+  const reverseFromWallFinal = reverseFromWallRuntime.step(100);
+  assert.deepEqual(
+    reverseFromWallFinal.location.actors.find(
+      (actor) => actor.id === "player-character",
+    )?.position,
+    { x: 4, y: 0.87 },
+  );
+  assert.deepEqual(validateCampaignLocationState(reverseFromWallFinal), {
+    ok: true,
+    issues: [],
+  });
+
+  const outerWallFixture = JSON.parse(JSON.stringify(reverseFromWallFixture));
+  const outerWallRuntime = createSpatialRuntime(outerWallFixture);
+  const truthBeforeOuterWall = outerWallRuntime.getSnapshot();
+  const outerWallMove = outerWallRuntime.dispatch({
+    type: "actor.move-direction",
+    commandId: "reject-through-outer-wall",
+    expectedRevision: 0,
+    actorId: "player-character",
+    direction: "north",
+    distance: 0.75,
+  });
+  assert.equal(outerWallMove.accepted, false);
+  assert.match(
+    outerWallMove.event.type === "command.rejected"
+      ? outerWallMove.event.reason
+      : "",
+    /leaves authored Location geometry/,
+  );
+  assert.deepEqual(outerWallRuntime.getSnapshot(), truthBeforeOuterWall);
+
   const truthBeforePlanning = JSON.parse(JSON.stringify(fixture));
   const navigation = fixture.location.navigation;
   if (!("authority" in navigation))

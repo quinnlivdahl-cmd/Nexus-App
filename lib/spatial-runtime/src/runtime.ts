@@ -215,6 +215,16 @@ export function createSpatialRuntime(
       y: leaderDestination.y - approach.y * 2 + perpendicular.y * side,
     };
   };
+  const holdAtCommittedPosition = (actor: SpatialActor): SpatialActor => ({
+    ...actor,
+    semanticAnimation: "idle",
+    animationStartedAtFrame:
+      actor.semanticAnimation === "idle"
+        ? actor.animationStartedAtFrame
+        : state.frame,
+    moveTarget: null,
+    movement: null,
+  });
 
   function dispatch(command: SpatialCommand): CommandResult {
     if (command.expectedRevision !== state.committedRevision)
@@ -343,6 +353,9 @@ export function createSpatialRuntime(
         for (const follower of location.actors.filter(
           (candidate) => candidate.partyRole === "follower",
         )) {
+          const targetIndex = actors.findIndex(
+            (candidate) => candidate.id === follower.id,
+          );
           const target = followerDestination(
             destination,
             approach,
@@ -360,10 +373,8 @@ export function createSpatialRuntime(
                 pointInPolygon(target, polygon.vertices),
             )
           ) {
-            return reject(
-              command,
-              `Follower ${follower.id} cannot retain formation inside authored navigable geometry.`,
-            );
+            actors[targetIndex] = holdAtCommittedPosition(follower);
+            continue;
           }
           const started = startMovement(
             follower,
@@ -371,14 +382,10 @@ export function createSpatialRuntime(
             followerArea.id,
             null,
           );
-          if (!started)
-            return reject(
-              command,
-              `Follower ${follower.id} has no authored route.`,
-            );
-          const targetIndex = actors.findIndex(
-            (candidate) => candidate.id === follower.id,
-          );
+          if (!started) {
+            actors[targetIndex] = holdAtCommittedPosition(follower);
+            continue;
+          }
           actors[targetIndex] = started;
         }
       }
