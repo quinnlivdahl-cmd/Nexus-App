@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import {
+  ACTOR_VISUAL_COLLISION_FOOTPRINT,
   CAMPAIGN_LOCATION_CODEC,
   createSpatialRuntime,
   createTracerFixtureState,
@@ -11,6 +12,9 @@ import {
   encodeCampaignLocation,
   validateCampaignLocationState,
   planAuthoredPolygonGraphRoute,
+  ROOM_SHELL_VISIBLE_INNER_FACE_INSET,
+  segmentStaysInPolygon,
+  TRAVERSAL_DOOR_THROAT,
 } from "@workspace/spatial-runtime";
 import {
   MISSING_ASSET_FALLBACK_ID,
@@ -222,7 +226,7 @@ function runTraversalScenario() {
     commandId: "blocked-by-authored-solid",
     expectedRevision: 0,
     actorId: "player-character",
-    destination: { x: 9, y: 2 },
+    destination: { x: 9, y: 2.5 },
   });
   assert.equal(blockedMove.accepted, false);
   assert.match(
@@ -238,7 +242,31 @@ function runTraversalScenario() {
     (actor: { id: string }) => actor.id === "player-character",
   );
   assert.ok(reverseFromWallPlayer);
-  reverseFromWallPlayer.position = { x: 4, y: 0.12 };
+  const visualFloor = {
+    left:
+      ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+      ACTOR_VISUAL_COLLISION_FOOTPRINT.horizontalClearance,
+    right:
+      ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+      ACTOR_VISUAL_COLLISION_FOOTPRINT.horizontalClearance,
+    top:
+      ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+      ACTOR_VISUAL_COLLISION_FOOTPRINT.topClearance,
+    bottom:
+      ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+      ACTOR_VISUAL_COLLISION_FOOTPRINT.bottomClearance,
+  };
+  assert.ok(Math.abs(TRAVERSAL_DOOR_THROAT.top - 4.395) < 0.000001);
+  assert.ok(Math.abs(TRAVERSAL_DOOR_THROAT.bottom - 5.995) < 0.000001);
+  assert.ok(
+    TRAVERSAL_DOOR_THROAT.top - ACTOR_VISUAL_COLLISION_FOOTPRINT.topClearance >=
+      5 - TRAVERSAL_DOOR_THROAT.visualHalfHeight,
+  );
+  assert.ok(
+    TRAVERSAL_DOOR_THROAT.bottom + ACTOR_VISUAL_COLLISION_FOOTPRINT.bottomClearance <=
+      5 + TRAVERSAL_DOOR_THROAT.visualHalfHeight,
+  );
+  reverseFromWallPlayer.position = { x: 4, y: visualFloor.top };
   const reverseFromWallRuntime = createSpatialRuntime(reverseFromWallFixture);
   const followersBeforeReverse = reverseFromWallRuntime
     .getSnapshot()
@@ -272,7 +300,7 @@ function runTraversalScenario() {
     reverseFromWallFinal.location.actors.find(
       (actor) => actor.id === "player-character",
     )?.position,
-    { x: 4, y: 0.87 },
+    { x: 4, y: visualFloor.top + 0.75 },
   );
   assert.deepEqual(validateCampaignLocationState(reverseFromWallFinal), {
     ok: true,
@@ -295,9 +323,103 @@ function runTraversalScenario() {
     outerWallMove.event.type === "command.rejected"
       ? outerWallMove.event.reason
       : "",
-    /leaves authored Location geometry/,
+    /outside authored navigable polygon geometry/,
   );
   assert.deepEqual(outerWallRuntime.getSnapshot(), truthBeforeOuterWall);
+
+  const playerAt = (position: { x: number; y: number }, areaId = "sealed-corridor") => {
+    const candidate = JSON.parse(JSON.stringify(fixture));
+    const player = candidate.location.actors.find(
+      (actor: { id: string }) => actor.id === "player-character",
+    );
+    assert.ok(player);
+    player.position = position;
+    player.areaId = areaId;
+    return candidate;
+  };
+  const rejectVisibleWall = (
+    label: string,
+    position: { x: number; y: number },
+    direction: "north" | "south" | "east" | "west",
+    areaId?: string,
+  ) => {
+    const wallRuntime = createSpatialRuntime(playerAt(position, areaId));
+    const result = wallRuntime.dispatch({
+      type: "actor.move-direction",
+      commandId: `visible-wall-${label}`,
+      expectedRevision: 0,
+      actorId: "player-character",
+      direction,
+      distance: 0.01,
+    });
+    assert.equal(result.accepted, false, `${label} must reject wall entry`);
+    assert.match(
+      result.event.type === "command.rejected" ? result.event.reason : "",
+      /outside authored navigable polygon geometry/,
+    );
+  };
+  rejectVisibleWall("north", { x: 4, y: visualFloor.top }, "north");
+  rejectVisibleWall("south", { x: 4, y: 10 - visualFloor.bottom }, "south");
+  rejectVisibleWall("west", { x: visualFloor.left, y: 5 }, "west");
+  rejectVisibleWall(
+    "east",
+    { x: 36 - visualFloor.right, y: 5 },
+    "east",
+    "cluttered-side-area",
+  );
+  rejectVisibleWall("interior-away-from-door", { x: 12 - visualFloor.right, y: 2.5 }, "east");
+
+  const doorRuntime = createSpatialRuntime(
+    playerAt({ x: 12 - visualFloor.right, y: 5 }),
+  );
+  const crossDoor = doorRuntime.dispatch({
+    type: "actor.move",
+    commandId: "cross-visible-door-throat",
+    expectedRevision: 0,
+    actorId: "player-character",
+    destination: { x: 12 + visualFloor.left, y: 5 },
+  });
+  assert.equal(crossDoor.accepted, true);
+  for (let index = 0; index < 10 && doorRuntime.hasActiveMovement(); index++)
+    doorRuntime.step(1000);
+  assert.equal(doorRuntime.hasActiveMovement(), false);
+  assert.deepEqual(validateCampaignLocationState(doorRuntime.getSnapshot()), {
+    ok: true,
+    issues: [],
+  });
+
+  const concaveCornerFixture = playerAt({ x: 4, y: visualFloor.top });
+  const concaveCornerRuntime = createSpatialRuntime(concaveCornerFixture);
+  const concaveNavigation = fixture.location.navigation;
+  if (!("authority" in concaveNavigation))
+    assert.fail("Traversal fixture must use authored polygon-graph navigation.");
+  const concaveCornerMove = concaveCornerRuntime.dispatch({
+    type: "actor.move",
+    commandId: "route-around-concave-visible-wall-corner",
+    expectedRevision: 0,
+    actorId: "player-character",
+    destination: { x: 12, y: TRAVERSAL_DOOR_THROAT.top },
+  });
+  assert.equal(concaveCornerMove.accepted, true);
+  const concaveCornerPlayer = concaveCornerMove.snapshot.location.actors.find(
+    (actor) => actor.id === "player-character",
+  );
+  assert.ok(concaveCornerPlayer?.movement);
+  const concaveCornerPath = [
+    { x: 4, y: visualFloor.top },
+    ...concaveCornerPlayer.movement.path,
+  ];
+  for (let index = 1; index < concaveCornerPath.length; index += 1)
+    assert.ok(
+      concaveNavigation.polygons.some((polygon) =>
+        segmentStaysInPolygon(
+          concaveCornerPath[index - 1]!,
+          concaveCornerPath[index]!,
+          polygon.vertices,
+        ),
+      ),
+      "Every accepted movement segment must stay inside one authored polygon.",
+    );
 
   const truthBeforePlanning = JSON.parse(JSON.stringify(fixture));
   const navigation = fixture.location.navigation;

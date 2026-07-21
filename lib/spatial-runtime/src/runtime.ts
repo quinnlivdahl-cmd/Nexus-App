@@ -1,7 +1,11 @@
 import { encodeCampaignLocation } from "./codec.js";
 import { validateCampaignLocationState } from "./fixture.js";
 import { cloneValue, immutableCopy } from "./immutable.js";
-import { pointInPolygon, segmentIntersectsPolygon } from "./geometry.js";
+import {
+  pointInPolygon,
+  segmentIntersectsPolygon,
+  segmentStaysInPolygon,
+} from "./geometry.js";
 import {
   isAuthoredPolygonGraph,
   planAuthoredPolygonGraphRoute,
@@ -145,6 +149,17 @@ export function createSpatialRuntime(
     }
     return false;
   };
+  const pathStaysInNavigableGeometry = (path: readonly Vector2[]) => {
+    const navigation = state.location.navigation;
+    if (!("authority" in navigation)) return true;
+    return path.every(
+      (point, index) =>
+        index === 0 ||
+        navigation.polygons.some((polygon) =>
+          segmentStaysInPolygon(path[index - 1]!, point, polygon.vertices),
+        ),
+    );
+  };
   const startMovement = (
     actor: SpatialActor,
     destination: Vector2,
@@ -158,8 +173,11 @@ export function createSpatialRuntime(
         (polygon) =>
           polygon.areaId === actor.areaId &&
           polygon.areaId === destinationAreaId &&
-          pointInPolygon(actor.position, polygon.vertices) &&
-          pointInPolygon(destination, polygon.vertices),
+          segmentStaysInPolygon(
+            actor.position,
+            destination,
+            polygon.vertices,
+          ),
       );
       path =
         sharesNavigablePolygon && !pathIntersectsSolid(directPath)
@@ -176,7 +194,8 @@ export function createSpatialRuntime(
       if (actor.areaId !== destinationAreaId) return null;
       path = [actor.position, destination];
     }
-    if (pathIntersectsSolid(path)) return null;
+    if (pathIntersectsSolid(path) || !pathStaysInNavigableGeometry(path))
+      return null;
     const remaining = path.slice(1);
     return {
       ...actor,

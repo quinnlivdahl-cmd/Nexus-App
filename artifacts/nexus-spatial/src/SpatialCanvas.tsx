@@ -1,4 +1,8 @@
-import type { SpatialRuntime } from "@workspace/spatial-runtime";
+import {
+  ACTOR_SELECTION_FOOTPRINT,
+  ACTOR_VISUAL_COLLISION_FOOTPRINT,
+  type SpatialRuntime,
+} from "@workspace/spatial-runtime";
 import { Application, Container, Graphics, NineSliceSprite, Sprite, Text, TilingSprite, type Texture } from "pixi.js";
 import { useEffect, useRef } from "react";
 import {
@@ -193,7 +197,12 @@ function drawActor(scene: Container, actor: ProductionSeedScene["actors"][number
   const accent = actor.presentationRole === "player-character" ? 0x47d7db : 0xf0a233;
   if (actor.isSelected) {
     const selection = new Graphics()
-      .ellipse(x, y + layout.unit * 0.68, layout.unit * 0.82, layout.unit * 0.35)
+      .ellipse(
+        x,
+        y + layout.unit * ACTOR_SELECTION_FOOTPRINT.offsetY,
+        layout.unit * ACTOR_SELECTION_FOOTPRINT.radiusX,
+        layout.unit * ACTOR_SELECTION_FOOTPRINT.radiusY,
+      )
       .fill({ color: 0x061015, alpha: 0.55 })
       .stroke({ color: accent, width: 2 })
       .poly([
@@ -209,9 +218,9 @@ function drawActor(scene: Container, actor: ProductionSeedScene["actors"][number
     scene,
     rasterTexture(textures, actor.assetId, actor.state),
     x,
-    y + layout.unit * 1.18,
-    layout.unit * 1.7,
-    layout.unit * 2.75,
+    y + layout.unit * ACTOR_VISUAL_COLLISION_FOOTPRINT.bottomOffset,
+    layout.unit * ACTOR_VISUAL_COLLISION_FOOTPRINT.width,
+    layout.unit * ACTOR_VISUAL_COLLISION_FOOTPRINT.height,
     { x: 0.5, y: 1 },
     `${actor.label}, ${actor.presentationRole}, ${actor.state}, facing ${actor.facing}`,
     actor.presentationRole === "player-character" ? undefined : accent,

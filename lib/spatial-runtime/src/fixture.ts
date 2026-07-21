@@ -625,15 +625,101 @@ const traversalAreas: readonly LocationArea[] = [
   },
 ];
 
-function traversalRectangle(id: string, area: LocationArea): NavigationPolygon {
-  return rectanglePolygon(id, area);
+/**
+ * The opaque room-shell art is part of the presentation contract, but Area
+ * bounds continue to describe the full module extent. Navigation instead owns
+ * the playable floor: the visible shell opening, clear of the selected actor's
+ * full visible sprite footprint. Door throats are the sole intentional
+ * exception at joins.
+ */
+export const ROOM_SHELL_VISIBLE_INNER_FACE_INSET = 0.72;
+/** Non-authoritative selection-ring geometry, retained only for presentation. */
+export const ACTOR_SELECTION_FOOTPRINT = Object.freeze({
+  offsetY: 0.68,
+  radiusX: 0.82,
+  radiusY: 0.35,
+});
+/** Full drawActor sprite silhouette; this is the collision authority. */
+export const ACTOR_VISUAL_COLLISION_FOOTPRINT = Object.freeze({
+  width: 1.7,
+  height: 2.75,
+  bottomOffset: 1.18,
+  horizontalClearance: 0.85,
+  topClearance: 1.57,
+  bottomClearance: 1.18,
+});
+export const TRAVERSAL_DOOR_THROAT = Object.freeze({
+  visualHalfHeight: 2.175,
+  top: 5 - 2.175 + ACTOR_VISUAL_COLLISION_FOOTPRINT.topClearance,
+  bottom: 5 + 2.175 - ACTOR_VISUAL_COLLISION_FOOTPRINT.bottomClearance,
+});
+
+const traversalFloor = Object.freeze({
+  left:
+    ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+    ACTOR_VISUAL_COLLISION_FOOTPRINT.horizontalClearance,
+  right:
+    ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+    ACTOR_VISUAL_COLLISION_FOOTPRINT.horizontalClearance,
+  top:
+    ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+    ACTOR_VISUAL_COLLISION_FOOTPRINT.topClearance,
+  bottom:
+    ROOM_SHELL_VISIBLE_INNER_FACE_INSET +
+    ACTOR_VISUAL_COLLISION_FOOTPRINT.bottomClearance,
+});
+
+function traversalPolygon(
+  id: string,
+  area: LocationArea,
+  doorSides: readonly ("left" | "right")[],
+): NavigationPolygon {
+  const left = area.bounds.x + traversalFloor.left;
+  const right = area.bounds.x + area.bounds.width - traversalFloor.right;
+  const top = area.bounds.y + traversalFloor.top;
+  const bottom = area.bounds.y + area.bounds.height - traversalFloor.bottom;
+  const doorTop = area.bounds.y + TRAVERSAL_DOOR_THROAT.top;
+  const doorBottom = area.bounds.y + TRAVERSAL_DOOR_THROAT.bottom;
+  const hasLeftDoor = doorSides.includes("left");
+  const hasRightDoor = doorSides.includes("right");
+  const outerLeft = area.bounds.x;
+  const outerRight = area.bounds.x + area.bounds.width;
+
+  return {
+    id,
+    areaId: area.id,
+    vertices: [
+      { x: left, y: top },
+      { x: right, y: top },
+      ...(hasRightDoor
+        ? [
+            { x: right, y: doorTop },
+            { x: outerRight, y: doorTop },
+            { x: outerRight, y: doorBottom },
+            { x: right, y: doorBottom },
+          ]
+        : []),
+      { x: right, y: bottom },
+      { x: left, y: bottom },
+      ...(hasLeftDoor
+        ? [
+            { x: left, y: doorBottom },
+            { x: outerLeft, y: doorBottom },
+            { x: outerLeft, y: doorTop },
+            { x: left, y: doorTop },
+          ]
+        : []),
+    ],
+  };
 }
 
 const traversalNavigation: AuthoredPolygonGraph = {
   authority: "authored-polygon-graph",
-  polygons: traversalAreas.map((area, index) =>
-    traversalRectangle(`traversal-polygon-${index + 1}`, area),
-  ),
+  polygons: [
+    traversalPolygon("traversal-polygon-1", traversalAreas[0]!, ["right"]),
+    traversalPolygon("traversal-polygon-2", traversalAreas[1]!, ["left", "right"]),
+    traversalPolygon("traversal-polygon-3", traversalAreas[2]!, ["left"]),
+  ],
   nodes: [
     {
       id: "corridor-start",
@@ -789,7 +875,7 @@ export function createTraversalFixtureState(): CampaignLocationState {
           id: "exposed-cable",
           label: "Exposed Cable",
           areaId: "open-cover-bay",
-          position: { x: 18, y: 2 },
+          position: { x: 18, y: 3 },
           active: true,
         },
       ],

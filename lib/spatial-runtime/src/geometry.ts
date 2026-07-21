@@ -45,6 +45,74 @@ export function pointInPolygon(
   return inside;
 }
 
+/**
+ * True when every point of a segment is inside (or on the boundary of) a
+ * simple authored polygon. Concave polygons need this stronger check: two
+ * legal endpoints alone do not make the straight line between them legal.
+ */
+export function segmentStaysInPolygon(
+  start: Vector2,
+  end: Vector2,
+  vertices: readonly Vector2[],
+): boolean {
+  if (!pointInPolygon(start, vertices) || !pointInPolygon(end, vertices))
+    return false;
+
+  const delta = { x: end.x - start.x, y: end.y - start.y };
+  const lengthSquared = delta.x * delta.x + delta.y * delta.y;
+  if (lengthSquared < EPSILON * EPSILON) return true;
+
+  const crossings = [0, 1];
+  for (let index = 0; index < vertices.length; index += 1) {
+    const edgeStart = vertices[index]!;
+    const edgeEnd = vertices[(index + 1) % vertices.length]!;
+    const edgeDelta = {
+      x: edgeEnd.x - edgeStart.x,
+      y: edgeEnd.y - edgeStart.y,
+    };
+    const offset = { x: edgeStart.x - start.x, y: edgeStart.y - start.y };
+    const denominator = delta.x * edgeDelta.y - delta.y * edgeDelta.x;
+    if (Math.abs(denominator) >= EPSILON) {
+      const segmentT =
+        (offset.x * edgeDelta.y - offset.y * edgeDelta.x) / denominator;
+      const edgeT = (offset.x * delta.y - offset.y * delta.x) / denominator;
+      if (
+        segmentT >= -EPSILON &&
+        segmentT <= 1 + EPSILON &&
+        edgeT >= -EPSILON &&
+        edgeT <= 1 + EPSILON
+      )
+        crossings.push(Math.min(1, Math.max(0, segmentT)));
+      continue;
+    }
+    if (Math.abs(offset.x * delta.y - offset.y * delta.x) >= EPSILON)
+      continue;
+    for (const endpoint of [edgeStart, edgeEnd]) {
+      const projected =
+        ((endpoint.x - start.x) * delta.x + (endpoint.y - start.y) * delta.y) /
+        lengthSquared;
+      if (projected >= -EPSILON && projected <= 1 + EPSILON)
+        crossings.push(Math.min(1, Math.max(0, projected)));
+    }
+  }
+
+  crossings.sort((left, right) => left - right);
+  const uniqueCrossings = crossings.filter(
+    (value, index) => index === 0 || value - crossings[index - 1]! > EPSILON,
+  );
+  for (let index = 1; index < uniqueCrossings.length; index += 1) {
+    const midpoint = (uniqueCrossings[index - 1]! + uniqueCrossings[index]!) / 2;
+    if (
+      !pointInPolygon(
+        { x: start.x + delta.x * midpoint, y: start.y + delta.y * midpoint },
+        vertices,
+      )
+    )
+      return false;
+  }
+  return true;
+}
+
 function segmentsIntersect(
   firstStart: Vector2,
   firstEnd: Vector2,

@@ -4,6 +4,7 @@ import type {
   NavigationGraphNode,
   Vector2,
 } from "./types.js";
+import { segmentStaysInPolygon } from "./geometry.js";
 
 function distance(left: Vector2, right: Vector2): number {
   return Math.hypot(left.x - right.x, left.y - right.y);
@@ -11,6 +12,19 @@ function distance(left: Vector2, right: Vector2): number {
 
 function samePoint(left: Vector2, right: Vector2): boolean {
   return left.x === right.x && left.y === right.y;
+}
+
+function segmentStaysInAreaPolygon(
+  navigation: AuthoredPolygonGraph,
+  areaId: string,
+  start: Vector2,
+  end: Vector2,
+): boolean {
+  return navigation.polygons.some(
+    (polygon) =>
+      polygon.areaId === areaId &&
+      segmentStaysInPolygon(start, end, polygon.vertices),
+  );
 }
 
 /**
@@ -60,16 +74,36 @@ export function planAuthoredPolygonGraphRoute(
     id: string,
   ): { readonly id: string; readonly weight: number }[] => {
     if (id === source)
-      return startNodes.map((node) => ({
-        id: node.id,
-        weight: distance(start, node.position),
-      }));
+      return startNodes
+        .filter((node) =>
+          segmentStaysInAreaPolygon(
+            navigation,
+            startAreaId,
+            start,
+            node.position,
+          ),
+        )
+        .map((node) => ({
+          id: node.id,
+          weight: distance(start, node.position),
+        }));
     if (id === target) return [];
-    const graphEdges = (adjacency.get(id) ?? []).map(({ node, weight }) => ({
-      id: node.id,
-      weight,
-    }));
     const node = nodes.get(id);
+    if (!node) return [];
+    const graphEdges = (adjacency.get(id) ?? []).flatMap(({ node: next, weight }) =>
+      next.areaId === node.areaId
+        ? segmentStaysInAreaPolygon(
+              navigation,
+              node.areaId,
+              node.position,
+              next.position,
+            )
+          ? [{ id: next.id, weight }]
+          : []
+        : samePoint(node.position, next.position)
+          ? [{ id: next.id, weight }]
+          : [],
+    );
     if (
       node &&
       destinationNodes.some((candidate) => candidate.id === node.id)
@@ -78,6 +112,15 @@ export function planAuthoredPolygonGraphRoute(
         id: target,
         weight: distance(node.position, destination),
       });
+      if (
+        !segmentStaysInAreaPolygon(
+          navigation,
+          destinationAreaId,
+          node.position,
+          destination,
+        )
+      )
+        graphEdges.pop();
     }
     return graphEdges;
   };
