@@ -10,5 +10,6 @@ attached_assets/Nexus_Mother_Folder_1780757660465.zip filter=lfs diff=lfs merge=
 *.ts text eol=lf
 *.tsx text eol=lf
 *.txt text eol=lf
+*.svg text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf

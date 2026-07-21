@@ -31,7 +31,7 @@ function hasLocationShape(value: unknown): value is CampaignLocationState {
     typeof location.id === "string" &&
     Array.isArray(location.areas) &&
     Array.isArray(location.joins) &&
-    Array.isArray(location.navigation) &&
+    (Array.isArray(location.navigation) || isRecord(location.navigation)) &&
     Array.isArray(location.interactionPositions) &&
     Array.isArray(location.coverPositions) &&
     Array.isArray(location.objects) &&
@@ -43,13 +43,31 @@ function hasLocationShape(value: unknown): value is CampaignLocationState {
   );
 }
 
+function normalizeVersionOnePayload(
+  value: CampaignLocationState,
+): CampaignLocationState {
+  return {
+    ...cloneValue(value),
+    location: {
+      ...cloneValue(value.location),
+      camera: {
+        ...cloneValue(value.location.camera),
+        tiltDegrees: value.location.camera.tiltDegrees ?? 10,
+        framingScale: value.location.camera.framingScale ?? 0.82,
+      },
+    },
+  };
+}
+
 export function encodeCampaignLocation(
   state: CampaignLocationState,
   extensions: Readonly<Record<string, unknown>> = {},
 ): string {
   const validation = validateCampaignLocationState(state);
   if (!validation.ok) {
-    throw new Error(`Campaign/Location state is invalid: ${validation.issues.join(" ")}`);
+    throw new Error(
+      `Campaign/Location state is invalid: ${validation.issues.join(" ")}`,
+    );
   }
 
   const envelope: CampaignLocationEnvelopeV1 = {
@@ -61,39 +79,65 @@ export function encodeCampaignLocation(
   return JSON.stringify(envelope);
 }
 
-export function decodeCampaignLocation(raw: string): DecodeCampaignLocationResult {
+export function decodeCampaignLocation(
+  raw: string,
+): DecodeCampaignLocationResult {
   let parsed: unknown;
   try {
     parsed = JSON.parse(raw);
   } catch (error) {
-    return { ok: false, error: error instanceof Error ? error.message : "Save data is not valid JSON." };
+    return {
+      ok: false,
+      error:
+        error instanceof Error ? error.message : "Save data is not valid JSON.",
+    };
   }
 
   if (!isRecord(parsed) || parsed.format !== CAMPAIGN_LOCATION_CODEC) {
-    return { ok: false, error: `Save data must use format ${CAMPAIGN_LOCATION_CODEC}.` };
+    return {
+      ok: false,
+      error: `Save data must use format ${CAMPAIGN_LOCATION_CODEC}.`,
+    };
   }
   if (parsed.version !== CAMPAIGN_LOCATION_CODEC_VERSION) {
-    return { ok: false, error: `Unsupported Campaign/Location codec version ${String(parsed.version)}.` };
+    return {
+      ok: false,
+      error: `Unsupported Campaign/Location codec version ${String(parsed.version)}.`,
+    };
   }
   if (!isRecord(parsed.extensions)) {
     return { ok: false, error: "Save data extensions must be an object." };
   }
   if (!hasLocationShape(parsed.payload)) {
-    return { ok: false, error: "Save data is missing required Campaign/Location fields." };
+    return {
+      ok: false,
+      error: "Save data is missing required Campaign/Location fields.",
+    };
   }
 
+  const normalizedPayload = normalizeVersionOnePayload(parsed.payload);
+
   try {
-    const validation = validateCampaignLocationState(parsed.payload);
+    const validation = validateCampaignLocationState(normalizedPayload);
     if (!validation.ok) {
-      return { ok: false, error: `Campaign/Location state is invalid: ${validation.issues.join(" ")}` };
+      return {
+        ok: false,
+        error: `Campaign/Location state is invalid: ${validation.issues.join(" ")}`,
+      };
     }
   } catch (error) {
-    return { ok: false, error: error instanceof Error ? error.message : "Campaign/Location validation failed." };
+    return {
+      ok: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : "Campaign/Location validation failed.",
+    };
   }
 
   return {
     ok: true,
-    state: immutableCopy(parsed.payload) as CampaignLocationState,
+    state: immutableCopy(normalizedPayload) as CampaignLocationState,
     extensions: immutableCopy(parsed.extensions),
   };
 }

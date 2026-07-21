@@ -234,6 +234,7 @@ interface SceneAssetBinding {
 export interface ProductionSeedScene {
   readonly revision: number;
   readonly manifestVersion: string;
+  readonly camera: RenderProjection["camera"];
   readonly areas: readonly {
     readonly id: string;
     readonly label: string;
@@ -245,7 +246,12 @@ export interface ProductionSeedScene {
     readonly wallAssetId: ProductionSeedAssetId;
   }[];
   readonly doors: readonly SceneAssetBinding[];
-  readonly actors: readonly (SceneAssetBinding & { readonly state: string })[];
+  readonly actors: readonly (SceneAssetBinding & {
+    readonly state: string;
+    readonly facing: RenderProjection["actors"][number]["facing"];
+    readonly isSelected: boolean;
+    readonly presentationRole: "player-character" | "follower";
+  })[];
   readonly interactables: readonly SceneAssetBinding[];
   readonly hazardSubstrates: readonly (SceneAssetBinding & { readonly state: "service-channel" })[];
   readonly markers: readonly (SceneAssetBinding & {
@@ -262,6 +268,7 @@ export interface ProductionSeedScene {
 export function buildProductionSeedScene(
   projection: RenderProjection,
   unavailableAssetIds: ReadonlySet<string> = new Set(),
+  selectedActorId?: string,
 ): ProductionSeedScene {
   const fallbackActivations: Array<{
     requestedAssetId: ProductionSeedAssetId;
@@ -276,9 +283,12 @@ export function buildProductionSeedScene(
     return MISSING_ASSET_FALLBACK_ID;
   };
 
+  const playerCharacterId = selectedActorId ?? projection.actors[0]?.id;
+
   return deepFreeze({
     revision: projection.revision,
     manifestVersion: PRODUCTION_SEED_MANIFEST.version,
+    camera: projection.camera,
     areas: projection.areas.map((area) => ({
       id: area.id,
       label: area.label,
@@ -302,6 +312,9 @@ export function buildProductionSeedScene(
       x: actor.x,
       y: actor.y,
       state: actor.semanticAnimation,
+      facing: actor.facing,
+      isSelected: actor.id === selectedActorId,
+      presentationRole: actor.id === playerCharacterId ? "player-character" as const : "follower" as const,
       assetId: resolve("nexus.seed.actor.field-silhouette.v1"),
     })),
     interactables: projection.interactables.map((interactable) => ({
