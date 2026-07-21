@@ -1,6 +1,10 @@
 import {
   createSpatialRuntime,
   createTraversalFixtureState,
+  decodeCampaignLocation,
+  encodeCampaignLocation,
+  type CampaignCheckpointAdapter,
+  type ContextActionId,
   type Direction,
   type ShellProjection,
   type SpatialRuntime,
@@ -33,6 +37,24 @@ function useShellProjection(runtime: SpatialRuntime): ShellProjection {
 
 const MOVEMENT_KEYS = new Set(["KeyW", "KeyA", "KeyS", "KeyD"]);
 const DIRECT_INPUT_DISTANCE = 0.75;
+const SPATIAL_CHECKPOINT_KEY = "nexus.spatial-runtime.rolling-checkpoint.v1";
+
+function createBrowserCheckpointAdapter(
+  failFirstWrite: boolean,
+): CampaignCheckpointAdapter {
+  let shouldFail = failFirstWrite;
+  return {
+    load: () => window.localStorage.getItem(SPATIAL_CHECKPOINT_KEY),
+    serialize: (state) => encodeCampaignLocation(state),
+    write: (serialized) => {
+      if (shouldFail) {
+        shouldFail = false;
+        throw new Error("Injected first checkpoint failure.");
+      }
+      window.localStorage.setItem(SPATIAL_CHECKPOINT_KEY, serialized);
+    },
+  };
+}
 
 function directionFromHeldKeys(keys: ReadonlySet<string>): Direction | null {
   const x = Number(keys.has("KeyD")) - Number(keys.has("KeyA"));
@@ -159,7 +181,56 @@ function useTraversalControls(
 }
 
 export function App() {
-  const runtime = useMemo(() => createSpatialRuntime(createTraversalFixtureState()), []);
+  const failFirstCheckpoint = useMemo(
+    () =>
+      new URLSearchParams(window.location.search).get("failCheckpoint") ===
+      "once",
+    [],
+  );
+  const checkpointAdapter = useMemo(
+    () => createBrowserCheckpointAdapter(failFirstCheckpoint),
+    [failFirstCheckpoint],
+  );
+  const initialRuntime = useMemo(() => {
+    try {
+      const saved = checkpointAdapter.load();
+      if (!saved)
+        return {
+          runtime: createSpatialRuntime(createTraversalFixtureState(), {
+            checkpointAdapter,
+          }),
+          loadError: null,
+          startupMessage: null,
+        };
+      const restored = decodeCampaignLocation(saved);
+      if (!restored.ok)
+        return {
+          runtime: createSpatialRuntime(createTraversalFixtureState(), {
+            checkpointAdapter,
+          }),
+          loadError: "Saved checkpoint is invalid and was not activated or deleted.",
+          startupMessage: null,
+        };
+      return {
+        runtime: createSpatialRuntime(restored.state, { checkpointAdapter }),
+        loadError: null,
+        startupMessage: `Continued from durable revision ${restored.state.lastDurableRevision}.`,
+      };
+    } catch {
+      return {
+        runtime: createSpatialRuntime(createTraversalFixtureState(), {
+          checkpointAdapter,
+        }),
+        loadError: "Saved checkpoint could not be read and was not changed.",
+        startupMessage: null,
+      };
+    }
+  }, [checkpointAdapter]);
+  const [runtime, setRuntime] = useState(initialRuntime.runtime);
+  const [checkpointLoadError, setCheckpointLoadError] = useState(
+    initialRuntime.loadError,
+  );
+  const [startupMessage] = useState(initialRuntime.startupMessage);
   const shell = useShellProjection(runtime);
   const developer = runtime.getDeveloperProjection();
   const movementFeedback = useRef<string | null>(null);
@@ -170,6 +241,58 @@ export function App() {
     setMovementNotice(message);
   }, []);
   const { commandPathToObject } = useTraversalControls(runtime, reportMovementFeedback);
+  const [selectedContextTargetId, setSelectedContextTargetId] = useState<
+    string | null
+  >(null);
+  const selectContextTarget = useCallback(
+    (objectId: string) => {
+      setSelectedContextTargetId(objectId);
+      commandPathToObject(objectId);
+    },
+    [commandPathToObject],
+  );
+  const contextActionMenu = selectedContextTargetId
+    ? runtime.getContextActionMenu(
+        shell.selectedActor.id,
+        selectedContextTargetId,
+      )
+    : null;
+  const contextActionSequence = useRef(0);
+  const resolveRelayAction = useCallback((actionId: ContextActionId) => {
+    if (!contextActionMenu) return;
+    const current = runtime.getShellProjection();
+    const result = runtime.resolveContextAction({
+      actionId,
+      inputId: `relay-action-${++contextActionSequence.current}`,
+      intentLineageId: `relay-selection-${selectedContextTargetId}`,
+      entrySurface: "context_action_menu",
+      truthRevision: current.revision,
+      locationId: contextActionMenu.locationId,
+      actorId: current.selectedActor.id,
+      targetObjectId: contextActionMenu.targetObjectId,
+      actionSurfaceId: actionId,
+      interactionPositionId: contextActionMenu.interactionPositionId,
+    });
+    reportMovementFeedback(result.message);
+  }, [contextActionMenu, reportMovementFeedback, runtime, selectedContextTargetId]);
+  const retryCheckpoint = useCallback(() => {
+    const result = runtime.retryCheckpoint();
+    reportMovementFeedback(result.message);
+  }, [reportMovementFeedback, runtime]);
+  const continueFromCheckpoint = useCallback(() => {
+    const result = runtime.continueFromCheckpoint();
+    reportMovementFeedback(result.message);
+  }, [reportMovementFeedback, runtime]);
+  const startFreshFixture = useCallback(() => {
+    setRuntime(
+      createSpatialRuntime(createTraversalFixtureState(), {
+        checkpointAdapter,
+      }),
+    );
+    setCheckpointLoadError(null);
+    setSelectedContextTargetId(null);
+    reportMovementFeedback("Started a fresh fixture. The stored checkpoint was not deleted.");
+  }, [checkpointAdapter, reportMovementFeedback]);
   const [fallbackPreview, setFallbackPreview] = useState(
     () => new URLSearchParams(window.location.search).get("fallback") === "actor",
   );
@@ -207,7 +330,7 @@ export function App() {
             fallbackPreview={fallbackPreview}
             onRasterLoadFailure={reportRasterLoadFailure}
             selectedActorId={shell.selectedActor.id}
-            onPathToObject={commandPathToObject}
+            onPathToObject={selectContextTarget}
           />
           <div className="camera-chip" aria-hidden="true">{shell.camera.tiltDegrees}° FIXED TILT · {shell.camera.framingScale.toFixed(2)} FRAME</div>
         </div>
@@ -221,11 +344,13 @@ export function App() {
           <div className="command-stack" aria-label="Keyboard-operable tracer commands">
             <p className="movement-hint">WASD · normalized eight-direction traversal</p>
             {seedScene.interactables.map((item) => (
-              <button key={item.id} type="button" onClick={() => commandPathToObject(item.id)}>
+              <button key={item.id} type="button" onClick={() => selectContextTarget(item.id)}>
                 Path to {item.label}
               </button>
             ))}
-            <button type="button" onClick={() => runtime.checkpoint()}>Checkpoint</button>
+            <button type="button" onClick={() => reportMovementFeedback(runtime.checkpoint().message)}>Checkpoint</button>
+            <button type="button" onClick={continueFromCheckpoint}>Continue</button>
+            {shell.canRetryCheckpoint && <button type="button" className="warning active" onClick={retryCheckpoint}>Retry checkpoint</button>}
             <button
               type="button"
               className={fallbackPreview ? "warning active" : "warning"}
@@ -237,8 +362,39 @@ export function App() {
           </div>
 
           <p className="movement-notice" aria-live="polite" role="status">
-            {movementNotice}
+            {movementNotice ?? startupMessage}
           </p>
+
+          {checkpointLoadError && (
+            <section className="actor-roster" role="alert" aria-label="Checkpoint recovery">
+              <h2>Checkpoint recovery</h2>
+              <p>{checkpointLoadError}</p>
+              <button type="button" onClick={startFreshFixture}>Start fresh fixture</button>
+            </section>
+          )}
+
+          {contextActionMenu && (
+            <section className="actor-roster" aria-label={`Context Action Menu for ${contextActionMenu.targetLabel}`}>
+              <h2>{contextActionMenu.targetLabel} · Context Actions</h2>
+              <div className="command-stack">
+                {contextActionMenu.actions.map((action) => (
+                  <div key={action.actionId}>
+                    <button
+                      type="button"
+                      disabled={action.status !== "available"}
+                      aria-describedby={`${action.actionId}-reason`}
+                      onClick={() => resolveRelayAction(action.actionId)}
+                    >
+                      {action.label}{action.status === "completed" ? " · Complete" : ""}
+                    </button>
+                    <p id={`${action.actionId}-reason`} className="movement-hint">
+                      {action.reason ?? "Available · no Check required"}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <dl aria-live="polite" aria-label="Player-critical spatial status">
             <div><dt>Location</dt><dd>{shell.locationLabel}</dd></div>
@@ -247,7 +403,11 @@ export function App() {
             <div><dt>Facing</dt><dd>{shell.selectedActor.facing}</dd></div>
             <div><dt>Motion</dt><dd>{shell.selectedActor.semanticAnimation}</dd></div>
             <div><dt>Revision</dt><dd>{shell.revision}</dd></div>
+            <div><dt>Durable revision</dt><dd>{shell.durableRevision}</dd></div>
             <div><dt>Durability</dt><dd>{shell.saveStatus}</dd></div>
+            <div><dt>Cable feed</dt><dd>{shell.relay.cableFeedIsolated ? "isolated" : "exposed"}</dd></div>
+            <div><dt>Relay</dt><dd>{shell.relay.activated ? "active" : "offline"}</dd></div>
+            <div><dt>Latest action</dt><dd>{shell.actionMessage ?? "none"}</dd></div>
             <div><dt>Camera</dt><dd>{shell.camera.tiltDegrees}° tilt · {shell.camera.framingScale.toFixed(2)} frame</dd></div>
             <div><dt>Camera target</dt><dd>{shell.camera.targetActorId}</dd></div>
           </dl>
@@ -279,7 +439,7 @@ export function App() {
           <section className="marker-key" aria-label="Non-color-only marker key">
             <h2>Player-known markers</h2>
             <ul>
-              {seedScene.markers.map((marker) => {
+              {seedScene.markers.filter((marker) => marker.active).map((marker) => {
                 const presentation = markerPresentation[marker.kind];
                 return (
                   <li key={marker.id}>
@@ -299,6 +459,7 @@ export function App() {
             {failedRasterAssetIds.length > 0 && <>Raster load fallback active for failed asset ID{failedRasterAssetIds.length === 1 ? "" : "s"}: <strong>{failedRasterAssetIds.join(", ")}</strong>.{" "}</>}
             Game Truth revision remains {shell.revision}.
           </p>
+          {shell.durabilityMessage && <p className="movement-notice" aria-live="polite" role="status">{shell.durabilityMessage}</p>}
         </aside>
       </section>
 
@@ -316,6 +477,8 @@ export function App() {
               framingScale: FIXED_CAMERA_FRAMING_SCALE,
             },
             fallbackPreview,
+            failFirstCheckpoint,
+            checkpointLoadError,
             failedRasterAssetIds,
           }, null, 2)}</pre>
         </div>

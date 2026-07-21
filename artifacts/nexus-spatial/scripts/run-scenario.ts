@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 import {
   ACTOR_VISUAL_COLLISION_FOOTPRINT,
   CAMPAIGN_LOCATION_CODEC,
+  type CampaignCheckpointAdapter,
   createSpatialRuntime,
   createTracerFixtureState,
   createTraversalFixtureState,
@@ -31,6 +32,7 @@ const TRACER_SCENARIO = "launch-one-spatial-runtime-tracer";
 const PRODUCTION_SEED_SCENARIO =
   "render-and-approve-the-production-intent-seed";
 const TRAVERSAL_SCENARIO = "traverse-the-authored-three-area-derelict";
+const CONTEXT_ACTION_SCENARIO = "resolve-and-persist-one-authored-context-action";
 const ROOM_SHELL_ASSET = "nexus.seed.wall.pressure-room-shell.v2";
 const ROOM_SHELL_HASH =
   "2b0e5656ab382921eab12f57dc3b42df8d3bf398db8dac06a11aee2c2550f971";
@@ -134,10 +136,9 @@ function runTracerScenario() {
   assert.equal(runtime.getSnapshot().committedRevision, 2);
 
   const checkpoint = runtime.checkpoint();
-  const restored = decodeCampaignLocation(checkpoint);
-  if (!restored.ok) assert.fail(restored.error);
-  assert.equal(restored.state.committedRevision, 2);
-  assert.equal(restored.state.lastDurableRevision, 2);
+  assert.equal(checkpoint.saved, true);
+  assert.equal(checkpoint.snapshot.committedRevision, 2);
+  assert.equal(checkpoint.snapshot.lastDurableRevision, 2);
   assert.deepEqual(events, [
     "1:command.committed:1",
     "2:frame.committed:2",
@@ -146,7 +147,7 @@ function runTracerScenario() {
     "5:checkpoint.committed:2",
   ]);
 
-  const unsupported = JSON.parse(checkpoint) as { version: number };
+  const unsupported = JSON.parse(encodeCampaignLocation(checkpoint.snapshot)) as { version: number };
   unsupported.version = 2;
   const unsupportedResult = decodeCampaignLocation(JSON.stringify(unsupported));
   assert.equal(unsupportedResult.ok, false);
@@ -155,11 +156,286 @@ function runTracerScenario() {
 
   return {
     scenario: TRACER_SCENARIO,
-    committedRevision: restored.state.committedRevision,
-    durableRevision: restored.state.lastDurableRevision,
-    frame: restored.state.frame,
-    actorPosition: restored.state.location.actors[0]?.position,
+    committedRevision: checkpoint.snapshot.committedRevision,
+    durableRevision: checkpoint.snapshot.lastDurableRevision,
+    frame: checkpoint.snapshot.frame,
+    actorPosition: checkpoint.snapshot.location.actors[0]?.position,
     projections: ["pixi", "react-dom", "developer-mode", "headless"],
+  };
+}
+
+function memoryCheckpointAdapter(): CampaignCheckpointAdapter & { readonly writes: () => number } {
+  let value: string | null = null;
+  let writes = 0;
+  return {
+    load: () => value,
+    serialize: (state) => encodeCampaignLocation(state),
+    write: (serialized) => { writes += 1; value = serialized; },
+    writes: () => writes,
+  };
+}
+
+function failFirstCheckpointAdapter(): CampaignCheckpointAdapter & { readonly writes: () => number } {
+  const memory = memoryCheckpointAdapter();
+  let first = true;
+  return {
+    load: memory.load,
+    serialize: memory.serialize,
+    write: (serialized) => {
+      if (first) {
+        first = false;
+        throw new Error("Injected first checkpoint failure.");
+      }
+      memory.write(serialized);
+    },
+    writes: memory.writes,
+  };
+}
+
+function failSerializationAdapter(): CampaignCheckpointAdapter {
+  return {
+    load: () => null,
+    serialize: () => { throw new Error("Injected serialization failure."); },
+    write: () => assert.fail("A failed serialization must not write a checkpoint."),
+  };
+}
+
+function arriveAtRelay(runtime: ReturnType<typeof createSpatialRuntime>) {
+  const start = runtime.getShellProjection();
+  const path = runtime.dispatch({
+    type: "actor.path-to-object",
+    commandId: "context-path-relay",
+    expectedRevision: start.revision,
+    actorId: start.selectedActor.id,
+    objectId: "relay-console",
+  });
+  assert.equal(path.accepted, true);
+  while (runtime.hasActiveMovement()) runtime.step(1_000);
+  assert.deepEqual(runtime.getShellProjection().selectedActor, {
+    id: "player-character",
+    label: "Player Character",
+    x: 29,
+    y: 5,
+    facing: "east",
+    semanticAnimation: "idle",
+  });
+}
+
+function relayInput(
+  runtime: ReturnType<typeof createSpatialRuntime>,
+  actionId: "relay.isolate-cable-feed" | "relay.activate",
+  inputId: string,
+  truthRevision = runtime.getShellProjection().revision,
+) {
+  const shell = runtime.getShellProjection();
+  return {
+    actionId,
+    inputId,
+    intentLineageId: `intent:${inputId}`,
+    entrySurface: "context_action_menu" as const,
+    truthRevision,
+    locationId: runtime.getSnapshot().location.id,
+    actorId: shell.selectedActor.id,
+    targetObjectId: "relay-console",
+    actionSurfaceId: actionId,
+    interactionPositionId: "relay-console-use",
+  };
+}
+
+function relayRequest(
+  runtime: ReturnType<typeof createSpatialRuntime>,
+  actionId: "relay.isolate-cable-feed" | "relay.activate",
+  inputId: string,
+) {
+  return runtime.resolveContextAction(relayInput(runtime, actionId, inputId));
+}
+
+function runContextActionScenario() {
+  const adapter = failFirstCheckpointAdapter();
+  const runtime = createSpatialRuntime(createTraversalFixtureState(), { checkpointAdapter: adapter });
+  const events: string[] = [];
+  runtime.subscribe((event) => events.push(`${event.type}:${event.revision}`));
+  arriveAtRelay(runtime);
+  const initialMenu = runtime.getContextActionMenu(
+    "player-character",
+    "relay-console",
+  );
+  assert.ok(initialMenu);
+  assert.deepEqual(
+    initialMenu.actions.map((action) => [
+      action.actionId,
+      action.status,
+      action.reason,
+    ]),
+    [
+      ["relay.isolate-cable-feed", "available", null],
+      [
+        "relay.activate",
+        "blocked",
+        "Isolate the exposed cable feed before activating the relay.",
+      ],
+    ],
+  );
+
+  const truthBeforeBlocked = runtime.getSnapshot();
+  const blocked = relayRequest(runtime, "relay.activate", "relay-activate-blocked");
+  assert.equal(blocked.accepted, false);
+  assert.equal(blocked.message, "Isolate the exposed cable feed before activating the relay.");
+  assert.deepEqual(runtime.getSnapshot(), truthBeforeBlocked);
+
+  const beforeIsolate = runtime.getSnapshot();
+  const isolateInput = relayInput(
+    runtime,
+    "relay.isolate-cable-feed",
+    "relay-isolate",
+  );
+  const isolate = runtime.resolveContextAction(isolateInput);
+  assert.equal(isolate.accepted, true);
+  assert.equal(isolate.status, "committed");
+  assert.equal(
+    isolate.message,
+    "Cable feed isolated. Active in this session, but not saved.",
+  );
+  assert.equal(isolate.transaction?.check, "not-required");
+  assert.deepEqual(isolate.transaction?.effects, [
+    { type: "hazard.isolated", hazardId: "exposed-cable" },
+  ]);
+  assert.deepEqual(isolate.transaction?.stateDeltas, [
+    {
+      operation: "hazard.set-active",
+      targetId: "exposed-cable",
+      expectedBefore: true,
+      value: false,
+    },
+  ]);
+  assert.equal(runtime.getSnapshot().committedRevision, beforeIsolate.committedRevision + 1);
+  assert.equal(runtime.getSnapshot().lastDurableRevision, beforeIsolate.lastDurableRevision);
+  assert.equal(
+    runtime.getSnapshot().location.hazards.find(
+      (hazard) => hazard.id === "exposed-cable",
+    )?.active,
+    false,
+  );
+  assert.equal(runtime.getShellProjection().saveStatus, "degraded");
+  assert.equal(
+    runtime.getShellProjection().durabilityMessage,
+    "Saving is degraded. Retry the checkpoint before activating the relay.",
+  );
+  const beforeDuplicate = runtime.getSnapshot();
+  const duplicate = runtime.resolveContextAction(isolateInput);
+  assert.equal(duplicate.accepted, true);
+  assert.equal(duplicate.status, "duplicate");
+  assert.equal(duplicate.message, "Cable feed isolated.");
+  assert.deepEqual(runtime.getSnapshot(), beforeDuplicate);
+  const mismatchedDuplicate = runtime.resolveContextAction({
+    ...isolateInput,
+    actionId: "relay.activate",
+    actionSurfaceId: "relay.activate",
+  });
+  assert.equal(mismatchedDuplicate.accepted, false);
+  assert.equal(
+    mismatchedDuplicate.message,
+    "That action identity is already committed to a different request.",
+  );
+  assert.deepEqual(runtime.getSnapshot(), beforeDuplicate);
+  const blockedWhileDegraded = relayRequest(runtime, "relay.activate", "relay-activate-degraded");
+  assert.equal(blockedWhileDegraded.accepted, false);
+  assert.equal(
+    blockedWhileDegraded.message,
+    "Saving is degraded. Retry the checkpoint before activating the relay.",
+  );
+
+  const retry = runtime.retryCheckpoint();
+  assert.equal(retry.saved, true);
+  assert.equal(runtime.getShellProjection().saveStatus, "durable");
+  assert.equal(runtime.getShellProjection().actionMessage, "Cable feed isolated.");
+  assert.equal(runtime.getSnapshot().lastDurableRevision, runtime.getSnapshot().committedRevision);
+  assert.equal(
+    runtime.getRenderProjection().hazards.find(
+      (hazard) => hazard.id === "exposed-cable",
+    )?.active,
+    false,
+  );
+  assert.equal(
+    runtime.getRenderProjection().objectives.find(
+      (objective) => objective.id === "activate-relay",
+    )?.active,
+    true,
+  );
+  assert.equal(adapter.writes(), 1);
+
+  const activate = relayRequest(runtime, "relay.activate", "relay-activate");
+  assert.equal(activate.accepted, true);
+  assert.equal(activate.transaction?.check, "not-required");
+  assert.equal(runtime.getSnapshot().location.objectives.find((objective) => objective.id === "activate-relay")?.status, "complete");
+  assert.equal(
+    runtime.getRenderProjection().objectives.find(
+      (objective) => objective.id === "activate-relay",
+    )?.active,
+    false,
+  );
+  assert.equal(adapter.writes(), 2);
+  assert.equal(events.filter((event) => event.startsWith("context-action.committed")).length, 2);
+  assert.throws(() => {
+    (runtime.getShellProjection().relay as { activated: boolean }).activated = false;
+  }, TypeError);
+
+  const restored = createSpatialRuntime(createTraversalFixtureState(), { checkpointAdapter: adapter });
+  const restoredEvents: string[] = [];
+  restored.subscribe((event) => restoredEvents.push(event.type));
+  const continued = restored.continueFromCheckpoint();
+  assert.equal(continued.saved, true);
+  assert.equal(restored.getShellProjection().actionMessage, "Relay activated.");
+  assert.equal(restored.getSnapshot().location.objectives.find((objective) => objective.id === "activate-relay")?.status, "complete");
+  assert.equal(
+    restoredEvents.includes("context-action.committed"),
+    false,
+  );
+
+  const staleState = restored.getSnapshot();
+  const stale = restored.resolveContextAction(
+    relayInput(
+      restored,
+      "relay.activate",
+      "relay-stale",
+      staleState.committedRevision - 1,
+    ),
+  );
+  assert.equal(stale.accepted, false);
+  assert.deepEqual(restored.getSnapshot(), staleState);
+
+  const serializationRuntime = createSpatialRuntime(createTraversalFixtureState(), { checkpointAdapter: failSerializationAdapter() });
+  arriveAtRelay(serializationRuntime);
+  const beforeSerializationFailure = serializationRuntime.getSnapshot();
+  const serializationFailure = relayRequest(serializationRuntime, "relay.isolate-cable-feed", "relay-serialization-failure");
+  assert.equal(serializationFailure.accepted, false);
+  assert.equal(serializationFailure.message, "Injected serialization failure.");
+  assert.deepEqual(serializationRuntime.getSnapshot(), beforeSerializationFailure);
+
+  const invalidInputState = serializationRuntime.getSnapshot();
+  const invalidInput = serializationRuntime.resolveContextAction({
+    ...relayInput(
+      serializationRuntime,
+      "relay.isolate-cable-feed",
+      "relay-invalid-target",
+    ),
+    targetObjectId: "missing-relay",
+  });
+  assert.equal(invalidInput.accepted, false);
+  assert.deepEqual(serializationRuntime.getSnapshot(), invalidInputState);
+
+  const oldPayload = JSON.parse(encodeCampaignLocation(createTracerFixtureState()));
+  delete oldPayload.payload.location.contextActionTransactions;
+  const oldPayloadResult = decodeCampaignLocation(JSON.stringify(oldPayload));
+  if (!oldPayloadResult.ok) assert.fail(oldPayloadResult.error);
+  assert.deepEqual(oldPayloadResult.state.location.contextActionTransactions, []);
+
+  return {
+    scenario: CONTEXT_ACTION_SCENARIO,
+    committedRevision: runtime.getSnapshot().committedRevision,
+    durableRevision: runtime.getSnapshot().lastDurableRevision,
+    writes: adapter.writes(),
+    outcome: "relay activated and restored without replay",
   };
 }
 
@@ -957,8 +1233,10 @@ if (scenario === TRACER_SCENARIO) {
   console.log(JSON.stringify(runTraversalScenario(), null, 2));
 } else if (scenario === PRODUCTION_SEED_SCENARIO) {
   console.log(JSON.stringify(runProductionSeedScenario(), null, 2));
+} else if (scenario === CONTEXT_ACTION_SCENARIO) {
+  console.log(JSON.stringify(runContextActionScenario(), null, 2));
 } else {
   throw new Error(
-    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO}, ${TRAVERSAL_SCENARIO}, or ${PRODUCTION_SEED_SCENARIO}.`,
+    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO}, ${TRAVERSAL_SCENARIO}, ${PRODUCTION_SEED_SCENARIO}, or ${CONTEXT_ACTION_SCENARIO}.`,
   );
 }
