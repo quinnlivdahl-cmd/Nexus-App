@@ -59,20 +59,18 @@ Use this section for ready or in-progress issue packets.
 
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
-| #60 | Rebuild Nexus planning controls for the revised vision | in-progress | Revised planning/control reconciliation | #59 and #30 satisfied | Hermes is synchronizing the live queue, residual scope, and repo-readable control surface on `hermes/issue-60-queue-maintenance` |
 | #110 | Resolve and persist one authored Context Action | in-progress | Integration Contract #30 implementation | #109 satisfied | Resolve or disposition the unresolved PR #131 durability-messaging P2, revalidate, and return the candidate for Quintin approval |
 | #112 | Create a legal Level-0 Player Character draft | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; implement the pinned provisional Skill Tree draft tracer |
 
 ## Known Open GitHub Issues
 
-Last synced: 2026-07-23 by Hermes from the live 27-issue queue while Planning Controls #60 was in progress. For exact current state, verify against GitHub.
+Last synced: 2026-07-23 by Hermes from the live 25-issue queue after Planning Controls #60 and Spatial Vertical Slice Wayfinder #57 closed. For exact current state, verify against GitHub.
 
 ### Queue Classification Snapshot
 
 - **Current implementation sequence:** 16 of Integration Contract #30's 19 implementation children remain open (#110-#125); #110 is in progress, #112 is the only unassigned ready child, and the other open children remain blocked by native predecessors. Completed children #107-#109 are recorded under Completed Issues.
 - **Current design lanes needing residual-scope reconciliation:** #31, #32, and #68 remain useful, but must use current Skill Tree, Character Profile / Embodiment, and source/ADR terminology rather than historical issue wording.
-- **Revised workflow/control sequence:** #60 is in progress; #61 is natively blocked by #60; #62 is natively blocked by #61.
-- **Closeout-ready map:** #57 has 12/12 closed decision children and reached its declared Integration Contract #30 destination. Formal closure waits for synchronized, reviewed, merged closeout evidence and does not imply that #30's implementation children are complete.
+- **Revised workflow/control sequence:** #60 is complete; #61's native prerequisite is satisfied but its residual scope must be audited against completed #74-#85 before readiness; #62 remains natively blocked by #61.
 - **Historical/support triage:** #16, #26, and #50 retain useful accessibility, fixture, and capture concerns but are not ready to execute from their legacy Encounter, Rook/E-43, or retired workflow/path wording.
 - **Architecture discovery:** #88 is a separate hosted project-control epic with security and external-account implications. It requires bounded child tickets and an approved read/write architecture before implementation.
 
@@ -81,8 +79,7 @@ Last synced: 2026-07-23 by Hermes from the live 27-issue queue while Planning Co
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
 | #50 | Define Seed Mode substantive-input capture and mining workflow | needs residual-scope triage | Current planning owners and retired paths | Preserve the substantive-input concern without creating a competing task or memory store |
-| #60 | Rebuild Nexus planning controls for the revised vision | in-progress | #59 and #30 satisfied | Live queue and planning-control reconciliation claimed by Hermes |
-| #61 | Align the Obsidian project front door and planning history | blocked | #60 native blocker | Premature ready label removed; audit completed #74-#85 work before executing residual vault changes |
+| #61 | Align the Obsidian project front door and planning history | residual-scope audit | #60 satisfied | Audit completed #74-#85 work before advertising or executing residual vault changes |
 | #62 | Regenerate and validate Nexus pointer navigation | blocked | #61 native blocker | Preserve generator ownership; execute only after #61 and distinguish active output from archived card history |
 | #88 | Epic: Make the Nexus site GitHub-live and able to start tasks | architecture/discovery epic | Security, identity, hosting, and dispatch decisions | Missing from the prior index; split read-only GitHub synchronization from authenticated write/dispatch work before creating bounded children |
 
@@ -90,7 +87,6 @@ Last synced: 2026-07-23 by Hermes from the live 27-issue queue while Planning Co
 
 | Issue | Title | Queue role | Depends on | Notes |
 |---|---|---|---|---|
-| #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | closeout-ready map | 12/12 decision children satisfied | Integration Contract #30 reached the map destination; close only after reviewed and merged index synchronization, without implying production implementation is complete |
 | #68 | Complete Crew Archive pool and former-PC conversion design | blocked grilling reconciliation | #11 satisfied; source/ADR reconciliation missing | Body and later comments disagree on Crew Archive versus Crew Library authority; reconcile canonical source and accepted ADR implications before assignment |
 
 ### Spatial Vertical Slice Implementation
@@ -132,7 +128,6 @@ Use this section for tasks that should not be executed until a prerequisite is s
 | Issue | Title | Missing prerequisite | Blocking issue | Recommended action |
 |---|---|---|---|---|
 | #111–#125 except #112 | Remaining Integration Contract implementation sequence | Native predecessor issues remain open | GitHub native dependency graph after #109 | Leave blocked children unassigned and without `status:ready-for-agent`; promote only the cleared frontier |
-| #61 | Align the Obsidian project front door and planning history | Planning Controls #60 remains open | #60 native dependency | Keep unassigned and without `status:ready-for-agent`; audit #74-#85 overlap after #60 closes |
 | #62 | Regenerate and validate Nexus pointer navigation | Obsidian Front Door #61 remains open | #61 native dependency | Keep unassigned and without `status:ready-for-agent`; run only through the owning generator workflow after #61 closes |
 | #68 | Complete Crew Archive pool and former-PC conversion design | Issue body, later comments, canonical source, and accepted ADRs disagree on terminology and authority | Source/ADR reconciliation task to be shaped | Do not assign from the current body; first define which Crew Archive / Crew Library changes are proposed and which rules survive |
 
@@ -157,6 +152,8 @@ Move verified completed work here when it no longer belongs in the active queue.
 
 | Issue | Title | Completed evidence | Follow-up |
 |---|---|---|---|
+| #60 | Rebuild Nexus planning controls for the revised vision | All 27 then-open issues synchronized in `NEXUS_ISSUE_INDEX.md`; native #60 → #61 → #62 dependencies and readiness labels corrected; residual lanes classified without bulk rewriting; roadmap/source/slice checks, workflow validation, typecheck, build, diff validation, independent `PASS_WITH_NOTES` audits, final `PASS` review, and Quintin approval merged through PR #132 in merge commit `a1667f5` | Audit #61 against completed #74-#85 work before adding a ready label; #62 remains blocked by #61 |
+| #57 | Wayfinder: Make the Nexus spatial vertical slice implementation-ready | All 12 direct decision children closed and Integration Contract #30 reached as the approved implementation-ready destination; synchronized closeout evidence, validation, independent review, and Quintin approval recorded through PR #132 and merge commit `a1667f5` | Wayfinder closure does not imply production completion: #110 is in progress, #112 is the current unassigned ready frontier, and 16/19 implementation children remain open |
 | #109 | Traverse the authored three-area derelict | Authored three-area traversal now includes WASD and click pathing, facing, follower relay and wall recovery, 10-degree and 0.82 exploration camera, focus-loss control recovery, full visible-sprite collision against room-side inner wall faces, legal door throats, concave-corner segment containment, and exact typecheck, focused/default spatial tests, production tracer, build, and diff checks; Quintin accepted the result in-browser and PR #129 merged in merge commit `9806b89` after final independent PASS review | #110 is in progress and #112 is the current unassigned ready frontier |
 | #108 | Render and approve the production-intent seed | Reusable version 2 raster assets and manifest, modular nine-slice pressure-room shell, enlarged 40-pixel-per-unit desktop overview, deterministic fallbacks, exact desktop/responsive runtime evidence, spatial and workflow validation, independent Standards/Spec PASS results, and Quintin's human product/art PASS merged through PR #128 | #109 is complete; #110 is in progress and #112 is the current unassigned ready frontier; the accepted seed is a production-intent sample and pipeline direction, not final game-wide textures |
 | #107 | Launch one spatial-runtime tracer | New independently runnable React/Pixi spatial app; engine-owned command, event, snapshot, frame, revision, camera, selection, and semantic-animation runtime; versioned Campaign/Location codec; validated fixture; immutable projections; migration inventory; focused scenario; independent review; spatial and companion builds; workflow validation; and manual browser reproduction pass | #108 and #109 completed the first authored exploration frontier; #110 is in progress and #112 is the current unassigned ready frontier |
