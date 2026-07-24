@@ -171,7 +171,9 @@ For the current `1920x1080` review scale and approximately `67 px` ordinary-huma
 
 These numbers are a production seed rather than a universal constant. Recompute them when actor scale, runtime speed, cadence, or frame count changes; preserve the planted-foot cancellation rule. Derive other facings from the same locomotion contract instead of matching the south-facing frames by eye.
 
-Approved working references: [south-facing foot-locked gameplay preview — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-approved-south-walk-foot-lock-reference-2026-07-23.gif) and [south-facing gait phase sheet — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-approved-south-walk-gait-phases-2026-07-23.png).
+For side-facing movement, author one authoritative cycle and derive the opposite direction by exact horizontal mirroring unless asymmetric equipment or character features require separately authored frames. Preserve established actor height and proportions; do not enlarge the naturally narrower side profile to match the south-facing width.
+
+Approved working references: [south-facing foot-locked gameplay preview — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-approved-south-walk-foot-lock-reference-2026-07-23.gif), [south-facing gait phase sheet — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-approved-south-walk-gait-phases-2026-07-23.png), [east/west gameplay-scale walk preview — 2026-07-24](../Reference%20Inputs/concepts/2026-07-24/nexus-approved-east-west-walk-gameplay-reference-2026-07-24.gif), and [east-facing gait phase sheet — 2026-07-24](../Reference%20Inputs/concepts/2026-07-24/nexus-approved-east-walk-gait-phases-2026-07-24.png).
 
 ## Character sheet art boundary
 

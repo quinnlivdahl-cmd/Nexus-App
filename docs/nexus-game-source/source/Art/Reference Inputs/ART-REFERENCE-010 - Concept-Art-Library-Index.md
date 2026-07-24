@@ -306,3 +306,12 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Motion carried forward: use a recognizable stance/swing division with two brief double-support transitions, modest lateral shoulder counter-motion, and enough stride length to match actual travel rather than reading as jogging in place or a short-stepped shuffle.
 - Research basis: the cycle applies ordinary gait timing—stance occupying roughly three-fifths of a cycle, swing roughly two-fifths, with two double-support intervals—and adapts it to the small displacements and limited silhouette bandwidth of a top-down sprite.
 - Scope boundary: the numeric values are a working production ratio, not a universal constant. Recompute them if actor scale, runtime speed, cadence, or frame count changes. The planted-foot cancellation rule remains invariant.
+
+### Approved east/west gameplay-scale walk baseline
+
+- Assets: [`concepts/2026-07-24/nexus-approved-east-west-walk-gameplay-reference-2026-07-24.gif`](<concepts/2026-07-24/nexus-approved-east-west-walk-gameplay-reference-2026-07-24.gif>) and [`concepts/2026-07-24/nexus-approved-east-walk-gait-phases-2026-07-24.png`](<concepts/2026-07-24/nexus-approved-east-walk-gait-phases-2026-07-24.png>)
+- Status: approved working baseline for east/west gameplay-scale gait and directional silhouette; not a final character identity or finished production sprite.
+- Direction carried forward: construct one authoritative side-facing cycle and derive the opposite direction by exact horizontal mirroring unless asymmetric equipment or character features require separately authored frames.
+- Scale carried forward: preserve the actor's established height and body proportions when changing facing. The side profile should remain naturally narrower rather than being enlarged to match the south-facing silhouette width.
+- Motion carried forward: retain the approved `8`-frame, `115 ms` cadence and `7 px` runtime travel per frame. Side-facing frames must make full stride, planted-foot behavior, and modest shoulder/hip counter-motion legible without turning the walk into a march or gallop.
+- Review boundary: the paired gameplay preview is the approval authority for travel synchronization and screen-scale readability; the enlarged phase sheet exists to inspect silhouette, pose order, and pixel clusters.
