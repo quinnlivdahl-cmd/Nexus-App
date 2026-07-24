@@ -279,3 +279,11 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Camera boundary: the Movement + Camera Prototype #13 implementation and projection checks remain authoritative. This generated image only approximates the intended near-plan reading and must not be used to measure or validate the angle.
 - State mapping: FREE and TBE retain the same illustrative view and scene relative to each other while TBE makes interactable target objects with currently available actions immediately legible. This panel-to-panel consistency does not validate the exact prototype projection. The cyan treatment does not mark canonical actor approach `Interaction Positions`.
 - Highlight rule: align cyan brackets or perimeters to each target's projected footprint and rotation, keep the line outside the silhouette, and enlarge it when needed to prevent overlap; do not introduce node paths or movement grids.
+
+### Approved FREE/TBE robot-highlight composite
+
+- Asset: [`concepts/2026-07-23/nexus-free-tbe-robot-highlight-composite-2026-07-23.png`](<concepts/2026-07-23/nexus-free-tbe-robot-highlight-composite-2026-07-23.png>)
+- Status: approved interaction-treatment composite and approved robot concept; not exact camera validation, final gameplay art, a finished actor sprite, or a finished Location.
+- Composition carried forward: keep the actor upright in screen space while world objects may retain their authored floor-plane orientation. The robot's angled placement is intentional rather than an attempt to tilt it toward the camera.
+- Highlight carried forward: the cyan TBE perimeter follows the robot's projected footprint and authored rotation, remains outside its silhouette, and is absent from the matching FREE view.
+- Diagnostic boundary: the pale grid is present only to make projection and alignment reviewable in this composite. It is not an approved gameplay overlay or a return to node paths.

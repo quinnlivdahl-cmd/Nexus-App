@@ -69,6 +69,8 @@ During Turn-Based Mode, interactable targets with currently available actions sh
 
 Illustrative interaction-treatment concept, not camera validation: [prototype-informed FREE/TBE interaction view — 2026-07-18](../Reference%20Inputs/concepts/2026-07-18/nexus-prototype-camera-tbe-interaction-concept-2026-07-18.png).
 
+Approved interaction-treatment composite, not camera validation: [FREE/TBE robot-highlight composite — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-free-tbe-robot-highlight-composite-2026-07-23.png). In this reference, the actor remains upright in screen space, the robot retains an authored floor-plane rotation, and the TBE perimeter follows that rotation outside the robot silhouette. Its pale grid is a review diagnostic, not gameplay UI.
+
 ## Ships
 
 Ships should be modular, maintained, patched, and compartmentalized:
