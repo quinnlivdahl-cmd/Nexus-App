@@ -287,3 +287,12 @@ Useful for lived-in industrial orbital structure, hull texture, maintenance infr
 - Composition carried forward: keep the actor upright in screen space while world objects may retain their authored floor-plane orientation. The robot's angled placement is intentional rather than an attempt to tilt it toward the camera.
 - Highlight carried forward: the cyan TBE perimeter follows the robot's projected footprint and authored rotation, remains outside its silhouette, and is absent from the matching FREE view.
 - Diagnostic boundary: the pale grid is present only to make projection and alignment reviewable in this composite. It is not an approved gameplay overlay or a return to node paths.
+
+### Approved full-screen crew scale and near-overhead reference
+
+- Asset: [`concepts/2026-07-23/nexus-fullscreen-crew-scale-overhead-reference-2026-07-23.png`](<concepts/2026-07-23/nexus-fullscreen-crew-scale-overhead-reference-2026-07-23.png>)
+- Status: approved working reference for crew scale, near-overhead sprite construction, and large-room context; not finalized character identities, animation frames, room geometry, floor kit, interface skin, or exact camera validation.
+- Scale carried forward: at a `1920x1080` review frame, an ordinary human actor around `67 px` wide reads clearly. Treat this as a working production seed rather than a universal fixed width; body type, Chassis, equipment, zoom, and validation in the playable runtime may require variation.
+- Perspective carried forward: crew sprites should read overwhelmingly from crown, shoulders, upper back, and top equipment silhouette. Minimize portrait-like face visibility and frontal-torso presentation so characters belong to the accepted near-plan gameplay view.
+- Context carried forward: judge sprite scale inside a full playable view with room boundaries, human-width doors, multiple props, and floor modules small enough to communicate room extent. Isolated thumbnails and oversized floor motifs distort the scale decision.
+- Comparison boundary: A-D remain screen-upright only to isolate scale and perspective in this seed comparison. Production movement and facing frames still require their own approved directional treatment.

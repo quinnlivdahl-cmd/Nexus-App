@@ -153,6 +153,16 @@ For playable crews, prioritize readable silhouettes:
 
 These are visual anchors, not fixed classes.
 
+## Gameplay sprite scale and perspective
+
+At a `1920x1080` review frame, an ordinary human actor around `67 px` wide is the approved working production seed. This is not a universal fixed width: body type, Chassis, carried equipment, camera zoom, and in-engine readability may justify variation.
+
+Build playable crew sprites for the accepted near-overhead camera. The dominant read should come from crown, shoulders, upper back, and the top silhouette of equipment. Keep face visibility and frontal-torso presentation restrained; a figure that reads like a portrait viewed from above is too steep for the gameplay view.
+
+Evaluate scale in a full playable composition with room boundaries, human-width doors, several props, and appropriately sized floor modules. Do not approve sprite size from isolated thumbnails or a backdrop whose oversized motifs make the room appear artificially small.
+
+Approved working reference: [full-screen crew scale and near-overhead view — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-fullscreen-crew-scale-overhead-reference-2026-07-23.png). The A-D figures remain screen-upright to isolate scale and perspective; production movement and facing frames are a later directional-animation decision.
+
 ## Character sheet art boundary
 
 Character sheet and crew card visuals should be manually readable before decorative. Portraits may support identity, but loadout, skills, wounds, recovery, relationships, and current state must remain clear.
