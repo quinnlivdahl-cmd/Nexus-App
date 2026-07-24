@@ -6,12 +6,15 @@ import {
   ACTOR_VISUAL_COLLISION_FOOTPRINT,
   CAMPAIGN_LOCATION_CODEC,
   createSpatialRuntime,
+  createPlayerDraftFixtureState,
   createTracerFixtureState,
   createTraversalFixtureState,
   decodeCampaignLocation,
   encodeCampaignLocation,
   validateCampaignLocationState,
   planAuthoredPolygonGraphRoute,
+  PLAYER_CHARACTER_CATALOG,
+  type PlayerCharacterDraft,
   ROOM_SHELL_VISIBLE_INNER_FACE_INSET,
   segmentStaysInPolygon,
   TRAVERSAL_DOOR_THROAT,
@@ -31,6 +34,8 @@ const TRACER_SCENARIO = "launch-one-spatial-runtime-tracer";
 const PRODUCTION_SEED_SCENARIO =
   "render-and-approve-the-production-intent-seed";
 const TRAVERSAL_SCENARIO = "traverse-the-authored-three-area-derelict";
+const PLAYER_DRAFT_SCENARIO =
+  "create-a-legal-level-0-player-character-draft";
 const ROOM_SHELL_ASSET = "nexus.seed.wall.pressure-room-shell.v2";
 const ROOM_SHELL_HASH =
   "2b0e5656ab382921eab12f57dc3b42df8d3bf398db8dac06a11aee2c2550f971";
@@ -160,6 +165,249 @@ function runTracerScenario() {
     frame: restored.state.frame,
     actorPosition: restored.state.location.actors[0]?.position,
     projections: ["pixi", "react-dom", "developer-mode", "headless"],
+  };
+}
+
+function runPlayerDraftScenario() {
+  assert.equal(PLAYER_CHARACTER_CATALOG.catalogId, "nexus.skill-tree.provisional");
+  assert.equal(
+    PLAYER_CHARACTER_CATALOG.catalogVersion,
+    "sha256:06b7656efbe06520371ec81f6f008fafd2c0fc0a40909f28c238a2e5bf6a5a6d",
+  );
+  assert.equal(
+    PLAYER_CHARACTER_CATALOG.source.blob,
+    "48be6c31f0aa5d0f3353ce7faa96c2b2501e2236",
+  );
+  assert.equal(PLAYER_CHARACTER_CATALOG.attributes.length, 6);
+  let skillCount = 0;
+  let focusCount = 0;
+  let abilityCount = 0;
+  for (const attribute of PLAYER_CHARACTER_CATALOG.attributes) {
+    skillCount += attribute.skills.length;
+    for (const skill of attribute.skills) {
+      focusCount += skill.focuses.length;
+      for (const focus of skill.focuses) abilityCount += focus.abilities.length;
+    }
+  }
+  for (const branch of PLAYER_CHARACTER_CATALOG.sharedBranches)
+    abilityCount += branch.abilities.length;
+  assert.equal(skillCount, 23);
+  assert.equal(focusCount, 55);
+  assert.equal(abilityCount, 142);
+  assert.equal(PLAYER_CHARACTER_CATALOG.sharedBranches.length, 6);
+
+  const legalAbilityId =
+    "ability-focus-skill-attribute-combat-offense-sidearms-close-pistol";
+  const incompatibleAbilityId =
+    "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle";
+
+  const legalDraft: PlayerCharacterDraft = {
+    draftId: "player-draft-112",
+    displayName: "Relay Scout",
+    level: 0,
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+    selectedAbilityIds: [legalAbilityId],
+    startingLoadoutId: "level-0-field-kit",
+  };
+  const assertRejectedWithoutMutation = (
+    commandId: string,
+    draft: PlayerCharacterDraft,
+    reason: RegExp,
+  ) => {
+    const rejectedRuntime = createSpatialRuntime(createPlayerDraftFixtureState());
+    const beforeRejected = rejectedRuntime.getSnapshot();
+    const rejected = rejectedRuntime.dispatch({
+      type: "player-character.create-draft",
+      commandId,
+      expectedRevision: 0,
+      draft,
+    });
+    assert.equal(rejected.accepted, false);
+    assert.match(
+      rejected.event.type === "command.rejected"
+        ? rejected.event.reason
+        : "command unexpectedly committed",
+      reason,
+    );
+    assert.deepEqual(rejected.snapshot, beforeRejected);
+    assert.equal(rejected.snapshot.committedRevision, 0);
+    assert.equal(rejected.snapshot.playerCharacterDraft, null);
+  };
+  assertRejectedWithoutMutation(
+    "reject-empty-draft-id",
+    { ...legalDraft, draftId: "   " },
+    /draftId must be a non-empty string/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-empty-display-name",
+    { ...legalDraft, displayName: "" },
+    /displayName must be a non-empty string/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-duplicate-ability",
+    { ...legalDraft, selectedAbilityIds: [legalAbilityId, legalAbilityId] },
+    /selected more than once|select exactly 1 Ability identity/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-malformed-ability",
+    { ...legalDraft, selectedAbilityIds: ["ability-does-not-exist"] },
+    /Unknown Ability identity/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-incompatible-loadout",
+    { ...legalDraft, selectedAbilityIds: [incompatibleAbilityId] },
+    /does not support every selected Ability/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-unmet-prerequisite",
+    {
+      ...legalDraft,
+      selectedAbilityIds: [
+        "ability-focus-skill-attribute-combat-offense-precision-fire-converging-fire",
+      ],
+    },
+    /unmet prerequisites/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-over-allowance",
+    {
+      ...legalDraft,
+      selectedAbilityIds: [
+        legalAbilityId,
+        "ability-focus-skill-attribute-combat-offense-precision-fire-sightline-discipline",
+      ],
+    },
+    /select exactly 1 Ability identity/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-unknown-catalog-version",
+    { ...legalDraft, catalogVersion: "unrecognized-version" },
+    /catalogVersion does not match/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-unknown-starting-loadout",
+    { ...legalDraft, startingLoadoutId: "unknown-loadout" },
+    /Unknown Starting Loadout/,
+  );
+
+  const malformedConfig = JSON.parse(
+    JSON.stringify(createPlayerDraftFixtureState()),
+  );
+  malformedConfig.playerCharacterCreation.startingLoadouts[0].supportedAbilityIds = [];
+  assert.throws(
+    () => createSpatialRuntime(malformedConfig),
+    /must support at least one Ability/,
+  );
+
+  const runtime = createSpatialRuntime(createPlayerDraftFixtureState());
+  const before = runtime.getSnapshot();
+  assert.equal(before.campaignPhase, "draft-only");
+  assert.equal(runtime.getShellProjection().campaignPhase, "draft-only");
+  assert.deepEqual(
+    runtime.getShellProjection().playerCharacterCreation,
+    before.playerCharacterCreation,
+  );
+  const blockedMovement = runtime.dispatch({
+    type: "actor.move-direction",
+    commandId: "reject-draft-only-movement",
+    expectedRevision: 0,
+    actorId: runtime.getShellProjection().selectedActor.id,
+    direction: "east",
+    distance: 1,
+  });
+  assert.equal(blockedMovement.accepted, false);
+  assert.match(
+    blockedMovement.event.type === "command.rejected"
+      ? blockedMovement.event.reason
+      : "movement unexpectedly committed",
+    /draft-only/,
+  );
+  assert.deepEqual(blockedMovement.snapshot, before);
+  assert.throws(() => runtime.step(16), /draft-only/);
+  const result = runtime.dispatch({
+    type: "player-character.create-draft",
+    commandId: "create-level-0-draft",
+    expectedRevision: 0,
+    draft: legalDraft,
+  });
+  assert.equal(result.accepted, true);
+  assert.equal(before.playerCharacterDraft, null);
+  assert.equal(result.snapshot.committedRevision, 1);
+  assert.deepEqual(result.snapshot.playerCharacterDraft, {
+    draftId: "player-draft-112",
+    displayName: "Relay Scout",
+    level: 0,
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+    selectedAbilityIds: [legalAbilityId],
+    startingLoadoutId: "level-0-field-kit",
+  });
+  assert.deepEqual(runtime.getShellProjection().playerCharacterDraft, {
+    draftId: "player-draft-112",
+    displayName: "Relay Scout",
+    level: 0,
+    selectedAbilityIds: [legalAbilityId],
+    selectedAbilityNames: ["Close Pistol"],
+    startingLoadoutId: "level-0-field-kit",
+    startingLoadoutLabel: "Field Kit",
+    startingLoadoutItemIds: [
+      "fixture-item-field-tool",
+      "fixture-item-sidearm",
+    ],
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+  });
+  assert.equal(runtime.getDeveloperProjection().committedRevision, 1);
+  assert.deepEqual(
+    runtime.getDeveloperProjection().playerCharacterDraft,
+    result.snapshot.playerCharacterDraft,
+  );
+  const beforeStale = runtime.getSnapshot();
+  const stale = runtime.dispatch({
+    type: "player-character.create-draft",
+    commandId: "reject-stale-draft-command",
+    expectedRevision: 0,
+    draft: legalDraft,
+  });
+  assert.equal(stale.accepted, false);
+  assert.match(
+    stale.event.type === "command.rejected" ? stale.event.reason : "",
+    /Stale command/,
+  );
+  assert.deepEqual(stale.snapshot, beforeStale);
+
+  const checkpoint = runtime.checkpoint();
+  const restored = decodeCampaignLocation(checkpoint);
+  if (!restored.ok) assert.fail(restored.error);
+  assert.deepEqual(
+    restored.state.playerCharacterDraft,
+    result.snapshot.playerCharacterDraft,
+  );
+  const incompatibleEnvelope = JSON.parse(checkpoint) as {
+    payload: {
+      playerCharacterCreation: { catalogVersion: string };
+      playerCharacterDraft: { catalogVersion: string };
+    };
+  };
+  incompatibleEnvelope.payload.playerCharacterCreation.catalogVersion =
+    "unrecognized-version";
+  incompatibleEnvelope.payload.playerCharacterDraft.catalogVersion =
+    "unrecognized-version";
+  const incompatible = decodeCampaignLocation(
+    JSON.stringify(incompatibleEnvelope),
+  );
+  assert.equal(incompatible.ok, false);
+  if (incompatible.ok) assert.fail("Unrecognized catalog version was loaded.");
+  assert.match(incompatible.error, /Unsupported player-character catalog version/);
+
+  return {
+    scenario: PLAYER_DRAFT_SCENARIO,
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+    committedRevision: restored.state.committedRevision,
+    durableRevision: restored.state.lastDurableRevision,
+    draft: restored.state.playerCharacterDraft,
   };
 }
 
@@ -957,8 +1205,10 @@ if (scenario === TRACER_SCENARIO) {
   console.log(JSON.stringify(runTraversalScenario(), null, 2));
 } else if (scenario === PRODUCTION_SEED_SCENARIO) {
   console.log(JSON.stringify(runProductionSeedScenario(), null, 2));
+} else if (scenario === PLAYER_DRAFT_SCENARIO) {
+  console.log(JSON.stringify(runPlayerDraftScenario(), null, 2));
 } else {
   throw new Error(
-    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO}, ${TRAVERSAL_SCENARIO}, or ${PRODUCTION_SEED_SCENARIO}.`,
+    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO}, ${TRAVERSAL_SCENARIO}, ${PRODUCTION_SEED_SCENARIO}, or ${PLAYER_DRAFT_SCENARIO}.`,
   );
 }

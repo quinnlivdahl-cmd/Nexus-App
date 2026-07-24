@@ -9,6 +9,8 @@ import type {
   Vector2,
 } from "./types.js";
 import { pointInPolygon, segmentIntersectsPolygon } from "./geometry.js";
+import { PLAYER_CHARACTER_CATALOG } from "./playerCharacterCatalog.generated.js";
+import { validatePlayerCharacterCreation } from "./playerCharacterDraft.js";
 
 export interface FixtureValidationResult {
   readonly ok: boolean;
@@ -458,6 +460,12 @@ export function validateCampaignLocationState(
   state: CampaignLocationState,
 ): FixtureValidationResult {
   const issues = [...validateLocationState(state.location).issues];
+  if (
+    state.campaignPhase !== undefined &&
+    state.campaignPhase !== "draft-only" &&
+    state.campaignPhase !== "active"
+  )
+    issues.push("Campaign phase must be draft-only or active.");
   if (state.activeLocationId !== state.location.id) {
     issues.push(
       "Campaign activeLocationId must reference the embedded Location.",
@@ -480,6 +488,18 @@ export function validateCampaignLocationState(
   }
   if (!Number.isInteger(state.frame) || state.frame < 0)
     issues.push("frame must be a non-negative integer.");
+  if (state.playerCharacterCreation) {
+    issues.push(
+      ...validatePlayerCharacterCreation(
+        state.playerCharacterCreation,
+        state.playerCharacterDraft,
+      ).issues,
+    );
+  } else if (state.playerCharacterDraft) {
+    issues.push(
+      "A Player Character draft requires Character Creation configuration.",
+    );
+  }
   return { ok: issues.length === 0, issues };
 }
 
@@ -937,5 +957,30 @@ export function createTraversalFixtureState(): CampaignLocationState {
         framingScale: 0.82,
       },
     },
+  };
+}
+
+/** Noncanonical deterministic fixture configuration for Issue #112. */
+export function createPlayerDraftFixtureState(): CampaignLocationState {
+  return {
+    ...createTraversalFixtureState(),
+    campaignId: "campaign-player-draft-112",
+    campaignPhase: "draft-only",
+    playerCharacterCreation: {
+      catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+      catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+      level0AbilityAllowance: 1,
+      startingLoadouts: [
+        {
+          id: "level-0-field-kit",
+          label: "Field Kit",
+          itemIds: ["fixture-item-field-tool", "fixture-item-sidearm"],
+          supportedAbilityIds: [
+            "ability-focus-skill-attribute-combat-offense-sidearms-close-pistol",
+          ],
+        },
+      ],
+    },
+    playerCharacterDraft: null,
   };
 }

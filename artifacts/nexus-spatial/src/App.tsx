@@ -1,12 +1,13 @@
 import {
   createSpatialRuntime,
-  createTraversalFixtureState,
+  createPlayerDraftFixtureState,
   type Direction,
   type ShellProjection,
   type SpatialRuntime,
 } from "@workspace/spatial-runtime";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SpatialCanvas } from "./SpatialCanvas.js";
+import { CharacterCreationPanel } from "./CharacterCreationPanel.js";
 import {
   PRODUCTION_SEED_MANIFEST,
   buildProductionSeedScene,
@@ -57,6 +58,7 @@ function playerMovementRejection(reason: string): string {
 function useTraversalControls(
   runtime: SpatialRuntime,
   onMovementFeedback: (message: string | null) => void,
+  enabled: boolean,
 ) {
   const commandSequence = useRef(0);
   const requestFrame = useRef<(() => void) | null>(null);
@@ -105,7 +107,13 @@ function useTraversalControls(
     requestFrame.current = queueFrame;
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (!MOVEMENT_KEYS.has(event.code)) return;
+      if (!enabled || !MOVEMENT_KEYS.has(event.code)) return;
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        target.closest("input, select, textarea, button, [contenteditable='true']")
+      )
+        return;
       event.preventDefault();
       if (heldKeys.has(event.code)) return;
       heldKeys.add(event.code);
@@ -113,6 +121,7 @@ function useTraversalControls(
     };
     const onKeyUp = (event: KeyboardEvent) => {
       if (!MOVEMENT_KEYS.has(event.code)) return;
+      if (!heldKeys.has(event.code)) return;
       event.preventDefault();
       heldKeys.delete(event.code);
       if (runtime.hasActiveMovement()) queueFrame();
@@ -138,9 +147,10 @@ function useTraversalControls(
       if (frameRequest !== null) window.cancelAnimationFrame(frameRequest);
       requestFrame.current = null;
     };
-  }, [onMovementFeedback, runtime]);
+  }, [enabled, onMovementFeedback, runtime]);
 
   const commandPathToObject = useCallback((objectId: string) => {
+    if (!enabled) return;
     const shell = runtime.getShellProjection();
     const result = runtime.dispatch({
       type: "actor.path-to-object",
@@ -153,14 +163,18 @@ function useTraversalControls(
     else if (result.event.type === "command.rejected")
       onMovementFeedback(playerMovementRejection(result.event.reason));
     requestFrame.current?.();
-  }, [onMovementFeedback, runtime]);
+  }, [enabled, onMovementFeedback, runtime]);
 
   return { commandPathToObject };
 }
 
 export function App() {
-  const runtime = useMemo(() => createSpatialRuntime(createTraversalFixtureState()), []);
+  const runtime = useMemo(
+    () => createSpatialRuntime(createPlayerDraftFixtureState()),
+    [],
+  );
   const shell = useShellProjection(runtime);
+  const campaignActive = shell.campaignPhase === "active";
   const developer = runtime.getDeveloperProjection();
   const movementFeedback = useRef<string | null>(null);
   const [movementNotice, setMovementNotice] = useState<string | null>(null);
@@ -169,7 +183,11 @@ export function App() {
     movementFeedback.current = message;
     setMovementNotice(message);
   }, []);
-  const { commandPathToObject } = useTraversalControls(runtime, reportMovementFeedback);
+  const { commandPathToObject } = useTraversalControls(
+    runtime,
+    reportMovementFeedback,
+    campaignActive,
+  );
   const [fallbackPreview, setFallbackPreview] = useState(
     () => new URLSearchParams(window.location.search).get("fallback") === "actor",
   );
@@ -196,7 +214,27 @@ export function App() {
         </div>
       </header>
 
-      <section className="play-surface" aria-label="Spatial play surface">
+      {shell.playerCharacterCreation ? (
+        <CharacterCreationPanel
+          runtime={runtime}
+          configuration={shell.playerCharacterCreation}
+          committedDraft={shell.playerCharacterDraft}
+        />
+      ) : null}
+
+      <section
+        className={campaignActive ? "play-surface" : "play-surface draft-locked"}
+        aria-label="Spatial play surface"
+        aria-disabled={!campaignActive}
+      >
+        {!campaignActive ? (
+          <div className="campaign-lock" role="status">
+            <strong>CAMPAIGN NOT ACTIVE</strong>
+            <span>
+              Character Creation is draft-only. Spatial movement and pathing remain locked until #113 atomically activates the campaign.
+            </span>
+          </div>
+        ) : null}
         <div className="viewport-shell">
           <div className="viewport-label" aria-hidden="true">
             <span>LOC / DERELICT RELAY</span>
@@ -219,13 +257,24 @@ export function App() {
           </div>
 
           <div className="command-stack" aria-label="Keyboard-operable tracer commands">
-            <p className="movement-hint">WASD · normalized eight-direction traversal</p>
+            <p className="movement-hint">
+              {campaignActive
+                ? "WASD · normalized eight-direction traversal"
+                : "WASD and pathing locked · campaign draft-only"}
+            </p>
             {seedScene.interactables.map((item) => (
-              <button key={item.id} type="button" onClick={() => commandPathToObject(item.id)}>
+              <button
+                key={item.id}
+                type="button"
+                disabled={!campaignActive}
+                onClick={() => commandPathToObject(item.id)}
+              >
                 Path to {item.label}
               </button>
             ))}
-            <button type="button" onClick={() => runtime.checkpoint()}>Checkpoint</button>
+            <button type="button" onClick={() => runtime.checkpoint()}>
+              {campaignActive ? "Checkpoint" : "Checkpoint draft state"}
+            </button>
             <button
               type="button"
               className={fallbackPreview ? "warning active" : "warning"}

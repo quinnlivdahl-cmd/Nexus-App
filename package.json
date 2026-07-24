@@ -16,6 +16,8 @@
     "source:skill-tree:check": "corepack pnpm --dir artifacts/nexus-companion exec tsx scripts/update-skill-tree-source.ts --check",
     "source:slices": "node scripts/update-source-slice-catalog.mjs",
     "source:slices:check": "node scripts/update-source-slice-catalog.mjs --check",
+    "spatial:catalog": "tsx scripts/update-spatial-skill-catalog.ts",
+    "spatial:catalog:check": "tsx scripts/update-spatial-skill-catalog.ts --check",
     "spatial:dev": "vite --config artifacts/nexus-spatial/vite.config.ts --host 0.0.0.0",
     "spatial:typecheck": "tsc --build lib/spatial-runtime --pretty false && tsc -p artifacts/nexus-spatial/tsconfig.json --noEmit --pretty false",
     "spatial:build": "tsc --build lib/spatial-runtime && vite build --config artifacts/nexus-spatial/vite.config.ts",

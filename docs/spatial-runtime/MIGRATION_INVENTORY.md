@@ -34,3 +34,15 @@ The #109 additions remain additive inside codec version 1. The original tracer f
 Follower formation is derived from the leader's normalized final approach: both followers remain behind the leader with opposite perpendicular offsets for cardinal and diagonal movement. Fixture-version-2 solid polygons are blocking obstacles rather than walkable Area duplicates. Pre-play validation rejects required nodes, joins, graph edges, or positioned entities that intersect them, and runtime dispatch rejects blocked destinations or route segments without changing committed Campaign/Location state.
 
 Short repeated movement commands use a direct segment when the actor and destination share one authored navigable polygon and that segment is clear of solid geometry. Cross-polygon, cross-Area, and obstructed movement still routes through the authored polygon graph; navigation remains a read-only planner and only runtime dispatch/step commits positions.
+
+## Create a legal Level-0 Player Character draft #112
+
+| Legacy input | Classification | Qualification behind the new seam |
+| --- | --- | --- |
+| `artifacts/nexus-companion/src/features/skill-tree-lab/seed-data.ts` | adapt as generated catalog input | The deterministic repository generator copies only stable Attribute, Skill, Focus, Ability, Shared Branch, tier, rank, and prerequisite data into `@workspace/spatial-runtime`. Runtime and spatial application code do not import the companion package. The scenario verifies the pinned `SKILL-TREE-001` source-blob hash and exact counts; the generator check verifies output freshness. |
+| Companion Skill Tree Lab selection UI and local state | replace | The spatial application rebuilds selection as keyboard-operable DOM controls. React submits one typed command and consumes immutable runtime projections; it does not own draft Game Truth. |
+| Companion character/profile reducers and save behavior | deferred | No legacy character reducer or save shape is copied. Broad progression budgets, Ability execution, Character Profile completion, and campaign activation remain outside #112. |
+
+The Level-0 draft command, validation, additive codec fields, player/shell and Developer Mode projections, fixture, scenario, and DOM proof are rebuilt behind the production runtime seam. The draft persists only `draftId`, display name, Level 0, stable selected Ability identities, the Starting Loadout identity, and `catalogId`/`catalogVersion`; it does not create an active Player Character, crew, Preparation, campaign-source bundle, or campaign-activation event reserved for #113.
+
+Catalog-version migration transforms are deliberately deferred until a later catalog version exists. Codec load and command validation restore the exact supported version and safely reject an unknown `catalogVersion` without mutating Game Truth, making the future migration requirement explicit rather than silently accepting stale draft identities.

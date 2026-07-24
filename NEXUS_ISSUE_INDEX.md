@@ -60,7 +60,7 @@ Use this section for ready or in-progress issue packets.
 | Issue | Title | State | Planning anchor | Depends on | Next action |
 |---|---|---|---|---|---|
 | #110 | Resolve and persist one authored Context Action | in-progress | Integration Contract #30 implementation | #109 satisfied | Resolve or disposition the unresolved PR #131 durability-messaging P2, revalidate, and return the candidate for Quintin approval |
-| #112 | Create a legal Level-0 Player Character draft | ready | Integration Contract #30 implementation | #107 satisfied | Claim by assigning; implement the pinned provisional Skill Tree draft tracer |
+| #112 | Create a legal Level-0 Player Character draft | in-progress | Integration Contract #30 implementation | #107 satisfied | Assigned on branch `hermes/issue-112-level-0-draft`; implement and review the pinned provisional Skill Tree draft tracer |
 
 ## Known Open GitHub Issues
 
@@ -68,7 +68,7 @@ Last synced: 2026-07-23 by Hermes from the live 25-issue queue after Planning Co
 
 ### Queue Classification Snapshot
 
-- **Current implementation sequence:** 16 of Integration Contract #30's 19 implementation children remain open (#110-#125); #110 is in progress, #112 is the only unassigned ready child, and the other open children remain blocked by native predecessors. Completed children #107-#109 are recorded under Completed Issues.
+- **Current implementation sequence:** 16 of Integration Contract #30's 19 implementation children remain open (#110-#125); #110 and #112 are in progress, no implementation child is currently unassigned and ready, and the other open children remain blocked by native predecessors. Completed children #107-#109 are recorded under Completed Issues.
 - **Current design lanes needing residual-scope reconciliation:** #31, #32, and #68 remain useful, but must use current Skill Tree, Character Profile / Embodiment, and source/ADR terminology rather than historical issue wording.
 - **Revised workflow/control sequence:** #60 is complete; #61's native prerequisite is satisfied but its residual scope must be audited against completed #74-#85 before readiness; #62 remains natively blocked by #61.
 - **Historical/support triage:** #16, #26, and #50 retain useful accessibility, fixture, and capture concerns but are not ready to execute from their legacy Encounter, Rook/E-43, or retired workflow/path wording.
@@ -97,7 +97,7 @@ All nineteen issues are native sub-issues of Integration Contract #30. Three are
 |---|---|---|---|---|
 | #110 | Resolve and persist one authored Context Action | in-progress | #109 satisfied | Assigned with open PR #131; resolve the non-outdated durability-messaging P2 and rerun review before approval/merge |
 | #111 | Resolve Intent Bar and Lattice behavior through the proven transaction | blocked task | #110 | Typed non-authoritative interpretation proposals and Lattice behavior |
-| #112 | Create a legal Level-0 Player Character draft | ready-for-agent | #107 satisfied | Pinned provisional Skill Tree selection and validated draft only |
+| #112 | Create a legal Level-0 Player Character draft | in-progress | #107 satisfied | Assigned implementation of pinned provisional Skill Tree selection and validated draft only |
 | #113 | Select starting crew and atomically activate the campaign | blocked task | #110, #112 | One atomic PC, crew, preparation, source-version, and durable campaign activation |
 | #114 | Complete the richest-derelict exploration presentation | blocked task | #111, #113 | Second human product/art gate before Tactical and campaign expansion |
 | #115 | Prove the core Tactical Pressure tracer | blocked task | #114 | Core actor turn, Timing Entry, AP action, trigger clear, and Location return |
