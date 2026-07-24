@@ -163,6 +163,16 @@ Evaluate scale in a full playable composition with room boundaries, human-width 
 
 Approved working reference: [full-screen crew scale and near-overhead view — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-fullscreen-crew-scale-overhead-reference-2026-07-23.png). The A-D figures remain screen-upright to isolate scale and perspective; production movement and facing frames are a later directional-animation decision.
 
+### Walk-cycle synchronization
+
+During each planted-foot stance, the character's runtime root movement and the planted foot's opposite local movement must cancel: `runtime root delta + planted foot local delta = 0`. This is the governing locomotion invariant. A cycle with attractive poses but a sliding planted foot is not production-ready.
+
+For the current `1920x1080` review scale and approximately `67 px` ordinary-human width, the approved south-facing working baseline uses `8` frames at `115 ms` each, a `0.92 s` full left-right stride, `28 px` per step, `56 px` per full stride, approximately `61 px/s`, and `7 px` of root travel per frame canceled by `7 px` of opposite local travel in the planted foot. It also carries modest lateral shoulder counter-motion, a recognizable stance/swing division, and two brief double-support transitions.
+
+These numbers are a production seed rather than a universal constant. Recompute them when actor scale, runtime speed, cadence, or frame count changes; preserve the planted-foot cancellation rule. Derive other facings from the same locomotion contract instead of matching the south-facing frames by eye.
+
+Approved working references: [south-facing foot-locked gameplay preview — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-approved-south-walk-foot-lock-reference-2026-07-23.gif) and [south-facing gait phase sheet — 2026-07-23](../Reference%20Inputs/concepts/2026-07-23/nexus-approved-south-walk-gait-phases-2026-07-23.png).
+
 ## Character sheet art boundary
 
 Character sheet and crew card visuals should be manually readable before decorative. Portraits may support identity, but loadout, skills, wounds, recovery, relationships, and current state must remain clear.
