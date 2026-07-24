@@ -1,4 +1,4 @@
-import { encodeCampaignLocation } from "./codec.js";
+import { decodeCampaignLocation, encodeCampaignLocation } from "./codec.js";
 import { validateCampaignLocationState } from "./fixture.js";
 import { cloneValue, immutableCopy } from "./immutable.js";
 import {
@@ -12,7 +12,15 @@ import {
 } from "./navigation.js";
 import type {
   CampaignLocationState,
+  CampaignCheckpointAdapter,
+  CheckpointResult,
+  CommittedContextActionTransaction,
   CommandResult,
+  ContextActionEffect,
+  ContextActionInputEnvelope,
+  ContextActionMenuProjection,
+  ContextActionResult,
+  ContextActionStateDelta,
   DeveloperProjection,
   Direction,
   Facing,
@@ -88,6 +96,7 @@ function renderActor(actor: SpatialActor): RenderActorProjection {
 
 export function createSpatialRuntime(
   initialState: CampaignLocationState,
+  options: { readonly checkpointAdapter?: CampaignCheckpointAdapter } = {},
 ): SpatialRuntime {
   const validation = validateCampaignLocationState(initialState);
   if (!validation.ok)
@@ -97,6 +106,19 @@ export function createSpatialRuntime(
   let state = cloneValue(initialState);
   let sequence = 0;
   let lastEvent: RuntimeEvent | null = null;
+  let pendingCheckpoint = false;
+  let actionMessage: string | null =
+    state.location.contextActionTransactions?.at(-1)?.presentation ?? null;
+  let durabilityMessage: string | null = null;
+  const stored: { value: string | null } = { value: null };
+  const checkpointAdapter: CampaignCheckpointAdapter =
+    options.checkpointAdapter ?? {
+      load: () => stored.value,
+      serialize: (value) => encodeCampaignLocation(value),
+      write: (value) => {
+        stored.value = value;
+      },
+    };
   const listeners = new Set<(event: RuntimeEvent) => void>();
   const snapshot = () => immutableCopy(state) as CampaignLocationState;
   const event = <T extends RuntimeEvent>(value: Omit<T, "sequence">): T =>
@@ -518,18 +540,382 @@ export function createSpatialRuntime(
     return snapshot();
   }
 
-  const checkpoint = () => {
-    state = { ...state, lastDurableRevision: state.committedRevision };
-    const encoded = encodeCampaignLocation(state);
+  const checkpointFailure = (reason: unknown): CheckpointResult => {
+    pendingCheckpoint = true;
+    durabilityMessage =
+      "Active in this session, but not saved. Saving is degraded. Retry the checkpoint before activating the relay.";
+    const failed = event<Extract<RuntimeEvent, { type: "checkpoint.failed" }>>({
+      type: "checkpoint.failed",
+      revision: state.committedRevision,
+      reason: reason instanceof Error ? reason.message : "Checkpoint could not be saved.",
+    });
+    publish(failed);
+    return immutableCopy({
+      saved: false,
+      message: durabilityMessage,
+      snapshot: snapshot(),
+    }) as CheckpointResult;
+  };
+
+  const savePrepared = (prepared: CampaignLocationState): CheckpointResult => {
+    const wasPendingCheckpoint = pendingCheckpoint;
+    let serialized: string;
+    try {
+      // Serialization happens before any commit; malformed persistence leaves
+      // current Game Truth untouched.
+      serialized = checkpointAdapter.serialize(prepared);
+    } catch (error) {
+      return checkpointFailure(error);
+    }
+    try {
+      checkpointAdapter.write(serialized);
+    } catch (error) {
+      return checkpointFailure(error);
+    }
+    state = prepared;
+    pendingCheckpoint = false;
+    durabilityMessage = null;
+    if (wasPendingCheckpoint) {
+      actionMessage =
+        state.location.contextActionTransactions?.at(-1)?.presentation ??
+        actionMessage;
+    }
     const committed = event<
       Extract<RuntimeEvent, { type: "checkpoint.committed" }>
     >({
       type: "checkpoint.committed",
+      revision: prepared.committedRevision,
+      durableRevision: prepared.lastDurableRevision,
+    });
+    publish(committed);
+    return immutableCopy({
+      saved: true,
+      message: "Checkpoint saved.",
+      snapshot: snapshot(),
+    }) as CheckpointResult;
+  };
+
+  const checkpoint = (): CheckpointResult => {
+    const prepared = {
+      ...state,
+      lastDurableRevision: state.committedRevision,
+    };
+    return savePrepared(prepared);
+  };
+
+  const retryCheckpoint = (): CheckpointResult => {
+    if (!pendingCheckpoint)
+      return immutableCopy({
+        saved: true,
+        message: "Checkpoint is already durable.",
+        snapshot: snapshot(),
+      }) as CheckpointResult;
+    return checkpoint();
+  };
+
+  const relayFacts = () => ({
+    cableFeedIsolated:
+      state.location.hazards.find((hazard) => hazard.id === "exposed-cable")
+        ?.active === false,
+    activated:
+      state.location.objectives.find(
+        (objective) => objective.id === "activate-relay",
+      )?.status === "complete",
+  });
+
+  const getContextActionMenu = (
+    actorId: string,
+    targetObjectId: string,
+  ): ContextActionMenuProjection | null => {
+    const target = state.location.objects.find(
+      (object) => object.id === targetObjectId,
+    );
+    if (!target?.contextActionIds?.length) return null;
+    const actor = state.location.actors.find(
+      (candidate) => candidate.id === actorId,
+    );
+    const interaction = state.location.interactionPositions.find(
+      (position) => position.id === target.interactionPositionId,
+    );
+    const atInteraction = Boolean(
+      actor &&
+        interaction &&
+        actor.id === state.location.selectedActorId &&
+        actor.position.x === interaction.position.x &&
+        actor.position.y === interaction.position.y,
+    );
+    const facts = relayFacts();
+    const actions = target.contextActionIds.map((actionId) => {
+      if (!atInteraction)
+        return {
+          actionId,
+          label:
+            actionId === "relay.isolate-cable-feed"
+              ? "Isolate cable feed"
+              : "Activate relay",
+          status: "blocked" as const,
+          reason: "Move to the Relay Console before using it.",
+        };
+      if (actionId === "relay.isolate-cable-feed")
+        return facts.cableFeedIsolated
+          ? {
+              actionId,
+              label: "Isolate cable feed",
+              status: "completed" as const,
+              reason: "Cable feed isolated.",
+            }
+          : {
+              actionId,
+              label: "Isolate cable feed",
+              status: "available" as const,
+              reason: null,
+            };
+      if (facts.activated)
+        return {
+          actionId,
+          label: "Activate relay",
+          status: "completed" as const,
+          reason: "The relay is already active.",
+        };
+      if (pendingCheckpoint)
+        return {
+          actionId,
+          label: "Activate relay",
+          status: "blocked" as const,
+          reason:
+            "Saving is degraded. Retry the checkpoint before activating the relay.",
+        };
+      return facts.cableFeedIsolated
+        ? {
+            actionId,
+            label: "Activate relay",
+            status: "available" as const,
+            reason: null,
+          }
+        : {
+            actionId,
+            label: "Activate relay",
+            status: "blocked" as const,
+            reason:
+              "Isolate the exposed cable feed before activating the relay.",
+          };
+    });
+    return immutableCopy({
+      locationId: state.location.id,
+      actorId,
+      targetObjectId,
+      targetLabel: target.label,
+      interactionPositionId: target.interactionPositionId,
+      actions,
+    }) as ContextActionMenuProjection;
+  };
+
+  const resolveContextAction = (
+    input: ContextActionInputEnvelope,
+  ): ContextActionResult => {
+    const rejectAction = (message: string): ContextActionResult => {
+      return immutableCopy({
+        accepted: false,
+        status: "rejected",
+        message,
+        transaction: null,
+        snapshot: snapshot(),
+      }) as ContextActionResult;
+    };
+    const committedTransactions =
+      state.location.contextActionTransactions ?? [];
+    const duplicate = committedTransactions.find(
+      (transaction) => transaction.inputId === input.inputId,
+    );
+    if (duplicate) {
+      const sameIdentity =
+        duplicate.actionId === input.actionId &&
+        duplicate.actorId === input.actorId &&
+        duplicate.targetObjectId === input.targetObjectId &&
+        duplicate.declaredRevision === input.truthRevision &&
+        duplicate.intentLineageId === input.intentLineageId;
+      if (!sameIdentity)
+        return rejectAction(
+          "That action identity is already committed to a different request.",
+        );
+      return immutableCopy({
+        accepted: true,
+        status: "duplicate",
+        message: duplicate.presentation,
+        transaction: duplicate,
+        snapshot: snapshot(),
+      }) as ContextActionResult;
+    }
+    if (input.truthRevision !== state.committedRevision)
+      return rejectAction("That action is no longer current. Choose it again.");
+    if (
+      input.entrySurface !== "context_action_menu" ||
+      input.locationId !== state.location.id ||
+      input.targetObjectId !== "relay-console" ||
+      input.actionSurfaceId !== input.actionId ||
+      input.interactionPositionId !== "relay-console-use"
+    )
+      return rejectAction("That Context Action is not available here.");
+    const menu = getContextActionMenu(input.actorId, input.targetObjectId);
+    const menuAction = menu?.actions.find(
+      (action) => action.actionId === input.actionId,
+    );
+    if (!menuAction || menuAction.status !== "available")
+      return rejectAction(
+        menuAction?.reason ?? "That Context Action is unavailable.",
+      );
+
+    const committedRevision = state.committedRevision + 1;
+    const effects: readonly ContextActionEffect[] =
+      input.actionId === "relay.isolate-cable-feed"
+        ? [{ type: "hazard.isolated", hazardId: "exposed-cable" }]
+        : [{ type: "objective.completed", objectiveId: "activate-relay" }];
+    const stateDeltas: readonly ContextActionStateDelta[] =
+      input.actionId === "relay.isolate-cable-feed"
+        ? [
+            {
+              operation: "hazard.set-active",
+              targetId: "exposed-cable",
+              expectedBefore: true,
+              value: false,
+            },
+          ]
+        : [
+            {
+              operation: "objective.set-status",
+              targetId: "activate-relay",
+              expectedBefore: "active",
+              value: "complete",
+            },
+          ];
+    const presentation =
+      input.actionId === "relay.isolate-cable-feed"
+        ? "Cable feed isolated."
+        : "Relay activated.";
+    const transaction: CommittedContextActionTransaction = {
+      transactionId: `context-action:${input.inputId}`,
+      inputId: input.inputId,
+      intentLineageId: input.intentLineageId,
+      actionId: input.actionId,
+      actorId: input.actorId,
+      targetObjectId: input.targetObjectId,
+      declaredRevision: input.truthRevision,
+      committedRevision,
+      check: "not-required",
+      effects,
+      stateDeltas,
+      presentation,
+    };
+    const nextLocation = {
+      ...state.location,
+      hazards: state.location.hazards.map((hazard) =>
+        hazard.id === "exposed-cable" &&
+        input.actionId === "relay.isolate-cable-feed"
+          ? { ...hazard, active: false }
+          : hazard,
+      ),
+      objectives: state.location.objectives.map((objective) =>
+        objective.id === "activate-relay" &&
+        input.actionId === "relay.activate"
+          ? { ...objective, status: "complete" as const }
+          : objective,
+      ),
+      contextActionTransactions: [...committedTransactions, transaction],
+    };
+    const committedState = {
+      ...state,
+      committedRevision,
+      location: nextLocation,
+    };
+    const candidateValidation = validateCampaignLocationState(committedState);
+    if (!candidateValidation.ok)
+      return rejectAction(
+        `Context Action validation failed: ${candidateValidation.issues.join(" ")}`,
+      );
+    const durableState = {
+      ...committedState,
+      lastDurableRevision: committedRevision,
+    };
+    let serialized: string;
+    try {
+      serialized = checkpointAdapter.serialize(durableState);
+    } catch (error) {
+      return rejectAction(
+        error instanceof Error
+          ? error.message
+          : "Checkpoint preparation failed.",
+      );
+    }
+
+    state = committedState;
+    actionMessage = presentation;
+    let resultMessage = presentation;
+    const committed = event<
+      Extract<RuntimeEvent, { type: "context-action.committed" }>
+    >({
+      type: "context-action.committed",
+      revision: state.committedRevision,
+      actionId: input.actionId,
+    });
+    publish(committed);
+    try {
+      checkpointAdapter.write(serialized);
+      state = durableState;
+      pendingCheckpoint = false;
+      durabilityMessage = null;
+      const checkpointCommitted = event<
+        Extract<RuntimeEvent, { type: "checkpoint.committed" }>
+      >({
+        type: "checkpoint.committed",
+        revision: state.committedRevision,
+        durableRevision: state.lastDurableRevision,
+      });
+      publish(checkpointCommitted);
+    } catch (error) {
+      checkpointFailure(error);
+      if (input.actionId === "relay.isolate-cable-feed")
+        resultMessage =
+          "Cable feed isolated. Active in this session, but not saved.";
+      durabilityMessage =
+        "Saving is degraded. Retry the checkpoint before activating the relay.";
+    }
+    return immutableCopy({
+      accepted: true,
+      status: "committed",
+      message: resultMessage,
+      transaction,
+      snapshot: snapshot(),
+    }) as ContextActionResult;
+  };
+
+  const continueFromCheckpoint = (): CheckpointResult => {
+    let serialized: string | null;
+    try {
+      serialized = checkpointAdapter.load();
+    } catch {
+      return immutableCopy({
+        saved: false,
+        message: "Saved checkpoint could not be read.",
+        snapshot: snapshot(),
+      }) as CheckpointResult;
+    }
+    if (!serialized)
+      return immutableCopy({ saved: false, message: "No saved checkpoint is available.", snapshot: snapshot() }) as CheckpointResult;
+    const decoded = decodeCampaignLocation(serialized);
+    if (!decoded.ok)
+      return immutableCopy({ saved: false, message: "Saved checkpoint could not be restored.", snapshot: snapshot() }) as CheckpointResult;
+    state = cloneValue(decoded.state);
+    pendingCheckpoint = false;
+    durabilityMessage = null;
+    actionMessage =
+      state.location.contextActionTransactions?.at(-1)?.presentation ?? null;
+    const restored = event<Extract<RuntimeEvent, { type: "checkpoint.restored" }>>({
+      type: "checkpoint.restored",
       revision: state.committedRevision,
       durableRevision: state.lastDurableRevision,
     });
-    publish(committed);
-    return encoded;
+    publish(restored);
+    return immutableCopy({ saved: true, message: "Checkpoint restored.", snapshot: snapshot() }) as CheckpointResult;
   };
   const getRenderProjection = (): RenderProjection =>
     immutableCopy({
@@ -583,9 +969,15 @@ export function createSpatialRuntime(
       actors: state.location.actors.map(renderActor),
       camera: state.location.camera,
       saveStatus:
-        state.lastDurableRevision === state.committedRevision
+        pendingCheckpoint
+          ? "degraded"
+          : state.lastDurableRevision === state.committedRevision
           ? "durable"
           : "not-yet-durable",
+      relay: relayFacts(),
+      actionMessage,
+      durabilityMessage,
+      canRetryCheckpoint: pendingCheckpoint,
     }) as ShellProjection;
   };
   const getDeveloperProjection = (): DeveloperProjection =>
@@ -596,11 +988,17 @@ export function createSpatialRuntime(
       selectedActorId: state.location.selectedActorId,
       camera: state.location.camera,
       lastEvent,
+      lastTransaction:
+        state.location.contextActionTransactions?.at(-1) ?? null,
     }) as DeveloperProjection;
   return {
     dispatch,
     step,
     checkpoint,
+    retryCheckpoint,
+    continueFromCheckpoint,
+    getContextActionMenu,
+    resolveContextAction,
     hasActiveMovement: () =>
       state.location.actors.some((actor) => actor.moveTarget !== null),
     getSnapshot: snapshot,

@@ -286,7 +286,9 @@ function drawScene(
   seed.doors.forEach((door) => drawDoor(container, door, layout, textures));
   seed.interactables.forEach((item) => drawInteractable(container, item, layout, textures, onPathToObject));
   seed.actors.forEach((actor) => drawActor(container, actor, layout, textures));
-  seed.markers.forEach((marker) => drawMarker(container, marker, layout, textures));
+  seed.markers.filter((marker) => marker.active).forEach((marker) =>
+    drawMarker(container, marker, layout, textures),
+  );
 }
 
 export function SpatialCanvas({

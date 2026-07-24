@@ -480,6 +480,20 @@ export function validateCampaignLocationState(
   }
   if (!Number.isInteger(state.frame) || state.frame < 0)
     issues.push("frame must be a non-negative integer.");
+  const transactions = state.location.contextActionTransactions ?? [];
+  const inputIds = new Set<string>();
+  for (const transaction of transactions) {
+    if (!transaction.inputId || inputIds.has(transaction.inputId))
+      issues.push("Context Action transaction input ids must be non-empty and unique.");
+    inputIds.add(transaction.inputId);
+    if (
+      transaction.check !== "not-required" ||
+      !Number.isInteger(transaction.declaredRevision) ||
+      !Number.isInteger(transaction.committedRevision) ||
+      transaction.committedRevision > state.committedRevision
+    )
+      issues.push(`Context Action transaction ${transaction.transactionId} is invalid.`);
+  }
   return { ok: issues.length === 0, issues };
 }
 
@@ -583,6 +597,7 @@ export function createTracerFixtureState(): CampaignLocationState {
           status: "active",
         },
       ],
+      contextActionTransactions: [],
       actors: [
         {
           id: "field-lead",
@@ -868,6 +883,7 @@ export function createTraversalFixtureState(): CampaignLocationState {
           areaId: "cluttered-side-area",
           position: { x: 30, y: 5 },
           interactionPositionId: "relay-console-use",
+          contextActionIds: ["relay.isolate-cable-feed", "relay.activate"],
         },
       ],
       hazards: [
@@ -888,6 +904,7 @@ export function createTraversalFixtureState(): CampaignLocationState {
           status: "active",
         },
       ],
+      contextActionTransactions: [],
       actors: [
         {
           id: "player-character",

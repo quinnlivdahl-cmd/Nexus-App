@@ -55,6 +55,8 @@ function normalizeVersionOnePayload(
         tiltDegrees: value.location.camera.tiltDegrees ?? 10,
         framingScale: value.location.camera.framingScale ?? 0.82,
       },
+      contextActionTransactions:
+        value.location.contextActionTransactions ?? [],
     },
   };
 }
