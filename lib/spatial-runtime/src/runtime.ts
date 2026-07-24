@@ -255,6 +255,14 @@ export function createSpatialRuntime(
         command,
         `Stale command expected revision ${command.expectedRevision}; current revision is ${state.committedRevision}.`,
       );
+    if (
+      state.campaignPhase === "draft-only" &&
+      command.type !== "player-character.create-draft"
+    )
+      return reject(
+        command,
+        "Spatial play is unavailable while the campaign remains draft-only.",
+      );
     let location = state.location;
     if (command.type === "player-character.create-draft") {
       const config = state.playerCharacterCreation;
@@ -513,6 +521,10 @@ export function createSpatialRuntime(
   }
 
   function step(deltaMs: number): CampaignLocationState {
+    if (state.campaignPhase === "draft-only")
+      throw new Error(
+        "Spatial frames cannot advance while the campaign remains draft-only.",
+      );
     if (!Number.isFinite(deltaMs) || deltaMs <= 0 || deltaMs > 1_000)
       throw new Error(
         "Frame deltaMs must be greater than zero and no more than 1000.",
@@ -607,6 +619,8 @@ export function createSpatialRuntime(
         state.lastDurableRevision === state.committedRevision
           ? "durable"
           : "not-yet-durable",
+      campaignPhase: state.campaignPhase ?? "active",
+      playerCharacterCreation: state.playerCharacterCreation ?? null,
       playerCharacterDraft: state.playerCharacterCreation
         ? projectPlayerCharacterDraft(
             state.playerCharacterCreation,
@@ -630,6 +644,7 @@ export function createSpatialRuntime(
     step,
     checkpoint,
     hasActiveMovement: () =>
+      state.campaignPhase !== "draft-only" &&
       state.location.actors.some((actor) => actor.moveTarget !== null),
     getSnapshot: snapshot,
     getRenderProjection,

@@ -1,6 +1,7 @@
 import { immutableCopy } from "./immutable.js";
 import { PLAYER_CHARACTER_CATALOG } from "./playerCharacterCatalog.generated.js";
 import type {
+  PlayerCharacterAbilityDefinition,
   PlayerCharacterCreationConfig,
   PlayerCharacterDraft,
   PlayerCharacterDraftProjection,
@@ -11,22 +12,15 @@ export interface PlayerCharacterDraftValidationResult {
   readonly issues: readonly string[];
 }
 
-type CatalogAbility = {
-  readonly id: string;
-  readonly name: string;
-  readonly prerequisiteIds: readonly string[];
-  readonly prerequisiteLogic: "AND" | "OR";
-};
-
-const CATALOG_ABILITIES: CatalogAbility[] = [];
+const CATALOG_ABILITIES = [] as PlayerCharacterAbilityDefinition[];
 for (const attribute of PLAYER_CHARACTER_CATALOG.attributes)
   for (const skill of attribute.skills)
     for (const focus of skill.focuses)
       for (const ability of focus.abilities)
-        CATALOG_ABILITIES.push(ability as CatalogAbility);
+        CATALOG_ABILITIES.push(ability);
 for (const branch of PLAYER_CHARACTER_CATALOG.sharedBranches)
   for (const ability of branch.abilities)
-    CATALOG_ABILITIES.push(ability as CatalogAbility);
+    CATALOG_ABILITIES.push(ability);
 const ABILITY_BY_ID = new Map(
   CATALOG_ABILITIES.map((ability) => [ability.id, ability] as const),
 );
@@ -51,14 +45,30 @@ export function validatePlayerCharacterCreation(
       issues.push("Each Starting Loadout requires an id, label, and at least one item.");
     if (loadoutIds.has(loadout.id))
       issues.push(`Starting Loadout ${loadout.id} is duplicated.`);
+    const supported = new Set<string>();
+    for (const abilityId of loadout.supportedAbilityIds) {
+      if (!ABILITY_BY_ID.has(abilityId))
+        issues.push(
+          `Starting Loadout ${loadout.id} supports unknown Ability ${abilityId}.`,
+        );
+      if (supported.has(abilityId))
+        issues.push(
+          `Starting Loadout ${loadout.id} duplicates supported Ability ${abilityId}.`,
+        );
+      supported.add(abilityId);
+    }
+    if (supported.size < 1)
+      issues.push(`Starting Loadout ${loadout.id} must support at least one Ability.`);
     loadoutIds.add(loadout.id);
   }
   if (config.startingLoadouts.length < 1)
     issues.push("Character Creation requires at least one Starting Loadout.");
 
   if (draft == null) return { ok: issues.length === 0, issues };
-  if (!draft.draftId || !draft.displayName.trim())
-    issues.push("A Player Character draft requires an id and display name.");
+  if (typeof draft.draftId !== "string" || !draft.draftId.trim())
+    issues.push("Player Character draftId must be a non-empty string.");
+  if (typeof draft.displayName !== "string" || !draft.displayName.trim())
+    issues.push("Player Character displayName must be a non-empty string.");
   if (draft.level !== 0) issues.push("This tracer accepts only Level-0 drafts.");
   if (draft.catalogId !== config.catalogId)
     issues.push("Draft catalogId does not match Character Creation configuration.");
@@ -90,8 +100,20 @@ export function validatePlayerCharacterCreation(
         issues.push(`Ability ${ability.name} has unmet prerequisites.`);
     }
   }
-  if (!loadoutIds.has(draft.startingLoadoutId))
+  const startingLoadout = config.startingLoadouts.find(
+    (candidate) => candidate.id === draft.startingLoadoutId,
+  );
+  if (!startingLoadout)
     issues.push(`Unknown Starting Loadout ${draft.startingLoadoutId}.`);
+  else if (
+    Array.isArray(draft.selectedAbilityIds) &&
+    draft.selectedAbilityIds.some(
+      (abilityId) => !startingLoadout.supportedAbilityIds.includes(abilityId),
+    )
+  )
+    issues.push(
+      `Starting Loadout ${startingLoadout.label} does not support every selected Ability.`,
+    );
 
   return { ok: issues.length === 0, issues };
 }
@@ -119,6 +141,7 @@ export function projectPlayerCharacterDraft(
     ),
     startingLoadoutId: draft.startingLoadoutId,
     startingLoadoutLabel: loadout.label,
+    startingLoadoutItemIds: loadout.itemIds,
     catalogId: draft.catalogId,
     catalogVersion: draft.catalogVersion,
   }) as PlayerCharacterDraftProjection;

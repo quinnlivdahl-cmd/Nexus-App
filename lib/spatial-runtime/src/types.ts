@@ -170,6 +170,54 @@ export interface StartingLoadoutDefinition {
   readonly id: string;
   readonly label: string;
   readonly itemIds: readonly string[];
+  readonly supportedAbilityIds: readonly string[];
+}
+
+export interface PlayerCharacterAbilityDefinition {
+  readonly id: string;
+  readonly name: string;
+  readonly tier: number;
+  readonly maxRank: number;
+  readonly prerequisiteIds: readonly string[];
+  readonly prerequisiteLogic: "AND" | "OR";
+}
+
+export interface PlayerCharacterFocusDefinition {
+  readonly id: string;
+  readonly name: string;
+  readonly abilities: readonly PlayerCharacterAbilityDefinition[];
+}
+
+export interface PlayerCharacterSkillDefinition {
+  readonly id: string;
+  readonly name: string;
+  readonly focuses: readonly PlayerCharacterFocusDefinition[];
+}
+
+export interface PlayerCharacterAttributeDefinition {
+  readonly id: string;
+  readonly name: string;
+  readonly skills: readonly PlayerCharacterSkillDefinition[];
+}
+
+export interface PlayerCharacterSharedBranchDefinition {
+  readonly id: string;
+  readonly name: string;
+  readonly skillIds: readonly string[];
+  readonly prerequisiteLogic: "AND" | "OR";
+  readonly abilities: readonly PlayerCharacterAbilityDefinition[];
+}
+
+export interface PlayerCharacterCatalog {
+  readonly catalogId: string;
+  readonly catalogVersion: string;
+  readonly source: {
+    readonly docId: string;
+    readonly lastUpdated: string;
+    readonly blob: string;
+  };
+  readonly attributes: readonly PlayerCharacterAttributeDefinition[];
+  readonly sharedBranches: readonly PlayerCharacterSharedBranchDefinition[];
 }
 
 export interface PlayerCharacterCreationConfig {
@@ -196,6 +244,8 @@ export interface CampaignLocationState {
   readonly lastDurableRevision: Revision;
   readonly frame: number;
   readonly location: LocationState;
+  /** Omitted by codec-v1 fixtures created before Character Creation; omission means active. */
+  readonly campaignPhase?: "draft-only" | "active";
   readonly playerCharacterCreation?: PlayerCharacterCreationConfig;
   readonly playerCharacterDraft?: PlayerCharacterDraft | null;
 }
@@ -340,6 +390,8 @@ export interface ShellProjection {
   readonly actors: readonly RenderActorProjection[];
   readonly camera: CameraIntent;
   readonly saveStatus: "durable" | "not-yet-durable";
+  readonly campaignPhase: "draft-only" | "active";
+  readonly playerCharacterCreation: PlayerCharacterCreationConfig | null;
   readonly playerCharacterDraft: PlayerCharacterDraftProjection | null;
 }
 
@@ -351,6 +403,7 @@ export interface PlayerCharacterDraftProjection {
   readonly selectedAbilityNames: readonly string[];
   readonly startingLoadoutId: string;
   readonly startingLoadoutLabel: string;
+  readonly startingLoadoutItemIds: readonly string[];
   readonly catalogId: string;
   readonly catalogVersion: string;
 }

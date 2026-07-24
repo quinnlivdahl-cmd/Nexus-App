@@ -1,36 +1,29 @@
 import {
   PLAYER_CHARACTER_CATALOG,
+  type PlayerCharacterAbilityDefinition,
+  type PlayerCharacterCreationConfig,
   type PlayerCharacterDraftProjection,
   type SpatialRuntime,
 } from "@workspace/spatial-runtime";
 import { type FormEvent, useState } from "react";
-
-interface AbilityOption {
-  readonly id: string;
-  readonly name: string;
-  readonly tier: number;
-  readonly maxRank: number;
-  readonly prerequisiteIds: readonly string[];
-  readonly prerequisiteLogic: "AND" | "OR";
-}
 
 function AbilityChoice({
   ability,
   selectedAbilityId,
   onSelect,
 }: {
-  readonly ability: AbilityOption;
+  readonly ability: PlayerCharacterAbilityDefinition;
   readonly selectedAbilityId: string;
   readonly onSelect: (abilityId: string) => void;
 }) {
   return (
     <label className="ability-choice">
       <input
-        type="radio"
+        type="checkbox"
         name="level-0-ability"
         value={ability.id}
         checked={selectedAbilityId === ability.id}
-        onChange={() => onSelect(ability.id)}
+        onChange={(event) => onSelect(event.target.checked ? ability.id : "")}
       />
       <span>
         <strong>{ability.name}</strong>
@@ -47,20 +40,20 @@ function AbilityChoice({
 
 export function CharacterCreationPanel({
   runtime,
+  configuration,
   committedDraft,
 }: {
   readonly runtime: SpatialRuntime;
+  readonly configuration: PlayerCharacterCreationConfig;
   readonly committedDraft: PlayerCharacterDraftProjection | null;
 }) {
-  const configuration = runtime.getSnapshot().playerCharacterCreation;
-  if (!configuration)
-    throw new Error("Character Creation panel requires runtime configuration.");
   const [displayName, setDisplayName] = useState("Relay Scout");
   const [selectedAbilityId, setSelectedAbilityId] = useState("");
   const [startingLoadoutId, setStartingLoadoutId] = useState(
     configuration.startingLoadouts[0]?.id ?? "",
   );
   const [status, setStatus] = useState<string | null>(null);
+
   let abilityCount = 0;
   for (const attribute of PLAYER_CHARACTER_CATALOG.attributes)
     for (const skill of attribute.skills)
@@ -141,7 +134,10 @@ export function CharacterCreationPanel({
           </label>
         </div>
 
-        <div className="skill-catalog" aria-label="Complete provisional Skill Tree catalog">
+        <section className="skill-catalog" aria-labelledby="skill-catalog-heading">
+          <h3 id="skill-catalog-heading" className="catalog-heading">
+            Complete provisional Skill Tree catalog
+          </h3>
           {PLAYER_CHARACTER_CATALOG.attributes.map((attribute) => (
             <section key={attribute.id} className="attribute-branch">
               <h3>{attribute.name}</h3>
@@ -184,7 +180,7 @@ export function CharacterCreationPanel({
               </fieldset>
             ))}
           </section>
-        </div>
+        </section>
 
         <button type="submit" className="commit-draft">Commit Level-0 draft</button>
         <p id="character-creation-status" role="status" aria-live="polite">
@@ -203,6 +199,7 @@ export function CharacterCreationPanel({
             <div><dt>Ability ID</dt><dd>{committedDraft.selectedAbilityIds.join(", ")}</dd></div>
             <div><dt>Loadout</dt><dd>{committedDraft.startingLoadoutLabel}</dd></div>
             <div><dt>Loadout ID</dt><dd>{committedDraft.startingLoadoutId}</dd></div>
+            <div><dt>Loadout items</dt><dd>{committedDraft.startingLoadoutItemIds.join(", ")}</dd></div>
             <div><dt>Catalog</dt><dd>{committedDraft.catalogId}</dd></div>
             <div><dt>Version</dt><dd>{committedDraft.catalogVersion}</dd></div>
           </dl>

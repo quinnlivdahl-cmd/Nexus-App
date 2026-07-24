@@ -172,7 +172,11 @@ function runPlayerDraftScenario() {
   assert.equal(PLAYER_CHARACTER_CATALOG.catalogId, "nexus.skill-tree.provisional");
   assert.equal(
     PLAYER_CHARACTER_CATALOG.catalogVersion,
-    "2026-07-16+48be6c31f0aa5d0f3353ce7faa96c2b2501e2236",
+    "sha256:06b7656efbe06520371ec81f6f008fafd2c0fc0a40909f28c238a2e5bf6a5a6d",
+  );
+  assert.equal(
+    PLAYER_CHARACTER_CATALOG.source.blob,
+    "48be6c31f0aa5d0f3353ce7faa96c2b2501e2236",
   );
   assert.equal(PLAYER_CHARACTER_CATALOG.attributes.length, 6);
   let skillCount = 0;
@@ -192,15 +196,18 @@ function runPlayerDraftScenario() {
   assert.equal(abilityCount, 142);
   assert.equal(PLAYER_CHARACTER_CATALOG.sharedBranches.length, 6);
 
+  const legalAbilityId =
+    "ability-focus-skill-attribute-combat-offense-sidearms-close-pistol";
+  const incompatibleAbilityId =
+    "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle";
+
   const legalDraft: PlayerCharacterDraft = {
     draftId: "player-draft-112",
     displayName: "Relay Scout",
     level: 0,
     catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
     catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
-    selectedAbilityIds: [
-      "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
-    ],
+    selectedAbilityIds: [legalAbilityId],
     startingLoadoutId: "level-0-field-kit",
   };
   const assertRejectedWithoutMutation = (
@@ -228,9 +235,29 @@ function runPlayerDraftScenario() {
     assert.equal(rejected.snapshot.playerCharacterDraft, null);
   };
   assertRejectedWithoutMutation(
+    "reject-empty-draft-id",
+    { ...legalDraft, draftId: "   " },
+    /draftId must be a non-empty string/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-empty-display-name",
+    { ...legalDraft, displayName: "" },
+    /displayName must be a non-empty string/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-duplicate-ability",
+    { ...legalDraft, selectedAbilityIds: [legalAbilityId, legalAbilityId] },
+    /selected more than once|select exactly 1 Ability identity/,
+  );
+  assertRejectedWithoutMutation(
     "reject-malformed-ability",
     { ...legalDraft, selectedAbilityIds: ["ability-does-not-exist"] },
     /Unknown Ability identity/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-incompatible-loadout",
+    { ...legalDraft, selectedAbilityIds: [incompatibleAbilityId] },
+    /does not support every selected Ability/,
   );
   assertRejectedWithoutMutation(
     "reject-unmet-prerequisite",
@@ -247,7 +274,7 @@ function runPlayerDraftScenario() {
     {
       ...legalDraft,
       selectedAbilityIds: [
-        "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
+        legalAbilityId,
         "ability-focus-skill-attribute-combat-offense-precision-fire-sightline-discipline",
       ],
     },
@@ -264,8 +291,40 @@ function runPlayerDraftScenario() {
     /Unknown Starting Loadout/,
   );
 
+  const malformedConfig = JSON.parse(
+    JSON.stringify(createPlayerDraftFixtureState()),
+  );
+  malformedConfig.playerCharacterCreation.startingLoadouts[0].supportedAbilityIds = [];
+  assert.throws(
+    () => createSpatialRuntime(malformedConfig),
+    /must support at least one Ability/,
+  );
+
   const runtime = createSpatialRuntime(createPlayerDraftFixtureState());
   const before = runtime.getSnapshot();
+  assert.equal(before.campaignPhase, "draft-only");
+  assert.equal(runtime.getShellProjection().campaignPhase, "draft-only");
+  assert.deepEqual(
+    runtime.getShellProjection().playerCharacterCreation,
+    before.playerCharacterCreation,
+  );
+  const blockedMovement = runtime.dispatch({
+    type: "actor.move-direction",
+    commandId: "reject-draft-only-movement",
+    expectedRevision: 0,
+    actorId: runtime.getShellProjection().selectedActor.id,
+    direction: "east",
+    distance: 1,
+  });
+  assert.equal(blockedMovement.accepted, false);
+  assert.match(
+    blockedMovement.event.type === "command.rejected"
+      ? blockedMovement.event.reason
+      : "movement unexpectedly committed",
+    /draft-only/,
+  );
+  assert.deepEqual(blockedMovement.snapshot, before);
+  assert.throws(() => runtime.step(16), /draft-only/);
   const result = runtime.dispatch({
     type: "player-character.create-draft",
     commandId: "create-level-0-draft",
@@ -281,21 +340,21 @@ function runPlayerDraftScenario() {
     level: 0,
     catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
     catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
-    selectedAbilityIds: [
-      "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
-    ],
+    selectedAbilityIds: [legalAbilityId],
     startingLoadoutId: "level-0-field-kit",
   });
   assert.deepEqual(runtime.getShellProjection().playerCharacterDraft, {
     draftId: "player-draft-112",
     displayName: "Relay Scout",
     level: 0,
-    selectedAbilityIds: [
-      "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
-    ],
-    selectedAbilityNames: ["Steady Rifle"],
+    selectedAbilityIds: [legalAbilityId],
+    selectedAbilityNames: ["Close Pistol"],
     startingLoadoutId: "level-0-field-kit",
     startingLoadoutLabel: "Field Kit",
+    startingLoadoutItemIds: [
+      "fixture-item-field-tool",
+      "fixture-item-sidearm",
+    ],
     catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
     catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
   });
@@ -304,6 +363,19 @@ function runPlayerDraftScenario() {
     runtime.getDeveloperProjection().playerCharacterDraft,
     result.snapshot.playerCharacterDraft,
   );
+  const beforeStale = runtime.getSnapshot();
+  const stale = runtime.dispatch({
+    type: "player-character.create-draft",
+    commandId: "reject-stale-draft-command",
+    expectedRevision: 0,
+    draft: legalDraft,
+  });
+  assert.equal(stale.accepted, false);
+  assert.match(
+    stale.event.type === "command.rejected" ? stale.event.reason : "",
+    /Stale command/,
+  );
+  assert.deepEqual(stale.snapshot, beforeStale);
 
   const checkpoint = runtime.checkpoint();
   const restored = decodeCampaignLocation(checkpoint);
