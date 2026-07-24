@@ -9,6 +9,7 @@ import type {
   Vector2,
 } from "./types.js";
 import { pointInPolygon, segmentIntersectsPolygon } from "./geometry.js";
+import { validatePlayerCharacterCreation } from "./playerCharacterDraft.js";
 
 export interface FixtureValidationResult {
   readonly ok: boolean;
@@ -480,6 +481,18 @@ export function validateCampaignLocationState(
   }
   if (!Number.isInteger(state.frame) || state.frame < 0)
     issues.push("frame must be a non-negative integer.");
+  if (state.playerCharacterCreation) {
+    issues.push(
+      ...validatePlayerCharacterCreation(
+        state.playerCharacterCreation,
+        state.playerCharacterDraft,
+      ).issues,
+    );
+  } else if (state.playerCharacterDraft) {
+    issues.push(
+      "A Player Character draft requires Character Creation configuration.",
+    );
+  }
   return { ok: issues.length === 0, issues };
 }
 
@@ -937,5 +950,27 @@ export function createTraversalFixtureState(): CampaignLocationState {
         framingScale: 0.82,
       },
     },
+  };
+}
+
+/** Noncanonical deterministic fixture configuration for Issue #112. */
+export function createPlayerDraftFixtureState(): CampaignLocationState {
+  return {
+    ...createTraversalFixtureState(),
+    campaignId: "campaign-player-draft-112",
+    playerCharacterCreation: {
+      catalogId: "nexus.skill-tree.provisional",
+      catalogVersion:
+        "2026-07-16+48be6c31f0aa5d0f3353ce7faa96c2b2501e2236",
+      level0AbilityAllowance: 1,
+      startingLoadouts: [
+        {
+          id: "level-0-field-kit",
+          label: "Field Kit",
+          itemIds: ["fixture-item-field-tool", "fixture-item-sidearm"],
+        },
+      ],
+    },
+    playerCharacterDraft: null,
   };
 }

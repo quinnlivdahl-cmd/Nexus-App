@@ -1,12 +1,13 @@
 import {
   createSpatialRuntime,
-  createTraversalFixtureState,
+  createPlayerDraftFixtureState,
   type Direction,
   type ShellProjection,
   type SpatialRuntime,
 } from "@workspace/spatial-runtime";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { SpatialCanvas } from "./SpatialCanvas.js";
+import { CharacterCreationPanel } from "./CharacterCreationPanel.js";
 import {
   PRODUCTION_SEED_MANIFEST,
   buildProductionSeedScene,
@@ -106,6 +107,12 @@ function useTraversalControls(
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (!MOVEMENT_KEYS.has(event.code)) return;
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        target.closest("input, select, textarea, button, [contenteditable='true']")
+      )
+        return;
       event.preventDefault();
       if (heldKeys.has(event.code)) return;
       heldKeys.add(event.code);
@@ -159,7 +166,10 @@ function useTraversalControls(
 }
 
 export function App() {
-  const runtime = useMemo(() => createSpatialRuntime(createTraversalFixtureState()), []);
+  const runtime = useMemo(
+    () => createSpatialRuntime(createPlayerDraftFixtureState()),
+    [],
+  );
   const shell = useShellProjection(runtime);
   const developer = runtime.getDeveloperProjection();
   const movementFeedback = useRef<string | null>(null);
@@ -195,6 +205,11 @@ export function App() {
           <small>baseline 2ca033b</small>
         </div>
       </header>
+
+      <CharacterCreationPanel
+        runtime={runtime}
+        committedDraft={shell.playerCharacterDraft}
+      />
 
       <section className="play-surface" aria-label="Spatial play surface">
         <div className="viewport-shell">

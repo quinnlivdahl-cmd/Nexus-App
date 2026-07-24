@@ -6,12 +6,15 @@ import {
   ACTOR_VISUAL_COLLISION_FOOTPRINT,
   CAMPAIGN_LOCATION_CODEC,
   createSpatialRuntime,
+  createPlayerDraftFixtureState,
   createTracerFixtureState,
   createTraversalFixtureState,
   decodeCampaignLocation,
   encodeCampaignLocation,
   validateCampaignLocationState,
   planAuthoredPolygonGraphRoute,
+  PLAYER_CHARACTER_CATALOG,
+  type PlayerCharacterDraft,
   ROOM_SHELL_VISIBLE_INNER_FACE_INSET,
   segmentStaysInPolygon,
   TRAVERSAL_DOOR_THROAT,
@@ -31,6 +34,8 @@ const TRACER_SCENARIO = "launch-one-spatial-runtime-tracer";
 const PRODUCTION_SEED_SCENARIO =
   "render-and-approve-the-production-intent-seed";
 const TRAVERSAL_SCENARIO = "traverse-the-authored-three-area-derelict";
+const PLAYER_DRAFT_SCENARIO =
+  "create-a-legal-level-0-player-character-draft";
 const ROOM_SHELL_ASSET = "nexus.seed.wall.pressure-room-shell.v2";
 const ROOM_SHELL_HASH =
   "2b0e5656ab382921eab12f57dc3b42df8d3bf398db8dac06a11aee2c2550f971";
@@ -160,6 +165,177 @@ function runTracerScenario() {
     frame: restored.state.frame,
     actorPosition: restored.state.location.actors[0]?.position,
     projections: ["pixi", "react-dom", "developer-mode", "headless"],
+  };
+}
+
+function runPlayerDraftScenario() {
+  assert.equal(PLAYER_CHARACTER_CATALOG.catalogId, "nexus.skill-tree.provisional");
+  assert.equal(
+    PLAYER_CHARACTER_CATALOG.catalogVersion,
+    "2026-07-16+48be6c31f0aa5d0f3353ce7faa96c2b2501e2236",
+  );
+  assert.equal(PLAYER_CHARACTER_CATALOG.attributes.length, 6);
+  let skillCount = 0;
+  let focusCount = 0;
+  let abilityCount = 0;
+  for (const attribute of PLAYER_CHARACTER_CATALOG.attributes) {
+    skillCount += attribute.skills.length;
+    for (const skill of attribute.skills) {
+      focusCount += skill.focuses.length;
+      for (const focus of skill.focuses) abilityCount += focus.abilities.length;
+    }
+  }
+  for (const branch of PLAYER_CHARACTER_CATALOG.sharedBranches)
+    abilityCount += branch.abilities.length;
+  assert.equal(skillCount, 23);
+  assert.equal(focusCount, 55);
+  assert.equal(abilityCount, 142);
+  assert.equal(PLAYER_CHARACTER_CATALOG.sharedBranches.length, 6);
+
+  const legalDraft: PlayerCharacterDraft = {
+    draftId: "player-draft-112",
+    displayName: "Relay Scout",
+    level: 0,
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+    selectedAbilityIds: [
+      "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
+    ],
+    startingLoadoutId: "level-0-field-kit",
+  };
+  const assertRejectedWithoutMutation = (
+    commandId: string,
+    draft: PlayerCharacterDraft,
+    reason: RegExp,
+  ) => {
+    const rejectedRuntime = createSpatialRuntime(createPlayerDraftFixtureState());
+    const beforeRejected = rejectedRuntime.getSnapshot();
+    const rejected = rejectedRuntime.dispatch({
+      type: "player-character.create-draft",
+      commandId,
+      expectedRevision: 0,
+      draft,
+    });
+    assert.equal(rejected.accepted, false);
+    assert.match(
+      rejected.event.type === "command.rejected"
+        ? rejected.event.reason
+        : "command unexpectedly committed",
+      reason,
+    );
+    assert.deepEqual(rejected.snapshot, beforeRejected);
+    assert.equal(rejected.snapshot.committedRevision, 0);
+    assert.equal(rejected.snapshot.playerCharacterDraft, null);
+  };
+  assertRejectedWithoutMutation(
+    "reject-malformed-ability",
+    { ...legalDraft, selectedAbilityIds: ["ability-does-not-exist"] },
+    /Unknown Ability identity/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-unmet-prerequisite",
+    {
+      ...legalDraft,
+      selectedAbilityIds: [
+        "ability-focus-skill-attribute-combat-offense-precision-fire-converging-fire",
+      ],
+    },
+    /unmet prerequisites/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-over-allowance",
+    {
+      ...legalDraft,
+      selectedAbilityIds: [
+        "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
+        "ability-focus-skill-attribute-combat-offense-precision-fire-sightline-discipline",
+      ],
+    },
+    /select exactly 1 Ability identity/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-unknown-catalog-version",
+    { ...legalDraft, catalogVersion: "unrecognized-version" },
+    /catalogVersion does not match/,
+  );
+  assertRejectedWithoutMutation(
+    "reject-unknown-starting-loadout",
+    { ...legalDraft, startingLoadoutId: "unknown-loadout" },
+    /Unknown Starting Loadout/,
+  );
+
+  const runtime = createSpatialRuntime(createPlayerDraftFixtureState());
+  const before = runtime.getSnapshot();
+  const result = runtime.dispatch({
+    type: "player-character.create-draft",
+    commandId: "create-level-0-draft",
+    expectedRevision: 0,
+    draft: legalDraft,
+  });
+  assert.equal(result.accepted, true);
+  assert.equal(before.playerCharacterDraft, null);
+  assert.equal(result.snapshot.committedRevision, 1);
+  assert.deepEqual(result.snapshot.playerCharacterDraft, {
+    draftId: "player-draft-112",
+    displayName: "Relay Scout",
+    level: 0,
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+    selectedAbilityIds: [
+      "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
+    ],
+    startingLoadoutId: "level-0-field-kit",
+  });
+  assert.deepEqual(runtime.getShellProjection().playerCharacterDraft, {
+    draftId: "player-draft-112",
+    displayName: "Relay Scout",
+    level: 0,
+    selectedAbilityIds: [
+      "ability-focus-skill-attribute-combat-offense-precision-fire-steady-rifle",
+    ],
+    selectedAbilityNames: ["Steady Rifle"],
+    startingLoadoutId: "level-0-field-kit",
+    startingLoadoutLabel: "Field Kit",
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+  });
+  assert.equal(runtime.getDeveloperProjection().committedRevision, 1);
+  assert.deepEqual(
+    runtime.getDeveloperProjection().playerCharacterDraft,
+    result.snapshot.playerCharacterDraft,
+  );
+
+  const checkpoint = runtime.checkpoint();
+  const restored = decodeCampaignLocation(checkpoint);
+  if (!restored.ok) assert.fail(restored.error);
+  assert.deepEqual(
+    restored.state.playerCharacterDraft,
+    result.snapshot.playerCharacterDraft,
+  );
+  const incompatibleEnvelope = JSON.parse(checkpoint) as {
+    payload: {
+      playerCharacterCreation: { catalogVersion: string };
+      playerCharacterDraft: { catalogVersion: string };
+    };
+  };
+  incompatibleEnvelope.payload.playerCharacterCreation.catalogVersion =
+    "unrecognized-version";
+  incompatibleEnvelope.payload.playerCharacterDraft.catalogVersion =
+    "unrecognized-version";
+  const incompatible = decodeCampaignLocation(
+    JSON.stringify(incompatibleEnvelope),
+  );
+  assert.equal(incompatible.ok, false);
+  if (incompatible.ok) assert.fail("Unrecognized catalog version was loaded.");
+  assert.match(incompatible.error, /Unsupported player-character catalog version/);
+
+  return {
+    scenario: PLAYER_DRAFT_SCENARIO,
+    catalogId: PLAYER_CHARACTER_CATALOG.catalogId,
+    catalogVersion: PLAYER_CHARACTER_CATALOG.catalogVersion,
+    committedRevision: restored.state.committedRevision,
+    durableRevision: restored.state.lastDurableRevision,
+    draft: restored.state.playerCharacterDraft,
   };
 }
 
@@ -957,8 +1133,10 @@ if (scenario === TRACER_SCENARIO) {
   console.log(JSON.stringify(runTraversalScenario(), null, 2));
 } else if (scenario === PRODUCTION_SEED_SCENARIO) {
   console.log(JSON.stringify(runProductionSeedScenario(), null, 2));
+} else if (scenario === PLAYER_DRAFT_SCENARIO) {
+  console.log(JSON.stringify(runPlayerDraftScenario(), null, 2));
 } else {
   throw new Error(
-    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO}, ${TRAVERSAL_SCENARIO}, or ${PRODUCTION_SEED_SCENARIO}.`,
+    `Unknown scenario ${JSON.stringify(scenario)}. Expected ${TRACER_SCENARIO}, ${TRAVERSAL_SCENARIO}, ${PRODUCTION_SEED_SCENARIO}, or ${PLAYER_DRAFT_SCENARIO}.`,
   );
 }

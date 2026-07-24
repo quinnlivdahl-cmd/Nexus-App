@@ -166,6 +166,29 @@ export interface LocationState {
   readonly camera: CameraIntent;
 }
 
+export interface StartingLoadoutDefinition {
+  readonly id: string;
+  readonly label: string;
+  readonly itemIds: readonly string[];
+}
+
+export interface PlayerCharacterCreationConfig {
+  readonly catalogId: string;
+  readonly catalogVersion: string;
+  readonly level0AbilityAllowance: number;
+  readonly startingLoadouts: readonly StartingLoadoutDefinition[];
+}
+
+export interface PlayerCharacterDraft {
+  readonly draftId: string;
+  readonly displayName: string;
+  readonly level: 0;
+  readonly catalogId: string;
+  readonly catalogVersion: string;
+  readonly selectedAbilityIds: readonly string[];
+  readonly startingLoadoutId: string;
+}
+
 export interface CampaignLocationState {
   readonly campaignId: EntityId;
   readonly activeLocationId: EntityId;
@@ -173,6 +196,8 @@ export interface CampaignLocationState {
   readonly lastDurableRevision: Revision;
   readonly frame: number;
   readonly location: LocationState;
+  readonly playerCharacterCreation?: PlayerCharacterCreationConfig;
+  readonly playerCharacterDraft?: PlayerCharacterDraft | null;
 }
 
 export interface CampaignLocationEnvelopeV1 {
@@ -211,11 +236,17 @@ export interface SelectActorCommand extends CommandBase {
   readonly actorId: EntityId;
 }
 
+export interface CreatePlayerCharacterDraftCommand extends CommandBase {
+  readonly type: "player-character.create-draft";
+  readonly draft: PlayerCharacterDraft;
+}
+
 export type SpatialCommand =
   | MoveActorCommand
   | MoveActorDirectionCommand
   | PathActorToObjectCommand
-  | SelectActorCommand;
+  | SelectActorCommand
+  | CreatePlayerCharacterDraftCommand;
 
 export type RuntimeEvent =
   | {
@@ -309,6 +340,19 @@ export interface ShellProjection {
   readonly actors: readonly RenderActorProjection[];
   readonly camera: CameraIntent;
   readonly saveStatus: "durable" | "not-yet-durable";
+  readonly playerCharacterDraft: PlayerCharacterDraftProjection | null;
+}
+
+export interface PlayerCharacterDraftProjection {
+  readonly draftId: string;
+  readonly displayName: string;
+  readonly level: 0;
+  readonly selectedAbilityIds: readonly string[];
+  readonly selectedAbilityNames: readonly string[];
+  readonly startingLoadoutId: string;
+  readonly startingLoadoutLabel: string;
+  readonly catalogId: string;
+  readonly catalogVersion: string;
 }
 
 export interface DeveloperProjection {
@@ -318,6 +362,7 @@ export interface DeveloperProjection {
   readonly selectedActorId: EntityId;
   readonly camera: CameraIntent;
   readonly lastEvent: RuntimeEvent | null;
+  readonly playerCharacterDraft: PlayerCharacterDraft | null;
 }
 
 export interface SpatialRuntime {

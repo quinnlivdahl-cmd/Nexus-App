@@ -10,6 +10,10 @@ import {
   isAuthoredPolygonGraph,
   planAuthoredPolygonGraphRoute,
 } from "./navigation.js";
+import {
+  projectPlayerCharacterDraft,
+  validatePlayerCharacterCreation,
+} from "./playerCharacterDraft.js";
 import type {
   CampaignLocationState,
   CommandResult,
@@ -251,19 +255,35 @@ export function createSpatialRuntime(
         command,
         `Stale command expected revision ${command.expectedRevision}; current revision is ${state.committedRevision}.`,
       );
-    const actor = state.location.actors.find(
-      (candidate) => candidate.id === command.actorId,
-    );
-    if (!actor)
-      return reject(command, `Actor ${command.actorId} does not exist.`);
     let location = state.location;
-    if (command.type === "actor.select") {
+    if (command.type === "player-character.create-draft") {
+      const config = state.playerCharacterCreation;
+      if (!config)
+        return reject(
+          command,
+          "Campaign does not expose Character Creation configuration.",
+        );
+      const validation = validatePlayerCharacterCreation(config, command.draft);
+      if (!validation.ok)
+        return reject(command, validation.issues.join(" "));
+      state = {
+        ...state,
+        committedRevision: state.committedRevision + 1,
+        playerCharacterDraft: cloneValue(command.draft),
+      };
+    } else {
+      const actor = state.location.actors.find(
+        (candidate) => candidate.id === command.actorId,
+      );
+      if (!actor)
+        return reject(command, `Actor ${command.actorId} does not exist.`);
+      if (command.type === "actor.select") {
       location = {
         ...location,
         selectedActorId: actor.id,
         camera: { ...location.camera, targetActorId: actor.id },
       };
-    } else {
+      } else {
       let destination: Vector2;
       let destinationAreaId: string;
       let interactionTargetId: string | null = null;
@@ -414,12 +434,13 @@ export function createSpatialRuntime(
         camera: { ...location.camera, targetActorId: actor.id },
         actors,
       };
+      }
+      state = {
+        ...state,
+        committedRevision: state.committedRevision + 1,
+        location,
+      };
     }
-    state = {
-      ...state,
-      committedRevision: state.committedRevision + 1,
-      location,
-    };
     const committed = event<
       Extract<RuntimeEvent, { type: "command.committed" }>
     >({
@@ -586,6 +607,12 @@ export function createSpatialRuntime(
         state.lastDurableRevision === state.committedRevision
           ? "durable"
           : "not-yet-durable",
+      playerCharacterDraft: state.playerCharacterCreation
+        ? projectPlayerCharacterDraft(
+            state.playerCharacterCreation,
+            state.playerCharacterDraft,
+          )
+        : null,
     }) as ShellProjection;
   };
   const getDeveloperProjection = (): DeveloperProjection =>
@@ -596,6 +623,7 @@ export function createSpatialRuntime(
       selectedActorId: state.location.selectedActorId,
       camera: state.location.camera,
       lastEvent,
+      playerCharacterDraft: state.playerCharacterDraft ?? null,
     }) as DeveloperProjection;
   return {
     dispatch,
